@@ -1,2 +1,3 @@
-# BruecklHotvolleys.github.io
-Brückl Hotvolleys info pages
+# Brückl hotvolleys
+
+BHV info pages.

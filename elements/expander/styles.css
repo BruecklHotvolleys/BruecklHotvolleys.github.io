@@ -1,0 +1,100 @@
+
+div.expander {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+
+  width: 0;
+  height: 0;
+
+  overflow: hidden;
+  background-color: transparent;
+  opacity: 0.2;
+}
+
+.expandable {
+  cursor: pointer;
+}
+
+h1.expandable div.expander {
+  margin-top: -15px;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 30px solid blue;
+}
+h1.expandable.up div.expander {
+  border-top: 0 none;
+  border-bottom: 30px solid blue;
+}
+
+h2.expandable div.expander {
+  margin-top: -9px;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 18px solid blue;
+}
+h2.expandable.up div.expander {
+  border-top: 0 none;
+  border-bottom: 18px solid blue;
+}
+
+/* TODO h3 */
+
+h4.expandable div.expander {
+  margin-top: -9px;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 18px solid blue;
+}
+h4.expandable.up div.expander {
+  border-top: 0 none;
+  border-bottom: 18px solid blue;
+}
+
+h5.expandable div.expander {
+  margin-top: -9px;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 18px solid blue;
+}
+h5.expandable.up div.expander {
+  border-top: 0 none;
+  border-bottom: 18px solid blue;
+}
+
+/* TODO h6 */
+
+a h1::after {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  margin-top: -25px;
+
+  width: 0;
+  height: 0;
+  border-top: 25px solid transparent;
+  border-left: 30px solid blue;
+  border-bottom: 25px solid transparent;
+
+  overflow: hidden;
+  background-color: transparent;
+  opacity: 0.2;
+}
+a h3::after {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  margin-top: -14px;
+
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-left: 18px solid blue;
+  border-bottom: 15px solid transparent;
+
+  overflow: hidden;
+  background-color: transparent;
+  opacity: 0.2;
+}

@@ -1,0 +1,3075 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Brückl hotvolleys</title>
+  <link rel="stylesheet" href="/brueckl-hotvolleys/styles.css">
+  <link rel="stylesheet" href="/brueckl-hotvolleys/elements/expander/styles.css">
+  <style>
+h4, h5 {
+  text-align: left;
+}
+/* no any margin for first header */
+h4:first-child, h4:first-of-type {
+  margin: 0;
+}
+/* -- match statistics ----------------------------------------------------- */
+div.match {
+  padding-bottom: 15px;
+}
+table.match {
+  padding: 10px 0px 25px 20px;
+}
+table.match th {
+  padding: 1px 2px;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  background-color: lightgray;
+}
+table.match th.left {
+  padding: 1px 2px;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: left;
+}
+table.match td {
+  padding: 0 2px;
+  font-size: 14px;
+  text-align: left;
+}
+table.match td.right {
+  text-align: right;
+}
+table.match td.name {
+  padding-left: 8px;
+  text-align: left;
+  font-weight: bold;
+}
+table.match td.sum {
+  font-weight: bold;
+  padding: 0 4px;
+}
+table.match td.sumQ {
+  font-weight: bold;
+  padding: 0 8px;
+}
+table.match tr.plus td {
+  background-color: lime;
+  background-color: yellowgreen;
+}
+table.match tr.medium td {
+  background-color: yellow;
+  background-color: palegoldenrod;
+}
+table.match tr.minus td {
+  background-color: red;
+  background-color: lightcoral;
+}
+table.match tr.footer td {
+  background-color: lightgray;
+}
+/* -- points --------------------------------------------------------------- */
+div.container {
+  padding: 10px;
+}
+
+div.column {
+  position: relative;
+  width: 100px;
+  float: left;
+  padding: 0 10px 10px;
+}
+div.header {
+  position: relative;
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 3px 0;
+}
+div.data {
+  position: relative;
+  width: 100%;
+}
+div.splitter {
+  position: absolute;
+  left: 49%;
+  width: 2%;
+  height: 100%;
+  background-color: dimgray;
+  overflow: hidden;
+  z-index: 1;
+}
+div.row {
+  position: relative;
+  width: 100%;
+  height: 25px;
+  background-color: yellow;
+  background-color: palegoldenrod;
+  padding: 6px 0 0 0;
+}
+
+div.a {
+  position: absolute;
+  width: 44%;
+  left: 5%;
+  height: 100%;
+  background-color: transparent;
+}
+div.b {
+  position: absolute;
+  width: 44%;
+  left: 51%;
+  height: 100%;
+  background-color: transparent;
+}
+div.pt {
+  background-color: red;
+  background-color: lightcoral;
+  font-size: 15px;
+  padding: 2px;
+}
+div.to {
+  background-color: lightgray;
+  font-size: 15px;
+  padding: 2px;
+}
+div.subst > div.in {
+  font-size: 9px;
+  padding: 1px;
+  background-color: yellowgreen;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+}
+div.subst > div.out {
+  font-size: 8px;
+  padding: 1px;
+  background-color: red;
+  background-color: lightcoral;
+  white-space: nowrap;
+  overflow: hidden;
+}
+div.serv > div.srvheader {
+  font-size: 8px;
+  padding: 1px;
+  background-color: lightgray;
+  white-space: nowrap;
+  overflow: hidden;
+}
+div.serv > div.info {
+  font-size: 9px;
+  padding: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+
+  font-weight: bold;
+  background-color: dimgray;
+  color: #eee;
+}
+  </style>
+  <script src="/brueckl-hotvolleys/elements/expander/script.js"></script>
+  <script>
+function init() {
+  // var expanders = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm10', 'm11', 'm12'];
+  var expanders = ['m1', 'mx1', 'm2', 'mx2', 'm3', 'mx3', 'm4', 'mx4', 'm5', 'mx5', 'm6', 'm7', 'mx7', 'm8', 'mx8', 'm9', 'mx9'];
+  bhv.elements.expander.init(expanders);
+}
+  </script>
+</head>
+<body onload="init();">
+<h4 id="m1" class="expandable" style="">26.Nov WSL M - Brückl hotvolleys 3</h4>
+<div id="m1_2" class="match">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="plus">
+  <td class="name">Celi</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">2</td><td class="right">0</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td>&nbsp;</td>
+  <td class="right sum">5</td><td class="right sum">3</td>
+  <td class="right sum">2</td><td class="right sumQ">1,667</td>
+</tr>
+<tr class="minus">
+  <td class="name">Nina</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">0</td><td class="right">3</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">2</td><td class="right">2</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td>&nbsp;</td>
+  <td class="right sum">5</td><td class="right sum">7</td>
+  <td class="right sum">-2</td><td class="right sumQ">0,714</td>
+</tr>
+<tr class="minus">
+  <td class="name">Steffi</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">1</td>
+  <td class="right sum">-1</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Lea</td>
+  <td class="right">4</td><td class="right">2</td>
+  <td class="right">5</td><td class="right">2</td>
+  <td class="right">3</td><td class="right">1</td>
+  <td class="right">3</td><td class="right">3</td>
+  <td class="right">1</td><td class="right">5</td>
+  <td>&nbsp;</td>
+  <td class="right sum">16</td><td class="right sum">13</td>
+  <td class="right sum">3</td><td class="right sumQ">1,231</td>
+</tr>
+<tr class="plus">
+  <td class="name">Yassi</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td>&nbsp;</td>
+  <td class="right sum">1</td><td class="right sum">0</td>
+  <td class="right sum">1</td><td class="right sumQ">MAX</td>
+</tr>
+<tr class="medium">
+  <td class="name">Marleen</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="medium">
+  <td class="name">Franzi</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="plus">
+  <td class="name">Nadine</td>
+  <td class="right">4</td><td class="right">3</td>
+  <td class="right">2</td><td class="right">0</td>
+  <td class="right">6</td><td class="right">1</td>
+  <td class="right">3</td><td class="right">3</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td>&nbsp;</td>
+  <td class="right sum">16</td><td class="right sum">7</td>
+  <td class="right sum">9</td><td class="right sumQ">2,286</td>
+</tr>
+<tr class="medium">
+  <td class="name">Magda</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Kati</td>
+  <td class="right">3</td><td class="right">1</td>
+  <td class="right">2</td><td class="right">3</td>
+  <td class="right">5</td><td class="right">2</td>
+  <td class="right">2</td><td class="right">2</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td>&nbsp;</td>
+  <td class="right sum">12</td><td class="right sum">8</td>
+  <td class="right sum">4</td><td class="right sumQ">1,500</td>
+</tr>
+<tr class="plus">
+  <td class="name">Katha</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td>&nbsp;</td>
+  <td class="right sum">2</td><td class="right sum">1</td>
+  <td class="right sum">1</td><td class="right sumQ">2,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Ylva</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="footer">
+  <td class="name"></td>
+  <td class="right">25</td><td class="right">22</td>
+  <td class="right">20</td><td class="right">25</td>
+  <td class="right">25</td><td class="right">12</td>
+  <td class="right">20</td><td class="right">25</td>
+  <td class="right">12</td><td class="right">15</td>
+  <td>&nbsp;</td>
+  <td class="right sum">102</td><td class="right sum">99</td>
+  <td class="right sum">3</td><td class="right sumQ">1,030</td>
+</tr>
+
+  </table>
+  <h5 id="mx1" class="expandable" style="">Verlauf</h5>
+<div id="mx1_2" class="container">
+<div class="column">
+  <div class="header">1. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">26</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">64</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">1</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">94</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">18</div><div class="out">11</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">29</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Yassi</div><div class="out">Steffi</div></div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Yassi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">18</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">26</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">67</div><div class="out">1</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Steffi</div><div class="out">Yassi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">2. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">26</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">64</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">1</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">94</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">29</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Yassi</div><div class="out">Steffi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Magda</div><div class="out">Nina</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Nina</div><div class="out">Magda</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">23</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="pt">24</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Steffi</div><div class="out">Yassi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">3. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">18</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">26</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">64</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">1</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">94</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Katha</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">67</div><div class="out">29</div></div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">67</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">20</div><div class="out">1</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">9</div><div class="out">94</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">4. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">18</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">26</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">64</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">1</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">94</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">67</div><div class="out">29</div></div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">67</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Yassi</div><div class="out">Katha</div></div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Yassi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">29</div><div class="out">67</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="a"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Katha</div><div class="out">Yassi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">24</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Magda</div><div class="out">Nina</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">5. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">18</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">26</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">64</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">1</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">94</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">29</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">67</div><div class="out">29</div></div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Yassi</div><div class="out">Katha</div></div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Yassi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">18</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Magda</div><div class="out">Nina</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Nina</div><div class="out">Magda</div></div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+
+  </div>
+</div>
+
+<br clear="all">
+</div>
+
+</div>
+<h4 id="m2" class="expandable" style="">23.Nov Brückl hotvolleys 3 - WSL 5</h4>
+<div id="m2_2" class="match">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="plus">
+  <td class="name">Celi</td>
+  <td class="right">1</td><td class="right">2</td>
+  <td class="right">3</td><td class="right">2</td>
+  <td class="right">7</td><td class="right">3</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">11</td><td class="right sum">7</td>
+  <td class="right sum">4</td><td class="right sumQ">1,571</td>
+</tr>
+<tr class="medium">
+  <td class="name">Nina</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">2</td><td class="right sum">2</td>
+  <td class="right sum">0</td><td class="right sumQ">1,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Steffi</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">1</td><td class="right">3</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">1</td><td class="right sum">3</td>
+  <td class="right sum">-2</td><td class="right sumQ">0,333</td>
+</tr>
+<tr class="plus">
+  <td class="name">Lea</td>
+  <td class="right">7</td><td class="right">4</td>
+  <td class="right">10</td><td class="right">3</td>
+  <td class="right">6</td><td class="right">6</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">23</td><td class="right sum">13</td>
+  <td class="right sum">10</td><td class="right sumQ">1,769</td>
+</tr>
+<tr class="minus">
+  <td class="name">Yassi</td>
+  <td class="right">2</td><td class="right">0</td>
+  <td class="right">1</td><td class="right">2</td>
+  <td class="right">0</td><td class="right">3</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">3</td><td class="right sum">5</td>
+  <td class="right sum">-2</td><td class="right sumQ">0,600</td>
+</tr>
+<tr class="minus">
+  <td class="name">Marleen</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="minus">
+  <td class="name">Franzi</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">1</td>
+  <td class="right sum">-1</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Nadine</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="minus">
+  <td class="name">Magda</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="minus">
+  <td class="name">Kati</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="minus">
+  <td class="name">Katha</td>
+  <td class="right">2</td><td class="right">4</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">4</td><td class="right sum">5</td>
+  <td class="right sum">-1</td><td class="right sumQ">0,800</td>
+</tr>
+<tr class="minus">
+  <td class="name">Ylva</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">4</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">4</td>
+  <td class="right sum">-4</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="footer">
+  <td class="name"></td>
+  <td class="right">25</td><td class="right">14</td>
+  <td class="right">25</td><td class="right">17</td>
+  <td class="right">26</td><td class="right">24</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">76</td><td class="right sum">55</td>
+  <td class="right sum">21</td><td class="right sumQ">1,382</td>
+</tr>
+
+  </table>
+  <h5 id="mx2" class="expandable" style="">Verlauf</h5>
+<div id="mx2_2" class="container">
+<div class="column">
+  <div class="header">1. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">15</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Yassi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">85</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Steffi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">22</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">29</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">12</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Katha</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">27</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">15</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">9</div><div class="out">12</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">2. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">29</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">27</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Yassi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">15</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Steffi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">12</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">22</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">9</div><div class="out">85</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">85</div><div class="out">9</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">3. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">27</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Yassi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">15</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Franzi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">12</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Ylva</div><div class="out">Nina</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">9</div><div class="out">85</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">22</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">23</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">85</div><div class="out">9</div></div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">85</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Steffi</div><div class="out">Katha</div></div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Steffi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">26</div></div></div>
+
+  </div>
+</div>
+
+<br clear="all">
+</div>
+
+</div>
+<h4 id="m3" class="expandable" style="">14.Nov WSL 4 - Brückl hotvolleys 3</h4>
+<div id="m3_2" class="match">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="plus">
+  <td class="name">Celi</td>
+  <td class="right">5</td><td class="right">2</td>
+  <td class="right">4</td><td class="right">1</td>
+  <td class="right">3</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">12</td><td class="right sum">4</td>
+  <td class="right sum">8</td><td class="right sumQ">3,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Nina</td>
+  <td class="right">0</td><td class="right">2</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">4</td>
+  <td class="right sum">-4</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Steffi</td>
+  <td class="right">2</td><td class="right">1</td>
+  <td class="right">0</td><td class="right">2</td>
+  <td class="right">2</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">4</td><td class="right sum">4</td>
+  <td class="right sum">0</td><td class="right sumQ">1,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Lea</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">6</td><td class="right">5</td>
+  <td class="right">3</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">10</td><td class="right sum">6</td>
+  <td class="right sum">4</td><td class="right sumQ">1,667</td>
+</tr>
+<tr class="minus">
+  <td class="name">Yassi</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="minus">
+  <td class="name">Marleen</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="minus">
+  <td class="name">Franzi</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="plus">
+  <td class="name">Nadine</td>
+  <td class="right">5</td><td class="right">2</td>
+  <td class="right">4</td><td class="right">0</td>
+  <td class="right">3</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">12</td><td class="right sum">3</td>
+  <td class="right sum">9</td><td class="right sumQ">4,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Magda</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">3</td><td class="right sum">2</td>
+  <td class="right sum">1</td><td class="right sumQ">1,500</td>
+</tr>
+<tr class="medium">
+  <td class="name">Kati</td>
+  <td class="right">1</td><td class="right">2</td>
+  <td class="right">2</td><td class="right">1</td>
+  <td class="right">2</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">5</td><td class="right sum">4</td>
+  <td class="right sum">1</td><td class="right sumQ">1,250</td>
+</tr>
+<tr class="medium">
+  <td class="name">Katha</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="medium">
+  <td class="name">Ylva</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="footer">
+  <td class="name"></td>
+  <td class="right">25</td><td class="right">16</td>
+  <td class="right">25</td><td class="right">18</td>
+  <td class="right">25</td><td class="right">9</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">75</td><td class="right sum">43</td>
+  <td class="right sum">32</td><td class="right sumQ">1,744</td>
+</tr>
+
+  </table>
+  <h5 id="mx3" class="expandable" style="">Verlauf</h5>
+<div id="mx3_2" class="container">
+<div class="column">
+  <div class="header">1. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">18</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">22</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">25</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">69</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">14</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">19</div><div class="out">22</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">2. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">22</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">25</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">69</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">14</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">26</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">20</div><div class="out">26</div></div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">Magda</div><div class="out">Steffi</div></div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Magda</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">17</div><div class="out">25</div></div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">26</div><div class="out">20</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">Steffi</div><div class="out">Magda</div></div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">Ylva</div><div class="out">Nina</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">50</div><div class="out">69</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="b"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">3. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">18</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">19</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">25</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">40</div><div class="out">25</div></div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">69</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">50</div><div class="out">69</div></div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">Magda</div><div class="out">Kati</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">20</div><div class="out">91</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">Ylva</div><div class="out">Steffi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+
+<br clear="all">
+</div>
+
+</div>
+<h4 id="m4" class="expandable" style="">10.Nov Brückl hotvolleys 3 - Volleystars 3</h4>
+<div id="m4_2" class="match">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="medium">
+  <td class="name">Celi</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">3</td><td class="right">1</td>
+  <td class="right">0</td><td class="right">2</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">3</td><td class="right sum">3</td>
+  <td class="right sum">0</td><td class="right sumQ">1,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Nina</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">3</td><td class="right">2</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">5</td><td class="right sum">4</td>
+  <td class="right sum">1</td><td class="right sumQ">1,250</td>
+</tr>
+<tr class="plus">
+  <td class="name">Steffi</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">1</td><td class="right sum">0</td>
+  <td class="right sum">1</td><td class="right sumQ">MAX</td>
+</tr>
+<tr class="plus">
+  <td class="name">Lea</td>
+  <td class="right">5</td><td class="right">2</td>
+  <td class="right">3</td><td class="right">4</td>
+  <td class="right">7</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">15</td><td class="right sum">7</td>
+  <td class="right sum">8</td><td class="right sumQ">2,143</td>
+</tr>
+<tr class="minus">
+  <td class="name">Yassi</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">1</td><td class="right">3</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">1</td><td class="right sum">3</td>
+  <td class="right sum">-2</td><td class="right sumQ">0,333</td>
+</tr>
+<tr class="minus">
+  <td class="name">Marleen</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="minus">
+  <td class="name">Franzi</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Nadine</td>
+  <td class="right">3</td><td class="right">1</td>
+  <td class="right">1</td><td class="right">2</td>
+  <td class="right">2</td><td class="right">3</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">6</td><td class="right sum">6</td>
+  <td class="right sum">0</td><td class="right sumQ">1,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Magda</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Kati</td>
+  <td class="right">1</td><td class="right">2</td>
+  <td class="right">2</td><td class="right">1</td>
+  <td class="right">1</td><td class="right">3</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">4</td><td class="right sum">6</td>
+  <td class="right sum">-2</td><td class="right sumQ">0,667</td>
+</tr>
+<tr class="medium">
+  <td class="name">Katha</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Ylva</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="footer">
+  <td class="name"></td>
+  <td class="right">25</td><td class="right">19</td>
+  <td class="right">25</td><td class="right">16</td>
+  <td class="right">25</td><td class="right">17</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">75</td><td class="right sum">52</td>
+  <td class="right sum">23</td><td class="right sumQ">1,442</td>
+</tr>
+
+  </table>
+  <h5 id="mx4" class="expandable" style="">Verlauf</h5>
+<div id="mx4_2" class="container">
+<div class="column">
+  <div class="header">1. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">20</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">22</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">27</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">19</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">15</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">7</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Yassi</div><div class="out">Katha</div></div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Yassi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">20</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">22</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">23</div><div class="out">27</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">27</div><div class="out">23</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Steffi</div><div class="out">Kati</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Kati</div><div class="out">Steffi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">2. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">22</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">7</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">20</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">3. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">23</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">7</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">20</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">22</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">27</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">19</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Yassi</div><div class="out">Katha</div></div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Yassi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">23</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">7</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">Katha</div><div class="out">Yassi</div></div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">15</div><div class="out">27</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+
+<br clear="all">
+</div>
+
+</div>
+<h4 id="m5" class="expandable" style="">04.Nov Vilach 2 - Brückl hotvolleys 2</h4>
+<div id="m5_2" class="match">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="plus">
+  <td class="name">Celi</td>
+  <td class="right">2</td><td class="right">0</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">3</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">7</td><td class="right sum">3</td>
+  <td class="right sum">4</td><td class="right sumQ">2,333</td>
+</tr>
+<tr class="minus">
+  <td class="name">Nina</td>
+  <td class="right">1</td><td class="right">3</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">1</td><td class="right">5</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">3</td><td class="right sum">10</td>
+  <td class="right sum">-7</td><td class="right sumQ">0,300</td>
+</tr>
+<tr class="medium">
+  <td class="name">Lea</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">5</td><td class="right">5</td>
+  <td class="right">3</td><td class="right">3</td>
+  <td class="right">5</td><td class="right">3</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">14</td><td class="right sum">12</td>
+  <td class="right sum">2</td><td class="right sumQ">1,167</td>
+</tr>
+<tr class="medium">
+  <td class="name">Nadine</td>
+  <td class="right">4</td><td class="right">2</td>
+  <td class="right">4</td><td class="right">4</td>
+  <td class="right">3</td><td class="right">1</td>
+  <td class="right">1</td><td class="right">4</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">12</td><td class="right sum">11</td>
+  <td class="right sum">1</td><td class="right sumQ">1,091</td>
+</tr>
+<tr class="minus">
+  <td class="name">Magda</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">1</td>
+  <td class="right sum">-1</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Kati</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">2</td><td class="right sum">0</td>
+  <td class="right sum">2</td><td class="right sumQ">MAX</td>
+</tr>
+<tr class="plus">
+  <td class="name">Katha</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">2</td><td class="right">0</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">0</td><td class="right">2</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">4</td><td class="right sum">3</td>
+  <td class="right sum">1</td><td class="right sumQ">1,333</td>
+</tr>
+<tr class="plus">
+  <td class="name">Therry</td>
+  <td class="right">4</td><td class="right">0</td>
+  <td class="right">2</td><td class="right">3</td>
+  <td class="right">2</td><td class="right">1</td>
+  <td class="right">8</td><td class="right">2</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">16</td><td class="right sum">6</td>
+  <td class="right sum">10</td><td class="right sumQ">2,667</td>
+</tr>
+<tr class="footer">
+  <td class="name"></td>
+  <td class="right">25</td><td class="right">14</td>
+  <td class="right">25</td><td class="right">15</td>
+  <td class="right">22</td><td class="right">25</td>
+  <td class="right">25</td><td class="right">21</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">97</td><td class="right sum">75</td>
+  <td class="right sum">22</td><td class="right sumQ">1,293</td>
+</tr>
+
+  </table>
+  <h5 id="mx5" class="expandable" style="">Verlauf</h5>
+<div id="mx5_2" class="container">
+<div class="column">
+  <div class="header">1. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">12</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">16</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Therry</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">1</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">8</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">5</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">2</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">Kati</div><div class="out">Katha</div></div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="b"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">2. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">12</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Therry</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">16</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">1</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">8</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">5</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Katha</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">2</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">12</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">7</div><div class="out">2</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="subst"><div class="in">2</div><div class="out">7</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">3. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">8</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">16</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Therry</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">1</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">12</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">5</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Lea</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">2</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">Kati</div><div class="out">Katha</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Kati</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">8</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">Katha</div><div class="out">Kati</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">Magda</div><div class="out">Nina</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">4. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Celi</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">8</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Therry</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">16</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Nadine</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">1</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="serv"><div class="srvheader">Service</div><div class="info">Nina</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="serv"><div class="srvheader">Service</div><div class="info">12</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">Kati</div><div class="out">Katha</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">Katha</div><div class="out">Kati</div></div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">Magda</div><div class="out">Nadine</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">23</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="to">TO</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="b"><div class="subst"><div class="in">Nadine</div><div class="out">Magda</div></div></div></div>
+<div class="row"><div class="b"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+
+<br clear="all">
+</div>
+
+</div>
+<h4 id="m6" class="expandable" style="">31.Okt Brückl hotvolleys 4 - Brückl hotvolleys 3</h4>
+<div id="m6_2" class="match">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="footer">
+  <td class="name"></td>
+  <td class="right">25</td><td class="right">17</td>
+  <td class="right">25</td><td class="right">19</td>
+  <td class="right">25</td><td class="right">14</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">75</td><td class="right sum">50</td>
+  <td class="right sum">25</td><td class="right sumQ">1,500</td>
+</tr>
+
+  </table>
+
+</div>
+<h4 id="m7" class="expandable" style="">26.Okt Brückl hotvolleys 3 - Villach 4</h4>
+<div id="m7_2" class="match">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="plus">
+  <td class="name">Celi</td>
+  <td class="right">1</td><td class="right">2</td>
+  <td class="right">2</td><td class="right">0</td>
+  <td class="right">2</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">5</td><td class="right sum">2</td>
+  <td class="right sum">3</td><td class="right sumQ">2,500</td>
+</tr>
+<tr class="minus">
+  <td class="name">Nina</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">3</td><td class="right">5</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">5</td><td class="right sum">6</td>
+  <td class="right sum">-1</td><td class="right sumQ">0,833</td>
+</tr>
+<tr class="minus">
+  <td class="name">Steffi</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Lea</td>
+  <td class="right">4</td><td class="right">4</td>
+  <td class="right">4</td><td class="right">1</td>
+  <td class="right">9</td><td class="right">4</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">17</td><td class="right sum">9</td>
+  <td class="right sum">8</td><td class="right sumQ">1,889</td>
+</tr>
+<tr class="minus">
+  <td class="name">Yassi</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">2</td>
+  <td class="right sum">-2</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Marleen</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="minus">
+  <td class="name">Franzi</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">1</td>
+  <td class="right sum">-1</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Nadine</td>
+  <td class="right">4</td><td class="right">2</td>
+  <td class="right">1</td><td class="right">3</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">5</td><td class="right sum">5</td>
+  <td class="right sum">0</td><td class="right sumQ">1,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Magda</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Kati</td>
+  <td class="right">3</td><td class="right">2</td>
+  <td class="right">2</td><td class="right">0</td>
+  <td class="right">1</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">6</td><td class="right sum">3</td>
+  <td class="right sum">3</td><td class="right sumQ">2,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Katha</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">1</td><td class="right sum">0</td>
+  <td class="right sum">1</td><td class="right sumQ">MAX</td>
+</tr>
+<tr class="plus">
+  <td class="name">Ylva</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">1</td><td class="right sum">0</td>
+  <td class="right sum">1</td><td class="right sumQ">MAX</td>
+</tr>
+<tr class="footer">
+  <td class="name"></td>
+  <td class="right">25</td><td class="right">20</td>
+  <td class="right">25</td><td class="right">15</td>
+  <td class="right">25</td><td class="right">17</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">75</td><td class="right sum">52</td>
+  <td class="right sum">23</td><td class="right sumQ">1,442</td>
+</tr>
+
+  </table>
+  <h5 id="mx7" class="expandable" style="">Verlauf</h5>
+<div id="mx7_2" class="container">
+<div class="column">
+  <div class="header">1. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">2. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">3. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+
+<br clear="all">
+</div>
+
+</div>
+<h4 id="m8" class="expandable" style="">20.Okt Brückl hotvolleys 3 - Atsc 4</h4>
+<div id="m8_2" class="match">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="plus">
+  <td class="name">Celi</td>
+  <td class="right">2</td><td class="right">0</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">2</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">4</td><td class="right sum">0</td>
+  <td class="right sum">4</td><td class="right sumQ">MAX</td>
+</tr>
+<tr class="minus">
+  <td class="name">Nina</td>
+  <td class="right">2</td><td class="right">0</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">0</td><td class="right">3</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">2</td><td class="right sum">4</td>
+  <td class="right sum">-2</td><td class="right sumQ">0,500</td>
+</tr>
+<tr class="minus">
+  <td class="name">Steffi</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">1</td>
+  <td class="right sum">-1</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Lea</td>
+  <td class="right">4</td><td class="right">5</td>
+  <td class="right">2</td><td class="right">2</td>
+  <td class="right">2</td><td class="right">2</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">8</td><td class="right sum">9</td>
+  <td class="right sum">-1</td><td class="right sumQ">0,889</td>
+</tr>
+<tr class="minus">
+  <td class="name">Yassi</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">2</td>
+  <td class="right sum">-2</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Marleen</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="minus">
+  <td class="name">Franzi</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="minus">
+  <td class="name">Nadine</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="minus">
+  <td class="name">Magda</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="minus">
+  <td class="name">Kati</td>
+  <td class="right">3</td><td class="right">3</td>
+  <td class="right">0</td><td class="right">2</td>
+  <td class="right">2</td><td class="right">4</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">5</td><td class="right sum">9</td>
+  <td class="right sum">-4</td><td class="right sumQ">0,556</td>
+</tr>
+<tr class="minus">
+  <td class="name">Katha</td>
+  <td class="right">1</td><td class="right">0</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">1</td><td class="right">2</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">2</td><td class="right sum">3</td>
+  <td class="right sum">-1</td><td class="right sumQ">0,667</td>
+</tr>
+<tr class="minus">
+  <td class="name">Ylva</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum"></td><td class="right sum"></td>
+  <td class="right sum"></td><td class="right sumQ"></td>
+</tr>
+<tr class="footer">
+  <td class="name"></td>
+  <td class="right">22</td><td class="right">25</td>
+  <td class="right">16</td><td class="right">25</td>
+  <td class="right">18</td><td class="right">25</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">56</td><td class="right sum">75</td>
+  <td class="right sum">-19</td><td class="right sumQ">0,747</td>
+</tr>
+
+  </table>
+  <h5 id="mx8" class="expandable" style="">Verlauf</h5>
+<div id="mx8_2" class="container">
+<div class="column">
+  <div class="header">1. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="b"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">2. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="b"><div class="pt">23</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">24</div></div></div>
+<div class="row"><div class="b"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">3. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="b"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">24</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+
+<br clear="all">
+</div>
+
+</div>
+<h4 id="m9" class="expandable" style="">13.Okt Villach 3 - Brückl hotvolleys 3</h4>
+<div id="m9_2" class="match">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="footer">
+  <td class="name"></td>
+  <td class="right">15</td><td class="right">25</td>
+  <td class="right">22</td><td class="right">25</td>
+  <td class="right">19</td><td class="right">25</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">56</td><td class="right sum">75</td>
+  <td class="right sum">-19</td><td class="right sumQ">0,747</td>
+</tr>
+
+  </table>
+  <h5 id="mx9" class="expandable" style="">Verlauf</h5>
+<div id="mx9_2" class="container">
+<div class="column">
+  <div class="header">1. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">2. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="b"><div class="pt">11</div></div></div>
+<div class="row"><div class="b"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="pt">16</div></div></div>
+<div class="row"><div class="b"><div class="pt">17</div></div></div>
+<div class="row"><div class="b"><div class="pt">18</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">19</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="b"><div class="pt">20</div></div></div>
+<div class="row"><div class="b"><div class="pt">21</div></div></div>
+<div class="row"><div class="b"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+<div class="column">
+  <div class="header">3. Satz</div>
+  <div class="data">
+    <div class="splitter">&nbsp;</div>
+    <div class="row"><div class="b"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">2</div></div></div>
+<div class="row"><div class="b"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">1</div></div></div>
+<div class="row"><div class="b"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">2</div></div></div>
+<div class="row"><div class="a"><div class="pt">3</div></div></div>
+<div class="row"><div class="b"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">4</div></div></div>
+<div class="row"><div class="a"><div class="pt">5</div></div></div>
+<div class="row"><div class="a"><div class="pt">6</div></div></div>
+<div class="row"><div class="a"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">11</div></div></div>
+<div class="row"><div class="a"><div class="pt">12</div></div></div>
+<div class="row"><div class="b"><div class="pt">7</div></div></div>
+<div class="row"><div class="a"><div class="pt">13</div></div></div>
+<div class="row"><div class="a"><div class="pt">14</div></div></div>
+<div class="row"><div class="a"><div class="pt">15</div></div></div>
+<div class="row"><div class="a"><div class="pt">16</div></div></div>
+<div class="row"><div class="a"><div class="pt">17</div></div></div>
+<div class="row"><div class="a"><div class="pt">18</div></div></div>
+<div class="row"><div class="b"><div class="pt">8</div></div></div>
+<div class="row"><div class="a"><div class="pt">19</div></div></div>
+<div class="row"><div class="b"><div class="pt">9</div></div></div>
+<div class="row"><div class="a"><div class="pt">20</div></div></div>
+<div class="row"><div class="a"><div class="pt">21</div></div></div>
+<div class="row"><div class="b"><div class="pt">10</div></div></div>
+<div class="row"><div class="a"><div class="pt">22</div></div></div>
+<div class="row"><div class="a"><div class="pt">23</div></div></div>
+<div class="row"><div class="a"><div class="pt">24</div></div></div>
+<div class="row"><div class="a"><div class="pt">25</div></div></div>
+
+  </div>
+</div>
+
+<br clear="all">
+</div>
+
+</div>
+
+</body>
+</html>

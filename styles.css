@@ -1,0 +1,81 @@
+/* -- main settings -------------------------------------------------------- */
+*, html, body {
+  margin: 0px;
+  border: 0px none;
+  padding: 0px;
+
+  background: aliceblue;  /* aliceblue #F0F8FF */
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  text-align: center;
+}
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+  margin: 0;
+  padding: 0px;
+  text-align: center;
+  background: lightblue;
+  margin-top: 10px;
+  font-weight: bold;
+}
+h1 {
+  padding: 100px;
+  font-size: 40px;
+}
+/* no any margin for first header */
+h1:first-child, h1:first-of-type {
+  margin: 0;
+}
+h2 {
+  font-size: 32px;
+  padding: 50px;
+}
+h3 {
+  font-size: 24px;
+  padding: 30px;
+}
+h4 {
+  font-size: 20px;
+  padding: 20px;
+}
+h5 {
+  font-size: 17px;
+  padding: 14px;
+}
+h6 {
+  font-size: 14px;
+  padding: 8px;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+
+/* -- tactics overview ----------------------------------------------------- */
+h1.tactics {
+  padding: 10px;
+  font-size: 36px;
+  text-align: center;
+}
+
+table.tactics {
+  margin: auto auto 40px auto;
+}
+table.tactics img {
+  width: 250px;
+}
+table.tactics td {
+  padding: 15px 15px 0 15px;
+}
+table.tactics div {
+  position: relative;
+  width: 250px;
+}
+
+/* --  ------------------------------------------------ */
