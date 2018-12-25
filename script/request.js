@@ -52,8 +52,9 @@ window.bhv.request = {
     }
 
     if (ie89) {
-      request.onprogress = function() {}; // avoid aborting
-      request.ontimeout = function() {};  // "
+      // avoid aborting
+      request.onprogress = function() {};
+      request.ontimeout = function() {};
 
       request.onload = function() {
         onsuccess(request.responseText);
@@ -63,9 +64,6 @@ window.bhv.request = {
         log('Error handler called!');
         onerror();
       };
-
-      // request.open("POST", "http://somewhere.com/endpoint", true);
-      // request.send(data);
 
     } else {
 
@@ -84,7 +82,6 @@ window.bhv.request = {
 
       request.onerror = reqError;
     }
-
 
     // start request (add dummy timestamp to avoid caching)
     request.open('GET', url + (addDummy ? '&dummy=' + (new Date()).getTime() : ''), true);
@@ -168,6 +165,29 @@ window.bhv.request = {
     return true;
   },
 
+  queryMultiSchedules: function(from, till, onsuccess, onerror) {
+
+    // the url to get the schedule
+    var url = location.protocol
+      + '//kvv.volleynet.at/volleynet/service/xml2.php'
+      // + '//kv.volleynet.at/volleynet/service/xml2.php'
+      + '?action=termin&where=' + encodeURIComponent(
+        '(vrn_id_a = 21 or vrn_id_b = 21)'
+        + " and spi_datum >= TO_TIMESTAMP('" + from + " 00:00', 'YYYY-MM-DD HH24:MI')"
+        + " and spi_datum <= TO_TIMESTAMP('" + till + " 23:59', 'YYYY-MM-DD HH24:MI')"
+        + ' order by spi_datum');
+
+    // request data
+    if (!this._startRequest(url, 5000, onsuccess, onerror, false)) {
+      onerror();
+      return false;
+    }
+
+    // done
+    return true;
+  },
+
+
   queryKidsSchedule: function(idBew, onsuccess, onerror) {
 
     // check id of competition and team
@@ -177,23 +197,12 @@ window.bhv.request = {
     }
 
     // the url to get the schedule
-    // http://localhost:5001/testdata/Turniere/20752/
-    // var url = 'http://localhost:5001/testdata/Turniere/' + idBew;
-    // var url = location.protocol + '//kvv.volleynet.at/Turniere/' + idBew;
-    // var url = 'https://allorigins.me/get?url='
-    //   + encodeURIComponent('https://kvv.volleynet.at/Turniere/' + idBew);
     var url = location.protocol
       + '//kvv2.volleynet.at/volleynet/service/xml2.php'
       + '?action=turniere&bewerb_id=' + idBew;
 
-    // var onsuccess2 = function(response) {
-    //   var data = JSON.parse(response);
-    //   onsuccess(data.contents);
-    // }
-
     // request data
     if (!this._startRequest(url, 15000, onsuccess, onerror, false)) {
-    // if (!this._startRequest(url, 15000, onsuccess2, onerror, false)) {
       onerror();
       return false;
     }
@@ -201,6 +210,28 @@ window.bhv.request = {
     // done
     return true;
   },
+
+  queryMultiKidsSchedules: function(from, till, filter, onsuccess, onerror) {
+
+    // the url to get the schedule
+    var url = location.protocol
+      + '//kvv2.volleynet.at/volleynet/service/xml2.php'
+      // + '//kv2.volleynet.at/volleynet/service/xml2.php'
+      + '?action=turniere&where=' + encodeURIComponent(
+        "von >= '" + from + "' and von <= '" + till
+        + "' and anmerkung ilike '%" + filter + "%'");
+
+    // request data
+    if (!this._startRequest(url, 15000, onsuccess, onerror, false)) {
+      onerror();
+      return false;
+    }
+
+    // done
+    return true;
+  },
+
+
 
   queryResults: function(idBew, idTea, onsuccess, onerror) {
 
@@ -308,7 +339,7 @@ window.bhv.request.utils = {
   checkBold: function(txt) {
     var check = 'brückl hotvolleys';
     var check2 = 'volleys brückl';
-    if (ie <= 8) {
+    if (ie > 0 && ie <= 8) {
       check = 'brückl&nbsp;hotvolleys';
       check2 = 'volleys&nbsp;brückl';
     }
@@ -543,5 +574,49 @@ window.bhv.request.xml = {
 
     // nothing found: return empty string
     return '';
+  },
+
+  /**
+   * Creates the result info from the xml data.
+   * @param {NodeList} nodes The infos about a game containing the result info.
+   * @param {String} The formatted resuöt info or an empty string.
+   */
+  'createGameResult': function(nodes) {
+    var setAa, setBb, sets, s,
+        res = '',
+        setA = bhv.request.xml.findNode(nodes, 'spi_saetze_a'),
+        setB = bhv.request.xml.findNode(nodes, 'spi_saetze_b'),
+        ptA = [
+          bhv.request.xml.findNode(nodes, 'spi_punkte_satz1_a'),
+          bhv.request.xml.findNode(nodes, 'spi_punkte_satz2_a'),
+          bhv.request.xml.findNode(nodes, 'spi_punkte_satz3_a'),
+          bhv.request.xml.findNode(nodes, 'spi_punkte_satz4_a'),
+          bhv.request.xml.findNode(nodes, 'spi_punkte_satz5_a')
+        ],
+        ptB = [
+          bhv.request.xml.findNode(nodes, 'spi_punkte_satz1_b'),
+          bhv.request.xml.findNode(nodes, 'spi_punkte_satz2_b'),
+          bhv.request.xml.findNode(nodes, 'spi_punkte_satz3_b'),
+          bhv.request.xml.findNode(nodes, 'spi_punkte_satz4_b'),
+          bhv.request.xml.findNode(nodes, 'spi_punkte_satz5_b')
+        ];
+
+    if (!isNaN(setA) && !isNaN(setB)) {
+      setAa = parseInt(setA);
+      setBb = parseInt(setB);
+      sets = setAa + setBb;
+      if (sets > 0) {
+        res = setA + ':' + setB + '&nbsp;(';
+        for (s = 0; s < sets; ++s) {
+          if (s > 0) {
+            res += ',&nbsp;';
+          }
+          res += ptA[s] + ':' + ptB[s];
+        }
+        res += ')&nbsp;';
+      }
+    }
+
+    return res;
   }
 }
