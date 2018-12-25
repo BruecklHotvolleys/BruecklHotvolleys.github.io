@@ -101,7 +101,7 @@ function getAllSchedules(keyEnabled, from, till, callbackLeague) {
 
             // get id of next game to block if loaded twice
             // (some games might belong to two leagues - mevza some years ago)
-            id = bhv.request.xml.findNode(list[i].childNodes, 'id');
+            id = bhv.request.xml.findNode(list[i].childNodes, 'spi_id');
             if (loaded.indexOf(id) === -1) {
               loaded.push(id);
 

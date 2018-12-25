@@ -337,16 +337,12 @@ window.bhv.request.utils = {
    * @return {string} The text.
    */
   checkBold: function(txt) {
-    var check = 'brückl hotvolleys';
-    var check2 = 'volleys brückl';
-    if (ie > 0 && ie <= 8) {
-      check = 'brückl&nbsp;hotvolleys';
-      check2 = 'volleys&nbsp;brückl';
-    }
-    if (txt.toLowerCase().indexOf(check) > -1) {
+    var check = 'brückl&nbsp;hotvolleys';
+    var check2 = 'volleys&nbsp;brückl';
+    if (txt.toLowerCase().replace(/ /g, '&nbsp;').indexOf(check) > -1) {
       return '<b class="team">' + txt + '</b>';
     }
-    if (txt.toLowerCase().indexOf(check2) > -1) {
+    if (txt.toLowerCase().replace(/ /g, '&nbsp;').indexOf(check2) > -1) {
       return '<b class="team">' + txt + '</b>';
     }
 
