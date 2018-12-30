@@ -78,7 +78,8 @@ function getSchedule() {
 }
 
 function getAllSchedules(keyEnabled, from, till, callbackLeague) {
-  var handlerFinals;
+  // var handlerFinals,
+  var handlerXDates;
 
   // query games
   bhv.request.queryMultiSchedules(
@@ -207,7 +208,7 @@ function getAllSchedules(keyEnabled, from, till, callbackLeague) {
       console.log(err);
     });
 
-  // query kids finals
+  /*/ query kids finals (internal; old)
   handlerFinals = function() {
     var i, key, tour,
         keys = Object.keys(finals2),
@@ -226,10 +227,41 @@ function getAllSchedules(keyEnabled, from, till, callbackLeague) {
       }
     }
 
+    callbackLeague(res);
+  };
+  setTimeout(handlerFinals.bind(this), 1000);
+*/
+
+  // query extra dates from github
+  handlerXDates = function(data) {
+    var dates, key, keys, i, item,
+        res = [];
+
+    if (data) {
+      dates = JSON.parse(data);
+      keys = Object.keys(dates);
+      for (i = 0; i < keys.length; ++i) {
+        key = keys[i];
+        if (key >= from && key <= till) {
+          item = dates[key];
+          key = key.replace(/-/g, '');
+          res.push({
+            'date': key,
+            'enabled': key.substr(0, keyEnabled.length) === keyEnabled && item.info,
+            'text': item.text,
+            'info': item.info ? item.info : ''
+          });
+        }
+      }
+    }
 
     callbackLeague(res);
   };
-  setTimeout(handlerFinals.bind(this), 100);
+
+  bhv.request.queryXtraDates(from, till, handlerXDates, function(err) {
+    console.log('Cannot load x-dates!');
+    console.log(err);
+  });
 }
 
 /**

@@ -14,19 +14,25 @@ if (window.bhv === undefined) {
 window.bhv.request = {
 
   /**
-   * Creates the request object.
+   * Creates the request object and sends the data. If headers are given, they
+   * will be added to the request and the reponse headers will be querued and
+   * added to the response.
    * @param {string} url The url to query.
    * @param {number} wait The timeout.
    * @param {function} onsuccess The on success callback.
    * @param {function} onerror The on error callback.
    * @return {boolean} True if request has been stated, otherwise false.
+   * @return {Map} headers The optional headers to send.
+   * @return {Map<string,string>} headers The headers to send.
    */
-  _startRequest: function(url, wait, onsuccess, onerror, addDummy) {
+  _startRequest: function(url, wait, onsuccess, onerror, addDummy, headers) {
 
     // prepare Ajax-CORS for IE8/9
     var ie89 = ie === 8 || ie === 9,
         // create request object
-        request = null;
+        request = null,
+        // this in handlers
+        self = this;
 
     if (ie89) {
       request = new XDomainRequest();
@@ -57,7 +63,12 @@ window.bhv.request = {
       request.ontimeout = function() {};
 
       request.onload = function() {
-        onsuccess(request.responseText);
+        // if any headers given: query response headers
+        var headersResponse = undefined;
+        if (headers !== undefined) {
+          headersResponse = self._getResponseHeaders(request);
+        }
+        onsuccess(request.responseText, headersResponse);
       };
 
       request.onerror = function() {
@@ -68,8 +79,52 @@ window.bhv.request = {
     } else {
 
       function reqHandler(evtXHR) {
-        if (request.readyState === 4 && request.status == 200) {
-          onsuccess(request.responseText);
+        var headersResponse = undefined,
+            data, found;
+
+        if (request.readyState === 4) {
+          switch (request.status) {
+
+            // ok
+            case 200:
+              // if any headers given: query response headers
+              if (headers !== undefined) {
+                headersResponse = self._getResponseHeaders(request);
+              }
+
+              // return result
+              onsuccess(request.responseText, headersResponse);
+              break;
+
+            // not found
+            case 404:
+              onerror('Cannot find ' + request.responseURL + '!');
+              break;
+
+            case 304:
+              found = false;
+              if (bhv.db && request.responseURL) {
+                data = bhv.db.readObj(request.responseURL);
+                if (data && data.data) {
+                  // if any headers given: query response headers
+                  if (headers !== undefined) {
+                    headersResponse = self._getResponseHeaders(request);
+                  }
+
+                  // return result
+                  found = true;
+                  onsuccess(data.data, headersResponse);
+                }
+              }
+
+              if (!found) {
+                onerror('Cannot find ' + request.responseURL + ' in old data!');
+              }
+              break;
+
+            default:
+              onerror('Url: ' + request.responseURL + ' -> status: ' + request.status + '!');
+          }
         }
       }
 
@@ -95,12 +150,38 @@ window.bhv.request = {
       };
     }
 
+    // handle optional headers
+    if (headers) {
+      var i,
+          keys = Object.keys(headers);
+      for (i = 0; i < keys.length; ++i) {
+        request.setRequestHeader(keys[i], headers[keys[i]]);
+      }
+    }
+
     // send request
     request.send();
 
     // done
     return true;
   },
+
+  '_getResponseHeaders': function(request) {
+     var i, parts, key, val,
+         raw = request.getAllResponseHeaders(),
+         arr = raw.trim().split(/[\r\n]+/),
+         headersResponse = {};
+
+    for (i = 0; i < arr.length; ++i) {
+      parts = arr[i].split(': ');
+      key = parts.shift().toLowerCase();
+      val = parts.join(': ');
+      headersResponse[key] = val;
+    }
+
+    return headersResponse;
+  },
+
 
   /**
    * Checks if id is valid.
@@ -231,9 +312,80 @@ window.bhv.request = {
     return true;
   },
 
+  'queryXtraDates': function(from, till, onsuccess, onerror) {
+    var addrFrom = this._urlXtraDates(from),
+        addrTill = this._urlXtraDates(till),
+        keyData = '',
+        oldData = null,
+        headers = {
+          'Accept': 'application/vnd.github.v3.raw',
+
+          // TODO create personal access token in settings application and use it instaed of password
+
+          // XMLReq.setRequestHeader("Authorization", "Basic " + btoa("username:password"));
+          // 'Authorization': 'Basic ' + btoa('BruecklHotvolleys:bhv1bhv1bhv')
+          // new account -> test BruecklHotvolleys+1@gmx.at
+          'Authorization': 'Basic ' + btoa('bhv-reader:bhv1reader')
+        },
+
+        handlerSuccess = function(response, headersResponse) {
+
+          // get etag from response headers
+          if (keyData && bhv.db && headersResponse && headersResponse['etag']) {
+            bhv.db.writeObj(keyData, {
+              'etag': headersResponse['etag'],
+              'data': response
+            });
+          }
+
+          onsuccess(response);
+        },
+
+        handlerError = function(err) {
+          onerror(err);
+        };
+
+    // request data
+    keyData = addrFrom;
+    if (bhv.db) {
+      oldData = bhv.db.readObj(addrFrom);
+      if (oldData && oldData.etag) {
+        headers['If-None-Match'] = oldData.etag;
+      }
+    }
+    if (!this._startRequest(addrFrom, 5000, handlerSuccess, handlerError, false, headers)) {
+      onerror();
+      return false;
+    }
+
+    // if 2nd address is different
+    if (addrTill !== addrFrom) {
+      // request data again
+      keyData = addrTill;
+      if (bhv.db) {
+        oldData = bhv.db.readObj(addrTill);
+        if (oldData && oldData.etag) {
+          headers['If-None-Match'] = oldData.etag;
+        }
+      }
+      if (!this._startRequest(addrTill, 5000, handlerSuccess, handlerError, false, headers)) {
+        onerror();
+        return false;
+      }
+    }
+
+    return true;
+  },
+
+  '_urlXtraDates': function(dat) {
+    var url = 'https://api.github.com/repos/BruecklHotvolleys/data/contents/{{year}}.json',
+        year = dat.substr(0, 4);
+
+    return url.replace('{{year}}', year);
+  },
 
 
-  queryResults: function(idBew, idTea, onsuccess, onerror) {
+  'queryResults': function(idBew, idTea, onsuccess, onerror) {
 
     // check id of competition and team
     if (!this._checkId(idBew, 'competition') || !this._checkId(idTea, 'team')) {
