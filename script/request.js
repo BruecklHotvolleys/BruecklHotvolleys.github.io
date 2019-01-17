@@ -21,14 +21,22 @@ window.bhv.request = {
    * @param {number} wait The timeout.
    * @param {function} onsuccess The on success callback.
    * @param {function} onerror The on error callback.
-   * @return {boolean} True if request has been stated, otherwise false.
-   * @return {Map} headers The optional headers to send.
-   * @return {Map<string,string>} headers The headers to send.
+   * @param {boolean} addDummy True to add a dummy query string part, otherwise
+   * false.
+   * @param {Map} headers The optional headers to send.
+   * @param {string} mode The request mode (default: GET).
+   * @param {string} data The data to send for POST or PUT.
+   * @return {boolean} True if request has been started, otherwise false.
    */
-  _startRequest: function(url, wait, onsuccess, onerror, addDummy, headers) {
+  _startRequest: function(
+    url, wait, onsuccess, onerror, addDummy,
+    headers, mode, data
+  ) {
 
     // prepare Ajax-CORS for IE8/9
     var ie89 = ie === 8 || ie === 9,
+        // the http request mode
+        mode2 = typeof mode === 'string' ? mode : 'GET',
         // create request object
         request = null,
         // this in handlers
@@ -138,8 +146,12 @@ window.bhv.request = {
       request.onerror = reqError;
     }
 
-    // start request (add dummy timestamp to avoid caching)
-    request.open('GET', url + (addDummy ? '&dummy=' + (new Date()).getTime() : ''), true);
+    // start request (optional: add dummy timestamp to avoid caching)
+    request.open(
+      mode2,
+      url + (addDummy ? '&dummy=' + (new Date()).getTime() : ''),
+      true
+    );
 
     // try to set a timeout handler (not for old ie)
     if (!ie89 && request.timeout !== undefined && wait > 0) {
@@ -160,7 +172,14 @@ window.bhv.request = {
     }
 
     // send request
-    request.send();
+    switch (mode2) {
+      case 'PUT':
+      case 'POST':
+        request.send(data);
+        break;
+      default:
+        request.send();
+    }
 
     // done
     return true;
@@ -318,13 +337,11 @@ window.bhv.request = {
         keyData = '',
         oldData = null,
         headers = {
-          'Accept': 'application/vnd.github.v3.raw',
+          // 'Accept': 'application/vnd.github.v3.raw',
 
-          // TODO create personal access token in settings application and use it instaed of password
+          // TODO create personal access token in settings application and use it instead of password
 
-          // XMLReq.setRequestHeader("Authorization", "Basic " + btoa("username:password"));
           // 'Authorization': 'Basic ' + btoa('BruecklHotvolleys:bhv1bhv1bhv')
-          // new account -> test BruecklHotvolleys+1@gmx.at
           'Authorization': 'Basic ' + btoa('bhv-reader:bhv1reader')
         },
 
@@ -378,7 +395,10 @@ window.bhv.request = {
   },
 
   '_urlXtraDates': function(dat) {
+    // real data
     var url = 'https://api.github.com/repos/BruecklHotvolleys/data/contents/{{year}}.json',
+    // test data
+    // var url = 'http://localhost:5001/testdata/githubdata/repos/BruecklHotvolleys/data/contents/{{year}}.json',
         year = dat.substr(0, 4);
 
     return url.replace('{{year}}', year);
@@ -410,6 +430,76 @@ window.bhv.request = {
 
     // done
     return true;
+  },
+
+  /**
+   * Sends a file of x-dates.
+   * @param {string} file The file to send.
+   * @param {string} sha The sha file to send.
+   * @param {function} onsuccess The on success callback.
+   * @param {function} onerror The on error callback.
+   * @return {boolean} True if update has been started, otherwise false.
+   */
+  'sendXtraDates': function(year, file, sha, onsuccess, onerror) {
+    // examples: https://gist.github.com/EtienneR/2f3ab345df502bd3d13e
+
+    // PUT /repos/:owner/:repo/contents/:path
+    var url = this._urlXtraDates(year);
+
+    // the headers of the request
+    var headers = {
+      // xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+      'Content-type': 'application/json; charset=utf-8',
+
+      // TODO create bhv writer
+      'Authorization': 'Basic ' + btoa('BruecklHotvolleys:bhv1bhv1bhv')
+      // 'Authorization': 'Basic ' + btoa('bhv-reader:bhv1reader')
+    };
+
+    // the data to send
+    /* {
+      "message": "my commit message",
+      "committer": {
+        "name": "Scott Chacon",
+        "email": "schacon@gmail.com"
+      },
+      "content": "bXkgdXBkYXRlZCBmaWxlIGNvbnRlbnRz",
+      "sha": "329688480d39049927147c162b9d2deaf885005f"
+    } */
+    var data = {
+      'message': 'update dates ' + window.bhv.request.utils.dateInfo(new Date()),
+      'committer': {
+        // 'name': 'bhv-reader',
+        'name': 'bhv-writer',
+        'email': 'bhv@der-ball-ist-rund.net'
+      },
+      'content': base64.encode(file),
+      'sha': sha
+    };
+
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('PUT', url, true);
+    // xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    // xhr.onload = function () {
+    // 	 var updated = JSON.parse(xhr.responseText);
+    // 	 if (xhr.readyState === 4 && xhr.status === 200) {
+    // 		 console.table(updated);
+    // 	 } else {
+    //  	 console.error(updated);
+    //   }
+    // }
+    // xhr.send(JSON.stringify(data));
+
+    // request data
+    if (!this._startRequest(
+      url, 15000, onsuccess, onerror, false,
+      headers, 'PUT', JSON.stringify(data)
+    )) {
+      onerror();
+      return false;
+    }
+
+    return true;
   }
 }
 
@@ -436,7 +526,7 @@ window.bhv.request.utils = {
       return '<b>'
         + map[key][2]
         // add optional date info (for offline data, only)
-        + this._dateInfo(date)
+        + this.dateInfo(date)
         + '</b>' + NL;
     }
 
@@ -573,7 +663,7 @@ window.bhv.request.utils = {
    * @param {Date} date A date structure or null.
    * @return The date info for the title or an empty string.
    */
-  _dateInfo: function(date) {
+  dateInfo: function(date) {
 
     // if date given
     if (date && date instanceof Date) {

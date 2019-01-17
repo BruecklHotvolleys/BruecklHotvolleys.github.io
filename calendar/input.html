@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Brückl hotvolleys</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="shortcut icon" href="/favicons/favicon.ico">
+
+  <script src="/script/polyfills.js"></script>
+  <script src="/script/base64.js"></script>
+  <script src="/script/db.js"></script>
+  <script src="/script/request.js"></script>
+  <!--script src="/script/schedule.js"></script-->
+
+  <script id="tplHeaderOV" type="text/x-template">
+<span>Übersicht</span><select id="yearov"></select>
+<div class="dirty{{x}}" title="Speichern"><div>^</div></div>
+  </script>
+
+  <script id="tplLineOV" type="text/x-template">
+<div class="line{{line1}}" data-key="{{key}}">
+  <span class="date">{{date}}</span>
+  <span class="text">{{text}}</span>
+  <div class="delete" title="Löschen"><div>X</div></div>
+</div>
+  </script>
+  <script id="tplLineOVNew" type="text/x-template">
+<div class="line{{line1}}" data-key="{{key}}">
+  <span class="date">{{text}}</span>
+</div>
+  </script>
+
+  <script id="tplHeaderItem" type="text/x-template">
+<span id="item_year" tabindex="0">{{year}}</span><select id="item_month"></select><select id="item_date"></select>
+  </script>
+
+  <script id="tplItem" type="text/x-template">
+<input type="text" id="item_text" value="{{value}}" />
+<textarea id="item_info">{{info}}</textarea>
+  </script>
+
+  <style>
+body {
+  overflow: hidden;
+}
+
+#header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  padding: 12px;
+  box-sizing: border-box;
+  z-index: 1;
+  background-color: lightblue;
+  text-align: left;
+  font-weight: bold;
+}
+#header > #yearov {
+  position: absolute;
+  top: 10px;
+  // right: 12px;
+  right: 50px;
+}
+#header > span {
+  background-color: lightblue;
+}
+#header > span#item_year, #header > select#item_month {
+  margin-right: 10px;
+}
+#header > span#item_year {
+  cursor: pointer;
+}
+#header > div.dirty {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  background-color: gray;
+  overflow: hidden;
+}
+#header > div.dirty.x {
+  background-color: darkred;
+  cursor: pointer;
+}
+#header > div.dirty > div {
+  position: absolute;
+  left: -6px;
+  top: -8px;
+  height: 22px;
+  width: 22px;
+  color: darkgray;
+  font-size: 66px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 100%;
+  background-color: transparent;
+}
+#header > div.dirty.x > div {
+  color: #EEE;
+}
+
+#content0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  overflow: hidden;
+}
+#content {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+div.line {
+  position: relative;
+  text-align: left;
+  padding-bottom: 2px;
+  overflow: hidden;
+  cursor: pointer;
+}
+div.line > span.date {
+  padding: 1px 15px 1px 3px;
+}
+div.line > span.text {
+  padding: 1px 3px 1px 0;
+}
+div.line.line1, div.line.line1 > span {
+  background-color: #DDD;
+}
+
+div.line:hover, div.line:hover > span {
+  background-color: #EEE;
+}
+div.line.line1:hover, div.line.line1:hover > span {
+  background-color: #CCC;
+}
+
+div.line > div.delete {
+  position: absolute;
+  right: 2px;
+  top: 3px;
+  height: 23px;
+  width: 24px;
+  border-radius: 50%;
+  background-color: darkred;
+  overflow: hidden;
+}
+div.line > div.delete > div {
+  position: absolute;
+  left: 0px;
+  top: -5px;
+  height: 22px;
+  width: 22px;
+  color: white;
+  font-size: 31px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 100%;
+  background-color: transparent;
+}
+
+#content > input#item_text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+}
+#content > textarea#item_info {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  text-align: left;
+  font-size: 16px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+}
+
+  </style>
+  <script type="text/javascript">
+
+// #region -- global vars -----------------------------------------------------
+
+var _year = 0,
+    _month = '',
+    _day = '',
+    _modeFocus = '',
+    _curItem = '',
+
+    _data = {},
+    _sha = {},
+    _dirty = [],
+    _tpl = {},
+
+    _monthes = [
+      'Jänner:31', 'Feber:2', 'März:31', 'April:30', 'Mai:31', 'Juni:30',
+      'Juli:31', 'August:31', 'September:30', 'Oktober:31', 'November:30', 'Dezember:31'
+    ],
+    _defaultNew = 'Neu';
+
+// #endregion -- global vars --------------------------------------------------
+
+// #region -- init ------------------------------------------------------------
+
+function init() {
+  var dat;
+
+  // load templates
+  _loadTemplates();
+
+  // init current year
+  dat = new Date();
+  _year = dat.getFullYear();
+
+  _showOV();
+}
+
+function _loadTemplates() {
+  _tpl['tplHeaderOV'] = _loadTemplate('tplHeaderOV');
+  _tpl['tplLineOV'] = _loadTemplate('tplLineOV');
+  _tpl['tplLineOVNew'] = _loadTemplate('tplLineOVNew');
+  _tpl['tplHeaderItem'] = _loadTemplate('tplHeaderItem');
+  _tpl['tplItem'] = _loadTemplate('tplItem');
+}
+function _loadTemplate(idTpl) {
+  var tpl = '',
+      // get template
+      elemTpl = document.getElementById(idTpl);
+
+  if (elemTpl) {
+    tpl = elemTpl.innerHTML;
+  }
+
+  return tpl ? tpl : '&nbsp;';
+}
+
+// #endregion -- init ---------------------------------------------------------
+
+// #region -- overview --------------------------------------------------------
+
+function _showOV() {
+
+  // set header
+  document.querySelector('#header').innerHTML = _tpl['tplHeaderOV']
+    .replace('{{x}}', _dirty.length ? ' x' : '');
+
+  // load x-dates (if not done previously)
+  _loadDates();
+
+  // init header
+  setTimeout(_showOV2, 0);
+}
+function _showOV2() {
+  var i, elem,
+      elemSel = document.querySelector('#header > #yearov'),
+      elemUpload = document.querySelector('#header > div.dirty'),
+      elemUploadX = document.querySelector('#header > div.dirty.x');
+
+  if (elemSel && elemUpload) {
+
+    // fill year-selection
+    for (i = 2019; i < 2022; ++i) {
+      elem = document.createElement('option');
+      elem.setAttribute('value', '' + i);
+      elem.selected = i === _year;
+      elem.appendChild(document.createTextNode('' + i));
+      elemSel.appendChild(elem);
+    }
+
+    // handles selection of a year
+    elemSel.addEventListener('change', function() {
+      _year = parseInt(elemSel.options[elemSel.selectedIndex].value);
+      _loadDates();
+    });
+
+    if (elemUploadX) {
+      elemUploadX.addEventListener('click', function() {
+
+        var handlerXDates, handlerError,
+            msg, toDel = [],
+            y, year, years;
+
+        log('>>> Upload: ' + _dirty.join(', '));
+        event.stopPropagation();
+        event.preventDefault();
+
+        if (_dirty && _dirty.length) {
+          for (y = 0; y < _dirty.length; ++y) {
+
+            year = _dirty[y];
+            if (_data[year] !== undefined) {
+
+              handlerError = function(err) {
+                log('------------------------------------------------------');
+                log('Cannot update x-dates!');
+                log(err);
+                log('------------------------------------------------------');
+                _showOV();
+              };
+              handlerXDates = function(data) {
+                var dates0, err, idx,
+                    year = this.year;
+
+                log('X-dates have been updated for ' + year + '.');
+                if (data) {
+                  try {
+                    dates0 = JSON.parse(data);
+                    if (dates0 && dates0.content && dates0.content.sha) {
+                      _sha[year] = dates0.content.sha;
+                      idx = _dirty.indexOf(year);
+                      if (idx > -1) {
+                        _dirty.splice(idx, 1);
+                      }
+                    } else {
+                      log('------------------------------------------------------');
+                      log('Invalid update response for x-dates of ' + year + '!');
+                      log(data);
+                      log('------------------------------------------------------');
+                    }
+                  } catch (err) {
+                    log('------------------------------------------------------');
+                    log('Cannot update x-dates of ' + year + '!');
+                    log(err);
+                    log(data);
+                    log('------------------------------------------------------');
+                  }
+                }
+
+                // show/update overview
+                _showOV();
+              };
+
+              bhv.request.sendXtraDates(
+                year, JSON.stringify(_data[year]), _sha[year],
+                handlerXDates.bind({
+                  'year': year
+                }), handlerError
+              );
+
+            } else {
+              idx = _dirty.indexOf(year);
+              if (idx > -1) {
+                _dirty.splice(idx, 1);
+              }
+              _showOV();
+
+              break;
+            }
+          }
+        }
+      });
+    }
+  } else {
+    setTimeout(_showOV2, 100);
+  }
+}
+
+// query extra dates from github
+function _loadDates() {
+  var y = '' + _year,
+      handlerXDates, handlerError;
+
+  // reset
+  _month = '';
+  _day = '';
+
+  // already loaded: show overview
+  if (_data[y]) {
+    _updateList();
+
+  // else: load new info
+  } else {
+
+    handlerXDates = function(data) {
+      var dates0;
+
+      log('X-dates have been loaded for ' + y + '.');
+      if (data) {
+        try {
+          dates0 = JSON.parse(data);
+          if (dates0 && dates0.sha && dates0.content) {
+            _data[y] = JSON.parse(base64.decode(dates0.content));
+            _sha[y] = dates0.sha;
+          } else {
+            log('------------------------------------------------------');
+            log('Invalid data for x-dates of ' + _year + '!');
+            log('------------------------------------------------------');
+          }
+        } catch (x) {
+          log('------------------------------------------------------');
+          log('Cannot parse x-dates of ' + _year + '!');
+          log(x);
+          log('------------------------------------------------------');
+        }
+      }
+
+      _updateList();
+    };
+
+    handlerError = function(err) {
+      _updateList();
+      log('------------------------------------------------------');
+      log('Cannot load x-dates!');
+      log(err);
+      log('------------------------------------------------------');
+    };
+
+    bhv.request.queryXtraDates(
+      _year + '-01-01', _year + '-12-31',
+      handlerXDates, handlerError
+    );
+  }
+}
+
+function _updateList() {
+  var key, keys, i = 0, item,
+      y = '' + _year,
+      elemContent = document.querySelector('#content'),
+      html = '';
+
+  if (_data && _data[y]) {
+    keys = Object.keys(_data[y]).sort();
+    for (i = 0; i < keys.length; ++i) {
+      key = keys[i];
+      item = _data[y][key];
+      html += _tpl['tplLineOV']
+        .replace('{{line1}}', i % 2 === 0 ? ' line1' : '')
+        .replace('{{key}}', key)
+        .replace('{{date}}', ddmmyyyy(key))
+        .replace('{{text}}', item.text);
+    }
+  }
+
+  html += _tpl['tplLineOVNew']
+    .replace('{{key}}', '0')
+    .replace('{{line1}}', i % 2 === 0 ? ' line1' : '')
+    .replace('{{text}}', 'Neu...');
+
+  elemContent.innerHTML = html;
+
+  setTimeout(_initLinks, 0);
+}
+
+function _initLinks() {
+  var i, lnk,
+      lnks = document.querySelectorAll('#content > div.line'),
+      lnksDel = document.querySelectorAll('#content > div.line > div.delete'),
+      handler = function() {
+        var key = this.getAttribute('data-key');
+        log('>>> Link: ' + key);
+
+        _showItem(key);
+      },
+      handlerDelete = function(event) {
+        var key = this.parentNode.getAttribute('data-key'),
+            y = '' + _year,
+            msg;
+
+        log('>>> Delete: ' + key);
+        event.stopPropagation();
+        event.preventDefault();
+
+        // check if item exists
+        if (_data[y][key]) {
+
+          msg = 'Den Termin ' + ddmmyyyy(key) + ' ' + _data[y][key].text
+            + ' wirklich löschen?';
+
+          // query user
+          if (confirm(msg)) {
+
+            // delete the old item
+            delete _data[y][key];
+            _setDirty();
+          }
+        }
+
+        // show overview
+        // _updateList();
+        _showOV();
+      };
+
+  if (lnks && lnks.length) {
+    for (i = 0; i < lnks.length; ++i) {
+      lnks[i].addEventListener('click', handler);
+    }
+    for (i = 0; i < lnksDel.length; ++i) {
+      lnksDel[i].addEventListener('click', handlerDelete);
+    }
+  } else {
+    setTimeout(_initLinks, 100);
+  }
+}
+
+function _setDirty() {
+  var y = '' + _year;
+
+  // add dirty flag (if not done previously)
+  if (_dirty.indexOf(y) === -1) {
+    _dirty.push(y);
+  }
+}
+
+// #endregion -- overview -----------------------------------------------------
+
+// #region -- edit date -------------------------------------------------------
+
+function _showItem(key) {
+
+  var _today = new Date(),
+      m, d;
+
+  // set templates(header/content)
+  document.querySelector('#header').innerHTML = _tpl['tplHeaderItem'];
+  document.querySelector('#content').innerHTML = _tpl['tplItem'];
+
+  // reset
+  _month = '';
+  _day = '';
+  _modeFocus = '';
+
+  // save key/date of current item or 0 for new one
+  _curItem = key;
+
+  // edit existing date
+  if (key && key.length === 10) {
+
+    // extract month and day
+    _month = key.substr(5, 2);
+    _day = key.substr(8, 2);
+    _modeFocus = 'i';
+
+  // new
+  } else {
+
+    // current year
+    if (_today.getFullYear() === _year) {
+
+      // month + day: today
+      m = _today.getMonth();
+      _month = m < 9 ? '0' + (m + 1) : '' + (m + 1);
+      d = _today.getDate();
+      _day = d < 10 ? '0' + d : '' + d;
+      _modeFocus = 't';
+
+    // other years
+    } else {
+
+      // start with Jan/01
+      _month = '01';
+      _day = '01';
+      _modeFocus = 'm';
+    }
+  }
+
+  // init header
+  setTimeout(_showItem2, 0);
+}
+
+function _showItem2() {
+  var i, elem, key,
+      focus = 'i',
+      txt = _defaultNew,
+      inf = _defaultNew,
+      elemYear = document.querySelector('#header > #item_year'),
+      elemMonth = document.querySelector('#header > #item_month'),
+      elemDate = document.querySelector('#header > #item_date'),
+      elemInfo = document.querySelector('#content > #item_info'),
+      elemText = document.querySelector('#content > #item_text'),
+      y = '' + _year,
+
+      initDate = function() {
+        var d, dat, elem,
+            m = parseInt(_month) - 1,
+            max = parseInt(_monthes[m].split(':')[1]);
+
+        // clear old items
+        while (elemDate.options.length) {
+          elemDate.remove(0);
+        }
+
+        // handle february (leap year or not)
+        if (max < 20) {
+          dat = new Date(_year, max, 0);
+          max = dat.getDate();
+        }
+
+        // new items
+        for (i = 1; i <= max; ++i) {
+          d = i < 10 ? '0' + i : '' + i;
+          elem = document.createElement('option');
+          elem.setAttribute('value', d);
+          elem.selected = d === _day;
+          elem.appendChild(document.createTextNode('' + i));
+          elemDate.appendChild(elem);
+        }
+      };
+
+  if (elemYear && elemMonth && elemDate && elemText && elemInfo) {
+    // year
+    elemYear.innerHTML = '' + _year;
+    elemYear.addEventListener('click', function() {
+      var key = _year + '-' + _month + '-' + _day,
+          inf = elemInfo.value,
+          txt = elemText.value,
+          toSave = false;
+
+      // edit
+      if (_curItem.length === 10) {
+
+        // is it necessary to delete the old item
+        if (key !== _curItem) {
+          delete _data[y][_curItem];
+          toSave = true;
+
+        // check for changed value
+        } else {
+          toSave = inf !== _data[y][key].info || txt !== _data[y][key].text;
+        }
+
+      // new
+      } else {
+        // check for changed value
+        toSave = inf !== _defaultNew || txt !== _defaultNew;
+      }
+
+      if (toSave) {
+        // text, info
+        _data[y][key] = {
+          'info': elemInfo.value,
+          'text': elemText.value
+        };
+        log(_data);
+        _setDirty();
+      }
+
+      // return to ov
+      log('>>> OV: ' + _year);
+      _showOV();
+    });
+
+    // month names
+    for (i = 0; i < _monthes.length; ++i) {
+      elem = document.createElement('option');
+      elem.setAttribute('value', i < 9 ? '0' + (i + 1) : '' + (i + 1));
+      elem.selected = i + 1 === parseInt(_month);
+      elem.appendChild(document.createTextNode(_monthes[i].split(':')[0]));
+      elemMonth.appendChild(elem);
+    }
+    elemMonth.addEventListener('change', function() {
+      log('>>> month: ' + this.value);
+      _month = this.value;
+      _day = '01';
+      initDate();
+    });
+
+    // dates
+    initDate();
+    elemDate.addEventListener('change', function() {
+      log('>>> day: ' + this.value);
+      _day = this.value;
+    });
+
+    // set content (text + info)
+    key = _year + '-' + _month + '-' + _day;
+    if (_data[y][key]) {
+      txt = _data[y][key].text;
+      inf = _data[y][key].info;
+    }
+    elemText.setAttribute('value', txt);
+    elemInfo.innerHTML = inf;
+
+    // set focus
+    elem = null;
+    switch (_modeFocus) {
+      case 'i':
+        elem = document.querySelector('#content #item_info');
+        break;
+      case 't':
+        elem = document.querySelector('#content #item_text');
+        break;
+      case 'm':
+        elem = document.querySelector('#header #item_month');
+        break;
+    }
+    if (elem) {
+      elem.focus();
+    }
+
+  // restart if still not available
+  } else {
+    setTimeout(_showItem2, 100);
+  }
+}
+
+// #endregion -- edit date ----------------------------------------------------
+
+// #region -- Utilities. ------------------------------------------------------
+
+function ddmmyyyy(key) {
+  if (key.length === 10) {
+    return key.substr(8, 2) + '.' + key.substr(5, 2) + '.' + key.substr(0, 4);
+  }
+
+  return '';
+}
+
+// #endregion -- Utilities. ---------------------------------------------------
+
+  </script>
+</head>
+<body onload="init();">
+ <div id="header">&nbsp;</div>
+ <div id="content0"><div id="content">Loading...</div></div>
+</body>
+</html>

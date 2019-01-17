@@ -78,7 +78,6 @@ function getSchedule() {
 }
 
 function getAllSchedules(keyEnabled, from, till, callbackLeague) {
-  // var handlerFinals,
   var handlerXDates;
 
   // query games
@@ -208,50 +207,36 @@ function getAllSchedules(keyEnabled, from, till, callbackLeague) {
       console.log(err);
     });
 
-  /*/ query kids finals (internal; old)
-  handlerFinals = function() {
-    var i, key, tour,
-        keys = Object.keys(finals2),
-        res = [];
-
-    for (i = 0; i < keys.length; ++i) {
-      if (keys[i] >= from && keys[i] <= till) {
-        key = keys[i].replace(/-/g, '');
-        tour = finals2[keys[i]];
-        res.push({
-          'date': key,
-          'enabled': key.substr(0, keyEnabled.length) === keyEnabled,
-          'text': tour.text,
-          'info': tour.info
-        });
-      }
-    }
-
-    callbackLeague(res);
-  };
-  setTimeout(handlerFinals.bind(this), 1000);
-*/
-
   // query extra dates from github
   handlerXDates = function(data) {
-    var dates, key, keys, i, item,
+    var dates0, dates, key, keys, i, item,
         res = [];
 
     if (data) {
-      dates = JSON.parse(data);
-      keys = Object.keys(dates);
-      for (i = 0; i < keys.length; ++i) {
-        key = keys[i];
-        if (key >= from && key <= till) {
-          item = dates[key];
-          key = key.replace(/-/g, '');
-          res.push({
-            'date': key,
-            'enabled': key.substr(0, keyEnabled.length) === keyEnabled && item.info,
-            'text': item.text,
-            'info': item.info ? item.info : ''
-          });
+      try {
+        dates0 = JSON.parse(data);
+        if (dates0 && dates0.content) {
+          dates = JSON.parse(base64.decode(dates0.content));
+          keys = Object.keys(dates);
+          for (i = 0; i < keys.length; ++i) {
+            key = keys[i];
+            if (key >= from && key <= till) {
+              item = dates[key];
+              key = key.replace(/-/g, '');
+              res.push({
+                'date': key,
+                'enabled': key.substr(0, keyEnabled.length) === keyEnabled && item.info,
+                'text': item.text,
+                'info': item.info ? item.info : ''
+              });
+            }
+          }
         }
+      } catch (err) {
+        log('--------------------------------------------------------------');
+        log('Cannot parse x-dates!');
+        log(err);
+        log('--------------------------------------------------------------');
       }
     }
 
