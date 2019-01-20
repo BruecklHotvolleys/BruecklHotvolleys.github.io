@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Brückl hotvolleys</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="shortcut icon" href="/favicons/favicon.ico">
+  <script src="/script/polyfills.js"></script>
+  <script src="/script/animator.js"></script>
+  <script src="/script/svgviewer.js"></script>
+  <style>
+body {
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#header {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+
+  background-color: lightblue;
+  font-size: 30px;
+  font-weight: bold;
+}
+#header > a {
+  position: absolute;
+  top: 6px;
+  border: 4px solid whitesmoke;
+  height: 30px;
+}
+#header > .title {
+  position: absolute;
+  left: 120px;
+  right: 120px;
+  height: 26px;
+  text-align: left;
+  font-size: 20px;
+  padding-top: 4px;
+  background-color: lightblue;
+}
+
+#footer {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 22px;
+  padding: 2px 5px 0px 10px;
+
+  background-color: lightblue;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+}
+#footer > div {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 22px;
+  padding: 2px 10px 0px 5px;
+
+  background-color: inherit;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+div.canvas_svg {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  min-width: 100px;
+  bottom: 22px;
+  background-color: #d3d3d3;
+}
+div.canvas_svg > svg {
+  height: 100%;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+#svgmenu {
+  background-color: transparent;
+}
+  </style>
+  <script>
+function init() {
+  // block default context menu
+  window.addEventListener('contextmenu', function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    return false;
+  });
+
+  // backlinks
+  var elem, i, name, parts, pos,
+      elemsLnks = document.querySelectorAll('#header > a');
+  if (elemsLnks) {
+    for (i = 0; i < elemsLnks.length; ++i) {
+      elem = elemsLnks[i];
+
+      parts = location.pathname.split('/');
+      if (parts && parts.length) {
+        name = parts[parts.length - 1];
+        pos = name.indexOf('.');
+        if (pos > -1) {
+          name = name.substr(0, pos);
+        }
+        if (name) {
+          name = encodeURIComponent(name.toLowerCase());
+          elem.setAttribute(
+            'href',
+            elem.getAttribute('href') + '#anchor_' + name
+          );
+        }
+      }
+    }
+  }
+
+  // get scripts and evaluate them
+  var elemTpl = document.querySelector('#svg_script');
+  if (elemTpl) {
+    eval(elemTpl.innerText);
+  }
+
+  // check for menu, if any: init it
+  var elemCanvas = document.querySelector('div.canvas_svg'),
+      elemMenu = document.querySelector('#svgmenu');
+  if (elemCanvas && elemMenu) {
+    svgviewer.menuHandler = menuHandler;
+    svgviewer.initContextMenu(elemCanvas);
+  }
+}
+
+function menuHandler(fullkey, state) {
+  // console.log('Menuitem: ' + fullkey + ' -> ' + state);
+  svgviewer.setOption(fullkey, state);
+}
+
+function linkback(elem) {
+  // var name, pos,
+  //     parts = location.pathname.split('/');
+  // if (parts && parts.length) {
+  //   name = parts[parts.length - 1];
+  //   pos = name.indexOf('.');
+  //   if (pos > -1) {
+  //     name = name.substr(0, pos);
+  //   }
+  //   if (name) {
+  //     name = encodeURIComponent(name.toLowerCase());
+  //     window.location.href = window.location.protocol + '//'
+  //         + window.location.host + elem.getAttribute('href')
+  //         + '#anchor_' + name;
+  //
+  //     return false;
+  //   }
+  // }
+}
+  </script>
+</head>
+<body onload="init();">
+<div class="container">
+<div id="header"><a href="/uld/grundlagen3/" style="left: 10px;"><img src="/image/logo.png" height="30px" /></a>
+<div class="title">{{title}}</div>
+<a href="/uld/grundlagen3/" style="right: 10px;"><img src="/image/logo.png" height="30px" /></a>
+</div>
+<div class="canvas_svg"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1350 2250"><g class="court"><rect x="0" y="0" width="1350" height="2250" style="fill: lime"></rect><rect x="225" y="225" width="900" height="1800" style="fill: orange; stroke: blue; stroke-width: 5px;"></rect><line x1="225" y1="1125" x2="1125" y2="1125" style="stroke: blue; stroke-width: 5px;"></line><line x1="225" y1="825" x2="1125" y2="825" style="stroke: blue; stroke-width: 5px;"></line><line x1="225" y1="1425" x2="1125" y2="1425" style="stroke: blue; stroke-width: 5px;"></line><g data-xid="option_document_grid_5" desc="Grid 0.5m" style="display: none;">  <line x1="25" y1="0" x2="25" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="75" y1="0" x2="75" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="125" y1="0" x2="125" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="175" y1="0" x2="175" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="225" y1="0" x2="225" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="275" y1="0" x2="275" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="325" y1="0" x2="325" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="375" y1="0" x2="375" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="425" y1="0" x2="425" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="475" y1="0" x2="475" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="525" y1="0" x2="525" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="575" y1="0" x2="575" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="625" y1="0" x2="625" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="675" y1="0" x2="675" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="725" y1="0" x2="725" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="775" y1="0" x2="775" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="825" y1="0" x2="825" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="875" y1="0" x2="875" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="925" y1="0" x2="925" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="975" y1="0" x2="975" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="1025" y1="0" x2="1025" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="1075" y1="0" x2="1075" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="1125" y1="0" x2="1125" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="1175" y1="0" x2="1175" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="1225" y1="0" x2="1225" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="1275" y1="0" x2="1275" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="1325" y1="0" x2="1325" y2="2250" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="25" x2="1350" y2="25" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="75" x2="1350" y2="75" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="125" x2="1350" y2="125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="175" x2="1350" y2="175" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="225" x2="1350" y2="225" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="275" x2="1350" y2="275" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="325" x2="1350" y2="325" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="375" x2="1350" y2="375" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="425" x2="1350" y2="425" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="475" x2="1350" y2="475" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="525" x2="1350" y2="525" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="575" x2="1350" y2="575" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="625" x2="1350" y2="625" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="675" x2="1350" y2="675" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="725" x2="1350" y2="725" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="775" x2="1350" y2="775" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="825" x2="1350" y2="825" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="875" x2="1350" y2="875" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="925" x2="1350" y2="925" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="975" x2="1350" y2="975" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1025" x2="1350" y2="1025" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1075" x2="1350" y2="1075" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1125" x2="1350" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1175" x2="1350" y2="1175" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1225" x2="1350" y2="1225" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1275" x2="1350" y2="1275" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1325" x2="1350" y2="1325" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1375" x2="1350" y2="1375" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1425" x2="1350" y2="1425" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1475" x2="1350" y2="1475" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1525" x2="1350" y2="1525" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1575" x2="1350" y2="1575" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1625" x2="1350" y2="1625" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1675" x2="1350" y2="1675" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1725" x2="1350" y2="1725" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1775" x2="1350" y2="1775" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1825" x2="1350" y2="1825" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1875" x2="1350" y2="1875" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1925" x2="1350" y2="1925" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1975" x2="1350" y2="1975" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="2025" x2="1350" y2="2025" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="2075" x2="1350" y2="2075" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="2125" x2="1350" y2="2125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="2175" x2="1350" y2="2175" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="2225" x2="1350" y2="2225" style="stroke: lightgray; stroke-dasharray: 5 5;"></line></g><g data-xid="option_document_grid_1" desc="Grid 1m" style="display: none;">  <line x1="25" y1="0" x2="25" y2="2250" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="125" y1="0" x2="125" y2="2250" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="225" y1="0" x2="225" y2="2250" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="325" y1="0" x2="325" y2="2250" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="425" y1="0" x2="425" y2="2250" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="525" y1="0" x2="525" y2="2250" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="625" y1="0" x2="625" y2="2250" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="725" y1="0" x2="725" y2="2250" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="825" y1="0" x2="825" y2="2250" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="925" y1="0" x2="925" y2="2250" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="1025" y1="0" x2="1025" y2="2250" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="1125" y1="0" x2="1125" y2="2250" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="1225" y1="0" x2="1225" y2="2250" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="1325" y1="0" x2="1325" y2="2250" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="25" x2="1350" y2="25" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="125" x2="1350" y2="125" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="225" x2="1350" y2="225" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="325" x2="1350" y2="325" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="425" x2="1350" y2="425" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="525" x2="1350" y2="525" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="625" x2="1350" y2="625" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="725" x2="1350" y2="725" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="825" x2="1350" y2="825" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="925" x2="1350" y2="925" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="1025" x2="1350" y2="1025" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="1125" x2="1350" y2="1125" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="1225" x2="1350" y2="1225" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="1325" x2="1350" y2="1325" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="1425" x2="1350" y2="1425" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="1525" x2="1350" y2="1525" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="1625" x2="1350" y2="1625" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="1725" x2="1350" y2="1725" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="1825" x2="1350" y2="1825" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="1925" x2="1350" y2="1925" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="2025" x2="1350" y2="2025" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="2125" x2="1350" y2="2125" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="2225" x2="1350" y2="2225" style="stroke: gray; stroke-dasharray: 10 10;"></line></g><g transform="translate(225 1125)"><g class="actions"></g><g id="player_actor_135" transform="translate(500 50) rotate(-90)"><circle cx="0" cy="0" r="50" style="fill: firebrick; stroke: none;" transform="scale(1 0.5)"></circle><g id="player_actor_135-prepareblock" style="display: none;">  <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line>  <line x1="22.5" y1="-25" x2="37.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line></g><g id="player_actor_135-block" style="display: none;">  <line x1="-41" y1="-25" x2="41" y2="-25" style="stroke: firebrick; stroke-width: 17; stroke-linecap: round;"></line></g><g id="player_actor_135-preparereception" style="display: none;">  <line x1="-37.5" y1="0" x2="-62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="-62.5" y1="-25" x2="-62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="62.5" y1="-25" x2="62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_135-reception" style="display: none;">  <line x1="-37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_135-attack" style="display: none;">  return '<line x1="37.5" y1="0" x2="37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_135-attackleft" style="display: none;">  return '<line x1="-37.5" y1="0" x2="-37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_135-set" style="display: block;">  <line x1="-37.5" y1="0" x2="-20" y2="-23" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="20" y2="-20" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><text x="0" y="0" dy="0.35em" text-anchor="middle" style="fill: yellow; font: 30px sans-serif;">Auf</text></g><g id="actor_136" data-xid="option_document_approach" transform="translate(400 400)" style="display: none;"><line x1="0" y1="0" x2="50" y2="-300" style="stroke: lightgray; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round"></line><line x1="50" y1="-300" x2="14" y2="-255" style="stroke: lightgray; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round"></line><line x1="50" y1="-300" x2="69" y2="-246" style="stroke: lightgray; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round"></line></g><g id="player_actor_137" transform="translate(400 400) rotate(5)"><circle cx="0" cy="0" r="50" style="fill: firebrick; stroke: none;" transform="scale(1 0.5)"></circle><g id="player_actor_137-prepareblock" style="display: none;">  <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line>  <line x1="22.5" y1="-25" x2="37.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line></g><g id="player_actor_137-block" style="display: none;">  <line x1="-41" y1="-25" x2="41" y2="-25" style="stroke: firebrick; stroke-width: 17; stroke-linecap: round;"></line></g><g id="player_actor_137-preparereception" style="display: none;">  <line x1="-37.5" y1="0" x2="-62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="-62.5" y1="-25" x2="-62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="62.5" y1="-25" x2="62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_137-reception" style="display: none;">  <line x1="-37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_137-attack" style="display: none;">  return '<line x1="37.5" y1="0" x2="37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_137-attackleft" style="display: none;">  return '<line x1="-37.5" y1="0" x2="-37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_137-set" style="display: none;">  <line x1="-37.5" y1="0" x2="-20" y2="-23" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="20" y2="-20" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><text x="0" y="0" dy="0.35em" text-anchor="middle" style="fill: yellow; font: 30px sans-serif;">MB</text></g><g id="actor_138" data-xid="option_document_approach" transform="translate(-100 400)" style="display: none;"><line x1="0" y1="0" x2="175" y2="-300" style="stroke: lightgray; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round"></line><line x1="175" y1="-300" x2="126" y2="-271" style="stroke: lightgray; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round"></line><line x1="175" y1="-300" x2="174" y2="-243" style="stroke: lightgray; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round"></line></g><g id="player_actor_139" transform="translate(-100 400) rotate(20)"><circle cx="0" cy="0" r="50" style="fill: firebrick; stroke: none;" transform="scale(1 0.5)"></circle><g id="player_actor_139-prepareblock" style="display: none;">  <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line>  <line x1="22.5" y1="-25" x2="37.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line></g><g id="player_actor_139-block" style="display: none;">  <line x1="-41" y1="-25" x2="41" y2="-25" style="stroke: firebrick; stroke-width: 17; stroke-linecap: round;"></line></g><g id="player_actor_139-preparereception" style="display: none;">  <line x1="-37.5" y1="0" x2="-62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="-62.5" y1="-25" x2="-62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="62.5" y1="-25" x2="62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_139-reception" style="display: none;">  <line x1="-37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_139-attack" style="display: none;">  return '<line x1="37.5" y1="0" x2="37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_139-attackleft" style="display: none;">  return '<line x1="-37.5" y1="0" x2="-37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_139-set" style="display: none;">  <line x1="-37.5" y1="0" x2="-20" y2="-23" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="20" y2="-20" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><text x="0" y="0" dy="0.35em" text-anchor="middle" style="fill: yellow; font: 30px sans-serif;">AA</text></g><g id="actor_140" data-xid="option_document_approach" transform="translate(935 620)" style="display: none;"><line x1="0" y1="0" x2="-80" y2="-300" style="stroke: lightgray; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round"></line><line x1="-80" y1="-300" x2="-94" y2="-245" style="stroke: lightgray; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round"></line><line x1="-80" y1="-300" x2="-40" y2="-259" style="stroke: lightgray; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round"></line></g><g id="player_actor_141" transform="translate(935 600) rotate(-10)"><circle cx="0" cy="0" r="50" style="fill: firebrick; stroke: none;" transform="scale(1 0.5)"></circle><g id="player_actor_141-prepareblock" style="display: none;">  <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line>  <line x1="22.5" y1="-25" x2="37.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line></g><g id="player_actor_141-block" style="display: none;">  <line x1="-41" y1="-25" x2="41" y2="-25" style="stroke: firebrick; stroke-width: 17; stroke-linecap: round;"></line></g><g id="player_actor_141-preparereception" style="display: none;">  <line x1="-37.5" y1="0" x2="-62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="-62.5" y1="-25" x2="-62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="62.5" y1="-25" x2="62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_141-reception" style="display: none;">  <line x1="-37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_141-attack" style="display: none;">  return '<line x1="37.5" y1="0" x2="37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_141-attackleft" style="display: none;">  return '<line x1="-37.5" y1="0" x2="-37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_141-set" style="display: none;">  <line x1="-37.5" y1="0" x2="-20" y2="-23" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="20" y2="-20" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><text x="0" y="0" dy="0.35em" text-anchor="middle" style="fill: yellow; font: 30px sans-serif;">Dia</text></g><g id="actor_142" data-xid="option_document_approach" transform="translate(400 620)" style="display: none;"><line x1="0" y1="0" x2="40" y2="-300" style="stroke: lightgray; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round"></line><line x1="40" y1="-300" x2="6" y2="-254" style="stroke: lightgray; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round"></line><line x1="40" y1="-300" x2="61" y2="-247" style="stroke: lightgray; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round"></line></g><g id="player_actor_143" transform="translate(400 600) rotate(10)"><circle cx="0" cy="0" r="50" style="fill: firebrick; stroke: none;" transform="scale(1 0.5)"></circle><g id="player_actor_143-prepareblock" style="display: none;">  <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line>  <line x1="22.5" y1="-25" x2="37.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line></g><g id="player_actor_143-block" style="display: none;">  <line x1="-41" y1="-25" x2="41" y2="-25" style="stroke: firebrick; stroke-width: 17; stroke-linecap: round;"></line></g><g id="player_actor_143-preparereception" style="display: none;">  <line x1="-37.5" y1="0" x2="-62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="-62.5" y1="-25" x2="-62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="62.5" y1="-25" x2="62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_143-reception" style="display: none;">  <line x1="-37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_143-attack" style="display: none;">  return '<line x1="37.5" y1="0" x2="37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_143-attackleft" style="display: none;">  return '<line x1="-37.5" y1="0" x2="-37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_143-set" style="display: none;">  <line x1="-37.5" y1="0" x2="-20" y2="-23" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="20" y2="-20" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><text x="0" y="0" dy="0.35em" text-anchor="middle" style="fill: yellow; font: 30px sans-serif;">H</text></g><g id="player_actor_144" transform="translate(200 450) rotate(15)"><circle cx="0" cy="0" r="50" style="fill: firebrick; stroke: none;" transform="scale(1 0.5)"></circle><g id="player_actor_144-prepareblock" style="display: none;">  <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line>  <line x1="22.5" y1="-25" x2="37.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line></g><g id="player_actor_144-block" style="display: none;">  <line x1="-41" y1="-25" x2="41" y2="-25" style="stroke: firebrick; stroke-width: 17; stroke-linecap: round;"></line></g><g id="player_actor_144-preparereception" style="display: none;">  <line x1="-37.5" y1="0" x2="-62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="-62.5" y1="-25" x2="-62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="62.5" y1="-25" x2="62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_144-reception" style="display: none;">  <line x1="-37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_144-attack" style="display: none;">  return '<line x1="37.5" y1="0" x2="37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_144-attackleft" style="display: none;">  return '<line x1="-37.5" y1="0" x2="-37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_144-set" style="display: none;">  <line x1="-37.5" y1="0" x2="-20" y2="-23" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="20" y2="-20" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><text x="0" y="0" dy="0.35em" text-anchor="middle" style="fill: yellow; font: 30px sans-serif;">Sich</text></g></g></g></svg><script id="svg_script">
+svgviewer.setOption('option:document:grid:1', false);
+svgviewer.setOption('option:document:grid:5', false);
+svgviewer.setPlayerType('player_actor_135', 'set');
+svgviewer.setOption('option:document:approach', false);
+svgviewer.setTitle('Vorbereitung 2');
+</script>
+<!-- style>  svg # svgmenu {    position: absolute;    top: 0;    left: 0;    z-index: 99;    -ms-user-select: none;    -moz-user-select: none;    -webkit-user-select: none;    user-select: none;  }</style -->
+<div id="svgmenu_bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.5; background-color: lightgray; display: none; z-Index: 99;">&nbsp;</div><svg id="svgmenu"     xmlns="http://www.w3.org/2000/svg"     xmlns:xlink="http://www.w3.org/1999/xlink"     style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">  <style>svg#svgmenu {  position: absolute;  top: 0;  left: 0;  z-index: 99;  -ms-user-select: none;  -moz-user-select: none;  -webkit-user-select: none;  user-select: none;}rect.menu {  /* stroke: silver; */  stroke: darkgray;  stroke-width: 2px;  fill: lightgray;  /* fill: gold; */}g.mi, g.cb {  cursor: pointer;}g.mi rect.bg, g.cb rect.bg, g.sep rect.bg {  stroke:none;  fill:transparent;}g.mi:hover rect.bg, g.cb:hover rect.bg {  fill:silver;  fill:darkgray;}g.cb rect.cb {  stroke: gray;  stroke-width: 3;  fill: none;}g.cb:hover rect.cb {  stroke: dimgray;}g.cb path {  stroke: #111;  stroke-width: 5;  fill: none;  stroke-linecap: round;  stroke-linejoin: round;}g.mi text, g.cb text {  stroke: none;  fill: #111;  font-family: Arial;  font-size: 20px;}g.sep line.sep {  stroke: #111;  stroke-width: 1;} </style><g id="menu">  <rect class="menu" x="0" y="0" height="35" width="1" rx="5" ry="5"/><g class="cb" data-key="option:document:approach" transform="translate(0, 0)">  <rect class="bg" x="0" y="5" width="100" height="25" />  <rect class="cb" x="10" y="10" height="15" width="15" rx="2" ry="2" />  <path d="M 9 17 l 7 10 l 9 -20" style="display: none;" />  <text x="35" y="25">Anlauf</text></g></g></svg><!-- style>  svg # svgmenu {    position: absolute;    top: 0;    left: 0;    z-index: 99;    -ms-user-select: none;    -moz-user-select: none;    -webkit-user-select: none;    user-select: none;  }</style --></div>
+<div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div>
+</div>
+</div>
+</body>
+</html>

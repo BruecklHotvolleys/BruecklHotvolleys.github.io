@@ -12,9 +12,6 @@ if (window.bhv.elements.expander === undefined) {
     init: function(idsExpander) {
       var i;
       var clazz = 'expander';
-      // if (mode != '') {
-      //   clazz += ' ' + mode;
-      // }
       var handler = function(event) {
         var header = event.target;
         if (header) {
@@ -23,7 +20,10 @@ if (window.bhv.elements.expander === undefined) {
               div = document.getElementById(id2);
           if (div) {
             var show = div.style.display == 'none';
-            header.className = show ? 'expandable up' : 'expandable'
+            // header.className = show ? 'expandable up' : 'expandable'
+            show
+              ? window.bhv.elements.expander._addClass(header, 'up')
+              : window.bhv.elements.expander._removeClass(header, 'up');
             div.style.display = show ? 'block' : 'none';
           }
         }
@@ -60,6 +60,45 @@ if (window.bhv.elements.expander === undefined) {
           handler(ev);
         });
       }
+    },
+
+    _addClass(elem, clazz) {
+      if (elem && !this._hasClass(elem, clazz)) {
+        elem.className += ' ' + clazz;
+      }
+    },
+
+    _removeClass(elem, clazz) {
+      var anyClass = false,
+          parts, pos;
+
+      if (elem && elem.className) {
+        parts = elem.className.split(' ');
+        if (parts) {
+          while (-1 < (pos = parts.indexOf(clazz))) {
+            anyClass = true;
+            parts.splice(pos, 1);
+          }
+          if (anyClass) {
+            elem.className = parts.join(' ');
+          }
+        }
+      }
+
+      return false;
+    },
+
+    _hasClass(elem, clazz) {
+      var parts;
+
+      if (elem && elem.className) {
+        parts = elem.className.split(' ');
+        if (parts) {
+          return parts.indexOf(clazz) > -1;
+        }
+      }
+
+      return false;
     }
   }
 }

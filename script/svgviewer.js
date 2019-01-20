@@ -32,6 +32,8 @@ window.svgviewer = {
   'state': STATE_NONE,
   // the animation controller
   'animator': new window.Animator(),
+  // the menu handler
+  'menuHandler': null,
   // #endregion -- The fields. ------------------------------------------------
   // #region -- Initialize the svg viewer. ------------------------------------
 
@@ -45,8 +47,7 @@ window.svgviewer = {
         btnPause,
         btnPlay,
         btnStop,
-        // container,
-    control,
+        control,
         i,
         self = this;
     this.id = id; // ie8 - add indexOf to array
@@ -90,6 +91,19 @@ window.svgviewer = {
   },
   // #endregion -- Initialize the svg viewer. ---------------------------------
   // #region -- Sets the svg viewer. ------------------------------------------
+
+  /**
+   * Tries to set the title for exported viewers.
+   * @param {string} title The title to set.
+   * @return {void}
+   */
+  'setTitle': function setTitle(title) {
+    var elemTitle = document.querySelector('div#header > div.title');
+
+    if (elemTitle) {
+      elemTitle.innerHTML = title;
+    }
+  },
 
   /**
    * Sets the initial type of a player.
@@ -490,7 +504,7 @@ window.svgviewer = {
         handlerClose; // show the context menu
 
     canvas.addEventListener('contextmenu', function (event) {
-      var bg, child1, menu, pos;
+      var bg, child1, menu; //, pos;
 
       if (!menuVisible) {
         // get menu container and its background
@@ -537,14 +551,16 @@ window.svgviewer = {
             bg.addEventListener('click', handlerClose);
             menu.addEventListener('click', handlerClose);
           } // get position of canvas
+          // pos = self.getPos(canvas);
+          // show background of menu
 
-
-          pos = self.getPos(canvas); // show background of menu
 
           bg.style.display = 'block'; // set pos of menu
+          // menu.style.left = `${event.clientX - pos.x}px`;
+          // menu.style.top = `${event.clientY - pos.y}px`;
 
-          menu.style.left = "".concat(event.clientX - pos.x, "px");
-          menu.style.top = "".concat(event.clientY - pos.y, "px"); // show it
+          menu.style.left = "".concat(event.clientX, "px");
+          menu.style.top = "".concat(event.clientY, "px"); // show it
 
           menu.style.display = 'block'; // init context menu
 
@@ -632,26 +648,34 @@ window.svgviewer = {
 
 
       handler = function handler() {
-        // handle checkboxes (show state)
+        var newValue = undefined; // handle checkboxes (show state)
 
         /* eslint-disable no-invalid-this */
         // this is set to clicked element
+
         path = this.querySelector('path');
         /* eslint-enable no-invalid-this */
 
         if (path) {
-          path.style.display = path.style.display === 'none' ? 'block' : 'none';
-        } // trigger app event only if in app
+          newValue = path.style.display === 'none';
+          path.style.display = newValue ? 'block' : 'none';
+        }
+        /* eslint-disable no-invalid-this */
+        // this is set to clicked element
 
 
-        if (window.app && window.app.eventbus) {
-          /* eslint-disable no-invalid-this */
-          // this is set to clicked element
-          fullKey = this.getAttribute('data-key');
-          /* eslint-enable no-invalid-this */
+        fullKey = this.getAttribute('data-key');
+        /* eslint-enable no-invalid-this */
 
-          if (fullKey) {
+        if (fullKey) {
+          // trigger app event only if in app
+          if (window.app && window.app.eventbus) {
             window.app.eventbus.trigger('svgmenu', fullKey);
+          } // call menu handler (e.g. exported infos)
+
+
+          if (window.svgviewer.menuHandler) {
+            window.svgviewer.menuHandler(fullKey, newValue);
           }
         }
       };
@@ -683,30 +707,30 @@ window.svgviewer = {
   /* eslint-enable max-statements */
   // #endregion -- The menu. --------------------------------------------------
   // #region -- Utilities. ----------------------------------------------------
-
-  /**
-   * Get the position of an element.
-   * @param {Element} elem The element to check.
-   * @return {PositionInfo} The x and y position of the given element.
-   */
-  'getPos': function getPos(elem) {
-    var POS0 = 0; // if elem is ok
-
-    if (elem) {
-      // get position of parent and combine it with its own one
-      var pos = this.getPos(elem.offsetParent);
-      return {
-        'x': pos.x + elem.offsetLeft,
-        'y': pos.y + elem.offsetTop
-      };
-    } // no more parent: return 0/0
-
-
-    return {
-      'x': POS0,
-      'y': POS0
-    };
-  },
+  // /**
+  //  * Get the position of an element.
+  //  * @param {Element} elem The element to check.
+  //  * @return {PositionInfo} The x and y position of the given element.
+  //  */
+  // 'getPos': function(elem) {
+  //   var POS0 = 0;
+  //
+  //   // if elem is ok
+  //   if (elem) {
+  //     // get position of parent and combine it with its own one
+  //     const pos = this.getPos(elem.offsetParent);
+  //     return {
+  //       'x': pos.x + elem.offsetLeft,
+  //       'y': pos.y + elem.offsetTop
+  //     };
+  //   }
+  //
+  //   // no more parent: return 0/0
+  //   return {
+  //     'x': POS0,
+  //     'y': POS0
+  //   };
+  // },
 
   /**
    * Adds a style class for an element.
