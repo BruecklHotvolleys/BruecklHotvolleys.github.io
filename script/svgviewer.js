@@ -504,7 +504,7 @@ window.svgviewer = {
         handlerClose; // show the context menu
 
     canvas.addEventListener('contextmenu', function (event) {
-      var bg, child1, menu; //, pos;
+      var bg, child1, menu;
 
       if (!menuVisible) {
         // get menu container and its background
@@ -550,14 +550,10 @@ window.svgviewer = {
 
             bg.addEventListener('click', handlerClose);
             menu.addEventListener('click', handlerClose);
-          } // get position of canvas
-          // pos = self.getPos(canvas);
-          // show background of menu
+          } // show background of menu
 
 
           bg.style.display = 'block'; // set pos of menu
-          // menu.style.left = `${event.clientX - pos.x}px`;
-          // menu.style.top = `${event.clientY - pos.y}px`;
 
           menu.style.left = "".concat(event.clientX, "px");
           menu.style.top = "".concat(event.clientY, "px"); // show it
@@ -598,8 +594,8 @@ window.svgviewer = {
         OFFSET_CB = 50,
         OFFSET_SEP_LINE = 5,
         grps = [],
-        grpsCb = document.querySelectorAll('g.cb'),
-        grpsMi = document.querySelectorAll('g.mi'),
+        grpsCb = document.querySelectorAll('svg#svgmenu g.cb'),
+        grpsMi = document.querySelectorAll('svg#svgmenu g.mi'),
         rect = document.querySelector('svg > g > rect.menu');
 
     if (grpsCb) {
@@ -618,8 +614,8 @@ window.svgviewer = {
     if (rect && rect.getAttribute('width') === '1') {
       // text = document.querySelectorAll('g.cb > text');
       // rectBG = document.querySelectorAll('g.cb > rect.bg');
-      text = document.querySelectorAll('g > text');
-      rectBG = document.querySelectorAll('g > rect.bg');
+      text = document.querySelectorAll('svg#svgmenu g > text');
+      rectBG = document.querySelectorAll('svg#svgmenu g > rect.bg');
       len = INIT_LEN;
 
       for (i = FIRST; i < text.length; ++i) {
