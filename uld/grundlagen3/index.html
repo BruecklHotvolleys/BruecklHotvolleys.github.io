@@ -6,6 +6,10 @@
   <link rel="stylesheet" href="/elements/expander/styles.css">
   <link rel="stylesheet" href="/styles.css">
   <style>
+body {
+  margin: 60px 0 0 0;
+}
+
 a.line {
   padding: 5px 10px;
   display: block;
@@ -33,12 +37,33 @@ a h3::after {
   <script src="/elements/expander/script.js"></script>
   <script>
 function init() {
-  var expanders = ['ann', 'auf', 'ang', 'bas', 'ver'];
-  bhv.elements.expander.init(expanders);
+  var expanders = ['ann', 'auf', 'ang', 'bas', 'ver'],
+      keepOpen = {
+        'ann': ['anchor_annahme', 'anchor_'],
+        'auf': [
+          'anchor_wann_1', 'anchor_wann_2', 'anchor_wo',
+          'anchor_vorbereitung_1', 'anchor_vorbereitung_2',
+          'anchor_aufspiel'
+        ],
+        'ang': ['anchor_angriff_06', 'anchor_angriff_5v', 'anchor_angriff_2'],
+        'bas': ['anchor_basis_1', 'anchor_basis_2', 'anchor_basis_1b'],
+        'ver': [
+          'anchor_block', 'anchor_block_4', 'anchor_block_33', 'anchor_block_2',
+          'anchor_block_3', 'anchor_block_31', 'anchor_block_35',
+          'anchor_ohne_1', 'anchor_ohne_2'
+        ]
+      };
+  bhv.elements.expander.init(expanders, keepOpen);
 }
   </script>
 </head>
 <body onload="init();">
+
+  <div id="header">
+  <a href="/ov.html#anchor_grundlagen_br3" style="left: 10px;"><img src="/image/logo.png" height="30px" /></a>
+  <div class="title">Grundlagen</div>
+  <a href="/ov.html#anchor_grundlagen_br3" style="right: 10px;"><img src="/image/logo.png" height="30px" /></a>
+  </div>
 
   <h1 id="ann" class="tactics expandable">Annahme</h1>
   <div id="ann_2">

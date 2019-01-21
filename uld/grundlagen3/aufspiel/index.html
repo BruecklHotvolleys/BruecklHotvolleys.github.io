@@ -6,7 +6,7 @@
   <link rel="shortcut icon" href="/favicons/favicon.ico">
   <style>
 *, html, body {
-  margin: 0px;
+  margin: 0;
   padding: 0px;
   border: 0px none;
   overflow: hidden;
@@ -15,8 +15,15 @@
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  text-align: center;
 }
-div {
+body {
+  margin: 60px 0 0 0;
+}
+div#svgcontainer {
   position: absolute;
 
   left: 50%;
@@ -126,10 +133,50 @@ text.subtitle {
   stroke: white;
 }
 
+/* -- header --------------------------------------------------------------- */
+#header {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+
+  background-color: lightblue;
+  font-size: 30px;
+  font-weight: bold;
+}
+#header > a {
+  position: absolute;
+  top: 6px;
+  border: 4px solid whitesmoke;
+  height: 30px;
+}
+#header > a > img {
+  background-color: whitesmoke;
+}
+#header > .title {
+  position: absolute;
+  left: 120px;
+  right: 120px;
+  height: 26px;
+  text-align: left;
+  font-size: 20px;
+  padding-top: 4px;
+  background-color: lightblue;
+}
   </style>
 </head>
 <body>
-  <div>
+
+  <div id="header">
+  <a href="/uld/grundlagen3/#anchor_aufspiel" style="left: 10px;"><img src="/image/logo.png" height="30px" /></a>
+  <div class="title">Die Codes</div>
+  <a href="/uld/grundlagen3/#anchor_aufspiel" style="right: 10px;"><img src="/image/logo.png" height="30px" /></a>
+  </div>
+
+  <div id="svgcontainer">
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
      width="1100" height="540">

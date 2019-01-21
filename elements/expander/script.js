@@ -9,7 +9,7 @@ if (window.bhv.elements === undefined) {
 if (window.bhv.elements.expander === undefined) {
   window.bhv.elements.expander = {
 
-    init: function(idsExpander) {
+    init: function(idsExpander, keepOpen) {
       var i;
       var clazz = 'expander';
       var handler = function(event) {
@@ -20,7 +20,6 @@ if (window.bhv.elements.expander === undefined) {
               div = document.getElementById(id2);
           if (div) {
             var show = div.style.display == 'none';
-            // header.className = show ? 'expandable up' : 'expandable'
             show
               ? window.bhv.elements.expander._addClass(header, 'up')
               : window.bhv.elements.expander._removeClass(header, 'up');
@@ -29,8 +28,14 @@ if (window.bhv.elements.expander === undefined) {
         }
 
         return false;
+      };
+      // get anchor
+      var keyOpen = window.location.hash;
+      if (keyOpen && keyOpen[0] === '#') {
+        keyOpen = keyOpen.substr(1);
       }
 
+      // hande each expander
       for (i = 0; i < idsExpander.length; ++i) {
 
         // header
@@ -42,8 +47,12 @@ if (window.bhv.elements.expander === undefined) {
           header.insertAdjacentHTML('beforeend', '<div class="' + clazz + '">&nbsp;</div>');
           this._addEvent(header, 'click', handler);
 
-          // container to hide and show
-          div.style.display = 'none';
+          if (keyOpen && keepOpen && keepOpen[id].indexOf(keyOpen) > -1) {
+            this._addClass(header, 'up');
+          } else {
+            // hide container to hide and show
+            div.style.display = 'none';
+          }
         }
       }
     },

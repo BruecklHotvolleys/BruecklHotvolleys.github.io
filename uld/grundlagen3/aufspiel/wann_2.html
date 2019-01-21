@@ -23,36 +23,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#header {
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  padding: 10px;
-
-  background-color: lightblue;
-  font-size: 30px;
-  font-weight: bold;
-}
-#header > a {
-  position: absolute;
-  top: 6px;
-  border: 4px solid whitesmoke;
-  height: 30px;
-}
-#header > .title {
-  position: absolute;
-  left: 120px;
-  right: 120px;
-  height: 26px;
-  text-align: left;
-  font-size: 20px;
-  padding-top: 4px;
-  background-color: lightblue;
-}
-
 #footer {
   box-sizing: border-box;
   position: absolute;
@@ -152,26 +122,6 @@ function init() {
 function menuHandler(fullkey, state) {
   // console.log('Menuitem: ' + fullkey + ' -> ' + state);
   svgviewer.setOption(fullkey, state);
-}
-
-function linkback(elem) {
-  // var name, pos,
-  //     parts = location.pathname.split('/');
-  // if (parts && parts.length) {
-  //   name = parts[parts.length - 1];
-  //   pos = name.indexOf('.');
-  //   if (pos > -1) {
-  //     name = name.substr(0, pos);
-  //   }
-  //   if (name) {
-  //     name = encodeURIComponent(name.toLowerCase());
-  //     window.location.href = window.location.protocol + '//'
-  //         + window.location.host + elem.getAttribute('href')
-  //         + '#anchor_' + name;
-  //
-  //     return false;
-  //   }
-  // }
 }
   </script>
 </head>
