@@ -39,7 +39,7 @@ function setBack(region) {
     lnks = document.querySelectorAll('div#header > a');
     if (lnks) {
       for (i = 0; i < lnks.length; ++i) {
-        lnks[i].setAttribute('href', lnks[i].getAttribute('href') + '#anchor_'
+        lnks[i].setAttribute('href', lnks[i].getAttribute('href') + '#'
           + region + '_' + key);
       }
     }

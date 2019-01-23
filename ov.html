@@ -18,34 +18,34 @@ function init() {
   ],
   keepOpen = {
     'nw': [
-      'anchor_grundlagen_u10', 'anchor_schedule_u10', 'anchor_standings_u10',
-      'anchor_grundlagen_u11', 'anchor_schedule_u11', 'anchor_standings_u11',
-      'anchor_grundlagen_u12', 'anchor_schedule_u12', 'anchor_standings_u12',
-      'anchor_grundlagen_u13', 'anchor_schedule_u13', 'anchor_standings_u13',
-      'anchor_grundlagen_u15', 'anchor_schedule_u15', 'anchor_standings_u15'
+      'grundlagen_u10', 'schedule_u10', 'standings_u10',
+      'grundlagen_u11', 'schedule_u11', 'standings_u11',
+      'grundlagen_u12', 'schedule_u12', 'standings_u12',
+      'grundlagen_u13', 'schedule_u13', 'standings_u13',
+      'grundlagen_u15', 'schedule_u15', 'standings_u15'
     ],
-    'u10': ['anchor_grundlagen_u10', 'anchor_schedule_u10', 'anchor_standings_u10'],
-    'u11': ['anchor_grundlagen_u11', 'anchor_schedule_u11', 'anchor_standings_u11'],
-    'u12': ['anchor_grundlagen_u12', 'anchor_schedule_u12', 'anchor_standings_u12'],
-    'u13': ['anchor_grundlagen_u13', 'anchor_schedule_u13', 'anchor_standings_u13'],
-    'u15': ['anchor_grundlagen_u15', 'anchor_schedule_u15', 'anchor_standings_u15'],
+    'u10': ['grundlagen_u10', 'schedule_u10', 'standings_u10'],
+    'u11': ['grundlagen_u11', 'schedule_u11', 'standings_u11'],
+    'u12': ['grundlagen_u12', 'schedule_u12', 'standings_u12'],
+    'u13': ['grundlagen_u13', 'schedule_u13', 'standings_u13'],
+    'u15': ['grundlagen_u15', 'schedule_u15', 'standings_u15'],
 
     'ak': [
-      'anchor_grundlagen_br4', 'anchor_schedule_br4', 'anchor_results_br4', 'anchor_standings_br4',
-      'anchor_grundlagen_br3', 'anchor_schedule_br3', 'anchor_results_br3', 'anchor_standings_br3', 'anchor_statistics_br3',
-      'anchor_schedule_br2', 'anchor_results_br2', 'anchor_standings_br2',
-      'anchor_schedule_br1', 'anchor_results_br1', 'anchor_standings_br1'
+      'grundlagen_br4', 'schedule_br4', 'results_br4', 'standings_br4',
+      'grundlagen_br3', 'schedule_br3', 'results_br3', 'standings_br3', 'statistics_br3',
+      'schedule_br2', 'results_br2', 'standings_br2',
+      'schedule_br1', 'results_br1', 'standings_br1'
     ],
     'br4': [
-      'anchor_grundlagen_br4', 'anchor_schedule_br4', 'anchor_results_br4', 'anchor_standings_br4'
+      'grundlagen_br4', 'schedule_br4', 'results_br4', 'standings_br4'
     ],
     'br3': [
-      'anchor_grundlagen_br3', 'anchor_schedule_br3', 'anchor_results_br3', 'anchor_standings_br3', 'anchor_statistics_br3'
+      'grundlagen_br3', 'schedule_br3', 'results_br3', 'standings_br3', 'statistics_br3'
     ],
-    'br2': ['anchor_schedule_br2', 'anchor_results_br2', 'anchor_standings_br2'],
-    'br1': ['anchor_schedule_br1', 'anchor_results_br1', 'anchor_standings_br1'],
+    'br2': ['schedule_br2', 'results_br2', 'standings_br2'],
+    'br1': ['schedule_br1', 'results_br1', 'standings_br1'],
 
-    'info': ['anchor_calendar', 'anchor_wunsch', 'anchor_gesucht', 'anchor_divinfo']
+    'info': ['calendar', 'wunsch', 'gesucht', 'divinfo']
   };
   bhv.elements.expander.init(expanders, keepOpen);
 }
@@ -54,88 +54,88 @@ function init() {
 <body onload="init();">
 
   <h1 id="nw" class="expandable" style="">Nachwuchs<br><br>(U10 U11 U12 U13 U15)</h1>
-  <div id="nw_2">
+  <div id="nw_2" class="expanded_container">
 
     <h2 id="u10" class="expandable">U10</h2>
-    <div id="u10_2">
-      <a id="anchor_grundlagen_u10" href="u11#u10"><h3>Grundlagen</h3></a>
-      <a id="anchor_schedule_u10" href="schedule.html?key=u10"><h3>Spieltermine</h3></a>
-      <a id="anchor_standings_u10" href="standings.html?key=u10"><h3>Tabelle</h3></a>
+    <div id="u10_2" class="expanded_container">
+      <a id="grundlagen_u10" href="u11#u10"><h3>Grundlagen</h3></a>
+      <a id="schedule_u10" href="schedule.html?key=u10"><h3>Spieltermine</h3></a>
+      <a id="standings_u10" href="standings.html?key=u10"><h3>Tabelle</h3></a>
     </div>
 
     <h2 id="u11" class="expandable">U11</h2>
-    <div id="u11_2">
-      <a id="anchor_grundlagen_u11" href="u11"><h3>Grundlagen</h3></a>
-      <a id="anchor_schedule_u11" href="schedule.html?key=u11"><h3>Spieltermine</h3></a>
-      <a id="anchor_standings_u11" href="standings.html?key=u11"><h3>Tabelle</h3></a>
+    <div id="u11_2" class="expanded_container">
+      <a id="grundlagen_u11" href="u11"><h3>Grundlagen</h3></a>
+      <a id="schedule_u11" href="schedule.html?key=u11"><h3>Spieltermine</h3></a>
+      <a id="standings_u11" href="standings.html?key=u11"><h3>Tabelle</h3></a>
     </div>
 
     <h2 id="u12" class="expandable">U12</h2>
-    <div id="u12_2">
-      <a id="anchor_grundlagen_u12" href="u12"><h3>Grundlagen</h3></a>
-      <a id="anchor_schedule_u12" href="schedule.html?key=u12"><h3>Spieltermine</h3></a>
-      <a id="anchor_standings_u12" href="standings.html?key=u12"><h3>Tabelle</h3></a>
+    <div id="u12_2" class="expanded_container">
+      <a id="grundlagen_u12" href="u12"><h3>Grundlagen</h3></a>
+      <a id="schedule_u12" href="schedule.html?key=u12"><h3>Spieltermine</h3></a>
+      <a id="standings_u12" href="standings.html?key=u12"><h3>Tabelle</h3></a>
     </div>
 
     <h2 id="u13" class="expandable">U13</h2>
-    <div id="u13_2">
-      <!--a id="anchor_grundlagen_u13" href="u13"><h3>Grundlagen</h3></a-->
-      <a id="anchor_schedule_u13" href="schedule.html?key=u13"><h3>Spieltermine</h3></a>
-      <a id="anchor_standings_u13" href="standings.html?key=u13"><h3>Tabelle</h3></a>
+    <div id="u13_2" class="expanded_container">
+      <!--a id="grundlagen_u13" href="u13"><h3>Grundlagen</h3></a-->
+      <a id="schedule_u13" href="schedule.html?key=u13"><h3>Spieltermine</h3></a>
+      <a id="standings_u13" href="standings.html?key=u13"><h3>Tabelle</h3></a>
     </div>
 
     <h2 id="u15" class="expandable">U15</h2>
-    <div id="u15_2">
-      <!--a id="anchor_grundlagen_u15" href="u15"><h3>Grundlagen</h3></a-->
-      <a id="anchor_schedule_u15" href="schedule.html?key=u15"><h3>Spieltermine</h3></a>
-      <a id="anchor_standings_u15" href="standings.html?key=u15"><h3>Tabelle</h3></a>
+    <div id="u15_2" class="expanded_container">
+      <!--a id="grundlagen_u15" href="u15"><h3>Grundlagen</h3></a-->
+      <a id="schedule_u15" href="schedule.html?key=u15"><h3>Spieltermine</h3></a>
+      <a id="standings_u15" href="standings.html?key=u15"><h3>Tabelle</h3></a>
     </div>
 
   </div>
 
   <br>
   <h1 id="ak" class="expandable"><br>Allgemeine Klasse<br>&nbsp;</h1>
-  <div id="ak_2">
+  <div id="ak_2" class="expanded_container">
 
     <h2 id="br4" class="expandable">Brückl 4 - Unterliga</h2>
-    <div id="br4_2">
-      <a id="anchor_grundlagen_br4" href="uld/grundlagen"><h3>Grundlagen</h3></a>
-      <a id="anchor_schedule_br4" href="schedule.html?key=br4"><h3>Spieltermine</h3></a>
-      <a id="anchor_results_br4" href="results.html?key=br4"><h3>Ergebnisse</h3></a>
-      <a id="anchor_standings_br4" href="standings.html?key=br4"><h3>Tabelle</h3></a>
+    <div id="br4_2" class="expanded_container">
+      <a id="grundlagen_br4" href="uld/grundlagen"><h3>Grundlagen</h3></a>
+      <a id="schedule_br4" href="schedule.html?key=br4"><h3>Spieltermine</h3></a>
+      <a id="results_br4" href="results.html?key=br4"><h3>Ergebnisse</h3></a>
+      <a id="standings_br4" href="standings.html?key=br4"><h3>Tabelle</h3></a>
     </div>
 
     <h2 id="br3" class="expandable">Brückl 3 - Unterliga</h2>
-    <div id="br3_2">
-      <a id="anchor_grundlagen_br3" href="/uld/grundlagen3"><h3>Grundlagen</h3></a>
-      <a id="anchor_schedule_br3" href="schedule.html?key=br3"><h3>Spieltermine</h3></a>
-      <a id="anchor_results_br3" href="results.html?key=br3"><h3>Ergebnisse</h3></a>
-      <a id="anchor_standings_br3" href="standings.html?key=br3"><h3>Tabelle</h3></a>
-      <a id="anchor_statistics_br3" href="/uld/statistics3.html"><h3>Statistik</h3></a>
+    <div id="br3_2" class="expanded_container">
+      <a id="grundlagen_br3" href="/uld/grundlagen3"><h3>Grundlagen</h3></a>
+      <a id="schedule_br3" href="schedule.html?key=br3"><h3>Spieltermine</h3></a>
+      <a id="results_br3" href="results.html?key=br3"><h3>Ergebnisse</h3></a>
+      <a id="standings_br3" href="standings.html?key=br3"><h3>Tabelle</h3></a>
+      <a id="statistics_br3" href="/uld/statistics3.html"><h3>Statistik</h3></a>
     </div>
 
     <h2 id="br2" class="expandable">Brückl 2 - Landesliga</h2>
-    <div id="br2_2">
-      <a id="anchor_schedule_br2" href="schedule.html?key=br2"><h3>Spieltermine</h3></a>
-      <a id="anchor_results_br2" href="results.html?key=br2"><h3>Ergebnisse</h3></a>
-      <a id="anchor_standings_br2" href="standings.html?key=br2"><h3>Tabelle</h3></a>
+    <div id="br2_2" class="expanded_container">
+      <a id="schedule_br2" href="schedule.html?key=br2"><h3>Spieltermine</h3></a>
+      <a id="results_br2" href="results.html?key=br2"><h3>Ergebnisse</h3></a>
+      <a id="standings_br2" href="standings.html?key=br2"><h3>Tabelle</h3></a>
     </div>
 
     <h2 id="br1" class="expandable">Brückl 1 - Bundesliga</h2>
-    <div id="br1_2">
-      <a id="anchor_schedule_br1" href="schedule.html?key=br1"><h3>Spieltermine</h3></a>
-      <a id="anchor_results_br1" href="results.html?key=br1"><h3>Ergebnisse</h3></a>
-      <a id="anchor_standings_br1" href="standings.html?key=br1"><h3>Tabelle</h3></a>
+    <div id="br1_2" class="expanded_container">
+      <a id="schedule_br1" href="schedule.html?key=br1"><h3>Spieltermine</h3></a>
+      <a id="results_br1" href="results.html?key=br1"><h3>Ergebnisse</h3></a>
+      <a id="standings_br1" href="standings.html?key=br1"><h3>Tabelle</h3></a>
     </div>
   </div>
 
   <br>
   <h1 id="info" class="expandable"><br>Infos<br>&nbsp;</h1>
-  <div id="info_2">
-    <a id="anchor_calendar" href="calendar/calendar.html"><h3>Kalender</h3></a>
-    <a id="anchor_wunsch" href="info/wunschzettel.html"><h3>Ein Wunschzettel</h3></a>
-    <a id="anchor_gesucht" href="info/gesucht.html"><h3>Gesucht!<br>Bitte an Freunde und Bekannte weiterleiten.</h3></a>
-    <a id="anchor_divinfo" href="info/info.html"><h3>Allgemeine Infos</h3></a>
+  <div id="info_2" class="expanded_container">
+    <a id="calendar" href="calendar/calendar.html"><h3>Kalender</h3></a>
+    <a id="wunsch" href="info/wunschzettel.html"><h3>Ein Wunschzettel</h3></a>
+    <a id="gesucht" href="info/gesucht.html"><h3>Gesucht!<br>Bitte an Freunde und Bekannte weiterleiten.</h3></a>
+    <a id="divinfo" href="info/info.html"><h3>Allgemeine Infos</h3></a>
   </div>
 
 </body>

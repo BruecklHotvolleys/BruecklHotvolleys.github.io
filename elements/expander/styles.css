@@ -98,3 +98,10 @@ a h3::after {
   background-color: transparent;
   opacity: 0.2;
 }
+
+
+div.expanded_container {
+  position: relative;
+  width: 100%;
+  overflow: auto;
+}

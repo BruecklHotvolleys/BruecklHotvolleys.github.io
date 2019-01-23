@@ -39,18 +39,18 @@ a h3::after {
 function init() {
   var expanders = ['ann', 'auf', 'ang', 'bas', 'ver'],
       keepOpen = {
-        'ann': ['anchor_annahme', 'anchor_'],
+        'ann': ['annahme'],
         'auf': [
-          'anchor_wann_1', 'anchor_wann_2', 'anchor_wo',
-          'anchor_vorbereitung_1', 'anchor_vorbereitung_2',
-          'anchor_aufspiel'
+          'wann_1', 'wann_2', 'wo',
+          'vorbereitung_1', 'vorbereitung_2',
+          'aufspiel'
         ],
-        'ang': ['anchor_angriff_06', 'anchor_angriff_5v', 'anchor_angriff_2'],
-        'bas': ['anchor_basis_1', 'anchor_basis_2', 'anchor_basis_1b'],
+        'ang': ['angriff_06', 'angriff_5v', 'angriff_2'],
+        'bas': ['basis_1', 'basis_2', 'basis_1b'],
         'ver': [
-          'anchor_block', 'anchor_block_4', 'anchor_block_33', 'anchor_block_2',
-          'anchor_block_3', 'anchor_block_31', 'anchor_block_35',
-          'anchor_ohne_1', 'anchor_ohne_2'
+          'block', 'block_4', 'block_33', 'block_2',
+          'block_3', 'block_31', 'block_35',
+          'ohne_1', 'ohne_2'
         ]
       };
   bhv.elements.expander.init(expanders, keepOpen);
@@ -60,16 +60,16 @@ function init() {
 <body onload="init();">
 
   <div id="header">
-  <a href="/ov.html#anchor_grundlagen_br3" style="left: 10px;"><img src="/image/logo.png" height="30px" /></a>
+  <a href="/ov.html#grundlagen_br3" style="left: 10px;"><img src="/image/logo.png" height="30px" /></a>
   <div class="title">Grundlagen</div>
-  <a href="/ov.html#anchor_grundlagen_br3" style="right: 10px;"><img src="/image/logo.png" height="30px" /></a>
+  <a href="/ov.html#grundlagen_br3" style="right: 10px;"><img src="/image/logo.png" height="30px" /></a>
   </div>
 
   <h1 id="ann" class="tactics expandable">Annahme</h1>
-  <div id="ann_2">
+  <div id="ann_2" class="expanded_container">
   <table class="tactics" align="center" cellspacing="0" cellpadding="10">
     <tr>
-      <td><a id="anchor_annahme" href="annahme/annahme.html"><img src="annahme/zudritt.png" alt="3er Riegel"></a></td>
+      <td><a id="annahme" href="annahme/annahme.html"><img src="annahme/zudritt.png" alt="3er Riegel"></a></td>
     </tr>
     <tr>
       <td><a href="annahme/annahme.html"><div>3er Riegel</div></a></td>
@@ -78,12 +78,12 @@ function init() {
   </div>
 
   <h1 id="auf" class="tactics expandable">Aufspiel + Angriff</h1>
-  <div id="auf_2">
+  <div id="auf_2" class="expanded_container">
   <table class="tactics" align="center" cellspacing="0" cellpadding="10">
     <tr>
-      <td><a id="anchor_wann_1" href="aufspiel/wann_1.html"><h3>Wann 1</h3></a></td>
-      <td><a id="anchor_wann_2" href="aufspiel/wann_2.html"><h3>Wann 2</h3></a></td>
-      <td><a id="anchor_wo" href="aufspiel/wo.html"><h3>Wo</h3></a></td>
+      <td><a id="wann_1" href="aufspiel/wann_1.html"><h3>Wann 1</h3></a></td>
+      <td><a id="wann_2" href="aufspiel/wann_2.html"><h3>Wann 2</h3></a></td>
+      <td><a id="wo" href="aufspiel/wo.html"><h3>Wo</h3></a></td>
     </tr>
 
     <tr>
@@ -95,8 +95,8 @@ function init() {
 
   <table class="tactics" align="center" cellspacing="0" cellpadding="10">
     <tr>
-      <td><a id="anchor_vorbereitung_2" href="aufspiel/vorbereitung_2.html"><h3>Vorbereitung 2</h3></a></td>
-      <td><a id="anchor_vorbereitung_1" href="aufspiel/vorbereitung_1.html"><h3>Vorbereitung 1</h3></a></td>
+      <td><a id="vorbereitung_2" href="aufspiel/vorbereitung_2.html"><h3>Vorbereitung 2</h3></a></td>
+      <td><a id="vorbereitung_1" href="aufspiel/vorbereitung_1.html"><h3>Vorbereitung 1</h3></a></td>
     </tr>
 
     <tr>
@@ -107,7 +107,7 @@ function init() {
 
   <table class="tactics" align="center" cellspacing="0" cellpadding="10">
     <tr>
-      <td><a id="anchor_aufspiel" href="aufspiel"><h3>Die Codes</h3></a></td>
+      <td><a id="aufspiel" href="aufspiel"><h3>Die Codes</h3></a></td>
     </tr>
     <tr>
       <td><a href="aufspiel"><img src="aufspiel/plan.png" alt="Codes und Varianten"></a></td>
@@ -117,12 +117,12 @@ function init() {
 
 
   <h1 id="ang" class="tactics expandable">Angriff + Sicherung</h1>
-  <div id="ang_2">
+  <div id="ang_2" class="expanded_container">
   <table class="tactics" align="center" cellspacing="0" cellpadding="10">
     <tr>
-      <td><a id="anchor_angriff_06" href="aufspiel/angriff_06.html"><h3>Angriff 0/6</h3></a></td>
-      <td><a id="anchor_angriff_5v" href="aufspiel/angriff_5v.html"><h3>Angriff 5v</h3></a></td>
-      <td><a id="anchor_angriff_2" href="aufspiel/angriff_2.html"><h3>Angriff 2</h3></a></td>
+      <td><a id="angriff_06" href="aufspiel/angriff_06.html"><h3>Angriff 0/6</h3></a></td>
+      <td><a id="angriff_5v" href="aufspiel/angriff_5v.html"><h3>Angriff 5v</h3></a></td>
+      <td><a id="angriff_2" href="aufspiel/angriff_2.html"><h3>Angriff 2</h3></a></td>
     </tr>
 
     <tr>
@@ -135,12 +135,12 @@ function init() {
 
 
   <h1 id="bas" class="tactics expandable">Basis</h1>
-  <div id="bas_2">
+  <div id="bas_2" class="expanded_container">
   <table class="tactics" align="center" cellspacing="0" cellpadding="10">
     <tr>
-      <td><a id="anchor_basis_1" href="verteidigung/basis_1.html"><h3>Basis 1</h3></a></td>
-      <td><a id="anchor_basis_2" href="verteidigung/basis_2.html"><h3>Basis 2</h3></a></td>
-      <td><a id="anchor_basis_1b" href="verteidigung/basis_1b.html"><h3>Basis 1b</h3></a></td>
+      <td><a id="basis_1" href="verteidigung/basis_1.html"><h3>Basis 1</h3></a></td>
+      <td><a id="basis_2" href="verteidigung/basis_2.html"><h3>Basis 2</h3></a></td>
+      <td><a id="basis_1b" href="verteidigung/basis_1b.html"><h3>Basis 1b</h3></a></td>
     </tr>
     <tr>
       <td><a href="verteidigung/basis_1.html"><img src="verteidigung/basis1.png" alt="Basis 1"></a></td>
@@ -158,10 +158,10 @@ function init() {
 
 
   <h1 id="ver" class="tactics expandable">Block + Feldverteidigung</h1>
-  <div id="ver_2">
+  <div id="ver_2" class="expanded_container">
   <table class="tactics" align="center" cellspacing="0" cellpadding="10">
     <tr>
-      <td><a id="anchor_block" href="blockinfo/block.html"><img src="blockinfo/block2.gif" alt="Der Block"></a></td>
+      <td><a id="block" href="blockinfo/block.html"><img src="blockinfo/block2.gif" alt="Der Block"></a></td>
     </tr>
     <tr>
       <td><a href="blockinfo/block.html"><div>Infos zum Block</div></a></td>
@@ -170,9 +170,9 @@ function init() {
 
   <table class="tactics" align="center" cellspacing="0" cellpadding="10">
     <tr>
-      <td><a id="anchor_block_4" href="verteidigung/block_4.html"><h3>Doppelblock 4</h3></a></td>
-      <td><a id="anchor_block_33" href="verteidigung/block_33.html"><h3>Doppelblock 3</h3></a></td>
-      <td><a id="anchor_block_2" href="verteidigung/block_2.html"><h3>Doppelblock 2</h3></a></td>
+      <td><a id="block_4" href="verteidigung/block_4.html"><h3>Doppelblock 4</h3></a></td>
+      <td><a id="block_33" href="verteidigung/block_33.html"><h3>Doppelblock 3</h3></a></td>
+      <td><a id="block_2" href="verteidigung/block_2.html"><h3>Doppelblock 2</h3></a></td>
     </tr>
 
     <tr>
@@ -190,9 +190,9 @@ function init() {
 
   <table class="tactics" align="center" cellspacing="0" cellpadding="10">
     <tr>
-      <td><a id="anchor_block_3" href="verteidigung/block_3.html"><h3>Block 3</h3></a></td>
-      <td><a id="anchor_block_31" href="verteidigung/block_31.html"><h3>Block 3<sub>(1)</sub></h3></a></td>
-      <td><a id="anchor_block_35" href="verteidigung/block_35.html"><h3>Block 3<sub>(5)</sub></h3></a></td>
+      <td><a id="block_3" href="verteidigung/block_3.html"><h3>Block 3</h3></a></td>
+      <td><a id="block_31" href="verteidigung/block_31.html"><h3>Block 3<sub>(1)</sub></h3></a></td>
+      <td><a id="block_35" href="verteidigung/block_35.html"><h3>Block 3<sub>(5)</sub></h3></a></td>
     </tr>
 
     <tr>
@@ -210,8 +210,8 @@ function init() {
 
   <table class="tactics" align="center" cellspacing="0" cellpadding="10">
     <tr>
-      <td><a id="anchor_ohne_1" href="verteidigung/ohne_1.html"><h3>Ohne (1)</h3></a></td>
-      <td><a id="anchor_ohne_2" href="verteidigung/ohne_2.html"><h3>Ohne (2)</h3></a></td>
+      <td><a id="ohne_1" href="verteidigung/ohne_1.html"><h3>Ohne (1)</h3></a></td>
+      <td><a id="ohne_2" href="verteidigung/ohne_2.html"><h3>Ohne (2)</h3></a></td>
     </tr>
 
     <tr>

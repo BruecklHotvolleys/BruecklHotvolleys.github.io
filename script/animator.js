@@ -104,7 +104,7 @@ window.Animator = function () {
         }
 
         this.fps = EMPTY;
-        setTimeout(this._handle, WAIT, this);
+        setTimeout(this._handle.bind(this), WAIT);
 
         if (!this.idFps) {
           this.idFps = setInterval(function () {

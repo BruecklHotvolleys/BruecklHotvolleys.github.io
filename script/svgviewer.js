@@ -71,10 +71,10 @@ window.svgviewer = {
     control = document.querySelector('#' + id);
 
     if (control) {
-      // look for the buttons  ?? :scope
-      btnPlay = control.querySelector('div.ctrl_graphics_cmds > div.ctrl_graphics_cmd.play');
-      btnPause = control.querySelector('div.ctrl_graphics_cmds > div.ctrl_graphics_cmd.pause');
-      btnStop = control.querySelector('div.ctrl_graphics_cmds > div.ctrl_graphics_cmd.stop');
+      // look for the buttons
+      btnPlay = control.querySelector('div.animation_cmds > div.play');
+      btnPause = control.querySelector('div.animation_cmds > div.pause');
+      btnStop = control.querySelector('div.animation_cmds > div.stop');
 
       if (btnPlay && btnPause && btnStop) {
         btnPlay.addEventListener('click', function () {
@@ -199,8 +199,17 @@ window.svgviewer = {
    * @return {void}
    */
   'initAnimation': function initAnimation(restart, duration) {
+    var elemAnim;
+
     if (this.animator) {
       this.animator.init(restart, duration, this.handler, this);
+    } // show controls on exported viewer
+
+
+    elemAnim = document.querySelector('div#svgcanvas > div.animation_cmds');
+
+    if (elemAnim) {
+      elemAnim.style.display = 'block';
     }
   },
 
@@ -219,7 +228,7 @@ window.svgviewer = {
   'start': function start() {
     var actions, btnContainer; // update commands
 
-    btnContainer = document.querySelector('#' + this.id + ' div.ctrl_graphics_cmds');
+    btnContainer = document.querySelector('#' + this.id + ' div.animation_cmds');
 
     if (btnContainer) {
       this._addClass(btnContainer, 'canpause');
@@ -244,7 +253,7 @@ window.svgviewer = {
    */
   'pause': function pause() {
     // update commands
-    var btnContainer = document.querySelector('#' + this.id + ' div.ctrl_graphics_cmds');
+    var btnContainer = document.querySelector('#' + this.id + ' div.animation_cmds');
 
     if (btnContainer) {
       this._removeClass(btnContainer, 'canpause');
@@ -263,7 +272,7 @@ window.svgviewer = {
   'stop': function stop() {
     var actions, btnContainer; // update commands
 
-    btnContainer = document.querySelector('#' + this.id + ' div.ctrl_graphics_cmds');
+    btnContainer = document.querySelector('#' + this.id + ' div.animation_cmds');
 
     if (btnContainer) {
       this._removeClass(btnContainer, 'canpause');

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Brückl hotvolleys</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="shortcut icon" href="/favicons/favicon.ico">
+  <script src="/script/polyfills.js"></script>
+  <script src="/script/animator.js"></script>
+  <script src="/script/svgviewer.js"></script>
+  <style>
+body {
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#footer {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 22px;
+  padding: 2px 5px 0px 10px;
+
+  background-color: lightblue;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+}
+#footer > div {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 22px;
+  padding: 2px 10px 0px 5px;
+
+  background-color: inherit;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+div#svgcanvas {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  min-width: 100px;
+  bottom: 22px;
+  background-color: aliceblue;
+}
+div#svgcanvas > svg {
+  height: 100%;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+div#svgcanvas > div.animation_cmds {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 40px;
+  width: 78px;
+  border-radius: 3px;
+  background-color: darkgray;
+  display: none;
+}
+div#svgcanvas > div.animation_cmds > div {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 36px;
+  width: 36px;
+  border-radius: 2px;
+  background-color: lightgray;
+  overflow: hidden;
+}
+div#svgcanvas > div.animation_cmds > div.stop {
+  left: 41px;
+}
+div#svgcanvas > div.animation_cmds > div > div {
+  position: absolute;
+  left: 9px;
+  top: 6px;
+  z-index: 1;
+  background-color: lightgray;
+}
+
+div#svgcanvas > div.animation_cmds > div.play {
+  cursor: pointer;
+}
+div#svgcanvas > div.animation_cmds > div.play > div {
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-left: 19px solid gray;
+  border-bottom: 12px solid transparent;
+}
+
+div#svgcanvas > div.animation_cmds > div.pause {
+  cursor: pointer;
+  display: none;
+}
+div#svgcanvas > div.animation_cmds > div.pause > div {
+  box-sizing: border-box;
+  width: 19px;
+  height: 24px;
+  border: 5px solid gray;
+  border-width: 0 8px;
+}
+
+div#svgcanvas > div.animation_cmds > div.stop > div {
+  top: 9px;
+  width: 19px;
+  height: 19px;
+  background-color: gray;
+  opacity: 0.5;
+}
+
+div#svgcanvas > div.animation_cmds.play > div.play {
+  display: none;
+}
+div#svgcanvas > div.animation_cmds.play > div.pause {
+  display: block;
+}
+div#svgcanvas > div.animation_cmds.play > div.stop {
+  cursor: pointer;
+}
+div#svgcanvas > div.animation_cmds.play > div.stop > div {
+  opacity: 1;
+}
+
+div#svgcanvas > div.animation_cmds.pause > div.stop {
+  cursor: pointer;
+}
+div#svgcanvas > div.animation_cmds.pause > div.stop > div {
+  opacity: 1;
+}
+
+#svgmenu {
+  background-color: transparent;
+}
+  </style>
+  <script>
+function init() {
+  // block default context menu
+  window.addEventListener('contextmenu', function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    return false;
+  });
+
+  // get scripts and evaluate them
+  var elemTpl = document.querySelector('#svg_script');
+  if (elemTpl) {
+    eval(elemTpl.innerText);
+  }
+
+  // check for menu, if any: init it
+  var elemCanvas = document.querySelector('div#svgcanvas'),
+      elemMenu = document.querySelector('#svgmenu');
+  if (elemCanvas && elemMenu) {
+    svgviewer.menuHandler = menuHandler;
+    svgviewer.initContextMenu(elemCanvas);
+  }
+
+  // handle animation
+  var i, mode = '',
+      anim = document.querySelector('div#svgcanvas > div.animation_cmds'),
+      btns = anim.querySelectorAll('div'),
+      handler = function(event) {
+        var mode = anim.className.indexOf('play') > -1 ? 'play'
+          : (anim.className.indexOf('pause') > -1 ? 'pause' : 'stop'),
+            cmd = '',
+            nextMode = '';
+
+        switch (this.className) {
+          case 'play':
+            if (mode == 'stop' || mode == 'pause') {
+              cmd = 'play';
+              nextMode = 'animation_cmds play';
+            }
+            break;
+          case 'pause':
+            if (mode == 'play') {
+              cmd = 'pause';
+              nextMode = 'animation_cmds pause';
+            }
+            break;
+          case 'stop':
+            if (mode == 'play' || mode == 'pause') {
+              cmd = 'stop';
+              nextMode = 'animation_cmds';
+            }
+            break;
+          // no-default
+        }
+
+        if (nextMode && cmd) {
+          console.log(cmd);
+          anim.className = nextMode;
+
+          // TODO set animation mode
+        }
+      };
+  for (i = 0; i < btns.length; ++i) {
+    btns[i].addEventListener('click', handler);
+  }
+
+  // init viewer
+  svgviewer.init('svgcanvas');
+}
+
+function menuHandler(fullkey, state) {
+  // console.log('Menuitem: ' + fullkey + ' -> ' + state);
+  svgviewer.setOption(fullkey, state);
+}
+  </script>
+</head>
+<body onload="init();">
+<div class="container">
+<div id="header"><a href="/u11/#2x_spielen" style="left: 10px;"><img src="/image/logo.png" height="30px" /></a>
+<div class="title">{{title}}</div>
+<a href="/u11/#2x_spielen" style="right: 10px;"><img src="/image/logo.png" height="30px" /></a>
+</div>
+<div id="svgcanvas"><div class="animation_cmds">
+  <div class="play"><div>&nbsp;</div></div>
+  <div class="pause"><div>&nbsp;</div></div>
+  <div class="stop"><div>&nbsp;</div></div>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 675 1125"><g class="court"><rect x="0" y="0" width="675" height="1125" style="fill: lime"></rect><rect x="112.5" y="112.5" width="450" height="900" style="fill: orange; stroke: blue; stroke-width: 5px;"></rect><line x1="112.5" y1="562.5" x2="562.5" y2="562.5" style="stroke: blue; stroke-width: 5px;"></line><g data-xid="option_document_grid_5" desc="Grid 0.5m" style="display: none;">  <line x1="12.5" y1="0" x2="12.5" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="62.5" y1="0" x2="62.5" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="112.5" y1="0" x2="112.5" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="162.5" y1="0" x2="162.5" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="212.5" y1="0" x2="212.5" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="262.5" y1="0" x2="262.5" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="312.5" y1="0" x2="312.5" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="362.5" y1="0" x2="362.5" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="412.5" y1="0" x2="412.5" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="462.5" y1="0" x2="462.5" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="512.5" y1="0" x2="512.5" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="562.5" y1="0" x2="562.5" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="612.5" y1="0" x2="612.5" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="662.5" y1="0" x2="662.5" y2="1125" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="12.5" x2="675" y2="12.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="62.5" x2="675" y2="62.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="112.5" x2="675" y2="112.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="162.5" x2="675" y2="162.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="212.5" x2="675" y2="212.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="262.5" x2="675" y2="262.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="312.5" x2="675" y2="312.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="362.5" x2="675" y2="362.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="412.5" x2="675" y2="412.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="462.5" x2="675" y2="462.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="512.5" x2="675" y2="512.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="562.5" x2="675" y2="562.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="612.5" x2="675" y2="612.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="662.5" x2="675" y2="662.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="712.5" x2="675" y2="712.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="762.5" x2="675" y2="762.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="812.5" x2="675" y2="812.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="862.5" x2="675" y2="862.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="912.5" x2="675" y2="912.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="962.5" x2="675" y2="962.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1012.5" x2="675" y2="1012.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1062.5" x2="675" y2="1062.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line><line x1="0" y1="1112.5" x2="675" y2="1112.5" style="stroke: lightgray; stroke-dasharray: 5 5;"></line></g><g data-xid="option_document_grid_1" desc="Grid 1m" style="display: none;">  <line x1="62.5" y1="0" x2="62.5" y2="1125" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="162.5" y1="0" x2="162.5" y2="1125" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="262.5" y1="0" x2="262.5" y2="1125" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="362.5" y1="0" x2="362.5" y2="1125" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="462.5" y1="0" x2="462.5" y2="1125" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="562.5" y1="0" x2="562.5" y2="1125" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="12.5" x2="675" y2="12.5" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="112.5" x2="675" y2="112.5" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="212.5" x2="675" y2="212.5" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="312.5" x2="675" y2="312.5" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="412.5" x2="675" y2="412.5" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="512.5" x2="675" y2="512.5" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="612.5" x2="675" y2="612.5" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="712.5" x2="675" y2="712.5" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="812.5" x2="675" y2="812.5" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="912.5" x2="675" y2="912.5" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="1012.5" x2="675" y2="1012.5" style="stroke: gray; stroke-dasharray: 10 10;"></line><line x1="0" y1="1112.5" x2="675" y2="1112.5" style="stroke: gray; stroke-dasharray: 10 10;"></line></g><g transform="translate(112.5 562.5)"><g class="actions"><line x1="346.69590699772453" y1="275.21930248293415" x2="330" y2="150" style="stroke: black; fill: black; stroke-width: 3; stroke-dasharray: 5;"></line><line x1="330" y1="150" x2="319.53703882612774" y2="176.61630474055224" style="stroke: black; fill: black; stroke-width: 3; stroke-dasharray: 5;"></line><line x1="330" y1="150" x2="347.0711471784232" y2="172.9450902935795" style="stroke: black; fill: black; stroke-width: 3; stroke-dasharray: 5;"></line><line x1="105" y1="-255" x2="105" y2="275" style="stroke: black; fill: black; stroke-width: 3; stroke-dasharray: 5;"></line><line x1="105" y1="275" x2="118.88888888888889" y2="250" style="stroke: black; fill: black; stroke-width: 3; stroke-dasharray: 5;"></line><line x1="105" y1="275" x2="91.11111111111111" y2="250" style="stroke: black; fill: black; stroke-width: 3; stroke-dasharray: 5;"></line><line x1="105" y1="275" x2="325" y2="125" style="stroke: black; fill: black; stroke-width: 3; stroke-dasharray: 5;"></line><line x1="325" y1="125" x2="296.5201938653459" y2="127.60804085482182" style="stroke: black; fill: black; stroke-width: 3; stroke-dasharray: 5;"></line><line x1="325" y1="125" x2="312.16843899427676" y2="150.55880037725368" style="stroke: black; fill: black; stroke-width: 3; stroke-dasharray: 5;"></line></g><g id="player_actor_124" transform="translate(100 -300) rotate(170)"><circle cx="0" cy="0" r="50" style="fill: firebrick; stroke: none;" transform="scale(1 0.5)"></circle><g id="player_actor_124-prepareblock" style="display: none;">  <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line>  <line x1="22.5" y1="-25" x2="37.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line></g><g id="player_actor_124-block" style="display: none;">  <line x1="-41" y1="-25" x2="41" y2="-25" style="stroke: firebrick; stroke-width: 17; stroke-linecap: round;"></line></g><g id="player_actor_124-preparereception" style="display: none;">  <line x1="-37.5" y1="0" x2="-62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="-62.5" y1="-25" x2="-62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="62.5" y1="-25" x2="62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_124-reception" style="display: none;">  <line x1="-37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_124-attack" style="display: none;">  return '<line x1="37.5" y1="0" x2="37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_124-attackleft" style="display: none;">  return '<line x1="-37.5" y1="0" x2="-37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_124-set" style="display: none;">  <line x1="-37.5" y1="0" x2="-20" y2="-23" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="20" y2="-20" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g></g><g id="player_actor_125" transform="translate(350 -300) rotate(190)"><circle cx="0" cy="0" r="50" style="fill: firebrick; stroke: none;" transform="scale(1 0.5)"></circle><g id="player_actor_125-prepareblock" style="display: none;">  <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line>  <line x1="22.5" y1="-25" x2="37.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line></g><g id="player_actor_125-block" style="display: none;">  <line x1="-41" y1="-25" x2="41" y2="-25" style="stroke: firebrick; stroke-width: 17; stroke-linecap: round;"></line></g><g id="player_actor_125-preparereception" style="display: none;">  <line x1="-37.5" y1="0" x2="-62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="-62.5" y1="-25" x2="-62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="62.5" y1="-25" x2="62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_125-reception" style="display: none;">  <line x1="-37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_125-attack" style="display: none;">  return '<line x1="37.5" y1="0" x2="37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_125-attackleft" style="display: none;">  return '<line x1="-37.5" y1="0" x2="-37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_125-set" style="display: none;">  <line x1="-37.5" y1="0" x2="-20" y2="-23" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="20" y2="-20" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g></g><g id="player_actor_126" transform="translate(100 300) rotate(10)"><circle cx="0" cy="0" r="50" style="fill: firebrick; stroke: none;" transform="scale(1 0.5)"></circle><g id="player_actor_126-prepareblock" style="display: none;">  <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line>  <line x1="22.5" y1="-25" x2="37.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line></g><g id="player_actor_126-block" style="display: none;">  <line x1="-41" y1="-25" x2="41" y2="-25" style="stroke: firebrick; stroke-width: 17; stroke-linecap: round;"></line></g><g id="player_actor_126-preparereception" style="display: none;">  <line x1="-37.5" y1="0" x2="-62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="-62.5" y1="-25" x2="-62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="62.5" y1="-25" x2="62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_126-reception" style="display: none;">  <line x1="-37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_126-attack" style="display: none;">  return '<line x1="37.5" y1="0" x2="37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_126-attackleft" style="display: none;">  return '<line x1="-37.5" y1="0" x2="-37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_126-set" style="display: none;">  <line x1="-37.5" y1="0" x2="-20" y2="-23" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="20" y2="-20" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g></g><g id="player_actor_127" transform="translate(350 300) rotate(-10)"><circle cx="0" cy="0" r="50" style="fill: firebrick; stroke: none;" transform="scale(1 0.5)"></circle><g id="player_actor_127-prepareblock" style="display: none;">  <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line>  <line x1="22.5" y1="-25" x2="37.5" y2="-25" style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;"></line></g><g id="player_actor_127-block" style="display: none;">  <line x1="-41" y1="-25" x2="41" y2="-25" style="stroke: firebrick; stroke-width: 17; stroke-linecap: round;"></line></g><g id="player_actor_127-preparereception" style="display: none;">  <line x1="-37.5" y1="0" x2="-62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="-62.5" y1="-25" x2="-62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="62.5" y2="-25" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="62.5" y1="-25" x2="62.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_127-reception" style="display: none;">  <line x1="-37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="0" y2="-75" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_127-attack" style="display: none;">  return '<line x1="37.5" y1="0" x2="37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_127-attackleft" style="display: none;">  return '<line x1="-37.5" y1="0" x2="-37.5" y2="-50" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g><g id="player_actor_127-set" style="display: none;">  <line x1="-37.5" y1="0" x2="-20" y2="-23" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line>  <line x1="37.5" y1="0" x2="20" y2="-20" style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;"></line></g></g><g id="actor_128" transform="translate(105 -275)"><circle cx="0" cy="0" r="20" style="fill: #EEEEEE; stroke: none;"></circle></g></g></g></svg><script id="svg_script">
+svgviewer.setOption('option:document:grid:1', false);
+svgviewer.setOption('option:document:grid:5', false);
+svgviewer.addAnimation('player_actor_124', [{"type":"M","start":5.5,"duration":0.5,"end":6,"val1":20,"val2":150,"val3":"x"},{"type":"M","start":6.5,"duration":1,"end":7.5,"val1":-20,"val2":-150,"val3":"x"}]);
+svgviewer.addAnimation0('player_actor_124', {"angle":170,"visible":true,"x":100,"y":-300});
+svgviewer.addAnimation0('player_actor_124', {"text":"","type":""});
+svgviewer.addAnimation('player_actor_127', [{"type":"M","start":3.5,"duration":0.5,"end":4,"val1":-20,"val2":-150,"val3":"s"},{"type":"M","start":4.5,"duration":1,"end":5.5,"val1":20,"val2":150,"val3":"x"},{"type":"M","start":7.5,"duration":0.5,"end":8,"val1":-20,"val2":-150,"val3":"x"}]);
+svgviewer.addAnimation0('player_actor_127', {"angle":-10,"visible":true,"x":350,"y":300});
+svgviewer.addAnimation0('player_actor_127', {"text":"","type":""});
+svgviewer.addAnimation('actor_128', [{"type":"M","start":2,"duration":1,"end":3,"val1":0,"val2":550,"val3":"s"},{"type":"M","start":3,"duration":1,"end":4,"val1":220,"val2":-150},{"type":"M","start":4,"duration":1,"end":5,"val1":20,"val2":-400,"val3":"x"},{"type":"M","start":5,"duration":1,"end":6,"val1":-220,"val2":150,"val3":"x"},{"type":"M","start":6,"duration":1,"end":7,"val1":-20,"val2":400,"val3":"x"},{"type":"M","start":7,"duration":1,"end":8,"val1":220,"val2":-150,"val3":"x"}]);
+svgviewer.addAnimation0('actor_128', {"angle":0,"visible":true,"x":105,"y":-275});
+svgviewer.initAnimation(4, 8);
+svgviewer.setTitle('2x Spielen');
+</script>
+<!-- style>  svg # svgmenu {    position: absolute;    top: 0;    left: 0;    z-index: 99;    -ms-user-select: none;    -moz-user-select: none;    -webkit-user-select: none;    user-select: none;  }</style --></div>
+<div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div>
+</div>
+</div>
+</body>
+</html>
