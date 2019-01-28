@@ -6,26 +6,21 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="shortcut icon" href="/favicons/favicon.ico">
   <style>
-pre#content {
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
-  bottom: 0;
-  overflow: auto;
-  font-family: monospace;
-  text-align: left;
-  font-size: 16px;
-  padding: 16px;
-  line-height: 111%;
-  box-sizing: border-box;
-}
-b.team {
-  font-family: monospace;
-  text-align: left;
-  font-size: 16px;
-  padding: 0px;
-}
+  pre#content {
+    font-family: monospace;
+    line-height: 111%;
+    text-align: left;
+    font-size: 3em;
+  }
+  pre#content > b {
+    font-size: 1.5em;
+  }
+  pre#content > b.team {
+    font-family: monospace;
+    text-align: left;
+    font-size: 1em;
+    padding: 0px;
+  }
   </style>
   <script src="/script/polyfills.js"></script>
   <script src="/script/db.js"></script>
@@ -36,7 +31,7 @@ function setBack(region) {
   var i, lnks, href,
       key = window.bhv.request.utils.getKey();
   if (key) {
-    lnks = document.querySelectorAll('div#header > a');
+    lnks = document.querySelectorAll('div#header a');
     if (lnks) {
       for (i = 0; i < lnks.length; ++i) {
         lnks[i].setAttribute('href', lnks[i].getAttribute('href') + '#'
@@ -49,10 +44,14 @@ function setBack(region) {
  </head>
  <body onload="setBack('results'); getResults();">
   <div id="header">
-  <a href="/ov.html" style="left: 10px;"><img src="/image/logo.png" height="30px" /></a>
-  <div class="title">Ergebnisse</div>
-  <a href="/ov.html" style="right: 10px;"><img src="/image/logo.png" height="30px" /></a>
+    <div class="left">
+    <a href="/ov.html"><img src="/image/logo.png"/></a>
+    <div>Ergebnisse</div>
+    </div><div class="right">
+    <a href="/ov.html"><img src="/image/logo.png"/></a>
+    </div>
   </div>
-  <pre id="content">Loading...</pre>
+  <div id="content_container"><pre id="content">Loading...</pre></div>
+  <div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div>
  </body>
 </html>

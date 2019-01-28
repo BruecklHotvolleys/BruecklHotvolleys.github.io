@@ -36,7 +36,7 @@ var calendar = {
 
     this._injectHtml('header', this._createHeader());
     this._inject('footer', 'tplFooter');
-    this._injectHtml('content', this._createContent());
+    this._injectHtml('content_container', this._createContent());
     // load games and tournaments asynchronously
     this._loadDates();
 
@@ -60,7 +60,7 @@ var calendar = {
   },
   '_initEvents': function() {
     var i,
-        elemsNav = this._document.querySelectorAll('#header > .nav'),
+        elemsNav = this._document.querySelectorAll('#header .nav'),
 
         handlerNav = function(ev) {
           var key = ev.currentTarget.getAttribute('data-dir');
@@ -78,9 +78,9 @@ var calendar = {
   },
   '_initDatesInfo': function() {
     var i,
-        elemMain = this._document.querySelector('#content > .main'),
-        elems = this._document.querySelectorAll('#content > .main > .week > .day.enabled > .entry.enabled'),
-        elemsInfo = this._document.querySelectorAll('#content > .entryInfo'),
+        elemMain = this._document.querySelector('#content_container > .main'),
+        elems = this._document.querySelectorAll('#content_container > .main > .week > .day.enabled > .entry.enabled'),
+        elemsInfo = this._document.querySelectorAll('#content_container > .entryInfo'),
         handler = function(ev) {
           var elem = ev.currentTarget,
               id = elem.getAttribute('data-xid'),
@@ -272,7 +272,7 @@ var calendar = {
             for (i = 0; i < keys.length; ++i) {
               elemDay = this._document
                 .querySelector('div.day[data-key="' + keys[i] + '"]');
-              elemContent = this._document.querySelector('#content');
+              elemContent = this._document.querySelector('#content_container');
               if (elemDay && elemContent) {
                 tpl = '';
                 tpl2 = '';

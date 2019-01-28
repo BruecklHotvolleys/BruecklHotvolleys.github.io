@@ -23,40 +23,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#footer {
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 22px;
-  padding: 2px 5px 0px 10px;
-
-  background-color: lightblue;
-  font-size: 15px;
-  font-weight: bold;
-  text-align: left;
-}
-#footer > div {
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 22px;
-  padding: 2px 10px 0px 5px;
-
-  background-color: inherit;
-  font-size: 15px;
-  font-weight: bold;
-}
-
 div#svgcanvas {
   position: absolute;
-  left: 0;
-  top: 50px;
-  width: 100%;
-  min-width: 100px;
-  bottom: 22px;
+  left: 1em;
+  top: 11em;
+  right: 1em;
+  min-width: 10em;
+  bottom: 4.8em;
   background-color: aliceblue;
 }
 div#svgcanvas > svg {
@@ -70,29 +43,29 @@ div#svgcanvas > div.animation_cmds {
   position: absolute;
   top: 0;
   right: 0;
-  height: 40px;
-  width: 78px;
-  border-radius: 3px;
+  height: 5em;
+  width: 9.9em;
+  border-radius: 0.1em;
   background-color: darkgray;
   display: none;
 }
 div#svgcanvas > div.animation_cmds > div {
   position: absolute;
-  top: 2px;
-  left: 2px;
-  height: 36px;
-  width: 36px;
-  border-radius: 2px;
+  top: 0.1em;
+  left: 0.1em;
+  height: 4.8em;
+  width: 4.8em;
+  border-radius: 0.1em;
   background-color: lightgray;
   overflow: hidden;
 }
 div#svgcanvas > div.animation_cmds > div.stop {
-  left: 41px;
+  left: 5em;
 }
 div#svgcanvas > div.animation_cmds > div > div {
   position: absolute;
-  left: 9px;
-  top: 6px;
+  left: 1em;
+  top: 0.8em;
   z-index: 1;
   background-color: lightgray;
 }
@@ -103,9 +76,9 @@ div#svgcanvas > div.animation_cmds > div.play {
 div#svgcanvas > div.animation_cmds > div.play > div {
   width: 0;
   height: 0;
-  border-top: 12px solid transparent;
-  border-left: 19px solid gray;
-  border-bottom: 12px solid transparent;
+  border-top: 1.5em solid transparent;
+  border-left: 3em solid gray;
+  border-bottom: 1.5em solid transparent;
 }
 
 div#svgcanvas > div.animation_cmds > div.pause {
@@ -114,16 +87,16 @@ div#svgcanvas > div.animation_cmds > div.pause {
 }
 div#svgcanvas > div.animation_cmds > div.pause > div {
   box-sizing: border-box;
-  width: 19px;
-  height: 24px;
-  border: 5px solid gray;
-  border-width: 0 8px;
+  width: 2.8em;
+  height: 3em;
+  border: 1em solid gray;
+  border-width: 0 1em;
 }
 
 div#svgcanvas > div.animation_cmds > div.stop > div {
-  top: 9px;
-  width: 19px;
-  height: 19px;
+  top: 0.9em;
+  width: 2.8em;
+  height: 2.8em;
   background-color: gray;
   opacity: 0.5;
 }
@@ -230,9 +203,12 @@ function menuHandler(fullkey, state) {
 </head>
 <body onload="init();">
 <div class="container">
-<div id="header"><a href="/uld/grundlagen3/#ohne_1" style="left: 10px;"><img src="/image/logo.png" height="30px" /></a>
-<div class="title">{{title}}</div>
-<a href="/uld/grundlagen3/#ohne_1" style="right: 10px;"><img src="/image/logo.png" height="30px" /></a>
+<div id="header"><div class="left">
+<a href="/uld/grundlagen3/#ohne_1"><img src="/image/logo.png"/></a>
+<div>{{title}}</div>
+</div><div class="right">
+<a href="/uld/grundlagen3/#ohne_1"><img src="/image/logo.png"/></a>
+</div>
 </div>
 <div id="svgcanvas"><div class="animation_cmds">
   <div class="play"><div>&nbsp;</div></div>

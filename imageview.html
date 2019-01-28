@@ -6,12 +6,12 @@
   <link rel="shortcut icon" href="/favicons/favicon.ico">
   <link rel="stylesheet" href="/styles.css">
   <style>
-div {
+div#img {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  left: 1em;
+  top: 11em;
+  right: 1em;
+  bottom: 4.8em;
   background-image: url("image/logo.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -21,17 +21,70 @@ div {
   </style>
   <script>
 function setImage() {
-  var s = location.search;
+  var s = location.search,
+      cmds, cmd, i, parts, img, tit, inf, back, elems, elem, e;
   if (s && s.length > 1) {
-    var elem = document.getElementById('img');
-    if (elem) {
-      elem.style.backgroundImage = 'url("/' + s.substr(1) +'")';
+    cmds = s.substr(1).split('&');
+    for (i = 0; i < cmds.length; ++i) {
+      cmd = cmds[i];
+      parts = cmd.split('=');
+      switch (parts[0]) {
+        case 'b':
+          back = decodeURIComponent(parts[1]);
+          break;
+        case 'i':
+          img = decodeURIComponent(parts[1]);
+          break;
+        case 't':
+          tit = decodeURIComponent(parts[1]);
+          break;
+        case 'x':
+          inf = decodeURIComponent(parts[1]);
+          break;
+      }
+    }
+
+    // main image
+    elem = document.getElementById('img');
+    if (img && elem) {
+      // elem.style.backgroundImage = 'url("/' + s.substr(1) +'")';
+      elem.style.backgroundImage = 'url("' + img + '")';
+    }
+
+    // title
+    elem = document.querySelector('div#header > div.left > div');
+    if (tit && elem) {
+      elem.innerHTML = tit;
+    }
+
+    // info
+    elem = document.getElementById('footer');
+    if (inf && elem) {
+      elem.innerHTML = inf;
+      elem.style.textAlign = 'center';
+    }
+
+    // back links
+    elems = document.querySelectorAll('div#header a');
+    if (elems && back) {
+      for (i = 0; i < elems.length; ++i) {
+        elem = elems[i];
+        elem.setAttribute('href', back);
+      }
     }
   }
 }
   </script>
 </head>
 <body onload="setImage();">
+  <div id="header"><div class="left">
+<a href="/ov.html"><img src="/image/logo.png"/></a>
+<div>&nbsp;</div>
+</div><div class="right">
+<a href="/ov.html"><img src="/image/logo.png"/></a>
+</div>
+</div>
   <div id="img">&nbsp;</div>
+  <div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div>
 </body>
 </html>

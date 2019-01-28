@@ -98,7 +98,7 @@ window.svgviewer = {
    * @return {void}
    */
   'setTitle': function setTitle(title) {
-    var elemTitle = document.querySelector('div#header > div.title');
+    var elemTitle = document.querySelector('div#header > div.left > div');
 
     if (elemTitle) {
       elemTitle.innerHTML = title;

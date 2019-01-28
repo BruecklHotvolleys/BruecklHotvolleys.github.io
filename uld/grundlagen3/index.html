@@ -3,227 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <title>Brückl hotvolleys</title>
-  <link rel="stylesheet" href="/elements/expander/styles.css">
   <link rel="stylesheet" href="/styles.css">
-  <style>
-body {
-  margin: 60px 0 0 0;
-}
-
-a.line {
-  padding: 5px 10px;
-  display: block;
-  text-align: left;
-}
-a.line.line1 {
-  background-color: #EEE;
-}
-table.tactics img {
-  // TODO width: 200px;
-  width: 250px;
-}
-h1.tactics {
-  padding: 30px;
-}
-h3 sub {
-  background: lightblue;
-  font-size: 14px;
-}
-a h3::after {
-  border: 0 none;
-}
-  </style>
   <link rel="shortcut icon" href="/favicons/favicon.ico">
-  <script src="/elements/expander/script.js"></script>
-  <script>
-function init() {
-  var expanders = ['ann', 'auf', 'ang', 'bas', 'ver'],
-      keepOpen = {
-        'ann': ['annahme'],
-        'auf': [
-          'wann_1', 'wann_2', 'wo',
-          'vorbereitung_1', 'vorbereitung_2',
-          'aufspiel'
-        ],
-        'ang': ['angriff_06', 'angriff_5v', 'angriff_2'],
-        'bas': ['basis_1', 'basis_2', 'basis_1b'],
-        'ver': [
-          'block', 'block_4', 'block_33', 'block_2',
-          'block_3', 'block_31', 'block_35',
-          'ohne_1', 'ohne_2'
-        ]
-      };
-  bhv.elements.expander.init(expanders, keepOpen);
-}
-  </script>
 </head>
-<body onload="init();">
+<body>
+  <div id="header"><div class="left">
+<a href="/ov.html#grundlagen_br3"><img src="/image/logo.png"/></a>
+<div>Grundlagen</div>
+</div><div class="right">
+<a href="/ov.html#grundlagen_br3"><img src="/image/logo.png"/></a>
+</div>
+</div>
+  <h1 class="tactics">Annahme</h1>
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="3er_riegel" href="/uld/grundlagen3/annahme/zudritt.html"><h3>3er Riegel</h3></a></td>
 
-  <div id="header">
-  <a href="/ov.html#grundlagen_br3" style="left: 10px;"><img src="/image/logo.png" height="30px" /></a>
-  <div class="title">Grundlagen</div>
-  <a href="/ov.html#grundlagen_br3" style="right: 10px;"><img src="/image/logo.png" height="30px" /></a>
-  </div>
+  </tr>
+  <tr>
+    <td><a href="/uld/grundlagen3/annahme/zudritt.html"><img src="/uld/grundlagen3/annahme/zudritt.png" alt="3er Riegel"></a></td>
 
-  <h1 id="ann" class="tactics expandable">Annahme</h1>
-  <div id="ann_2" class="expanded_container">
-  <table class="tactics" align="center" cellspacing="0" cellpadding="10">
-    <tr>
-      <td><a id="annahme" href="annahme/annahme.html"><img src="annahme/zudritt.png" alt="3er Riegel"></a></td>
-    </tr>
-    <tr>
-      <td><a href="annahme/annahme.html"><div>3er Riegel</div></a></td>
-    </tr>
-  </table>
-  </div>
+  </tr>
+</table>
 
-  <h1 id="auf" class="tactics expandable">Aufspiel + Angriff</h1>
-  <div id="auf_2" class="expanded_container">
-  <table class="tactics" align="center" cellspacing="0" cellpadding="10">
-    <tr>
-      <td><a id="wann_1" href="aufspiel/wann_1.html"><h3>Wann 1</h3></a></td>
-      <td><a id="wann_2" href="aufspiel/wann_2.html"><h3>Wann 2</h3></a></td>
-      <td><a id="wo" href="aufspiel/wo.html"><h3>Wo</h3></a></td>
-    </tr>
+<h1 class="tactics">Aufspiel + Angriff</h1>
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="wann_1" href="/uld/grundlagen3/aufspiel/wann_1.html"><h3>Wann 1</h3></a></td>
+<td><a id="wann_2" href="/uld/grundlagen3/aufspiel/wann_2.html"><h3>Wann 2</h3></a></td>
+<td><a id="wo" href="/uld/grundlagen3/aufspiel/wo.html"><h3>Wo</h3></a></td>
 
-    <tr>
-      <td><a href="aufspiel/wann_1.html"><img src="aufspiel/wann1.png" alt="Wann 1"></a></td>
-      <td><a href="aufspiel/wann_2.html"><img src="aufspiel/wann2.png" alt="Wann 2"></a></td>
-      <td><a href="aufspiel/wo.html"><img src="aufspiel/wo.png" alt="Wo"></a></td>
-    </tr>
-  </table>
+  </tr>
+  <tr>
+    <td><a href="/uld/grundlagen3/aufspiel/wann_1.html"><img src="/uld/grundlagen3/aufspiel/wann1.png" alt="Wann 1"></a></td>
+<td><a href="/uld/grundlagen3/aufspiel/wann_2.html"><img src="/uld/grundlagen3/aufspiel/wann2.png" alt="Wann 2"></a></td>
+<td><a href="/uld/grundlagen3/aufspiel/wo.html"><img src="/uld/grundlagen3/aufspiel/wo.png" alt="Wo"></a></td>
 
-  <table class="tactics" align="center" cellspacing="0" cellpadding="10">
-    <tr>
-      <td><a id="vorbereitung_2" href="aufspiel/vorbereitung_2.html"><h3>Vorbereitung 2</h3></a></td>
-      <td><a id="vorbereitung_1" href="aufspiel/vorbereitung_1.html"><h3>Vorbereitung 1</h3></a></td>
-    </tr>
+  </tr>
+</table>
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="vorbereitung_2" href="/uld/grundlagen3/aufspiel/vorbereitung_2.html"><h3>Vorbereitung 2</h3></a></td>
+<td><a id="vorbereitung_1" href="/uld/grundlagen3/aufspiel/vorbereitung_1.html"><h3>Vorbereitung 1</h3></a></td>
 
-    <tr>
-      <td><a href="aufspiel/vorbereitung_2.html"><img src="aufspiel/vorbereitung2.png" alt="Vorbereitung 2"></a></td>
-      <td><a href="aufspiel/vorbereitung_1.html"><img src="aufspiel/vorbereitung1.png" alt="Vorbereitung 1"></a></td>
-    </tr>
-  </table>
+  </tr>
+  <tr>
+    <td><a href="/uld/grundlagen3/aufspiel/vorbereitung_2.html"><img src="/uld/grundlagen3/aufspiel/vorbereitung2.png" alt="Vorbereitung 2"></a></td>
+<td><a href="/uld/grundlagen3/aufspiel/vorbereitung_1.html"><img src="/uld/grundlagen3/aufspiel/vorbereitung1.png" alt="Vorbereitung 1"></a></td>
 
-  <table class="tactics" align="center" cellspacing="0" cellpadding="10">
-    <tr>
-      <td><a id="aufspiel" href="aufspiel"><h3>Die Codes</h3></a></td>
-    </tr>
-    <tr>
-      <td><a href="aufspiel"><img src="aufspiel/plan.png" alt="Codes und Varianten"></a></td>
-    </tr>
-  </table>
-  </div>
+  </tr>
+</table>
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="aufspiel" href="/uld/grundlagen3/aufspiel/"><h3>Die Codes</h3></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="/uld/grundlagen3/aufspiel/"><img src="aufspiel/plan.png" alt="Die Codes"></a></td>
+
+  </tr>
+</table>
+
+<h1 class="tactics">Angriff + Sicherung</h1>
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="angriff_06" href="aufspiel/angriff_06.html"><h3>Angriff 0/6</h3></a></td>
+<td><a id="angriff_5v" href="aufspiel/angriff_5v.html"><h3>Angriff 5v</h3></a></td>
+<td><a id="angriff_2" href="aufspiel/angriff_2.html"><h3>Angriff 2</h3></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="aufspiel/angriff_06.html"><img src="aufspiel/angriff06.png" alt="Angriff 0/6"></a></td>
+<td><a href="aufspiel/angriff_5v.html"><img src="aufspiel/angriff5v.png" alt="Angriff 5v"></a></td>
+<td><a href="aufspiel/angriff_2.html"><img src="aufspiel/angriff2.png" alt="Angriff 2"></a></td>
+
+  </tr>
+</table>
+
+<h1 class="tactics">Basis</h1>
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="basis_1" href="verteidigung/basis_1.html"><h3>Basis 1</h3></a></td>
+<td><a id="basis_2" href="verteidigung/basis_2.html"><h3>Basis 2</h3></a></td>
+<td><a id="basis_1b" href="verteidigung/basis_1b.html"><h3>Basis 1b</h3></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="verteidigung/basis_1.html"><img src="verteidigung/basis1.png" alt="Basis 1"></a></td>
+<td><a href="verteidigung/basis_2.html"><img src="verteidigung/basis2.png" alt="Basis 2"></a></td>
+<td><a href="verteidigung/basis_1b.html"><img src="verteidigung/basis1b.png" alt="Basis 1b"></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="verteidigung/basis_1.html"><div>Aufspielerin hinten</div></a></td>
+<td><a href="verteidigung/basis_2.html"><div>Aufspielerin vorne</div></a></td>
+<td><a href="verteidigung/basis_1b.html"><div>gegnerische Aufspielerin vorne</div></a></td>
+
+  </tr>
+</table>
+
+<h1 class="tactics">Block + Feldverteidigung</h1>
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="block" href="blockinfo/block.html"><h3>Infos zum Block</h3></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="blockinfo/block.html"><img src="blockinfo/block2.gif" alt="Infos zum Block"></a></td>
+
+  </tr>
+</table>
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="block_4" href="verteidigung/block_4.html"><h3>Doppelblock 4</h3></a></td>
+<td><a id="block_33" href="verteidigung/block_33.html"><h3>Doppelblock 3</h3></a></td>
+<td><a id="block_2" href="verteidigung/block_2.html"><h3>Doppelblock 2</h3></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="verteidigung/block_4.html"><img src="verteidigung/block4.png" alt="Doppelblock 4"></a></td>
+<td><a href="verteidigung/block_33.html"><img src="verteidigung/block33.png" alt="Doppelblock 3"></a></td>
+<td><a href="verteidigung/block_2.html"><img src="verteidigung/block2.png" alt="Doppelblock 2"></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="verteidigung/block_4.html"><div>Doppelblock<br>(links, Pos. 4)</div></a></td>
+<td><a href="verteidigung/block_33.html"><div>Doppelblock<br>(Mitte, Pos. 3)</div></a></td>
+<td><a href="verteidigung/block_2.html"><div>Doppelblock<br>(rechts, Pos. 2)</div></a></td>
+
+  </tr>
+</table>
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="block_3" href="verteidigung/block_3.html"><h3>Block 3</h3></a></td>
+<td><a id="block_31" href="verteidigung/block_31.html"><h3>Block 3<sub>(1)</sub></h3></a></td>
+<td><a id="block_35" href="verteidigung/block_35.html"><h3>Block 3<sub>(5)</sub></h3></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="verteidigung/block_3.html"><img src="verteidigung/block3.png" alt="Block 3"></a></td>
+<td><a href="verteidigung/block_31.html"><img src="verteidigung/block31.png" alt="Block 3<sub>(1)</sub>"></a></td>
+<td><a href="verteidigung/block_35.html"><img src="verteidigung/block35.png" alt="Block 3<sub>(5)</sub>"></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="verteidigung/block_3.html"><div>Block auf Pos. 3<br>(Schnellangriff)</div></a></td>
+<td><a href="verteidigung/block_31.html"><div>Variante 1</div></a></td>
+<td><a href="verteidigung/block_35.html"><div>Variante 5</div></a></td>
+
+  </tr>
+</table>
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="ohne_1" href="verteidigung/ohne_1.html"><h3>Ohne (1)</h3></a></td>
+<td><a id="ohne_2" href="verteidigung/ohne_2.html"><h3>Ohne (2)</h3></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="verteidigung/ohne_1.html"><img src="verteidigung/ohne1.png" alt="Ohne (1)"></a></td>
+<td><a href="verteidigung/ohne_2.html"><img src="verteidigung/ohne2.png" alt="Ohne (2)"></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="verteidigung/ohne_1.html"><div>"Ohne" Block<br>(Aufspielerin hinten)</div></a></td>
+<td><a href="verteidigung/ohne_2.html"><div>"Ohne" Block<br>(Aufspielerin vorne)</div></a></td>
+
+  </tr>
+</table>
 
 
-  <h1 id="ang" class="tactics expandable">Angriff + Sicherung</h1>
-  <div id="ang_2" class="expanded_container">
-  <table class="tactics" align="center" cellspacing="0" cellpadding="10">
-    <tr>
-      <td><a id="angriff_06" href="aufspiel/angriff_06.html"><h3>Angriff 0/6</h3></a></td>
-      <td><a id="angriff_5v" href="aufspiel/angriff_5v.html"><h3>Angriff 5v</h3></a></td>
-      <td><a id="angriff_2" href="aufspiel/angriff_2.html"><h3>Angriff 2</h3></a></td>
-    </tr>
-
-    <tr>
-      <td><a href="aufspiel/angriff_06.html"><img src="aufspiel/angriff06.png" alt="Angriff 0/6"></a></td>
-      <td><a href="aufspiel/angriff_5v.html"><img src="aufspiel/angriff5v.png" alt="Angriff 5v"></a></td>
-      <td><a href="aufspiel/angriff_2.html"><img src="aufspiel/angriff2.png" alt="Angriff 2"></a></td>
-    </tr>
-  </table>
-  </div>
-
-
-  <h1 id="bas" class="tactics expandable">Basis</h1>
-  <div id="bas_2" class="expanded_container">
-  <table class="tactics" align="center" cellspacing="0" cellpadding="10">
-    <tr>
-      <td><a id="basis_1" href="verteidigung/basis_1.html"><h3>Basis 1</h3></a></td>
-      <td><a id="basis_2" href="verteidigung/basis_2.html"><h3>Basis 2</h3></a></td>
-      <td><a id="basis_1b" href="verteidigung/basis_1b.html"><h3>Basis 1b</h3></a></td>
-    </tr>
-    <tr>
-      <td><a href="verteidigung/basis_1.html"><img src="verteidigung/basis1.png" alt="Basis 1"></a></td>
-      <td><a href="verteidigung/basis_2.html"><img src="verteidigung/basis2.png" alt="Basis 2"></a></td>
-      <td><a href="verteidigung/basis_1b.html"><img src="verteidigung/basis1b.png" alt="Basis 1b"></a></td>
-    </tr>
-
-    <tr>
-      <td><a href="verteidigung/basis_1.html"><div>Aufspielerin hinten</div></a></td>
-      <td><a href="verteidigung/basis_2.html"><div>Aufspielerin vorne</div></a></td>
-      <td><a href="verteidigung/basis_1b.html"><div>gegnerische Aufspielerin vorne</div></a></td>
-    </tr>
-  </table>
-  </div>
-
-
-  <h1 id="ver" class="tactics expandable">Block + Feldverteidigung</h1>
-  <div id="ver_2" class="expanded_container">
-  <table class="tactics" align="center" cellspacing="0" cellpadding="10">
-    <tr>
-      <td><a id="block" href="blockinfo/block.html"><img src="blockinfo/block2.gif" alt="Der Block"></a></td>
-    </tr>
-    <tr>
-      <td><a href="blockinfo/block.html"><div>Infos zum Block</div></a></td>
-    </tr>
-  </table>
-
-  <table class="tactics" align="center" cellspacing="0" cellpadding="10">
-    <tr>
-      <td><a id="block_4" href="verteidigung/block_4.html"><h3>Doppelblock 4</h3></a></td>
-      <td><a id="block_33" href="verteidigung/block_33.html"><h3>Doppelblock 3</h3></a></td>
-      <td><a id="block_2" href="verteidigung/block_2.html"><h3>Doppelblock 2</h3></a></td>
-    </tr>
-
-    <tr>
-      <td><a href="verteidigung/block_4.html"><img src="verteidigung/block4.png" alt="Doppelblock 4"></a></td>
-      <td><a href="verteidigung/block_33.html"><img src="verteidigung/block33.png" alt="Doppelblock 3"></a></td>
-      <td><a href="verteidigung/block_2.html"><img src="verteidigung/block2.png" alt="Doppelblock 2"></a></td>
-    </tr>
-
-    <tr>
-      <td><a href="verteidigung/block_4.html"><div>Doppelblock<br>(links, Pos. 4)</div></a></td>
-      <td><a href="verteidigung/block_33.html"><div>Doppelblock<br>(Mitte, Pos. 3)</div></a></td>
-      <td><a href="verteidigung/block_2.html"><div>Doppelblock<br>(rechts, Pos. 2)</div></a></td>
-    </tr>
-  </table>
-
-  <table class="tactics" align="center" cellspacing="0" cellpadding="10">
-    <tr>
-      <td><a id="block_3" href="verteidigung/block_3.html"><h3>Block 3</h3></a></td>
-      <td><a id="block_31" href="verteidigung/block_31.html"><h3>Block 3<sub>(1)</sub></h3></a></td>
-      <td><a id="block_35" href="verteidigung/block_35.html"><h3>Block 3<sub>(5)</sub></h3></a></td>
-    </tr>
-
-    <tr>
-      <td><a href="verteidigung/block_3.html"><img src="verteidigung/block3.png" alt="Block 3"></a></td>
-      <td><a href="verteidigung/block_31.html"><img src="verteidigung/block31.png" alt="Block 3(1)"></a></td>
-      <td><a href="verteidigung/block_35.html"><img src="verteidigung/block35.png" alt="Block 3(5)"></a></td>
-    </tr>
-
-    <tr>
-      <td><a href="verteidigung/block_3.html"><div>Block auf Pos. 3<br>(Schnellangriff)</div></a></td>
-      <td><a href="verteidigung/block_31.html"><div>Variante 1</div></a></td>
-      <td><a href="verteidigung/block_35.html"><div>Variante 5</div></a></td>
-    </tr>
-  </table>
-
-  <table class="tactics" align="center" cellspacing="0" cellpadding="10">
-    <tr>
-      <td><a id="ohne_1" href="verteidigung/ohne_1.html"><h3>Ohne (1)</h3></a></td>
-      <td><a id="ohne_2" href="verteidigung/ohne_2.html"><h3>Ohne (2)</h3></a></td>
-    </tr>
-
-    <tr>
-      <td><a href="verteidigung/ohne_1.html"><img src="verteidigung/ohne1.png" alt="Ohne - Aufspielerin hinten"></a></td>
-      <td><a href="verteidigung/ohne_2.html"><img src="verteidigung/ohne2.png" alt="Ohne - Aufspielerin vorne"></a></td>
-    </tr>
-
-    <tr>
-      <td><a href="verteidigung/ohne_1.html"><div>"Ohne" Block<br>(Aufspielerin hinten)</div></a></td>
-      <td><a href="verteidigung/ohne_2.html"><div>"Ohne" Block<br>(Aufspielerin vorne)</div></a></td>
-    </tr>
-  </table>
-  </div>
 </body>
 </html>
