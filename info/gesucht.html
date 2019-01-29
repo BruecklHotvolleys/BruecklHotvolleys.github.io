@@ -5,12 +5,7 @@
   <title>Brückl hotvolleys</title>
   <link rel="stylesheet" href="/styles.css">
   <style>
-div.content {
-  position: absolute;
-  left: 10px;
-  top: 60px;
-  right: 10px;
-  bottom: 10px;
+div#content_container {
   background-image: url("/info/gesucht.jpeg");
   background-position: center;
   background-repeat: no-repeat;
@@ -21,10 +16,14 @@ div.content {
 </head>
 <body>
   <div id="header">
-  <a href="/ov.html#wunsch" style="left: 10px;"><img src="/image/logo.png" height="30px" /></a>
-  <div class="title">Gesucht!</div>
-  <a href="/ov.html#wunsch" style="right: 10px;"><img src="/image/logo.png" height="30px" /></a>
+    <div class="left">
+    <a href="/ov.html#gesucht"><img src="/image/logo.png"/></a>
+    <div>Gesucht!</div>
+    </div><div class="right">
+    <a href="/ov.html#gesucht"><img src="/image/logo.png"/></a>
+    </div>
   </div>
-  <div class="content">&nbsp;</div>
+  <div id="content_container">&nbsp;</div>
+  <div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div>
 </body>
 </html>

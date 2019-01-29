@@ -6,63 +6,43 @@
   <link rel="stylesheet" href="/styles.css">
   <style>
 p {
-  margin: 2%;
+  margin: 1em;
   text-align: justify;
+  font-size: 2.5em;
 }
-h1, h2 {
-  display: inline-block;
-  position: relative;
+b {
+  font-size: 1em;
+}
+img.ball1 {
+  width: 10em;
+  float: left;
+  margin: 0 1em;
   z-index: 1;
-
-  margin-left: 2%;
-  margin-bottom: 2%;
-  border-radius: 10px;
-  padding: 0;
-  padding-right: 2%;
-
+}
+h1 {
+  float: left;
+  padding: 0.2em 0.5em;
   text-align: left;
   white-space: nowrap;
   background-color: aliceblue;
-}
-h1 {
-  margin-top: 2%;
-  font-size: 150%;
-}
-h2 {
-  font-size: 130%;
-}
-img.ball1 {
-  position: relative;
-  width: 96px;
-  float: left;
-  margin: 2%;
-  margin-right: 0;
-  margin-bottom: 1%;
   z-index: 1;
-}
-img.logo {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 322px;
-  margin: 1% 2%;
-  opacity: 0.7;
 }
   </style>
 </head>
 <body>
 <div id="header">
-<a href="/ov.html#wunsch" style="left: 10px;"><img src="/image/logo.png" height="30px" /></a>
-<div class="title">Ein Wunschzettel</div>
-<a href="/ov.html#wunsch" style="right: 10px;"><img src="/image/logo.png" height="30px" /></a>
+  <div class="left">
+  <a href="/ov.html#wunsch"><img src="/image/logo.png"/></a>
+  <div>Ein Wunschzettel</div>
+  </div><div class="right">
+  <a href="/ov.html#wunsch"><img src="/image/logo.png"/></a>
+  </div>
 </div>
-
+<div id="content_container">
 <img class="ball1" src="../image/ball32.png" alt="Volleyball" />
-<div style="float: left; position: relative; margin: 5% 0 0 3%;">
 <h1>Liebe Spielerin, lieber Spieler!</h1>
-</div>
-<!--img class="logo" src="../image/logo.png" alt="Logo Brückl Hotvolleys" /-->
 <br clear="all" />
+
 <p>Als Volleyballtrainer ist mit der Sport natürlich ein ganz besonderes Anliegen. Aber daneben gibt es auch
 noch andere wichtige Dinge im Leben. Eines davon, und ein nicht ganz Unwichtiges, nennt sich Schule.</p>
 
@@ -100,5 +80,7 @@ kann auch viel erreichen! Kopf hoch und niemals den Teufel an die Wand malen, da
 <p>Alles Gute und auf eine gute Zusammenarbeit.</p>
 
 <p>Ciao, Dein Trainer.</p>
+</div>
+<div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div>
 </body>
 </html>

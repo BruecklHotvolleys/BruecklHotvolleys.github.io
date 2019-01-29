@@ -10,13 +10,19 @@ table {
 }
 td {
   padding: 1px 10px;
+  padding: 0.1em 0.5em;
   text-align: left;
   white-space: nowrap;
+  font-size: 3em;
+}
+b {
+  font-size: 1em;
 }
 td.h1, h1 {
-  padding: 10px;
-  border-bottom: 10px solid aliceblue;
-  font-size: 36px;
+  padding: 0.5em;
+  border-bottom: 0.3em solid aliceblue;
+
+  font-size: 3em;
   font-weight: bold;
   text-align: center;
   background: lightblue;
@@ -24,16 +30,21 @@ td.h1, h1 {
 img.bullet {
   width: 16px;
   height: 16px;
+  width: 1.5em;
+  height: 1.5em;
 }
 </style>
 </head>
 <body>
 <div id="header">
-<a href="/ov.html#divinfo" style="left: 10px;"><img src="/image/logo.png" height="30px" /></a>
-<div class="title">Allgemeine Infos</div>
-<a href="/ov.html#divinfo" style="right: 10px;"><img src="/image/logo.png" height="30px" /></a>
+  <div class="left">
+  <a href="/ov.html#divinfo"><img src="/image/logo.png"/></a>
+  <div>Allgemeine Infos</div>
+  </div><div class="right">
+  <a href="/ov.html#divinfo"><img src="/image/logo.png"/></a>
+  </div>
 </div>
-
+<div id="content_container">
 <table cellspacing="0" cellpadding="0">
 <colgroup>
   <col width="*">
@@ -89,6 +100,8 @@ img.bullet {
 <tr><td>&nbsp;</td><td><img class="bullet" src="/image/ball32.png" alt="List item" /></td><td><b>U10: </b></td><td>2m</td><td>&nbsp;</td></tr>
 <tr><td colspan="5">&nbsp;</td></tr>
 </table>
+</div>
 
+<div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div>
 </body>
 </html>
