@@ -134,6 +134,16 @@ function init() {
     return false;
   });
 
+  // init footer (if any text to set)
+  var footer = 'Variante 1';
+  if (footer) {
+    var elemFooter = document.querySelector('#footer');
+    if (elemFooter) {
+      elemFooter.innerHTML = footer;
+      elemFooter.style.textAlign = 'center';
+    }
+  }
+
   // get scripts and evaluate them
   var elemTpl = document.querySelector('#svg_script');
   if (elemTpl) {

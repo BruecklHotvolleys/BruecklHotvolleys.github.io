@@ -134,6 +134,10 @@ a {
   color: #111;
   text-decoration: none;
 }
+h1 > sub, h2 > sub, h3 > sub, h4 > sub, h5 > sub, h6 > sub {
+  font-size: 0.7em;
+  background-color: lightblue;
+}
 
 /* -- tactics overview ----------------------------------------------------- */
 h1.tactics {
