@@ -13,78 +13,55 @@
 
   color: #111;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 5px;
+  font-size: 7px;
   text-align: center;
 }
 
-@media (min-width: 700px) and (max-width: 800px) {
-  *, html, body {
-    font-size: 6px;
-  }
-}
-@media (min-width: 800px) and (max-width: 900px) {
-  *, html, body {
-    font-size: 7px;
-  }
-}
-@media (min-width: 900px) and (max-width: 1000px) {
+/*
+@media
+screen and (-webkit-min-device-pixel-ratio: 1.5),
+screen and (-moz-min-device-pixel-ratio: 1.5),
+screen and (min-device-pixel-ratio: 1.5) {
+} */
+
+@media (min-width: 500px) and (max-width: 750px) {
   *, html, body {
     font-size: 8px;
   }
 }
-@media (min-width: 1000px) and (max-width: 1100px) {
+@media (min-width: 750px) and (max-width: 1000px) {
   *, html, body {
     font-size: 9px;
   }
 }
-@media (min-width: 1100px) and (max-width: 1200px) {
+@media (min-width: 1000px) and (max-width: 1333px) {
   *, html, body {
     font-size: 10px;
   }
 }
-@media (min-width: 1200px) and (max-width: 1300px) {
+@media (min-width: 1333px) and (max-width: 1667px) {
   *, html, body {
     font-size: 11px;
   }
 }
-@media (min-width: 1300px) and (max-width: 1400px) {
+@media (min-width: 1667px) and (max-width: 2000px) {
   *, html, body {
     font-size: 12px;
   }
 }
-@media (min-width: 1400px) and (max-width: 1500px) {
+@media (min-width: 2000px) and (max-width: 2500px) {
   *, html, body {
     font-size: 13px;
   }
 }
-@media (min-width: 1500px) and (max-width: 1600px) {
+@media (min-width: 2500px) and (max-width: 3000px) {
   *, html, body {
     font-size: 14px;
   }
 }
-@media (min-width: 1600px) and (max-width: 1700px) {
+@media (min-width: 3000px) {
   *, html, body {
     font-size: 15px;
-  }
-}
-@media (min-width: 1700px) and (max-width: 1800px) {
-  *, html, body {
-    font-size: 16px;
-  }
-}
-@media (min-width: 1800px) and (max-width: 1900px) {
-  *, html, body {
-    font-size: 17px;
-  }
-}
-@media (min-width: 1900px) and (max-width: 2000px) {
-  *, html, body {
-    font-size: 18px;
-  }
-}
-@media (min-width: 2000px) {
-  *, html, body {
-    font-size: 19px;
   }
 }
 
