@@ -6,285 +6,188 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="shortcut icon" href="/favicons/favicon.ico">
   <style>
-h1 {
-  padding: 10px;
-  margin-bottom: 20px;
-  font-size: 36px;
-  text-align: left;
-  background: lightblue;
-  margin-top: 30px;
-}
-h1.first {
-  margin-top: 0;
-}
+div.row, div.row2a, div.row2b {
+  box-sizing: border-box;
+  padding: 1em;
 
-p {
-  padding: 10px;
+  font-size: 3em;
   text-align: left;
 }
+div.row2a {
+  float: left;
+  width: 40%;
+}
+div.row2b {
+  float: left;
+  width: 60%;
+}
 
-table {
-  width: 100%;
-  margin: auto auto 40px auto;
+div#content_container img {
+  width: 95%;
 }
-td.td1 {
-  width: 100px;
-  padding: 10px;
-  text-align: center;
-  vertical-align: top;
-}
-td.td2 {
-  min-width: 200px;
-  text-align: left;
-  vertical-align: top;
-  padding: 10px 20px;
-}
-ul, li {
+
+b, ul, li {
+  font-size: 1em;
   text-align: left;
 }
-ul {
-  margin-left: 20px;
+li {
+  margin-left: 1em;
 }
-
-div.move {
-  position: relative;
-  width: 491px;
-  height: 180px;
-}
-img.move {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-img.pos {
-  height: 200px;
-  width: 266px;
-}
-
 div.idee {
   position: relative;
-  width: 115px;
-  height: 115px;
-  border: 10px solid orange;
-  border-radius: 70px;
+
+  width: 1em;
+  height: 0;
+  padding: 0 0 1em 0;
+
+  border: 0.4em solid orange;
+  border-radius: 35%;
   background: gold;
   color: brown;
-  font-size: 100px;
+  font-size: 4em;
   font-weight: 900;
-  margin: 20px 100px;
-  line-height: 115px;
-  padding: 0;
+  line-height: 1em;
+}
+
+@media (max-width: 750px) {
+  div.row2a, div.row2b {
+    width: 100%;
+  }
+  div#content_container img {
+    width: 100%;
+  }
+  div.idee {
+    width: 0.8em;
+    padding: 0 0 0.8em 0;
+    font-size: 3.8em;
+    line-height: 0.75em;
+  }
 }
   </style>
 </head>
 <body>
-
-  <div id="header">
-  <a href="/uld/grundlagen3/#block" style="left: 10px;"><img src="/image/logo.png" height="30px" /></a>
-  <div class="title">Infos zum Block</div>
-  <a href="/uld/grundlagen3/#block" style="right: 10px;"><img src="/image/logo.png" height="30px" /></a>
+  <div id="header"><div class="left">
+  <a href="/uld/grundlagen3/#block"><img src="/image/logo.png"/></a>
+  <div>Der Block</div>
+  </div><div class="right">
+  <a href="/uld/grundlagen3/#block"><img src="/image/logo.png"/></a>
+  </div>
   </div>
 
-  <table cellspacing="0" cellpadding="0">
-    <tr>
-      <td colspan="2">
-        <h1 class="first">Aktiv - Passiv</h1>
-        <p>Je nach Höhe der Blockspielerin hat sie mehrere Möglichkeiten:</p>
-      </td>
-    </tr>
-    <tr>
-      <td class="td1">
-        <img src="aktiv.gif" alt="Aktiver Block" />
-      </td>
-      <td class="td2">
-        <b>Aktiver Block</b><br>
-        Die Spielerin muss über das Netz und wenn möglich auch noch über den Ball hinübergreifen. Sie klappt mit den Handgelenken nach unten und spielt den Ball aggressiv ins gegnerische Feld.<br>
-        Ein Fingerstellung wie in dieser Skizze ist allerdings auch gefährlich: Wer nicht genug Höhe hat, oder zu früh klappt, wird mit schmerzhaften verbogenen oder auch gebrochenen Fingern dafür büßen!
-      </td>
-    </tr>
-    <tr>
-      <td class="td1">
-        <img src="passiv.gif" alt="Passiver Block" />
-      </td>
-      <td class="td2">
-        <b>Passiver Block</b><br>
-        Die Handgelenke sind gerade oder sogar leicht nach hinten geklappt und werden nicht oder nur leicht gespannt. Dem Ball soll in erster Linie die Wucht genommen werden, er soll im hohen Bogen als geschenkter Ball ins eigenen Feld fliegen um möglichst einfach weitergespielt zu werden.
-      </td>
-    </tr>
+  <div id="content_container">
+  <h1 class="first">Aktiv - Passiv</h1>
 
-    <tr>
-      <td colspan="2">
-        <h1>Einzelblock - Doppelblock</h1>
-        <p>Je nach der Anzahl der Spielerinnen, die gemeinsam zum Block springen, kann man unterteilen in:</p>
-      </td>
-    </tr>
-    <tr>
-      <td class="td1">
-        <img src="block1.gif" alt="Einzelblock" />
-      </td>
-      <td class="td2">
-        <b>Einzelblock</b><br>
-        Eine Spielerin springt alleine. Das kommt meistens gegen Schnell- oder Kombinationsangriffe vor.
-      </td>
-    </tr>
-    <tr>
-      <td class="td1">
-        <img src="block2.gif" alt="Doppelblock" />
-      </td>
-      <td class="td2">
-        <b>Doppelblock</b><br>
-        Der Standardblock gegen Hauptangreiferinnen.
-      </td>
-    </tr>
+  <div class="row">Je nach Höhe der Blockspielerin hat sie mehrere Möglichkeiten:</div>
+  <div class="row2a"><img src="aktiv.gif" alt="Aktiver Block" /></div>
+  <div class="row2b"><b>Aktiver Block</b><br>
+  Die Spielerin muss über das Netz und wenn möglich auch noch über den Ball hinübergreifen. Sie klappt mit den Handgelenken nach unten und spielt den Ball aggressiv ins gegnerische Feld.<br>
+  Ein Fingerstellung wie in dieser Skizze ist allerdings auch gefährlich: Wer nicht genug Höhe hat, oder zu früh klappt, wird mit schmerzhaften verbogenen oder auch gebrochenen Fingern dafür büßen!</div>
+  <br clear="all" />
 
-    <tr><td colspan="2"><h1>Basis (Vorbereitung zum Block)</h1></td></tr>
-    <tr>
-      <td class="td1">
-        <img src="grundstellung.gif" alt="Vorbereitung zum Block - Grundpositionen" />
-      </td>
-      <td class="td2">
-        <b>Gegenüber der jeweiligen Angreiferin</b><br>
-        Die Blockspielerinnen warten gegenüber ihren jeweiligen Angreiferinnen.<br>
-        Die Außenblockerinnen warten außen nahe der Linie, sie bewegen sich von außen zu ihrem Blockort, die Mittelblockerin schließt auf, gemeinsam wird zum Block gesprungen.
-      </td>
-    </tr>
-    <tr>
-      <td class="td1">
-        <img src="grundstellung2.gif" alt="Vorbereitung zum Block - Grundpositionen" />
-      </td>
-      <td class="td2">
-        <b>Aufspielerin vorne</b><br>
-        Die Blockspielerinnen warten gegenüber ihren jeweiligen Angreiferinnen.<br>
-        Wenn die gegnerische Aufspielerin Vorderspielerin ist, ist sie die Angreiferin für die Außenblockspielerin. Die Blockspielerin schützt vor allem die Feldmitte, außen verteidigt die Spielerin auf der Position 5.
-      </td>
-    </tr>
+  <div class="row2a"><img src="passiv.gif" alt="Passiver Block" /></diV>
+  <div class="row2b"><b>Passiver Block</b><br>
+  Die Handgelenke sind gerade oder sogar leicht nach hinten geklappt und werden nicht oder nur leicht gespannt. Dem Ball soll in erster Linie die Wucht genommen werden, er soll im hohen Bogen als geschenkter Ball ins eigenen Feld fliegen um möglichst einfach weitergespielt zu werden.</div>
+  <br clear="all" />
 
-    <tr><td colspan="2"><h1>Bewegung zum Block</h1></td></tr>
-    <tr>
-      <td class="td1">
-        <div class="move">
-        <img class="move" src="bewegung3.png" alt="Bewegung zum Block" />
-        </div>
-      </td>
-      <td class="td2">
-        <b>Öffnen, langer Schritt, Schließen</b><br>
-        Mit dem inneren Fuss die Bewegung beginnen(1 - 'Öffnen'), dann den langen Schritt um zum Absprungort zu kommen(2), dann die Bewegung stoppen und den Körper in die richtige Absprungposition bringen(3).
-      </td>
-    </tr>
-    <tr>
-      <td class="td1">
-        <div class="move">
-        <img class="move" src="bewegung4.png" alt="Bewegung zum Block (4 Schritte)" />
-        </div>
-      </td>
-      <td class="td2">
-        <b>Öffnen, langer Schritt, Zwischenschritt, Schließen</b><br>
-        Wenn ich weiter weg beginnen muss, oder mich nicht optimal vorbereitet habe, kann ich mit einen zweiten längeren Schritt mir helfen(3) um zum Absprungort zu kommen. Das Stoppen der Bewegung(4) erfolgt dann aber teilweise mit dem falschen Fuss, damit wird es umso schwieriger und die Gefahr besteht, dass ich in meine Mitspielerin hineinspringe!
-      </td>
-    </tr>
+  <h1>Einzelblock - Doppelblock</h1>
+  <div class="row">Je nach der Anzahl der Spielerinnen, die gemeinsam zum Block springen, kann man unterteilen in:</div>
+  <div class="row2a"><img src="block1.gif" alt="Einzelblock" /></div>
+  <div class="row2b"><b>Einzelblock</b><br>
+  Eine Spielerin springt alleine. Das kommt meistens gegen Schnell- oder Kombinationsangriffe vor.</div>
+  <br clear="all" />
+  <div class="row2a"><img src="block2.gif" alt="Doppelblock" /></div>
+  <div class="row2b"><b>Doppelblock</b><br>
+  Der Standardblock gegen Hauptangreiferinnen.</div>
+  <br clear="all" />
 
-    <tr><td colspan="2"><h1>Blockposition</h1></td></tr>
-    <tr>
-      <td class="td1">
-        <img class="pos" src="zur_mitte.gif" alt="Armhaltung" />
-      </td>
-      <td class="td2">
-        <b>Wo wird gesprungen?</b><br>
-        Den Block stellen. Beim Doppelblock ist immer eine der beiden Spielerinnen für die Festlegung der Position des Blocks zuständig. Die andere Spielerin schließt auf, gemeinsam springen sie zum Block.<br>
-        Der Block legt die Verteidigungstaktik fest, die Feldverteidgung muss sich am Block orientieren (können)!<br>
-        Wenn der Block fliegt, also seine Position wärend des Sprungs verändert, ist auch die Feldverteidigung viel schwieriger, da die Spielerinnen nicht auf einander abgestimmt agieren können.
-      </td>
-    </tr>
+  <h1>Basis (Vorbereitung)</h1>
+  <div class="row2a"><img src="grundstellung.gif" alt="Vorbereitung zum Block - Grundpositionen" /></div>
+  <div class="row2b"><b>Gegenüber der jeweiligen Angreiferin</b><br>
+  Die Blockspielerinnen warten gegenüber ihren jeweiligen Angreiferinnen.<br>
+  Die Außenblockerinnen warten außen nahe der Linie, sie bewegen sich von außen zu ihrem Blockort, die Mittelblockerin schließt auf, gemeinsam wird zum Block gesprungen.</div>
+  <br clear="all" />
+  <div class="row2a"><img src="grundstellung2.gif" alt="Vorbereitung zum Block - Grundpositionen" /></div>
+  <div class="row2b"><b>Aufspielerin vorne</b><br>
+  Die Blockspielerinnen warten gegenüber ihren jeweiligen Angreiferinnen.<br>
+  Wenn die gegnerische Aufspielerin Vorderspielerin ist, ist sie die Angreiferin für die Außenblockspielerin. Die Blockspielerin schützt vor allem die Feldmitte, außen verteidigt die Spielerin auf der Position 5.</div>
+  <br clear="all" />
 
-    <tr><td colspan="2"><h1>Was muss ich tun?</h1></td></tr>
-    <tr>
-      <td class="td1">
-        <div class="idee">!</div>
-      </td>
-      <td class="td2"><ul>
-        <li><b>Augen auf!</b><br>
-        Beobachte die Gegnerinnen - versuche sie zu lesen. So kannst du Gutes wiederholen und Fehlerhaftes zumindest bei der nächsten Aktion besser machen.</li>
-        <li><b>Beobachte</b> den Ball und deine Gegenspieler genau. Versuche sie zu lesen.</li>
-        <li>Stehe in leichter <b>Kniebeuge</b>, die Unterarme sind vorne oben, die Hände gespannt.</li>
-        <li>Springe möglichst <b>senkrecht, schiebe die Arme</b> gerade nach vorne oben über das Netz.</li>
-        <li>Geblockt wird mit den <b>Händen</b>, nicht mit den Armen.<br>
-        Wer am Unterarm angeschlagen wird, ist zu weit weg vom Netz oder hat zu wenig weit übergegriffen. Nur ganz selten ist der Gegner so gut oder hat so viel Glück, dass es kein Fehler der Blockspielerin ist.</li>
-        <li>Vergrößere die Blockfläche durch Spreizen der Finger.<br>
-        Aber achte auf die kleinen Finger, wenn du sie zu weit zur Seite wegspreizt, kann das sehr weh tun.</li>
-        <li><b>Körperspannung</b> halten, sonst fällst du nach vorne.</li>
-        <li>Lass die <b>Arme</b> auch bei der Landung lange <b>gestreckt</b>, so kannst du auch bei falschem Timing eine gierige Angreiferin noch passiv blocken.</li>
-        <li>Lande beidbeinig, und sei sofort wieder <b>spielbereit</b> (Vorbereiten zum Aufspiel oder Retten des Balls, Lösen zum Angriff ).</li>
-        <li>Nicht die Höhe ist entscheidend, sondern das <b>Timing!</b><br>
-        Je weiter der Angriff vom Netz weg ist, um so später musst du springen.<br>
-        Für jede Angreiferin gibt es einen optimalen Zeitpunkt - manche schlagen früher (Bsp.: Chinesinnen), manche schlagen verzögert (Bsp.: nach Kurbeln beim Ausholen und andere technische Fehler).</li>
-        </ul>
-      </td>
-    </tr>
+  <h1>Bewegung zum Block</h1>
+  <div class="row2a"><img class="move" src="bewegung3.png" alt="Bewegung zum Block" /></div>
+  <div class="row2b"><b>Öffnen, langer Schritt, Schließen</b><br>
+  Mit dem inneren Fuss die Bewegung beginnen(1 - 'Öffnen'), dann den langen Schritt um zum Absprungort zu kommen(2), dann die Bewegung stoppen und den Körper in die richtige Absprungposition bringen(3).</div>
+  <br clear="all" />
+  <div class="row2a"><img class="move" src="bewegung4.png" alt="Bewegung zum Block (4 Schritte)" /></div>
+  <div class="row2b"><b>Öffnen, langer Schritt, Zwischenschritt, Schließen</b><br>
+  Wenn ich weiter weg beginnen muss, oder mich nicht optimal vorbereitet habe, kann ich mit einen zweiten längeren Schritt mir helfen(3) um zum Absprungort zu kommen. Das Stoppen der Bewegung(4) erfolgt dann aber teilweise mit dem falschen Fuss, damit wird es umso schwieriger und die Gefahr besteht, dass ich in meine Mitspielerin hineinspringe!</div>
+  <br clear="all" />
 
-    <tr><td colspan="2"><h1>Wie geht das?</h1></td></tr>
-    <tr>
-      <td class="td1">
-        <div class="idee">!</div>
-      </td>
-      <td class="td2">
-        <b> Die Grundstellung</b><br>
-        Die Füße sind ungefähr schulterbreit auseinander, die Knie leicht gebeugt. Die Oberarme zeigen waagrecht nach vorne oder leicht nach oben, die Unterarme und Hände werden gerade nach oben gehalten. Die Handflächen zeigen zum Netz, sind aber leicht nach innen gedreht (als ob sie einen Ball umfassen würden), die Finger werden etwas vorgespannt. Der Blick ist zum Gegner gerichtet, dabei soll sowohl der Ball, als auch die einzelnen Spielerinnen, die an der Aktion beteiligt sind, beobachtet werden.<br>
-        &bdquo;Böse&ldquo; Trainer beschreiben die Haltung so, als ob man der Angreiferin wie eine Raubkatze an die Gurgel springen wolle.
-      </td>
-    </tr>
-    <tr>
-      <td class="td1">
-        <div class="idee">!</div>
-      </td>
-      <td class="td2">
-        <b> Die Verschiebung zum Blockort</b><br>
-        Sobald die Spielerin erkennt, wo sie zum Block springen muss, verschiebt sie sich so schnell wie möglich dorthin. Dafür gibt es verschiedene Möglichkeiten.
-      </td>
-    </tr>
-    <tr>
-      <td class="td1">
-        <div class="idee">!</div>
-      </td>
-      <td class="td2">
-        <b> Der Absprung</b><br>
-        Der Absprung erfolgt aus den Beinen, anfangs ohne(!) Unterstützung durch die Arme.<br>
-        Dafür gibt es mehrere Gründe:<br>
-        <ul><li>Mit Armschwung dauert es länger - Schnellangriffe sind dann schon abgeschlossen, bevor die Hände oben wären.</li>
-        <li>Mit Armschwung fallen auch fortgeschrittene Spielerinnen (meist) ins Hohlkreuz, die Arme werden hinter dem Kopf hochgeführt und schlagen dann nach dem Ball. Bis die Arme über dem Netz sind, dauert das ziemlich lang, eine routinierte Angreiferin legt in der Zwischenzeit den Ball zwischen Netz und Block in den freien Raum oder schlägt die Blockspielerin seitlich am Unterarm an.</li></ul>
-        Der Absprung erfolgt je nach Entfernung der Angreiferin vom Netz mit ihr oder kurz danach, damit man nicht wieder herunterfällt, bevor der Ball das Netz überquert.
-      </td>
-    </tr>
+  <h1>Blockposition</h1>
+  <div class="row2a"><img class="pos" src="zur_mitte.gif" alt="Armhaltung" /></div>
+  <div class="row2b"><b>Wo wird gesprungen?</b><br>
+  Den Block stellen. Beim Doppelblock ist immer eine der beiden Spielerinnen für die Festlegung der Position des Blocks zuständig. Die andere Spielerin schließt auf, gemeinsam springen sie zum Block.<br>
+  Der Block legt die Verteidigungstaktik fest, die Feldverteidgung muss sich am Block orientieren (können)!<br>
+  Wenn der Block fliegt, also seine Position wärend des Sprungs verändert, ist auch die Feldverteidigung viel schwieriger, da die Spielerinnen nicht auf einander abgestimmt agieren können.</div>
+  <br clear="all" />
 
-    <tr>
-      <td class="td1">
-        <div class="idee">!</div>
-      </td>
-      <td class="td2">
-        <b> Die Armführung</b><br>
-        Die Arme werden gerade nach vorne oben und über das Netz geführt, nicht ausholen(!) und nach dem Ball schlagen. Die Hände bleiben dabei immer senkrecht oder leicht nach vorne geneigt, die Finger werden angespannt, damit sie der Ball nicht wegdrückt. Die Augen sollten auf der Angreiferin bleiben - der Ball wird so schnell, dass man ihn nicht mehr erkennen kann. Deshalb weiß man als Blockspielerin meistens auch nicht, ob der Ball links oder rechts am Block vorbei ist.
-      </td>
-    </tr>
-    <tr>
-      <td class="td1">
-        <div class="idee">!</div>
-      </td>
-      <td class="td2">
-        <b> Der Ballkontakt</b><br>
-        Der Ballkontakt erfolgt mit den Händen im höchsten Punkt des Sprungs oder kurz davor, da viele Spielerinnen in der Fallphase auch die Körperspannung auflösen. Deshalb ist auf eine gute Körperspannung zu achten, man kann sich mit einem <b>späten</b> Sprung helfen.
-      </td>
-    </tr>
-    <tr>
-      <td class="td1">
-        <div class="idee">!</div>
-      </td>
-      <td class="td2">
-        <b> Weiche Landung</b><br>
-        Die Landung sollte mit noch immer gestreckten Armen erfolgen, da viele Angreiferinnen so nach unten &bdquo;gieren&ldquo;, dass sie den Block auch noch 10cm unter dem Netz treffen. Viele Spielerinnen sind so groß, dass sie die Netzhöhe selbst im Stand oder zumindest auf den Zehen erreichen. Dabei ist darauf zu achten, dass die Spielerinnen trotz der ungewohnten Körperhaltung weich abfedern, damit sich langfristig keine körperlichen Schäden ergeben können.
-      </td>
-    </tr>
+  <h1>Was muss ich tun?</h1>
+  <div class="row2a"><div class="idee">!</div></div>
+  <div class="row2b"><ul>
+    <li><b>Augen auf!</b><br>
+    Beobachte die Gegnerinnen - versuche sie zu lesen. So kannst du Gutes wiederholen und Fehlerhaftes zumindest bei der nächsten Aktion besser machen.</li>
+    <li><b>Beobachte</b> den Ball und deine Gegenspieler genau. Versuche sie zu lesen.</li>
+    <li>Stehe in leichter <b>Kniebeuge</b>, die Unterarme sind vorne oben, die Hände gespannt.</li>
+    <li>Springe möglichst <b>senkrecht, schiebe die Arme</b> gerade nach vorne oben über das Netz.</li>
+    <li>Geblockt wird mit den <b>Händen</b>, nicht mit den Armen.<br>
+    Wer am Unterarm angeschlagen wird, ist zu weit weg vom Netz oder hat zu wenig weit übergegriffen. Nur ganz selten ist der Gegner so gut oder hat so viel Glück, dass es kein Fehler der Blockspielerin ist.</li>
+    <li>Vergrößere die Blockfläche durch Spreizen der Finger.<br>
+    Aber achte auf die kleinen Finger, wenn du sie zu weit zur Seite wegspreizt, kann das sehr weh tun.</li>
+    <li><b>Körperspannung</b> halten, sonst fällst du nach vorne.</li>
+    <li>Lass die <b>Arme</b> auch bei der Landung lange <b>gestreckt</b>, so kannst du auch bei falschem Timing eine gierige Angreiferin noch passiv blocken.</li>
+    <li>Lande beidbeinig, und sei sofort wieder <b>spielbereit</b> (Vorbereiten zum Aufspiel oder Retten des Balls, Lösen zum Angriff ).</li>
+    <li>Nicht die Höhe ist entscheidend, sondern das <b>Timing!</b><br>
+    Je weiter der Angriff vom Netz weg ist, um so später musst du springen.<br>
+    Für jede Angreiferin gibt es einen optimalen Zeitpunkt - manche schlagen früher (Bsp.: Chinesinnen), manche schlagen verzögert (Bsp.: nach Kurbeln beim Ausholen und andere technische Fehler).</li>
+  </ul></div>
+  <br clear="all" />
 
-  </table>
+  <h1>Wie geht das?</h1>
+  <div class="row2a"><div class="idee">!</div></div>
+  <div class="row2b"><b> Die Grundstellung</b><br>
+  Die Füße sind ungefähr schulterbreit auseinander, die Knie leicht gebeugt. Die Oberarme zeigen waagrecht nach vorne oder leicht nach oben, die Unterarme und Hände werden gerade nach oben gehalten. Die Handflächen zeigen zum Netz, sind aber leicht nach innen gedreht (als ob sie einen Ball umfassen würden), die Finger werden etwas vorgespannt. Der Blick ist zum Gegner gerichtet, dabei soll sowohl der Ball, als auch die einzelnen Spielerinnen, die an der Aktion beteiligt sind, beobachtet werden.<br>
+  &bdquo;Böse&ldquo; Trainer beschreiben die Haltung so, als ob man der Angreiferin wie eine Raubkatze an die Gurgel springen wolle.</div>
+  <br clear="all" />
+
+  <div class="row2a"><div class="idee">!</div></div>
+  <div class="row2b"><b> Die Verschiebung zum Blockort</b><br>
+  Sobald die Spielerin erkennt, wo sie zum Block springen muss, verschiebt sie sich so schnell wie möglich dorthin. Dafür gibt es verschiedene Möglichkeiten.</div>
+  <br clear="all" />
+
+  <div class="row2a"><div class="idee">!</div></div>
+  <div class="row2b"><b> Der Absprung</b><br>
+  Der Absprung erfolgt aus den Beinen, anfangs ohne(!) Unterstützung durch die Arme.<br>
+  Dafür gibt es mehrere Gründe:<br>
+  <ul><li>Mit Armschwung dauert es länger - Schnellangriffe sind dann schon abgeschlossen, bevor die Hände oben wären.</li>
+  <li>Mit Armschwung fallen auch fortgeschrittene Spielerinnen (meist) ins Hohlkreuz, die Arme werden hinter dem Kopf hochgeführt und schlagen dann nach dem Ball. Bis die Arme über dem Netz sind, dauert das ziemlich lang, eine routinierte Angreiferin legt in der Zwischenzeit den Ball zwischen Netz und Block in den freien Raum oder schlägt die Blockspielerin seitlich am Unterarm an.</li></ul>
+  Der Absprung erfolgt je nach Entfernung der Angreiferin vom Netz mit ihr oder kurz danach, damit man nicht wieder herunterfällt, bevor der Ball das Netz überquert.</div>
+  <br clear="all" />
+
+  <div class="row2a"><div class="idee">!</div></div>
+  <div class="row2b"><b> Die Armführung</b><br>
+  Die Arme werden gerade nach vorne oben und über das Netz geführt, nicht ausholen(!) und nach dem Ball schlagen. Die Hände bleiben dabei immer senkrecht oder leicht nach vorne geneigt, die Finger werden angespannt, damit sie der Ball nicht wegdrückt. Die Augen sollten auf der Angreiferin bleiben - der Ball wird so schnell, dass man ihn nicht mehr erkennen kann. Deshalb weiß man als Blockspielerin meistens auch nicht, ob der Ball links oder rechts am Block vorbei ist.</div>
+  <br clear="all" />
+
+  <div class="row2a"><div class="idee">!</div></div>
+  <div class="row2b"><b> Der Ballkontakt</b><br>
+  Der Ballkontakt erfolgt mit den Händen im höchsten Punkt des Sprungs oder kurz davor, da viele Spielerinnen in der Fallphase auch die Körperspannung auflösen. Deshalb ist auf eine gute Körperspannung zu achten, man kann sich mit einem <b>späten</b> Sprung helfen.</div>
+  <br clear="all" />
+
+  <div class="row2a"><div class="idee">!</div></div>
+  <div class="row2b"><b> Weiche Landung</b><br>
+  Die Landung sollte mit noch immer gestreckten Armen erfolgen, da viele Angreiferinnen so nach unten &bdquo;gieren&ldquo;, dass sie den Block auch noch 10cm unter dem Netz treffen. Viele Spielerinnen sind so groß, dass sie die Netzhöhe selbst im Stand oder zumindest auf den Zehen erreichen. Dabei ist darauf zu achten, dass die Spielerinnen trotz der ungewohnten Körperhaltung weich abfedern, damit sich langfristig keine körperlichen Schäden ergeben können.</div>
+  <br clear="all" />
+
+  </div>
+  <div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div>
  </body>
 </html>
