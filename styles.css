@@ -182,11 +182,15 @@ table.tactics div {
 
   white-space: nowrap;
   overflow: hidden;
+  padding: 0 0.2em 0 0;
+  border-top: 5px solid lightblue;
 
   font-size: 7em;
   line-height: 112%;
   font-weight: bold;
   background-color: lightblue;
+
+  z-index: 1;
 }
 
 /* -- footer --------------------------------------------------------------- */
