@@ -44,40 +44,52 @@ body {
   overflow: hidden;
 }
 
-#header {
+/* #header_ {
+  box-sizing: border-box;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 50px;
+
   padding: 12px;
-  box-sizing: border-box;
   z-index: 1;
+
   background-color: lightblue;
-  text-align: left;
-  font-weight: bold;
+} */
+#header {
+  padding: 3.5em 1em;
 }
 #header > #yearov {
   position: absolute;
-  top: 10px;
-  // right: 12px;
-  right: 50px;
+  top: 1.2em;
+  right: 3.5em;
+  font-size: 2.5em;
 }
 #header > span {
   background-color: lightblue;
+  text-align: left;
+  font-weight: bold;
+  font-size: 3em;
+}
+#header > select {
+  font-size: 2.5em;
+}
+#header > select > option {
+  font-size: 1em;
 }
 #header > span#item_year, #header > select#item_month {
-  margin-right: 10px;
+  margin-right: 0.6em;
 }
 #header > span#item_year {
   cursor: pointer;
 }
 #header > div.dirty {
   position: absolute;
-  right: 12px;
-  top: 12px;
-  height: 26px;
-  width: 26px;
+  right: 3em;
+  top: 3em;
+  height: 3em;
+  width: 3em;
   border-radius: 50%;
   background-color: gray;
   overflow: hidden;
@@ -88,21 +100,26 @@ body {
 }
 #header > div.dirty > div {
   position: absolute;
-  left: -6px;
-  top: -8px;
-  height: 22px;
-  width: 22px;
-  color: darkgray;
-  font-size: 66px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border: 0 none;
+  padding: 0;
+
+  font-size: 4em;
   font-weight: 700;
   text-align: center;
-  line-height: 100%;
+  line-height: 111%;
+
+  color: darkgray;
   background-color: transparent;
 }
 #header > div.dirty.x > div {
   color: #EEE;
 }
 
+/*
 #content0 {
   position: absolute;
   top: 0;
@@ -121,20 +138,23 @@ body {
   padding: 12px;
   box-sizing: border-box;
   overflow: auto;
-}
+} */
 
 div.line {
   position: relative;
   text-align: left;
-  padding-bottom: 2px;
+  padding-bottom: 0.1em;
   overflow: hidden;
   cursor: pointer;
+  font-size: 2.5em;
 }
 div.line > span.date {
-  padding: 1px 15px 1px 3px;
+  padding: 0.1em 1em 0.1em 0.2em;
+  font-size: 1em;
 }
 div.line > span.text {
-  padding: 1px 3px 1px 0;
+  padding: 0.1em 0.2em 0.1em 0;
+  font-size: 1em;
 }
 div.line.line1, div.line.line1 > span {
   background-color: #DDD;
@@ -149,47 +169,47 @@ div.line.line1:hover, div.line.line1:hover > span {
 
 div.line > div.delete {
   position: absolute;
-  right: 2px;
-  top: 3px;
-  height: 23px;
-  width: 24px;
+  right: 0.2em;
+  top: 0.2em;
+  height: 2.6em;
+  width: 2.6em;
   border-radius: 50%;
   background-color: darkred;
   overflow: hidden;
 }
 div.line > div.delete > div {
   position: absolute;
-  left: 0px;
-  top: -5px;
-  height: 22px;
-  width: 22px;
+  left: 0;
+  top: -0.2em;
+  height: 100%;
+  width: 100%;
   color: white;
-  font-size: 31px;
+  font-size: 3.4em;
   font-weight: 900;
   text-align: center;
-  line-height: 100%;
+  line-height: 120%;
   background-color: transparent;
 }
 
-#content > input#item_text {
+#content_container > input#item_text {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   text-align: left;
-  font-size: 18px;
-  padding: 8px 12px;
+  font-size: 3em;
+  font-weight: bold;
+  padding: 0;
   box-sizing: border-box;
 }
-#content > textarea#item_info {
+#content_container > textarea#item_info {
   position: absolute;
-  top: 38px;
+  top: 2em;
   left: 0;
   width: 100%;
   bottom: 0;
   text-align: left;
-  font-size: 16px;
-  padding: 8px 12px;
+  font-size: 2.5em;
   box-sizing: border-box;
 }
 
@@ -432,7 +452,7 @@ function _loadDates() {
 function _updateList() {
   var key, keys, i = 0, item,
       y = '' + _year,
-      elemContent = document.querySelector('#content'),
+      elemContent = document.querySelector('#content_container'),
       html = '';
 
   if (_data && _data[y]) {
@@ -460,8 +480,9 @@ function _updateList() {
 
 function _initLinks() {
   var i, lnk,
-      lnks = document.querySelectorAll('#content > div.line'),
-      lnksDel = document.querySelectorAll('#content > div.line > div.delete'),
+      lnks = document.querySelectorAll('#content_container > div.line'),
+      lnksDel = document
+        .querySelectorAll('#content_container > div.line > div.delete'),
       handler = function() {
         var key = this.getAttribute('data-key');
         log('>>> Link: ' + key);
@@ -529,7 +550,7 @@ function _showItem(key) {
 
   // set templates(header/content)
   document.querySelector('#header').innerHTML = _tpl['tplHeaderItem'];
-  document.querySelector('#content').innerHTML = _tpl['tplItem'];
+  document.querySelector('#content_container').innerHTML = _tpl['tplItem'];
 
   // reset
   _month = '';
@@ -582,8 +603,8 @@ function _showItem2() {
       elemYear = document.querySelector('#header > #item_year'),
       elemMonth = document.querySelector('#header > #item_month'),
       elemDate = document.querySelector('#header > #item_date'),
-      elemInfo = document.querySelector('#content > #item_info'),
-      elemText = document.querySelector('#content > #item_text'),
+      elemInfo = document.querySelector('#content_container > #item_info'),
+      elemText = document.querySelector('#content_container > #item_text'),
       y = '' + _year,
 
       initDate = function() {
@@ -691,10 +712,10 @@ function _showItem2() {
     elem = null;
     switch (_modeFocus) {
       case 'i':
-        elem = document.querySelector('#content #item_info');
+        elem = document.querySelector('#content_container #item_info');
         break;
       case 't':
-        elem = document.querySelector('#content #item_text');
+        elem = document.querySelector('#content_container #item_text');
         break;
       case 'm':
         elem = document.querySelector('#header #item_month');
@@ -727,7 +748,15 @@ function ddmmyyyy(key) {
   </script>
 </head>
 <body onload="init();">
- <div id="header">&nbsp;</div>
- <div id="content0"><div id="content">Loading...</div></div>
+ <!--div id="header">&nbsp;</div>
+ <div id="content0"><div id="content">Loading...</div></div-->
+
+<div class="container">
+  <div id="header">&nbsp;</div>
+  <!--div id="content_container"><div id="content">Loading...</div></div-->
+  <div id="content_container">Loading...</div>
+  <div id="footer">&nbsp;</div>
+</div>
+
 </body>
 </html>
