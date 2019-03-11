@@ -1,9 +1,16 @@
 var mapLeague = {
-  'br4': [22934, leagueSchedule, 'Termine Unterliga', 29075],
-  'br3': [22934, leagueSchedule, 'Termine Unterliga', 28955],
-  'br2': [22933, leagueSchedule, 'Termine Landesliga', 28951],
-  'br1': [22691, leagueSchedule, 'Termine Bundesliga', 27423]
+  'br4g': [22934, leagueSchedule, 'Termine Unterliga (GD)', 29075],
+  'br4': [22934, leagueSchedule, 'Termine Unterliga (FD)', 29075],
+
+  // 'br3g': [22934, leagueSchedule, 'Termine Unterliga (GD)', 28955],
+  'br3': [23747, leagueSchedule, 'Termine Landesliga (AR)', 30420],
+
+  'br2': [22933, leagueSchedule, 'Termine Landesliga (GD)', 28951],
+
+  'br1g': [22691, leagueSchedule, 'Termine Bundesliga (GD)', 27423],
+  'br1': [23666, leagueSchedule, 'Termine Bundesliga (MR)', 27423]
 };
+
 var mapKids = {
   'u10': [23058, kidsSchedule, 'Termine U10', 'brückl'],
   'u11': [23059, kidsSchedule, 'Termine U11', 'brückl'],

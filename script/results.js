@@ -1,8 +1,14 @@
 var mapLeague = {
-  'br4': [22934, leagueResults, 'Ergebnisse Unterliga', 29075],
-  'br3': [22934, leagueResults, 'Ergebnisse Unterliga', 28955],
-  'br2': [22933, leagueResults, 'Ergebnisse Landesliga', 28951],
-  'br1': [22691, leagueResults, 'Ergebnisse Bundesliga', 27423]
+  'br4g': [22934, leagueResults, 'Ergebnisse Unterliga (GD)', 29075],
+  'br4': [22934, leagueResults, 'Ergebnisse Unterliga (FD)', 29075],
+
+  'br3g': [22934, leagueResults, 'Ergebnisse Unterliga (GD)', 28955],
+  'br3': [23747, leagueResults, 'Ergebnisse Landesliga (AR)', 30420],
+
+  'br2': [22933, leagueResults, 'Ergebnisse Landesliga (GD)', 28951],
+
+  'br1g': [22691, leagueResults, 'Ergebnisse Bundesliga (GD)', 27423],
+  'br1': [23666, leagueResults, 'Ergebnisse Bundesliga (MR)', 27423]
 };
 
 var days = ['?0', 'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So', '?8'];

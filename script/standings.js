@@ -1,14 +1,20 @@
 var map = {
+  'br4g': [22934, leagueStandings, 'Tabelle Unterliga (GD)'],
+  'br4': [22934, leagueStandings, 'Tabelle Unterliga (FD)'],
+
+  'br3g': [22934, leagueStandings, 'Tabelle Unterliga (GD)'],
+  'br3': [23747, leagueStandings, 'Tabelle Landesliga (AR)'],
+
+  'br2': [22933, leagueStandings, 'Tabelle Landesliga (GD)'],
+
+  'br1g': [22691, leagueStandings, 'Tabelle Bundesliga (GD)'],
+  'br1': [23666, leagueStandings, 'Tabelle Bundesliga (MR)'],
+
   'u10': [23058, kidsStandings, 'Tabelle U10'],
   'u11': [23059, kidsStandings, 'Tabelle U11'],
   'u12': [23060, kidsStandings, 'Tabelle U12'],
   'u13': [23061, kidsStandings, 'Tabelle U13'],
-  'u15': [23063, kidsStandings, 'Tabelle U15'],
-
-  'br4': [22934, leagueStandings, 'Tabelle Unterliga'],
-  'br3': [22934, leagueStandings, 'Tabelle Unterliga'],
-  'br2': [22933, leagueStandings, 'Tabelle Landesliga'],
-  'br1': [22691, leagueStandings, 'Tabelle Bundesliga']
+  'u15': [23063, kidsStandings, 'Tabelle U15']
 };
 
 /**
