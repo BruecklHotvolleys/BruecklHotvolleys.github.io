@@ -27,7 +27,7 @@
 <div class="week">{{days}}</div>
   </script>
   <script id="tplDay" type="text/x-template">
-<div class="day{{enabled}}" data-key="{{key}}">
+<div class="day{{enabled}}{{today}}" data-key="{{key}}">
   <div class="date">{{date}}</div>
   {{entries}}
 </div>
@@ -155,6 +155,20 @@ div#content_container {
 
   font-size: 2.2em;
   pointer-events: none;
+}
+#content_container > .main > .week > .day.today > .date {
+  text-shadow: 0.1em  0.1em 0.1em gold,
+               0.1em -0.1em 0.1em gold,
+              -0.1em  0.1em 0.1em gold,
+              -0.1em -0.1em 0.1em gold,
+               0.1em  0.1em 0.2em gold,
+               0.1em -0.1em 0.2em gold,
+              -0.1em  0.1em 0.2em gold,
+              -0.1em -0.1em 0.2em gold,
+               0.2em  0.2em 0.2em orange,
+               0.2em -0.2em 0.2em orange,
+              -0.2em  0.2em 0.2em orange,
+              -0.2em -0.2em 0.2em orange;
 }
 #content_container > .main > .week > .day > .entry {
   position: relative;
