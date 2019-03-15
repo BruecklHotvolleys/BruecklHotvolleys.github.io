@@ -1,6 +1,6 @@
 var map = {
   'br4g': [22934, leagueStandings, 'Tabelle Unterliga (GD)'],
-  'br4': [22934, leagueStandings, 'Tabelle Unterliga (FD)'],
+  'br4': [23784, leagueStandings, 'Tabelle Unterliga (FD)'],
 
   'br3g': [22934, leagueStandings, 'Tabelle Unterliga (GD)'],
   'br3': [23747, leagueStandings, 'Tabelle Landesliga (AR)'],

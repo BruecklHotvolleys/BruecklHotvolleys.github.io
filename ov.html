@@ -38,23 +38,24 @@ function init() {
     'u17': ['statistics_u17'],
 
     'ak': [
-      'grundlagen_br4', 'schedule_br4', 'results_br4', 'standings_br4',
+      'grundlagen_br4',
+      'results_br4g', 'standings_br4g',
+      'schedule_br4', 'results_br4', 'standings_br4',
 
       'grundlagen_br3',
         'schedule_br3', 'results_br3', 'standings_br3',
-        // 'schedule_br3g',
         'results_br3g', 'standings_br3g',
         'statistics_br3', 'teambuilding_br3',
 
-      // 'schedule_br2g',
       'results_br2g', 'standings_br2g',
 
       'schedule_br1', 'results_br1', 'standings_br1',
-      // 'schedule_br1g',
       'results_br1g', 'standings_br1g'
     ],
     'br4': [
-      'grundlagen_br4', 'schedule_br4', 'results_br4', 'standings_br4'
+      'grundlagen_br4',
+      'results_br4g', 'standings_br4g',
+      'schedule_br4', 'results_br4', 'standings_br4',
     ],
     'br3': [
       'grundlagen_br3',
@@ -64,12 +65,10 @@ function init() {
         'statistics_br3', 'teambuilding_br3'
     ],
     'br2': [
-      // 'schedule_br2g',
       'results_br2g', 'standings_br2g'
     ],
     'br1': [
       'schedule_br1', 'results_br1', 'standings_br1',
-      // 'schedule_br1g',
       'results_br1g', 'standings_br1g'
     ],
 
@@ -131,9 +130,13 @@ function init() {
     <h2 id="br4" class="expandable">Brückl 4 - Unterliga</h2>
     <div id="br4_2" class="expanded_container">
       <a id="grundlagen_br4" href="uld/grundlagen"><h3>Grundlagen</h3></a>
-      <a id="schedule_br4" href="schedule.html?key=br4"><h3>Spieltermine</h3></a>
-      <a id="results_br4" href="results.html?key=br4"><h3>Ergebnisse</h3></a>
-      <a id="standings_br4" href="standings.html?key=br4"><h3>Tabelle</h3></a>
+
+      <a id="schedule_br4" href="schedule.html?key=br4"><h3>Spieltermine (FD)</h3></a>
+      <a id="results_br4" href="results.html?key=br4"><h3>Ergebnisse (FD)</h3></a>
+      <a id="standings_br4" href="standings.html?key=br4"><h3>Tabelle (FD)</h3></a>
+
+      <a id="results_br4g" href="results.html?key=br4g"><h3>Ergebnisse (GD)</h3></a>
+      <a id="standings_br4g" href="standings.html?key=br4g"><h3>Tabelle (GD)</h3></a>
     </div>
 
     <h2 id="br3" class="expandable">Brückl 3 - Unterliga/Landesliga</h2>
