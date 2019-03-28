@@ -5,7 +5,8 @@ var mapLeague = {
   // 'br3g': [22934, leagueSchedule, 'Termine Unterliga (GD)', 28955],
   'br3': [23747, leagueSchedule, 'Termine Landesliga (AR)', 30420],
 
-  'br2': [22933, leagueSchedule, 'Termine Landesliga (GD)', 28951],
+  'br2g': [22933, leagueSchedule, 'Termine Landesliga (GD)', 28951],
+  'br2m': [23746, leagueSchedule, 'Termine Landesliga (MPO)', 28951],
 
   'br1g': [22691, leagueSchedule, 'Termine Bundesliga (GD)', 27423],
   'br1': [23666, leagueSchedule, 'Termine Bundesliga (MR)', 27423]

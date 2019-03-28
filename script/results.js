@@ -5,7 +5,8 @@ var mapLeague = {
   'br3g': [22934, leagueResults, 'Ergebnisse Unterliga (GD)', 28955],
   'br3': [23747, leagueResults, 'Ergebnisse Landesliga (AR)', 30420],
 
-  'br2': [22933, leagueResults, 'Ergebnisse Landesliga (GD)', 28951],
+  'br2g': [22933, leagueResults, 'Ergebnisse Landesliga (GD)', 28951],
+  'br2m': [23746, leagueResults, 'Ergebnisse Landesliga (MPO)', 28951],
 
   'br1g': [22691, leagueResults, 'Ergebnisse Bundesliga (GD)', 27423],
   'br1': [23666, leagueResults, 'Ergebnisse Bundesliga (MR)', 27423]
