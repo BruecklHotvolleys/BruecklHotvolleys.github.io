@@ -13,11 +13,11 @@ var mapLeague = {
 };
 
 var mapKids = {
-  'u10': [23058, kidsSchedule, 'Termine U10', 'brückl'],
-  'u11': [23059, kidsSchedule, 'Termine U11', 'brückl'],
-  'u12': [23060, kidsSchedule, 'Termine U12', 'brückl'],
-  'u13': [23061, kidsSchedule, 'Termine U13', 'brückl'],
-  'u15': [23063, kidsSchedule, 'Termine U15', 'brückl']
+  'u10': [23058, kidsSchedule, 'Turniere U10', 'brückl'],
+  'u11': [23059, kidsSchedule, 'Turniere U11', 'brückl'],
+  'u12': [23060, kidsSchedule, 'Turniere U12', 'brückl'],
+  'u13': [23061, kidsSchedule, 'Turniere U13', 'brückl'],
+  'u15': [23063, kidsSchedule, 'Turniere U15', 'brückl']
 };
 
 var finals = {
@@ -29,36 +29,36 @@ var finals = {
   'u17': "Finale (So 03.03.2019  Villach)",
   'u19': "Finale (So 27.01.2019  Klagenfurt)"
 };
-var finals2 = {
-  '2019-05-30': {
-    'text': 'u10',
-    'info': 'u10 Finale: Do 30.05.2019  Brückl'
-  },
-  '2019-05-19': {
-    'text': 'u11',
-    'info': 'u11 Finale: So 19.05.2019  Brückl'
-  },
-  '2019-04-07': {
-    'text': 'u12',
-    'info': 'u12 Finale: So 07.04.2019  Klagenfurt'
-  },
-  '2019-04-27': {
-    'text': 'u13',
-    'info': 'u13 Finale: Sa 27.04.2019  Wolfsberg'
-  },
-  '2019-05-05': {
-    'text': 'u15',
-    'info': 'u15 Finale: So 05.05.2019  Klagenfurt'
-  },
-  '2019-03-03': {
-    'text': 'u17',
-    'info': 'u17 Finale: So 03.03.2019  Villach'
-  },
-  '2019-01-27': {
-    'text': 'u19',
-    'info': 'u19 Finale: So 27.01.2019  Klagenfurt'
-  }
-};
+// var finals2 = {
+//   '2019-05-30': {
+//     'text': 'u10',
+//     'info': 'u10 Finale: Do 30.05.2019  Brückl'
+//   },
+//   '2019-05-19': {
+//     'text': 'u11',
+//     'info': 'u11 Finale: So 19.05.2019  Brückl'
+//   },
+//   '2019-04-07': {
+//     'text': 'u12',
+//     'info': 'u12 Finale: So 07.04.2019  Klagenfurt'
+//   },
+//   '2019-04-27': {
+//     'text': 'u13',
+//     'info': 'u13 Finale: Sa 27.04.2019  Wolfsberg'
+//   },
+//   '2019-05-05': {
+//     'text': 'u15',
+//     'info': 'u15 Finale: So 05.05.2019  Klagenfurt'
+//   },
+//   '2019-03-03': {
+//     'text': 'u17',
+//     'info': 'u17 Finale: So 03.03.2019  Villach'
+//   },
+//   '2019-01-27': {
+//     'text': 'u19',
+//     'info': 'u19 Finale: So 27.01.2019  Klagenfurt'
+//   }
+// };
 var days = ['?0', 'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So', '?8'];
 
 

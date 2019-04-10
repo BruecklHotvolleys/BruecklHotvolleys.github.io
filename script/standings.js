@@ -12,9 +12,12 @@ var map = {
 
   'u10': [23058, kidsStandings, 'Tabelle U10'],
   'u11': [23059, kidsStandings, 'Tabelle U11'],
-  'u12': [23060, kidsStandings, 'Tabelle U12'],
+  'u12f': [23976, kidsStandingsF, 'Endstand U12 (weiblich)'],
+  'u12m': [23977, kidsStandingsF, 'Endstand U12 (männlich)'],
+  'u12q': [23060, kidsStandings, 'Tabelle U12 (Qualifikation)'],
   'u13': [23061, kidsStandings, 'Tabelle U13'],
-  'u15': [23063, kidsStandings, 'Tabelle U15']
+  'u15': [23063, kidsStandings, 'Tabelle U15'],
+  'u17': [23787, kidsStandingsF, 'Endstand U17']
 };
 
 /**
@@ -23,7 +26,25 @@ var map = {
  * @return {void}
  */
 function kidsStandings(response) {
+  doKidsStandings(response, false);
+}
 
+/**
+ * Creates the final standings for a junior chamionship.
+ * @param {string} reponse The response from the web service.
+ * @return {void}
+ */
+function kidsStandingsF(response) {
+  doKidsStandings(response, true);
+}
+
+/**
+ * Creates the standings for a junior chamionship.
+ * @param {string} reponse The response from the web service.
+ * @param {boolean} final True for the final standings, otherwise false.
+ * @return {void}
+ */
+function doKidsStandings(response, final) {
 
   // create xml data
   var xml = bhv.request.xml.fromText(response, 'xml');
@@ -33,15 +54,40 @@ function kidsStandings(response) {
     var list = bhv.request.xml.getNodes(xml, 'tabelle');
     if (list && list.length) {
 
+      var container
+        = '<div class="container" title="{{text2}}" alt="{{text2}}">'
+        + '<input id="info_{{idx}}" type="checkbox" class="info">'
+        + '<label for="info_{{idx}}">{{text}}<span>{{text2}}</span></label>'
+        + '</div>',
+          points = container
+            .replace(/\{\{idx\}\}/g, 'pt')
+            .replace(/\{\{text\}\}/g, 'P')
+            .replace(/\{\{text2\}\}/g, 'Punkte'),
+          tournaments = container
+            .replace(/\{\{idx\}\}/g, 'tour')
+            .replace(/\{\{text\}\}/g, 'T')
+            .replace(/\{\{text2\}\}/g, 'gespielte Turniere');
+
       // create text
       var msg = bhv.request.utils.fillColumn('', 47)
-        + 'P  T '.replace(/ /g, '&nbsp;') + NL;
+        .replace(/ /g, '&nbsp;');
+      if (!final) {
+        msg += points + '&nbsp;&nbsp;&nbsp;' + tournaments;
+      }
+      msg += NL;
+
       for (var i = 0; i < list.length; ++i) {
-        msg += bhv.request.utils.fillColumn('' + (i + 1), -2) + '. '
-            + bhv.request.utils.checkBold(bhv.request.utils.fillColumn(
-                bhv.request.xml.findNode(list[i].childNodes, 'tea_name'), 40))
+        msg += bhv.request.utils.fillColumn('' + (i + 1), -2) + '. ';
+        if (final) {
+          msg += bhv.request.utils.checkBold(bhv.request.xml.findNode(list[i].childNodes, 'tea_name'));
+        } else {
+          msg += bhv.request.utils.checkBold(bhv.request.utils.fillColumn(
+              bhv.request.xml.findNode(list[i].childNodes, 'tea_name'), 40))
             + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'punkte'), -4)
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'gespielt'), -3) + '&nbsp;' + NL;
+            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'gespielt'), -3)
+            + '&nbsp;';
+        }
+        msg += NL;
       }
 
       // save data for offline mode
