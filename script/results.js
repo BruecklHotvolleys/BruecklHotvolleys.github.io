@@ -9,7 +9,12 @@ var mapLeague = {
   'br2m': [23746, leagueResults, 'Ergebnisse Landesliga (MPO)', 28951],
 
   'br1g': [22691, leagueResults, 'Ergebnisse Bundesliga (GD)', 27423],
-  'br1': [23666, leagueResults, 'Ergebnisse Bundesliga (MR)', 27423]
+  'br1': [23666, leagueResults, 'Ergebnisse Bundesliga (MR)', 27423],
+
+  'u12f': [[23917, 23919, 23974, 23975], leagueResults, 'Ergebnisse', [30529, 30534, 30535]],
+  'u12m': [[23920, 23978], leagueResults, 'Ergebnisse', 30540],
+
+  'u13f': [[24089, 24090, 24091], leagueResults, 'Ergebnisse', 30683]
 };
 
 var days = ['?0', 'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So', '?8'];
@@ -67,38 +72,6 @@ function leagueResults(response) {
       var msg = NL + fmt('Tag', L1) + fmt('Datum', L2) + fmt('Zeit', L3)
           + fmt('Heim', L45 + 1) + fmt('Gast', L45 + 1) + 'Ergebnis&nbsp;' + NL;
       for (var i = 0; i < list.length; ++i) {
-        // var res = '',
-        //     setA = bhv.request.xml.findNode(list[i].childNodes, 'spi_saetze_a'),
-        //     setB = bhv.request.xml.findNode(list[i].childNodes, 'spi_saetze_b'),
-        //     ptA = [
-        //       bhv.request.xml.findNode(list[i].childNodes, 'spi_punkte_satz1_a'),
-        //       bhv.request.xml.findNode(list[i].childNodes, 'spi_punkte_satz2_a'),
-        //       bhv.request.xml.findNode(list[i].childNodes, 'spi_punkte_satz3_a'),
-        //       bhv.request.xml.findNode(list[i].childNodes, 'spi_punkte_satz4_a'),
-        //       bhv.request.xml.findNode(list[i].childNodes, 'spi_punkte_satz5_a')
-        //     ],
-        //     ptB = [
-        //       bhv.request.xml.findNode(list[i].childNodes, 'spi_punkte_satz1_b'),
-        //       bhv.request.xml.findNode(list[i].childNodes, 'spi_punkte_satz2_b'),
-        //       bhv.request.xml.findNode(list[i].childNodes, 'spi_punkte_satz3_b'),
-        //       bhv.request.xml.findNode(list[i].childNodes, 'spi_punkte_satz4_b'),
-        //       bhv.request.xml.findNode(list[i].childNodes, 'spi_punkte_satz5_b')
-        //     ];
-        // if (!isNaN(setA) && !isNaN(setB)) {
-        //   var setAa = parseInt(setA),
-        //       setBb = parseInt(setB),
-        //       sets = setAa + setBb;
-        //   if (sets > 0) {
-        //     res = setA + ':' + setB + '&nbsp;(';
-        //     for (var s = 0; s < sets; ++s) {
-        //       if (s > 0) {
-        //         res += ',&nbsp;';
-        //       }
-        //       res += ptA[s] + ':' + ptB[s];
-        //     }
-        //     res += ')&nbsp;';
-        //   }
-        // }
         var res = bhv.request.xml.createGameResult(list[i].childNodes);
 
         msg += bhv.request.utils.fillColumn(days[bhv.request.xml.findNode(list[i].childNodes, 'tag')], L1)

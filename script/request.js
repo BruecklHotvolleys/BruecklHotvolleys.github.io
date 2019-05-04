@@ -407,19 +407,52 @@ window.bhv.request = {
 
   'queryResults': function(idBew, idTea, onsuccess, onerror) {
 
-    // check id of competition and team
-    if (!this._checkId(idBew, 'competition') || !this._checkId(idTea, 'team')) {
+    // check id(s) of competition and team
+    // if (!this._checkId(idBew, 'competition') || !this._checkId(idTea, 'team')) {
+    //   onerror();
+    //   return false;
+    // }
+    ok = true;
+    multiPhase = false;
+    idsComp = '';
+    if (Array.isArray(idBew)) {
+      multiPhase = true;
+      for (var i = 0; ok && i < idBew.length; ++i) {
+        ok = ok && this._checkId(idBew[i], 'competition');
+      }
+      idsComp = idBew.join(', ');
+    } else {
+      ok = ok && this._checkId(idBew, 'competition');
+    }
+
+    multiTeam = false;
+    idsTeam = '';
+    if (Array.isArray(idTea)) {
+      multiTeam = true;
+      for (var i = 0; ok && i < idTea.length; ++i) {
+        ok = ok && this._checkId(idTea[i], 'team');
+      }
+      idsTeam = idTea.join(', ');
+    } else {
+      ok = ok && this._checkId(idTea, 'Team');
+    }
+
+    if (!ok) {
       onerror();
       return false;
     }
 
     // the url to get the schedule
+    var comp = multiPhase ? 'bew_id in (' + idsComp + ')' : 'bew_id=' + idBew;
+    var team = multiTeam
+      ? 'spi_tea_id_a IN (' + idsTeam + ') or spi_tea_id_b IN (' + idsTeam + ')'
+      : 'spi_tea_id_a=' + idTea + ' or spi_tea_id_b=' + idTea;
     var url = location.protocol
       + '//kvv.volleynet.at/volleynet/service/xml2.php'
       + '?action=ergebnis&where='
-      + encodeURIComponent('bew_id=' + idBew
-        + 'and (vrn_id_a=21 or vrn_id_b=21) and (spi_tea_id_a=' + idTea
-        + ' or spi_tea_id_b=' + idTea + ')')
+      // + encodeURIComponent('bew_id=' + idBew
+      + encodeURIComponent(comp
+        + 'and (vrn_id_a=21 or vrn_id_b=21) and (' + team + ')')
       + '&orderBy=spi_datum';
 
     // request data

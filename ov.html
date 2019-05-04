@@ -25,15 +25,16 @@ function init() {
     'nw': [
       'grundlagen_u10', 'schedule_u10', 'standings_u10',
       'grundlagen_u11', 'schedule_u11', 'standings_u11',
-      'grundlagen_u12', 'standings_u12f', 'standings_u12m', 'schedule_u12', 'standings_u12q',
-      'grundlagen_u13', 'schedule_u13', 'standings_u13',
+      'grundlagen_u12', 'standings_u12f', 'standings_u12m',
+       'results_u12f', 'results_u12m', 'schedule_u12', 'standings_u12q',
+      'grundlagen_u13', 'standings_u13f', 'results_u13f', 'schedule_u13', 'standings_u13', 'statistics_u13',
       'grundlagen_u15', 'schedule_u15', 'standings_u15', 'statistics_u15pn',
       'statistics_u17', 'standings_u17'
     ],
     'u10': ['grundlagen_u10', 'schedule_u10', 'standings_u10'],
     'u11': ['grundlagen_u11', 'schedule_u11', 'standings_u11'],
-    'u12': ['grundlagen_u12', 'standings_u12f', 'standings_u12m', 'schedule_u12', 'standings_u12q'],
-    'u13': ['grundlagen_u13', 'schedule_u13', 'standings_u13'],
+    'u12': ['grundlagen_u12', 'standings_u12f', 'standings_u12m', 'results_u12f', 'results_u12m', 'schedule_u12', 'standings_u12q'],
+    'u13': ['grundlagen_u13', 'standings_u13f', 'results_u13f', 'schedule_u13', 'standings_u13', 'statistics_u13'],
     'u15': ['grundlagen_u15', 'schedule_u15', 'standings_u15', 'statistics_u15pn'],
     'u17': ['statistics_u17', 'standings_u17'],
 
@@ -103,7 +104,9 @@ function init() {
     <div id="u12_2" class="expanded_container">
       <a id="grundlagen_u12" href="/u12"><h3>Grundlagen</h3></a>
       <a id="standings_u12f" href="standings.html?key=u12f"><h3>Endstand (weiblich)</h3></a>
+      <a id="results_u12f" href="results.html?key=u12f"><h3>Spiele (weiblich)</h3></a>
       <a id="standings_u12m" href="standings.html?key=u12m"><h3>Endstand (männlich)</h3></a>
+      <a id="results_u12m" href="results.html?key=u12m"><h3>Spiele (männlich)</h3></a>
       <a id="schedule_u12" href="schedule.html?key=u12"><h3>Turniere (Qualifikation)</h3></a>
       <a id="standings_u12q" href="standings.html?key=u12q"><h3>Tabelle (Qualifikation)</h3></a>
     </div>
@@ -111,6 +114,9 @@ function init() {
     <h2 id="u13" class="expandable">U13</h2>
     <div id="u13_2" class="expanded_container">
       <!--a id="grundlagen_u13" href="u13"><h3>Grundlagen</h3></a-->
+      <a id="standings_u13f" href="standings.html?key=u13f"><h3>Endstand</h3></a>
+      <a id="results_u13f" href="results.html?key=u13f"><h3>Spiele</h3></a>
+      <a id="statistics_u13" href="/u13/statistics.html"><h3>Statistik (Finale)</h3></a>
       <a id="schedule_u13" href="schedule.html?key=u13"><h3>Turniere (Qualifikation)</h3></a>
       <a id="standings_u13" href="standings.html?key=u13"><h3>Tabelle (Qualifikation)</h3></a>
     </div>
