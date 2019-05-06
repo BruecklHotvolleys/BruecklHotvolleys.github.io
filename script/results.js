@@ -11,10 +11,13 @@ var mapLeague = {
   'br1g': [22691, leagueResults, 'Ergebnisse Bundesliga (GD)', 27423],
   'br1': [23666, leagueResults, 'Ergebnisse Bundesliga (MR)', 27423],
 
+
   'u12f': [[23917, 23919, 23974, 23975], leagueResults, 'Ergebnisse', [30529, 30534, 30535]],
   'u12m': [[23920, 23978], leagueResults, 'Ergebnisse', 30540],
 
-  'u13f': [[24089, 24090, 24091], leagueResults, 'Ergebnisse', 30683]
+  'u13f': [[24089, 24090, 24091], leagueResults, 'Ergebnisse', 30683],
+
+  'u15f': [[24095, 24097, 24098], leagueResults, 'Ergebnisse', 30672]
 };
 
 var days = ['?0', 'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So', '?8'];

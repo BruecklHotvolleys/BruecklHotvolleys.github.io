@@ -10,14 +10,20 @@ var map = {
   'br1g': [22691, leagueStandings, 'Tabelle Bundesliga (GD)'],
   'br1': [23666, leagueStandings, 'Tabelle Bundesliga (MR)'],
 
-  'u10': [23058, kidsStandings, 'Tabelle U10'],
-  'u11': [23059, kidsStandings, 'Tabelle U11'],
+
+  'u10': [23058, kidsStandings, 'Tabelle U10 (Qualifikation)'],
+  'u11': [23059, kidsStandings, 'Tabelle U11 (Qualifikation)'],
+
   'u12f': [23976, kidsStandingsF, 'Endstand U12 (weiblich)'],
   'u12m': [23977, kidsStandingsF, 'Endstand U12 (männlich)'],
   'u12q': [23060, kidsStandings, 'Tabelle U12 (Qualifikation)'],
+
   'u13f': [24092, kidsStandingsF, 'Endstand U13'],
-  'u13': [23061, kidsStandings, 'Tabelle U13'],
-  'u15': [23063, kidsStandings, 'Tabelle U15'],
+  'u13': [23061, kidsStandings, 'Tabelle U13 (Qualifikation)'],
+
+  'u15f': [24099, kidsStandingsF, 'Endstand U15'],
+  'u15': [23063, kidsStandings, 'Tabelle U15 (Qualifikation)'],
+
   'u17': [23787, kidsStandingsF, 'Endstand U17']
 };
 
