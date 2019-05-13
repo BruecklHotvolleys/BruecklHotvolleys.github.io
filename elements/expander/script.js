@@ -71,13 +71,13 @@ if (window.bhv.elements.expander === undefined) {
       }
     },
 
-    _addClass(elem, clazz) {
+    _addClass: function(elem, clazz) {
       if (elem && !this._hasClass(elem, clazz)) {
         elem.className += ' ' + clazz;
       }
     },
 
-    _removeClass(elem, clazz) {
+    _removeClass: function(elem, clazz) {
       var anyClass = false,
           parts, pos;
 
@@ -97,7 +97,7 @@ if (window.bhv.elements.expander === undefined) {
       return false;
     },
 
-    _hasClass(elem, clazz) {
+    _hasClass: function(elem, clazz) {
       var parts;
 
       if (elem && elem.className) {
