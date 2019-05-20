@@ -11,6 +11,8 @@ var mapLeague = {
   'br1g': [22691, leagueResults, 'Ergebnisse Bundesliga (GD)', 27423],
   'br1': [23666, leagueResults, 'Ergebnisse Bundesliga (MR)', 27423],
 
+  'u11f': [[24264, 24265, 24266, 24267], leagueResults, 'Ergebnisse', [30775, 30781, 30782, 30776]],
+  'u11m': [[24270, 24271, 24272], leagueResults, 'Ergebnisse', 30789],
 
   'u12f': [[23917, 23919, 23974, 23975], leagueResults, 'Ergebnisse', [30529, 30534, 30535]],
   'u12m': [[23920, 23978], leagueResults, 'Ergebnisse', 30540],

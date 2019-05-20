@@ -14,6 +14,9 @@ var map = {
   'u10': [23058, kidsStandings, 'Tabelle U10 (Qualifikation)'],
   'u11': [23059, kidsStandings, 'Tabelle U11 (Qualifikation)'],
 
+  'u11f': [24268, kidsStandingsF, 'Endstand U11 (weiblich)'],
+  'u11m': [24273, kidsStandingsF, 'Endstand U11 (männlich)'],
+
   'u12x': [23283, kidsStandingsF, 'Endstand U12 (ÖMS)'],
   'u12f': [23976, kidsStandingsF, 'Endstand U12 (weiblich)'],
   'u12m': [23977, kidsStandingsF, 'Endstand U12 (männlich)'],

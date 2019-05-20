@@ -25,6 +25,7 @@ function init() {
     'nw': [
       'grundlagen_u10', 'schedule_u10', 'standings_u10',
       'grundlagen_u11', 'schedule_u11', 'standings_u11',
+        'standings_u11f', 'standings_u11m', 'results_u11f', 'results_u11m',
       'grundlagen_u12',
        'certificate_u12x', 'standings_u12x', 'results_u12x', 'statistics_u12x',
        'standings_u12f', 'standings_u12m',
@@ -36,7 +37,8 @@ function init() {
       'statistics_u17', 'standings_u17'
     ],
     'u10': ['grundlagen_u10', 'schedule_u10', 'standings_u10'],
-    'u11': ['grundlagen_u11', 'schedule_u11', 'standings_u11'],
+    'u11': ['grundlagen_u11', 'schedule_u11', 'standings_u11',
+            'standings_u11f', 'standings_u11m', 'results_u11f', 'results_u11m'],
     'u12': ['grundlagen_u12',
             'certificate_u12x', 'standings_u12x', 'results_u12x', 'statistics_u12x',
             'standings_u12f', 'standings_u12m', 'results_u12f', 'results_u12m',
@@ -102,7 +104,13 @@ function init() {
 
     <h2 id="u11" class="expandable">U11</h2>
     <div id="u11_2" class="expanded_container">
-      <a id="grundlagen_u11" href="/u11"><h3>Grundlagen</h3></a>
+      <!--a id="grundlagen_u11" href="/u11"><h3>Grundlagen</h3></a-->
+
+      <a id="standings_u11f" href="standings.html?key=u11f"><h3>Endstand (Finale, weiblich)</h3></a>
+      <a id="results_u11f" href="results.html?key=u11f"><h3>Spiele (Finale, weiblich)</h3></a>
+      <a id="standings_u11m" href="standings.html?key=u11m"><h3>Endstand (Finale, männlich)</h3></a>
+      <a id="results_u11m" href="results.html?key=u11m"><h3>Spiele (Finale, männlich)</h3></a>
+
       <a id="schedule_u11" href="schedule.html?key=u11"><h3>Turniere (Qualifikation)</h3></a>
       <a id="standings_u11" href="standings.html?key=u11"><h3>Tabelle (Qualifikation)</h3></a>
     </div>
@@ -115,10 +123,10 @@ function init() {
       <a id="standings_u12x" href="standings.html?key=u12x"><h3>Endstand (ÖMS)</h3></a>
       <a id="results_u12x" href="results.html?key=u12x"><h3>Spiele (ÖMS)</h3></a>
       <a id="statistics_u12x" href="/u12/statistics.html"><h3>Statistik (ÖMS)</h3></a>
-      <a id="standings_u12f" href="standings.html?key=u12f"><h3>Endstand (weiblich)</h3></a>
-      <a id="results_u12f" href="results.html?key=u12f"><h3>Spiele (weiblich)</h3></a>
-      <a id="standings_u12m" href="standings.html?key=u12m"><h3>Endstand (männlich)</h3></a>
-      <a id="results_u12m" href="results.html?key=u12m"><h3>Spiele (männlich)</h3></a>
+      <a id="standings_u12f" href="standings.html?key=u12f"><h3>Endstand (Finale, weiblich)</h3></a>
+      <a id="results_u12f" href="results.html?key=u12f"><h3>Spiele (Finale, weiblich)</h3></a>
+      <a id="standings_u12m" href="standings.html?key=u12m"><h3>Endstand (Finale, männlich)</h3></a>
+      <a id="results_u12m" href="results.html?key=u12m"><h3>Spiele (Finale, männlich)</h3></a>
       <a id="schedule_u12" href="schedule.html?key=u12"><h3>Turniere (Qualifikation)</h3></a>
       <a id="standings_u12q" href="standings.html?key=u12q"><h3>Tabelle (Qualifikation)</h3></a>
     </div>
