@@ -30,7 +30,10 @@ function init() {
        'certificate_u12x', 'standings_u12x', 'results_u12x', 'statistics_u12x',
        'standings_u12f', 'standings_u12m',
        'results_u12f', 'results_u12m', 'schedule_u12', 'standings_u12q',
-      'grundlagen_u13', 'standings_u13f', 'results_u13f', 'schedule_u13', 'standings_u13', 'statistics_u13',
+      'grundlagen_u13',
+       'standings_u13x', 'results_u13x', 'statistics_u13x',
+       'standings_u13f', 'results_u13f',
+       'schedule_u13', 'standings_u13', 'statistics_u13',
       'grundlagen_u15',
        'standings_u15f', 'results_u15f', 'statistics_u15f',
        'schedule_u15', 'standings_u15', 'statistics_u15pn',
@@ -43,7 +46,10 @@ function init() {
             'certificate_u12x', 'standings_u12x', 'results_u12x', 'statistics_u12x',
             'standings_u12f', 'standings_u12m', 'results_u12f', 'results_u12m',
             'schedule_u12', 'standings_u12q'],
-    'u13': ['grundlagen_u13', 'standings_u13f', 'results_u13f', 'schedule_u13', 'standings_u13', 'statistics_u13'],
+    'u13': ['grundlagen_u13',
+            'standings_u13x', 'results_u13x', 'statistics_u13x',
+            'standings_u13f', 'results_u13f',
+            'schedule_u13', 'standings_u13', 'statistics_u13'],
     'u15': ['grundlagen_u15', 'standings_u15f', 'results_u15f', 'statistics_u15f', 'schedule_u15', 'standings_u15', 'statistics_u15pn'],
     'u17': ['statistics_u17', 'standings_u17'],
 
@@ -134,9 +140,15 @@ function init() {
     <h2 id="u13" class="expandable">U13</h2>
     <div id="u13_2" class="expanded_container">
       <!--a id="grundlagen_u13" href="u13"><h3>Grundlagen</h3></a-->
-      <a id="standings_u13f" href="standings.html?key=u13f"><h3>Endstand</h3></a>
+
+      <!--a id="standings_u13x" href="standings.html?key=u13f"><h3>Endstand (ÖMS)</h3></a>
+      <a id="results_u13x" href="results.html?key=u13f"><h3>Spiele (ÖMS)</h3></a-->
+      <a id="statistics_u13x" href="/u13/statisticsX.html"><h3>Statistik (ÖMS)</h3></a>
+
+      <a id="standings_u13f" href="standings.html?key=u13f"><h3>Endstand (Finale)</h3></a>
       <a id="results_u13f" href="results.html?key=u13f"><h3>Spiele (Finale)</h3></a>
       <a id="statistics_u13" href="/u13/statistics.html"><h3>Statistik (Finale)</h3></a>
+
       <a id="schedule_u13" href="schedule.html?key=u13"><h3>Turniere (Qualifikation)</h3></a>
       <a id="standings_u13" href="standings.html?key=u13"><h3>Tabelle (Qualifikation)</h3></a>
     </div>
