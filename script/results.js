@@ -19,6 +19,7 @@ var mapLeague = {
   'u12x': [[24177, 24180], leagueResults, 'Ergebnisse', 30652],
 
   'u13f': [[24089, 24090, 24091], leagueResults, 'Ergebnisse', 30683],
+  'u13x': [[24290, 24291, 24292, 24293, 24294, 24295], leagueResults, 'Ergebnisse', 30753],
 
   'u15f': [[24095, 24097, 24098], leagueResults, 'Ergebnisse', 30672]
 };
