@@ -27,9 +27,9 @@
 <div class="week">{{days}}</div>
   </script>
   <script id="tplDay" type="text/x-template">
-<div class="day{{enabled}}{{today}}" data-key="{{key}}">
-  <div class="date">{{date}}</div>
-  {{entries}}
+<div class="day{{enabled}}" data-key="{{key}}">
+  <div>{{entries}}</div>
+  <div class="date{{today}}">{{date}}</div>
 </div>
   </script>
   <script id="tplEntry" type="text/x-template">
@@ -134,6 +134,17 @@ div#content_container {
   padding: 0.3em 0 0 0;
   text-shadow: 0 0 2em white, 0 0 1em white, 0 0 1em white;
 }
+#content_container > .main > .week > .day > div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: transparent;
+}
 #content_container > .main > .week > .day > .date {
   position: absolute;
   right: 0.3em;
@@ -156,7 +167,7 @@ div#content_container {
   font-size: 2.2em;
   pointer-events: none;
 }
-#content_container > .main > .week > .day.today > .date {
+#content_container > .main > .week > .day > .date.today {
   text-shadow: 0.1em  0.1em 0.1em gold,
                0.1em -0.1em 0.1em gold,
               -0.1em  0.1em 0.1em gold,
@@ -170,7 +181,7 @@ div#content_container {
               -0.2em  0.2em 0.2em orange,
               -0.2em -0.2em 0.2em orange;
 }
-#content_container > .main > .week > .day > .entry {
+#content_container > .main > .week > .day > div > .entry {
   position: relative;
   width: 100%;
   margin-bottom: 1px;
@@ -182,7 +193,7 @@ div#content_container {
   white-space: pre;
   opacity: 0.5;
 }
-#content_container > .main > .week > .day.enabled > .entry.enabled {
+#content_container > .main > .week > .day.enabled > div > .entry.enabled {
   cursor: pointer;
   opacity: 1;
 }

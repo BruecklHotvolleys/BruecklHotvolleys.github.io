@@ -79,7 +79,7 @@ var calendar = {
   '_initDatesInfo': function() {
     var i,
         elemMain = this._document.querySelector('#content_container > .main'),
-        elems = this._document.querySelectorAll('#content_container > .main > .week > .day.enabled > .entry.enabled'),
+        elems = this._document.querySelectorAll('#content_container > .main > .week > .day.enabled > div > .entry.enabled'),
         elemsInfo = this._document.querySelectorAll('#content_container > .entryInfo'),
         handler = function(ev) {
           var elem = ev.currentTarget,
@@ -284,7 +284,7 @@ var calendar = {
             keys = Object.keys(buf);
             for (i = 0; i < keys.length; ++i) {
               elemDay = this._document
-                .querySelector('div.day[data-key="' + keys[i] + '"]');
+                .querySelector('div.day[data-key="' + keys[i] + '"] > div');
               elemContent = this._document.querySelector('#content_container');
               if (elemDay && elemContent) {
                 tpl = '';
