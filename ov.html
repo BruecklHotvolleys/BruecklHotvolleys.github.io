@@ -23,7 +23,7 @@ function init() {
   ],
   keepOpen = {
     'nw': [
-      'grundlagen_u10', 'schedule_u10', 'standings_u10',
+      'grundlagen_u10', 'results_u10f', 'standings_u10f', 'schedule_u10', 'standings_u10',
       'grundlagen_u11', 'schedule_u11', 'standings_u11',
         'standings_u11f', 'standings_u11m', 'results_u11f', 'results_u11m',
       'grundlagen_u12',
@@ -39,7 +39,7 @@ function init() {
        'schedule_u15', 'standings_u15', 'statistics_u15pn',
       'statistics_u17', 'standings_u17'
     ],
-    'u10': ['grundlagen_u10', 'schedule_u10', 'standings_u10'],
+    'u10': ['grundlagen_u10', 'results_u10f', 'standings_u10f', 'schedule_u10', 'standings_u10'],
     'u11': ['grundlagen_u11', 'schedule_u11', 'standings_u11',
             'standings_u11f', 'standings_u11m', 'results_u11f', 'results_u11m'],
     'u12': ['grundlagen_u12',
@@ -98,12 +98,16 @@ function init() {
 </head>
 <body onload="init();">
 
-  <h1 id="nw" class="expandable" style="">Nachwuchs<br>(U10 U11 U12 U13 U15)</h1>
+  <h1 id="nw" class="expandable" style=""><br>Nachwuchs<br>&nbsp;</h1>
   <div id="nw_2" class="expanded_container">
 
     <h2 id="u10" class="expandable">U10</h2>
     <div id="u10_2" class="expanded_container">
-      <a id="grundlagen_u10" href="/u10"><h3>Grundlagen</h3></a>
+      <!--a id="grundlagen_u10" href="/u10"><h3>Grundlagen</h3></a-->
+
+      <a id="standings_u10f" href="standings.html?key=u10f"><h3>Endstand (Finale)</h3></a>
+      <a id="results_u10f" href="results.html?key=u10f"><h3>Spiele (Finale)</h3></a>
+
       <a id="schedule_u10" href="schedule.html?key=u10"><h3>Turniere (Qualifikation)</h3></a>
       <a id="standings_u10" href="standings.html?key=u10"><h3>Tabelle (Qualifikation)</h3></a>
     </div>
