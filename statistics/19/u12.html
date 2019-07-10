@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Brückl hotvolleys</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/elements/expander/styles.css">
+  <style>
+h4, h5 {
+  text-align: left;
+}
+/* -- match statistics ----------------------------------------------------- */
+div.match {
+  /* wo kommt das vor??? */
+  padding-bottom: 2em;
+}
+div.match_container {
+  position: relative;
+  overflow: auto;
+}
+table.match {
+  padding: 1em 0 1em 1em;
+}
+table.match th {
+  padding: 0.1em 0.2em;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+  background-color: lightgray;
+  white-space: nowrap;
+}
+table.match th.left {
+  padding: 0.1em 0.2em;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: left;
+}
+table.match td {
+  padding: 0 0.1em;
+  font-size: 3em;
+  text-align: left;
+  white-space: nowrap;
+}
+table.match td.right {
+  text-align: right;
+}
+table.match td.name {
+  padding-left: 0.4em;
+  text-align: left;
+  font-weight: bold;
+}
+table.match td.sum {
+  font-weight: bold;
+  padding: 0 0.2em;
+}
+table.match td.sumQ {
+  font-weight: bold;
+  padding: 0 0.4em;
+}
+table.match tr.plus td {
+  background-color: lime;
+  background-color: yellowgreen;
+}
+table.match tr.medium td {
+  background-color: yellow;
+  background-color: palegoldenrod;
+}
+table.match tr.minus td {
+  background-color: red;
+  background-color: lightcoral;
+}
+table.match tr.footer td {
+  background-color: lightgray;
+}
+/* -- points --------------------------------------------------------------- */
+div.points_container, div.diagrams_container {
+  text-align: left;
+  white-space: nowrap;
+}
+div.column {
+  display: inline-block;
+  position: relative;
+  width: 20em;
+  /* float: left; */
+  padding: 0 1em 1em;
+}
+div.header {
+  position: relative;
+  width: 100%;
+  font-size: 3em;
+  font-weight: bold;
+  padding: 0.2em 0;
+}
+div.data {
+  position: relative;
+  width: 100%;
+}
+div.splitter {
+  position: absolute;
+  left: 49%;
+  width: 2%;
+  height: 100%;
+  background-color: dimgray;
+  overflow: hidden;
+  z-index: 1;
+}
+div.row {
+  position: relative;
+  width: 100%;
+  height: 4em;
+  background-color: yellow;
+  background-color: palegoldenrod;
+  padding: 0.3em 0;
+}
+div.row:last-child {
+  padding: 0.3em 0 0.5em 0;
+}
+
+div.a {
+  position: absolute;
+  width: 44%;
+  left: 5%;
+  height: 100%;
+  background-color: transparent;
+}
+div.b {
+  position: absolute;
+  width: 44%;
+  left: 51%;
+  height: 100%;
+  background-color: transparent;
+}
+div.pt {
+  background-color: red;
+  background-color: lightcoral;
+  font-size: 3em;
+  padding: 0.1em;
+}
+div.to {
+  background-color: lightgray;
+  font-size: 3em;
+  padding: 0.1em;
+}
+div.subst > div.in {
+  font-size: 1.8em;
+  background-color: yellowgreen;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+}
+div.subst > div.out {
+  font-size: 1.6em;
+  background-color: red;
+  background-color: lightcoral;
+  white-space: nowrap;
+  overflow: hidden;
+}
+div.serv > div.srvheader {
+  font-size: 1.6em;
+  background-color: lightgray;
+  white-space: nowrap;
+  overflow: hidden;
+}
+div.serv > div.info {
+  font-size: 1.8em;
+  white-space: nowrap;
+  overflow: hidden;
+
+  font-weight: bold;
+  background-color: dimgray;
+  color: #eee;
+}
+/* -- diagrams ------------------------------------------------------------- */
+svg {
+}
+  </style>
+  <script src="/elements/expander/script.js"></script>
+  <script>
+function init() {
+  var expanders = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6'];
+  bhv.elements.expander.init(expanders);
+}
+  </script>
+</head>
+<body onload="init();">
+<div id="header">
+  <div class="left">
+  <a href="/ov.html#statistics_u12x_19"><img src="/image/logo.png"/></a>
+  <div>Statistik</div>
+  </div><div class="right">
+  <a href="/ov.html#statistics_u12x_19"><img src="/image/logo.png"/></a>
+  </div>
+</div>
+</div>
+<div id="content_container"><h4 id="m1" class="expandable" style="">12.Mai Brückl hotvolleys - Hollabrunn</h4>
+<div id="m1_2" class="match expanded_container">
+  <div class="match_container">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="medium">
+  <td class="name">Larissa</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Jojo</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Lilli</td>
+  <td class="right">4</td><td class="right">3</td>
+  <td class="right">2</td><td class="right">3</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">6</td><td class="right sum">6</td>
+  <td class="right sum">0</td><td class="right sumQ">1,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Alina</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Yassi</td>
+  <td class="right">2</td><td class="right">2</td>
+  <td class="right">5</td><td class="right">2</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">7</td><td class="right sum">4</td>
+  <td class="right sum">3</td><td class="right sumQ">1,750</td>
+</tr>
+<tr class="medium">
+  <td class="name">Julia</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Selina</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Ylva</td>
+  <td class="right">1</td><td class="right">2</td>
+  <td class="right">3</td><td class="right">5</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">4</td><td class="right sum">7</td>
+  <td class="right sum">-3</td><td class="right sumQ">0,571</td>
+</tr>
+<tr class="footer">
+  <td class="name"></td>
+  <td class="right">15</td><td class="right">25</td>
+  <td class="right">19</td><td class="right">25</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">34</td><td class="right sum">50</td>
+  <td class="right sum">-16</td><td class="right sumQ">0,680</td>
+</tr>
+
+  </table>
+  </div>
+  
+  
+</div>
+<h4 id="m2" class="expandable" style="">12.Mai Brückl hotvolleys - Wildcats</h4>
+<div id="m2_2" class="match expanded_container">
+  <div class="match_container">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="medium">
+  <td class="name">Larissa</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Jojo</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Lilli</td>
+  <td class="right">2</td><td class="right">4</td>
+  <td class="right">3</td><td class="right">0</td>
+  <td class="right">4</td><td class="right">2</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">9</td><td class="right sum">6</td>
+  <td class="right sum">3</td><td class="right sumQ">1,500</td>
+</tr>
+<tr class="medium">
+  <td class="name">Alina</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Yassi</td>
+  <td class="right">5</td><td class="right">5</td>
+  <td class="right">6</td><td class="right">0</td>
+  <td class="right">2</td><td class="right">0</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">13</td><td class="right sum">5</td>
+  <td class="right sum">8</td><td class="right sumQ">2,600</td>
+</tr>
+<tr class="medium">
+  <td class="name">Julia</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Selina</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Ylva</td>
+  <td class="right">0</td><td class="right">6</td>
+  <td class="right">2</td><td class="right">2</td>
+  <td class="right">2</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">4</td><td class="right sum">9</td>
+  <td class="right sum">-5</td><td class="right sumQ">0,444</td>
+</tr>
+<tr class="footer">
+  <td class="name"></td>
+  <td class="right">16</td><td class="right">25</td>
+  <td class="right">25</td><td class="right">7</td>
+  <td class="right">15</td><td class="right">7</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">56</td><td class="right sum">39</td>
+  <td class="right sum">17</td><td class="right sumQ">1,436</td>
+</tr>
+
+  </table>
+  </div>
+  
+  
+</div>
+<h4 id="m3" class="expandable" style="">11.Mai Brückl hotvolleys - hotvolleys</h4>
+<div id="m3_2" class="match expanded_container">
+  <div class="match_container">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="medium">
+  <td class="name">Larissa</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Jojo</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Lilli</td>
+  <td class="right">4</td><td class="right">3</td>
+  <td class="right">4</td><td class="right">2</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">8</td><td class="right sum">5</td>
+  <td class="right sum">3</td><td class="right sumQ">1,600</td>
+</tr>
+<tr class="medium">
+  <td class="name">Alina</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Yassi</td>
+  <td class="right">5</td><td class="right">3</td>
+  <td class="right">4</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">9</td><td class="right sum">4</td>
+  <td class="right sum">5</td><td class="right sumQ">2,250</td>
+</tr>
+<tr class="medium">
+  <td class="name">Julia</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Selina</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Ylva</td>
+  <td class="right">3</td><td class="right">0</td>
+  <td class="right">6</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">9</td><td class="right sum">1</td>
+  <td class="right sum">8</td><td class="right sumQ">9,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Bimbo</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">2</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">2</td>
+  <td class="right sum">-2</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="footer">
+  <td class="name"></td>
+  <td class="right">25</td><td class="right">19</td>
+  <td class="right">25</td><td class="right">21</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">50</td><td class="right sum">40</td>
+  <td class="right sum">10</td><td class="right sumQ">1,250</td>
+</tr>
+
+  </table>
+  </div>
+  
+  
+</div>
+<h4 id="m4" class="expandable" style="">11.Mai Brückl hotvolleys - Graz</h4>
+<div id="m4_2" class="match expanded_container">
+  <div class="match_container">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="medium">
+  <td class="name">Larissa</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Jojo</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Lilli</td>
+  <td class="right">4</td><td class="right">4</td>
+  <td class="right">4</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">8</td><td class="right sum">5</td>
+  <td class="right sum">3</td><td class="right sumQ">1,600</td>
+</tr>
+<tr class="plus">
+  <td class="name">Alina</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">3</td><td class="right">2</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">3</td><td class="right sum">2</td>
+  <td class="right sum">1</td><td class="right sumQ">1,500</td>
+</tr>
+<tr class="minus">
+  <td class="name">Yassi</td>
+  <td class="right">3</td><td class="right">7</td>
+  <td class="right">6</td><td class="right">3</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">9</td><td class="right sum">10</td>
+  <td class="right sum">-1</td><td class="right sumQ">0,900</td>
+</tr>
+<tr class="medium">
+  <td class="name">Julia</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Selina</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">1</td><td class="right">4</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">1</td><td class="right sum">4</td>
+  <td class="right sum">-3</td><td class="right sumQ">0,250</td>
+</tr>
+<tr class="plus">
+  <td class="name">Ylva</td>
+  <td class="right">8</td><td class="right">5</td>
+  <td class="right">5</td><td class="right">3</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">13</td><td class="right sum">8</td>
+  <td class="right sum">5</td><td class="right sumQ">1,625</td>
+</tr>
+<tr class="footer">
+  <td class="name"></td>
+  <td class="right">25</td><td class="right">18</td>
+  <td class="right">25</td><td class="right">19</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">50</td><td class="right sum">37</td>
+  <td class="right sum">13</td><td class="right sumQ">1,351</td>
+</tr>
+
+  </table>
+  </div>
+  
+  
+</div>
+<h4 id="m5" class="expandable" style="">11.Mai Brückl hotvolleys - Dornbirn</h4>
+<div id="m5_2" class="match expanded_container">
+  <div class="match_container">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="medium">
+  <td class="name">Larissa</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Jojo</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Lilli</td>
+  <td class="right">4</td><td class="right">6</td>
+  <td class="right">6</td><td class="right">3</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">10</td><td class="right sum">9</td>
+  <td class="right sum">1</td><td class="right sumQ">1,111</td>
+</tr>
+<tr class="medium">
+  <td class="name">Alina</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Yassi</td>
+  <td class="right">2</td><td class="right">2</td>
+  <td class="right">7</td><td class="right">2</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">9</td><td class="right sum">4</td>
+  <td class="right sum">5</td><td class="right sumQ">2,250</td>
+</tr>
+<tr class="medium">
+  <td class="name">Julia</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Selina</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">1</td>
+  <td class="right sum">-1</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Ylva</td>
+  <td class="right">6</td><td class="right">4</td>
+  <td class="right">1</td><td class="right">2</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">7</td><td class="right sum">6</td>
+  <td class="right sum">1</td><td class="right sumQ">1,167</td>
+</tr>
+<tr class="footer">
+  <td class="name"></td>
+  <td class="right">25</td><td class="right">17</td>
+  <td class="right">25</td><td class="right">19</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">50</td><td class="right sum">36</td>
+  <td class="right sum">14</td><td class="right sumQ">1,389</td>
+</tr>
+
+  </table>
+  </div>
+  
+  
+</div>
+<h4 id="m6" class="expandable" style="">11.Mai Brückl hotvolleys - Inzing</h4>
+<div id="m6_2" class="match expanded_container">
+  <div class="match_container">
+  <table class="match" cellspacing="0" cellpadding="2" border="1">
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan="2" class="left">1. Satz</th>
+      <th colspan="2" class="left">2. Satz</th>
+      <th colspan="2" class="left">3. Satz</th>
+      <th colspan="2" class="left">4. Satz</th>
+      <th colspan="2" class="left">5. Satz</th>
+      <th>&nbsp;</th>
+      <th colspan="4" class="left">Gesamt</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th>&nbsp;</th>
+      <th class="center">+</th><th class="center">-</th>
+      <th class="center">Diff</th><th class="center">Quot</th>
+    </tr>
+    <tr class="medium">
+  <td class="name">Larissa</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Jojo</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="plus">
+  <td class="name">Lilli</td>
+  <td class="right">5</td><td class="right">2</td>
+  <td class="right">3</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">8</td><td class="right sum">3</td>
+  <td class="right sum">5</td><td class="right sumQ">2,667</td>
+</tr>
+<tr class="medium">
+  <td class="name">Alina</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">0</td>
+  <td class="right sum">0</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="minus">
+  <td class="name">Yassi</td>
+  <td class="right">2</td><td class="right">2</td>
+  <td class="right">0</td><td class="right">7</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">2</td><td class="right sum">9</td>
+  <td class="right sum">-7</td><td class="right sumQ">0,222</td>
+</tr>
+<tr class="minus">
+  <td class="name">Julia</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">0</td><td class="right">1</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">0</td><td class="right sum">1</td>
+  <td class="right sum">-1</td><td class="right sumQ">0,000</td>
+</tr>
+<tr class="medium">
+  <td class="name">Selina</td>
+  <td class="right">2</td><td class="right">1</td>
+  <td class="right">3</td><td class="right">3</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">5</td><td class="right sum">4</td>
+  <td class="right sum">1</td><td class="right sumQ">1,250</td>
+</tr>
+<tr class="medium">
+  <td class="name">Ylva</td>
+  <td class="right">5</td><td class="right">2</td>
+  <td class="right">4</td><td class="right">5</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">9</td><td class="right sum">7</td>
+  <td class="right sum">2</td><td class="right sumQ">1,286</td>
+</tr>
+<tr class="footer">
+  <td class="name"></td>
+  <td class="right">25</td><td class="right">12</td>
+  <td class="right">25</td><td class="right">22</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td class="right">&nbsp;</td><td class="right">&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="right sum">50</td><td class="right sum">34</td>
+  <td class="right sum">16</td><td class="right sumQ">1,471</td>
+</tr>
+
+  </table>
+  </div>
+  
+  
+</div>
+</div>
+<div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div>
+</body>
+</html>

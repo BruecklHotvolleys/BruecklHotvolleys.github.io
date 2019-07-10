@@ -1,64 +1,35 @@
 var mapLeague = {
-  'br4g': [22934, leagueSchedule, 'Termine Unterliga (GD)', 29075],
-  'br4': [23784, leagueSchedule, 'Termine Unterliga (FD)', 29075],
+  'br4g_19': [22934, leagueSchedule, 'Termine Unterliga (GD)', 29075],
+  'br4_19': [23784, leagueSchedule, 'Termine Unterliga (FD)', 29075],
 
   // 'br3g': [22934, leagueSchedule, 'Termine Unterliga (GD)', 28955],
-  'br3': [23747, leagueSchedule, 'Termine Landesliga (AR)', 30420],
+  // 'br3_19': [23747, leagueSchedule, 'Termine Landesliga (AR)', 30420],
 
-  'br2g': [22933, leagueSchedule, 'Termine Landesliga (GD)', 28951],
-  'br2m': [23746, leagueSchedule, 'Termine Landesliga (MPO)', 28951],
+  'br2g_19': [22933, leagueSchedule, 'Termine Landesliga (GD)', 28951],
+  'br2m_19': [23746, leagueSchedule, 'Termine Landesliga (MPO)', 28951],
 
-  'br1g': [22691, leagueSchedule, 'Termine Bundesliga (GD)', 27423],
-  'br1': [23666, leagueSchedule, 'Termine Bundesliga (MR)', 27423]
+  'br1g_19': [22691, leagueSchedule, 'Termine Bundesliga (GD)', 27423],
+  'br1_19': [23666, leagueSchedule, 'Termine Bundesliga (MR)', 27423]
 };
 
 var mapKids = {
-  'u10': [23058, kidsSchedule, 'Turniere U10', 'brückl'],
-  'u11': [23059, kidsSchedule, 'Turniere U11', 'brückl'],
-  'u12': [23060, kidsSchedule, 'Turniere U12', 'brückl'],
-  'u13': [23061, kidsSchedule, 'Turniere U13', 'brückl'],
-  'u15': [23063, kidsSchedule, 'Turniere U15', 'brückl']
+  'u10_19': [23058, kidsSchedule, 'Turniere U10', 'brückl'],
+  'u11_19': [23059, kidsSchedule, 'Turniere U11', 'brückl'],
+  'u12_19': [23060, kidsSchedule, 'Turniere U12', 'brückl'],
+  'u13_19': [23061, kidsSchedule, 'Turniere U13', 'brückl'],
+  'u15_19': [23063, kidsSchedule, 'Turniere U15', 'brückl']
 };
 
 var finals = {
-  'u10': "Finale (Do 30.05.2019  Brückl)",
-  'u11': "Finale (So 19.05.2019  Brückl)",
-  'u12': "Finale (So 07.04.2019  Klagenfurt)",
-  'u13': "Finale (Sa 27.04.2019  Wolfsberg)",
-  'u15': "Finale (So 05.05.2019  Klagenfurt)",
-  'u17': "Finale (So 03.03.2019  Villach)",
-  'u19': "Finale (So 27.01.2019  Klagenfurt)"
+  'u10_19': "Finale (Do 30.05.2019  Brückl)",
+  'u11_19': "Finale (So 19.05.2019  Brückl)",
+  'u12_19': "Finale (So 07.04.2019  Klagenfurt)",
+  'u13_19': "Finale (Sa 27.04.2019  Wolfsberg)",
+  'u15_19': "Finale (So 05.05.2019  Klagenfurt)",
+  'u17_19': "Finale (So 03.03.2019  Villach)",
+  'u19_19': "Finale (So 27.01.2019  Klagenfurt)"
 };
-// var finals2 = {
-//   '2019-05-30': {
-//     'text': 'u10',
-//     'info': 'u10 Finale: Do 30.05.2019  Brückl'
-//   },
-//   '2019-05-19': {
-//     'text': 'u11',
-//     'info': 'u11 Finale: So 19.05.2019  Brückl'
-//   },
-//   '2019-04-07': {
-//     'text': 'u12',
-//     'info': 'u12 Finale: So 07.04.2019  Klagenfurt'
-//   },
-//   '2019-04-27': {
-//     'text': 'u13',
-//     'info': 'u13 Finale: Sa 27.04.2019  Wolfsberg'
-//   },
-//   '2019-05-05': {
-//     'text': 'u15',
-//     'info': 'u15 Finale: So 05.05.2019  Klagenfurt'
-//   },
-//   '2019-03-03': {
-//     'text': 'u17',
-//     'info': 'u17 Finale: So 03.03.2019  Villach'
-//   },
-//   '2019-01-27': {
-//     'text': 'u19',
-//     'info': 'u19 Finale: So 27.01.2019  Klagenfurt'
-//   }
-// };
+
 var days = ['?0', 'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So', '?8'];
 
 

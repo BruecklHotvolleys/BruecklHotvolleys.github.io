@@ -1,36 +1,36 @@
 var map = {
-  'br4g': [22934, leagueStandings, 'Tabelle Unterliga (GD)'],
-  'br4': [23784, leagueStandings, 'Tabelle Unterliga (FD)'],
+  'br4g_19': [22934, leagueStandings, 'Tabelle Unterliga (GD)'],
+  'br4_19': [23784, leagueStandings, 'Tabelle Unterliga (FD)'],
 
-  'br3g': [22934, leagueStandings, 'Tabelle Unterliga (GD)'],
-  'br3': [23747, leagueStandings, 'Tabelle Landesliga (AR)'],
+  'br3g_19': [22934, leagueStandings, 'Tabelle Unterliga (GD)'],
+  'br3_19': [23747, leagueStandings, 'Tabelle Landesliga (AR)'],
 
-  'br2g': [22933, leagueStandings, 'Tabelle Landesliga (GD)'],
+  'br2g_19': [22933, leagueStandings, 'Tabelle Landesliga (GD)'],
 
-  'br1g': [22691, leagueStandings, 'Tabelle Bundesliga (GD)'],
-  'br1': [23666, leagueStandings, 'Tabelle Bundesliga (MR)'],
+  'br1g_19': [22691, leagueStandings, 'Tabelle Bundesliga (GD)'],
+  'br1_19': [23666, leagueStandings, 'Tabelle Bundesliga (MR)'],
 
 
-  'u10': [23058, kidsStandings, 'Tabelle U10 (Qualifikation)'],
-  'u10f': [24437, kidsStandingsF, 'Endstand U10'],
-  
-  'u11': [23059, kidsStandings, 'Tabelle U11 (Qualifikation)'],
-  'u11f': [24268, kidsStandingsF, 'Endstand U11 (weiblich)'],
-  'u11m': [24273, kidsStandingsF, 'Endstand U11 (männlich)'],
+  'u10_19': [23058, kidsStandings, 'Tabelle U10 (Qualifikation)'],
+  'u10f_19': [24437, kidsStandingsF, 'Endstand U10'],
 
-  'u12x': [23283, kidsStandingsF, 'Endstand U12 (ÖMS)'],
-  'u12f': [23976, kidsStandingsF, 'Endstand U12 (weiblich)'],
-  'u12m': [23977, kidsStandingsF, 'Endstand U12 (männlich)'],
-  'u12q': [23060, kidsStandings, 'Tabelle U12 (Qualifikation)'],
+  'u11_19': [23059, kidsStandings, 'Tabelle U11 (Qualifikation)'],
+  'u11f_19': [24268, kidsStandingsF, 'Endstand U11 (weiblich)'],
+  'u11m_19': [24273, kidsStandingsF, 'Endstand U11 (männlich)'],
 
-  'u13f': [24092, kidsStandingsF, 'Endstand U13'],
-  'u13': [23061, kidsStandings, 'Tabelle U13 (Qualifikation)'],
-  'u13x': [23281, kidsStandingsF, 'Endstand (ÖMS)'],
+  'u12x_19': [23283, kidsStandingsF, 'Endstand U12 (ÖMS)'],
+  'u12f_19': [23976, kidsStandingsF, 'Endstand U12 (weiblich)'],
+  'u12m_19': [23977, kidsStandingsF, 'Endstand U12 (männlich)'],
+  'u12q_19': [23060, kidsStandings, 'Tabelle U12 (Qualifikation)'],
 
-  'u15f': [24099, kidsStandingsF, 'Endstand U15'],
-  'u15': [23063, kidsStandings, 'Tabelle U15 (Qualifikation)'],
+  'u13f_19': [24092, kidsStandingsF, 'Endstand U13'],
+  'u13_19': [23061, kidsStandings, 'Tabelle U13 (Qualifikation)'],
+  'u13x_19': [23281, kidsStandingsF, 'Endstand (ÖMS)'],
 
-  'u17': [23787, kidsStandingsF, 'Endstand U17']
+  'u15f_19': [24099, kidsStandingsF, 'Endstand U15'],
+  'u15_19': [23063, kidsStandings, 'Tabelle U15 (Qualifikation)'],
+
+  'u17_19': [23787, kidsStandingsF, 'Endstand U17']
 };
 
 /**

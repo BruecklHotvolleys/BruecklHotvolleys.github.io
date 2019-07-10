@@ -16,82 +16,61 @@ body {
 function init() {
   var expanders = [
     'nw',
-    'u10', 'u11', 'u12', 'u13', 'u15', 'u17',
+    'u13_20', 'u14_20', 'u15_20', 'u16_20', 'u18_20', 'u20_20',
+
     'ak',
-    'br4', 'br3', 'br2', 'br1',
+    'br4_20', 'br3_20', 'br2_20', 'br1_20',
+
+    'archive',
+    'a19',
+    'u10_19', 'u11_19', 'u12_19', 'u13_19', 'u15_19', 'u17_19',
+    'br4_19', 'br3_19', 'br2_19', 'br1_19',
+
     'info'
   ],
   keepOpen = {
-    'nw': [
-      'grundlagen_u10', 'results_u10f', 'standings_u10f', 'schedule_u10', 'standings_u10',
-      'grundlagen_u11', 'schedule_u11', 'standings_u11',
-        'standings_u11f', 'standings_u11m', 'results_u11f', 'results_u11m',
-      'grundlagen_u12',
-       'certificate_u12x', 'standings_u12x', 'results_u12x', 'statistics_u12x',
-       'standings_u12f', 'standings_u12m',
-       'results_u12f', 'results_u12m', 'schedule_u12', 'standings_u12q',
-      'grundlagen_u13', 'certificate_u13x',
-       'standings_u13x', 'results_u13x', 'statistics_u13x',
-       'standings_u13f', 'results_u13f',
-       'schedule_u13', 'standings_u13', 'statistics_u13',
-      'grundlagen_u15',
-       'standings_u15f', 'results_u15f', 'statistics_u15f',
-       'schedule_u15', 'standings_u15', 'statistics_u15pn',
-      'statistics_u17', 'standings_u17'
-    ],
-    'u10': ['grundlagen_u10', 'results_u10f', 'standings_u10f', 'schedule_u10', 'standings_u10'],
-    'u11': ['grundlagen_u11', 'schedule_u11', 'standings_u11',
-            'standings_u11f', 'standings_u11m', 'results_u11f', 'results_u11m'],
-    'u12': ['grundlagen_u12',
-            'certificate_u12x', 'standings_u12x', 'results_u12x', 'statistics_u12x',
-            'standings_u12f', 'standings_u12m', 'results_u12f', 'results_u12m',
-            'schedule_u12', 'standings_u12q'],
-    'u13': ['grundlagen_u13', 'certificate_u13x',
-            'standings_u13x', 'results_u13x', 'statistics_u13x',
-            'standings_u13f', 'results_u13f',
-            'schedule_u13', 'standings_u13', 'statistics_u13'],
-    'u15': ['grundlagen_u15', 'standings_u15f', 'results_u15f', 'statistics_u15f', 'schedule_u15', 'standings_u15', 'statistics_u15pn'],
-    'u17': ['statistics_u17', 'standings_u17'],
+    // 'nw': ...
+    // 'u10': ['grundlagen_u10', ...
+    // 'u11': ['grundlagen_u11', ...
+    // 'u12': ['grundlagen_u12', ...
+    // 'u13': ['grundlagen_u13', ...
+    // 'u15': ['grundlagen_u15', ...
 
-    'ak': [
-      'grundlagen_br4',
-      'results_br4g', 'standings_br4g',
-      'schedule_br4', 'results_br4', 'standings_br4', 'statistics_br4',
+    // 'ak': ...
+    // 'br4': ['grundlagen_br4', ...
+    // 'br3': ['grundlagen_br3', ...
+    // 'br2': [...
+    // 'br1': [...
 
-      'grundlagen_br3',
-        'schedule_br3', 'results_br3', 'standings_br3', 'statistics_br3',
-        'results_br3g', 'standings_br3g', 'statistics_br3g',
-        'teambuilding_br3',
+    // 'archive': ...
+    // 'a19': ...
+    'u10_19': ['results_u10f_19', 'standings_u10f_19', 'schedule_u10_19', 'standings_u10_19'],
+    'u11_19': ['schedule_u11_19', 'standings_u11_19', 'standings_u11f_19', 'standings_u11m_19', 'results_u11f_19', 'results_u11m_19'],
+    'u12_19': ['certificate_u12x_19', 'standings_u12x_19', 'results_u12x_19', 'statistics_u12x_19',
+               'standings_u12f_19', 'standings_u12m_19', 'results_u12f_19', 'results_u12m_19',
+               'schedule_u12_19', 'standings_u12q_19'],
+    'u13_19': ['certificate_u13x_19', 'standings_u13x_19', 'results_u13x_19', 'statistics_u13x_19',
+               'standings_u13f_19', 'results_u13f_19', 'schedule_u13_19', 'standings_u13_19', 'statistics_u13_19'],
+    'u15_19': ['standings_u15f_19', 'results_u15f_19', 'statistics_u15_19', 'schedule_u15_19', 'standings_u15_19', 'statistics_u15pn_19'],
+    'u17_19': ['statistics_u17_19', 'standings_u17_19', 'results_u17_19'],
 
-      'results_br2g', 'standings_br2g',
-      'results_br2m', 'schedule_br2m', 'statistics_br2m',
+    'br4_19': ['results_br4g_19', 'standings_br4g_19', 'schedule_br4_19', 'results_br4_19', 'standings_br4_19', 'statistics_br4_19'],
+    'br3_19': ['schedule_br3_19', 'results_br3_19', 'standings_br3_19', 'statistics_br3_19',
+               'results_br3g_19', 'standings_br3g_19', 'statistics_br3g_19', 'teambuilding_br3_19'],
+    'br2_19': ['results_br2g_19', 'standings_br2g_19', 'results_br2m_19', 'schedule_br2m_19', 'statistics_br2_19'],
+    'br1_19': ['schedule_br1_19', 'results_br1_19', 'standings_br1_19', 'results_br1g_19', 'standings_br1g_19'],
 
-      'schedule_br1', 'results_br1', 'standings_br1',
-      'results_br1g', 'standings_br1g'
-    ],
-    'br4': [
-      'grundlagen_br4',
-      'results_br4g', 'standings_br4g',
-      'schedule_br4', 'results_br4', 'standings_br4', 'statistics_br4'
-    ],
-    'br3': [
-      'grundlagen_br3',
-        'schedule_br3', 'results_br3', 'standings_br3', 'statistics_br3',
-        // 'schedule_br3g',
-        'results_br3g', 'standings_br3g', 'statistics_br3g',
-        'teambuilding_br3'
-    ],
-    'br2': [
-      'results_br2g', 'standings_br2g',
-      'results_br2m', 'schedule_br2m', 'statistics_br2m',
-    ],
-    'br1': [
-      'schedule_br1', 'results_br1', 'standings_br1',
-      'results_br1g', 'standings_br1g'
-    ],
-
-    'info': ['calendar', 'wunsch', 'gesucht', 'divinfo']
+    'info': ['calendar', 'wunsch', 'gesucht', 'divinfo20', 'divinfo19']
   };
+
+  keepOpen.a19 = keepOpen.u10_19.concat(
+    keepOpen.u11_19, keepOpen.u12_19, keepOpen.u13_19, keepOpen.u15_19, keepOpen.u17_19,
+    keepOpen.br4_19, keepOpen.br3_19, keepOpen.br2_19, keepOpen.br1_19
+  );
+  keepOpen.archive = keepOpen.a19;
+
+//  keepOpen.ak = keepOpen.br4_20.concat(keepOpen.br3_20, keepOpen.br2_20, keepOpen.br1_20);
+
   bhv.elements.expander.init(expanders, keepOpen);
 }
   </script>
@@ -100,10 +79,18 @@ function init() {
 
   <h1 id="nw" class="expandable" style=""><br>Nachwuchs<br>&nbsp;</h1>
   <div id="nw_2" class="expanded_container">
+    <h2 id="u13_20">U13</h2>
+    <h2 id="u14_20">U14</h2>
+    <h2 id="u15_20">U15</h2>
+    <h2 id="u16_20">U16</h2>
+    <h2 id="u18_20">U18</h2>
+    <h2 id="u20_20">U20</h2>
+  </div>
+  <!--div id="nw_2" class="expanded_container">
 
     <h2 id="u10" class="expandable">U10</h2>
     <div id="u10_2" class="expanded_container">
-      <!--a id="grundlagen_u10" href="/u10"><h3>Grundlagen</h3></a-->
+      <!- -a id="grundlagen_u10" href="/u10"><h3>Grundlagen</h3></a- ->
 
       <a id="standings_u10f" href="standings.html?key=u10f"><h3>Endstand (Finale)</h3></a>
       <a id="results_u10f" href="results.html?key=u10f"><h3>Spiele (Finale)</h3></a>
@@ -114,7 +101,7 @@ function init() {
 
     <h2 id="u11" class="expandable">U11</h2>
     <div id="u11_2" class="expanded_container">
-      <!--a id="grundlagen_u11" href="/u11"><h3>Grundlagen</h3></a-->
+      <!- -a id="grundlagen_u11" href="/u11"><h3>Grundlagen</h3></a- ->
 
       <a id="standings_u11f" href="standings.html?key=u11f"><h3>Endstand (Finale, weiblich)</h3></a>
       <a id="results_u11f" href="results.html?key=u11f"><h3>Spiele (Finale, weiblich)</h3></a>
@@ -127,9 +114,9 @@ function init() {
 
     <h2 id="u12" class="expandable">U12</h2>
     <div id="u12_2" class="expanded_container">
-      <!--a id="grundlagen_u12" href="/u12"><h3>Grundlagen</h3></a-->
+      <!- -a id="grundlagen_u12" href="/u12"><h3>Grundlagen</h3></a- ->
       <a id="certificate_u12x" href="/imageview.html?i=u12%2Fcertificate.jpeg&b=%2Fov.html%23certificate_u12x"><h3>Urkunde</h3></a>
-      <!--td><a href="/imageview.html?i=uld%2Fgrundlagen%2Fspielfeld.png&t=Spielfeld&x=Das%20Spielfeld.&b=%2Fuld%2Fgrundlagen%23spielfeld"><div>Das Spielfeld.</div></a></td-->
+      <!- -td><a href="/imageview.html?i=uld%2Fgrundlagen%2Fspielfeld.png&t=Spielfeld&x=Das%20Spielfeld.&b=%2Fuld%2Fgrundlagen%23spielfeld"><div>Das Spielfeld.</div></a></td- ->
       <a id="standings_u12x" href="standings.html?key=u12x"><h3>Endstand (ÖMS)</h3></a>
       <a id="results_u12x" href="results.html?key=u12x"><h3>Spiele (ÖMS)</h3></a>
       <a id="statistics_u12x" href="/u12/statistics.html"><h3>Statistik (ÖMS)</h3></a>
@@ -143,7 +130,7 @@ function init() {
 
     <h2 id="u13" class="expandable">U13</h2>
     <div id="u13_2" class="expanded_container">
-      <!--a id="grundlagen_u13" href="u13"><h3>Grundlagen</h3></a-->
+      <!- -a id="grundlagen_u13" href="u13"><h3>Grundlagen</h3></a- ->
 
       <a id="certificate_u13x" href="/imageview.html?i=u13%2Fcertificate.jpeg&b=%2Fov.html%23certificate_u13x"><h3>Urkunde</h3></a>
       <a id="standings_u13x" href="standings.html?key=u13x"><h3>Endstand (ÖMS)</h3></a>
@@ -160,10 +147,10 @@ function init() {
 
     <h2 id="u15" class="expandable">U15</h2>
     <div id="u15_2" class="expanded_container">
-      <!--a id="grundlagen_u15" href="u15"><h3>Grundlagen</h3></a-->
+      <!- -a id="grundlagen_u15" href="u15"><h3>Grundlagen</h3></a- ->
       <a id="standings_u15f" href="standings.html?key=u15f"><h3>Endstand</h3></a>
       <a id="results_u15f" href="results.html?key=u15f"><h3>Spiele (Finale)</h3></a>
-      <a id="statistics_u15f" href="/u15/statistics.html"><h3>Statistik (Finale)</h3></a>
+      <a id="statistics_u15" href="/u15/statistics.html"><h3>Statistik (Finale)</h3></a>
       <a id="schedule_u15" href="schedule.html?key=u15"><h3>Turniere (Qualifikation)</h3></a>
       <a id="standings_u15" href="standings.html?key=u15"><h3>Tabelle (Qualifikation)</h3></a>
       <a id="statistics_u15pn" href="/u15/statistics15pn.html"><h3>Statistik (Pordenone)</h3></a>
@@ -174,12 +161,17 @@ function init() {
       <a id="statistics_u17" href="/u17/statistics.html"><h3>Statistik</h3></a>
       <a id="standings_u17" href="standings.html?key=u17"><h3>Endstand</h3></a>
     </div>
-  </div>
+  </div-->
 
   <h1 id="ak" class="expandable"><br>Allgemeine Klasse<br>&nbsp;</h1>
   <div id="ak_2" class="expanded_container">
 
-    <h2 id="br4" class="expandable">Brückl 4 - Unterliga</h2>
+    <h2 id="b4_20">Erste Klasse</h2>
+    <h2 id="b3_20">Unterliga</h2>
+    <h2 id="b2_20">Landesliga</h2>
+    <h2 id="b1_20">Bundesliga</h2>
+
+    <!--h2 id="br4" class="expandable">Brückl 4 - Unterliga</h2>
     <div id="br4_2" class="expanded_container">
       <a id="grundlagen_br4" href="uld/grundlagen"><h3>Grundlagen</h3></a>
 
@@ -212,27 +204,145 @@ function init() {
     <div id="br2_2" class="expanded_container">
       <a id="schedule_br2m" href="schedule.html?key=br2m"><h3>Spieltermine (MPO)</h3></a>
       <a id="results_br2m" href="results.html?key=br2m"><h3>Ergebnisse (MPO)</h3></a>
-      <a id="statistics_br2m" href="/lld/statistics.html"><h3>Statistik (MPO)</h3></a>
+      <a id="statistics_br2" href="/lld/statistics.html"><h3>Statistik (MPO)</h3></a>
       <a id="results_br2g" href="results.html?key=br2g"><h3>Ergebnisse (GD)</h3></a>
       <a id="standings_br2g" href="standings.html?key=br2g"><h3>Tabelle (GD)</h3></a>
     </div>
 
     <h2 id="br1" class="expandable">Brückl 1 - Bundesliga</h2>
     <div id="br1_2" class="expanded_container">
-      <!--a id="schedule_br1" href="schedule.html?key=br1"><h3>Spieltermine (MR)</h3></a-->
+      <!- -a id="schedule_br1" href="schedule.html?key=br1"><h3>Spieltermine (MR)</h3></a- ->
       <a id="results_br1" href="results.html?key=br1"><h3>Ergebnisse (MR)</h3></a>
       <a id="standings_br1" href="standings.html?key=br1"><h3>Tabelle (MR)</h3></a>
       <a id="results_br1g" href="results.html?key=br1g"><h3>Ergebnisse (GD)</h3></a>
       <a id="standings_br1g" href="standings.html?key=br1g"><h3>Tabelle (GD)</h3></a>
-    </div>
+    </div-->
   </div>
+
+  <h1 id="archive" class="expandable"><br>Archiv<br>&nbsp;</h1>
+  <div id="archive_2" class="expanded_container">
+
+    <!-- keep h1 + div - necessary for archive with multiple years -->
+    <!--h1 id="a19" class="expandable">2018/19</h1>
+    <div id="a19_2" class="expanded_container"-->
+
+      <h2 id="u10_19" class="expandable">U10</h2>
+      <div id="u10_19_2" class="expanded_container">
+        <a id="standings_u10f_19" href="standings.html?key=u10f_19"><h3>Endstand (Finale)</h3></a>
+        <a id="results_u10f_19" href="results.html?key=u10f_19"><h3>Spiele (Finale)</h3></a>
+        <a id="schedule_u10_19" href="schedule.html?key=u10_19"><h3>Turniere (Qualifikation)</h3></a>
+        <a id="standings_u10_19" href="standings.html?key=u10_19"><h3>Tabelle (Qualifikation)</h3></a>
+      </div>
+
+      <h2 id="u11_19" class="expandable">U11</h2>
+      <div id="u11_19_2" class="expanded_container">
+        <a id="standings_u11f_19" href="standings.html?key=u11f_19"><h3>Endstand (Finale, weiblich)</h3></a>
+        <a id="results_u11f_19" href="results.html?key=u11f_19"><h3>Spiele (Finale, weiblich)</h3></a>
+        <a id="standings_u11m_19" href="standings.html?key=u11m_19"><h3>Endstand (Finale, männlich)</h3></a>
+        <a id="results_u11m_19" href="results.html?key=u11m_19"><h3>Spiele (Finale, männlich)</h3></a>
+        <a id="schedule_u11_19" href="schedule.html?key=u11_19"><h3>Turniere (Qualifikation)</h3></a>
+        <a id="standings_u11_19" href="standings.html?key=u11_19"><h3>Tabelle (Qualifikation)</h3></a>
+      </div>
+
+      <h2 id="u12_19" class="expandable">U12</h2>
+      <div id="u12_19_2" class="expanded_container">
+        <a id="certificate_u12x_19" href="/imageview.html?i=u12%2Fcertificate.jpeg&b=%2Fov.html%23certificate_u12x_19"><h3>Urkunde</h3></a>
+        <a id="standings_u12x_19" href="standings.html?key=u12x_19"><h3>Endstand (ÖMS)</h3></a>
+        <a id="results_u12x_19" href="results.html?key=u12x_19"><h3>Spiele (ÖMS)</h3></a>
+        <a id="statistics_u12x_19" href="/statistics/19/u12.html"><h3>Statistik (ÖMS)</h3></a>
+        <a id="standings_u12f_19" href="standings.html?key=u12f_19"><h3>Endstand (Finale, weiblich)</h3></a>
+        <a id="results_u12f_19" href="results.html?key=u12f_19"><h3>Spiele (Finale, weiblich)</h3></a>
+        <a id="standings_u12m_19" href="standings.html?key=u12m_19"><h3>Endstand (Finale, männlich)</h3></a>
+        <a id="results_u12m_19" href="results.html?key=u12m_19"><h3>Spiele (Finale, männlich)</h3></a>
+        <a id="schedule_u12_19" href="schedule.html?key=u12_19"><h3>Turniere (Qualifikation)</h3></a>
+        <a id="standings_u12q_19" href="standings.html?key=u12q_19"><h3>Tabelle (Qualifikation)</h3></a>
+      </div>
+
+      <h2 id="u13_19" class="expandable">U13</h2>
+      <div id="u13_19_2" class="expanded_container">
+        <a id="certificate_u13x_19" href="/imageview.html?i=u13%2Fcertificate.jpeg&b=%2Fov.html%23certificate_u13x_19"><h3>Urkunde</h3></a>
+        <a id="standings_u13x_19" href="standings.html?key=u13x_19"><h3>Endstand (ÖMS)</h3></a>
+        <a id="results_u13x_19" href="results.html?key=u13x_19"><h3>Spiele (ÖMS)</h3></a>
+        <a id="statistics_u13x_19" href="/statistics/19/u13x.html"><h3>Statistik (ÖMS)</h3></a>
+        <a id="standings_u13f_19" href="standings.html?key=u13f_19"><h3>Endstand (Finale)</h3></a>
+        <a id="results_u13f_19" href="results.html?key=u13f_19"><h3>Spiele (Finale)</h3></a>
+        <a id="statistics_u13_19" href="/statistics/19/u13.html"><h3>Statistik (Finale)</h3></a>
+        <a id="schedule_u13_19" href="schedule.html?key=u13_19"><h3>Turniere (Qualifikation)</h3></a>
+        <a id="standings_u13_19" href="standings.html?key=u13_19"><h3>Tabelle (Qualifikation)</h3></a>
+      </div>
+
+      <h2 id="u15_19" class="expandable">U15</h2>
+      <div id="u15_19_2" class="expanded_container">
+        <a id="standings_u15f_19" href="standings.html?key=u15f_19"><h3>Endstand</h3></a>
+        <a id="results_u15f_19" href="results.html?key=u15f_19"><h3>Spiele (Finale)</h3></a>
+        <a id="statistics_u15_19" href="/statistics/19/u15.html"><h3>Statistik (Finale)</h3></a>
+        <a id="schedule_u15_19" href="schedule.html?key=u15_19"><h3>Turniere (Qualifikation)</h3></a>
+        <a id="standings_u15_19" href="standings.html?key=u15_19"><h3>Tabelle (Qualifikation)</h3></a>
+        <a id="statistics_u15pn_19" href="/statistics/19/u15pn.html"><h3>Statistik (Pordenone)</h3></a>
+      </div>
+
+      <h2 id="u17_19" class="expandable">U17</h2>
+      <div id="u17_19_2" class="expanded_container">
+        <a id="results_u17_19" href="results.html?key=u17_19"><h3>Spiele (Quali ÖMS)</h3></a>
+        <a id="standings_u17_19" href="standings.html?key=u17_19"><h3>Endstand</h3></a>
+        <a id="statistics_u17_19" href="/statistics/19/u17.html"><h3>Statistik</h3></a>
+      </div>
+
+
+      <h2 id="br4_19" class="expandable">Brückl 4 - Unterliga</h2>
+      <div id="br4_19_2" class="expanded_container">
+        <!--a id="grundlagen_br4_19" href="uld/grundlagen"><h3>Grundlagen</h3></a-->
+        <!--a id="schedule_br4_19" href="schedule.html?key=br4_19"><h3>Spieltermine (FD)</h3></a-->
+        <a id="standings_br4_19" href="standings.html?key=br4_19"><h3>Tabelle (FD)</h3></a>
+        <a id="results_br4_19" href="results.html?key=br4_19"><h3>Ergebnisse (FD)</h3></a>
+        <a id="statistics_br4_19" href="/statistics/19/u15FD.html"><h3>Statistik (FD)</h3></a>
+        <a id="standings_br4g_19" href="standings.html?key=br4g_19"><h3>Tabelle (GD)</h3></a>
+        <a id="results_br4g_19" href="results.html?key=br4g_19"><h3>Ergebnisse (GD)</h3></a>
+      </div>
+
+      <h2 id="br3_19" class="expandable">Brückl 3 - Unterliga/Landesliga</h2>
+      <div id="br3_19_2" class="expanded_container">
+        <!--a id="grundlagen_br3_19" href="/uld/grundlagen3"><h3>Grundlagen</h3></a-->
+        <!--a id="schedule_br3_19" href="schedule.html?key=br3_19"><h3>Spieltermine (AR)</h3></a-->
+        <a id="standings_br3_19" href="standings.html?key=br3_19"><h3>Tabelle (AR)</h3></a>
+        <a id="results_br3_19" href="results.html?key=br3_19"><h3>Ergebnisse (AR)</h3></a>
+        <a id="statistics_br3_19" href="/statistics/19/u15AR.html"><h3>Statistik (AR)</h3></a>
+        <a id="standings_br3g_19" href="standings.html?key=br3g_19"><h3>Tabelle (GD)</h3></a>
+        <a id="results_br3g_19" href="results.html?key=br3g_19"><h3>Ergebnisse (GD)</h3></a>
+        <a id="statistics_br3g_19" href="/statistics/19/br3.html"><h3>Statistik (GD)</h3></a>
+        <a id="teambuilding_br3_19" href="/teambuilding/br3_19"><h3>Teambuilding</h3></a>
+      </div>
+
+      <h2 id="br2_19" class="expandable">Brückl 2 - Landesliga</h2>
+      <div id="br2_19_2" class="expanded_container">
+        <!--a id="schedule_br2m_19" href="schedule.html?key=br2m_19"><h3>Spieltermine (MPO)</h3></a-->
+        <a id="results_br2m_19" href="results.html?key=br2m_19"><h3>Ergebnisse (MPO)</h3></a>
+        <a id="statistics_br2_19" href="/statistics/19/mpo.html"><h3>Statistik (MPO)</h3></a>
+        <a id="standings_br2g_19" href="standings.html?key=br2g_19"><h3>Tabelle (GD)</h3></a>
+        <a id="results_br2g_19" href="results.html?key=br2g_19"><h3>Ergebnisse (GD)</h3></a>
+      </div>
+
+      <h2 id="br1_19" class="expandable">Brückl 1 - Bundesliga</h2>
+      <div id="br1_19_2" class="expanded_container">
+        <!--a id="schedule_br1_19" href="schedule.html?key=br1_19"><h3>Spieltermine (MR)</h3></a-->
+        <a id="standings_br1_19" href="standings.html?key=br1_19"><h3>Tabelle (MR)</h3></a>
+        <a id="results_br1_19" href="results.html?key=br1_19"><h3>Ergebnisse (MR)</h3></a>
+        <a id="standings_br1g_19" href="standings.html?key=br1g_19"><h3>Tabelle (GD)</h3></a>
+        <a id="results_br1g_19" href="results.html?key=br1g_19"><h3>Ergebnisse (GD)</h3></a>
+      </div>
+
+    <!-- keep end-of-div - necessary for archive with multiple years -->
+    <!--/div-->
+  </div>
+
 
   <h1 id="info" class="expandable"><br>Infos<br>&nbsp;</h1>
   <div id="info_2" class="expanded_container">
     <a id="calendar" href="calendar/calendar.html"><h3>Kalender</h3></a>
     <a id="wunsch" href="info/wunschzettel.html"><h3>Ein Wunschzettel</h3></a>
     <a id="gesucht" href="info/gesucht.html"><h3>Gesucht!<br>Bitte an Freunde und Bekannte weiterleiten.</h3></a>
-    <a id="divinfo" href="info/info.html"><h3>Allgemeine Infos</h3></a>
+    <a id="divinfo20" href="info/info20.html"><h3>Allgemeine Infos - Neu!</h3></a>
+    <a id="divinfo19" href="info/info19.html"><h3>Allgemeine Infos (Vorsaison)</h3></a>
   </div>
 
 </body>

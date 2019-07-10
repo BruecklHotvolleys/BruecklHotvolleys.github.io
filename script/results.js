@@ -1,29 +1,31 @@
 var mapLeague = {
-  'br4g': [22934, leagueResults, 'Ergebnisse Unterliga (GD)', 29075],
-  'br4': [23784, leagueResults, 'Ergebnisse Unterliga (FD)', 29075],
+  'br4g_19': [22934, leagueResults, 'Ergebnisse Unterliga (GD)', 29075],
+  'br4_19': [23784, leagueResults, 'Ergebnisse Unterliga (FD)', 29075],
 
-  'br3g': [22934, leagueResults, 'Ergebnisse Unterliga (GD)', 28955],
-  'br3': [23747, leagueResults, 'Ergebnisse Landesliga (AR)', 30420],
+  'br3g_19': [22934, leagueResults, 'Ergebnisse Unterliga (GD)', 28955],
+  'br3_19': [23747, leagueResults, 'Ergebnisse Landesliga (AR)', 30420],
 
-  'br2g': [22933, leagueResults, 'Ergebnisse Landesliga (GD)', 28951],
-  'br2m': [23746, leagueResults, 'Ergebnisse Landesliga (MPO)', 28951],
+  'br2g_19': [22933, leagueResults, 'Ergebnisse Landesliga (GD)', 28951],
+  'br2m_19': [23746, leagueResults, 'Ergebnisse Landesliga (MPO)', 28951],
 
-  'br1g': [22691, leagueResults, 'Ergebnisse Bundesliga (GD)', 27423],
-  'br1': [23666, leagueResults, 'Ergebnisse Bundesliga (MR)', 27423],
+  'br1g_19': [22691, leagueResults, 'Ergebnisse Bundesliga (GD)', 27423],
+  'br1_19': [23666, leagueResults, 'Ergebnisse Bundesliga (MR)', 27423],
 
-  'u10f': [[24376, 24377, 24435, 24436], leagueResults, 'Ergebnisse', [30816, 30817, 30812]],
+  'u10f_19': [[24376, 24377, 24435, 24436], leagueResults, 'Ergebnisse', [30816, 30817, 30812]],
 
-  'u11f': [[24264, 24265, 24266, 24267], leagueResults, 'Ergebnisse', [30775, 30781, 30782, 30776]],
-  'u11m': [[24270, 24271, 24272], leagueResults, 'Ergebnisse', 30789],
+  'u11f_19': [[24264, 24265, 24266, 24267], leagueResults, 'Ergebnisse', [30775, 30781, 30782, 30776]],
+  'u11m_19': [[24270, 24271, 24272], leagueResults, 'Ergebnisse', 30789],
 
-  'u12f': [[23917, 23919, 23974, 23975], leagueResults, 'Ergebnisse', [30529, 30534, 30535]],
-  'u12m': [[23920, 23978], leagueResults, 'Ergebnisse', 30540],
-  'u12x': [[24177, 24180], leagueResults, 'Ergebnisse', 30652],
+  'u12f_19': [[23917, 23919, 23974, 23975], leagueResults, 'Ergebnisse', [30529, 30534, 30535]],
+  'u12m_19': [[23920, 23978], leagueResults, 'Ergebnisse', 30540],
+  'u12x_19': [[24177, 24180], leagueResults, 'Ergebnisse', 30652],
 
-  'u13f': [[24089, 24090, 24091], leagueResults, 'Ergebnisse', 30683],
-  'u13x': [[24290, 24291, 24292, 24293, 24294, 24295], leagueResults, 'Ergebnisse', 30753],
+  'u13f_19': [[24089, 24090, 24091], leagueResults, 'Ergebnisse', 30683],
+  'u13x_19': [[24290, 24291, 24292, 24293, 24294, 24295], leagueResults, 'Ergebnisse', 30753],
 
-  'u15f': [[24095, 24097, 24098], leagueResults, 'Ergebnisse', 30672]
+  'u15f_19': [[24095, 24097, 24098], leagueResults, 'Ergebnisse', 30672],
+
+  'u17_19': [[24168, 24169], leagueResults, 'Ergebnisse', 30417]
 };
 
 var days = ['?0', 'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So', '?8'];

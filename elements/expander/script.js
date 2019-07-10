@@ -47,7 +47,7 @@ if (window.bhv.elements.expander === undefined) {
           header.insertAdjacentHTML('beforeend', '<div class="' + clazz + '">&nbsp;</div>');
           this._addEvent(header, 'click', handler);
 
-          if (keyOpen && keepOpen && keepOpen[id].indexOf(keyOpen) > -1) {
+          if (keyOpen && keepOpen && keepOpen[id] && keepOpen[id].indexOf(keyOpen) > -1) {
             this._addClass(header, 'up');
           } else {
             // hide container to hide and show
