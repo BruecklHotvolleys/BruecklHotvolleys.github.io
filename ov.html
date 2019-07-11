@@ -17,15 +17,12 @@ function init() {
   var expanders = [
     'nw',
     'u13_20', 'u14_20', 'u15_20', 'u16_20', 'u18_20', 'u20_20',
-
     'ak',
     'br4_20', 'br3_20', 'br2_20', 'br1_20',
-
     'archive',
     'a19',
     'u10_19', 'u11_19', 'u12_19', 'u13_19', 'u15_19', 'u17_19',
     'br4_19', 'br3_19', 'br2_19', 'br1_19',
-
     'info'
   ],
   keepOpen = {
@@ -35,6 +32,12 @@ function init() {
     // 'u12': ['grundlagen_u12', ...
     // 'u13': ['grundlagen_u13', ...
     // 'u15': ['grundlagen_u15', ...
+    'u20_20': ['info20'],
+    'u18_20': ['info18'],
+    'u16_20': ['info16'],
+    'u15_20': ['info15'],
+    'u14_20': ['info14'],
+    'u13_20': ['info13'],
 
     // 'ak': ...
     // 'br4': ['grundlagen_br4', ...
@@ -45,31 +48,40 @@ function init() {
     // 'archive': ...
     // 'a19': ...
     'u10_19': ['results_u10f_19', 'standings_u10f_19', 'schedule_u10_19', 'standings_u10_19'],
-    'u11_19': ['schedule_u11_19', 'standings_u11_19', 'standings_u11f_19', 'standings_u11m_19', 'results_u11f_19', 'results_u11m_19'],
+    'u11_19': ['schedule_u11_19', 'standings_u11_19', 'standings_u11f_19', 'standings_u11m_19',
+               'results_u11f_19', 'results_u11m_19'],
     'u12_19': ['certificate_u12x_19', 'standings_u12x_19', 'results_u12x_19', 'statistics_u12x_19',
                'standings_u12f_19', 'standings_u12m_19', 'results_u12f_19', 'results_u12m_19',
                'schedule_u12_19', 'standings_u12q_19'],
     'u13_19': ['certificate_u13x_19', 'standings_u13x_19', 'results_u13x_19', 'statistics_u13x_19',
-               'standings_u13f_19', 'results_u13f_19', 'schedule_u13_19', 'standings_u13_19', 'statistics_u13_19'],
-    'u15_19': ['standings_u15f_19', 'results_u15f_19', 'statistics_u15_19', 'schedule_u15_19', 'standings_u15_19', 'statistics_u15pn_19'],
+               'standings_u13f_19', 'results_u13f_19', 'schedule_u13_19', 'standings_u13_19',
+               'statistics_u13_19'],
+    'u15_19': ['standings_u15f_19', 'results_u15f_19', 'statistics_u15_19', 'schedule_u15_19',
+               'standings_u15_19', 'statistics_u15pn_19'],
     'u17_19': ['statistics_u17_19', 'standings_u17_19', 'results_u17_19'],
 
-    'br4_19': ['results_br4g_19', 'standings_br4g_19', 'schedule_br4_19', 'results_br4_19', 'standings_br4_19', 'statistics_br4_19'],
+    'br4_19': ['results_br4g_19', 'standings_br4g_19', 'schedule_br4_19', 'results_br4_19',
+               'standings_br4_19', 'statistics_br4_19'],
     'br3_19': ['schedule_br3_19', 'results_br3_19', 'standings_br3_19', 'statistics_br3_19',
                'results_br3g_19', 'standings_br3g_19', 'statistics_br3g_19', 'teambuilding_br3_19'],
-    'br2_19': ['results_br2g_19', 'standings_br2g_19', 'results_br2m_19', 'schedule_br2m_19', 'statistics_br2_19'],
-    'br1_19': ['schedule_br1_19', 'results_br1_19', 'standings_br1_19', 'results_br1g_19', 'standings_br1g_19'],
+    'br2_19': ['results_br2g_19', 'standings_br2g_19', 'results_br2m_19', 'schedule_br2m_19',
+               'statistics_br2_19'],
+    'br1_19': ['schedule_br1_19', 'results_br1_19', 'standings_br1_19', 'results_br1g_19',
+               'standings_br1g_19'],
 
     'info': ['calendar', 'wunsch', 'gesucht', 'divinfo20', 'divinfo19']
   };
 
+  keepOpen.nw = keepOpen.u20_20.concat(
+    keepOpen.u18_20, keepOpen.u16_20, keepOpen.u15_20,
+    keepOpen.u14_20, keepOpen.u13_20);
+
   keepOpen.a19 = keepOpen.u10_19.concat(
     keepOpen.u11_19, keepOpen.u12_19, keepOpen.u13_19, keepOpen.u15_19, keepOpen.u17_19,
-    keepOpen.br4_19, keepOpen.br3_19, keepOpen.br2_19, keepOpen.br1_19
-  );
+    keepOpen.br4_19, keepOpen.br3_19, keepOpen.br2_19, keepOpen.br1_19);
   keepOpen.archive = keepOpen.a19;
 
-//  keepOpen.ak = keepOpen.br4_20.concat(keepOpen.br3_20, keepOpen.br2_20, keepOpen.br1_20);
+  // keepOpen.ak = keepOpen.br4_20.concat(keepOpen.br3_20, keepOpen.br2_20, keepOpen.br1_20);
 
   bhv.elements.expander.init(expanders, keepOpen);
 }
@@ -79,12 +91,36 @@ function init() {
 
   <h1 id="nw" class="expandable" style=""><br>Nachwuchs<br>&nbsp;</h1>
   <div id="nw_2" class="expanded_container">
-    <h2 id="u13_20">U13</h2>
-    <h2 id="u14_20">U14</h2>
-    <h2 id="u15_20">U15</h2>
-    <h2 id="u16_20">U16</h2>
-    <h2 id="u18_20">U18</h2>
-    <h2 id="u20_20">U20</h2>
+
+    <h2 id="u13_20" class="expandable">U13 - Supermini</h2>
+    <div id="u13_20_2" class="expanded_container">
+      <a id="info13" href="/info/u13.html"><h3>Infos</h3></a>
+    </div>
+
+    <h2 id="u14_20" class="expandable">U14 - Mini</h2>
+    <div id="u14_20_2" class="expanded_container">
+      <a id="info14" href="/info/u14.html"><h3>Infos</h3></a>
+    </div>
+
+    <h2 id="u15_20" class="expandable">U15 - Midi</h2>
+    <div id="u15_20_2" class="expanded_container">
+      <a id="info15" href="/info/u15.html"><h3>Infos</h3></a>
+    </div>
+
+    <h2 id="u16_20" class="expandable">U16 - Schülerinnen</h2>
+    <div id="u16_20_2" class="expanded_container">
+      <a id="info16" href="/info/u16.html"><h3>Infos</h3></a>
+    </div>
+
+    <h2 id="u18_20" class="expandable">U18 - Jugend weiblich</h2>
+    <div id="u18_20_2" class="expanded_container">
+      <a id="info18" href="/info/u18.html"><h3>Infos</h3></a>
+    </div>
+
+    <h2 id="u20_20" class="expandable">U20 - Juniorinnen</h2>
+    <div id="u20_20_2" class="expanded_container">
+      <a id="info20" href="/info/u20.html"><h3>Infos</h3></a>
+    </div>
   </div>
   <!--div id="nw_2" class="expanded_container">
 
