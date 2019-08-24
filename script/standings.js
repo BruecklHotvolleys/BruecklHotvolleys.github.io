@@ -1,37 +1,48 @@
+var activeSeason = '20';
 var map = {
-  'br4g_19': [22934, leagueStandings, 'Tabelle Unterliga (GD)'],
-  'br4_19': [23784, leagueStandings, 'Tabelle Unterliga (FD)'],
+  '20': {},
+  '19': {
+    'br4g_19': [22934, leagueStandings, 'Tabelle Unterliga (GD)'],
+    'br4_19': [23784, leagueStandings, 'Tabelle Unterliga (FD)'],
 
-  'br3g_19': [22934, leagueStandings, 'Tabelle Unterliga (GD)'],
-  'br3_19': [23747, leagueStandings, 'Tabelle Landesliga (AR)'],
+    'br3g_19': [22934, leagueStandings, 'Tabelle Unterliga (GD)'],
+    'br3_19': [23747, leagueStandings, 'Tabelle Landesliga (AR)'],
 
-  'br2g_19': [22933, leagueStandings, 'Tabelle Landesliga (GD)'],
+    'br2g_19': [22933, leagueStandings, 'Tabelle Landesliga (GD)'],
 
-  'br1g_19': [22691, leagueStandings, 'Tabelle Bundesliga (GD)'],
-  'br1_19': [23666, leagueStandings, 'Tabelle Bundesliga (MR)'],
+    'br1g_19': [22691, leagueStandings, 'Tabelle Bundesliga (GD)'],
+    'br1_19': [23666, leagueStandings, 'Tabelle Bundesliga (MR)'],
 
 
-  'u10_19': [23058, kidsStandings, 'Tabelle U10 (Qualifikation)'],
-  'u10f_19': [24437, kidsStandingsF, 'Endstand U10'],
+    'u10_19': [23058, kidsStandings, 'Tabelle U10 (Qualifikation)'],
+    'u10f_19': [24437, kidsStandingsF, 'Endstand U10'],
 
-  'u11_19': [23059, kidsStandings, 'Tabelle U11 (Qualifikation)'],
-  'u11f_19': [24268, kidsStandingsF, 'Endstand U11 (weiblich)'],
-  'u11m_19': [24273, kidsStandingsF, 'Endstand U11 (männlich)'],
+    'u11_19': [23059, kidsStandings, 'Tabelle U11 (Qualifikation)'],
+    'u11f_19': [24268, kidsStandingsF, 'Endstand U11 (weiblich)'],
+    'u11m_19': [24273, kidsStandingsF, 'Endstand U11 (männlich)'],
 
-  'u12x_19': [23283, kidsStandingsF, 'Endstand U12 (ÖMS)'],
-  'u12f_19': [23976, kidsStandingsF, 'Endstand U12 (weiblich)'],
-  'u12m_19': [23977, kidsStandingsF, 'Endstand U12 (männlich)'],
-  'u12q_19': [23060, kidsStandings, 'Tabelle U12 (Qualifikation)'],
+    'u12x_19': [23283, kidsStandingsF, 'Endstand U12 (ÖMS)'],
+    'u12f_19': [23976, kidsStandingsF, 'Endstand U12 (weiblich)'],
+    'u12m_19': [23977, kidsStandingsF, 'Endstand U12 (männlich)'],
+    'u12q_19': [23060, kidsStandings, 'Tabelle U12 (Qualifikation)'],
 
-  'u13f_19': [24092, kidsStandingsF, 'Endstand U13'],
-  'u13_19': [23061, kidsStandings, 'Tabelle U13 (Qualifikation)'],
-  'u13x_19': [23281, kidsStandingsF, 'Endstand (ÖMS)'],
+    'u13f_19': [24092, kidsStandingsF, 'Endstand U13'],
+    'u13_19': [23061, kidsStandings, 'Tabelle U13 (Qualifikation)'],
+    'u13x_19': [23281, kidsStandingsF, 'Endstand (ÖMS)'],
 
-  'u15f_19': [24099, kidsStandingsF, 'Endstand U15'],
-  'u15_19': [23063, kidsStandings, 'Tabelle U15 (Qualifikation)'],
+    'u15f_19': [24099, kidsStandingsF, 'Endstand U15'],
+    'u15_19': [23063, kidsStandings, 'Tabelle U15 (Qualifikation)'],
 
-  'u17_19': [23787, kidsStandingsF, 'Endstand U17']
+    'u17_19': [23787, kidsStandingsF, 'Endstand U17']
+  }
 };
+
+// if to create the archive
+if (window.bhv.archive) {
+  window.bhv.archive.getStandingsMap = function(key) {
+    return map[key];
+  }
+}
 
 /**
  * Creates the standings for a junior chamionship.
@@ -104,9 +115,9 @@ function doKidsStandings(response, final) {
       }
 
       // save data for offline mode
-      _save(bhv.request.utils.getTitle(new Date(), map) + msg);
+      _save(bhv.request.utils.getTitle('standings', new Date(), map) + msg);
       // add created text to page
-      bhv.request.utils.inject(bhv.request.utils.getTitle(null, map) + msg);
+      bhv.request.utils.inject(bhv.request.utils.getTitle('standings', null, map) + msg);
     }
   }
 }
@@ -148,9 +159,9 @@ function leagueStandings(response) {
       }
 
       // save data for offline mode
-      _save(bhv.request.utils.getTitle(new Date(), map) + msg);
+      _save(bhv.request.utils.getTitle('standings', new Date(), map) + msg);
       // add created text to page
-      bhv.request.utils.inject(bhv.request.utils.getTitle(null, map) + msg);
+      bhv.request.utils.inject(bhv.request.utils.getTitle('standings', null, map) + msg);
     }
   }
 }
@@ -165,11 +176,30 @@ function _save(txt) {
  * @return {void}
  */
 function getStandings() {
-  var key = bhv.request.utils.getKey();
+  var found = false,
+      key = bhv.request.utils.getKey();
 
-  if (map && map[key]) {
-    bhv.request.queryStandings(map[key][0], map[key][1], getStandingsOffline);
-  } else {
+  if (map) {
+    var keys = Object.keys(map);
+    for (var k = 0; k < keys.length; ++k) {
+      var mm = map[keys[k]];
+      if (mm && mm[key]) {
+        if (keys[k] === activeSeason) {
+          found = bhv.request.queryStandings(
+            mm[key][0], mm[key][1],
+            getStandingsOffline
+          );
+        } else {
+          found = bhv.request.queryStandingsArchiveGz(
+            keys[k], key,
+            mm[key][1], getStandingsOffline
+          );
+        }
+      }
+    }
+  }
+
+  if (!found) {
     bhv.request.utils.inject('Ungültige Tabelle!');
   }
 }
@@ -178,7 +208,7 @@ function getStandings() {
  * Injects the stored standings if offline.
  * @return {void}
  */
-function getStandingsOffline() {
+function getStandingsOffline(x1, x2, x3, x4) {
   // bhv.request.utils.showOffline('standings');
   bhv.request.utils.inject('Tabelle nicht gefunden!');
 }

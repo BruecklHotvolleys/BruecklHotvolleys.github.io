@@ -25,6 +25,7 @@ pre#content > b.team {
   <script src="/script/polyfills.js"></script>
   <script src="/script/base64.js"></script>
   <script src="/script/db.js"></script>
+  <script src="/script/pako_inflate.min.js"></script>
   <script src="/script/request.js"></script>
   <script src="/script/schedule.js"></script>
   <script type="text/javascript">
@@ -43,7 +44,7 @@ function setBack(region) {
 }
   </script>
  </head>
- <body onload="setBack('schedule'); getSchedule();">
+ <body onload="setBack('schedule'); getSchedules();">
   <div id="header">
     <div class="left">
     <a href="/ov.html"><img src="/image/bhv1.gif"/></a>

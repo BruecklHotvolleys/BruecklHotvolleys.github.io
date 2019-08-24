@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Description" content="Brückl hotvolleys Info-Seiten.">
   <title>Brückl hotvolleys</title>
   <link rel="stylesheet" href="/styles.css">
   <link rel="shortcut icon" href="/favicons/favicon.ico">
@@ -39,7 +41,7 @@
 <div class="entryInfo" id="{{id}}">{{info}}</div>
   </script>
 
-  <script id="tplHeaderOld" type="text/x-template">
+  <!-- script id="tplHeaderOld" type="text/x-template">
 <a href="/ov.html#calendar" style="left: 10px;"><img src="/image/bhv1.gif" height="30px" /></a>
 <div class="nav l1" data-dir="{{dir-12}}">&lt;&lt;</div>
 <div class="nav l2" data-dir="{{dir-1}}">&lt;</div>
@@ -47,17 +49,17 @@
 <div class="nav r2" data-dir="{{dir+1}}">&gt;</div>
 <div class="nav r1" data-dir="{{dir+12}}">&gt;&gt;</div>
 <a href="/ov.html#calendar" style="right: 10px;"><img src="/image/bhv1.gif" height="30px" /></a>
-  </script>
+</script -->
   <script id="tplHeader" type="text/x-template">
 <div class="left">
-<a href="/ov.html#calendar"><img src="/image/bhv1.gif"/></a>
+<a href="/ov.html#calendar" aria-label="Back to overview."><img src="/image/bhv1.gif"/></a>
 <div class="nav l1" data-dir="{{dir-12}}">&lt;&lt;</div>
 <div class="nav l2" data-dir="{{dir-1}}">&lt;</div>
 <div>{{month}} {{year}}</div>
 </div><div class="right">
 <div class="nav r2" data-dir="{{dir+1}}">&gt;</div>
 <div class="nav r1" data-dir="{{dir+12}}">&gt;&gt;</div>
-<a href="/ov.html#calendar"><img src="/image/bhv1.gif"/></a>
+<a href="/ov.html#calendar" aria-label="Back to overview."><img src="/image/bhv1.gif"/></a>
 </div>
   </script>
   <script id="tplFooter" type="text/x-template">
@@ -229,9 +231,9 @@ div#content_container {
 <body onload="calendar.init(document);">
 
 <div class="container">
-  <div id="header">&nbsp;</div>
-  <div id="content_container">&nbsp;</div>
-  <div id="footer">&nbsp;</div>
+  <header role="banner"><div id="header">&nbsp;</div></header>
+  <main role="main"><div id="content_container">&nbsp;</div></main>
+  <footer role="contentinfo"><div id="footer">&nbsp;</div></footer>
 </div>
 
 </body>

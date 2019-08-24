@@ -1,57 +1,118 @@
+var activeSeason = '20';
 var mapLeague = {
-  'br4g_19': [22934, leagueSchedule, 'Termine Unterliga (GD)', 29075],
-  'br4_19': [23784, leagueSchedule, 'Termine Unterliga (FD)', 29075],
-
-  // 'br3g': [22934, leagueSchedule, 'Termine Unterliga (GD)', 28955],
-  // 'br3_19': [23747, leagueSchedule, 'Termine Landesliga (AR)', 30420],
-
-  'br2g_19': [22933, leagueSchedule, 'Termine Landesliga (GD)', 28951],
-  'br2m_19': [23746, leagueSchedule, 'Termine Landesliga (MPO)', 28951],
-
-  'br1g_19': [22691, leagueSchedule, 'Termine Bundesliga (GD)', 27423],
-  'br1_19': [23666, leagueSchedule, 'Termine Bundesliga (MR)', 27423]
+  '20': {
+  },
+  '19': {
+    // 'br4g_19': [22934, leagueSchedules, 'Termine Unterliga (GD)', 29075],
+    // 'br4_19': [23784, leagueSchedules, 'Termine Unterliga (FD)', 29075],
+    //
+    // 'br3g': [22934, leagueSchedules, 'Termine Unterliga (GD)', 28955],
+    // 'br3_19': [23747, leagueSchedules, 'Termine Landesliga (AR)', 30420],
+    //
+    // 'br2g_19': [22933, leagueSchedules, 'Termine Landesliga (GD)', 28951],
+    // 'br2m_19': [23746, leagueSchedules, 'Termine Landesliga (MPO)', 28951],
+    //
+    // 'br1g_19': [22691, leagueSchedules, 'Termine Bundesliga (GD)', 27423],
+    // 'br1_19': [23666, leagueSchedules, 'Termine Bundesliga (MR)', 27423]
+  }
 };
 
 var mapKids = {
-  'u10_19': [23058, kidsSchedule, 'Turniere U10', 'brückl'],
-  'u11_19': [23059, kidsSchedule, 'Turniere U11', 'brückl'],
-  'u12_19': [23060, kidsSchedule, 'Turniere U12', 'brückl'],
-  'u13_19': [23061, kidsSchedule, 'Turniere U13', 'brückl'],
-  'u15_19': [23063, kidsSchedule, 'Turniere U15', 'brückl']
+  '20': {
+    // 'u10_19': [23058, kidsSchedules, 'Turniere U10', 'brückl']
+  },
+  '19': {
+    'u10_19': [23058, kidsSchedules, 'Turniere U10', 'brückl'],
+    'u11_19': [23059, kidsSchedules, 'Turniere U11', 'brückl'],
+    'u12_19': [23060, kidsSchedules, 'Turniere U12', 'brückl'],
+    'u13_19': [23061, kidsSchedules, 'Turniere U13', 'brückl'],
+    'u15_19': [23063, kidsSchedules, 'Turniere U15', 'brückl']
+  }
 };
 
 var finals = {
-  'u10_19': "Finale (Do 30.05.2019  Brückl)",
-  'u11_19': "Finale (So 19.05.2019  Brückl)",
-  'u12_19': "Finale (So 07.04.2019  Klagenfurt)",
-  'u13_19': "Finale (Sa 27.04.2019  Wolfsberg)",
-  'u15_19': "Finale (So 05.05.2019  Klagenfurt)",
-  'u17_19': "Finale (So 03.03.2019  Villach)",
-  'u19_19': "Finale (So 27.01.2019  Klagenfurt)"
+  '20': {},
+  '19': {
+    'u10_19': "Finale (Do 30.05.2019  Brückl)",
+    'u11_19': "Finale (So 19.05.2019  Brückl)",
+    'u12_19': "Finale (So 07.04.2019  Klagenfurt)",
+    'u13_19': "Finale (Sa 27.04.2019  Wolfsberg)",
+    'u15_19': "Finale (So 05.05.2019  Klagenfurt)",
+    'u17_19': "Finale (So 03.03.2019  Villach)",
+    'u19_19': "Finale (So 27.01.2019  Klagenfurt)"
+  }
 };
 
 var days = ['?0', 'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So', '?8'];
 
 
+// if to create the archive
+if (window.bhv.archive) {
+  window.bhv.archive.getSchedulesMaps = function(key) {
+    return {
+      'leagues': mapLeague[key],
+      'kids': mapKids[key],
+      'finals': finals[key]
+    };
+  }
+}
+
+
 /**
- * Starts the loading of the schedule.
+ * Starts the loading of the schedules.
  * @return {void}
  */
-function getSchedule() {
+function getSchedules() {
   var IDX_BEW = 0,
       IDX_TEA = 3,
       IDX_ONSUCCESS = 1,
+      found = false,
       key = bhv.request.utils.getKey();
 
-  if (mapLeague && mapLeague[key]) {
-    bhv.request.querySchedule(mapLeague[key][IDX_BEW], mapLeague[key][IDX_TEA],
-      mapLeague[key][IDX_ONSUCCESS], getScheduleOffline);
+  // check senior league
+  if (mapLeague) {
+    var keys = Object.keys(mapLeague);
+    for (var k1 = 0; k1 < keys.length; ++k1) {
+      var mm = mapLeague[keys[k1]];
+      if (mm && mm[key]) {
+        if (keys[k1] === activeSeason) {
+          found = bhv.request.querySchedules(
+            mm[key][IDX_BEW], mm[key][IDX_TEA],
+            mm[key][IDX_ONSUCCESS], getSchedulesOffline
+          );
+        } else {
+          found = bhv.request.querySchedulesArchiveGz(
+            keys[k1], key,
+            mm[key][IDX_ONSUCCESS], getSchedulesOffline
+          );
+        }
+      }
+    }
+  }
 
-  } else if (mapKids && mapKids[key]) {
-    bhv.request.queryKidsSchedule(mapKids[key][IDX_BEW],
-      mapKids[key][IDX_ONSUCCESS], getScheduleOffline);
+  // check kids leagues/tournaments
+  if (!found && mapKids) {
+    var keysK = Object.keys(mapKids);
+    for (var k2 = 0; k2 < keysK.length; ++k2) {
+      var mmK = mapKids[keysK[k2]];
+      if (mmK && mmK[key]) {
+        if (keysK[k2] === activeSeason) {
+          found = bhv.request.queryKidsSchedules(
+            mmK[key][IDX_BEW],
+            mmK[key][IDX_ONSUCCESS], getSchedulesOffline
+          );
+        } else {
+          found = bhv.request.queryKidsSchedulesArchiveGz(
+            keysK[k2], key,
+            mmK[key][IDX_ONSUCCESS], getSchedulesOffline
+          );
+        }
+      }
+    }
+  }
 
-  } else {
+  // error: league/tournament not found
+  if (!found) {
     bhv.request.utils.inject('Ungültige Termine!');
   }
 }
@@ -229,19 +290,19 @@ function getAllSchedules(keyEnabled, from, till, callbackLeague) {
 }
 
 /**
- * Injects the stored schedule if offline.
+ * Injects the stored schedules if offline.
  * @return {void}
  */
-function getScheduleOffline() {
-  bhv.request.utils.showOffline('schedule');
+function getSchedulesOffline() {
+  bhv.request.utils.showOffline('schedules');
 }
 
 /**
- * Creates the schedule for a junior chamionship.
+ * Creates the schedules for a junior chamionship.
  * @param {string} reponse The response from the web service.
  * @return {void}
  */
-function kidsSchedule(response) {
+function kidsSchedules(response) {
   // create xml data
   var msg = '',
       xml = bhv.request.xml.fromText(response, 'xml');
@@ -276,7 +337,7 @@ function kidsSchedule(response) {
   }
 
   // msg += '<hr>' + JSON.stringify(tournaments, null, 2);
-  bhv.request.utils.inject(bhv.request.utils.getTitle(null, mapKids) + msg);
+  bhv.request.utils.inject(bhv.request.utils.getTitle('schedules', null, mapKids) + msg);
 }
 
 function _tournamentInfo(tournament) {
@@ -316,11 +377,11 @@ function _teamInfo(teams, tea, noTab, pattern) {
 }
 
 /**
- * Creates the schedule of a league.
+ * Creates the schedules of a league.
  * @param {string} reponse The response from the web service.
  * @return {void}
  */
-function leagueSchedule(response) {
+function leagueSchedules(response) {
 
   // create xml data
   var xml = bhv.request.xml.fromText(response, 'xml');
@@ -354,9 +415,9 @@ function leagueSchedule(response) {
       }
 
       // save data for offline mode
-      _save(bhv.request.utils.getTitle(new Date(), mapLeague) + msg);
+      _save(bhv.request.utils.getTitle('schedules', new Date(), mapLeague) + msg);
       // add created text to page
-      bhv.request.utils.inject(bhv.request.utils.getTitle(null, mapLeague) + msg);
+      bhv.request.utils.inject(bhv.request.utils.getTitle('schedules', null, mapLeague) + msg);
     }
   }
 }
@@ -368,5 +429,5 @@ function leagueSchedule(response) {
  */
 function _save(txt) {
   // store data for offline reading
-  bhv.db.write('schedule:' + bhv.request.utils.getKey(), txt);
+  bhv.db.write('schedules:' + bhv.request.utils.getKey(), txt);
 }

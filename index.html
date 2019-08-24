@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Description" content="Brückl hotvolleys Info-Seiten.">
+
   <title>Brückl hotvolleys</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
-  <link rel="manifest" href="/favicons/site.webmanifest">
+  <link rel="manifest" href="/manifest.webmanifest">
   <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
   <link rel="shortcut icon" href="/favicons/favicon.ico">
   <meta name="msapplication-TileColor" content="#b91d47">
   <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
   <meta name="msapplication-config" content="/favicons/browserconfig.xml">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="aliceblue">
+
+  <!-- iOS meta tags and icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="BHV Info App">
+  <link rel="apple-touch-icon" href="/favicons/apple-touch-icon-152x152.png">
 
   <link rel="stylesheet" href="/styles.css">
   <style>
@@ -30,8 +39,23 @@ a {
   background-size: contain;
 }
   </style>
+  <script>
+// register service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/bhv-service-worker.js')
+      .then((reg) => {
+        console.log('BHV Info App service worker registered.', reg);
+      });
+  });
+}
+  </script>
 </head>
 <body>
-  <a href="/index2.html">&nbsp;</a>
+  <noscript>This is the warning.</noscript>
+  <main role="main">
+    <a href="/index2.html" aria-label="Goto overview.">&nbsp;</a>
+  </main>
 </body>
 </html>

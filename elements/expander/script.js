@@ -15,15 +15,23 @@ if (window.bhv.elements.expander === undefined) {
       var handler = function(event) {
         var header = event.target;
         if (header) {
-          var id = header.id,
-              id2 = id + '_2',
-              div = document.getElementById(id2);
-          if (div) {
-            var show = div.style.display == 'none';
-            show
-              ? window.bhv.elements.expander._addClass(header, 'up')
-              : window.bhv.elements.expander._removeClass(header, 'up');
-            div.style.display = show ? 'block' : 'none';
+          var id = header.id;
+          if (!id) {
+            header = header.parentNode;
+            if (header) {
+              id = header.id;
+            }
+          }
+          if (id) {
+            var id2 = id + '_2',
+                div = document.getElementById(id2);
+            if (div) {
+              var show = div.style.display == 'none';
+              show
+                ? window.bhv.elements.expander._addClass(header, 'up')
+                : window.bhv.elements.expander._removeClass(header, 'up');
+              div.style.display = show ? 'block' : 'none';
+            }
           }
         }
 

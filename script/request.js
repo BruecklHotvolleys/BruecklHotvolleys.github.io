@@ -36,7 +36,7 @@ window.bhv.request = {
     // prepare Ajax-CORS for IE8/9
     var ie89 = ie === 8 || ie === 9,
         // the http request mode
-        mode2 = typeof mode === 'string' ? mode : 'GET',
+        mode2 = typeof mode === 'string' ? mode.split('-')[0] : 'GET',
         // create request object
         request = null,
         // this in handlers
@@ -153,6 +153,11 @@ window.bhv.request = {
       true
     );
 
+    if (mode === 'GET-BINARY') {
+      // retrieve data unprocessed as a binary string
+      request.overrideMimeType("text/plain; charset=x-user-defined");
+    }
+
     // try to set a timeout handler (not for old ie)
     if (!ie89 && request.timeout !== undefined && wait > 0) {
       request.timeout = wait;
@@ -208,7 +213,7 @@ window.bhv.request = {
    * @param {string} info An info for error logging.
    * @return {boolean} Ok or Nok.
    */
-  _checkId: function(id, info) {
+  '_checkId': function(id, info) {
     if (!id || !Number.isFinite(id)) {
       log('Invalid id ' + id + ' for ' + info + '!');
       return false;
@@ -217,7 +222,7 @@ window.bhv.request = {
     return true;
   },
 
-  queryStandings: function(id, onsuccess, onerror) {
+  'queryStandings': function(id, onsuccess, onerror) {
 
     if (!this._checkId(id, 'competition')) {
       onerror();
@@ -236,7 +241,66 @@ window.bhv.request = {
     return true;
   },
 
-  querySchedule: function(idBew, idTea, onsuccess, onerror) {
+  'queryStandingsArchiveGz': function(season, key, onsuccess, onerror) {
+
+    var url = location.protocol + '//' + location.hostname
+      + '/archive/' + season + '/standings.xml.gz';
+
+    // request data
+    if (!this._startRequest(
+      url, 5000,
+      function(response) {
+        // extract results of competition
+        try {
+          var ok = false,
+              uncompressed = pako.inflate(response, { 'to': 'string' });
+
+          // create xml data
+          var xml = bhv.request.xml.fromText(uncompressed, 'xml');
+          if (xml) {
+            // get list of standings
+            var data = bhv.request.xml.getNodes(xml, 'standings');
+            if (data) {
+              // search for results of given competition(s)
+              for (var i = 0; i < data.length; ++i) {
+                var item = data[i];
+                // if found: handle them
+                if (item.getAttribute('key') === key) {
+                  bhv.request.utils.storeTitle(
+                    'standings', key,
+                    item.getAttribute('title')
+                  );
+
+                  var str = '<xml>' + item.innerHTML + '</xml>';
+                  onsuccess(str);
+                  ok = true;
+                }
+              }
+            }
+          }
+
+          if (!ok) {
+            onerror();
+          }
+
+        } catch (err) {
+          console.log(err);
+          onerror();
+        }
+      },
+      onerror, false, undefined, 'GET-BINARY')) {
+
+      // cannot start request of compressed data
+      onerror();
+      return false;
+    }
+
+    // request of data has been started
+    return true;
+  },
+
+
+  querySchedules: function(idBew, idTea, onsuccess, onerror) {
 
     // check id of competition and team
     if (!this._checkId(idBew, 'competition') || !this._checkId(idTea, 'team')) {
@@ -244,7 +308,7 @@ window.bhv.request = {
       return false;
     }
 
-    // the url to get the schedule
+    // the url to get the schedules
     var url = location.protocol
       + '//kvv.volleynet.at/volleynet/service/xml2.php'
       + '?action=termin&where='
@@ -265,11 +329,21 @@ window.bhv.request = {
     return true;
   },
 
+  /**
+   * Queries the schedules for the given timespan(from, till).
+   * @param {string} from ISO formatted start date.
+   * @param {string} till ISO formatted end date.
+   * @param {Function} onsuccess The callback to return the schedules.
+   * @param {Function} onerror The error callback.
+   * @return {Boolean} True if the request has been started successfully,
+   * otherwise false.
+   */
   queryMultiSchedules: function(from, till, onsuccess, onerror) {
 
-    // the url to get the schedule
+    // the url to get the schedules
     var url = location.protocol
       + '//kvv.volleynet.at/volleynet/service/xml2.php'
+      // local test server
       // + '//kv.volleynet.at/volleynet/service/xml2.php'
       + '?action=termin&where=' + encodeURIComponent(
         '(vrn_id_a = 21 or vrn_id_b = 21)'
@@ -287,8 +361,12 @@ window.bhv.request = {
     return true;
   },
 
+  'querySchedulesArchiveGz': function(season, key, onsuccess, onerror) {
+    throw new Error('Not yet implemented!');
+  },
 
-  queryKidsSchedule: function(idBew, onsuccess, onerror) {
+
+  'queryKidsSchedules': function(idBew, onsuccess, onerror) {
 
     // check id of competition and team
     if (!this._checkId(idBew, 'competition')) {
@@ -296,7 +374,7 @@ window.bhv.request = {
       return false;
     }
 
-    // the url to get the schedule
+    // the url to get the schedules
     var url = location.protocol
       + '//kvv2.volleynet.at/volleynet/service/xml2.php'
       + '?action=turniere&bewerb_id=' + idBew;
@@ -311,9 +389,9 @@ window.bhv.request = {
     return true;
   },
 
-  queryMultiKidsSchedules: function(from, till, filter, onsuccess, onerror) {
+  'queryMultiKidsSchedules': function(from, till, filter, onsuccess, onerror) {
 
-    // the url to get the schedule
+    // the url to get the schedules
     var url = location.protocol
       + '//kvv2.volleynet.at/volleynet/service/xml2.php'
       // + '//kv2.volleynet.at/volleynet/service/xml2.php'
@@ -330,6 +408,65 @@ window.bhv.request = {
     // done
     return true;
   },
+
+  'queryKidsSchedulesArchiveGz': function(season, key, onsuccess, onerror) {
+
+    var url = location.protocol + '//' + location.hostname
+      + '/archive/' + season + '/kidsschedules.xml.gz';
+
+    // request data
+    if (!this._startRequest(
+      url, 5000,
+      function(response) {
+        // extract results of competition
+        try {
+          var ok = false,
+              uncompressed = pako.inflate(response, { 'to': 'string' });
+
+          // create xml data
+          var xml = bhv.request.xml.fromText(uncompressed, 'xml');
+          if (xml) {
+            // get list of standings
+            var data = bhv.request.xml.getNodes(xml, 'tournament');
+            if (data) {
+              // search for results of given competition(s)
+              for (var i = 0; i < data.length; ++i) {
+                var item = data[i];
+                // if found: handle them
+                if (item.getAttribute('key') === key) {
+                  bhv.request.utils.storeTitle(
+                    'schedules', key,
+                    item.getAttribute('title')
+                  );
+
+                  var str = '<xml>' + item.innerHTML + '</xml>';
+                  onsuccess(str);
+                  ok = true;
+                }
+              }
+            }
+          }
+
+          if (!ok) {
+            onerror();
+          }
+
+        } catch (err) {
+          console.log(err);
+          onerror();
+        }
+      },
+      onerror, false, undefined, 'GET-BINARY')) {
+
+      // cannot start request of compressed data
+      onerror();
+      return false;
+    }
+
+    // request of data has been started
+    return true;
+  },
+
 
   'queryXtraDates': function(from, till, onsuccess, onerror) {
     var addrFrom = this._urlXtraDates(from),
@@ -408,49 +545,45 @@ window.bhv.request = {
   'queryResults': function(idBew, idTea, onsuccess, onerror) {
 
     // check id(s) of competition and team
-    // if (!this._checkId(idBew, 'competition') || !this._checkId(idTea, 'team')) {
-    //   onerror();
-    //   return false;
-    // }
-    ok = true;
-    multiPhase = false;
-    idsComp = '';
-    if (Array.isArray(idBew)) {
-      multiPhase = true;
-      for (var i = 0; ok && i < idBew.length; ++i) {
-        ok = ok && this._checkId(idBew[i], 'competition');
-      }
-      idsComp = idBew.join(', ');
-    } else {
-      ok = ok && this._checkId(idBew, 'competition');
-    }
-
-    multiTeam = false;
-    idsTeam = '';
-    if (Array.isArray(idTea)) {
-      multiTeam = true;
-      for (var i = 0; ok && i < idTea.length; ++i) {
-        ok = ok && this._checkId(idTea[i], 'team');
-      }
-      idsTeam = idTea.join(', ');
-    } else {
-      ok = ok && this._checkId(idTea, 'Team');
-    }
+    var ok = this._checkResultIds(idBew, idTea, onerror);
 
     if (!ok) {
-      onerror();
       return false;
     }
 
-    // the url to get the schedule
-    var comp = multiPhase ? 'bew_id in (' + idsComp + ')' : 'bew_id=' + idBew;
-    var team = multiTeam
-      ? 'spi_tea_id_a IN (' + idsTeam + ') or spi_tea_id_b IN (' + idsTeam + ')'
-      : 'spi_tea_id_a=' + idTea + ' or spi_tea_id_b=' + idTea;
+    // prepare ids if array of ids
+    // var multiPhase = false;
+    // var idsComp = '';
+    // if (Array.isArray(idBew)) {
+    //   multiPhase = true;
+    //   idsComp = idBew.join(', ');
+    // }
+    // var multiTeam = false;
+    // var idsTeam = '';
+    // if (Array.isArray(idTea)) {
+    //   multiTeam = true;
+    //   idsTeam = idTea.join(', ');
+
+    // the url to get the results
+    // var comp = multiPhase ? 'bew_id in (' + idsComp + ')' : 'bew_id=' + idBew;
+    var comp = Array.isArray(idBew)
+      ? 'bew_id in (' + idBew.join(', ') + ')' : 'bew_id=' + idBew;
+
+    // var team = multiTeam
+    //   ? 'spi_tea_id_a IN (' + idsTeam + ') or spi_tea_id_b IN (' + idsTeam + ')'
+    //   : 'spi_tea_id_a=' + idTea + ' or spi_tea_id_b=' + idTea;
+    var team = '';
+    if (Array.isArray(idTea)) {
+      var idsTeam = idTea.join(', ');
+      team = 'spi_tea_id_a IN (' + idsTeam + ') or spi_tea_id_b IN ('
+        + idsTeam + ')';
+    } else {
+      team = 'spi_tea_id_a=' + idTea + ' or spi_tea_id_b=' + idTea;
+    }
+
     var url = location.protocol
       + '//kvv.volleynet.at/volleynet/service/xml2.php'
       + '?action=ergebnis&where='
-      // + encodeURIComponent('bew_id=' + idBew
       + encodeURIComponent(comp
         + 'and (vrn_id_a=21 or vrn_id_b=21) and (' + team + ')')
       + '&orderBy=spi_datum';
@@ -464,6 +597,100 @@ window.bhv.request = {
     // done
     return true;
   },
+
+  'queryResultsArchiveGz': function(
+    season, key,
+    idBew, idTea,
+    onsuccess, onerror
+  ) {
+    // check id(s) of competition and team
+    var ok = this._checkResultIds(idBew, idTea, onerror);
+
+    if (!ok) {
+      return false;
+    }
+
+    var url = location.protocol + '//' + location.hostname
+      + '/archive/' + season + '/results.xml.gz';
+
+    // request data
+    if (!this._startRequest(
+      url, 5000,
+      function(response) {
+        // extract results of competition
+        try {
+          var ok = false,
+              uncompressed = pako.inflate(response, { 'to': 'string' });
+
+          // create xml data
+          var xml = bhv.request.xml.fromText(uncompressed, 'xml');
+          if (xml) {
+            // get list of results
+            var data = bhv.request.xml.getNodes(xml, 'result');
+            if (data) {
+              // search for results of given competition(s)
+              for (var i = 0; i < data.length; ++i) {
+                var item = data[i];
+                // if found: handle them
+                if (item.getAttribute('key') === key) {
+                  bhv.request.utils.storeTitle(
+                    'results', key,
+                    item.getAttribute('title')
+                  );
+
+                  var str = '<xml>' + item.innerHTML + '</xml>';
+                  onsuccess(str);
+                  ok = true;
+                }
+              }
+            }
+          }
+
+          if (!ok) {
+            onerror();
+          }
+
+        } catch (err) {
+          console.log(err);
+          onerror();
+        }
+      },
+      onerror, false, undefined, 'GET-BINARY')) {
+
+      // cannot start request of compressed data
+      onerror();
+      return false;
+    }
+
+    // request of data has been started
+    return true;
+  },
+
+  '_checkResultIds': function(idBew, idTea) {
+    var ok = true;
+    if (Array.isArray(idBew)) {
+      for (var i = 0; ok && i < idBew.length; ++i) {
+        ok = ok && this._checkId(idBew[i], 'competition');  // NOSONAR
+      }
+    } else {
+      ok = ok && this._checkId(idBew, 'competition');  // NOSONAR
+    }
+
+    if (Array.isArray(idTea)) {
+      for (var t = 0; ok && i < idTea.length; ++i) {
+        ok = ok && this._checkId(idTea[t], 'team');  // NOSONAR
+      }
+    } else {
+      ok = ok && this._checkId(idTea, 'Team');
+    }
+
+    if (!ok) {
+      onerror();
+    }
+
+    return ok;
+  },
+
 
   /**
    * Sends a file of x-dates.
@@ -541,35 +768,69 @@ window.bhv.request = {
  */
 window.bhv.request.utils = {
 
+  archive: {
+    titles: {}
+  },
+
+  storeTitle: function(region, key, title) {
+    this.archive.titles[region + '-' + key] = title;
+  },
+
   /**
    * Returns the title of the current request.
    * @param {Date} date The current date to create the offline data.
    * @param {{}} map The main data map.
    * @return {string} The titel of the curremnt request.
    */
-  getTitle: function(date, map) {
+  getTitle: function(region, date, map) {
 
     // get key of current team
-    var key = this.getKey();
+    var IDX_TIT = 2,
+        key = this.getKey(),
+        keyArchive = region + '-' + key;
 
-    // check if any entry for this team
-    if (map && map[key] && map[key][2]) {
+    // // check if any entry for this team
+    // if (map && map[key] && map[key][2]) {
+    //
+    //   // create title and return it
+    //   return '<b>'
+    //     + map[key][2]
+    //     // add optional date info (for offline data, only)
+    //     + this.dateInfo(date)
+    //     + '</b>' + NL;
+    // }
 
-      // create title and return it
-      return '<b>'
-        + map[key][2]
-        // add optional date info (for offline data, only)
-        + this.dateInfo(date)
-        + '</b>' + NL;
+    // check for title of archive
+    if (this.archive.titles[keyArchive]) {
+      return '<b>' + this.archive.titles[keyArchive] + '</b>' + NL;
     }
 
-    // else: empty string
+    // get title from map
+    if (map) {
+      var seasons = Object.keys(map);
+
+      for (var i = 0; i < seasons.length; ++i) {
+        var mm = map[seasons[i]];
+
+        if (mm && mm[key] && mm[key][IDX_TIT]) {
+
+          // create title and return it
+          return '<b>'
+            + mm[key][IDX_TIT]
+            // add optional date info (for offline data, only)
+            + this.dateInfo(date)
+            + '</b>' + NL;
+        }
+      }
+    }
+
+    // not found: empty string
     return '';
   },
 
   /**
    * Shows offline data.
-   * @param {string} type The type of the data (standings, schedule).
+   * @param {string} type The type of the data (standings, schedules).
    * the page.
    */
   showOffline: function(type) {
@@ -583,7 +844,7 @@ window.bhv.request.utils = {
   },
 
   /**
-   * Returns the key of the current query (schedule, standings).
+   * Returns the key of the current query (schedules, standings).
    * @return {string} The key of the team to query.
    */
   getKey: function() {
@@ -821,7 +1082,7 @@ window.bhv.request.xml = {
       return xml.getElementsByTagName(name);
     }
 
-    return null;
+    return undefined;
   },
 
   /**

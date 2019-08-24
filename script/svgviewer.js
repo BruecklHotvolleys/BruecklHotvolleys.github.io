@@ -394,7 +394,7 @@ window.svgviewer = {
       // set current animation state
       ids = Object.keys(this.animation);
 
-      if (ids) {
+      if (ids) {  // NOSONAR
         for (i = START, i2 = ids.length; i < i2; ++i) {
           id = ids[i];
           actor = document.querySelector('svg #' + id);
@@ -785,7 +785,7 @@ window.svgviewer = {
         elem.className = classes.join(' ');
       }
     }
-  } // #endregion -- Utilities. -------------------------------------------------
-
+  }
+  // #endregion -- Utilities. -------------------------------------------------
 };
 //# sourceMappingURL=svgviewer.js.map
