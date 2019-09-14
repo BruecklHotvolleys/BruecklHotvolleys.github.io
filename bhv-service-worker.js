@@ -1,7 +1,7 @@
 'use strict';
 
 // the name of the cache
-const CACHE_NAME = 'bhv-infoapp-jzpvlwwy';
+const CACHE_NAME = 'bhv-infoapp-k0jxgq4q';
 
 // all the files
 const FILES_TO_CACHE = [
@@ -9,7 +9,6 @@ const FILES_TO_CACHE = [
   '/imageview.html',
   '/',
   '/index.html',
-  '/index2.html',
   '/ov.html',
   '/results.html',
   '/schedule.html',
@@ -53,7 +52,6 @@ const FILES_TO_CACHE = [
   '/image/ball32.png',
   '/image/bhv1.gif',
   '/image/bhv2.gif',
-  '/image/start.jpeg',
   '/info/gesucht.html',
   '/info/gesucht.jpeg',
   '/info/info19.html',
