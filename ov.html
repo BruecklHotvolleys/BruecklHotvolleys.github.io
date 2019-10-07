@@ -22,7 +22,7 @@ function init() {
     'u13_20', 'u14_20', 'u15_20', 'u16_20', 'u18_20', 'u20_20',
     'ak',
     'br4_20', 'br3_20', 'br2_20', 'br1_20',
-
+    'training',
     'archive',
     'a19',
     'u10_19', 'u11_19', 'u12_19', 'u13_19', 'u15_19', 'u17_19',
@@ -43,6 +43,9 @@ function init() {
     'br3_20': ['schedule_br3g_20', 'results_br3g_20', 'standings_br3g_20'],
     'br2_20': ['schedule_br2g_20', 'results_br2g_20', 'standings_br2g_20'],
     'br1_20': ['schedule_br1g_20', 'results_br1g_20', 'standings_br1g_20'],
+
+    // training
+    'training': ['training_b1', 'training_b2', 'training_jungs'],
 
     // 'archive': ...
     // 'a19': ...
@@ -273,6 +276,13 @@ function init() {
       <a id="results_br1g" href="results.html?key=br1g"><h3>Ergebnisse (GD)</h3></a>
       <a id="standings_br1g" href="standings.html?key=br1g"><h3>Tabelle (GD)</h3></a>
     </div-->
+  </div>
+
+  <h1 id="training" class="expandable"><br>Training<br>&nbsp;</h1>
+  <div id="training_2" class="expanded_container">
+    <a id="training_b1" href="training/b1.html"><h3>Anwesenheit B1</h3></a>
+    <a id="training_b2" href="training/b2.html"><h3>Anwesenheit B2</h3></a>
+    <a id="training_jungs" href="training/jungs.html"><h3>Anwesenheit Jungs</h3></a>
   </div>
 
   <h1 id="archive" class="expandable"><br>Archiv<br>&nbsp;</h1>

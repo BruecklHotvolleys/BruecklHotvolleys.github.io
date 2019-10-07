@@ -1,7 +1,7 @@
 'use strict';
 
 // the name of the cache
-const CACHE_NAME = 'bhv-infoapp-k1gc8e3b';
+const CACHE_NAME = 'bhv-infoapp-k1gp6qwv';
 
 // all the files
 const FILES_TO_CACHE = [
@@ -94,7 +94,10 @@ const FILES_TO_CACHE = [
   '/teambuilding/br3_19/item2b_small.jpg',
   '/teambuilding/br3_19/item2b.jpg',
   '/teambuilding/br3_19/item3_small.jpg',
-  '/teambuilding/br3_19/item3.jpg'
+  '/teambuilding/br3_19/item3.jpg',
+  '/training/b1.html',
+  '/training/b2.html',
+  '/training/jungs.html'
 ];
 
 self.addEventListener('install', (evt) => {
