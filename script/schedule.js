@@ -1,6 +1,13 @@
 var activeSeason = '20';
 var mapLeague = {
   '20': {
+    // UL 24971 3: 31661, 4: 31662
+    'br4g_20': [24971, leagueSchedules, 'Termine Unterliga', 31662],
+    'br3g_20': [24971, leagueSchedules, 'Termine Unterliga', 31661],
+    // LLD: Termine/24967: Team als array von (vrn_id, tea_id)
+    'br2g_20': [24967, leagueSchedules, 'Termine Landesliga', [1220, 31654]],
+    // BL 24649, 1: 30505
+    'br1g_20': [24649, leagueSchedules, 'Termine Bundesliga', 30505],
   },
   '19': {
     // 'br4g_19': [22934, leagueSchedules, 'Termine Unterliga (GD)', 29075],
@@ -391,27 +398,51 @@ function leagueSchedules(response) {
     var list = bhv.request.xml.getNodes(xml, 'termin');
     if (list && list.length) {
 
-      var L1 = 4,
-          L2 = 12,
-          L3 = 7,
-          LNR = 4,
-          L45 = 28,
+      var LEN_DAY = 4,
+          LEN_DATE = 12,
+          LEN_TIME = 7,
+          // LNR = 4,
+          LEN_NO = -3,
+          LEN_RD = -2,
+          LEN_XNO = 8,
+          LEN_TEAM = 28,
           fmt = bhv.request.utils.fillColumn;
 
       // create text
-      var msg = NL + fmt('Tag', L1) + fmt('Datum', L2) + fmt('Zeit', L3)
-          + fmt('Nr', LNR)
-          + fmt('Heim', L45 + 1) + fmt('Gast', L45 + 1) + 'Halle&nbsp;' + NL;
+      var msg = NL + fmt('Tag', LEN_DAY) + fmt('Datum', LEN_DATE) + fmt('Zeit', LEN_TIME)
+          + fmt('Nr', LEN_XNO)
+          + fmt('Heim', LEN_TEAM + 1) + fmt('Gast', LEN_TEAM + 1) + 'Halle&nbsp;' + NL;
       for (var i = 0; i < list.length; ++i) {
-        msg += bhv.request.utils.fillColumn(days[bhv.request.xml.findNode(list[i].childNodes, 'tag')], L1)
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'datum'), L2)
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'zeit'), L3)
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'spi_nummer'), LNR)
-            + bhv.request.utils.checkBold(bhv.request.utils.fillColumn(
-              bhv.request.xml.findNode(list[i].childNodes, 'heimteamname'), L45)) + '&nbsp;'
-            + bhv.request.utils.checkBold(bhv.request.utils.fillColumn(
-              bhv.request.xml.findNode(list[i].childNodes, 'gastteamname'), L45)) + '&nbsp;'
-            + bhv.request.xml.findNode(list[i].childNodes, 'spo_name') + '&nbsp;' + NL;
+        // msg += fmt(days[bhv.request.xml.findNode(list[i].childNodes, 'tag')], LEN_DAY)
+        //     + fmt(bhv.request.xml.findNode(list[i].childNodes, 'datum'), LEN_DATE)
+        //     + fmt(bhv.request.xml.findNode(list[i].childNodes, 'zeit'), LEN_TIME)
+        //     + fmt(bhv.request.xml.findNode(list[i].childNodes, 'spi_nummer'), LNR)
+        //     + bhv.request.utils.checkBold(fmt(
+        //       bhv.request.xml.findNode(list[i].childNodes, 'heimteamname'), LEN_TEAM)) + '&nbsp;'
+        //     + bhv.request.utils.checkBold(fmt(
+        //       bhv.request.xml.findNode(list[i].childNodes, 'gastteamname'), LEN_TEAM)) + '&nbsp;'
+        //     + bhv.request.xml.findNode(list[i].childNodes, 'spo_name') + '&nbsp;' + NL;
+
+        var day0 = bhv.request.xml.findNode(list[i].childNodes, 'tag'),
+            day = fmt(day0 === '' ? '?' : days[day0], LEN_DAY),
+            dat0 = bhv.request.xml.findNode(list[i].childNodes, 'datum'),
+            dat = fmt(dat0 === '' ? '??.??.????' : dat0, LEN_DATE),
+            tim0 = bhv.request.xml.findNode(list[i].childNodes, 'zeit'),
+            tim = fmt(tim0 === '' ? '??:??' : tim0, LEN_TIME),
+            no0 = bhv.request.xml.findNode(list[i].childNodes, 'spi_nummer'),
+            no1 = fmt(no0 === '' ? '???' : no0, LEN_NO, '0'),
+            rd0 = bhv.request.xml.findNode(list[i].childNodes, 'spi_runde'),
+            rd = fmt(rd0 === '' ? '??' : rd0, LEN_RD, '0'),
+            no = rd + '/' + no1,
+            gymn0 = bhv.request.xml.findNode(list[i].childNodes, 'spo_name'),
+            gymn = (gymn0 === '' ? '(???)' : gymn0.replace(' ', '&nbsp;'));
+
+            msg += day + dat + tim + no + '&nbsp;' + '&nbsp;'
+              + bhv.request.utils.checkBold(fmt(
+                bhv.request.xml.findNode(list[i].childNodes, 'heimteamname'), LEN_TEAM)) + '&nbsp;'
+              + bhv.request.utils.checkBold(fmt(
+                bhv.request.xml.findNode(list[i].childNodes, 'gastteamname'), LEN_TEAM)) + '&nbsp;'
+              + gymn + '&nbsp;' + NL;
       }
 
       // save data for offline mode

@@ -300,10 +300,41 @@ window.bhv.request = {
   },
 
 
+  /**
+   * Queries the schedules from server.
+   * @param {string} idBew The id of the competition.
+   * @param {string|array<string>} idBew The id of the team or an array with the id of the club and the id of the team.
+   * @param {Function} onsuccess The callback to return the schedules.
+   * @param {Function} onerror The error callback.
+   * @return {Boolean} True if the request has been started successfully,
+   * otherwise false.
+   */
   querySchedules: function(idBew, idTea, onsuccess, onerror) {
 
-    // check id of competition and team
-    if (!this._checkId(idBew, 'competition') || !this._checkId(idTea, 'team')) {
+    // default id of club
+    var idClub = 21;
+
+    // check id of competition and team or club and team
+    if (Array.isArray(idTea)) {
+      // check competition and number of ids
+      var ok = this._checkId(idBew, 'competition') && idTea.length == 2;
+
+      // hcek id of club and team
+      for (var i = 0; i < idTea.length && ok; ++i) {
+        ok = this._checkId(idTea[i], 'team');
+      }
+
+      // error handling
+      if (!ok) {
+        onerror();
+        return false;
+      }
+
+      // ok: set id of club and team
+      idClub = idTea[0];
+      idTea = idTea[1];
+
+    } else if (!this._checkId(idBew, 'competition') || !this._checkId(idTea, 'team')) {
       onerror();
       return false;
     }
@@ -313,10 +344,11 @@ window.bhv.request = {
       + '//kvv.volleynet.at/volleynet/service/xml2.php'
       + '?action=termin&where='
       + encodeURIComponent('bew_id=' + idBew
-        + 'and (vrn_id_a=21 or vrn_id_b=21) and (spi_tea_id_a=' + idTea
-        + ' or spi_tea_id_b=' + idTea
-        + ") and spi_datum >= timestamp '"
-        + bhv.request.utils.yyyymmdd(new Date()) + " 00:00'")
+        + 'and (vrn_id_a=' + idClub + ' or vrn_id_b=' + idClub + ')'
+        + ' and (spi_tea_id_a=' + idTea + ' or spi_tea_id_b=' + idTea + ')'
+        + " and (spi_datum >= timestamp '"
+        + bhv.request.utils.yyyymmdd(new Date())
+        + " 00:00' or spi_datum is NULL)")
       + '&orderBy=spi_datum';
 
     // request data
@@ -542,36 +574,20 @@ window.bhv.request = {
   },
 
 
-  'queryResults': function(idBew, idTea, onsuccess, onerror) {
+  'queryResults': function(idBew, idTea, idClub, onsuccess, onerror) {
 
-    // check id(s) of competition and team
-    var ok = this._checkResultIds(idBew, idTea, onerror);
+    // check id(s) of competition, team, and club
+    var ok = this._checkResultIds(idBew, idTea, idClub, onerror);
 
     if (!ok) {
       return false;
     }
 
-    // prepare ids if array of ids
-    // var multiPhase = false;
-    // var idsComp = '';
-    // if (Array.isArray(idBew)) {
-    //   multiPhase = true;
-    //   idsComp = idBew.join(', ');
-    // }
-    // var multiTeam = false;
-    // var idsTeam = '';
-    // if (Array.isArray(idTea)) {
-    //   multiTeam = true;
-    //   idsTeam = idTea.join(', ');
-
-    // the url to get the results
-    // var comp = multiPhase ? 'bew_id in (' + idsComp + ')' : 'bew_id=' + idBew;
+    // the clause to select by competition(s)
     var comp = Array.isArray(idBew)
       ? 'bew_id in (' + idBew.join(', ') + ')' : 'bew_id=' + idBew;
 
-    // var team = multiTeam
-    //   ? 'spi_tea_id_a IN (' + idsTeam + ') or spi_tea_id_b IN (' + idsTeam + ')'
-    //   : 'spi_tea_id_a=' + idTea + ' or spi_tea_id_b=' + idTea;
+    // the clause to select by team(s)
     var team = '';
     if (Array.isArray(idTea)) {
       var idsTeam = idTea.join(', ');
@@ -581,11 +597,20 @@ window.bhv.request = {
       team = 'spi_tea_id_a=' + idTea + ' or spi_tea_id_b=' + idTea;
     }
 
+    // the clause to select by club(s)
+    var club = '';
+    if (Array.isArray(idClub)) {
+      var idsClub = idClub.join(', ');
+      club = 'vrn_id_a IN (' + idsClub + ') or vrn_id_b IN (' + idsClub + ')';
+    } else {
+      club = 'vrn_id_a=' + idClub + ' or vrn_id_b=' + idClub;
+    }
+
+    // the url to get the results
     var url = location.protocol
       + '//kvv.volleynet.at/volleynet/service/xml2.php'
       + '?action=ergebnis&where='
-      + encodeURIComponent(comp
-        + 'and (vrn_id_a=21 or vrn_id_b=21) and (' + team + ')')
+      + encodeURIComponent(comp + 'and (' + club + ') and (' + team + ')')
       + '&orderBy=spi_datum';
 
     // request data
@@ -600,15 +625,16 @@ window.bhv.request = {
 
   'queryResultsArchiveGz': function(
     season, key,
-    idBew, idTea,
+    idBew, idTea, idClub,
     onsuccess, onerror
   ) {
     // check id(s) of competition and team
-    var ok = this._checkResultIds(idBew, idTea, onerror);
+    var ok = this._checkResultIds(idBew, idTea, idClub, onerror);
 
     if (!ok) {
       return false;
     }
+
 
     var url = location.protocol + '//' + location.hostname
       + '/archive/' + season + '/results.xml.gz';
@@ -666,8 +692,9 @@ window.bhv.request = {
     return true;
   },
 
-  '_checkResultIds': function(idBew, idTea) {
+  '_checkResultIds': function(idBew, idTea, idClub) {
     var ok = true;
+
     if (Array.isArray(idBew)) {
       for (var i = 0; ok && i < idBew.length; ++i) {
         ok = ok && this._checkId(idBew[i], 'competition');  // NOSONAR
@@ -677,11 +704,19 @@ window.bhv.request = {
     }
 
     if (Array.isArray(idTea)) {
-      for (var t = 0; ok && i < idTea.length; ++i) {
+      for (var t = 0; ok && t < idTea.length; ++t) {
         ok = ok && this._checkId(idTea[t], 'team');  // NOSONAR
       }
     } else {
-      ok = ok && this._checkId(idTea, 'Team');
+      ok = ok && this._checkId(idTea, 'team');
+    }
+
+    if (Array.isArray(idClub)) {
+      for (var c = 0; ok && c < idClub.length; ++c) {
+        ok = ok && this._checkId(idClub[c], 'club');  // NOSONAR
+      }
+    } else {
+      ok = ok && this._checkId(idClub, 'club');
     }
 
     if (!ok) {
@@ -890,9 +925,15 @@ window.bhv.request.utils = {
    * @param {string} txt The text to display in a text column.
    * @param {number} The size of the column, + for left aligned text, - for
    * right aligned text.
+   * @param {string} pad The optional padding character (default: ' ').
    * The padded text.
    */
-  fillColumn: function(txt, len) {
+  fillColumn: function(txt, len, pad) {
+
+    // the optional padding character
+    if (pad === undefined) {
+      pad = ' ';
+    }
 
     // ensure a valid text
     if (txt === undefined || txt === null || typeof txt !== 'string') {
@@ -904,14 +945,14 @@ window.bhv.request.utils = {
       len *= -1;
       // pad text
       while (txt.length < len) {
-        txt = ' ' + txt;
+        txt = pad + txt;
       }
 
     // else: left alignment
     } else {
       // do padding
       while (txt.length < len) {
-        txt += ' ';
+        txt += pad;
       }
     }
 
@@ -924,11 +965,11 @@ window.bhv.request.utils = {
       } else {
         // cut some characters, but preserve number code of team
         txt = txt.substr(0, len - 2);
-        if (txt.substr(txt.length - 1) != ' ') {
-          txt += ' ' + num;
+        if (txt.substr(txt.length - 1) != pad) {
+          txt += pad + num;
         } else {
           // avoid double space in text
-          txt += num + ' ';
+          txt += num + pad;
         }
       }
     }
@@ -1099,7 +1140,10 @@ window.bhv.request.xml = {
 
         // if node found: return its content
         if (list[i].nodeName === name) {
-          return list[i].textContent || list[i].text;
+          return list[i].textContent !== undefined
+            && list[i].textContent !== null ? list[i].textContent
+            : (list[i].text !== undefined && list[i].text !== null
+              ? list[i].text : '');
         }
       }
     }

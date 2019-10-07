@@ -1,6 +1,15 @@
 var activeSeason = '20';
 var mapLeague = {
-  '20': {},
+  '20': {
+    // UL 24971 3: 31661, 4: 31662
+    'br4g_20': [24971, leagueResults, 'Ergebnisse Unterliga', 31662],
+    'br3g_20': [24971, leagueResults, 'Ergebnisse Unterliga', 31661],
+    // LLD: Termine/24967, (+optional id(s) of club(s))
+    'br2g_20': [24967, leagueResults, 'Ergebnisse Landesliga', 31654, 1220],
+    // BL 24649, 1: 30505
+    'br1g_20': [24649, leagueResults, 'Ergebnisse Bundesliga', 30505],
+  },
+
   '19': {
     'br4g_19': [22934, leagueResults, 'Ergebnisse Unterliga (GD)', 29075],
     'br4_19': [23784, leagueResults, 'Ergebnisse Unterliga (FD)', 29075],
@@ -49,6 +58,7 @@ if (window.bhv.archive) {
 function getResults() {
   var IDX_BEW = 0,
       IDX_TEA = 3,
+      IDX_CLUB = 4,
       IDX_ONSUCCESS = 1,
       found = false,
       key = bhv.request.utils.getKey();
@@ -58,15 +68,17 @@ function getResults() {
     for (var k = 0; k < keys.length; ++k) {
       var map = mapLeague[keys[k]];
       if (map && map[key]) {
+        var idClub = map[key][IDX_CLUB] === undefined ? 21 : map[key][IDX_CLUB];
+
         if (keys[k] === activeSeason) {
           found = bhv.request.queryResults(
-            map[key][IDX_BEW], map[key][IDX_TEA],
+            map[key][IDX_BEW], map[key][IDX_TEA], idClub,
             map[key][IDX_ONSUCCESS], getResultsOffline
           );
         } else {
           found = bhv.request.queryResultsArchiveGz(
             keys[k], key,
-            map[key][IDX_BEW], map[key][IDX_TEA],
+            map[key][IDX_BEW], map[key][IDX_TEA], idClub,
             map[key][IDX_ONSUCCESS], getResultsOffline
           );
         }

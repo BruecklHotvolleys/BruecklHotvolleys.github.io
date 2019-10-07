@@ -22,6 +22,7 @@ function init() {
     'u13_20', 'u14_20', 'u15_20', 'u16_20', 'u18_20', 'u20_20',
     'ak',
     'br4_20', 'br3_20', 'br2_20', 'br1_20',
+
     'archive',
     'a19',
     'u10_19', 'u11_19', 'u12_19', 'u13_19', 'u15_19', 'u17_19',
@@ -30,11 +31,6 @@ function init() {
   ],
   keepOpen = {
     // 'nw': ...
-    // 'u10': ['grundlagen_u10', ...
-    // 'u11': ['grundlagen_u11', ...
-    // 'u12': ['grundlagen_u12', ...
-    // 'u13': ['grundlagen_u13', ...
-    // 'u15': ['grundlagen_u15', ...
     'u20_20': ['info20'],
     'u18_20': ['info18'],
     'u16_20': ['info16'],
@@ -43,10 +39,10 @@ function init() {
     'u13_20': ['info13'],
 
     // 'ak': ...
-    // 'br4': ['grundlagen_br4', ...
-    // 'br3': ['grundlagen_br3', ...
-    // 'br2': [...
-    // 'br1': [...
+    'br4_20': ['schedule_br4g_20', 'results_br4g_20', 'standings_br4g_20'],
+    'br3_20': ['schedule_br3g_20', 'results_br3g_20', 'standings_br3g_20'],
+    'br2_20': ['schedule_br2g_20', 'results_br2g_20', 'standings_br2g_20'],
+    'br1_20': ['schedule_br1g_20', 'results_br1g_20', 'standings_br1g_20'],
 
     // 'archive': ...
     // 'a19': ...
@@ -79,12 +75,12 @@ function init() {
     keepOpen.u18_20, keepOpen.u16_20, keepOpen.u15_20,
     keepOpen.u14_20, keepOpen.u13_20);
 
+  keepOpen.ak = keepOpen.br4_20.concat(keepOpen.br3_20, keepOpen.br2_20, keepOpen.br1_20);
+
   keepOpen.a19 = keepOpen.u10_19.concat(
     keepOpen.u11_19, keepOpen.u12_19, keepOpen.u13_19, keepOpen.u15_19, keepOpen.u17_19,
     keepOpen.br4_19, keepOpen.br3_19, keepOpen.br2_19, keepOpen.br1_19);
   keepOpen.archive = keepOpen.a19;
-
-  // keepOpen.ak = keepOpen.br4_20.concat(keepOpen.br3_20, keepOpen.br2_20, keepOpen.br1_20);
 
   bhv.elements.expander.init(expanders, keepOpen);
 }
@@ -206,10 +202,30 @@ function init() {
   <h1 id="ak" class="expandable"><br>Allgemeine Klasse<br>&nbsp;</h1>
   <div id="ak_2" class="expanded_container">
 
-    <h2 id="b4_20">Erste Klasse</h2>
-    <h2 id="b3_20">Unterliga</h2>
-    <h2 id="b2_20">Landesliga</h2>
-    <h2 id="b1_20">Bundesliga</h2>
+    <h2 id="br4_20" class="expandable">Brückl 4 - Unterliga</h2>
+    <div id="br4_20_2" class="expanded_container">
+      <a id="schedule_br4g_20" href="schedule.html?key=br4g_20"><h3>Spieltermine</h3></a>
+      <a id="results_br4g_20" href="results.html?key=br4g_20"><h3>Ergebnisse</h3></a>
+      <a id="standings_br4g_20" href="standings.html?key=br4g_20"><h3>Tabelle</h3></a>
+    </div>
+    <h2 id="br3_20" class="expandable">Brückl 3 - Unterliga</h2>
+    <div id="br3_20_2" class="expanded_container">
+      <a id="schedule_br3g_20" href="schedule.html?key=br3g_20"><h3>Spieltermine</h3></a>
+      <a id="results_br3g_20" href="results.html?key=br3g_20"><h3>Ergebnisse</h3></a>
+      <a id="standings_br3g_20" href="standings.html?key=br3g_20"><h3>Tabelle</h3></a>
+    </div>
+    <h2 id="br2_20" class="expandable">Brückl 2 - Landesliga</h2>
+    <div id="br2_20_2" class="expanded_container">
+      <a id="schedule_br2g_20" href="schedule.html?key=br2g_20"><h3>Spieltermine</h3></a>
+      <a id="results_br2g_20" href="results.html?key=br2g_20"><h3>Ergebnisse</h3></a>
+      <a id="standings_br2g_20" href="standings.html?key=br2g_20"><h3>Tabelle</h3></a>
+    </div>
+    <h2 id="br1_20" class="expandable">Brückl 1 - Bundesliga</h2>
+    <div id="br1_20_2" class="expanded_container">
+      <a id="schedule_br1g_20" href="schedule.html?key=br1g_20"><h3>Spieltermine</h3></a>
+      <a id="results_br1g_20" href="results.html?key=br1g_20"><h3>Ergebnisse</h3></a>
+      <a id="standings_br1g_20" href="standings.html?key=br1g_20"><h3>Tabelle</h3></a>
+    </div>
 
     <!--h2 id="br4" class="expandable">Brückl 4 - Unterliga</h2>
     <div id="br4_2" class="expanded_container">
