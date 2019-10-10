@@ -1,7 +1,7 @@
 'use strict';
 
 // the name of the cache
-const CACHE_NAME = 'bhv-infoapp-k1gp6qwv';
+const CACHE_NAME = 'bhv-infoapp-k1lafqjs';
 
 // all the files
 const FILES_TO_CACHE = [
@@ -10,6 +10,7 @@ const FILES_TO_CACHE = [
   '/',
   '/index.html',
   '/ov.html',
+  '/presence.html',
   '/results.html',
   '/schedule.html',
   '/standings.html',
@@ -68,11 +69,13 @@ const FILES_TO_CACHE = [
   '/script/db.js',
   '/script/pako_inflate.min.js',
   '/script/polyfills.js',
+  '/script/presence.js',
   '/script/request.js',
   '/script/results.js',
   '/script/schedule.js',
   '/script/standings.js',
   '/script/svgviewer.js',
+  '/script/utils.js',
   '/u12/certificate.jpeg',
   '/u13/certificate.jpeg',
   '/statistics/19/br3.html',
@@ -94,10 +97,7 @@ const FILES_TO_CACHE = [
   '/teambuilding/br3_19/item2b_small.jpg',
   '/teambuilding/br3_19/item2b.jpg',
   '/teambuilding/br3_19/item3_small.jpg',
-  '/teambuilding/br3_19/item3.jpg',
-  '/training/b1.html',
-  '/training/b2.html',
-  '/training/jungs.html'
+  '/teambuilding/br3_19/item3.jpg'
 ];
 
 self.addEventListener('install', (evt) => {

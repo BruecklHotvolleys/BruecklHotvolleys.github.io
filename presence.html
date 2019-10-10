@@ -1,0 +1,182 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Brückl hotvolleys</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+html, * {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  text-align: left;
+}
+
+body {
+  /* font-size: 15px;*/
+}
+div.training {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  font-family: Arial,sans-serif;
+}
+div.caption {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.1em 1em 0.1em 0.1em;
+
+  background-color: dimgray;
+  font-size: 3.5em;
+  font-weight: bold;
+  color: lightgray;
+}
+div.column {
+  position: absolute;
+  background-color: lightgray;
+  padding: 0.2em;
+  box-sizing: border-box;
+}
+div.column > div {
+  box-sizing: border-box;
+  border: 0px solid dimgray;
+  border-bottom-width: 1px;
+  background-color: lightgray;
+}
+div.c1 {
+  left: 0;
+  width: 4.5em;
+}
+div.c2 {
+  left: 4.5em;
+  width: 4em;
+}
+div.c3 {
+  left: 8.5em;
+  width: 4em;
+}
+div.c2 > div, div.c3 > div {
+  text-align: right;
+}
+div.c2 > div:first-child {
+  box-sizing: border-box;
+  padding-top: 0.8em;
+  font-weight: bolder;
+}
+div.c3 > div:first-child {
+  box-sizing: border-box;
+  padding-top: 0.8em;
+  font-weight: 900;
+}
+
+div.c5 {
+  right: 0;
+  width: 4.5em;
+}
+div.x1 {
+  position: relative;
+  width: 100%;
+  height: 1.2em;
+  font-size: 2.5em;
+  white-space: nowrap;
+}
+div.x2 {
+  position: relative;
+  width: 100%;
+  height: 2.4em;
+  font-size: 2.5em;
+  white-space: nowrap;
+}
+
+div.c4 {
+  left: 12.5em;
+  right: 4.5em;
+  background-color: lightgray;
+  height: 3em;
+  overflow: hidden;
+}
+div.data {
+  position: relative;
+  box-sizing: content-box;
+  height: 100%;
+  width: 100%;
+  /* hide scrollbars outside of visible area */
+  margin-bottom: -50px;
+  padding-bottom: 50px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+div.column > div.data {
+  box-sizing: content-box;
+}
+div.data > div {
+  position: relative;
+  box-sizing: content-box;
+  background-color: lightgray;
+}
+
+/* data cells */
+div.data > div > div {
+  position: relative;
+  display: inline-block;
+  width: 1.5em;
+  height: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  border: 0px solid dimgray;
+  border-width: 0px 1px 1px 0px;
+  background-color: lightgray;
+  line-height: 140%;
+  font-size: 0.95em;
+}
+div.data > div > div.colspan2 {
+  width: 3em;
+}
+/* first data cell of a row */
+div.data > div > div:first-child {
+  border-width: 0px 1px 1px 1px;
+}
+/* data cells of first row */
+div.data > div:first-child > div {
+  border-width: 1px 1px 0px 0px;
+  font-weight: bold;
+}
+/* first data cell of first row (= top left cell) */
+div.data > div:first-child > div:first-child {
+  border-width: 1px 1px 0px 1px;
+}
+/* data cells of second row */
+div.data > div:nth-child(2) > div {
+  border-width: 0px 1px 1px 0px;
+  font-weight: bold;
+}
+/* first data cell of second row */
+div.data > div:nth-child(2) > div:first-child {
+  border-width: 0px 1px 1px 1px;
+}
+  </style>
+
+  <script src="/script/polyfills.js"></script>
+  <script src="/script/request.js"></script>
+  <script src="/script/presence.js"></script>
+  <script src="/script/utils.js"></script>
+  <script>
+function init() {
+  window.bhv.utils.setBack('training');
+  window.bhv.training.presence.init();
+}
+  </script>
+</head>
+<body onload="init();">
+  <div id="header">
+    <div class="left">
+    <a href="/ov.html"><img src="/image/bhv1.gif"/></a>
+    <div>Anwesenheit</div>
+    </div><div class="right">
+    <a href="/ov.html"><img src="/image/bhv1.gif"/></a>
+    </div>
+  </div>
+  <div id="content_container"><pre id="content">Loading...</pre></div>
+  <div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div>
+<body>
+</html>

@@ -27,23 +27,24 @@
   <script src="/script/db.js"></script>
   <script src="/script/request.js"></script>
   <script src="/script/results.js"></script>
-  <script type="text/javascript">
-function setBack(region) {
-  var i, lnks, href,
-      key = window.bhv.request.utils.getKey();
-  if (key) {
-    lnks = document.querySelectorAll('div#header a');
-    if (lnks) {
-      for (i = 0; i < lnks.length; ++i) {
-        lnks[i].setAttribute('href', lnks[i].getAttribute('href') + '#'
-          + region + '_' + key);
-      }
-    }
-  }
-}
-  </script>
+  <script src="/script/utils.js"></script>
+  <!-- script type="text/javascript">
+// function setBack(region) {
+//   var i, lnks, href,
+//       key = window.bhv.request.utils.getKey();
+//   if (key) {
+//     lnks = document.querySelectorAll('div#header a');
+//     if (lnks) {
+//       for (i = 0; i < lnks.length; ++i) {
+//         lnks[i].setAttribute('href', lnks[i].getAttribute('href') + '#'
+//           + region + '_' + key);
+//       }
+//     }
+//   }
+// }
+</script -->
  </head>
- <body onload="setBack('results'); getResults();">
+ <body onload="window.bhv.utils.setBack('results'); getResults();">
   <div id="header">
     <div class="left">
     <a href="/ov.html"><img src="/image/bhv1.gif"/></a>
