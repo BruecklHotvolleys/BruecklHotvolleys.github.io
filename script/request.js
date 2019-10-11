@@ -795,6 +795,30 @@ window.bhv.request = {
     }
 
     return true;
+  },
+
+  // view-source:http://kvv.volleynet.at/volleynet/service/xml2.php?action=kader&tea_id=30505&pw=a6335ee9f3a27260e61c90928f8f3ba8
+  queryPlayers: function(idTea, onsuccess, onerror) {
+
+    if (!this._checkId(idTea, 'team')) {
+      onerror();
+      return false;
+    }
+
+    // the url to get the results
+    var url = location.protocol
+      + '//kvv.volleynet.at/volleynet/service/xml2.php'
+      + '?action=kader&tea_id=' + idTea
+      + '&pw=a6335ee9f3a27260e61c90928f8f3ba8';
+
+    // request data
+    if (!this._startRequest(url, 5000, onsuccess, onerror, false)) {
+      onerror();
+      return false;
+    }
+
+    // done
+    return true;
   }
 }
 
@@ -823,17 +847,6 @@ window.bhv.request.utils = {
     var IDX_TIT = 2,
         key = this.getKey(),
         keyArchive = region + '-' + key;
-
-    // // check if any entry for this team
-    // if (map && map[key] && map[key][2]) {
-    //
-    //   // create title and return it
-    //   return '<b>'
-    //     + map[key][2]
-    //     // add optional date info (for offline data, only)
-    //     + this.dateInfo(date)
-    //     + '</b>' + NL;
-    // }
 
     // check for title of archive
     if (this.archive.titles[keyArchive]) {

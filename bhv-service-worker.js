@@ -1,7 +1,7 @@
 'use strict';
 
 // the name of the cache
-const CACHE_NAME = 'bhv-infoapp-k1lafqjs';
+const CACHE_NAME = 'bhv-infoapp-k1mofe5s';
 
 // all the files
 const FILES_TO_CACHE = [
@@ -10,6 +10,7 @@ const FILES_TO_CACHE = [
   '/',
   '/index.html',
   '/ov.html',
+  '/players.html',
   '/presence.html',
   '/results.html',
   '/schedule.html',
@@ -68,6 +69,7 @@ const FILES_TO_CACHE = [
   '/script/base64.js',
   '/script/db.js',
   '/script/pako_inflate.min.js',
+  '/script/players.js',
   '/script/polyfills.js',
   '/script/presence.js',
   '/script/request.js',
