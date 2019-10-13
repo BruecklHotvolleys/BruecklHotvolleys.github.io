@@ -13,15 +13,25 @@ if (window.bhv.training === undefined) {
  */
 window.bhv.training.presence = {
 
+  /**
+   * Starts the createion of the presence view.
+   * @return {void}
+   */
   init: function() {
     var key = bhv.request.utils.getKey(),
         query = '/data/training/' + key + '.json';
 
+    // load data and continue with init2
     this._getData(query, this.init2.bind(this), function(info) {
       // TODO error handler
     });
   },
 
+  /**
+   * Creates the presence view from the loaded data.
+   * @param {string} rawdata The loaded data(JSON).
+   * @return {void}
+   */
   init2: function(rawdata) {
     var html, container,
         data = JSON.parse(rawdata);
@@ -41,8 +51,29 @@ window.bhv.training.presence = {
         container.innerHTML = html;
       }
     }
+
+    this._showCol5();
   },
 
+  _showCol5: function() {
+    // show most right column
+    var scroll = document.querySelector(
+      'div#content_container > div.training > div.column.c4 > div.data > div.x1 > div:last-child'
+    );
+    if (scroll) {
+      scroll.scrollIntoView(true);
+    } else {
+      setTimeout(this._showCol5, 100);
+    }
+  },
+
+  /**
+   * Starts the loading of the data.
+   * @param {string} query The html query.
+   * @param {Function} The handler of the laoded data.
+   * @param {Function} The error handler.
+   * @return {void}
+   */
   _getData: function(query, onSuccess, onError) {
     var request = new XMLHttpRequest();
 
@@ -56,6 +87,11 @@ window.bhv.training.presence = {
     request.send();
   },
 
+  /**
+   * Creates the view.
+   * @param {JSON} data The loaded data.
+   * @return {string} The html view.
+   */
   create: function(data) {
     return '<div class="training">'
       + this._createHeader(data)

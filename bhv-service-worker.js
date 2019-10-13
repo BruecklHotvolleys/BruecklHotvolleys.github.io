@@ -1,7 +1,7 @@
 'use strict';
 
 // the name of the cache
-const CACHE_NAME = 'bhv-infoapp-k1moods9';
+const CACHE_NAME = 'bhv-infoapp-k1pardfy';
 
 // all the files
 const FILES_TO_CACHE = [
