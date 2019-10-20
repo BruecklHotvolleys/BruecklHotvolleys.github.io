@@ -319,7 +319,7 @@ var calendar = {
           }
         };
 
-    getAllSchedules(
+    bhv.schedule.getAllSchedules(
       keyEnabled,
       DateUtil.datToY_M_D(dat1), DateUtil.datToY_M_D(dat2),
       handlerL.bind(this)
