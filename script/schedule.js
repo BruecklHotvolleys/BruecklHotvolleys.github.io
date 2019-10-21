@@ -8,6 +8,8 @@ if (window.bhv === undefined) {
 
 // #endregion -- prepare main namespace ---------------------------------------
 
+// #region -- The schedules. --------------------------------------------------
+
 /**
  * The schedules.
  */
@@ -412,6 +414,8 @@ window.bhv.schedule = {
   }
 }
 
+// #endregion -- The schedules. -----------------------------------------------
+
 // #region -- archive mode ----------------------------------------------------
 
 // if to create the archive
@@ -426,7 +430,6 @@ if (window.bhv.archive) {
 }
 
 // #endregion -- archive mode -------------------------------------------------
-
 
 var activeSeason = '20';
 
