@@ -204,7 +204,7 @@ var calendar = {
         .replace('{{key}}', days[day].key)
         .replace('{{enabled}}', days[day].enabled ? ' enabled' : '')
         .replace('{{today}}', days[day].key === today ? ' today' : '')
-        .replace('{{date}}', days[day].date)
+        .replace('{{date}}', days[day].date + '&nbsp;')
         .replace('{{entries}}', entries.content),
       'infos': entries.infos
     };

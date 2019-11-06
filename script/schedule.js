@@ -175,7 +175,7 @@ window.bhv.schedule = {
                 key = '' + work[2] + work[1] + work[0];
 
                 text = bhv.request.xml.findNode(tournament.childNodes, 'turnier_kurz');
-                info = this._tournamentInfo(tournament) + NL + NL;
+                info = bhv.schedule._tournamentInfo(tournament) + NL + NL;
 
                 teams0 = bhv.request.xml.findNode(tournament.childNodes, 'anmerkung');
                 if (teams0) {
@@ -183,7 +183,7 @@ window.bhv.schedule = {
                   teams = teams0.split('|');
 
                   for (var tea = 0; tea < teams.length; ++tea) {
-                    info += this._teamInfo(teams, tea, noTab, 'brückl');
+                    info += bhv.schedule._teamInfo(teams, tea, noTab, 'brückl');
                   }
                 }
 
