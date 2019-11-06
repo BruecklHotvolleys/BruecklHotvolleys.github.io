@@ -269,7 +269,9 @@ window.bhv.schedule = {
       var tournaments = bhv.request.xml.getNodes(xml, 'turniere');
       if (tournaments && tournaments.length) {
         var key = bhv.request.utils.getKey(),
-            pattern = mapKids[key] && mapKids[key][3] ? mapKids[key][3] : '';
+            pattern = activeSeason && mapKids[activeSeason]
+              && mapKids[activeSeason][key] && mapKids[activeSeason][key][3]
+              ? mapKids[activeSeason][key][3] : '';
         for (var t = 0; t < tournaments.length; ++t) {
           var tournament = tournaments[t],
               teams0 = bhv.request.xml.findNode(tournament.childNodes, 'anmerkung');
@@ -279,9 +281,9 @@ window.bhv.schedule = {
             var noTab = teams0.substr(0, 2) === '0:',
                 teams = teams0.split('|');
 
-            msg += NL + this._tournamentInfo(tournament) + NL;
+            msg += NL + bhv.schedule._tournamentInfo(tournament) + NL;
             for (var tea = 0; tea < teams.length; ++tea) {
-              msg += this._teamInfo(teams, tea, noTab, pattern);
+              msg += bhv.schedule._teamInfo(teams, tea, noTab, pattern);
             }
           }
         }
@@ -460,7 +462,11 @@ var mapLeague = {
 
 var mapKids = {
   '20': {
-    // 'u10_19': [23058, window.bhv.schedule.kidsSchedules, 'Turniere U10', 'brückl']
+    'u16_20': [25172, bhv.schedule.kidsSchedules, 'Turniere U16', 'brückl'],
+    'u15_20': [25174, bhv.schedule.kidsSchedules, 'Turniere U15', 'brückl'],
+    'u14_20': [25175, bhv.schedule.kidsSchedules, 'Turniere U14', 'brückl'],
+    'u13_20': [25176, bhv.schedule.kidsSchedules, 'Turniere U13', 'brückl'],
+    'u12_20': [25177, bhv.schedule.kidsSchedules, 'Turniere U12', 'brückl'],
   },
   '19': {
     'u10_19': [23058, bhv.schedule.kidsSchedules, 'Turniere U10', 'brückl'],
@@ -474,7 +480,7 @@ var mapKids = {
 var finals = {
   '20': {},
   '19': {
-    // use these dates before the kvv-system has entries for the fielnals
+    // use these dates before the kvv-system has entries for the finals
     // 'u10_19': "Finale (Do 30.05.2019  Brückl)",
     // 'u11_19': "Finale (So 19.05.2019  Brückl)",
     // 'u12_19': "Finale (So 07.04.2019  Klagenfurt)",

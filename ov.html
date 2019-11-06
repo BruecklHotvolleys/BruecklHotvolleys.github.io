@@ -19,7 +19,7 @@ body {
 function init() {
   var expanders = [
     'nw',
-    'u13_20', 'u14_20', 'u15_20', 'u16_20', 'u18_20', 'u20_20',
+    'u12_20', 'u13_20', 'u14_20', 'u15_20', 'u16_20', 'u18_20', 'u20_20',
     'ak',
     'br4_20', 'br3_20', 'br2_20', 'br1_20',
     'training',
@@ -33,10 +33,11 @@ function init() {
     // 'nw': ...
     'u20_20': ['info20'],
     'u18_20': ['info18'],
-    'u16_20': ['info16'],
-    'u15_20': ['info15'],
-    'u14_20': ['info14'],
-    'u13_20': ['info13'],
+    'u16_20': ['info16', 'schedule_u16_20'],
+    'u15_20': ['info15', 'schedule_u15_20'],
+    'u14_20': ['info14', 'schedule_u14_20'],
+    'u13_20': ['info13', 'schedule_u13_20'],
+    'u12_20': ['info12', 'schedule_u12_20'],
 
     // 'ak': ...
     'br4_20': ['schedule_br4g_20', 'results_br4g_20', 'standings_br4g_20', 'players_br4g_20'],
@@ -76,7 +77,7 @@ function init() {
 
   keepOpen.nw = keepOpen.u20_20.concat(
     keepOpen.u18_20, keepOpen.u16_20, keepOpen.u15_20,
-    keepOpen.u14_20, keepOpen.u13_20);
+    keepOpen.u14_20, keepOpen.u13_20, keepOpen.u12_20);
 
   keepOpen.ak = keepOpen.br4_20.concat(keepOpen.br3_20, keepOpen.br2_20, keepOpen.br1_20);
 
@@ -95,24 +96,34 @@ function init() {
   <h1 id="nw" class="expandable" style=""><br>Nachwuchs<br>&nbsp;</h1>
   <div id="nw_2" class="expanded_container">
 
+    <h2 id="u12_20" class="expandable">U12 - Supermini II</h2>
+    <div id="u12_20_2" class="expanded_container">
+      <a id="info12" href="/info/u12.html"><h3>Infos</h3></a>
+      <!--a id="schedule_u12_20" href="schedule.html?key=u12_20"><h3>Turniere</h3></a-->
+    </div>
+
     <h2 id="u13_20" class="expandable">U13 - Supermini</h2>
     <div id="u13_20_2" class="expanded_container">
       <a id="info13" href="/info/u13.html"><h3>Infos</h3></a>
+      <a id="schedule_u13_20" href="schedule.html?key=u13_20"><h3>Turniere</h3></a>
     </div>
 
     <h2 id="u14_20" class="expandable">U14 - Mini</h2>
     <div id="u14_20_2" class="expanded_container">
       <a id="info14" href="/info/u14.html"><h3>Infos</h3></a>
+      <a id="schedule_u14_20" href="schedule.html?key=u14_20"><h3>Turniere</h3></a>
     </div>
 
     <h2 id="u15_20" class="expandable">U15 - Midi</h2>
     <div id="u15_20_2" class="expanded_container">
       <a id="info15" href="/info/u15.html"><h3>Infos</h3></a>
+      <a id="schedule_u15_20" href="schedule.html?key=u15_20"><h3>Turniere</h3></a>
     </div>
 
     <h2 id="u16_20" class="expandable">U16 - Schülerinnen</h2>
     <div id="u16_20_2" class="expanded_container">
       <a id="info16" href="/info/u16.html"><h3>Infos</h3></a>
+      <a id="schedule_u16_20" href="schedule.html?key=u16_20"><h3>Turniere</h3></a>
     </div>
 
     <h2 id="u18_20" class="expandable">U18 - Jugend weiblich</h2>
