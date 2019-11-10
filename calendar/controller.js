@@ -322,6 +322,7 @@ var calendar = {
     bhv.schedule.getAllSchedules(
       keyEnabled,
       DateUtil.datToY_M_D(dat1), DateUtil.datToY_M_D(dat2),
+      [21, 1220],
       handlerL.bind(this)
     );
   },

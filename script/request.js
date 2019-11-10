@@ -319,7 +319,7 @@ window.bhv.request = {
       // check competition and number of ids
       var ok = this._checkId(idBew, 'competition') && idTea.length == 2;
 
-      // hcek id of club and team
+      // check id of club and team
       for (var i = 0; i < idTea.length && ok; ++i) {
         ok = this._checkId(idTea[i], 'team');
       }
@@ -365,12 +365,30 @@ window.bhv.request = {
    * Queries the schedules for the given timespan(from, till).
    * @param {string} from ISO formatted start date.
    * @param {string} till ISO formatted end date.
+   * @param {Array<string>} clubs The ids of the clubs to query.
    * @param {Function} onsuccess The callback to return the schedules.
    * @param {Function} onerror The error callback.
    * @return {Boolean} True if the request has been started successfully,
    * otherwise false.
    */
-  queryMultiSchedules: function(from, till, onsuccess, onerror) {
+  queryMultiSchedules: function(from, till, clubs, onsuccess, onerror) {
+
+    var club = '';
+    var ok = true;
+    // collect the ids of the clubs
+    for (var i = 0; i < clubs.length && ok; ++i) {
+      ok = this._checkId(clubs[i], 'club');
+      if (club != '') {
+        club += ' or ';
+      }
+      club += 'vrn_id_a = ' + clubs[i] + ' or vrn_id_b = ' + clubs[i];
+    }
+
+    // error handling
+    if (!ok) {
+      onerror();
+      return false;
+    }
 
     // the url to get the schedules
     var url = location.protocol
@@ -378,7 +396,8 @@ window.bhv.request = {
       // local test server
       // + '//kv.volleynet.at/volleynet/service/xml2.php'
       + '?action=termin&where=' + encodeURIComponent(
-        '(vrn_id_a = 21 or vrn_id_b = 21)'
+        // '(vrn_id_a = 21 or vrn_id_b = 21)'
+        '(' + club + ')'
         + " and spi_datum >= TO_TIMESTAMP('" + from + " 00:00', 'YYYY-MM-DD HH24:MI')"
         + " and spi_datum <= TO_TIMESTAMP('" + till + " 23:59', 'YYYY-MM-DD HH24:MI')"
         + ' order by spi_datum');

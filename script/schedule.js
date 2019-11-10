@@ -74,12 +74,12 @@ window.bhv.schedule = {
     }
   },
 
-  getAllSchedules: function(keyEnabled, from, till, callbackLeague) {
+  getAllSchedules: function(keyEnabled, from, till, clubs, callbackLeague) {
     var handlerXDates;
 
     // query games
     bhv.request.queryMultiSchedules(
-      from, till,
+      from, till, clubs,
       function(response) {
 
         var i, list, bew, id, work, datKey, day, date, time, spNr, teams, gymn,
@@ -436,6 +436,8 @@ if (window.bhv.archive) {
 var activeSeason = '20';
 
 var mapLeague = {
+  // dont forget to set the ids of the clubs in calendar/controller -> 21, 1220
+  // on calling  bhv.schedule.getAllSchedules(...)
   '20': {
     // UL 24971 3: 31661, 4: 31662
     'br4g_20': [24971, bhv.schedule.leagueSchedules, 'Termine Unterliga', 31662],
