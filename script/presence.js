@@ -181,7 +181,7 @@ window.bhv.training.presence = {
             break;
           // header 2
           case -1:
-            value = src[c] === null ? '' : src[c];
+            value = src[c] === null ? '' : '' + src[c];
             break;
 
           // data (0-n)
