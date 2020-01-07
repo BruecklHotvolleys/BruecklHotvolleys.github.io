@@ -530,8 +530,8 @@ window.bhv.request = {
           // TODO create personal access token in settings application and use it instead of password
 
           // 'Authorization': 'Basic ' + btoa('BruecklHotvolleys:bhv1bhv1bhv')
-          // 'Authorization': 'Basic ' + btoa('bhv-reader:bhv1reader')
-          'Authorization': 'Basic ' + btoa('bhv-reader:b35a15a5e25a965778a45406bfecc813ae262466')
+          'Authorization': 'Basic ' + btoa('bhv-reader:bhv1reader')
+          // 'Authorization': 'Basic ' + btoa('bhv-reader:b35a15a5e25a965778a45406bfecc813ae262466')
         },
 
         handlerSuccess = function(response, headersResponse) {
