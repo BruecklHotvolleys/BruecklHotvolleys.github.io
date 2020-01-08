@@ -524,9 +524,8 @@ window.bhv.request = {
         oldData = null,
         headers = {
           // 'Accept': 'application/vnd.github.v3.raw',
-
-          // create personal access token in settings application and use it instead of password
-          'Authorization': 'Basic ' + btoa('bhv-reader:381130e4e2a187b79d94454931dc1dfcf105a5fc')
+          // use personal access token for authentication - btoa(username:PAT)
+          'Authorization': 'Basic Ymh2LXJlYWRlcjo1NjdhZDgzMjA1Y2VlM2NiODQzMmQ5NTMyY2QzM2I1MDE5YWNiZjA1'
         },
 
         handlerSuccess = function(response, headersResponse) {
@@ -760,21 +759,11 @@ window.bhv.request = {
     var headers = {
       // xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
       'Content-type': 'application/json; charset=utf-8',
-
-      // TODO create bhv writer
-      'Authorization': 'Basic ' + btoa('bhv-reader:381130e4e2a187b79d94454931dc1dfcf105a5fc')
+      // use personal access token for authentication - btoa(username:PAT)
+      'Authorization': 'Basic Ymh2LXJlYWRlcjo1NjdhZDgzMjA1Y2VlM2NiODQzMmQ5NTMyY2QzM2I1MDE5YWNiZjA1'
     };
 
     // the data to send
-    /* {
-      "message": "my commit message",
-      "committer": {
-        "name": "Scott Chacon",
-        "email": "schacon@gmail.com"
-      },
-      "content": "bXkgdXBkYXRlZCBmaWxlIGNvbnRlbnRz",
-      "sha": "329688480d39049927147c162b9d2deaf885005f"
-    } */
     var data = {
       'message': 'update dates ' + window.bhv.request.utils.dateInfo(new Date()),
       'committer': {
@@ -785,19 +774,6 @@ window.bhv.request = {
       'content': base64.encode(file),
       'sha': sha
     };
-
-    // var xhr = new XMLHttpRequest();
-    // xhr.open('PUT', url, true);
-    // xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    // xhr.onload = function () {
-    // 	 var updated = JSON.parse(xhr.responseText);
-    // 	 if (xhr.readyState === 4 && xhr.status === 200) {
-    // 		 console.table(updated);
-    // 	 } else {
-    //  	 console.error(updated);
-    //   }
-    // }
-    // xhr.send(JSON.stringify(data));
 
     // request data
     if (!this._startRequest(
