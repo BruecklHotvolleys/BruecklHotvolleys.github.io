@@ -58,8 +58,6 @@ window.bhv.request = {
     }
 
     // check if ok
-    // if (!request || request.onerror === undefined) {
-    // just try it...
     if (!request) {
       log('XMLHttpRequest is not available!');
       return null;
@@ -527,11 +525,8 @@ window.bhv.request = {
         headers = {
           // 'Accept': 'application/vnd.github.v3.raw',
 
-          // TODO create personal access token in settings application and use it instead of password
-
-          // 'Authorization': 'Basic ' + btoa('BruecklHotvolleys:bhv1bhv1bhv')
-          'Authorization': 'Basic ' + btoa('bhv-reader:bhv1reader')
-          // 'Authorization': 'Basic ' + btoa('bhv-reader:b35a15a5e25a965778a45406bfecc813ae262466')
+          // create personal access token in settings application and use it instead of password
+          'Authorization': 'Basic ' + btoa('bhv-reader:381130e4e2a187b79d94454931dc1dfcf105a5fc')
         },
 
         handlerSuccess = function(response, headersResponse) {
@@ -767,8 +762,7 @@ window.bhv.request = {
       'Content-type': 'application/json; charset=utf-8',
 
       // TODO create bhv writer
-      'Authorization': 'Basic ' + btoa('BruecklHotvolleys:bhv1bhv1bhv')
-      // 'Authorization': 'Basic ' + btoa('bhv-reader:bhv1reader')
+      'Authorization': 'Basic ' + btoa('bhv-reader:381130e4e2a187b79d94454931dc1dfcf105a5fc')
     };
 
     // the data to send
