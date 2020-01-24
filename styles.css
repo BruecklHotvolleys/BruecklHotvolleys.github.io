@@ -126,8 +126,9 @@ table.tactics img {
 }
 table.tactics td {
   padding: 1em 1em 0 1em;
-  width: 31em;
-  max-width: 31em;
+  width: 25em;
+  max-width: 25em;
+  min-width: 25em;
 }
 table.tactics div {
   font-size: 2.5em;
