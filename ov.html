@@ -31,13 +31,13 @@ function init() {
   ],
   keepOpen = {
     // 'nw': ...
-    'u20_20': ['info20'],
+    'u20_20': ['info20', 'standings_u20_20'],
     'u18_20': ['info18'],
-    'u16_20': ['info16', 'schedule_u16_20', 'system6'],
-    'u15_20': ['info15', 'schedule_u15_20', 'system4'],
-    'u14_20': ['info14', 'schedule_u14_20'],
-    'u13_20': ['info13', 'schedule_u13_20'],
-    'u12_20': ['info12', 'schedule_u12_20'],
+    'u16_20': ['info16', 'schedule_u16_20', 'standings_u16_20', 'system6'],
+    'u15_20': ['info15', 'schedule_u15_20', 'standings_u15_20', 'system4'],
+    'u14_20': ['info14', 'schedule_u14_20', 'standings_u14_20'],
+    'u13_20': ['info13', 'schedule_u13_20', 'standings_u13_20'],
+    'u12_20': ['info12', 'schedule_u12_20', 'standings_u12_20'],
 
     // 'ak': ...
     'br4_20': ['schedule_br4g_20', 'results_br4g_20', 'standings_br4g_20', 'players_br4g_20', 'spielfeld6'],
@@ -99,25 +99,29 @@ function init() {
     <h2 id="u12_20" class="expandable">U12 - Supermini II</h2>
     <div id="u12_20_2" class="expanded_container">
       <a id="info12" href="/info/u12.html"><h3>Infos</h3></a>
-      <!--a id="schedule_u12_20" href="schedule.html?key=u12_20"><h3>Turniere</h3></a-->
+      <a id="schedule_u12_20" href="schedule.html?key=u12_20"><h3>Turniere</h3></a>
+      <a id="standings_u12_20" href="standings.html?key=u12"><h3>Tabelle</h3></a>
     </div>
 
     <h2 id="u13_20" class="expandable">U13 - Supermini</h2>
     <div id="u13_20_2" class="expanded_container">
       <a id="info13" href="/info/u13.html"><h3>Infos</h3></a>
       <a id="schedule_u13_20" href="schedule.html?key=u13_20"><h3>Turniere</h3></a>
+      <a id="standings_u13_20" href="standings.html?key=u13_20"><h3>Tabelle</h3></a>
     </div>
 
     <h2 id="u14_20" class="expandable">U14 - Mini</h2>
     <div id="u14_20_2" class="expanded_container">
       <a id="info14" href="/info/u14.html"><h3>Infos</h3></a>
       <a id="schedule_u14_20" href="schedule.html?key=u14_20"><h3>Turniere</h3></a>
+      <a id="standings_u14_20" href="standings.html?key=u14_20"><h3>Tabelle</h3></a>
     </div>
 
     <h2 id="u15_20" class="expandable">U15 - Midi</h2>
     <div id="u15_20_2" class="expanded_container">
       <a id="info15" href="/info/u15.html"><h3>Infos</h3></a>
       <a id="schedule_u15_20" href="schedule.html?key=u15_20"><h3>Turniere</h3></a>
+      <a id="standings_u15_20" href="standings.html?key=u15_20"><h3>Tabelle</h3></a>
       <a id="system4" href="/system4"><h3>Spielsystem</h3></a>
     </div>
 
@@ -125,6 +129,7 @@ function init() {
     <div id="u16_20_2" class="expanded_container">
       <a id="info16" href="/info/u16.html"><h3>Infos</h3></a>
       <a id="schedule_u16_20" href="schedule.html?key=u16_20"><h3>Turniere</h3></a>
+      <a id="standings_u16_20" href="standings.html?key=u16_20"><h3>Tabelle</h3></a>
       <a id="system6" href="/system6"><h3>Spielsystem</h3></a>
     </div>
 
@@ -136,6 +141,7 @@ function init() {
     <h2 id="u20_20" class="expandable">U20 - Juniorinnen</h2>
     <div id="u20_20_2" class="expanded_container">
       <a id="info20" href="/info/u20.html"><h3>Infos</h3></a>
+      <a id="standings_u20_20" href="standings.html?key=u20_20"><h3>Endstand</h3></a>
     </div>
   </div>
   <!--div id="nw_2" class="expanded_container">

@@ -289,8 +289,9 @@ window.bhv.schedule = {
         }
 
         // add entry for finals
-        if (finals && finals[key]) {
-          msg += NL + NL + '<b class="team">' + finals[key] + '</b>' + NL;
+        if (finals && activeSeason && key
+            && finals[activeSeason] && finals[activeSeason][key]) {
+          msg += NL + NL + '<b class="team">' + finals[activeSeason][key] + '</b>' + NL;
         }
       }
     }
@@ -480,7 +481,14 @@ var mapKids = {
 };
 
 var finals = {
-  '20': {},
+  '20': {
+    // use these dates before the kvv-system has entries for the finals
+    'u16_20': "Finale (So 03.05.2019  ???)",
+    'u15_20': "Finale (Sa 25.04.2019  ???)",
+    'u14_20': "Finale (Fr 01.05.2019  ???)",
+    'u13_20': "Finale (So 17.05.2019  ???)",
+    'u12_20': "Finale (Do 21.05.2019  ???)"
+  },
   '19': {
     // use these dates before the kvv-system has entries for the finals
     // 'u10_19': "Finale (Do 30.05.2019  Brückl)",

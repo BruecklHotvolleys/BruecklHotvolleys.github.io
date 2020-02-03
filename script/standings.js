@@ -4,7 +4,14 @@ var map = {
     'br4g_20': [24971, leagueStandings, 'Tabelle Unterliga'],
     'br3g_20': [24971, leagueStandings, 'Tabelle Unterliga'],
     'br2g_20': [24967, leagueStandings, 'Tabelle Landesliga'],
-    'br1g_20': [24649, leagueStandings, 'Tabelle Bundesliga']
+    'br1g_20': [24649, leagueStandings, 'Tabelle Bundesliga'],
+
+    'u20_20': [25460, kidsStandingsF, 'Endstand U20'],
+    'u16_20': [25172, kidsStandings, 'Tabelle U16'],
+    'u15_20': [25174, kidsStandings, 'Tabelle U15'],
+    'u14_20': [25175, kidsStandings, 'Tabelle U14'],
+    'u13_20': [25176, kidsStandings, 'Tabelle U13'],
+    'u12_20': [25177, kidsStandings, 'Tabelle U12']
   },
   '19': {
     'br4g_19': [22934, leagueStandings, 'Tabelle Unterliga (GD)'],
