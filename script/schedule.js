@@ -444,7 +444,8 @@ var mapLeague = {
     'br4g_20': [24971, bhv.schedule.leagueSchedules, 'Termine Unterliga', 31662],
     'br3g_20': [24971, bhv.schedule.leagueSchedules, 'Termine Unterliga', 31661],
     // LLD: Termine/24967: Team als array von (vrn_id, tea_id)
-    'br2g_20': [24967, bhv.schedule.leagueSchedules, 'Termine Landesliga', [1220, 31654]],
+    'br2g_20': [24967, bhv.schedule.leagueSchedules, 'Termine Landesliga (GD)', [1220, 31654]],
+    'br2m_20': [25506, bhv.schedule.leagueSchedules, 'Termine Landesliga (MPO)', [1220, 31654]],
     // BL 24649, 1: 30505
     'br1g_20': [24649, bhv.schedule.leagueSchedules, 'Termine Bundesliga', 30505],
   },

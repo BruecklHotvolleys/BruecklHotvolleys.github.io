@@ -5,7 +5,8 @@ var mapLeague = {
     'br4g_20': [24971, leagueResults, 'Ergebnisse Unterliga', 31662],
     'br3g_20': [24971, leagueResults, 'Ergebnisse Unterliga', 31661],
     // LLD: Termine/24967, (+optional id(s) of club(s))
-    'br2g_20': [24967, leagueResults, 'Ergebnisse Landesliga', 31654, 1220],
+    'br2g_20': [24967, leagueResults, 'Ergebnisse Landesliga (GD)', 31654, 1220],
+    'br2m_20': [25506, leagueResults, 'Ergebnisse Landesliga (MPO)', 31654, 1220],
     // BL 24649, 1: 30505
     'br1g_20': [24649, leagueResults, 'Ergebnisse Bundesliga', 30505],
   },
