@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Brückl hotvolleys</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+div#content_container {
+  padding: 0;
+  left: 0;
+  right: 0;
+  bottom: 3.8em;
+}
+div {
+  box-sizing: border-box;
+}
+div.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+div.title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1.2em;
+
+  text-align: center;
+  font-weight: bold;
+  font-size: 4em;
+  line-height: 100%;
+
+  border-bottom: 1px solid gray;
+}
+div.title > div#back {
+  position: absolute;
+  top: 0;
+  left: 0.2em;
+  height: 0.95em;
+  width: 0.95em;
+  font-size: 1.1em;
+  line-height: 100%;
+  z-index: 1;
+  color: gray;
+  background: lightgray;
+  border-radius: 50%;
+  opacity: 0.9;
+  cursor: pointer;
+}
+div.info {
+  position: absolute;
+  left: 0.5em;
+  right: 0.5em;
+  top: 2.5em;
+  bottom: 1.5em;
+  text-align: left;
+  font-size: 2.2em;
+  font-weight: normal;
+  overflow: auto;
+}
+div.links {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 1.2em;
+  line-height: 100%;
+  text-align: left;
+  font-size: 2em;
+  font-weight: normal;
+  border-top: 1px solid gray;
+}
+div.links > div {
+  font-size: 0.8em;
+  opacity: 0.5;
+}
+div.links > div.link {
+  cursor: pointer;
+  opacity: 1;
+}
+
+div.column {
+  display: inline-block;
+  font-weight: normal;
+}
+div.w100 {
+  width: 100%;
+}
+div.w50 {
+  width: 50%;
+}
+div.w34 {
+  width: 34%;
+}
+div.w33 {
+  width: 33%;
+}
+div.w25 {
+  width: 25%;
+}
+
+strong {
+  font-size: inherit;
+}
+  </style>
+  <script>
+var data = {
+  "title": "Herz + Hirn",
+  "info": "Infos",
+  "items": [
+    {
+      "title": "Technik",
+      "info": "Aufspiel: Tempo + Daumen<br>Mitte: Richtung geben mit dem Handgelenk, nicht mit dem Körper<br>Außen: Runterziehen -&gt; 3m-Linie, Tempo<br>ein Trick für jede Spielerin",
+      "items": [
+        {
+          "title": "Aufspiel",
+          "info": ""
+        }, {
+          "title": "Mitte",
+          "info": ""
+        }, {
+          "title": "Außen",
+          "info": ""
+        }, {
+          "title": "Tricks",
+          "info": "Block-Out provozieren",
+          "items": [
+            {
+              "title": "Block-Out",
+              "info": "Wenn der Ball nah am Netz und weit genug außen ist,<br>kann die Angreiferin den Ball mit der Schlaghand nach außen drücken<br>und so den Ball vom Block ins Out spielen =&gt; <strong>Punkt für uns</strong>."
+            }
+          ]
+        }
+      ]
+    }, {
+      "title": "Infos zum Angriff",
+      "info": "Wann: Zeitpunkt des Absprungs<br>Wo: Ort des Absprung",
+      "items": [
+        {
+          "title": "Wann",
+          "info": "1. Tempo - Schnellangriff<br>&nbsp;&nbsp; 1, 3, 4<br>Die Angreiferin springt, wenn die Aufspielerin den Ball berührt.<br>Die Angreiferin orientiert sich an der &quot;Schulter&quot; der Aufspielerin.<br><br>2. Tempo - Meter-, Kombinationsangriff<br>&nbsp;&nbsp; 5v, 6, 8, 9(Mitte oder Pipe)<br>Die Angreiferin hat den 1. Schritt gemacht, wenn die Aufspielerin den Ball berührt.<br>&quot;Die Angreiferin ist am linken Fuß.&quot;<br><br>3. Tempo - Hoher Ball<br>&nbsp;&nbsp; 0, 2, 9(1)<br>Die Angreiferin startet nachdem die Aufspielerin gespielt hat."
+        }, {
+          "title": "Wo",
+          "info": "1: bei der Aufspielerin(vor ihr)<br>3: bei der Aufspielerin (hinter ihr)<br>4: ca. 2-3m vor der Aufspielerin<br><br>5v: ca.1-1,5m vor der Aufspielerin<br>6: Pos. 4 - &quot;bei der Antenne&quot;<br>8: ca. 3,5-4m vor der Aufspielerin<br><br>0: Pos. 4 - &quot;bei der Antenne links&quot;<br>2: Pos. 2 - &quot;bei der Antenne rechts&quot;<br><br>9er - Hinterfeld<br>immer knapp(!) hinter der 3m-Linie<br>Mitte: genau in der Mitte<br>Pipe: hinter der Aufspielerin<br>1: rechts, knapp innerhalb der Seitenlinie"
+        }
+      ]
+    }, {
+      "title": "Stimmung",
+      "info": "Mannschaftstreffen Mai 2020",
+      "items": [
+        {
+          "title": "Teambuilding",
+          "info": "Sind erfolgreiche Mannschaften eher laut oder leise?<br>Was könnte es bringen laut zu sein?<br>Was kann ich dazu beitragen, dass wir so richtig laut werden?",
+          "items": [
+            {
+              "title": "Warum laut?",
+              "info": "Bild",
+              "items": [
+                {
+                  "title": "Danke für Deine Mitarbeit!",
+                  "info": ""
+                }
+              ]
+            }, {
+              "title": "Wir werden laut!",
+              "info": "Bild",
+              "items": [
+                {
+                  "title": "Danke für Deine Mitarbeit!",
+                  "info": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+
+var data_history = [],
+    links = null;
+
+function init(data, withBack) {
+  var elemTit = document.getElementById('title'),
+      elemInf = document.getElementById('info'),
+      elemLnks = document.getElementById('links'),
+      elemBack = document.getElementById('back'),
+      l;
+
+  data_history.push(data);
+
+  elemTit.innerHTML = setTitle(data.title, withBack);
+  elemInf.innerHTML = data.info ? data.info : '&nbsp;';
+
+  // remove old links
+  if (links) {
+    for (l = 0; l < links.length; ++l) {
+      links[l].removeEventListener('click', handleLink);
+    }
+  }
+  if (elemBack) {
+    elemBack.removeEventListener('click', handleBackLink);
+  }
+
+  // create new links
+  elemLnks.innerHTML = createLinks(data.items);
+
+  setTimeout(connectLinks, 1);
+}
+function setTitle(title, withBack) {
+  return (withBack ? '<div id="back">&lt;</div>' : '')
+    + title;
+}
+function createLinks(items) {
+  var i, i2, lnks;
+
+  if (Array.isArray(items)) {
+    lnks = '';
+    for (i = 0, i2 = items.length; i < i2; ++i) {
+      lnks += createLink(items[i], i, i2);
+    }
+    return lnks;
+  }
+
+  return '&nbsp;';
+}
+function createLink(item, index, cnt) {
+  var clazz = item.info ? ' link' : '',
+      id = item.info ? ' id="idx' + index + '"' : '',
+      lnk = '<div' + id + ' class="column w' + Math.round(100 / cnt) + clazz + '">'
+    + item.title
+    + '</div>';
+
+  return lnk;
+}
+function connectLinks() {
+  var l,
+      links = document.querySelectorAll('div.link'),
+      elemBack = document.getElementById('back');
+
+  for (l = 0; l < links.length; ++l) {
+    links[l].addEventListener('click', handleLink);
+  }
+  if (elemBack) {
+    elemBack.addEventListener('click', handleBackLink);
+  }
+}
+function handleLink(event) {
+  var lnk = parseInt(event.currentTarget.id.substr(3), 10),
+      last, cur, next;
+
+  if (!isNaN(lnk)) {
+    last = data_history.length - 1;
+    cur = data_history[last];
+    next = cur.items[lnk];
+    init(next, true);
+  }
+}
+function handleBackLink(event) {
+  var last, cur;
+
+  data_history.pop();
+  last = data_history.length - 1;
+  cur = data_history[last];
+  data_history.pop();
+  init(cur, last > 0);
+}
+  </script>
+</head>
+<body onload="init(data, false);">
+  <div id="header">
+    <div class="left">
+    <a href="/ov.html#herzhirn_21"><img src="/image/bhv1.gif"/></a>
+    <div>Herz + Hirn</div>
+    </div><div class="right">
+    <a href="/ov.html#herzhirn_21"><img src="/image/bhv1.gif"/></a>
+    </div>
+  </div>
+  <div id="content_container">
+    <div class="container">
+     <div id="title" class="title">Title</div>
+     <div id="info" class="info">Info</div>
+     <div id="links" class="links">Links</div>
+    </div>
+  </div>
+  <div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div>
+</body>
+</html>

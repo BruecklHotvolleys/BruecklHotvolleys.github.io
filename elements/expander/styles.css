@@ -57,6 +57,23 @@ a h1::after {
   background-color: transparent;
   opacity: 0.2;
 }
+a h2::after {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  right: 1.1em;
+  margin-top: -0.5em;
+
+  width: 0;
+  height: 0;
+  border-top: 0.5em solid transparent;
+  border-left: 0.5em solid blue;
+  border-bottom: 0.5em solid transparent;
+
+  overflow: hidden;
+  background-color: transparent;
+  opacity: 0.2;
+}
 a h3::after {
   content: ' ';
   position: absolute;

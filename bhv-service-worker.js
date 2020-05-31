@@ -2,18 +2,20 @@
 
 // the names and the files of the cache
 const CACHE = {
-  'data': 'bhv-infoapp-ce1c6ff1060c5d30f7bacd5548611c9d',
-  'main': 'bhv-infoapp-7eca605857b3ca98f5c6d184e89dfa00',
+  'main': 'bhv-infoapp-311eb34507409229d2c495b9ab01bec1',
+  'data': 'bhv-infoapp-4643ba8e72625237c69999b2b62f64c7',
   'system4': 'bhv-infoapp-3a74649350f1923a75308d111795c28c',
   'system6': 'bhv-infoapp-ae27fd018f4793588733f92091e95965',
   'favicons': 'bhv-infoapp-330b73fc504d548333704fb32f4ddb85',
-  'info': 'bhv-infoapp-9c35868f9280c8a4919e79df142a7e55',
+  'info': 'bhv-infoapp-14545db906177853eedc9ed447cbd3db',
   'statistics_19': 'bhv-infoapp-1721c54a73e426c061a4da259e61d823',
-  'teambuilding_19': 'bhv-infoapp-9aeecfc5514d12fd7a4ac6ca488835d7'
+  'teambuilding_19': 'bhv-infoapp-9aeecfc5514d12fd7a4ac6ca488835d7',
+  'teambuilding_21': 'bhv-infoapp-5c61f80114b2e00eb1018599ead6c4ff'
 }
 const FILES = {
   'main': [
     '/404.html',
+    '/diary.html',
     '/imageview.html',
     '/',
     '/index.html',
@@ -55,9 +57,8 @@ const FILES = {
     '/u13/certificate.jpeg'
   ],
   'data': [
-    '/data/training/b1.json',
-    '/data/training/b2.json',
-    '/data/training/jungs.json'
+    '/data/training/a.json',
+    '/data/training/diary_a.json'
   ],
   'system4': [
     '/system4/angriff2.png',
@@ -196,6 +197,7 @@ const FILES = {
     '/info/gesucht.jpeg',
     '/info/info19.html',
     '/info/info20.html',
+    '/info/info21.html',
     '/info/u12.html',
     '/info/u13.html',
     '/info/u14.html',
@@ -228,6 +230,10 @@ const FILES = {
     '/teambuilding/br3_19/item2b.jpg',
     '/teambuilding/br3_19/item3_small.jpg',
     '/teambuilding/br3_19/item3.jpg'
+  ],
+  'teambuilding_21': [
+    '/teambuilding/herzhirn_21/',
+    '/teambuilding/herzhirn_21/index.html'
   ]
 }
 
@@ -289,6 +295,8 @@ self.addEventListener('fetch', (evt) => {
     nameCache = CACHE['statistics_19']
   } else if (evt.request.url.indexOf('/teambuilding/br3_19/') > -1) {
     nameCache = CACHE['teambuilding_19']
+  } else if (evt.request.url.indexOf('/teambuilding/herzhirn_21/') > -1) {
+    nameCache = CACHE['teambuilding_21']
   }
 
   // fetch a ressource

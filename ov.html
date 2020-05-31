@@ -19,35 +19,36 @@ body {
 function init() {
   var expanders = [
     'nw',
-    'u12_20', 'u13_20', 'u14_20', 'u15_20', 'u16_20', 'u18_20', 'u20_20',
+    'u12_21', 'u13_21', 'u14_21', 'u15_21', 'u16_21', 'u18_21', 'u20_21',
     'ak',
-    'br4_20', 'br3_20', 'br2_20', 'br1_20',
+    'br3_21', 'br2_21', 'br1_21',
     'training',
     'archive',
     'a19',
-    'u10_19', 'u11_19', 'u12_19', 'u13_19', 'u15_19', 'u17_19',
-    'br4_19', 'br3_19', 'br2_19', 'br1_19',
+     'u10_19', 'u11_19', 'u12_19', 'u13_19', 'u15_19', 'u17_19',
+     'br4_19', 'br3_19', 'br2_19', 'br1_19',
+    'a20',
+     'u12_20', 'u13_20', 'u14_20', 'u15_20', 'u16_20', 'u18_20', 'u20_20',
+     'br4_20', 'br3_20', 'br2_20', 'br1_20',
     'info'
   ],
   keepOpen = {
+
     // 'nw': ...
-    'u20_20': ['info20', 'standings_u20_20'],
-    'u18_20': ['info18'],
-    'u16_20': ['info16', 'schedule_u16_20', 'standings_u16_20', 'system6'],
-    'u15_20': ['info15', 'schedule_u15_20', 'standings_u15_20', 'system4'],
-    'u14_20': ['info14', 'schedule_u14_20', 'standings_u14_20'],
-    'u13_20': ['info13', 'schedule_u13_20', 'standings_u13_20'],
-    'u12_20': ['info12', 'schedule_u12_20', 'standings_u12_20'],
+    'u20_21': ['info20'],
+    'u18_21': ['info18'],
+    'u16_21': ['info16', 'system6'],
+    'u15_21': ['info15', 'system4'],
+    'u14_21': ['info14'],
+    'u13_21': ['info13'],
+    'u12_21': ['info12'],
 
     // 'ak': ...
-    'br4_20': ['schedule_br4g_20', 'results_br4g_20', 'standings_br4g_20', 'players_br4g_20', 'spielfeld6'],
-    'br3_20': ['schedule_br3g_20', 'results_br3g_20', 'standings_br3g_20', 'players_br3g_20', 'system6'],
-    'br2_20': ['schedule_br2m_20', 'results_br2m_20',
-               'schedule_br2g_20', 'results_br2g_20', 'standings_br2g_20', 'players_br2g_20'],
-    'br1_20': ['schedule_br1g_20', 'results_br1g_20', 'standings_br1g_20', 'players_br1g_20'],
+    'br3_21': ['spielfeld6', 'system6'],
+    'br2_21': [],
+    'br1_21': ['herzhirn_21', 'training_a', 'tagebuch_a'],
 
-    // training
-    'training': ['training_b1', 'training_b2', 'training_jungs'],
+    // training - , 'training_b2', 'training_jungs'
 
     // 'archive': ...
     // 'a19': ...
@@ -63,7 +64,6 @@ function init() {
     'u15_19': ['standings_u15f_19', 'results_u15f_19', 'statistics_u15_19', 'schedule_u15_19',
                'standings_u15_19', 'statistics_u15pn_19'],
     'u17_19': ['statistics_u17_19', 'standings_u17_19', 'results_u17_19'],
-
     'br4_19': ['results_br4g_19', 'standings_br4g_19', 'schedule_br4_19', 'results_br4_19',
                'standings_br4_19', 'statistics_br4_19'],
     'br3_19': ['schedule_br3_19', 'results_br3_19', 'standings_br3_19', 'statistics_br3_19',
@@ -72,20 +72,43 @@ function init() {
                'statistics_br2_19'],
     'br1_19': ['schedule_br1_19', 'results_br1_19', 'standings_br1_19', 'results_br1g_19',
                'standings_br1g_19'],
+    // 'a20': ...
+    'u20_20': ['standings_u20_20'],
+    'u16_20': ['schedule_u16_20', 'standings_u16_20'],
+    'u15_20': ['schedule_u15_20', 'standings_u15_20'],
+    'u14_20': ['schedule_u14_20', 'standings_u14_20'],
+    'u13_20': ['schedule_u13_20', 'standings_u13_20'],
+    'u12_20': ['schedule_u12_20', 'standings_u12_20'],
+    'br4_20': ['schedule_br4g_20', 'results_br4g_20', 'standings_br4g_20', 'players_br4g_20'],
+    'br3_20': ['schedule_br3g_20', 'results_br3g_20', 'standings_br3g_20', 'players_br3g_20'],
+    'br2_20': ['schedule_br2m_20', 'results_br2m_20',
+               'schedule_br2g_20', 'results_br2g_20', 'standings_br2g_20', 'players_br2g_20'],
+    'br1_20': ['schedule_br1g_20', 'results_br1g_20', 'standings_br1g_20', 'players_br1g_20'],
 
-    'info': ['calendar', 'wunsch', 'gesucht', 'divinfo20', 'divinfo19']
+    // infos
+    'info': ['calendar', 'wunsch', 'gesucht', 'divinfo21']
   };
 
-  keepOpen.nw = keepOpen.u20_20.concat(
-    keepOpen.u18_20, keepOpen.u16_20, keepOpen.u15_20,
-    keepOpen.u14_20, keepOpen.u13_20, keepOpen.u12_20);
+  // current season - juniors
+  keepOpen.nw = keepOpen.u20_21.concat(
+    keepOpen.u18_21, keepOpen.u16_21, keepOpen.u15_21,
+    keepOpen.u14_21, keepOpen.u13_21, keepOpen.u12_21);
+  // current season - seniors
+  keepOpen.ak = keepOpen.br3_21.concat(keepOpen.br2_21, keepOpen.br1_21);
 
-  keepOpen.ak = keepOpen.br4_20.concat(keepOpen.br3_20, keepOpen.br2_20, keepOpen.br1_20);
-
+  // the archive
   keepOpen.a19 = keepOpen.u10_19.concat(
     keepOpen.u11_19, keepOpen.u12_19, keepOpen.u13_19, keepOpen.u15_19, keepOpen.u17_19,
-    keepOpen.br4_19, keepOpen.br3_19, keepOpen.br2_19, keepOpen.br1_19);
-  keepOpen.archive = keepOpen.a19;
+    keepOpen.br4_19, keepOpen.br3_19, keepOpen.br2_19, keepOpen.br1_19,
+    'divinfo19'
+  );
+  keepOpen.a20 = keepOpen.u20_20.concat(
+    keepOpen.u18_20, keepOpen.u16_20, keepOpen.u15_20,
+    keepOpen.u14_20, keepOpen.u13_20, keepOpen.u12_20,
+    keepOpen.br4_20, keepOpen.br3_20, keepOpen.br2_20, keepOpen.br1_20,
+    'divinfo20'
+  );
+  keepOpen.archive = keepOpen.a19.concat(keepOpen.a20);
 
   bhv.elements.expander.init(expanders, keepOpen);
 }
@@ -94,350 +117,256 @@ function init() {
 <body onload="init();">
   <nav role="navigation">
 
-  <h1 id="nw" class="expandable" style=""><br>Nachwuchs<br>&nbsp;</h1>
-  <div id="nw_2" class="expanded_container">
+    <h1 id="nw" class="expandable" style=""><br>Nachwuchs<br>&nbsp;</h1>
+    <div id="nw_2" class="expanded_container">
 
-    <h2 id="u12_20" class="expandable">U12 - Supermini II</h2>
-    <div id="u12_20_2" class="expanded_container">
-      <a id="info12" href="/info/u12.html"><h3>Infos</h3></a>
-      <a id="schedule_u12_20" href="schedule.html?key=u12_20"><h3>Turniere</h3></a>
-      <a id="standings_u12_20" href="standings.html?key=u12_20"><h3>Tabelle</h3></a>
-    </div>
-
-    <h2 id="u13_20" class="expandable">U13 - Supermini</h2>
-    <div id="u13_20_2" class="expanded_container">
-      <a id="info13" href="/info/u13.html"><h3>Infos</h3></a>
-      <a id="schedule_u13_20" href="schedule.html?key=u13_20"><h3>Turniere</h3></a>
-      <a id="standings_u13_20" href="standings.html?key=u13_20"><h3>Tabelle</h3></a>
-    </div>
-
-    <h2 id="u14_20" class="expandable">U14 - Mini</h2>
-    <div id="u14_20_2" class="expanded_container">
-      <a id="info14" href="/info/u14.html"><h3>Infos</h3></a>
-      <a id="schedule_u14_20" href="schedule.html?key=u14_20"><h3>Turniere</h3></a>
-      <a id="standings_u14_20" href="standings.html?key=u14_20"><h3>Tabelle</h3></a>
-    </div>
-
-    <h2 id="u15_20" class="expandable">U15 - Midi</h2>
-    <div id="u15_20_2" class="expanded_container">
-      <a id="info15" href="/info/u15.html"><h3>Infos</h3></a>
-      <a id="schedule_u15_20" href="schedule.html?key=u15_20"><h3>Turniere</h3></a>
-      <a id="standings_u15_20" href="standings.html?key=u15_20"><h3>Tabelle</h3></a>
-      <a id="system4" href="/system4"><h3>Spielsystem</h3></a>
-    </div>
-
-    <h2 id="u16_20" class="expandable">U16 - Schülerinnen</h2>
-    <div id="u16_20_2" class="expanded_container">
-      <a id="info16" href="/info/u16.html"><h3>Infos</h3></a>
-      <a id="schedule_u16_20" href="schedule.html?key=u16_20"><h3>Turniere</h3></a>
-      <a id="standings_u16_20" href="standings.html?key=u16_20"><h3>Tabelle</h3></a>
-      <a id="system6" href="/system6"><h3>Spielsystem</h3></a>
-    </div>
-
-    <h2 id="u18_20" class="expandable">U18 - Jugend weiblich</h2>
-    <div id="u18_20_2" class="expanded_container">
-      <a id="info18" href="/info/u18.html"><h3>Infos</h3></a>
-    </div>
-
-    <h2 id="u20_20" class="expandable">U20 - Juniorinnen</h2>
-    <div id="u20_20_2" class="expanded_container">
-      <a id="info20" href="/info/u20.html"><h3>Infos</h3></a>
-      <a id="standings_u20_20" href="standings.html?key=u20_20"><h3>Endstand</h3></a>
-    </div>
-  </div>
-  <!--div id="nw_2" class="expanded_container">
-
-    <h2 id="u10" class="expandable">U10</h2>
-    <div id="u10_2" class="expanded_container">
-      <!- -a id="grundlagen_u10" href="/u10"><h3>Grundlagen</h3></a- ->
-
-      <a id="standings_u10f" href="standings.html?key=u10f"><h3>Endstand (Finale)</h3></a>
-      <a id="results_u10f" href="results.html?key=u10f"><h3>Spiele (Finale)</h3></a>
-
-      <a id="schedule_u10" href="schedule.html?key=u10"><h3>Turniere (Qualifikation)</h3></a>
-      <a id="standings_u10" href="standings.html?key=u10"><h3>Tabelle (Qualifikation)</h3></a>
-    </div>
-
-    <h2 id="u11" class="expandable">U11</h2>
-    <div id="u11_2" class="expanded_container">
-      <!- -a id="grundlagen_u11" href="/u11"><h3>Grundlagen</h3></a- ->
-
-      <a id="standings_u11f" href="standings.html?key=u11f"><h3>Endstand (Finale, weiblich)</h3></a>
-      <a id="results_u11f" href="results.html?key=u11f"><h3>Spiele (Finale, weiblich)</h3></a>
-      <a id="standings_u11m" href="standings.html?key=u11m"><h3>Endstand (Finale, männlich)</h3></a>
-      <a id="results_u11m" href="results.html?key=u11m"><h3>Spiele (Finale, männlich)</h3></a>
-
-      <a id="schedule_u11" href="schedule.html?key=u11"><h3>Turniere (Qualifikation)</h3></a>
-      <a id="standings_u11" href="standings.html?key=u11"><h3>Tabelle (Qualifikation)</h3></a>
-    </div>
-
-    <h2 id="u12" class="expandable">U12</h2>
-    <div id="u12_2" class="expanded_container">
-      <!- -a id="grundlagen_u12" href="/u12"><h3>Grundlagen</h3></a- ->
-      <a id="certificate_u12x" href="/imageview.html?i=u12%2Fcertificate.jpeg&b=%2Fov.html%23certificate_u12x"><h3>Urkunde</h3></a>
-      <!- -td><a href="/imageview.html?i=uld%2Fgrundlagen%2Fspielfeld.png&t=Spielfeld&x=Das%20Spielfeld.&b=%2Fuld%2Fgrundlagen%23spielfeld"><div>Das Spielfeld.</div></a></td- ->
-      <a id="standings_u12x" href="standings.html?key=u12x"><h3>Endstand (ÖMS)</h3></a>
-      <a id="results_u12x" href="results.html?key=u12x"><h3>Spiele (ÖMS)</h3></a>
-      <a id="statistics_u12x" href="/u12/statistics.html"><h3>Statistik (ÖMS)</h3></a>
-      <a id="standings_u12f" href="standings.html?key=u12f"><h3>Endstand (Finale, weiblich)</h3></a>
-      <a id="results_u12f" href="results.html?key=u12f"><h3>Spiele (Finale, weiblich)</h3></a>
-      <a id="standings_u12m" href="standings.html?key=u12m"><h3>Endstand (Finale, männlich)</h3></a>
-      <a id="results_u12m" href="results.html?key=u12m"><h3>Spiele (Finale, männlich)</h3></a>
-      <a id="schedule_u12" href="schedule.html?key=u12"><h3>Turniere (Qualifikation)</h3></a>
-      <a id="standings_u12q" href="standings.html?key=u12q"><h3>Tabelle (Qualifikation)</h3></a>
-    </div>
-
-    <h2 id="u13" class="expandable">U13</h2>
-    <div id="u13_2" class="expanded_container">
-      <!- -a id="grundlagen_u13" href="u13"><h3>Grundlagen</h3></a- ->
-
-      <a id="certificate_u13x" href="/imageview.html?i=u13%2Fcertificate.jpeg&b=%2Fov.html%23certificate_u13x"><h3>Urkunde</h3></a>
-      <a id="standings_u13x" href="standings.html?key=u13x"><h3>Endstand (ÖMS)</h3></a>
-      <a id="results_u13x" href="results.html?key=u13x"><h3>Spiele (ÖMS)</h3></a>
-      <a id="statistics_u13x" href="/u13/statisticsX.html"><h3>Statistik (ÖMS)</h3></a>
-
-      <a id="standings_u13f" href="standings.html?key=u13f"><h3>Endstand (Finale)</h3></a>
-      <a id="results_u13f" href="results.html?key=u13f"><h3>Spiele (Finale)</h3></a>
-      <a id="statistics_u13" href="/u13/statistics.html"><h3>Statistik (Finale)</h3></a>
-
-      <a id="schedule_u13" href="schedule.html?key=u13"><h3>Turniere (Qualifikation)</h3></a>
-      <a id="standings_u13" href="standings.html?key=u13"><h3>Tabelle (Qualifikation)</h3></a>
-    </div>
-
-    <h2 id="u15" class="expandable">U15</h2>
-    <div id="u15_2" class="expanded_container">
-      <!- -a id="grundlagen_u15" href="u15"><h3>Grundlagen</h3></a- ->
-      <a id="standings_u15f" href="standings.html?key=u15f"><h3>Endstand</h3></a>
-      <a id="results_u15f" href="results.html?key=u15f"><h3>Spiele (Finale)</h3></a>
-      <a id="statistics_u15" href="/u15/statistics.html"><h3>Statistik (Finale)</h3></a>
-      <a id="schedule_u15" href="schedule.html?key=u15"><h3>Turniere (Qualifikation)</h3></a>
-      <a id="standings_u15" href="standings.html?key=u15"><h3>Tabelle (Qualifikation)</h3></a>
-      <a id="statistics_u15pn" href="/u15/statistics15pn.html"><h3>Statistik (Pordenone)</h3></a>
-    </div>
-
-    <h2 id="u17" class="expandable">U17</h2>
-    <div id="u17_2" class="expanded_container">
-      <a id="statistics_u17" href="/u17/statistics.html"><h3>Statistik</h3></a>
-      <a id="standings_u17" href="standings.html?key=u17"><h3>Endstand</h3></a>
-    </div>
-  </div-->
-
-  <h1 id="ak" class="expandable"><br>Allgemeine Klasse<br>&nbsp;</h1>
-  <div id="ak_2" class="expanded_container">
-
-    <h2 id="br4_20" class="expandable">Brückl 4 - Unterliga</h2>
-    <div id="br4_20_2" class="expanded_container">
-      <a id="schedule_br4g_20" href="schedule.html?key=br4g_20"><h3>Spieltermine</h3></a>
-      <a id="results_br4g_20" href="results.html?key=br4g_20"><h3>Ergebnisse</h3></a>
-      <a id="standings_br4g_20" href="standings.html?key=br4g_20"><h3>Tabelle</h3></a>
-      <a id="players_br4g_20" href="players.html?key=br4g_20"><h3>Spielerinnen</h3></a>
-      <a id="spielfeld6" href="/system6/spielfeld"><h3>Spielsystem</h3></a>
-    </div>
-    <h2 id="br3_20" class="expandable">Brückl 3 - Unterliga</h2>
-    <div id="br3_20_2" class="expanded_container">
-      <a id="schedule_br3g_20" href="schedule.html?key=br3g_20"><h3>Spieltermine</h3></a>
-      <a id="results_br3g_20" href="results.html?key=br3g_20"><h3>Ergebnisse</h3></a>
-      <a id="standings_br3g_20" href="standings.html?key=br3g_20"><h3>Tabelle</h3></a>
-      <a id="players_br3g_20" href="players.html?key=br3g_20"><h3>Spielerinnen</h3></a>
-      <a id="system6" href="/system6"><h3>Spielsystem</h3></a>
-    </div>
-    <h2 id="br2_20" class="expandable">Brückl 2 - Landesliga</h2>
-    <div id="br2_20_2" class="expanded_container">
-      <a id="schedule_br2m_20" href="schedule.html?key=br2m_20"><h3>Spieltermine (MPO)</h3></a>
-      <a id="results_br2m_20" href="results.html?key=br2m_20"><h3>Ergebnisse (MPO)</h3></a>
-      <a id="schedule_br2g_20" href="schedule.html?key=br2g_20"><h3>Spieltermine (GD)</h3></a>
-      <a id="results_br2g_20" href="results.html?key=br2g_20"><h3>Ergebnisse (GD)</h3></a>
-      <a id="standings_br2g_20" href="standings.html?key=br2g_20"><h3>Tabelle (GD)</h3></a>
-      <a id="players_br2g_20" href="players.html?key=br2g_20"><h3>Spielerinnen</h3></a>
-    </div>
-    <h2 id="br1_20" class="expandable">Brückl 1 - Bundesliga</h2>
-    <div id="br1_20_2" class="expanded_container">
-      <a id="schedule_br1g_20" href="schedule.html?key=br1g_20"><h3>Spieltermine</h3></a>
-      <a id="results_br1g_20" href="results.html?key=br1g_20"><h3>Ergebnisse</h3></a>
-      <a id="standings_br1g_20" href="standings.html?key=br1g_20"><h3>Tabelle</h3></a>
-      <a id="players_br1g_20" href="players.html?key=br1g_20"><h3>Spielerinnen</h3></a>
-    </div>
-
-    <!--h2 id="br4" class="expandable">Brückl 4 - Unterliga</h2>
-    <div id="br4_2" class="expanded_container">
-      <a id="grundlagen_br4" href="uld/grundlagen"><h3>Grundlagen</h3></a>
-
-      <a id="schedule_br4" href="schedule.html?key=br4"><h3>Spieltermine (FD)</h3></a>
-      <a id="results_br4" href="results.html?key=br4"><h3>Ergebnisse (FD)</h3></a>
-      <a id="standings_br4" href="standings.html?key=br4"><h3>Tabelle (FD)</h3></a>
-      <a id="statistics_br4" href="/uld/statistics4FD.html"><h3>Statistik (FD)</h3></a>
-
-      <a id="results_br4g" href="results.html?key=br4g"><h3>Ergebnisse (GD)</h3></a>
-      <a id="standings_br4g" href="standings.html?key=br4g"><h3>Tabelle (GD)</h3></a>
-    </div>
-
-    <h2 id="br3" class="expandable">Brückl 3 - Unterliga/Landesliga</h2>
-    <div id="br3_2" class="expanded_container">
-      <a id="grundlagen_br3" href="/uld/grundlagen3"><h3>Grundlagen</h3></a>
-
-      <a id="schedule_br3" href="schedule.html?key=br3"><h3>Spieltermine (AR)</h3></a>
-      <a id="results_br3" href="results.html?key=br3"><h3>Ergebnisse (AR)</h3></a>
-      <a id="standings_br3" href="standings.html?key=br3"><h3>Tabelle (AR)</h3></a>
-      <a id="statistics_br3" href="/uld/statistics3AR.html"><h3>Statistik (AR)</h3></a>
-
-      <a id="results_br3g" href="results.html?key=br3g"><h3>Ergebnisse (GD)</h3></a>
-      <a id="standings_br3g" href="standings.html?key=br3g"><h3>Tabelle (GD)</h3></a>
-      <a id="statistics_br3g" href="/uld/statistics3.html"><h3>Statistik (GD)</h3></a>
-
-      <a id="teambuilding_br3" href="/uld/grundlagen3/tb"><h3>Teambuilding</h3></a>
-    </div>
-
-    <h2 id="br2" class="expandable">Brückl 2 - Landesliga</h2>
-    <div id="br2_2" class="expanded_container">
-      <a id="schedule_br2m" href="schedule.html?key=br2m"><h3>Spieltermine (MPO)</h3></a>
-      <a id="results_br2m" href="results.html?key=br2m"><h3>Ergebnisse (MPO)</h3></a>
-      <a id="statistics_br2" href="/lld/statistics.html"><h3>Statistik (MPO)</h3></a>
-      <a id="results_br2g" href="results.html?key=br2g"><h3>Ergebnisse (GD)</h3></a>
-      <a id="standings_br2g" href="standings.html?key=br2g"><h3>Tabelle (GD)</h3></a>
-    </div>
-
-    <h2 id="br1" class="expandable">Brückl 1 - Bundesliga</h2>
-    <div id="br1_2" class="expanded_container">
-      <!- -a id="schedule_br1" href="schedule.html?key=br1"><h3>Spieltermine (MR)</h3></a- ->
-      <a id="results_br1" href="results.html?key=br1"><h3>Ergebnisse (MR)</h3></a>
-      <a id="standings_br1" href="standings.html?key=br1"><h3>Tabelle (MR)</h3></a>
-      <a id="results_br1g" href="results.html?key=br1g"><h3>Ergebnisse (GD)</h3></a>
-      <a id="standings_br1g" href="standings.html?key=br1g"><h3>Tabelle (GD)</h3></a>
-    </div-->
-  </div>
-
-  <h1 id="training" class="expandable"><br>Training<br>&nbsp;</h1>
-  <div id="training_2" class="expanded_container">
-    <a id="training_b1" href="presence.html?key=b1"><h3>Anwesenheit B1</h3></a>
-    <a id="training_b2" href="presence.html?key=b2"><h3>Anwesenheit B2</h3></a>
-    <a id="training_jungs" href="presence.html?key=jungs"><h3>Anwesenheit Jungs</h3></a>
-  </div>
-
-  <h1 id="archive" class="expandable"><br>Archiv<br>&nbsp;</h1>
-  <div id="archive_2" class="expanded_container">
-
-    <!-- keep h1 + div - necessary for archive with multiple years -->
-    <!--h1 id="a19" class="expandable">2018/19</h1>
-    <div id="a19_2" class="expanded_container"-->
-
-      <h2 id="u10_19" class="expandable">U10</h2>
-      <div id="u10_19_2" class="expanded_container">
-        <a id="standings_u10f_19" href="standings.html?key=u10f_19"><h3>Endstand (Finale)</h3></a>
-        <a id="results_u10f_19" href="results.html?key=u10f_19"><h3>Spiele (Finale)</h3></a>
-        <a id="schedule_u10_19" href="schedule.html?key=u10_19"><h3>Turniere (Qualifikation)</h3></a>
-        <a id="standings_u10_19" href="standings.html?key=u10_19"><h3>Tabelle (Qualifikation)</h3></a>
+      <h2 id="u12_21" class="expandable">U12 - Supermini II</h2>
+      <div id="u12_21_2" class="expanded_container">
+        <a id="info12" href="/info/u12.html"><h3>Infos</h3></a>
       </div>
 
-      <h2 id="u11_19" class="expandable">U11</h2>
-      <div id="u11_19_2" class="expanded_container">
-        <a id="standings_u11f_19" href="standings.html?key=u11f_19"><h3>Endstand (Finale, weiblich)</h3></a>
-        <a id="results_u11f_19" href="results.html?key=u11f_19"><h3>Spiele (Finale, weiblich)</h3></a>
-        <a id="standings_u11m_19" href="standings.html?key=u11m_19"><h3>Endstand (Finale, männlich)</h3></a>
-        <a id="results_u11m_19" href="results.html?key=u11m_19"><h3>Spiele (Finale, männlich)</h3></a>
-        <a id="schedule_u11_19" href="schedule.html?key=u11_19"><h3>Turniere (Qualifikation)</h3></a>
-        <a id="standings_u11_19" href="standings.html?key=u11_19"><h3>Tabelle (Qualifikation)</h3></a>
+      <h2 id="u13_21" class="expandable">U13 - Supermini</h2>
+      <div id="u13_21_2" class="expanded_container">
+        <a id="info13" href="/info/u13.html"><h3>Infos</h3></a>
       </div>
 
-      <h2 id="u12_19" class="expandable">U12</h2>
-      <div id="u12_19_2" class="expanded_container">
-        <a id="certificate_u12x_19" href="/imageview.html?i=u12%2Fcertificate.jpeg&b=%2Fov.html%23certificate_u12x_19"><h3>Urkunde</h3></a>
-        <a id="standings_u12x_19" href="standings.html?key=u12x_19"><h3>Endstand (ÖMS)</h3></a>
-        <a id="results_u12x_19" href="results.html?key=u12x_19"><h3>Spiele (ÖMS)</h3></a>
-        <a id="statistics_u12x_19" href="/statistics/19/u12.html"><h3>Statistik (ÖMS)</h3></a>
-        <a id="standings_u12f_19" href="standings.html?key=u12f_19"><h3>Endstand (Finale, weiblich)</h3></a>
-        <a id="results_u12f_19" href="results.html?key=u12f_19"><h3>Spiele (Finale, weiblich)</h3></a>
-        <a id="standings_u12m_19" href="standings.html?key=u12m_19"><h3>Endstand (Finale, männlich)</h3></a>
-        <a id="results_u12m_19" href="results.html?key=u12m_19"><h3>Spiele (Finale, männlich)</h3></a>
-        <a id="schedule_u12_19" href="schedule.html?key=u12_19"><h3>Turniere (Qualifikation)</h3></a>
-        <a id="standings_u12q_19" href="standings.html?key=u12q_19"><h3>Tabelle (Qualifikation)</h3></a>
+      <h2 id="u14_21" class="expandable">U14 - Mini</h2>
+      <div id="u14_21_2" class="expanded_container">
+        <a id="info14" href="/info/u14.html"><h3>Infos</h3></a>
       </div>
 
-      <h2 id="u13_19" class="expandable">U13</h2>
-      <div id="u13_19_2" class="expanded_container">
-        <a id="certificate_u13x_19" href="/imageview.html?i=u13%2Fcertificate.jpeg&b=%2Fov.html%23certificate_u13x_19"><h3>Urkunde</h3></a>
-        <a id="standings_u13x_19" href="standings.html?key=u13x_19"><h3>Endstand (ÖMS)</h3></a>
-        <a id="results_u13x_19" href="results.html?key=u13x_19"><h3>Spiele (ÖMS)</h3></a>
-        <a id="statistics_u13x_19" href="/statistics/19/u13x.html"><h3>Statistik (ÖMS)</h3></a>
-        <a id="standings_u13f_19" href="standings.html?key=u13f_19"><h3>Endstand (Finale)</h3></a>
-        <a id="results_u13f_19" href="results.html?key=u13f_19"><h3>Spiele (Finale)</h3></a>
-        <a id="statistics_u13_19" href="/statistics/19/u13.html"><h3>Statistik (Finale)</h3></a>
-        <a id="schedule_u13_19" href="schedule.html?key=u13_19"><h3>Turniere (Qualifikation)</h3></a>
-        <a id="standings_u13_19" href="standings.html?key=u13_19"><h3>Tabelle (Qualifikation)</h3></a>
+      <h2 id="u15_21" class="expandable">U15 - Midi</h2>
+      <div id="u15_21_2" class="expanded_container">
+        <a id="info15" href="/info/u15.html"><h3>Infos</h3></a>
+        <a id="system4" href="/system4"><h3>Spielsystem</h3></a>
       </div>
 
-      <h2 id="u15_19" class="expandable">U15</h2>
-      <div id="u15_19_2" class="expanded_container">
-        <a id="standings_u15f_19" href="standings.html?key=u15f_19"><h3>Endstand</h3></a>
-        <a id="results_u15f_19" href="results.html?key=u15f_19"><h3>Spiele (Finale)</h3></a>
-        <a id="statistics_u15_19" href="/statistics/19/u15.html"><h3>Statistik (Finale)</h3></a>
-        <a id="schedule_u15_19" href="schedule.html?key=u15_19"><h3>Turniere (Qualifikation)</h3></a>
-        <a id="standings_u15_19" href="standings.html?key=u15_19"><h3>Tabelle (Qualifikation)</h3></a>
-        <a id="statistics_u15pn_19" href="/statistics/19/u15pn.html"><h3>Statistik (Pordenone)</h3></a>
+      <h2 id="u16_21" class="expandable">U16 - Schülerinnen</h2>
+      <div id="u16_21_2" class="expanded_container">
+        <a id="info16" href="/info/u16.html"><h3>Infos</h3></a>
+        <a id="system6" href="/system6"><h3>Spielsystem</h3></a>
       </div>
 
-      <h2 id="u17_19" class="expandable">U17</h2>
-      <div id="u17_19_2" class="expanded_container">
-        <a id="results_u17_19" href="results.html?key=u17_19"><h3>Spiele (Quali ÖMS)</h3></a>
-        <a id="standings_u17_19" href="standings.html?key=u17_19"><h3>Endstand</h3></a>
-        <a id="statistics_u17_19" href="/statistics/19/u17.html"><h3>Statistik</h3></a>
+      <h2 id="u18_21" class="expandable">U18 - Jugend weiblich</h2>
+      <div id="u18_21_2" class="expanded_container">
+        <a id="info18" href="/info/u18.html"><h3>Infos</h3></a>
       </div>
 
+      <h2 id="u20_21" class="expandable">U20 - Juniorinnen</h2>
+      <div id="u20_21_2" class="expanded_container">
+        <a id="info20" href="/info/u20.html"><h3>Infos</h3></a>
+      </div>
+    </div>
 
-      <h2 id="br4_19" class="expandable">Brückl 4 - Unterliga</h2>
-      <div id="br4_19_2" class="expanded_container">
-        <!--a id="grundlagen_br4_19" href="uld/grundlagen"><h3>Grundlagen</h3></a-->
-        <!--a id="schedule_br4_19" href="schedule.html?key=br4_19"><h3>Spieltermine (FD)</h3></a-->
-        <a id="standings_br4_19" href="standings.html?key=br4_19"><h3>Tabelle (FD)</h3></a>
-        <a id="results_br4_19" href="results.html?key=br4_19"><h3>Ergebnisse (FD)</h3></a>
-        <a id="statistics_br4_19" href="/statistics/19/u15FD.html"><h3>Statistik (FD)</h3></a>
-        <a id="standings_br4g_19" href="standings.html?key=br4g_19"><h3>Tabelle (GD)</h3></a>
-        <a id="results_br4g_19" href="results.html?key=br4g_19"><h3>Ergebnisse (GD)</h3></a>
+    <h1 id="ak" class="expandable"><br>Allgemeine Klasse<br>&nbsp;</h1>
+    <div id="ak_2" class="expanded_container">
+      <h2 id="br3_21" class="expandable">Brückl 3 - Unterliga</h2>
+      <div id="br3_21_2" class="expanded_container">
+        <a id="spielfeld6" href="/system6/spielfeld"><h3>Spielsystem 1</h3></a>
+        <a id="system6" href="/system6"><h3>Spielsystem 2</h3></a>
       </div>
 
-      <h2 id="br3_19" class="expandable">Brückl 3 - Unterliga/Landesliga</h2>
-      <div id="br3_19_2" class="expanded_container">
-        <!--a id="grundlagen_br3_19" href="/uld/grundlagen3"><h3>Grundlagen</h3></a-->
-        <!--a id="schedule_br3_19" href="schedule.html?key=br3_19"><h3>Spieltermine (AR)</h3></a-->
-        <a id="standings_br3_19" href="standings.html?key=br3_19"><h3>Tabelle (AR)</h3></a>
-        <a id="results_br3_19" href="results.html?key=br3_19"><h3>Ergebnisse (AR)</h3></a>
-        <a id="statistics_br3_19" href="/statistics/19/u15AR.html"><h3>Statistik (AR)</h3></a>
-        <a id="standings_br3g_19" href="standings.html?key=br3g_19"><h3>Tabelle (GD)</h3></a>
-        <a id="results_br3g_19" href="results.html?key=br3g_19"><h3>Ergebnisse (GD)</h3></a>
-        <a id="statistics_br3g_19" href="/statistics/19/br3.html"><h3>Statistik (GD)</h3></a>
-        <a id="teambuilding_br3_19" href="/teambuilding/br3_19"><h3>Teambuilding</h3></a>
+      <h2 id="br2_21">Brückl 2 - Landesliga</h2>
+      <!--h2 id="br2_21" class="expandable">Brückl 2 - Landesliga</h2>
+      <div id="br2_21_2" class="expanded_container">
+      </div-->
+
+      <h2 id="br1_21" class="expandable">Brückl 1 - Bundesliga</h2>
+      <div id="br1_21_2" class="expanded_container">
+        <a id="herzhirn_21" href="/teambuilding/herzhirn_21"><h3>Herz + Hirn</h3></a>
+        <a id="training_a" href="presence.html?key=a"><h3>Anwesenheit</h3></a>
+        <a id="tagebuch_a" href="diary.html?key=a"><h3>Trainingstagebuch</h3></a>
+      </div>
+    </div>
+
+    <h1 id="archive" class="expandable"><br>Archiv<br>&nbsp;</h1>
+    <div id="archive_2" class="expanded_container">
+
+      <h1 id="a20" class="expandable">2019/20</h1>
+      <div id="a20_2" class="expanded_container">
+
+        <h2 id="u12_20" class="expandable">U12 - Supermini II</h2>
+        <div id="u12_20_2" class="expanded_container">
+          <a id="schedule_u12_20" href="schedule.html?key=u12_20"><h3>Turniere</h3></a>
+          <a id="standings_u12_20" href="standings.html?key=u12_20"><h3>Tabelle</h3></a>
+        </div>
+        <h2 id="u13_20" class="expandable">U13 - Supermini</h2>
+        <div id="u13_20_2" class="expanded_container">
+          <a id="schedule_u13_20" href="schedule.html?key=u13_20"><h3>Turniere</h3></a>
+          <a id="standings_u13_20" href="standings.html?key=u13_20"><h3>Tabelle</h3></a>
+        </div>
+        <h2 id="u14_20" class="expandable">U14 - Mini</h2>
+        <div id="u14_20_2" class="expanded_container">
+          <a id="schedule_u14_20" href="schedule.html?key=u14_20"><h3>Turniere</h3></a>
+          <a id="standings_u14_20" href="standings.html?key=u14_20"><h3>Tabelle</h3></a>
+        </div>
+        <h2 id="u15_20" class="expandable">U15 - Midi</h2>
+        <div id="u15_20_2" class="expanded_container">
+          <a id="schedule_u15_20" href="schedule.html?key=u15_20"><h3>Turniere</h3></a>
+          <a id="standings_u15_20" href="standings.html?key=u15_20"><h3>Tabelle</h3></a>
+        </div>
+        <h2 id="u16_20" class="expandable">U16 - Schülerinnen</h2>
+        <div id="u16_20_2" class="expanded_container">
+          <a id="schedule_u16_20" href="schedule.html?key=u16_20"><h3>Turniere</h3></a>
+          <a id="standings_u16_20" href="standings.html?key=u16_20"><h3>Tabelle</h3></a>
+        </div>
+        <h2 id="u20_20" class="expandable">U20 - Juniorinnen</h2>
+        <div id="u20_20_2" class="expanded_container">
+          <a id="standings_u20_20" href="standings.html?key=u20_20"><h3>Endstand</h3></a>
+        </div>
+
+        <h2 id="br4_20" class="expandable">Brückl 4 - Unterliga</h2>
+        <div id="br4_20_2" class="expanded_container">
+          <a id="schedule_br4g_20" href="schedule.html?key=br4g_20"><h3>Spieltermine</h3></a>
+          <a id="results_br4g_20" href="results.html?key=br4g_20"><h3>Ergebnisse</h3></a>
+          <a id="standings_br4g_20" href="standings.html?key=br4g_20"><h3>Tabelle</h3></a>
+          <a id="players_br4g_20" href="players.html?key=br4g_20"><h3>Spielerinnen</h3></a>
+        </div>
+        <h2 id="br3_20" class="expandable">Brückl 3 - Unterliga</h2>
+        <div id="br3_20_2" class="expanded_container">
+          <a id="schedule_br3g_20" href="schedule.html?key=br3g_20"><h3>Spieltermine</h3></a>
+          <a id="results_br3g_20" href="results.html?key=br3g_20"><h3>Ergebnisse</h3></a>
+          <a id="standings_br3g_20" href="standings.html?key=br3g_20"><h3>Tabelle</h3></a>
+          <a id="players_br3g_20" href="players.html?key=br3g_20"><h3>Spielerinnen</h3></a>
+        </div>
+        <h2 id="br2_20" class="expandable">Brückl 2 - Landesliga</h2>
+        <div id="br2_20_2" class="expanded_container">
+          <a id="schedule_br2m_20" href="schedule.html?key=br2m_20"><h3>Spieltermine (MPO)</h3></a>
+          <a id="results_br2m_20" href="results.html?key=br2m_20"><h3>Ergebnisse (MPO)</h3></a>
+          <a id="schedule_br2g_20" href="schedule.html?key=br2g_20"><h3>Spieltermine (GD)</h3></a>
+          <a id="results_br2g_20" href="results.html?key=br2g_20"><h3>Ergebnisse (GD)</h3></a>
+          <a id="standings_br2g_20" href="standings.html?key=br2g_20"><h3>Tabelle (GD)</h3></a>
+          <a id="players_br2g_20" href="players.html?key=br2g_20"><h3>Spielerinnen</h3></a>
+        </div>
+        <h2 id="br1_20" class="expandable">Brückl 1 - Bundesliga</h2>
+        <div id="br1_20_2" class="expanded_container">
+          <a id="schedule_br1g_20" href="schedule.html?key=br1g_20"><h3>Spieltermine</h3></a>
+          <a id="results_br1g_20" href="results.html?key=br1g_20"><h3>Ergebnisse</h3></a>
+          <a id="standings_br1g_20" href="standings.html?key=br1g_20"><h3>Tabelle</h3></a>
+          <a id="players_br1g_20" href="players.html?key=br1g_20"><h3>Spielerinnen</h3></a>
+        </div>
+        <a id="divinfo20" href="info/info20.html"><h2>Allgemeine Infos</h2></a>
       </div>
 
-      <h2 id="br2_19" class="expandable">Brückl 2 - Landesliga</h2>
-      <div id="br2_19_2" class="expanded_container">
-        <!--a id="schedule_br2m_19" href="schedule.html?key=br2m_19"><h3>Spieltermine (MPO)</h3></a-->
-        <a id="results_br2m_19" href="results.html?key=br2m_19"><h3>Ergebnisse (MPO)</h3></a>
-        <a id="statistics_br2_19" href="/statistics/19/mpo.html"><h3>Statistik (MPO)</h3></a>
-        <a id="standings_br2g_19" href="standings.html?key=br2g_19"><h3>Tabelle (GD)</h3></a>
-        <a id="results_br2g_19" href="results.html?key=br2g_19"><h3>Ergebnisse (GD)</h3></a>
+      <h1 id="a19" class="expandable">2018/19</h1>
+      <div id="a19_2" class="expanded_container">
+
+        <h2 id="u10_19" class="expandable">U10</h2>
+        <div id="u10_19_2" class="expanded_container">
+          <a id="standings_u10f_19" href="standings.html?key=u10f_19"><h3>Endstand (Finale)</h3></a>
+          <a id="results_u10f_19" href="results.html?key=u10f_19"><h3>Spiele (Finale)</h3></a>
+          <a id="schedule_u10_19" href="schedule.html?key=u10_19"><h3>Turniere (Qualifikation)</h3></a>
+          <a id="standings_u10_19" href="standings.html?key=u10_19"><h3>Tabelle (Qualifikation)</h3></a>
+        </div>
+
+        <h2 id="u11_19" class="expandable">U11</h2>
+        <div id="u11_19_2" class="expanded_container">
+          <a id="standings_u11f_19" href="standings.html?key=u11f_19"><h3>Endstand (Finale, weiblich)</h3></a>
+          <a id="results_u11f_19" href="results.html?key=u11f_19"><h3>Spiele (Finale, weiblich)</h3></a>
+          <a id="standings_u11m_19" href="standings.html?key=u11m_19"><h3>Endstand (Finale, männlich)</h3></a>
+          <a id="results_u11m_19" href="results.html?key=u11m_19"><h3>Spiele (Finale, männlich)</h3></a>
+          <a id="schedule_u11_19" href="schedule.html?key=u11_19"><h3>Turniere (Qualifikation)</h3></a>
+          <a id="standings_u11_19" href="standings.html?key=u11_19"><h3>Tabelle (Qualifikation)</h3></a>
+        </div>
+
+        <h2 id="u12_19" class="expandable">U12</h2>
+        <div id="u12_19_2" class="expanded_container">
+          <a id="certificate_u12x_19" href="/imageview.html?i=u12%2Fcertificate.jpeg&b=%2Fov.html%23certificate_u12x_19"><h3>Urkunde</h3></a>
+          <a id="standings_u12x_19" href="standings.html?key=u12x_19"><h3>Endstand (ÖMS)</h3></a>
+          <a id="results_u12x_19" href="results.html?key=u12x_19"><h3>Spiele (ÖMS)</h3></a>
+          <a id="statistics_u12x_19" href="/statistics/19/u12.html"><h3>Statistik (ÖMS)</h3></a>
+          <a id="standings_u12f_19" href="standings.html?key=u12f_19"><h3>Endstand (Finale, weiblich)</h3></a>
+          <a id="results_u12f_19" href="results.html?key=u12f_19"><h3>Spiele (Finale, weiblich)</h3></a>
+          <a id="standings_u12m_19" href="standings.html?key=u12m_19"><h3>Endstand (Finale, männlich)</h3></a>
+          <a id="results_u12m_19" href="results.html?key=u12m_19"><h3>Spiele (Finale, männlich)</h3></a>
+          <a id="schedule_u12_19" href="schedule.html?key=u12_19"><h3>Turniere (Qualifikation)</h3></a>
+          <a id="standings_u12q_19" href="standings.html?key=u12q_19"><h3>Tabelle (Qualifikation)</h3></a>
+        </div>
+
+        <h2 id="u13_19" class="expandable">U13</h2>
+        <div id="u13_19_2" class="expanded_container">
+          <a id="certificate_u13x_19" href="/imageview.html?i=u13%2Fcertificate.jpeg&b=%2Fov.html%23certificate_u13x_19"><h3>Urkunde</h3></a>
+          <a id="standings_u13x_19" href="standings.html?key=u13x_19"><h3>Endstand (ÖMS)</h3></a>
+          <a id="results_u13x_19" href="results.html?key=u13x_19"><h3>Spiele (ÖMS)</h3></a>
+          <a id="statistics_u13x_19" href="/statistics/19/u13x.html"><h3>Statistik (ÖMS)</h3></a>
+          <a id="standings_u13f_19" href="standings.html?key=u13f_19"><h3>Endstand (Finale)</h3></a>
+          <a id="results_u13f_19" href="results.html?key=u13f_19"><h3>Spiele (Finale)</h3></a>
+          <a id="statistics_u13_19" href="/statistics/19/u13.html"><h3>Statistik (Finale)</h3></a>
+          <a id="schedule_u13_19" href="schedule.html?key=u13_19"><h3>Turniere (Qualifikation)</h3></a>
+          <a id="standings_u13_19" href="standings.html?key=u13_19"><h3>Tabelle (Qualifikation)</h3></a>
+        </div>
+
+        <h2 id="u15_19" class="expandable">U15</h2>
+        <div id="u15_19_2" class="expanded_container">
+          <a id="standings_u15f_19" href="standings.html?key=u15f_19"><h3>Endstand</h3></a>
+          <a id="results_u15f_19" href="results.html?key=u15f_19"><h3>Spiele (Finale)</h3></a>
+          <a id="statistics_u15_19" href="/statistics/19/u15.html"><h3>Statistik (Finale)</h3></a>
+          <a id="schedule_u15_19" href="schedule.html?key=u15_19"><h3>Turniere (Qualifikation)</h3></a>
+          <a id="standings_u15_19" href="standings.html?key=u15_19"><h3>Tabelle (Qualifikation)</h3></a>
+          <a id="statistics_u15pn_19" href="/statistics/19/u15pn.html"><h3>Statistik (Pordenone)</h3></a>
+        </div>
+
+        <h2 id="u17_19" class="expandable">U17</h2>
+        <div id="u17_19_2" class="expanded_container">
+          <a id="results_u17_19" href="results.html?key=u17_19"><h3>Spiele (Quali ÖMS)</h3></a>
+          <a id="standings_u17_19" href="standings.html?key=u17_19"><h3>Endstand</h3></a>
+          <a id="statistics_u17_19" href="/statistics/19/u17.html"><h3>Statistik</h3></a>
+        </div>
+
+
+        <h2 id="br4_19" class="expandable">Brückl 4 - Unterliga</h2>
+        <div id="br4_19_2" class="expanded_container">
+          <!--a id="grundlagen_br4_19" href="uld/grundlagen"><h3>Grundlagen</h3></a-->
+          <!--a id="schedule_br4_19" href="schedule.html?key=br4_19"><h3>Spieltermine (FD)</h3></a-->
+          <a id="standings_br4_19" href="standings.html?key=br4_19"><h3>Tabelle (FD)</h3></a>
+          <a id="results_br4_19" href="results.html?key=br4_19"><h3>Ergebnisse (FD)</h3></a>
+          <a id="statistics_br4_19" href="/statistics/19/u15FD.html"><h3>Statistik (FD)</h3></a>
+          <a id="standings_br4g_19" href="standings.html?key=br4g_19"><h3>Tabelle (GD)</h3></a>
+          <a id="results_br4g_19" href="results.html?key=br4g_19"><h3>Ergebnisse (GD)</h3></a>
+        </div>
+
+        <h2 id="br3_19" class="expandable">Brückl 3 - Unterliga/Landesliga</h2>
+        <div id="br3_19_2" class="expanded_container">
+          <!--a id="grundlagen_br3_19" href="/uld/grundlagen3"><h3>Grundlagen</h3></a-->
+          <!--a id="schedule_br3_19" href="schedule.html?key=br3_19"><h3>Spieltermine (AR)</h3></a-->
+          <a id="standings_br3_19" href="standings.html?key=br3_19"><h3>Tabelle (AR)</h3></a>
+          <a id="results_br3_19" href="results.html?key=br3_19"><h3>Ergebnisse (AR)</h3></a>
+          <a id="statistics_br3_19" href="/statistics/19/u15AR.html"><h3>Statistik (AR)</h3></a>
+          <a id="standings_br3g_19" href="standings.html?key=br3g_19"><h3>Tabelle (GD)</h3></a>
+          <a id="results_br3g_19" href="results.html?key=br3g_19"><h3>Ergebnisse (GD)</h3></a>
+          <a id="statistics_br3g_19" href="/statistics/19/br3.html"><h3>Statistik (GD)</h3></a>
+          <a id="teambuilding_br3_19" href="/teambuilding/br3_19"><h3>Teambuilding</h3></a>
+        </div>
+
+        <h2 id="br2_19" class="expandable">Brückl 2 - Landesliga</h2>
+        <div id="br2_19_2" class="expanded_container">
+          <!--a id="schedule_br2m_19" href="schedule.html?key=br2m_19"><h3>Spieltermine (MPO)</h3></a-->
+          <a id="results_br2m_19" href="results.html?key=br2m_19"><h3>Ergebnisse (MPO)</h3></a>
+          <a id="statistics_br2_19" href="/statistics/19/mpo.html"><h3>Statistik (MPO)</h3></a>
+          <a id="standings_br2g_19" href="standings.html?key=br2g_19"><h3>Tabelle (GD)</h3></a>
+          <a id="results_br2g_19" href="results.html?key=br2g_19"><h3>Ergebnisse (GD)</h3></a>
+        </div>
+
+        <h2 id="br1_19" class="expandable">Brückl 1 - Bundesliga</h2>
+        <div id="br1_19_2" class="expanded_container">
+          <!--a id="schedule_br1_19" href="schedule.html?key=br1_19"><h3>Spieltermine (MR)</h3></a-->
+          <a id="standings_br1_19" href="standings.html?key=br1_19"><h3>Tabelle (MR)</h3></a>
+          <a id="results_br1_19" href="results.html?key=br1_19"><h3>Ergebnisse (MR)</h3></a>
+          <a id="standings_br1g_19" href="standings.html?key=br1g_19"><h3>Tabelle (GD)</h3></a>
+          <a id="results_br1g_19" href="results.html?key=br1g_19"><h3>Ergebnisse (GD)</h3></a>
+        </div>
+
+        <a id="divinfo19" href="info/info19.html"><h2>Allgemeine Infos</h2></a>
       </div>
+    </div>
 
-      <h2 id="br1_19" class="expandable">Brückl 1 - Bundesliga</h2>
-      <div id="br1_19_2" class="expanded_container">
-        <!--a id="schedule_br1_19" href="schedule.html?key=br1_19"><h3>Spieltermine (MR)</h3></a-->
-        <a id="standings_br1_19" href="standings.html?key=br1_19"><h3>Tabelle (MR)</h3></a>
-        <a id="results_br1_19" href="results.html?key=br1_19"><h3>Ergebnisse (MR)</h3></a>
-        <a id="standings_br1g_19" href="standings.html?key=br1g_19"><h3>Tabelle (GD)</h3></a>
-        <a id="results_br1g_19" href="results.html?key=br1g_19"><h3>Ergebnisse (GD)</h3></a>
-      </div>
-
-    <!-- keep end-of-div - necessary for archive with multiple years -->
-    <!--/div-->
-  </div>
-
-
-  <h1 id="info" class="expandable"><br>Infos<br>&nbsp;</h1>
-  <div id="info_2" class="expanded_container">
-    <a id="calendar" href="calendar/calendar.html"><h3>Kalender</h3></a>
-    <a id="wunsch" href="info/wunschzettel.html"><h3>Ein Wunschzettel</h3></a>
-    <a id="gesucht" href="info/gesucht.html"><h3>Gesucht!<br>Bitte an Freunde und Bekannte weiterleiten.</h3></a>
-    <a id="divinfo20" href="info/info20.html"><h3>Allgemeine Infos - Neu!</h3></a>
-    <a id="divinfo19" href="info/info19.html"><h3>Allgemeine Infos (Vorsaison)</h3></a>
-  </div>
+    <h1 id="info" class="expandable"><br>Infos<br>&nbsp;</h1>
+    <div id="info_2" class="expanded_container">
+      <a id="calendar" href="calendar/calendar.html"><h3>Kalender</h3></a>
+      <a id="wunsch" href="info/wunschzettel.html"><h3>Ein Wunschzettel</h3></a>
+      <a id="gesucht" href="info/gesucht.html"><h3>Gesucht!<br>Bitte an Freunde und Bekannte weiterleiten.</h3></a>
+      <a id="divinfo21" href="info/info21.html"><h3>Allgemeine Infos</h3></a>
+    </div>
 
   </nav>
 </body>

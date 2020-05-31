@@ -10,7 +10,7 @@ html, * {
   border: 0 none;
   text-align: left;
 }
-div.training {
+div#training {
   display: inline-block;
   position: relative;
   width: 100%;
@@ -30,7 +30,7 @@ div.caption {
 div.column {
   position: absolute;
   background-color: lightgray;
-  padding: 0.2em;
+  /*padding: 0.2em;*/
   box-sizing: border-box;
 }
 div.column > div {
@@ -49,7 +49,7 @@ div.c2 {
 }
 div.c3 {
   left: 8.5em;
-  width: 4em;
+  width: 5em;
 }
 div.c2 > div, div.c3 > div {
   text-align: right;
@@ -83,7 +83,7 @@ div.x2 {
   white-space: nowrap;
 }
 div.c4 {
-  left: 12.5em;
+  left: 13.5em;
   right: 4.5em;
   background-color: lightgray;
   height: 3em;
@@ -148,6 +148,37 @@ div.data > div:nth-child(2) > div {
 div.data > div:nth-child(2) > div:first-child {
   border-width: 0px 1px 1px 1px;
 }
+/* data-cells, sum row */
+div.data > div:last-child > div {
+  background-color: darkgray;
+}
+/* sum row */
+div#training div.column div.x1:last-child {
+  background-color: darkgray;
+}
+/* -- training info -------------------------------------------------------- */
+div#training_info {
+  position: absolute;
+  display: none;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  font-family: Arial,sans-serif;
+  z-index: 1;
+}
+div#training_info > div.title {
+  padding: 0.1em 0.2em;
+  background-color: darkgray;
+  color: #EEE;
+  font-weight: bold;
+  font-size: 3em;
+}
+div#training_info > div.info {
+  font-size: 2.5em;
+  padding: 0.25em;
+}
+/* -- training info - (end) ------------------------------------------------ */
   </style>
   <script src="/script/polyfills.js"></script>
   <script src="/script/request.js"></script>
@@ -171,5 +202,5 @@ function init() {
   </div>
   <div id="content_container"><pre id="content">Loading...</pre></div>
   <div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div>
-<body>
+</body>
 </html>

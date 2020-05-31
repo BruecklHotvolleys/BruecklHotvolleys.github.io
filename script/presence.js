@@ -14,7 +14,12 @@ if (window.bhv.training === undefined) {
 window.bhv.training.presence = {
 
   /**
-   * Starts the createion of the presence view.
+   * The diary data.
+   */
+  diary: null,
+
+  /**
+   * Starts the creation of the presence view.
    * @return {void}
    */
   init: function() {
@@ -28,19 +33,40 @@ window.bhv.training.presence = {
   },
 
   /**
-   * Creates the presence view from the loaded data.
-   * @param {string} rawdata The loaded data(JSON).
+   * Try to load diary, too.
    * @return {void}
    */
-  init2: function(rawdata) {
+  init2: function(rawData) {
+    var key = bhv.request.utils.getKey(),
+        query = '/data/training/diary_' + key + '.json',
+        continueOk = function(rawDiary) {
+          this.init3(rawData, rawDiary);
+        },
+        continueNok = function(info) {
+          // TODO error handler if any real problem
+          this.init3(rawData, null);
+        };
+
+    // try to load diary
+    this._getData(query, continueOk.bind(this), continueNok.bind(this));
+  },
+
+  /**
+   * Creates the presence view from the loaded data.
+   * @param {string} rawdata The loaded data(JSON).
+   * @param {string} rawdiary The loaded data of diary(JSON).
+   * @return {void}
+   */
+  init3: function(rawdata, rawdiary) {
     var html, container,
-        data = JSON.parse(rawdata);
+        data = JSON.parse(rawdata),
+        diary = rawdiary != null ? JSON.parse(rawdiary) : null;
 
     // if any data
     if (data) {
 
       // create view
-      html = this.create(data);
+      html = this.create(data, diary);
       if (html == '') {
         html = '???';
       }
@@ -50,6 +76,9 @@ window.bhv.training.presence = {
       if (container) {
         container.innerHTML = html;
       }
+
+      // store the diary to display it
+      bhv.training.presence.diary = diary;
     }
 
     this._showCol5();
@@ -58,10 +87,48 @@ window.bhv.training.presence = {
   _showCol5: function() {
     // show most right column
     var scroll = document.querySelector(
-      'div#content_container > div.training > div.column.c4 > div.data > div.x1 > div:last-child'
+      'div#content_container > div#training > div.column.c4 > div.data > div.x1 > div:last-child'
     );
     if (scroll) {
       scroll.scrollIntoView(true);
+
+      // connect diary
+      if (bhv.training.presence.diary != null) {
+        var info = document.querySelector('div#training_info'),
+            main = document.querySelector('div#training'),
+            lnks = document.querySelectorAll(
+            "div#content_container > div#training div.link_diary");
+        if (main && info && lnks) {
+
+          // show info
+          var handler = function(event) {
+            var elem = event.target;
+            if (elem && elem.hasAttribute('data-diary')) {
+              var key = elem.getAttribute('data-diary'),
+                  infoTit = document.querySelector('div#training_info > div.title'),
+                  infoInf = document.querySelector('div#training_info > div.info');
+              if (infoTit && infoInf
+                  && bhv.training.presence.diary[key]) {
+                infoTit.innerHTML = bhv.training.presence.diary[key].title;
+                infoInf.innerHTML = bhv.training.presence.diary[key].info;
+                info.style.display = 'block';
+                main.style.display = 'none';
+              }
+            }
+          };
+          for (var i = 0; i < lnks.length; ++i) {
+            lnks[i].addEventListener('click', handler);
+          }
+
+          // hide info
+          var handlerInfo = function(event) {
+            main.style.display = 'block';
+            info.style.display = 'none';
+          };
+          info.addEventListener('click', handlerInfo);
+        }
+      }
+
     } else {
       setTimeout(this._showCol5, 100);
     }
@@ -90,16 +157,21 @@ window.bhv.training.presence = {
   /**
    * Creates the view.
    * @param {JSON} data The loaded data.
+   * @param {JSON} diary The loaded diary or null.
    * @return {string} The html view.
    */
-  create: function(data) {
-    return '<div class="training">'
+  create: function(data, diary) {
+    return '<div id="training">'
       + this._createHeader(data)
-      + this._createColumn(1, data)
-      + this._createColumn(2, data)
-      + this._createColumn(3, data)
-      + this._createColumn(4, data)
-      + this._createColumn(5, data)
+      + this._createColumn(1, data, diary)
+      + this._createColumn(2, data, diary)
+      + this._createColumn(3, data, diary)
+      + this._createColumn(4, data, diary)
+      + this._createColumn(5, data, diary)
+      + '</div>'
+      + '<div id="training_info">'
+      + '<div class="title">&nbsp;</div>'
+      + '<div class="info">&nbsp;</div>'
       + '</div>';
   },
 
@@ -107,7 +179,14 @@ window.bhv.training.presence = {
     return "<div class=\"caption\">{{title}}</div>".replace('{{title}}', this._nbsp(data.name));
   },
 
-  _createColumn: function(col, data) {
+  /**
+   * Creates the view of a column.
+   * @param {integer} col The index of the column.
+   * @param {JSON} data The loaded data.
+   * @param {JSON} diary The loaded diary or null.
+   * @return {string} The html view.
+   */
+  _createColumn: function(col, data, diary) {
     var html,
         result,
         attribs = '',
@@ -120,13 +199,13 @@ window.bhv.training.presence = {
         html = this._createCol15(data);
         break;
       case 2:
-        html = this._createCol23(data, '&sum;', 0);
+        html = this._createCol2(data, '&sum;', 0);
         break;
       case 3:
-        html = this._createCol23(data, '%', 1);
+        html = this._createCol3(data, '%', 1);
         break;
       case 4:
-        result = this._createColData(data);
+        result = this._createColData(data, diary);
         html = result.html;
         attribs = ' style="' + result.style + '"';
         break;
@@ -149,7 +228,7 @@ window.bhv.training.presence = {
 
     return html;
   },
-  _createCol23: function(data, info, index) {
+  _createCol2: function(data, info, index) {
     var html = '<div class="x2">' + info + '</div>', // &sum; %
         tpl = '<div class="x1">{{value}}</div>';
 
@@ -159,18 +238,38 @@ window.bhv.training.presence = {
 
     return html;
   },
+  _createCol3: function(data, info, index) {
+    var html = '<div class="x2">' + info + '&nbsp;</div>', // &sum; %
+        tpl = '<div class="x1">&nbsp;{{value}}&nbsp;</div>';
 
-  _createColData: function(data) {
+    for (var i = 0; i < data.data.length; ++i) {
+      html += tpl.replace('{{value}}', data.data[i][index]); // 0 1
+    }
+
+    return html;
+  },
+
+  /**
+   * Creates the view of a data column.
+   * @param {JSON} data The loaded data.
+   * @param {JSON} diary The loaded diary or null.
+   * @return {string} The html view.
+   */
+  _createColData: function(data, diary) {
     var html = '',
       tplRow = '<div class="x1">{{content}}</div>',
       tplCol = '<div>{{content}}</div>',
+      tplColDiary = '<div class="link_diary" data-diary="{{data}}">{{content}}</div>',
       tplCol2 = '<div class="colspan2">{{content}}</div>';
 
     for (var row = -2, r2 = data.data.length; row < r2; ++row) {
       var htmlRow = '',
           src = row === -2 ? data.header1
-            : (row === -1 ? data.header2 : data.data[row]);
+            : (row === -1 ? data.header2 : data.data[row]),
+          lastRow = row == r2 - 1,
+          keyDay = '', key;
 
+      // create a row of the data column
       for (var c = row < 0 ? 0 : 2, c2 = src.length; c < c2; ++c) {
         var value;
 
@@ -179,20 +278,38 @@ window.bhv.training.presence = {
           case -2:
             value = '' + src[c];
             break;
+
           // header 2
           case -1:
-            value = src[c] === null ? '' : '' + src[c];
+            // value = src[c] === null ? '' : '' + src[c];
+            keyDay = '';
+            if (src[c] === null) {
+              value = '';
+            } else {
+              value = '' + src[c];
+              // TODO get key of day
+              key = parseInt(data.header1[c], 10);
+              keyDay = '202005' + (key < 10 ? '0' : '') + key;
+            }
             break;
 
           // data (0-n)
           default:
-            value = src[c] === 1 ? '&#x2600;' : '';
+            if (lastRow) {
+              value = src[c] ? ('' + src[c]) : '';
+            } else {
+              value = src[c] === 1 ? '&#x2600;' : '';
+            }
             break;
         }
 
         if (row == -1 && value.length > 2 && c < c2 - 1) {
           htmlRow += tplCol2.replace('{{content}}', this._nbsp(value));
           ++c;
+        } else if (row == -1 && diary && diary[keyDay]) {
+          htmlRow += tplColDiary
+            .replace('{{data}}', keyDay)
+            .replace('{{content}}', this._nbsp(value));
         } else {
           htmlRow += tplCol.replace('{{content}}', value === ''
             ? '&nbsp;' : this._nbsp(value));
@@ -204,8 +321,8 @@ window.bhv.training.presence = {
 
     return {
       "html": '<div class="data">' + html + '</div>',
-      //                 padding + header + datarows
-      "style": 'height: ' + (0.4 + 6 + 3 * data.data.length) + 'em;'
+      //                header + datarows
+      "style": 'height: ' + (6 + 3 * data.data.length) + 'em;'
     };
   },
 
