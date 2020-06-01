@@ -10,7 +10,7 @@ const CACHE = {
   'info': 'bhv-infoapp-14545db906177853eedc9ed447cbd3db',
   'statistics_19': 'bhv-infoapp-1721c54a73e426c061a4da259e61d823',
   'teambuilding_19': 'bhv-infoapp-9aeecfc5514d12fd7a4ac6ca488835d7',
-  'teambuilding_21': 'bhv-infoapp-5c61f80114b2e00eb1018599ead6c4ff'
+  'teambuilding_21': 'bhv-infoapp-46ae2944ba1a00c54baa56e2a8e5506c'
 }
 const FILES = {
   'main': [
@@ -232,6 +232,9 @@ const FILES = {
     '/teambuilding/br3_19/item3.jpg'
   ],
   'teambuilding_21': [
+    '/teambuilding/herzhirn_21/2005241.jpeg',
+    '/teambuilding/herzhirn_21/2005242.jpeg',
+    '/teambuilding/herzhirn_21/index_.html',
     '/teambuilding/herzhirn_21/',
     '/teambuilding/herzhirn_21/index.html'
   ]
