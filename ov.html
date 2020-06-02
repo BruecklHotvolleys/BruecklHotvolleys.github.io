@@ -15,7 +15,15 @@ body {
   <link rel="shortcut icon" href="/favicons/favicon.ico">
   <script src="/script/polyfills.js"></script>
   <script src="/elements/expander/script.js"></script>
+  <script src="/script/utils.js"></script>
   <script>
+// connects the service worker
+bhv.utils.connectSW();
+
+/**
+ * Initializes the overview (expanders).
+ * return {void}
+ */
 function init() {
   var expanders = [
     'nw',

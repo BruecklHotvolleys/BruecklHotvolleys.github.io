@@ -39,23 +39,16 @@ a {
   background-size: contain;
 }
   </style>
+  <script src="/script/utils.js"></script>
   <script>
 // register service worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register('/bhv-service-worker.js')
-      .then((reg) => {
-        console.log('BHV Info App service worker registered.', reg);
-      });
-  });
-}
+bhv.utils.registerSW();
   </script>
 </head>
 <body>
-  <noscript>This is the warning.</noscript>
+  <noscript>Bitte JavaScript aktivieren!</noscript>
   <main role="main">
-    <a href="/ov.html" aria-label="Goto overview.">&nbsp;</a>    
+    <a href="/ov.html" aria-label="Goto overview.">&nbsp;</a>
   </main>
 </body>
 </html>

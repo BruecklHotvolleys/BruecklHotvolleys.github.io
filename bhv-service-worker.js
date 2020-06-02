@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 // the names and the files of the cache
 const CACHE = {
-  'main': 'bhv-infoapp-e73736174a4c5dcc854990b7b3185c0d',
+  'main': 'bhv-infoapp-efb242d1aa0fcb1ef7b02f8adae119bb',
   'data': 'bhv-infoapp-4643ba8e72625237c69999b2b62f64c7',
   'system4': 'bhv-infoapp-3a74649350f1923a75308d111795c28c',
   'system6': 'bhv-infoapp-ae27fd018f4793588733f92091e95965',
@@ -11,7 +11,7 @@ const CACHE = {
   'statistics_19': 'bhv-infoapp-1721c54a73e426c061a4da259e61d823',
   'teambuilding_19': 'bhv-infoapp-9aeecfc5514d12fd7a4ac6ca488835d7',
   'teambuilding_21': 'bhv-infoapp-54e1f6f5301d4eb52424549a4eccf732'
-}
+};
 const FILES = {
   'main': [
     '/404.html',
@@ -237,69 +237,69 @@ const FILES = {
     '/teambuilding/herzhirn_21/',
     '/teambuilding/herzhirn_21/index.html'
   ]
-}
+};
 
 self.addEventListener('install', (evt) => {
-  console.log('[sw] install')
+  console.log('[sw] install');
 
   // init cache with files
-  const parts = Object.keys(CACHE)
+  const parts = Object.keys(CACHE);
   evt.waitUntil(
     parts.forEach((part) => {
       caches.open(CACHE[part])
         .then((cache) => {
-          console.log('create cache: ' + part + ' - '+ CACHE[part])
-          return cache.addAll(FILES[part])
-        })
+          console.log('create cache: ' + part + ' - '+ CACHE[part]);
+          return cache.addAll(FILES[part]);
+        });
     })
-  )
+  );
 
-  self.skipWaiting()
-})
+  self.skipWaiting();
+});
 
 
 self.addEventListener('activate', (evt) => {
-  console.log('[sw] activate')
+  console.log('[sw] activate');
 
   // remove old cache data
-  const valid_names = Object.values(CACHE)
+  const valid_names = Object.values(CACHE);
   evt.waitUntil(
     caches.keys().then((names) => {
       return Promise.all(names.map((name) => {
         if (valid_names.indexOf(name) == -1) {
-          console.log('remove cache ' + name)
-          return caches.delete(name)
+          console.log('remove cache ' + name);
+          return caches.delete(name);
         }
-      }))
+      }));
     })
-  )
+  );
 
-  self.clients.claim()
-})
+  self.clients.claim();
+});
 
 
 self.addEventListener('fetch', (evt) => {
-  console.log('[sw] fetch', evt.request.url)
+  console.log('[sw] fetch', evt.request.url);
 
   // get right cache
   // link to dir with index.html is fetched without trailing /, then with trailing /
-  let nameCache = CACHE['main']
+  let nameCache = CACHE['main'];
   if (evt.request.url.indexOf('/data/') > -1) {
-    nameCache = CACHE['data']
+    nameCache = CACHE['data'];
   } else if (evt.request.url.indexOf('/system4') > -1) {
-    nameCache = CACHE['system4']
+    nameCache = CACHE['system4'];
   } else if (evt.request.url.indexOf('/system6') > -1) {
-    nameCache = CACHE['system6']
+    nameCache = CACHE['system6'];
   } else if (evt.request.url.indexOf('/favicons/') > -1) {
-    nameCache = CACHE['system6']
+    nameCache = CACHE['system6'];
   } else if (evt.request.url.indexOf('/info/') > -1) {
-    nameCache = CACHE['info']
+    nameCache = CACHE['info'];
   } else if (evt.request.url.indexOf('/statistics/19/') > -1) {
-    nameCache = CACHE['statistics_19']
+    nameCache = CACHE['statistics_19'];
   } else if (evt.request.url.indexOf('/teambuilding/br3_19') > -1) {
-    nameCache = CACHE['teambuilding_19']
+    nameCache = CACHE['teambuilding_19'];
   } else if (evt.request.url.indexOf('/teambuilding/herzhirn_21') > -1) {
-    nameCache = CACHE['teambuilding_21']
+    nameCache = CACHE['teambuilding_21'];
   }
 
   // fetch a ressource
@@ -308,18 +308,18 @@ self.addEventListener('fetch', (evt) => {
       .then((cache) => {
         return cache.match(evt.request, { 'ignoreSearch': true })
           .then((response) => {
-            console.log(' -->', (response ? 'found' : 'not found') + ' in ' + nameCache, evt.request.url)
-            return response || fetch(evt.request)
-          })
+            console.log(' -->', (response ? 'found' : 'not found') + ' in ' + nameCache, evt.request.url);
+            return response || fetch(evt.request);
+          });
       })
-  )
-})
+  );
+});
 
 
 self.addEventListener('message', messageEvent => {
-  // start the waiting new serviceworker
+  // start the waiting for new serviceworker
   if (messageEvent.data === 'skipWaiting') {
-    console.log('[sw] start waiting service worker')
+    console.log('[sw] start waiting for service worker');
     return skipWaiting();
   }
 });
