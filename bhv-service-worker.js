@@ -2,7 +2,7 @@
 
 // the names and the files of the cache
 const CACHE = {
-  'main': 'bhv-infoapp-311eb34507409229d2c495b9ab01bec1',
+  'main': 'bhv-infoapp-e73736174a4c5dcc854990b7b3185c0d',
   'data': 'bhv-infoapp-4643ba8e72625237c69999b2b62f64c7',
   'system4': 'bhv-infoapp-3a74649350f1923a75308d111795c28c',
   'system6': 'bhv-infoapp-ae27fd018f4793588733f92091e95965',
@@ -10,7 +10,7 @@ const CACHE = {
   'info': 'bhv-infoapp-14545db906177853eedc9ed447cbd3db',
   'statistics_19': 'bhv-infoapp-1721c54a73e426c061a4da259e61d823',
   'teambuilding_19': 'bhv-infoapp-9aeecfc5514d12fd7a4ac6ca488835d7',
-  'teambuilding_21': 'bhv-infoapp-46ae2944ba1a00c54baa56e2a8e5506c'
+  'teambuilding_21': 'bhv-infoapp-54e1f6f5301d4eb52424549a4eccf732'
 }
 const FILES = {
   'main': [
@@ -234,7 +234,6 @@ const FILES = {
   'teambuilding_21': [
     '/teambuilding/herzhirn_21/2005241.jpeg',
     '/teambuilding/herzhirn_21/2005242.jpeg',
-    '/teambuilding/herzhirn_21/index_.html',
     '/teambuilding/herzhirn_21/',
     '/teambuilding/herzhirn_21/index.html'
   ]
@@ -283,12 +282,13 @@ self.addEventListener('fetch', (evt) => {
   console.log('[sw] fetch', evt.request.url)
 
   // get right cache
+  // link to dir with index.html is fetched without trailing /, then with trailing /
   let nameCache = CACHE['main']
   if (evt.request.url.indexOf('/data/') > -1) {
     nameCache = CACHE['data']
-  } else if (evt.request.url.indexOf('/system4/') > -1) {
+  } else if (evt.request.url.indexOf('/system4') > -1) {
     nameCache = CACHE['system4']
-  } else if (evt.request.url.indexOf('/system6/') > -1) {
+  } else if (evt.request.url.indexOf('/system6') > -1) {
     nameCache = CACHE['system6']
   } else if (evt.request.url.indexOf('/favicons/') > -1) {
     nameCache = CACHE['system6']
@@ -296,9 +296,9 @@ self.addEventListener('fetch', (evt) => {
     nameCache = CACHE['info']
   } else if (evt.request.url.indexOf('/statistics/19/') > -1) {
     nameCache = CACHE['statistics_19']
-  } else if (evt.request.url.indexOf('/teambuilding/br3_19/') > -1) {
+  } else if (evt.request.url.indexOf('/teambuilding/br3_19') > -1) {
     nameCache = CACHE['teambuilding_19']
-  } else if (evt.request.url.indexOf('/teambuilding/herzhirn_21/') > -1) {
+  } else if (evt.request.url.indexOf('/teambuilding/herzhirn_21') > -1) {
     nameCache = CACHE['teambuilding_21']
   }
 
@@ -314,3 +314,12 @@ self.addEventListener('fetch', (evt) => {
       })
   )
 })
+
+
+self.addEventListener('message', messageEvent => {
+  // start the waiting new serviceworker
+  if (messageEvent.data === 'skipWaiting') {
+    console.log('[sw] start waiting service worker')
+    return skipWaiting();
+  }
+});
