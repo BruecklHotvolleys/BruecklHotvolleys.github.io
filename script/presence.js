@@ -23,7 +23,7 @@ window.bhv.training.presence = {
    * @return {void}
    */
   init: function() {
-    var key = bhv.request.utils.getKey(),
+    var key = window.bhv.request.utils.getKey(),
         query = '/data/training/' + key + '.json';
 
     // load data and continue with init2
@@ -37,7 +37,7 @@ window.bhv.training.presence = {
    * @return {void}
    */
   init2: function(rawData) {
-    var key = bhv.request.utils.getKey(),
+    var key = window.bhv.request.utils.getKey(),
         query = '/data/training/diary_' + key + '.json',
         continueOk = function(rawDiary) {
           this.init3(rawData, rawDiary);
@@ -78,7 +78,7 @@ window.bhv.training.presence = {
       }
 
       // store the diary to display it
-      bhv.training.presence.diary = diary;
+      window.bhv.training.presence.diary = diary;
     }
 
     this._showCol5();
@@ -93,7 +93,7 @@ window.bhv.training.presence = {
       scroll.scrollIntoView(true);
 
       // connect diary
-      if (bhv.training.presence.diary != null) {
+      if (window.bhv.training.presence.diary != null) {
         var info = document.querySelector('div#training_info'),
             main = document.querySelector('div#training'),
             lnks = document.querySelectorAll(
@@ -108,9 +108,9 @@ window.bhv.training.presence = {
                   infoTit = document.querySelector('div#training_info > div.title'),
                   infoInf = document.querySelector('div#training_info > div.info');
               if (infoTit && infoInf
-                  && bhv.training.presence.diary[key]) {
-                infoTit.innerHTML = bhv.training.presence.diary[key].title;
-                infoInf.innerHTML = bhv.training.presence.diary[key].info;
+                  && window.bhv.training.presence.diary[key]) {
+                infoTit.innerHTML = window.bhv.training.presence.diary[key].title;
+                infoInf.innerHTML = window.bhv.training.presence.diary[key].info;
                 info.style.display = 'block';
                 main.style.display = 'none';
               }

@@ -37,10 +37,10 @@ window.bhv.utils = {
           .then((reg) => {
             console.log('BHV Info App service worker registered.', reg);
 
-            bhv.utils.listenForWaitingServiceWorker(reg, bhv.utils.promptUserToRefresh);
+            window.bhv.utils.listenForWaitingServiceWorker(reg, window.bhv.utils.promptUserToRefresh);
           });
 
-        bhv.utils.initReload();
+        window.bhv.utils.initReload();
       });
     }
   },
@@ -57,10 +57,10 @@ window.bhv.utils = {
           .getRegistration()
           .then((reg) => {
             console.log('BHV Info App service worker connected.', reg);
-            bhv.utils.listenForWaitingServiceWorker(reg, bhv.utils.promptUserToRefresh);
+            window.bhv.utils.listenForWaitingServiceWorker(reg, window.bhv.utils.promptUserToRefresh);
           });
 
-        bhv.utils.initReload();
+        window.bhv.utils.initReload();
       });
     }
   },

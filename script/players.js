@@ -1,76 +1,120 @@
-// a6335ee9f3a27260e61c90928f8f3ba8
+var activeSeason = '21';
 
-var activeSeason = '20';
 var map = {
   '20': {
-    // UL 24971 3: 31661, 4: 31662
-    'br4g_20': [31662, null, 'Spielerinnen Unterliga 4'],
-    'br3g_20': [31661, null, 'Spielerinnen Unterliga 3'],
+    // UL      tea_id, -,    title
+    'br4g_20': [31662, null, 'Unterliga 4'],
+    'br3g_20': [31661, null, 'Unterliga 3'],
     // LLD
-    'br2g_20': [31654, null, 'Spielerinnen Landesliga'],
-    // BL 30505
-    'br1g_20': [30505, null, 'Spielerinnen Bundesliga']
+    'br2g_20': [31654, null, 'Landesliga'],
+    // BL
+    'br1g_20': [30505, null, 'Bundesliga'],
+
+    'u12_20': [32221, null, 'Supermini II'],
+    'u13_20': [32189, null, 'Supermini'],
+    'u13m_20': [32215, null, 'Supermini Burschen'],
+    'u14_20': [32168, null, 'Mini'],
+    'u14m_20': [32186, null, 'Mini Burschen'],
+    'u15_20': [32158, null, 'Midi'],
+    'u16_20': [32141, null, 'Schülerinnen'],
+    'u20_20': [32117, null, 'Juniorinnen']
   }
 }
 
 function getPlayers() {
-  var key = bhv.request.utils.getKey();
+  var key = window.bhv.request.utils.getKey();
 
   var keys = Object.keys(map);
   for (var k1 = 0; k1 < keys.length; ++k1) {
     var mm = map[keys[k1]];
     if (mm && mm[key]) {
       if (keys[k1] === activeSeason) {
-        bhv.request.queryPlayers(
+        window.bhv.request.queryPlayers(
           mm[key][0],
-          handlePlayers, getPlayersOffline
+          handlePlayersCur, getPlayersOffline
         );
       } else {
         // TODO
-        bhv.request.queryPlayersArchiveGz(
+        window.bhv.request.queryPlayersArchiveGz(
           keys[k1], key,
-          handlePlayers, getPlayersOffline
+          handlePlayersArchive, onErrorArchive
         );
       }
     }
   }
 }
 
-function handlePlayers(response) {
+/**
+ * Create the html view of the players and inject it into page for current
+ * season.
+ * @param {string} response The response from volleynet server.
+ * @return {void}
+ */
+function handlePlayersCur(response) {
+  _handlePlayers(response, true);
+}
+
+/**
+ * Create the html view of the players and inject it into page for previous
+ * seasons.
+ * @param {string} response The response read from archive.
+ * @return {void}
+ */
+function handlePlayersArchive(response) {
+  _handlePlayers(response, false);
+}
+
+/**
+ * Create the html view of the players and inject it into page.
+ * @param {string} response The response from volleynet server (or from
+ * archive).
+ * @param {bool} curSeason True for current season, false for archive mode.
+ * @return {void}
+ */
+function _handlePlayers(response, curSeason) {
 
   // create xml data
   var msg = '',
-      xml = bhv.request.xml.fromText(response, 'xml');
+      xml = window.bhv.request.xml.fromText(response, 'xml');
+
   if (xml) {
-    // get list of players
-    var players = bhv.request.xml.getNodes(xml, 'kader');
+    // get list of players and staff
+    var players = window.bhv.request.xml.getNodes(xml, 'kader');
+
     if (players && players.length) {
       var xplayer = false, funktion;
 
       for (var i = 0; i < players.length; ++i) {
         msg += NL;
 
-        funktion = bhv.request.xml.findNode(players[i].childNodes, 'funktion');
+        funktion = window.bhv.request.xml.findNode(players[i].childNodes,
+          'funktion');
         if (funktion !== 'Spieler' && !xplayer) {
           xplayer = true;
           msg += NL;
         }
 
-        msg += bhv.request.xml.findNode(players[i].childNodes, 'vorname') + ' '
-          + bhv.request.xml.findNode(players[i].childNodes, 'name');
+        msg += window.bhv.request.xml.findNode(players[i].childNodes, 'vorname')
+          + ' '
+          + window.bhv.request.xml.findNode(players[i].childNodes, 'name');
 
-        if (xplayer > 0) {
+        // if not player: add info
+        if (xplayer) {
           msg += ' (' + funktion + ')';
         }
       }
 
-      // save data for offline mode
-      _save(bhv.request.utils.getTitle('players', new Date(), map) + msg);
+      // save data for offline mode (only in current season)
+      if (curSeason) {
+        _save(window.bhv.request.utils.getTitle(
+          'players', new Date(), map) + msg);
+      }
     }
   }
 
   // add created text to page
-  bhv.request.utils.inject(bhv.request.utils.getTitle('players', null, map) + msg);
+  window.bhv.request.utils.inject(
+    window.bhv.request.utils.getTitle('players', null, map) + msg);
 }
 
 /**
@@ -80,7 +124,7 @@ function handlePlayers(response) {
  */
 function _save(txt) {
   // store data for offline reading
-  bhv.db.write('players:' + bhv.request.utils.getKey(), txt);
+  window.bhv.db.write('players:' + window.bhv.request.utils.getKey(), txt);
 }
 
 /**
@@ -88,5 +132,25 @@ function _save(txt) {
  * @return {void}
  */
 function getPlayersOffline() {
-  bhv.request.utils.showOffline('players');
+  window.bhv.request.utils.showOffline('players');
 }
+
+function onErrorArchive(info) {
+  log('---------------------------------------------------------------------');
+  log('Cannot read players from archive!');
+  log('---------------------------------------------------------------------');
+  log(info);
+  log('---------------------------------------------------------------------');
+}
+
+
+// #region -- create archive mode ---------------------------------------------
+
+// if to create the archive
+if (window.bhv.archive) {
+  window.bhv.archive.getPlayersMap = function(key) {
+    return map[key];
+  }
+}
+
+// #endregion -- create archive mode ------------------------------------------

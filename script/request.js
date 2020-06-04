@@ -13,6 +13,8 @@ if (window.bhv === undefined) {
  */
 window.bhv.request = {
 
+  // #region -- do request ----------------------------------------------------
+
   /**
    * Creates the request object and sends the data. If headers are given, they
    * will be added to the request and the reponse headers will be querued and
@@ -109,8 +111,8 @@ window.bhv.request = {
 
             case 304:
               found = false;
-              if (bhv.db && request.responseURL) {
-                data = bhv.db.readObj(request.responseURL);
+              if (window.bhv.db && request.responseURL) {
+                data = window.bhv.db.readObj(request.responseURL);
                 if (data && data.data) {
                   // if any headers given: query response headers
                   if (headers !== undefined) {
@@ -204,21 +206,9 @@ window.bhv.request = {
     return headersResponse;
   },
 
+  // #endregion
 
-  /**
-   * Checks if id is valid.
-   * @param {string} id The id to check.
-   * @param {string} info An info for error logging.
-   * @return {boolean} Ok or Nok.
-   */
-  '_checkId': function(id, info) {
-    if (!id || !Number.isFinite(id)) {
-      log('Invalid id ' + id + ' for ' + info + '!');
-      return false;
-    }
-
-    return true;
-  },
+  // #region -- standings -----------------------------------------------------
 
   'queryStandings': function(id, onsuccess, onerror) {
 
@@ -254,17 +244,17 @@ window.bhv.request = {
               uncompressed = pako.inflate(response, { 'to': 'string' });
 
           // create xml data
-          var xml = bhv.request.xml.fromText(uncompressed, 'xml');
+          var xml = window.bhv.request.xml.fromText(uncompressed, 'xml');
           if (xml) {
             // get list of standings
-            var data = bhv.request.xml.getNodes(xml, 'standings');
+            var data = window.bhv.request.xml.getNodes(xml, 'standings');
             if (data) {
               // search for results of given competition(s)
               for (var i = 0; i < data.length; ++i) {
                 var item = data[i];
                 // if found: handle them
                 if (item.getAttribute('key') === key) {
-                  bhv.request.utils.storeTitle(
+                  window.bhv.request.utils.storeTitle(
                     'standings', key,
                     item.getAttribute('title')
                   );
@@ -297,6 +287,9 @@ window.bhv.request = {
     return true;
   },
 
+  // #endregion
+
+  // #region -- schedules -----------------------------------------------------
 
   /**
    * Queries the schedules from server.
@@ -345,7 +338,7 @@ window.bhv.request = {
         + 'and (vrn_id_a=' + idClub + ' or vrn_id_b=' + idClub + ')'
         + ' and (spi_tea_id_a=' + idTea + ' or spi_tea_id_b=' + idTea + ')'
         + " and (spi_datum >= timestamp '"
-        + bhv.request.utils.yyyymmdd(new Date())
+        + window.bhv.request.utils.yyyymmdd(new Date())
         + " 00:00' or spi_datum is NULL)")
       + '&orderBy=spi_datum';
 
@@ -473,17 +466,17 @@ window.bhv.request = {
               uncompressed = pako.inflate(response, { 'to': 'string' });
 
           // create xml data
-          var xml = bhv.request.xml.fromText(uncompressed, 'xml');
+          var xml = window.bhv.request.xml.fromText(uncompressed, 'xml');
           if (xml) {
             // get list of standings
-            var data = bhv.request.xml.getNodes(xml, 'tournament');
+            var data = window.bhv.request.xml.getNodes(xml, 'tournament');
             if (data) {
               // search for results of given competition(s)
               for (var i = 0; i < data.length; ++i) {
                 var item = data[i];
                 // if found: handle them
                 if (item.getAttribute('key') === key) {
-                  bhv.request.utils.storeTitle(
+                  window.bhv.request.utils.storeTitle(
                     'schedules', key,
                     item.getAttribute('title')
                   );
@@ -531,8 +524,8 @@ window.bhv.request = {
         handlerSuccess = function(response, headersResponse) {
 
           // get etag from response headers
-          if (keyData && bhv.db && headersResponse && headersResponse['etag']) {
-            bhv.db.writeObj(keyData, {
+          if (keyData && window.bhv.db && headersResponse && headersResponse['etag']) {
+            window.bhv.db.writeObj(keyData, {
               'etag': headersResponse['etag'],
               'data': response
             });
@@ -547,8 +540,8 @@ window.bhv.request = {
 
     // request data
     keyData = addrFrom;
-    if (bhv.db) {
-      oldData = bhv.db.readObj(addrFrom);
+    if (window.bhv.db) {
+      oldData = window.bhv.db.readObj(addrFrom);
       if (oldData && oldData.etag) {
         headers['If-None-Match'] = oldData.etag;
       }
@@ -562,8 +555,8 @@ window.bhv.request = {
     if (addrTill !== addrFrom) {
       // request data again
       keyData = addrTill;
-      if (bhv.db) {
-        oldData = bhv.db.readObj(addrTill);
+      if (window.bhv.db) {
+        oldData = window.bhv.db.readObj(addrTill);
         if (oldData && oldData.etag) {
           headers['If-None-Match'] = oldData.etag;
         }
@@ -587,6 +580,9 @@ window.bhv.request = {
     return url.replace('{{year}}', year);
   },
 
+  // #endregion
+
+  // #region -- results -------------------------------------------------------
 
   'queryResults': function(idBew, idTea, idClub, onsuccess, onerror) {
 
@@ -663,17 +659,17 @@ window.bhv.request = {
               uncompressed = pako.inflate(response, { 'to': 'string' });
 
           // create xml data
-          var xml = bhv.request.xml.fromText(uncompressed, 'xml');
+          var xml = window.bhv.request.xml.fromText(uncompressed, 'xml');
           if (xml) {
             // get list of results
-            var data = bhv.request.xml.getNodes(xml, 'result');
+            var data = window.bhv.request.xml.getNodes(xml, 'result');
             if (data) {
               // search for results of given competition(s)
               for (var i = 0; i < data.length; ++i) {
                 var item = data[i];
                 // if found: handle them
                 if (item.getAttribute('key') === key) {
-                  bhv.request.utils.storeTitle(
+                  window.bhv.request.utils.storeTitle(
                     'results', key,
                     item.getAttribute('title')
                   );
@@ -706,7 +702,7 @@ window.bhv.request = {
     return true;
   },
 
-  '_checkResultIds': function(idBew, idTea, idClub) {
+  '_checkResultIds': function(idBew, idTea, idClub, onerror) {
     var ok = true;
 
     if (Array.isArray(idBew)) {
@@ -740,6 +736,9 @@ window.bhv.request = {
     return ok;
   },
 
+  // #endregion
+
+  // #region -- calendar ------------------------------------------------------
 
   /**
    * Sends a file of x-dates.
@@ -787,6 +786,10 @@ window.bhv.request = {
     return true;
   },
 
+  // #endregion
+
+  // #region -- players -------------------------------------------------------
+
   // view-source:http://kvv.volleynet.at/volleynet/service/xml2.php?action=kader&tea_id=30505&pw=a6335ee9f3a27260e61c90928f8f3ba8
   queryPlayers: function(idTea, onsuccess, onerror) {
 
@@ -809,7 +812,85 @@ window.bhv.request = {
 
     // done
     return true;
+  },
+
+  queryPlayersArchiveGz: function(season, key, onsuccess, onerror) {
+    var url = location.protocol + '//' + location.hostname
+      + '/archive/' + season + '/players.xml.gz';
+
+    // request data
+    if (!this._startRequest(
+      url, 5000,
+      function(response) {
+        // extract results of players
+        try {
+          var ok = false,
+              uncompressed = pako.inflate(response, { 'to': 'string' });
+
+          // create xml data
+          var xml = window.bhv.request.xml.fromText(uncompressed, 'xml');
+          if (xml) {
+            // get list of results
+            var data = window.bhv.request.xml.getNodes(xml, 'players');
+            if (data) {
+              // search for results of given competition(s)
+              for (var i = 0; i < data.length; ++i) {
+                var item = data[i];
+                // if found: handle them
+                if (item.getAttribute('key') === key) {
+                  window.bhv.request.utils.storeTitle(
+                    'players', key,
+                    item.getAttribute('title')
+                  );
+
+                  var str = '<xml>' + item.innerHTML + '</xml>';
+                  onsuccess(str);
+                  ok = true;
+                }
+              }
+            }
+          }
+
+          if (!ok) {
+            onerror();
+          }
+
+        } catch (err) {
+          console.log(err);
+          onerror();
+        }
+      },
+      onerror, false, undefined, 'GET-BINARY')) {
+
+      // cannot start request of compressed data
+      onerror();
+      return false;
+    }
+
+    // request of data has been started
+    return true;
+  },
+
+  // #endregion
+
+  // #region -- utilities -----------------------------------------------------
+
+  /**
+   * Checks if id is valid.
+   * @param {string} id The id to check.
+   * @param {string} info An info for error logging.
+   * @return {boolean} Ok or Nok.
+   */
+  '_checkId': function(id, info) {
+    if (!id || !Number.isFinite(id)) {
+      log('Invalid id ' + id + ' for ' + info + '!');
+      return false;
+    }
+
+    return true;
   }
+
+  // #endregion
 }
 
 /**
@@ -817,9 +898,15 @@ window.bhv.request = {
  */
 window.bhv.request.utils = {
 
+  // #region -- archive -------------------------------------------------------
+
   archive: {
     titles: {}
   },
+
+  // #endregion
+
+  // #region -- title ---------------------------------------------------------
 
   storeTitle: function(region, key, title) {
     this.archive.titles[region + '-' + key] = title;
@@ -866,6 +953,10 @@ window.bhv.request.utils = {
     return '';
   },
 
+  // #endregion
+
+  // #region -- offline -------------------------------------------------------
+
   /**
    * Shows offline data.
    * @param {string} type The type of the data (standings, schedules).
@@ -874,12 +965,16 @@ window.bhv.request.utils = {
   showOffline: function(type) {
     var key = this.getKey();
     if (key !== '?') {
-      var txt = bhv.db.read(type + ':' + key);
+      var txt = window.bhv.db.read(type + ':' + key);
       if (txt) {
-        bhv.request.utils.inject(txt);
+        window.bhv.request.utils.inject(txt);
       }
     }
   },
+
+  // #endregion
+
+  // #region  -- utilities ----------------------------------------------------
 
   /**
    * Returns the key of the current query (schedules, standings).
@@ -1042,12 +1137,16 @@ window.bhv.request.utils = {
 
     return '';
   }
+
+  // #endregion
 }
 
 /**
  * Xml utilities.
  */
 window.bhv.request.xml = {
+
+  // #region -- xml from text -------------------------------------------------
 
   /**
    * Creates a xml document from the response text.
@@ -1155,6 +1254,10 @@ window.bhv.request.xml = {
     return '';
   },
 
+  // #endregion
+
+  // #region -- game result ---------------------------------------------------
+
   /**
    * Creates the result info from the xml data.
    * @param {NodeList} nodes The infos about a game containing the result info.
@@ -1163,21 +1266,21 @@ window.bhv.request.xml = {
   'createGameResult': function(nodes) {
     var setAa, setBb, sets, s,
         res = '',
-        setA = bhv.request.xml.findNode(nodes, 'spi_saetze_a'),
-        setB = bhv.request.xml.findNode(nodes, 'spi_saetze_b'),
+        setA = window.bhv.request.xml.findNode(nodes, 'spi_saetze_a'),
+        setB = window.bhv.request.xml.findNode(nodes, 'spi_saetze_b'),
         ptA = [
-          bhv.request.xml.findNode(nodes, 'spi_punkte_satz1_a'),
-          bhv.request.xml.findNode(nodes, 'spi_punkte_satz2_a'),
-          bhv.request.xml.findNode(nodes, 'spi_punkte_satz3_a'),
-          bhv.request.xml.findNode(nodes, 'spi_punkte_satz4_a'),
-          bhv.request.xml.findNode(nodes, 'spi_punkte_satz5_a')
+          window.bhv.request.xml.findNode(nodes, 'spi_punkte_satz1_a'),
+          window.bhv.request.xml.findNode(nodes, 'spi_punkte_satz2_a'),
+          window.bhv.request.xml.findNode(nodes, 'spi_punkte_satz3_a'),
+          window.bhv.request.xml.findNode(nodes, 'spi_punkte_satz4_a'),
+          window.bhv.request.xml.findNode(nodes, 'spi_punkte_satz5_a')
         ],
         ptB = [
-          bhv.request.xml.findNode(nodes, 'spi_punkte_satz1_b'),
-          bhv.request.xml.findNode(nodes, 'spi_punkte_satz2_b'),
-          bhv.request.xml.findNode(nodes, 'spi_punkte_satz3_b'),
-          bhv.request.xml.findNode(nodes, 'spi_punkte_satz4_b'),
-          bhv.request.xml.findNode(nodes, 'spi_punkte_satz5_b')
+          window.bhv.request.xml.findNode(nodes, 'spi_punkte_satz1_b'),
+          window.bhv.request.xml.findNode(nodes, 'spi_punkte_satz2_b'),
+          window.bhv.request.xml.findNode(nodes, 'spi_punkte_satz3_b'),
+          window.bhv.request.xml.findNode(nodes, 'spi_punkte_satz4_b'),
+          window.bhv.request.xml.findNode(nodes, 'spi_punkte_satz5_b')
         ];
 
     if (!isNaN(setA) && !isNaN(setB)) {
@@ -1198,4 +1301,6 @@ window.bhv.request.xml = {
 
     return res;
   }
+
+  // #endregion
 }

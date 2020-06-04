@@ -24,7 +24,7 @@ window.bhv.schedule = {
         IDX_TEA = 3,
         IDX_ONSUCCESS = 1,
         found = false,
-        key = bhv.request.utils.getKey();
+        key = window.bhv.request.utils.getKey();
 
     // check senior league
     if (mapLeague) {
@@ -33,12 +33,12 @@ window.bhv.schedule = {
         var mm = mapLeague[keys[k1]];
         if (mm && mm[key]) {
           if (keys[k1] === activeSeason) {
-            found = bhv.request.querySchedules(
+            found = window.bhv.request.querySchedules(
               mm[key][IDX_BEW], mm[key][IDX_TEA],
               mm[key][IDX_ONSUCCESS], this.getSchedulesOffline
             );
           } else {
-            found = bhv.request.querySchedulesArchiveGz(
+            found = window.bhv.request.querySchedulesArchiveGz(
               keys[k1], key,
               mm[key][IDX_ONSUCCESS], this.getSchedulesOffline
             );
@@ -54,12 +54,12 @@ window.bhv.schedule = {
         var mmK = mapKids[keysK[k2]];
         if (mmK && mmK[key]) {
           if (keysK[k2] === activeSeason) {
-            found = bhv.request.queryKidsSchedules(
+            found = window.bhv.request.queryKidsSchedules(
               mmK[key][IDX_BEW],
               mmK[key][IDX_ONSUCCESS], this.getSchedulesOffline
             );
           } else {
-            found = bhv.request.queryKidsSchedulesArchiveGz(
+            found = window.bhv.request.queryKidsSchedulesArchiveGz(
               keysK[k2], key,
               mmK[key][IDX_ONSUCCESS], this.getSchedulesOffline
             );
@@ -70,7 +70,7 @@ window.bhv.schedule = {
 
     // error: league/tournament not found
     if (!found) {
-      bhv.request.utils.inject('Ungültige Termine!');
+      window.bhv.request.utils.inject('Ungültige Termine!');
     }
   },
 
@@ -78,7 +78,7 @@ window.bhv.schedule = {
     var handlerXDates;
 
     // query games
-    bhv.request.queryMultiSchedules(
+    window.bhv.request.queryMultiSchedules(
       from, till, clubs,
       function(response) {
 
@@ -87,43 +87,43 @@ window.bhv.schedule = {
             res = [],
             loaded = [],
             // create xml data
-            xml = bhv.request.xml.fromText(response, 'xml');
+            xml = window.bhv.request.xml.fromText(response, 'xml');
         if (xml) {
 
           // get list of dates
-          list = bhv.request.xml.getNodes(xml, 'termin');
+          list = window.bhv.request.xml.getNodes(xml, 'termin');
           if (list && list.length) {
 
             for (i = 0; i < list.length; ++i) {
 
               // get id of next game to block if loaded twice
               // (some games might belong to two leagues - mevza some years ago)
-              id = bhv.request.xml.findNode(list[i].childNodes, 'spi_id');
+              id = window.bhv.request.xml.findNode(list[i].childNodes, 'spi_id');
               if (loaded.indexOf(id) === -1) {
                 loaded.push(id);
 
-                datKey = bhv.request.xml.findNode(list[i].childNodes, 'spi_datum');
+                datKey = window.bhv.request.xml.findNode(list[i].childNodes, 'spi_datum');
                 if (datKey && datKey.length >= 10) {
                   work = datKey.substr(0, 10)
                     // .replace('2015', '2019')
                     .split('.');
                   datKey = '' + work[2] + work[1] + work[0];
 
-                  bew = bhv.request.xml.findNode(list[i].childNodes, 'bew_kurz');
+                  bew = window.bhv.request.xml.findNode(list[i].childNodes, 'bew_kurz');
 
-                  spNr = bhv.request.xml.findNode(list[i].childNodes, 'spi_nummer');
-                  day = days[bhv.request.xml.findNode(list[i].childNodes, 'tag')];
-                  date = bhv.request.xml.findNode(list[i].childNodes, 'datum');
-                  time = bhv.request.xml.findNode(list[i].childNodes, 'zeit');
+                  spNr = window.bhv.request.xml.findNode(list[i].childNodes, 'spi_nummer');
+                  day = days[window.bhv.request.xml.findNode(list[i].childNodes, 'tag')];
+                  date = window.bhv.request.xml.findNode(list[i].childNodes, 'datum');
+                  time = window.bhv.request.xml.findNode(list[i].childNodes, 'zeit');
 
-                  teams = bhv.request.utils.checkBold(
-                    bhv.request.xml.findNode(list[i].childNodes, 'heimteamname'))
+                  teams = window.bhv.request.utils.checkBold(
+                    window.bhv.request.xml.findNode(list[i].childNodes, 'heimteamname'))
                     + ' : '
-                    + bhv.request.utils.checkBold(
-                      bhv.request.xml.findNode(list[i].childNodes, 'gastteamname'));
-                  gymn = bhv.request.xml.findNode(list[i].childNodes, 'spo_name');
+                    + window.bhv.request.utils.checkBold(
+                      window.bhv.request.xml.findNode(list[i].childNodes, 'gastteamname'));
+                  gymn = window.bhv.request.xml.findNode(list[i].childNodes, 'spo_name');
 
-                  gameRes = bhv.request.xml.createGameResult(list[i].childNodes);
+                  gameRes = window.bhv.request.xml.createGameResult(list[i].childNodes);
 
                   res.push({
                     'date': datKey,
@@ -146,7 +146,7 @@ window.bhv.schedule = {
       });
 
     // query kids tournaments
-    bhv.request.queryMultiKidsSchedules(
+    window.bhv.request.queryMultiKidsSchedules(
       from, till, 'brückl',
       function(response) {
 
@@ -155,35 +155,35 @@ window.bhv.schedule = {
             teams0, teams, noTab,
             res = [],
             loaded = [],
-            xml = bhv.request.xml.fromText(response, 'xml');
+            xml = window.bhv.request.xml.fromText(response, 'xml');
         if (xml) {
 
           // get list of tournaments
-          tournaments = bhv.request.xml.getNodes(xml, 'turniere');
+          tournaments = window.bhv.request.xml.getNodes(xml, 'turniere');
           if (tournaments && tournaments.length) {
             for (t = 0; t < tournaments.length; ++t) {
               tournament = tournaments[t];
 
               // get id of next tournament to block if loaded twice
               // (some tournaments belong to two leagues - m + f)
-              id = bhv.request.xml.findNode(tournament.childNodes, 'id');
+              id = window.bhv.request.xml.findNode(tournament.childNodes, 'id');
               if (loaded.indexOf(id) === -1) {
                 loaded.push(id);
 
-                work = bhv.request.xml.findNode(tournament.childNodes, 'von')
+                work = window.bhv.request.xml.findNode(tournament.childNodes, 'von')
                   .split('.');
                 key = '' + work[2] + work[1] + work[0];
 
-                text = bhv.request.xml.findNode(tournament.childNodes, 'turnier_kurz');
-                info = bhv.schedule._tournamentInfo(tournament) + NL + NL;
+                text = window.bhv.request.xml.findNode(tournament.childNodes, 'turnier_kurz');
+                info = window.bhv.schedule._tournamentInfo(tournament) + NL + NL;
 
-                teams0 = bhv.request.xml.findNode(tournament.childNodes, 'anmerkung');
+                teams0 = window.bhv.request.xml.findNode(tournament.childNodes, 'anmerkung');
                 if (teams0) {
                   noTab = teams0.substr(0, 2) === '0:';
                   teams = teams0.split('|');
 
                   for (var tea = 0; tea < teams.length; ++tea) {
-                    info += bhv.schedule._teamInfo(teams, tea, noTab, 'brückl');
+                    info += window.bhv.schedule._teamInfo(teams, tea, noTab, 'brückl');
                   }
                 }
 
@@ -240,7 +240,7 @@ window.bhv.schedule = {
       callbackLeague(res);
     };
 
-    bhv.request.queryXtraDates(from, till, handlerXDates, function(err) {
+    window.bhv.request.queryXtraDates(from, till, handlerXDates, function(err) {
       console.log('Cannot load x-dates!');
       console.log(err);
     });
@@ -251,39 +251,39 @@ window.bhv.schedule = {
    * @return {void}
    */
   getSchedulesOffline: function() {
-    bhv.request.utils.showOffline('schedules');
+    window.bhv.request.utils.showOffline('schedules');
   },
 
   /**
-   * Creates the schedules for a junior chamionship.
+   * Creates the schedules for a junior championship.
    * @param {string} reponse The response from the web service.
    * @return {void}
    */
   kidsSchedules: function(response) {
     // create xml data
     var msg = '',
-        xml = bhv.request.xml.fromText(response, 'xml');
+        xml = window.bhv.request.xml.fromText(response, 'xml');
     if (xml) {
 
       // get list of tournaments
-      var tournaments = bhv.request.xml.getNodes(xml, 'turniere');
+      var tournaments = window.bhv.request.xml.getNodes(xml, 'turniere');
       if (tournaments && tournaments.length) {
-        var key = bhv.request.utils.getKey(),
+        var key = window.bhv.request.utils.getKey(),
             pattern = activeSeason && mapKids[activeSeason]
               && mapKids[activeSeason][key] && mapKids[activeSeason][key][3]
-              ? mapKids[activeSeason][key][3] : '';
+              ? mapKids[activeSeason][key][3] : 'brückl';
         for (var t = 0; t < tournaments.length; ++t) {
           var tournament = tournaments[t],
-              teams0 = bhv.request.xml.findNode(tournament.childNodes, 'anmerkung');
+              teams0 = window.bhv.request.xml.findNode(tournament.childNodes, 'anmerkung');
           if (teams0
             && (!pattern || teams0.toLowerCase().indexOf(pattern) > -1)) {
 
             var noTab = teams0.substr(0, 2) === '0:',
                 teams = teams0.split('|');
 
-            msg += NL + bhv.schedule._tournamentInfo(tournament) + NL;
+            msg += NL + window.bhv.schedule._tournamentInfo(tournament) + NL;
             for (var tea = 0; tea < teams.length; ++tea) {
-              msg += bhv.schedule._teamInfo(teams, tea, noTab, pattern);
+              msg += window.bhv.schedule._teamInfo(teams, tea, noTab, pattern);
             }
           }
         }
@@ -297,18 +297,18 @@ window.bhv.schedule = {
     }
 
     // msg += '<hr>' + JSON.stringify(tournaments, null, 2);
-    bhv.request.utils.inject(bhv.request.utils.getTitle('schedules', null, mapKids) + msg);
+    window.bhv.request.utils.inject(window.bhv.request.utils.getTitle('schedules', null, mapKids) + msg);
   },
 
   _tournamentInfo: function(tournament) {
     return '<b class="team">'
-      + bhv.request.xml.findNode(tournament.childNodes, 'turnier_kurz')
+      + window.bhv.request.xml.findNode(tournament.childNodes, 'turnier_kurz')
       + ' ('
-      + bhv.request.xml.findNode(tournament.childNodes, 'von')
+      + window.bhv.request.xml.findNode(tournament.childNodes, 'von')
       + ' '
-      + bhv.request.xml.findNode(tournament.childNodes, 'bewerb_kurz')
+      + window.bhv.request.xml.findNode(tournament.childNodes, 'bewerb_kurz')
       + '  '
-      + bhv.request.xml.findNode(tournament.childNodes, 'bewerb_name')
+      + window.bhv.request.xml.findNode(tournament.childNodes, 'bewerb_name')
       + ')</b>';
   },
 
@@ -330,8 +330,8 @@ window.bhv.schedule = {
     // standings of tournament
     return (teams.length > 9 && tea < 9 ? '  ' : ' ')
       + (own ? '<b class="team">' : '')
-      + (tea + 1) + '. ' + bhv.request.utils.fillColumn(nam, 40)
-      + bhv.request.utils.fillColumn(pts, -4)
+      + (tea + 1) + '. ' + window.bhv.request.utils.fillColumn(nam, 40)
+      + window.bhv.request.utils.fillColumn(pts, -4)
       + (own ? '</b>' : '')
       + NL;
   },
@@ -344,64 +344,53 @@ window.bhv.schedule = {
   leagueSchedules: function(response) {
 
     // create xml data
-    var xml = bhv.request.xml.fromText(response, 'xml');
+    var xml = window.bhv.request.xml.fromText(response, 'xml');
     if (xml) {
 
       // get list of dates
-      var list = bhv.request.xml.getNodes(xml, 'termin');
+      var list = window.bhv.request.xml.getNodes(xml, 'termin');
       if (list && list.length) {
 
         var LEN_DAY = 4,
             LEN_DATE = 12,
             LEN_TIME = 7,
-            // LNR = 4,
             LEN_NO = -3,
             LEN_RD = -2,
             LEN_XNO = 8,
             LEN_TEAM = 28,
-            fmt = bhv.request.utils.fillColumn;
+            fmt = window.bhv.request.utils.fillColumn;
 
         // create text
         var msg = NL + fmt('Tag', LEN_DAY) + fmt('Datum', LEN_DATE) + fmt('Zeit', LEN_TIME)
             + fmt('Nr', LEN_XNO)
             + fmt('Heim', LEN_TEAM + 1) + fmt('Gast', LEN_TEAM + 1) + 'Halle&nbsp;' + NL;
         for (var i = 0; i < list.length; ++i) {
-          // msg += fmt(days[bhv.request.xml.findNode(list[i].childNodes, 'tag')], LEN_DAY)
-          //     + fmt(bhv.request.xml.findNode(list[i].childNodes, 'datum'), LEN_DATE)
-          //     + fmt(bhv.request.xml.findNode(list[i].childNodes, 'zeit'), LEN_TIME)
-          //     + fmt(bhv.request.xml.findNode(list[i].childNodes, 'spi_nummer'), LNR)
-          //     + bhv.request.utils.checkBold(fmt(
-          //       bhv.request.xml.findNode(list[i].childNodes, 'heimteamname'), LEN_TEAM)) + '&nbsp;'
-          //     + bhv.request.utils.checkBold(fmt(
-          //       bhv.request.xml.findNode(list[i].childNodes, 'gastteamname'), LEN_TEAM)) + '&nbsp;'
-          //     + bhv.request.xml.findNode(list[i].childNodes, 'spo_name') + '&nbsp;' + NL;
-
-          var day0 = bhv.request.xml.findNode(list[i].childNodes, 'tag'),
+          var day0 = window.bhv.request.xml.findNode(list[i].childNodes, 'tag'),
               day = fmt(day0 === '' ? '?' : days[day0], LEN_DAY),
-              dat0 = bhv.request.xml.findNode(list[i].childNodes, 'datum'),
+              dat0 = window.bhv.request.xml.findNode(list[i].childNodes, 'datum'),
               dat = fmt(dat0 === '' ? '??.??.????' : dat0, LEN_DATE),
-              tim0 = bhv.request.xml.findNode(list[i].childNodes, 'zeit'),
+              tim0 = window.bhv.request.xml.findNode(list[i].childNodes, 'zeit'),
               tim = fmt(tim0 === '' ? '??:??' : tim0, LEN_TIME),
-              no0 = bhv.request.xml.findNode(list[i].childNodes, 'spi_nummer'),
+              no0 = window.bhv.request.xml.findNode(list[i].childNodes, 'spi_nummer'),
               no1 = fmt(no0 === '' ? '???' : no0, LEN_NO, '0'),
-              rd0 = bhv.request.xml.findNode(list[i].childNodes, 'spi_runde'),
+              rd0 = window.bhv.request.xml.findNode(list[i].childNodes, 'spi_runde'),
               rd = fmt(rd0 === '' ? '??' : rd0, LEN_RD, '0'),
               no = rd + '/' + no1,
-              gymn0 = bhv.request.xml.findNode(list[i].childNodes, 'spo_name'),
+              gymn0 = window.bhv.request.xml.findNode(list[i].childNodes, 'spo_name'),
               gymn = (gymn0 === '' ? '(???)' : gymn0.replace(' ', '&nbsp;'));
 
               msg += day + dat + tim + no + '&nbsp;' + '&nbsp;'
-                + bhv.request.utils.checkBold(fmt(
-                  bhv.request.xml.findNode(list[i].childNodes, 'heimteamname'), LEN_TEAM)) + '&nbsp;'
-                + bhv.request.utils.checkBold(fmt(
-                  bhv.request.xml.findNode(list[i].childNodes, 'gastteamname'), LEN_TEAM)) + '&nbsp;'
+                + window.bhv.request.utils.checkBold(fmt(
+                  window.bhv.request.xml.findNode(list[i].childNodes, 'heimteamname'), LEN_TEAM)) + '&nbsp;'
+                + window.bhv.request.utils.checkBold(fmt(
+                  window.bhv.request.xml.findNode(list[i].childNodes, 'gastteamname'), LEN_TEAM)) + '&nbsp;'
                 + gymn + '&nbsp;' + NL;
         }
 
         // save data for offline mode
-        bhv.schedule._save(bhv.request.utils.getTitle('schedules', new Date(), mapLeague) + msg);
+        window.bhv.schedule._save(window.bhv.request.utils.getTitle('schedules', new Date(), mapLeague) + msg);
         // add created text to page
-        bhv.request.utils.inject(bhv.request.utils.getTitle('schedules', null, mapLeague) + msg);
+        window.bhv.request.utils.inject(window.bhv.request.utils.getTitle('schedules', null, mapLeague) + msg);
       }
     }
   },
@@ -413,13 +402,13 @@ window.bhv.schedule = {
    */
   _save: function(txt) {
     // store data for offline reading
-    bhv.db.write('schedules:' + bhv.request.utils.getKey(), txt);
+    window.bhv.db.write('schedules:' + window.bhv.request.utils.getKey(), txt);
   }
 }
 
 // #endregion -- The schedules. -----------------------------------------------
 
-// #region -- archive mode ----------------------------------------------------
+// #region -- create archive mode ---------------------------------------------
 
 // if to create the archive
 if (window.bhv.archive) {
@@ -432,52 +421,52 @@ if (window.bhv.archive) {
   }
 }
 
-// #endregion -- archive mode -------------------------------------------------
+// #endregion -- create archive mode ------------------------------------------
 
-var activeSeason = '20';
+var activeSeason = '21';
 
 var mapLeague = {
   // dont forget to set the ids of the clubs in calendar/controller -> 21, 1220
-  // on calling  bhv.schedule.getAllSchedules(...)
+  // on calling  window.bhv.schedule.getAllSchedules(...)
   '20': {
     // UL 24971 3: 31661, 4: 31662
-    'br4g_20': [24971, bhv.schedule.leagueSchedules, 'Termine Unterliga', 31662],
-    'br3g_20': [24971, bhv.schedule.leagueSchedules, 'Termine Unterliga', 31661],
+    'br4g_20': [24971, window.bhv.schedule.leagueSchedules, 'Termine Unterliga', 31662],
+    'br3g_20': [24971, window.bhv.schedule.leagueSchedules, 'Termine Unterliga', 31661],
     // LLD: Termine/24967: Team als array von (vrn_id, tea_id)
-    'br2g_20': [24967, bhv.schedule.leagueSchedules, 'Termine Landesliga (GD)', [1220, 31654]],
-    'br2m_20': [25506, bhv.schedule.leagueSchedules, 'Termine Landesliga (MPO)', [1220, 31654]],
+    'br2g_20': [24967, window.bhv.schedule.leagueSchedules, 'Termine Landesliga (GD)', [1220, 31654]],
+    'br2m_20': [25506, window.bhv.schedule.leagueSchedules, 'Termine Landesliga (MPO)', [1220, 31654]],
     // BL 24649, 1: 30505
-    'br1g_20': [24649, bhv.schedule.leagueSchedules, 'Termine Bundesliga', 30505],
+    'br1g_20': [24649, window.bhv.schedule.leagueSchedules, 'Termine Bundesliga', 30505],
   },
   '19': {
-    // 'br4g_19': [22934, bhv.schedule.leagueSchedules, 'Termine Unterliga (GD)', 29075],
-    // 'br4_19': [23784, bhv.schedule.leagueSchedules, 'Termine Unterliga (FD)', 29075],
+    // 'br4g_19': [22934, window.bhv.schedule.leagueSchedules, 'Termine Unterliga (GD)', 29075],
+    // 'br4_19': [23784, window.bhv.schedule.leagueSchedules, 'Termine Unterliga (FD)', 29075],
     //
-    // 'br3g': [22934, bhv.schedule.leagueSchedules, 'Termine Unterliga (GD)', 28955],
-    // 'br3_19': [23747, bhv.schedule.leagueSchedules, 'Termine Landesliga (AR)', 30420],
+    // 'br3g': [22934, window.bhv.schedule.leagueSchedules, 'Termine Unterliga (GD)', 28955],
+    // 'br3_19': [23747, window.bhv.schedule.leagueSchedules, 'Termine Landesliga (AR)', 30420],
     //
-    // 'br2g_19': [22933, bhv.schedule.leagueSchedules, 'Termine Landesliga (GD)', 28951],
-    // 'br2m_19': [23746, bhv.schedule.leagueSchedules, 'Termine Landesliga (MPO)', 28951],
+    // 'br2g_19': [22933, window.bhv.schedule.leagueSchedules, 'Termine Landesliga (GD)', 28951],
+    // 'br2m_19': [23746, window.bhv.schedule.leagueSchedules, 'Termine Landesliga (MPO)', 28951],
     //
-    // 'br1g_19': [22691, bhv.schedule.leagueSchedules, 'Termine Bundesliga (GD)', 27423],
-    // 'br1_19': [23666, bhv.schedule.leagueSchedules, 'Termine Bundesliga (MR)', 27423]
+    // 'br1g_19': [22691, window.bhv.schedule.leagueSchedules, 'Termine Bundesliga (GD)', 27423],
+    // 'br1_19': [23666, window.bhv.schedule.leagueSchedules, 'Termine Bundesliga (MR)', 27423]
   }
 };
 
 var mapKids = {
   '20': {
-    'u16_20': [25172, bhv.schedule.kidsSchedules, 'Turniere U16', 'brückl'],
-    'u15_20': [25174, bhv.schedule.kidsSchedules, 'Turniere U15', 'brückl'],
-    'u14_20': [25175, bhv.schedule.kidsSchedules, 'Turniere U14', 'brückl'],
-    'u13_20': [25176, bhv.schedule.kidsSchedules, 'Turniere U13', 'brückl'],
-    'u12_20': [25177, bhv.schedule.kidsSchedules, 'Turniere U12', 'brückl'],
+    'u16_20': [25172, window.bhv.schedule.kidsSchedules, 'Turniere U16', 'brückl'],
+    'u15_20': [25174, window.bhv.schedule.kidsSchedules, 'Turniere U15', 'brückl'],
+    'u14_20': [25175, window.bhv.schedule.kidsSchedules, 'Turniere U14', 'brückl'],
+    'u13_20': [25176, window.bhv.schedule.kidsSchedules, 'Turniere U13', 'brückl'],
+    'u12_20': [25177, window.bhv.schedule.kidsSchedules, 'Turniere U12', 'brückl'],
   },
   '19': {
-    'u10_19': [23058, bhv.schedule.kidsSchedules, 'Turniere U10', 'brückl'],
-    'u11_19': [23059, bhv.schedule.kidsSchedules, 'Turniere U11', 'brückl'],
-    'u12_19': [23060, bhv.schedule.kidsSchedules, 'Turniere U12', 'brückl'],
-    'u13_19': [23061, bhv.schedule.kidsSchedules, 'Turniere U13', 'brückl'],
-    'u15_19': [23063, bhv.schedule.kidsSchedules, 'Turniere U15', 'brückl']
+    'u10_19': [23058, window.bhv.schedule.kidsSchedules, 'Turniere U10', 'brückl'],
+    'u11_19': [23059, window.bhv.schedule.kidsSchedules, 'Turniere U11', 'brückl'],
+    'u12_19': [23060, window.bhv.schedule.kidsSchedules, 'Turniere U12', 'brückl'],
+    'u13_19': [23061, window.bhv.schedule.kidsSchedules, 'Turniere U13', 'brückl'],
+    'u15_19': [23063, window.bhv.schedule.kidsSchedules, 'Turniere U15', 'brückl']
   }
 };
 

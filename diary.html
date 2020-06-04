@@ -35,7 +35,7 @@ function init() {
  * @return {void}
  */
 function loadDiary() {
-  var key = bhv.request.utils.getKey(),
+  var key = window.bhv.request.utils.getKey(),
       query = '/data/training/diary_' + key + '.json';
 
   // try to load diary

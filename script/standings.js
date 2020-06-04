@@ -1,4 +1,4 @@
-var activeSeason = '20';
+var activeSeason = '21';
 var map = {
   '20': {
     'br4g_20': [24971, leagueStandings, 'Tabelle Unterliga'],
@@ -83,11 +83,11 @@ function kidsStandingsF(response) {
 function doKidsStandings(response, final) {
 
   // create xml data
-  var xml = bhv.request.xml.fromText(response, 'xml');
+  var xml = window.bhv.request.xml.fromText(response, 'xml');
   if (xml) {
 
     // get list of standings
-    var list = bhv.request.xml.getNodes(xml, 'tabelle');
+    var list = window.bhv.request.xml.getNodes(xml, 'tabelle');
     if (list && list.length) {
 
       var container
@@ -105,7 +105,7 @@ function doKidsStandings(response, final) {
             .replace(/\{\{text2\}\}/g, 'gespielte Turniere');
 
       // create text
-      var msg = bhv.request.utils.fillColumn('', 47)
+      var msg = window.bhv.request.utils.fillColumn('', 47)
         .replace(/ /g, '&nbsp;');
       if (!final) {
         msg += points + '&nbsp;&nbsp;&nbsp;' + tournaments;
@@ -113,23 +113,23 @@ function doKidsStandings(response, final) {
       msg += NL;
 
       for (var i = 0; i < list.length; ++i) {
-        msg += bhv.request.utils.fillColumn('' + (i + 1), -2) + '. ';
+        msg += window.bhv.request.utils.fillColumn('' + (i + 1), -2) + '. ';
         if (final) {
-          msg += bhv.request.utils.checkBold(bhv.request.xml.findNode(list[i].childNodes, 'tea_name'));
+          msg += window.bhv.request.utils.checkBold(window.bhv.request.xml.findNode(list[i].childNodes, 'tea_name'));
         } else {
-          msg += bhv.request.utils.checkBold(bhv.request.utils.fillColumn(
-              bhv.request.xml.findNode(list[i].childNodes, 'tea_name'), 40))
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'punkte'), -4)
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'gespielt'), -3)
+          msg += window.bhv.request.utils.checkBold(window.bhv.request.utils.fillColumn(
+              window.bhv.request.xml.findNode(list[i].childNodes, 'tea_name'), 40))
+            + window.bhv.request.utils.fillColumn(window.bhv.request.xml.findNode(list[i].childNodes, 'punkte'), -4)
+            + window.bhv.request.utils.fillColumn(window.bhv.request.xml.findNode(list[i].childNodes, 'gespielt'), -3)
             + '&nbsp;';
         }
         msg += NL;
       }
 
       // save data for offline mode
-      _save(bhv.request.utils.getTitle('standings', new Date(), map) + msg);
+      _save(window.bhv.request.utils.getTitle('standings', new Date(), map) + msg);
       // add created text to page
-      bhv.request.utils.inject(bhv.request.utils.getTitle('standings', null, map) + msg);
+      window.bhv.request.utils.inject(window.bhv.request.utils.getTitle('standings', null, map) + msg);
     }
   }
 }
@@ -142,45 +142,45 @@ function doKidsStandings(response, final) {
 function leagueStandings(response) {
 
   // create xml data
-  var xml = bhv.request.xml.fromText(response, 'xml');
+  var xml = window.bhv.request.xml.fromText(response, 'xml');
   if (xml) {
 
     // get list of standings
     // var list = xml.getElementsByTagName('tabelle');
-    var list = bhv.request.xml.getNodes(xml, 'tabelle');
+    var list = window.bhv.request.xml.getNodes(xml, 'tabelle');
     if (list && list.length) {
 
       // create text
-      var msg = bhv.request.utils.fillColumn('', 56)
+      var msg = window.bhv.request.utils.fillColumn('', 56)
           + 'S/N  Sätze   Punkte'.replace(/ /g, '&nbsp;') + NL
-          + bhv.request.utils.fillColumn('', 50)
+          + window.bhv.request.utils.fillColumn('', 50)
           + 'Sp.  +  -   +  -    +   -  P '.replace(/ /g, '&nbsp;') + NL;
       for (var i = 0; i < list.length; ++i) {
-        msg += bhv.request.utils.fillColumn('' + (i + 1), -2) + '. '
-            + bhv.request.utils.checkBold(bhv.request.utils.fillColumn(
-              bhv.request.xml.findNode(list[i].childNodes, 'tea_name'), 45))
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'gespielt'), -3)
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'gewonnen'), -4)
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'verloren'), -3)
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'satzgewonnen'), -4)
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'satzverloren'), -3)
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'punktgewonnen'), -5)
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'punktverloren'), -4)
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'punkte'), -3)
+        msg += window.bhv.request.utils.fillColumn('' + (i + 1), -2) + '. '
+            + window.bhv.request.utils.checkBold(window.bhv.request.utils.fillColumn(
+              window.bhv.request.xml.findNode(list[i].childNodes, 'tea_name'), 45))
+            + window.bhv.request.utils.fillColumn(window.bhv.request.xml.findNode(list[i].childNodes, 'gespielt'), -3)
+            + window.bhv.request.utils.fillColumn(window.bhv.request.xml.findNode(list[i].childNodes, 'gewonnen'), -4)
+            + window.bhv.request.utils.fillColumn(window.bhv.request.xml.findNode(list[i].childNodes, 'verloren'), -3)
+            + window.bhv.request.utils.fillColumn(window.bhv.request.xml.findNode(list[i].childNodes, 'satzgewonnen'), -4)
+            + window.bhv.request.utils.fillColumn(window.bhv.request.xml.findNode(list[i].childNodes, 'satzverloren'), -3)
+            + window.bhv.request.utils.fillColumn(window.bhv.request.xml.findNode(list[i].childNodes, 'punktgewonnen'), -5)
+            + window.bhv.request.utils.fillColumn(window.bhv.request.xml.findNode(list[i].childNodes, 'punktverloren'), -4)
+            + window.bhv.request.utils.fillColumn(window.bhv.request.xml.findNode(list[i].childNodes, 'punkte'), -3)
             + '&nbsp;' + NL;
       }
 
       // save data for offline mode
-      _save(bhv.request.utils.getTitle('standings', new Date(), map) + msg);
+      _save(window.bhv.request.utils.getTitle('standings', new Date(), map) + msg);
       // add created text to page
-      bhv.request.utils.inject(bhv.request.utils.getTitle('standings', null, map) + msg);
+      window.bhv.request.utils.inject(window.bhv.request.utils.getTitle('standings', null, map) + msg);
     }
   }
 }
 
 function _save(txt) {
   // store data for offline reading
-  bhv.db.write('standings:' + bhv.request.utils.getKey(), txt);
+  window.bhv.db.write('standings:' + window.bhv.request.utils.getKey(), txt);
 }
 
 /**
@@ -189,7 +189,7 @@ function _save(txt) {
  */
 function getStandings() {
   var found = false,
-      key = bhv.request.utils.getKey();
+      key = window.bhv.request.utils.getKey();
 
   if (map) {
     var keys = Object.keys(map);
@@ -197,12 +197,12 @@ function getStandings() {
       var mm = map[keys[k]];
       if (mm && mm[key]) {
         if (keys[k] === activeSeason) {
-          found = bhv.request.queryStandings(
+          found = window.bhv.request.queryStandings(
             mm[key][0], mm[key][1],
             getStandingsOffline
           );
         } else {
-          found = bhv.request.queryStandingsArchiveGz(
+          found = window.bhv.request.queryStandingsArchiveGz(
             keys[k], key,
             mm[key][1], getStandingsOffline
           );
@@ -212,7 +212,7 @@ function getStandings() {
   }
 
   if (!found) {
-    bhv.request.utils.inject('Ungültige Tabelle!');
+    window.bhv.request.utils.inject('Ungültige Tabelle!');
   }
 }
 
@@ -221,6 +221,6 @@ function getStandings() {
  * @return {void}
  */
 function getStandingsOffline(x1, x2, x3, x4) {
-  // bhv.request.utils.showOffline('standings');
-  bhv.request.utils.inject('Tabelle nicht gefunden!');
+  // window.bhv.request.utils.showOffline('standings');
+  window.bhv.request.utils.inject('Tabelle nicht gefunden!');
 }

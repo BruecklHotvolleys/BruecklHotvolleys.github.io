@@ -367,7 +367,7 @@ function _showOV2() {
                 _showOV();
               };
 
-              bhv.request.sendXtraDates(
+              window.bhv.request.sendXtraDates(
                 year, JSON.stringify(_data[year]), _sha[year],
                 handlerXDates.bind({
                   'year': year
@@ -442,7 +442,7 @@ function _loadDates() {
       log('------------------------------------------------------');
     };
 
-    bhv.request.queryXtraDates(
+    window.bhv.request.queryXtraDates(
       _year + '-01-01', _year + '-12-31',
       handlerXDates, handlerError
     );

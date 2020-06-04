@@ -1,4 +1,4 @@
-var activeSeason = '20';
+var activeSeason = '21';
 var mapLeague = {
   '20': {
     // UL 24971 3: 31661, 4: 31662
@@ -62,7 +62,7 @@ function getResults() {
       IDX_CLUB = 4,
       IDX_ONSUCCESS = 1,
       found = false,
-      key = bhv.request.utils.getKey();
+      key = window.bhv.request.utils.getKey();
 
   if (mapLeague) {
     var keys = Object.keys(mapLeague);
@@ -72,12 +72,12 @@ function getResults() {
         var idClub = map[key][IDX_CLUB] === undefined ? 21 : map[key][IDX_CLUB];
 
         if (keys[k] === activeSeason) {
-          found = bhv.request.queryResults(
+          found = window.bhv.request.queryResults(
             map[key][IDX_BEW], map[key][IDX_TEA], idClub,
             map[key][IDX_ONSUCCESS], getResultsOffline
           );
         } else {
-          found = bhv.request.queryResultsArchiveGz(
+          found = window.bhv.request.queryResultsArchiveGz(
             keys[k], key,
             map[key][IDX_BEW], map[key][IDX_TEA], idClub,
             map[key][IDX_ONSUCCESS], getResultsOffline
@@ -88,7 +88,7 @@ function getResults() {
   }
 
   if (!found) {
-    bhv.request.utils.inject('Ungültige Ergebnisse!');
+    window.bhv.request.utils.inject('Ungültige Ergebnisse!');
   }
 }
 
@@ -97,7 +97,7 @@ function getResults() {
  * @return {void}
  */
 function getResultsOffline() {
-  bhv.request.utils.showOffline('results');
+  window.bhv.request.utils.showOffline('results');
 }
 
 /**
@@ -108,39 +108,39 @@ function getResultsOffline() {
 function leagueResults(response) {
 
   // create xml data
-  var xml = bhv.request.xml.fromText(response, 'xml');
+  var xml = window.bhv.request.xml.fromText(response, 'xml');
   if (xml) {
 
     // get list of games
-    var list = bhv.request.xml.getNodes(xml, 'ergebnis');
+    var list = window.bhv.request.xml.getNodes(xml, 'ergebnis');
     if (list && list.length) {
 
       var L1 = 4,
           L2 = 12,
           L3 = 7,
           L45 = 28,
-          fmt = bhv.request.utils.fillColumn;
+          fmt = window.bhv.request.utils.fillColumn;
 
       // create text
       var msg = NL + fmt('Tag', L1) + fmt('Datum', L2) + fmt('Zeit', L3)
           + fmt('Heim', L45 + 1) + fmt('Gast', L45 + 1) + 'Ergebnis&nbsp;' + NL;
       for (var i = 0; i < list.length; ++i) {
-        var res = bhv.request.xml.createGameResult(list[i].childNodes);
+        var res = window.bhv.request.xml.createGameResult(list[i].childNodes);
 
-        msg += bhv.request.utils.fillColumn(days[bhv.request.xml.findNode(list[i].childNodes, 'tag')], L1)
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'datum'), L2)
-            + bhv.request.utils.fillColumn(bhv.request.xml.findNode(list[i].childNodes, 'zeit'), L3)
-            + bhv.request.utils.checkBold(bhv.request.utils.fillColumn(
-              bhv.request.xml.findNode(list[i].childNodes, 'heimteamname'), L45)) + ' '
-            + bhv.request.utils.checkBold(bhv.request.utils.fillColumn(
-              bhv.request.xml.findNode(list[i].childNodes, 'gastteamname'), L45)) + ' '
+        msg += window.bhv.request.utils.fillColumn(days[window.bhv.request.xml.findNode(list[i].childNodes, 'tag')], L1)
+            + window.bhv.request.utils.fillColumn(window.bhv.request.xml.findNode(list[i].childNodes, 'datum'), L2)
+            + window.bhv.request.utils.fillColumn(window.bhv.request.xml.findNode(list[i].childNodes, 'zeit'), L3)
+            + window.bhv.request.utils.checkBold(window.bhv.request.utils.fillColumn(
+              window.bhv.request.xml.findNode(list[i].childNodes, 'heimteamname'), L45)) + ' '
+            + window.bhv.request.utils.checkBold(window.bhv.request.utils.fillColumn(
+              window.bhv.request.xml.findNode(list[i].childNodes, 'gastteamname'), L45)) + ' '
             + res + NL;
       }
 
       // save data for offline mode
-      _save(bhv.request.utils.getTitle('results', new Date(), mapLeague) + msg);
+      _save(window.bhv.request.utils.getTitle('results', new Date(), mapLeague) + msg);
       // add created text to page
-      bhv.request.utils.inject(bhv.request.utils.getTitle('results', null, mapLeague) + msg);
+      window.bhv.request.utils.inject(window.bhv.request.utils.getTitle('results', null, mapLeague) + msg);
     }
   }
 }
@@ -152,5 +152,5 @@ function leagueResults(response) {
  */
 function _save(txt) {
   // store data for offline reading
-  bhv.db.write('results:' + bhv.request.utils.getKey(), txt);
+  window.bhv.db.write('results:' + window.bhv.request.utils.getKey(), txt);
 }
