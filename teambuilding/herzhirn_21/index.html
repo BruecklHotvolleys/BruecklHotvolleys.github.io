@@ -9,7 +9,7 @@ div#content_container {
   padding: 0;
   left: 0;
   right: 0;
-  bottom: 3.8em;
+  bottom: 0;
 }
 div {
   box-sizing: border-box;
@@ -69,7 +69,15 @@ ol, ul {
   padding-left: 1.5em;
 }
 p {
+  position: relative;
   padding: 0.5em 0;
+}
+#footer {
+  padding: 0;
+}
+#footer > div {
+  position: relative;
+  padding: 0.3em;
 }
 div.links {
   position: absolute;
@@ -81,7 +89,7 @@ div.links {
   text-align: left;
   font-size: 2em;
   font-weight: normal;
-  border-top: 1px solid gray;
+  /* border-top: 1px solid gray; */
 }
 div.links > div {
   font-size: 0.8em;
@@ -119,7 +127,7 @@ strong {
   <script>
 var data = {
   "title": "Herz + Hirn",
-  "info": "<p>Infos</p>",
+  "info": "<p><img src=\"info.png\" alt=\"Herz + Hirn\" /></p>",
   "items": [
     {
       "title": "Technik",
@@ -204,7 +212,7 @@ var data_history = [],
 function init(data, withBack) {
   var elemTit = document.getElementById('title'),
       elemInf = document.getElementById('info'),
-      elemLnks = document.getElementById('links'),
+      elemLnks = document.getElementById('footer'),
       elemBack = document.getElementById('back'),
       l;
 
@@ -265,7 +273,32 @@ function connectLinks() {
   if (elemBack) {
     elemBack.addEventListener('click', handleBackLink);
   }
+
+  // center images
+  centerImages();
 }
+function centerImages() {
+  var imgs = document.querySelectorAll('#content_container > div.container > div.info img'),
+      retry = false;
+
+  if (imgs.length > 0) {
+    for (var i = 0; i < imgs.length; ++i) {
+      var w = imgs[i].width;
+      if (isFinite(w) && w > 0) {
+        imgs[i].style.position = 'absolute';
+        imgs[i].style.left = '50%';
+        imgs[i].style.marginLeft = '-' + Math.floor(w / 2) + 'px';
+      } else {
+        retry = true;
+      }
+    }
+  }
+
+  if (retry) {
+    setTimeout(centerImages, 10);
+  }
+}
+
 function handleLink(event) {
   var lnk = parseInt(event.currentTarget.id.substr(3), 10),
       last, cur, next;
@@ -301,9 +334,9 @@ function handleBackLink(event) {
     <div class="container">
      <div id="title" class="title">Title</div>
      <div id="info" class="info">Info</div>
-     <div id="links" class="links">Links</div>
+     <div id="footer" class="links footer">Links</div>
     </div>
   </div>
-  <div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div>
+  <!--div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div-->
 </body>
 </html>

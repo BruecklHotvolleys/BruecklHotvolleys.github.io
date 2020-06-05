@@ -267,7 +267,7 @@ window.bhv.training.presence = {
           src = row === -2 ? data.header1
             : (row === -1 ? data.header2 : data.data[row]),
           lastRow = row == r2 - 1,
-          keyDay = '', key;
+          keyDay = '';
 
       // create a row of the data column
       for (var c = row < 0 ? 0 : 2, c2 = src.length; c < c2; ++c) {
@@ -287,9 +287,8 @@ window.bhv.training.presence = {
               value = '';
             } else {
               value = '' + src[c];
-              // TODO get key of day
-              key = parseInt(data.header1[c], 10);
-              keyDay = '202005' + (key < 10 ? '0' : '') + key;
+              // get key of day
+              keyDay = data.headerinfo[c];
             }
             break;
 
