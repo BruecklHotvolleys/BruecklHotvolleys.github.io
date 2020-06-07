@@ -2,8 +2,8 @@
 
 // the names and the files of the cache
 const CACHE = {
-  'main': 'bhv-infoapp-0c15e05e89b7b526f8881579f545f323',
-  'data': 'bhv-infoapp-16fbc7a9a330dff8a6ae4d81989b29df',
+  'main': 'bhv-infoapp-df66549dad10196509708d9d6c124258',
+  'data': 'bhv-infoapp-3b9c003d6bc899e0a5c4a433a19e6bb1',
   'system4': 'bhv-infoapp-3a74649350f1923a75308d111795c28c',
   'system6': 'bhv-infoapp-ae27fd018f4793588733f92091e95965',
   'favicons': 'bhv-infoapp-330b73fc504d548333704fb32f4ddb85',
@@ -62,7 +62,8 @@ const FILES = {
   ],
   'data': [
     '/data/training/a.json',
-    '/data/training/diary_a.json'
+    '/data/training/diary_a.json',
+    '/data/training/targets_a.json'
   ],
   'system4': [
     '/system4/angriff2.png',
