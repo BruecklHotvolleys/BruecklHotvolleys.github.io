@@ -212,8 +212,12 @@ window.bhv.training.presence = {
     request.overrideMimeType('application/json');
     request.open('GET', query, true);
     request.onreadystatechange = function() {
-      if (request.readyState === 4 && request.status === 200) {
-        onSuccess(request.responseText);
+      if (request.readyState === 4) {
+        if (request.status === 200) {
+          onSuccess(request.responseText);
+        } else {
+          onError('' + request.status);
+        }
       }
     };
     request.send();
@@ -293,7 +297,7 @@ window.bhv.training.presence = {
 
     for (var i = 0; i < data.lineheader.length; ++i) {
       name = data.lineheader[i];
-      if (targets[name]) {
+      if (targets && targets[name]) {
         html += tplTargets
           .replace('{{data}}', name)
           .replace('{{name}}', this._nbsp(name));
