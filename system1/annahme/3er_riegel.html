@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Brückl hotvolleys</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="shortcut icon" href="/favicons/favicon.ico">
+  <script src="/script/polyfills.js"></script>
+  <script src="/script/animator.js"></script>
+  <script src="/script/svgviewer.js"></script>
+  <style>
+body {
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div#svgcanvas {
+  position: absolute;
+  left: 1em;
+  top: 11em;
+  right: 1em;
+  min-width: 10em;
+  bottom: 4.8em;
+  background-color: aliceblue;
+}
+div#svgcanvas > svg {
+  height: 100%;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+div#svgcanvas > div.animation_cmds {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 5em;
+  width: 9.9em;
+  border-radius: 0.1em;
+  background-color: darkgray;
+  display: none;
+}
+div#svgcanvas > div.animation_cmds > div {
+  position: absolute;
+  top: 0.1em;
+  left: 0.1em;
+  height: 4.8em;
+  width: 4.8em;
+  border-radius: 0.1em;
+  background-color: lightgray;
+  overflow: hidden;
+}
+div#svgcanvas > div.animation_cmds > div.stop {
+  left: 5em;
+}
+div#svgcanvas > div.animation_cmds > div > div {
+  position: absolute;
+  left: 1em;
+  top: 0.8em;
+  z-index: 1;
+  background-color: lightgray;
+}
+
+div#svgcanvas > div.animation_cmds > div.play {
+  cursor: pointer;
+}
+div#svgcanvas > div.animation_cmds > div.play > div {
+  width: 0;
+  height: 0;
+  border-top: 1.5em solid transparent;
+  border-left: 3em solid gray;
+  border-bottom: 1.5em solid transparent;
+}
+
+div#svgcanvas > div.animation_cmds > div.pause {
+  cursor: pointer;
+  display: none;
+}
+div#svgcanvas > div.animation_cmds > div.pause > div {
+  box-sizing: border-box;
+  width: 2.8em;
+  height: 3em;
+  border: 1em solid gray;
+  border-width: 0 1em;
+}
+
+div#svgcanvas > div.animation_cmds > div.stop > div {
+  top: 0.9em;
+  width: 2.8em;
+  height: 2.8em;
+  background-color: gray;
+  opacity: 0.5;
+}
+
+div#svgcanvas > div.animation_cmds.play > div.play {
+  display: none;
+}
+div#svgcanvas > div.animation_cmds.play > div.pause {
+  display: block;
+}
+div#svgcanvas > div.animation_cmds.play > div.stop {
+  cursor: pointer;
+}
+div#svgcanvas > div.animation_cmds.play > div.stop > div {
+  opacity: 1;
+}
+
+div#svgcanvas > div.animation_cmds.pause > div.stop {
+  cursor: pointer;
+}
+div#svgcanvas > div.animation_cmds.pause > div.stop > div {
+  opacity: 1;
+}
+
+#svgmenu {
+  background-color: transparent;
+}
+  </style>
+  <script>
+function init() {
+  // block default context menu
+  window.addEventListener('contextmenu', function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    return false;
+  });
+
+  // init footer (if any text to set)
+  var footer = '3 Spielerinnen nehmen an';
+  if (footer) {
+    var elemFooter = document.querySelector('#footer');
+    if (elemFooter) {
+      elemFooter.innerHTML = footer;
+      elemFooter.style.textAlign = 'center';
+    }
+  }
+
+  // get scripts and evaluate them
+  var elemTpl = document.querySelector('#svg_script');
+  if (elemTpl) {
+    eval(elemTpl.innerText);
+  }
+
+  // check for menu, if any: init it
+  var elemCanvas = document.querySelector('div#svgcanvas'),
+      elemMenu = document.querySelector('#svgmenu');
+  if (elemCanvas && elemMenu) {
+    svgviewer.menuHandler = menuHandler;
+    svgviewer.initContextMenu(elemCanvas);
+  }
+
+  // handle animation
+  var i, mode = '',
+      anim = document.querySelector('div#svgcanvas > div.animation_cmds'),
+      btns = anim.querySelectorAll('div'),
+      handler = function(event) {
+        var mode = anim.className.indexOf('play') > -1 ? 'play'
+          : (anim.className.indexOf('pause') > -1 ? 'pause' : 'stop'),
+            cmd = '',
+            nextMode = '';
+
+        switch (this.className) {
+          case 'play':
+            if (mode == 'stop' || mode == 'pause') {
+              cmd = 'play';
+              nextMode = 'animation_cmds play';
+            }
+            break;
+          case 'pause':
+            if (mode == 'play') {
+              cmd = 'pause';
+              nextMode = 'animation_cmds pause';
+            }
+            break;
+          case 'stop':
+            if (mode == 'play' || mode == 'pause') {
+              cmd = 'stop';
+              nextMode = 'animation_cmds';
+            }
+            break;
+          // no-default
+        }
+
+        if (nextMode && cmd) {
+          console.log(cmd);
+          anim.className = nextMode;
+
+          // TODO set animation mode
+        }
+      };
+  for (i = 0; i < btns.length; ++i) {
+    btns[i].addEventListener('click', handler);
+  }
+
+  // init viewer
+  svgviewer.init('svgcanvas');
+}
+
+function menuHandler(fullkey, state) {
+  // console.log('Menuitem: ' + fullkey + ' -> ' + state);
+  svgviewer.setOption(fullkey, state);
+}
+  </script>
+</head>
+<body onload="init();">
+<div class="container">
+<div id="header"><div class="left">
+<a href="/system1/#3er_riegel"><img src="/image/bhv1.gif"/></a>
+<div>3er Riegel</div>
+</div><div class="right">
+<a href="/system1/#3er_riegel"><img src="/image/bhv1.gif"/></a>
+</div>
+</div>
+<div id="svgcanvas"><div class="animation_cmds">
+  <div class="play"><div>&nbsp;</div></div>
+  <div class="pause"><div>&nbsp;</div></div>
+  <div class="stop"><div>&nbsp;</div></div>
+</div>
+<svg id="svg_root" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1300 2200" width="1300" heigth="2200">
+  <g class="court">
+    <rect fill="lime" x="0" y="0" width="1300" height="2200"/>
+    <rect fill="#FFBF00" stroke="darkblue" stroke-width="10px" x="200" y="200" width="900" height="1800"/>
+    <line stroke="darkblue" stroke-width="10px" x1="200" y1="1100.0" x2="1100" y2="1100.0"/>
+    <line stroke="darkblue" stroke-width="10px" x1="200" y1="800.0" x2="1100" y2="800.0"/>
+    <line stroke="darkblue" stroke-width="10px" x1="200" y1="1400.0" x2="1100" y2="1400.0"/>
+    <line stroke="darkblue" stroke-width="10px" stroke-dasharray="15 15" stroke-linecap="butt" x1="185" y1="1400.0" x2="80" y2="1400.0"/>
+    <line stroke="darkblue" stroke-width="10px" stroke-dasharray="15 15" stroke-linecap="butt" x1="1115" y1="1400.0" x2="1220" y2="1400.0"/>
+    <line stroke="darkblue" stroke-width="10px" stroke-dasharray="15 15" stroke-linecap="butt" x1="185" y1="800.0" x2="80" y2="800.0"/>
+    <line stroke="darkblue" stroke-width="10px" stroke-dasharray="15 15" stroke-linecap="butt" x1="1115" y1="800.0" x2="1220" y2="800.0"/>
+    <g transform="translate(200 1100.0)">
+      <g id="player_actor_1" transform="translate(700 500) rotate(-5)" data-optimize-text="true">
+        <circle style="fill: firebrick; stroke: none;" transform="scale(1 0.5)" cx="0" cy="0" r="50"/>
+        <g id="player_actor_1-prepareblock" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;" x1="-37.5" y1="-25" x2="-22.5" y2="-25"/>
+          <line style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;" x1="22.5" y1="-25" x2="37.5" y2="-25"/>
+        </g>
+        <g id="player_actor_1-block" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 17; stroke-linecap: round;" x1="-41" y1="-25" x2="41" y2="-25"/>
+        </g>
+        <g id="player_actor_1-preparereception">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-37.5" y1="0" x2="-62.5" y2="-25"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-62.5" y1="-25" x2="-62.5" y2="-50"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="37.5" y1="0" x2="62.5" y2="-25"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="62.5" y1="-25" x2="62.5" y2="-50"/>
+        </g>
+        <g id="player_actor_1-reception" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-37.5" y1="0" x2="0" y2="-75"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="37.5" y1="0" x2="0" y2="-75"/>
+        </g>
+        <g id="player_actor_1-attack" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="37.5" y1="0" x2="37.5" y2="-50"/>
+        </g>
+        <g id="player_actor_1-attackleft" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-37.5" y1="0" x2="-37.5" y2="-50"/>
+        </g>
+        <g id="player_actor_1-set" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-37.5" y1="0" x2="-20" y2="-23"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="37.5" y1="0" x2="20" y2="-23"/>
+        </g>
+      </g>
+      <g id="player_actor_2" transform="translate(450 510)" data-optimize-text="true">
+        <circle style="fill: firebrick; stroke: none;" transform="scale(1 0.5)" cx="0" cy="0" r="50"/>
+        <g id="player_actor_2-prepareblock" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;" x1="-37.5" y1="-25" x2="-22.5" y2="-25"/>
+          <line style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;" x1="22.5" y1="-25" x2="37.5" y2="-25"/>
+        </g>
+        <g id="player_actor_2-block" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 17; stroke-linecap: round;" x1="-41" y1="-25" x2="41" y2="-25"/>
+        </g>
+        <g id="player_actor_2-preparereception">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-37.5" y1="0" x2="-62.5" y2="-25"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-62.5" y1="-25" x2="-62.5" y2="-50"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="37.5" y1="0" x2="62.5" y2="-25"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="62.5" y1="-25" x2="62.5" y2="-50"/>
+        </g>
+        <g id="player_actor_2-reception" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-37.5" y1="0" x2="0" y2="-75"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="37.5" y1="0" x2="0" y2="-75"/>
+        </g>
+        <g id="player_actor_2-attack" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="37.5" y1="0" x2="37.5" y2="-50"/>
+        </g>
+        <g id="player_actor_2-attackleft" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-37.5" y1="0" x2="-37.5" y2="-50"/>
+        </g>
+        <g id="player_actor_2-set" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-37.5" y1="0" x2="-20" y2="-23"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="37.5" y1="0" x2="20" y2="-23"/>
+        </g>
+      </g>
+      <g id="player_actor_3" transform="translate(200 500) rotate(5)" data-optimize-text="true">
+        <circle style="fill: firebrick; stroke: none;" transform="scale(1 0.5)" cx="0" cy="0" r="50"/>
+        <g id="player_actor_3-prepareblock" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;" x1="-37.5" y1="-25" x2="-22.5" y2="-25"/>
+          <line style="stroke: firebrick; stroke-width: 12.5; stroke-linecap: round;" x1="22.5" y1="-25" x2="37.5" y2="-25"/>
+        </g>
+        <g id="player_actor_3-block" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 17; stroke-linecap: round;" x1="-41" y1="-25" x2="41" y2="-25"/>
+        </g>
+        <g id="player_actor_3-preparereception">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-37.5" y1="0" x2="-62.5" y2="-25"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-62.5" y1="-25" x2="-62.5" y2="-50"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="37.5" y1="0" x2="62.5" y2="-25"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="62.5" y1="-25" x2="62.5" y2="-50"/>
+        </g>
+        <g id="player_actor_3-reception" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-37.5" y1="0" x2="0" y2="-75"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="37.5" y1="0" x2="0" y2="-75"/>
+        </g>
+        <g id="player_actor_3-attack" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="37.5" y1="0" x2="37.5" y2="-50"/>
+        </g>
+        <g id="player_actor_3-attackleft" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-37.5" y1="0" x2="-37.5" y2="-50"/>
+        </g>
+        <g id="player_actor_3-set" style="display: none;">
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="-37.5" y1="0" x2="-20" y2="-23"/>
+          <line style="stroke: firebrick; stroke-width: 25; stroke-linecap: round;" x1="37.5" y1="0" x2="20" y2="-23"/>
+        </g>
+      </g>
+      <g class="actions"/>
+    </g>
+  </g>
+</svg>
+</div>
+<div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div>
+</div>
+</div>
+</body>
+</html>

@@ -2,10 +2,11 @@
 
 // the names and the files of the cache
 const CACHE = {
-  'main': 'bhv-infoapp-09b10406000cdd389eb39c944371822e',
+  'main': 'bhv-infoapp-3e390f16b8fd70198d29308029f585e7',
   'data': 'bhv-infoapp-78034afd250f8c1736ec12fc967ffc40',
+  'system1': 'bhv-infoapp-90b5e8dede66f29903c3735499398095',
   'system4': 'bhv-infoapp-3a74649350f1923a75308d111795c28c',
-  'system6': 'bhv-infoapp-ae27fd018f4793588733f92091e95965',
+  'system6': 'bhv-infoapp-399d860d9a0248748dfe2d7f9f24c6c8',
   'favicons': 'bhv-infoapp-330b73fc504d548333704fb32f4ddb85',
   'info': 'bhv-infoapp-14545db906177853eedc9ed447cbd3db',
   'statistics_19': 'bhv-infoapp-1721c54a73e426c061a4da259e61d823',
@@ -67,6 +68,96 @@ const FILES = {
     '/data/training/diary_b.json',
     '/data/training/jungs.json',
     '/data/training/targets_a.json'
+  ],
+  'system1': [
+    '/system1/angriff/angriff_0_6.html',
+    '/system1/angriff/angriff_0_6.png',
+    '/system1/angriff/angriff_2.html',
+    '/system1/angriff/angriff_2.png',
+    '/system1/angriff/angriff_5v.html',
+    '/system1/angriff/angriff_5v.png',
+    '/system1/angriff/aufspiel.html',
+    '/system1/angriff/aufspiel.png',
+    '/system1/angriff/images/set_0_hi.png',
+    '/system1/angriff/images/set_0.png',
+    '/system1/angriff/images/set_1_hi.png',
+    '/system1/angriff/images/set_1.png',
+    '/system1/angriff/images/set_2_hi.png',
+    '/system1/angriff/images/set_2.png',
+    '/system1/angriff/images/set_3_hi.png',
+    '/system1/angriff/images/set_3.png',
+    '/system1/angriff/images/set_4_hi.png',
+    '/system1/angriff/images/set_4.png',
+    '/system1/angriff/images/set_5h_hi.png',
+    '/system1/angriff/images/set_5h.png',
+    '/system1/angriff/images/set_5v_hi.png',
+    '/system1/angriff/images/set_5v.png',
+    '/system1/angriff/images/set_6_hi.png',
+    '/system1/angriff/images/set_6.png',
+    '/system1/angriff/images/set_7_hi.png',
+    '/system1/angriff/images/set_7.png',
+    '/system1/angriff/images/set_8_hi.png',
+    '/system1/angriff/images/set_8.png',
+    '/system1/angriff/images/set_E_hi.png',
+    '/system1/angriff/images/set_E.png',
+    '/system1/angriff/schnellangriff.html',
+    '/system1/angriff/schnellangriff.png',
+    '/system1/angriff/vorbereitung_1.html',
+    '/system1/angriff/vorbereitung_1.png',
+    '/system1/angriff/vorbereitung_2.html',
+    '/system1/angriff/vorbereitung_2.png',
+    '/system1/angriff/wann_1.html',
+    '/system1/angriff/wann_1.png',
+    '/system1/angriff/wann_2.html',
+    '/system1/angriff/wann_2.png',
+    '/system1/angriff/wo.html',
+    '/system1/angriff/wo.png',
+    '/system1/annahme/3er_riegel.html',
+    '/system1/annahme/3er_riegel.png',
+    '/system1/annahme/l1.html',
+    '/system1/annahme/l1.png',
+    '/system1/annahme/l2.html',
+    '/system1/annahme/l2.png',
+    '/system1/annahme/l3.html',
+    '/system1/annahme/l3.png',
+    '/system1/annahme/l4.html',
+    '/system1/annahme/l4.png',
+    '/system1/annahme/l5.html',
+    '/system1/annahme/l5.png',
+    '/system1/annahme/l6.html',
+    '/system1/annahme/l6.png',
+    '/system1/blockinfo/aktiv.gif',
+    '/system1/blockinfo/bewegung3.png',
+    '/system1/blockinfo/bewegung4.png',
+    '/system1/blockinfo/block.html',
+    '/system1/blockinfo/block1.gif',
+    '/system1/blockinfo/block2.gif',
+    '/system1/blockinfo/grundstellung.gif',
+    '/system1/blockinfo/grundstellung2.gif',
+    '/system1/blockinfo/passiv.gif',
+    '/system1/blockinfo/zur_mitte.gif',
+    '/system1/',
+    '/system1/index.html',
+    '/system1/verteidigung/basis_1.html',
+    '/system1/verteidigung/basis_1.png',
+    '/system1/verteidigung/basis_2.html',
+    '/system1/verteidigung/basis_2.png',
+    '/system1/verteidigung/block_2.html',
+    '/system1/verteidigung/block_2.png',
+    '/system1/verteidigung/block_3_1_schnellangriff.html',
+    '/system1/verteidigung/block_3_1_schnellangriff.png',
+    '/system1/verteidigung/block_3_5_schnellangriff.html',
+    '/system1/verteidigung/block_3_5_schnellangriff.png',
+    '/system1/verteidigung/block_3_schnellangriff.html',
+    '/system1/verteidigung/block_3_schnellangriff.png',
+    '/system1/verteidigung/block_3.html',
+    '/system1/verteidigung/block_3.png',
+    '/system1/verteidigung/block_4.html',
+    '/system1/verteidigung/block_4.png',
+    '/system1/verteidigung/ohne_1.html',
+    '/system1/verteidigung/ohne_1.png',
+    '/system1/verteidigung/ohne_2.html',
+    '/system1/verteidigung/ohne_2.png'
   ],
   'system4': [
     '/system4/angriff2.png',
@@ -295,12 +386,14 @@ self.addEventListener('fetch', (evt) => {
   let nameCache = CACHE['main'];
   if (evt.request.url.indexOf('/data/') > -1) {
     nameCache = CACHE['data'];
+  } else if (evt.request.url.indexOf('/system1') > -1) {
+    nameCache = CACHE['system1'];
   } else if (evt.request.url.indexOf('/system4') > -1) {
     nameCache = CACHE['system4'];
   } else if (evt.request.url.indexOf('/system6') > -1) {
     nameCache = CACHE['system6'];
   } else if (evt.request.url.indexOf('/favicons/') > -1) {
-    nameCache = CACHE['system6'];
+    nameCache = CACHE['favicons'];
   } else if (evt.request.url.indexOf('/info/') > -1) {
     nameCache = CACHE['info'];
   } else if (evt.request.url.indexOf('/statistics/19/') > -1) {

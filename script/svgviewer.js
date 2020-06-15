@@ -7,20 +7,19 @@
 
 /* global log:false */
 var START = 0,
-    STATE_NONE = 0; // block error because of undefined log in exported graphics
-
+    STATE_NONE = 0;
+// block error because of undefined log in exported graphics
 if (!window.log) {
   /* eslint-disable no-empty-function */
   window.log = function () {};
   /* eslint-enable no-empty-function */
-
 }
+
 /**
  * The controller of the svg view.
  */
-
-
 window.svgviewer = {
+
   // #region -- The fields. ---------------------------------------------------
   // The animations.
   'animation': {},
@@ -35,8 +34,8 @@ window.svgviewer = {
   // the menu handler
   'menuHandler': null,
   // #endregion -- The fields. ------------------------------------------------
-  // #region -- Initialize the svg viewer. ------------------------------------
 
+  // #region -- Initialize the svg viewer. ------------------------------------
   /**
    * Initializes the svg viewer.
    * @param {string} id The id of the svg container.
@@ -65,9 +64,9 @@ window.svgviewer = {
 
         return NOT_FOUND;
       };
-    } // the control, the container
+    }
 
-
+    // the control, the container
     control = document.querySelector('#' + id);
 
     if (control) {
@@ -90,8 +89,8 @@ window.svgviewer = {
     }
   },
   // #endregion -- Initialize the svg viewer. ---------------------------------
-  // #region -- Sets the svg viewer. ------------------------------------------
 
+  // #region -- Sets the svg viewer. ------------------------------------------
   /**
    * Tries to set the title for exported viewers.
    * @param {string} title The title to set.
@@ -117,8 +116,8 @@ window.svgviewer = {
 
     if (player) {
       // the possible types and their names
-      types = ['prepareblock', 'block', 'preparereception', 'reception', 'attack', 'attackleft', 'set']; // handle each type and show one or none
-
+      types = ['prepareblock', 'block', 'preparereception', 'reception', 'attack', 'attackleft', 'set'];
+      // handle each type and show one or none
       for (i = START; i < types.length; ++i) {
         typ = types[i];
         idType = id + '-' + typ;
@@ -143,10 +142,17 @@ window.svgviewer = {
 
     if (value === true || value === false) {
       elems = document.querySelectorAll("[data-xid=\"".concat(key2, "\"]"));
-
       if (elems) {
         for (i = START; i < elems.length; ++i) {
           elems[i].style.display = value ? 'block' : 'none';
+        }
+      }
+
+      // handle toggle option
+      elems = document.querySelectorAll("[data-xid=\"".concat(key2, "-x\"]"));
+      if (elems) {
+        for (i = START; i < elems.length; ++i) {
+          elems[i].style.display = value ? 'none' : 'block';
         }
       }
     }
@@ -190,8 +196,8 @@ window.svgviewer = {
     }
   },
   // #endregion -- Sets the svg viewer. ---------------------------------------
-  // #region -- The animation - controller. -----------------------------------
 
+  // #region -- The animation - controller. -----------------------------------
   /**
    * Initializes the animation.
    * @param {number} restart The timestamp(seconds) when to restart looping.
@@ -203,11 +209,9 @@ window.svgviewer = {
 
     if (this.animator) {
       this.animator.init(restart, duration, this.handler, this);
-    } // show controls on exported viewer
-
-
+    }
+    // show controls on exported viewer
     elemAnim = document.querySelector('div#svgcanvas > div.animation_cmds');
-
     if (elemAnim) {
       elemAnim.style.display = 'block';
     }
@@ -226,25 +230,23 @@ window.svgviewer = {
    * @return {void}
    */
   'start': function start() {
-    var actions, btnContainer; // update commands
-
+    var actions, btnContainer;
+    // update commands
     btnContainer = document.querySelector('#' + this.id + ' div.animation_cmds');
-
     if (btnContainer) {
       this._addClass(btnContainer, 'canpause');
-    } // hide actions (arrows of static image)
+    }
 
-
+    // hide actions (arrows of static image)
     actions = document.querySelector('svg g.actions');
 
     if (actions) {
       actions.style.display = 'none';
-    } // start the animation
+    }
 
-
-    this.animator.start(); // debug  $FlowFixMe
-
-    log('start svg anim');
+    // start the animation
+    this.animator.start();
+    // log('start svg anim');
   },
 
   /**
@@ -257,12 +259,11 @@ window.svgviewer = {
 
     if (btnContainer) {
       this._removeClass(btnContainer, 'canpause');
-    } // pause the animation
+    }
 
-
-    this.animator.pause(); // debug  $FlowFixMe
-
-    log('pause svg anim');
+    // pause the animation
+    this.animator.pause();
+    // log('pause svg anim');
   },
 
   /**
@@ -270,29 +271,26 @@ window.svgviewer = {
    * @return {void}
    */
   'stop': function stop() {
-    var actions, btnContainer; // update commands
-
+    var actions, btnContainer;
+    // update commands
     btnContainer = document.querySelector('#' + this.id + ' div.animation_cmds');
-
     if (btnContainer) {
       this._removeClass(btnContainer, 'canpause');
-    } // show actions (arrows of static image)
+    }
 
-
+    // show actions (arrows of static image)
     actions = document.querySelector('svg g.actions');
-
     if (actions) {
       actions.style.display = 'inline-block';
-    } // stop the animation
+    }
 
-
-    this.animator.stop(); // debug  $FlowFixMe
-
-    log('stop svg anim');
+    // stop the animation
+    this.animator.stop();
+    // log('stop svg anim');
   },
   // #endregion -- The animation - controller. --------------------------------
-  // #region -- The animation - handler(callback from animator). --------------
 
+  // #region -- The animation - handler(callback from animator). --------------
   /**
    * The handler of the animation callbacks.
    * @param {string} mode The mode - start Animation, Stop animation, Update.
@@ -307,22 +305,18 @@ window.svgviewer = {
       // start animation
       case 'A':
         // initialize the actor for animation
-        // this.document.update(null, START_ANIM);
         this._setActors(START_ANIM);
-
         break;
-      // update animation
 
+      // update animation
       case 'U':
         // set next pos
         this._setActors(current);
-
         break;
 
       case 'S':
         // reset the initial position of all actors
         this._setActors();
-
         break;
 
       default:
@@ -332,7 +326,6 @@ window.svgviewer = {
 
   /* eslint-disable max-lines-per-function, max-statements, max-depth,
                     complexity */
-
   /**
    * Updates an actor during its animation.
    * @param {number} current The current timestamp.
@@ -374,14 +367,13 @@ window.svgviewer = {
             if (reset) {
               trans = 'translate(' + reset.x + ', ' + reset.y + ') rotate(' + reset.angle + ')';
               actor.setAttribute('transform', trans);
-              actor.style.display = reset.visible ? 'inline-block' : 'none'; // special handling for players
-
+              actor.style.display = reset.visible ? 'inline-block' : 'none';
+              // special handling for players
               if (id.substr(START, LEN_ID_PLAYER) === 'player_') {
                 // player - type
-                window.svgviewer.setPlayerType(id, this._playerTypes[reset.type]); // player - text
-
+                window.svgviewer.setPlayerType(id, this._playerTypes[reset.type]);
+                // player - text
                 elem = actor.querySelector('text');
-
                 if (elem) {
                   elem.textContent = reset.text;
                 }
@@ -401,19 +393,21 @@ window.svgviewer = {
           reset = this.animation0[id];
 
           if (actor && reset) {
-            actions = this.animation[id]; // init values
-
+            actions = this.animation[id];
+            // init values
             angle = reset.angle;
             text = reset.text;
             type = reset.type;
             visible = reset.visible;
             x = reset.x;
-            y = reset.y; // handle each action
+            y = reset.y;
 
+            // handle each action
             for (j = START, j2 = actions.length; j < j2; ++j) {
               action = actions[j];
 
               switch (action.type) {
+
                 // move
                 case 'M':
                   if (current > action.end) {
@@ -423,59 +417,55 @@ window.svgviewer = {
                     x += action.val1 / action.duration * (current - action.start);
                     y += action.val2 / action.duration * (current - action.start);
                   }
-
                   break;
-                // rotation
 
+                // rotation
                 case 'R':
                   if (current > action.end) {
                     angle += action.val1;
                   } else if (current > action.start) {
                     angle += action.val1 / action.duration * (current - action.start);
                   }
-
                   break;
-                // in-/visible
 
+                // in-/visible
                 case 'V':
                   if (current >= action.start) {
-                    var VISIBLE = 1;
+                    var VISIBLE = 'true';
                     visible = action.val1 === VISIBLE;
                   }
-
                   break;
-                // type (player)
 
+                // type (player)
                 case 'T':
                   if (current >= action.start) {
                     type = action.val1;
                   }
-
                   break;
-                // text (player)
 
+                // text (player)
                 case 't':
                   if (current >= action.start) {
                     text = action.val1;
                   }
-
                   break;
+
                 // no default
               }
-            } // position and rotation
+            }
 
-
+            // position and rotation
             trans = 'translate(' + x + ', ' + y + ') rotate(' + angle + ')';
-            actor.setAttribute('transform', trans); // visibility
+            actor.setAttribute('transform', trans);
+            // visibility
+            actor.style.display = visible ? 'inline-block' : 'none';
 
-            actor.style.display = visible ? 'inline-block' : 'none'; // special handling for players
-
+            // special handling for players
             if (id.substr(START, LEN_ID_PLAYER) === 'player_') {
               // player - type
-              window.svgviewer.setPlayerType(id, this._playerTypes[type]); // player - text
-
+              window.svgviewer.setPlayerType(id, this._playerTypes[type]);
+              // player - text
               elem = actor.querySelector('text');
-
               if (elem && elem.textContent !== text) {
                 elem.textContent = text;
               }
@@ -485,8 +475,8 @@ window.svgviewer = {
       }
     }
   },
-
   /* eslint-enable max-statements */
+
   // The map of the types of the players.
   '_playerTypes': {
     'b': 'prepareblock',
@@ -498,10 +488,9 @@ window.svgviewer = {
     'a': 'attackleft'
   },
   // #endregion -- The animation - handler(callback from animator). -----------
+
   // #region -- The menu. -----------------------------------------------------
-
   /* eslint-disable max-statements */
-
   /**
    * Prepares the context menu.
    * @param {HtmlElement} canvas The svg canvas (usually its a div).
@@ -510,8 +499,9 @@ window.svgviewer = {
   'initContextMenu': function initContextMenu(canvas) {
     var menuVisible = false,
         self = this,
-        handlerClose; // show the context menu
+        handlerClose;
 
+    // show the context menu
     canvas.addEventListener('contextmenu', function (event) {
       var bg, child1, menu;
 
@@ -523,31 +513,27 @@ window.svgviewer = {
         if (bg && menu) {
           // check for rearranging the dom - necessary on first call only
           if (bg.parentNode !== document.body) {
-            // get first child of 'body'  // $FlowFixMe  body should exist
-            child1 = document.body.firstChild; // remove bg and context menu
-
+            // get first child of 'body'
+            child1 = document.body.firstChild;
+            // remove bg and context menu
             if (bg.parentNode && menu.parentNode) {
-              bg.parentNode.removeChild(bg); // $FlowFixMe  menu.parentNode is checked above
-
+              bg.parentNode.removeChild(bg);
               menu.parentNode.removeChild(menu);
-            } // insert them into body  // $FlowFixMe  body should exist
+            }
 
-
+            // insert them into body
             if (document.body.insertBefore) {
-              document.body.insertBefore(bg, child1); // $FlowFixMe  if one exists, the other one should exist, too
-
-              document.body.insertBefore(menu, child1); // $FlowFixMe  body should exist
+              document.body.insertBefore(bg, child1);
+              document.body.insertBefore(menu, child1);
             } else if (document.body.insertAdjacentElement) {
-              document.body.insertAdjacentElement('afterbegin', menu); // $FlowFixMe  if one exists, the other one should exist, too
-
+              document.body.insertAdjacentElement('afterbegin', menu);
               document.body.insertAdjacentElement('afterbegin', bg);
             } else {
-              // $FlowFixMe  body should exist
-              document.body.innerHTML = bg.outerHTML + menu.outerHTML // $FlowFixMe  body should exist
-              + document.body.innerHTML;
-            } // add handler to close the context menu
+              document.body.innerHTML = bg.outerHTML + menu.outerHTML
+                + document.body.innerHTML;
+            }
 
-
+            // add handler to close the context menu
             handlerClose = function handlerClose() {
               // if menu is visible: hide it
               if (menuVisible && bg && menu) {
@@ -559,29 +545,26 @@ window.svgviewer = {
 
             bg.addEventListener('click', handlerClose);
             menu.addEventListener('click', handlerClose);
-          } // show background of menu
+          }
 
-
-          bg.style.display = 'block'; // set pos of menu
-
+          // show background of menu
+          bg.style.display = 'block';
+          // set pos of menu
           menu.style.left = "".concat(event.clientX, "px");
-          menu.style.top = "".concat(event.clientY, "px"); // show it
-
-          menu.style.display = 'block'; // init context menu
-
-          self._initMenu(); // store state
-
-
+          menu.style.top = "".concat(event.clientY, "px");
+          // show it
+          menu.style.display = 'block';
+          // init context menu
+          self._initMenu();
+          // store state
           menuVisible = true;
         }
       }
     });
   },
-
   /* eslint-enable max-statements */
 
   /* eslint-disable max-statements */
-
   /**
    * Initializes the context menu on first call, ignores following calls.
    * @return {void}
@@ -603,9 +586,10 @@ window.svgviewer = {
         OFFSET_CB = 50,
         OFFSET_SEP_LINE = 5,
         grps = [],
+        menu = document.querySelector('svg#svgmenu'),
         grpsCb = document.querySelectorAll('svg#svgmenu g.cb'),
         grpsMi = document.querySelectorAll('svg#svgmenu g.mi'),
-        rect = document.querySelector('svg > g > rect.menu');
+        rect = document.querySelector('svg#svgmenu > g > rect.menu');
 
     if (grpsCb) {
       for (i = FIRST; i < grpsCb.length; ++i) {
@@ -617,68 +601,105 @@ window.svgviewer = {
       for (i = FIRST; i < grpsMi.length; ++i) {
         grps.push(grpsMi[i]);
       }
-    } // init only on first call (width's default value is 1)
+    }
 
-
+    // init only on first call (width's default value is 1)
     if (rect && rect.getAttribute('width') === '1') {
-      // text = document.querySelectorAll('g.cb > text');
-      // rectBG = document.querySelectorAll('g.cb > rect.bg');
       text = document.querySelectorAll('svg#svgmenu g > text');
       rectBG = document.querySelectorAll('svg#svgmenu g > rect.bg');
       len = INIT_LEN;
 
       for (i = FIRST; i < text.length; ++i) {
-        txt = text[i]; // $FlowFixMe  its a svg text -> getBBox is available
-
+        txt = text[i];
         box = txt.getBBox();
         len = Math.max(len, box.width);
       }
 
-      len += OFFSET_CB; // main rectangle
+      len += OFFSET_CB;
+      // main rectangle, menu
+      rect.setAttribute('width', "".concat(len));
+      menu.setAttribute('width', "".concat(len));
 
-      rect.setAttribute('width', "".concat(len)); // bg of each mi
-
+      // bg of each mi
       for (i = FIRST; i < rectBG.length; ++i) {
         rectBG[i].setAttribute('width', "".concat(len));
-      } // (optional) lines of separators
-
-
+      }
+      // (optional) lines of separators
       lines = document.querySelectorAll('g.sep > line.sep');
 
       if (lines) {
         for (i = FIRST; i < lines.length; ++i) {
           lines[i].setAttribute('x2', "".concat(len - OFFSET_SEP_LINE));
         }
-      } // handle each group
+      }
 
-
+      // handle each group
       handler = function handler() {
-        var newValue = undefined; // handle checkboxes (show state)
+        var newValue = undefined,
+            group = null,
+            rbs = null, rb,
+            pathRb;
 
+        // check for radiobutton
+        if (this.hasAttribute('data-group')) {
+          group = this.getAttribute('data-group');
+          rbs = this.parentNode.querySelectorAll('[data-group="'.concat(group, '"]'));
+          path = this.querySelector('path');
+
+          if (rbs && path) {
+            newValue = path.style.display === 'none';
+
+            // nothing to do if selected rb clicked
+            if (!newValue) {
+              return;
+            }
+
+            // deselect previously selected ones
+            for (i = 0; i < rbs.length; ++i) {
+              rb = rbs[i];
+              pathRb = rb.querySelector('path');
+              if (pathRb.style.display !== 'none') {
+                pathRb.style.display = 'none';
+                fullKey = rb.getAttribute('data-key');
+                // switch off option
+                if (fullKey && window.svgviewer.menuHandler) {
+                  window.svgviewer.menuHandler(fullKey, false);
+                }
+              }
+            }
+
+            // set option
+            path.style.display = 'block';
+            fullKey = this.getAttribute('data-key');
+            if (fullKey && window.svgviewer.menuHandler) {
+              window.svgviewer.menuHandler(fullKey, newValue);
+            }
+          }
+
+          // radiobuttons handled
+          return;
+        }
+
+        // handle checkboxes (toggle state)
         /* eslint-disable no-invalid-this */
         // this is set to clicked element
-
         path = this.querySelector('path');
         /* eslint-enable no-invalid-this */
-
         if (path) {
           newValue = path.style.display === 'none';
           path.style.display = newValue ? 'block' : 'none';
         }
+
         /* eslint-disable no-invalid-this */
         // this is set to clicked element
-
-
         fullKey = this.getAttribute('data-key');
         /* eslint-enable no-invalid-this */
-
         if (fullKey) {
-          // trigger app event only if in app
-          if (window.app && window.app.eventbus) {
-            window.app.eventbus.trigger('svgmenu', fullKey);
-          } // call menu handler (e.g. exported infos)
-
-
+          // // trigger app event only if in app
+          // if (window.app && window.app.eventbus) {
+          //   window.app.eventbus.trigger('svgmenu', fullKey);
+          // }
+          // call menu handler (e.g. exported infos)
           if (window.svgviewer.menuHandler) {
             window.svgviewer.menuHandler(fullKey, newValue);
           }
@@ -688,9 +709,8 @@ window.svgviewer = {
       for (i = FIRST; i < grps.length; ++i) {
         grps[i].addEventListener('click', handler);
       }
-    } // if in app, cb only: try to read the current values from settings
-
-
+    }
+    // if in app, cb only: try to read the current values from settings
     if (window.app && window.app.eventbus) {
       // handle each checkbox
       for (i = FIRST; i < grpsCb.length; ++i) {
@@ -708,35 +728,10 @@ window.svgviewer = {
       }
     }
   },
-
   /* eslint-enable max-statements */
   // #endregion -- The menu. --------------------------------------------------
-  // #region -- Utilities. ----------------------------------------------------
-  // /**
-  //  * Get the position of an element.
-  //  * @param {Element} elem The element to check.
-  //  * @return {PositionInfo} The x and y position of the given element.
-  //  */
-  // 'getPos': function(elem) {
-  //   var POS0 = 0;
-  //
-  //   // if elem is ok
-  //   if (elem) {
-  //     // get position of parent and combine it with its own one
-  //     const pos = this.getPos(elem.offsetParent);
-  //     return {
-  //       'x': pos.x + elem.offsetLeft,
-  //       'y': pos.y + elem.offsetTop
-  //     };
-  //   }
-  //
-  //   // no more parent: return 0/0
-  //   return {
-  //     'x': POS0,
-  //     'y': POS0
-  //   };
-  // },
 
+  // #region -- Utilities. ----------------------------------------------------
   /**
    * Adds a style class for an element.
    * @param {Element} elem The element to handle.
@@ -746,17 +741,18 @@ window.svgviewer = {
   '_addClass': function _addClass(elem, clazz) {
     var NOT_FOUND = -1,
         classes,
-        cn = elem.className; // if any class found on element
+        cn = elem.className;
 
+    // if any class found on element
     if (cn) {
       // add name of additional class
       classes = cn.split(' ');
-
       if (classes.indexOf(clazz) === NOT_FOUND) {
         elem.className += ' ' + clazz;
       }
+
     } else {
-      // else: set name of class to add as first class
+      // else: set name of class to add as first one
       elem.className = clazz;
     }
   },
@@ -772,14 +768,14 @@ window.svgviewer = {
         REMOVE_1 = 1,
         classes,
         cn = elem.className,
-        pos; // if any class found
+        pos;
 
+    // if any class found
     if (cn) {
       // get all existing class names
-      classes = cn.split(' '); // check if class to remove exists - if found: remove it
-
+      classes = cn.split(' ');
+      // check if class to remove exists - if found: remove it
       pos = classes.indexOf(clazz);
-
       if (pos > NOT_FOUND) {
         classes.splice(pos, REMOVE_1);
         elem.className = classes.join(' ');
@@ -788,4 +784,3 @@ window.svgviewer = {
   }
   // #endregion -- Utilities. -------------------------------------------------
 };
-//# sourceMappingURL=svgviewer.js.map
