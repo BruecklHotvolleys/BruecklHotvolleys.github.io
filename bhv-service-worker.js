@@ -4,7 +4,7 @@
 const CACHE = {
   'main': 'bhv-infoapp-3e390f16b8fd70198d29308029f585e7',
   'data': 'bhv-infoapp-78034afd250f8c1736ec12fc967ffc40',
-  'system1': 'bhv-infoapp-90b5e8dede66f29903c3735499398095',
+  'system1': 'bhv-infoapp-b829383e9b96891f779392b8868513b1',
   'system4': 'bhv-infoapp-3a74649350f1923a75308d111795c28c',
   'system6': 'bhv-infoapp-399d860d9a0248748dfe2d7f9f24c6c8',
   'favicons': 'bhv-infoapp-330b73fc504d548333704fb32f4ddb85',
