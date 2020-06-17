@@ -49,6 +49,17 @@ div#svgcanvas > div.animation_cmds {
   background-color: darkgray;
   display: none;
 }
+div#header div.animation_cmds {
+  position: absolute;
+  top: 0.15em;
+  right: 0.2em;
+  height: 1.1em;
+  width: 3.18em;
+  border: 0 none;
+  border-radius: 0.1em;
+  background-color: darkgray;
+  display: none;
+}
 div#svgcanvas > div.animation_cmds > div {
   position: absolute;
   top: 0.1em;
@@ -59,10 +70,32 @@ div#svgcanvas > div.animation_cmds > div {
   background-color: lightgray;
   overflow: hidden;
 }
+div#header div.animation_cmds > div {
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  height: 7.8em;
+  width: 7.8em;
+  border-radius: 0.1em;
+  background-color: lightgray;
+  overflow: hidden;
+}
+div#svgcanvas > div.animation_cmds.no_anim > div.play,
+div#svgcanvas > div.animation_cmds.no_anim > div.stop,
+div#svgcanvas > div.animation_cmds.no_menu > div.menu,
+div#header div.animation_cmds.no_anim > div.play,
+div#header div.animation_cmds.no_anim > div.stop,
+div#header div.animation_cmds.no_menu > div.menu {
+  display: none;
+}
 div#svgcanvas > div.animation_cmds > div.stop {
   left: 5em;
 }
-div#svgcanvas > div.animation_cmds > div > div {
+div#header div.animation_cmds > div.stop {
+  left: 7.9em;
+}
+div#svgcanvas > div.animation_cmds > div > div,
+div#header div.animation_cmds > div > div {
   position: absolute;
   left: 1em;
   top: 0.8em;
@@ -70,7 +103,8 @@ div#svgcanvas > div.animation_cmds > div > div {
   background-color: lightgray;
 }
 
-div#svgcanvas > div.animation_cmds > div.play {
+div#svgcanvas > div.animation_cmds > div.play,
+div#header div.animation_cmds > div.play {
   cursor: pointer;
 }
 div#svgcanvas > div.animation_cmds > div.play > div {
@@ -80,8 +114,16 @@ div#svgcanvas > div.animation_cmds > div.play > div {
   border-left: 3em solid gray;
   border-bottom: 1.5em solid transparent;
 }
+div#header div.animation_cmds > div.play > div {
+  width: 0;
+  height: 0;
+  border-top: 3.1em solid transparent;
+  border-left: 6em solid gray;
+  border-bottom: 3.1em solid transparent;
+}
 
-div#svgcanvas > div.animation_cmds > div.pause {
+div#svgcanvas > div.animation_cmds > div.pause,
+div#header div.animation_cmds > div.pause {
   cursor: pointer;
   display: none;
 }
@@ -92,6 +134,13 @@ div#svgcanvas > div.animation_cmds > div.pause > div {
   border: 1em solid gray;
   border-width: 0 1em;
 }
+div#header div.animation_cmds > div.pause > div {
+  box-sizing: border-box;
+  width: 5.8em;
+  height: 5.9em;
+  border: 2em solid gray;
+  border-width: 0 2em;
+}
 
 div#svgcanvas > div.animation_cmds > div.stop > div {
   top: 0.9em;
@@ -100,25 +149,50 @@ div#svgcanvas > div.animation_cmds > div.stop > div {
   background-color: gray;
   opacity: 0.5;
 }
+div#header div.animation_cmds > div.stop > div {
+  top: 0.9em;
+  width: 5.8em;
+  height: 5.9em;
+  background-color: gray;
+  opacity: 0.5;
+}
 
-div#svgcanvas > div.animation_cmds.play > div.play {
+div#svgcanvas > div.animation_cmds.play > div.play,
+div#header div.animation_cmds.play > div.play {
   display: none;
 }
-div#svgcanvas > div.animation_cmds.play > div.pause {
+div#svgcanvas > div.animation_cmds.play > div.pause,
+div#header div.animation_cmds.play > div.pause {
   display: block;
 }
-div#svgcanvas > div.animation_cmds.play > div.stop {
+div#svgcanvas > div.animation_cmds.play > div.stop,
+div#svgcanvas > div.animation_cmds.pause > div.stop,
+div#header div.animation_cmds.play > div.stop,
+div#header div.animation_cmds.pause > div.stop {
   cursor: pointer;
 }
-div#svgcanvas > div.animation_cmds.play > div.stop > div {
+div#svgcanvas > div.animation_cmds.play > div.stop > div,
+div#svgcanvas > div.animation_cmds.pause > div.stop > div,
+div#header div.animation_cmds.play > div.stop > div,
+div#header div.animation_cmds.pause > div.stop > div {
   opacity: 1;
 }
 
-div#svgcanvas > div.animation_cmds.pause > div.stop {
-  cursor: pointer;
+div#header div.animation_cmds > div.menu {
+  left: 15.8em;
 }
-div#svgcanvas > div.animation_cmds.pause > div.stop > div {
-  opacity: 1;
+div#header div.animation_cmds > div.menu > div.d1 {
+  box-sizing: border-box;
+  width: 5.8em;
+  height: 5.9em;
+  border: 2em solid gray;
+  border-width: 1.5em 0;
+}
+div#header div.animation_cmds > div.menu > div.d2 {
+  top: 3em;
+  width: 5.8em;
+  height: 1.5em;
+  background: gray;
 }
 
 #svgmenu {
@@ -144,18 +218,24 @@ function init() {
     }
   }
 
-  // get scripts and evaluate them
-  var elemTpl = document.querySelector('#svg_script');
-  if (elemTpl) {
-    eval(elemTpl.innerText);
-  }
+  // its already evaluated as body script
+  // // get scripts and evaluate them
+  // var elemTpl = document.querySelector('#svg_script');
+  // if (elemTpl) {
+  //   eval(elemTpl.innerText);
+  // }
 
   // check for menu, if any: init it
   var elemCanvas = document.querySelector('div#svgcanvas'),
-      elemMenu = document.querySelector('#svgmenu');
-  if (elemCanvas && elemMenu) {
+      elemMenu = document.querySelector('#svgmenu'),
+      elemAnims = document.querySelector('div#svgcanvas > div.animation_cmds'),
+      elemMenuCm = document.querySelector('div#svgcanvas > div.animation_cmds > div.menu');
+  if (elemCanvas && elemAnims && elemMenu && elemMenuCm) {
     svgviewer.menuHandler = menuHandler;
-    svgviewer.initContextMenu(elemCanvas);
+    elemAnims.style.display = 'block';
+    // elemMenuCm.style.display = 'block';
+    svgviewer._removeClass(elemAnims, 'no_menu');
+    svgviewer.initContextMenu(elemCanvas, elemMenuCm);
   }
 
   // handle animation
@@ -220,10 +300,11 @@ function menuHandler(fullkey, state) {
 <a href="/system1/#l6"><img src="/image/bhv1.gif"/></a>
 </div>
 </div>
-<div id="svgcanvas"><div class="animation_cmds">
+<div id="svgcanvas"><div class="animation_cmds no_anim no_menu">
   <div class="play"><div>&nbsp;</div></div>
   <div class="pause"><div>&nbsp;</div></div>
   <div class="stop"><div>&nbsp;</div></div>
+  <div class="menu"><div class="d1">&nbsp;</div><div class="d2">&nbsp;</div></div>
 </div>
 <svg id="svg_root" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1300 2200" width="1300" heigth="2200">
   <g class="court">
@@ -517,8 +598,6 @@ function menuHandler(fullkey, state) {
   <style>
 svg#svgmenu {  
   position: absolute;  
-  top: 0;  
-  left: 0;  
   z-index: 99; 
   -ms-user-select: none;  
   -moz-user-select: none;  

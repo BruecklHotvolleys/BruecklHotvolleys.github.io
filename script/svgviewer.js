@@ -47,10 +47,13 @@ window.svgviewer = {
         btnPlay,
         btnStop,
         control,
+        headerRight,
+        no_anim, no_menu, btnMenu,
         i,
         self = this;
-    this.id = id; // ie8 - add indexOf to array
+    this.id = id;
 
+    // ie8 - add indexOf to array
     if (!Array.prototype.indexOf) {
       /* eslint-disable no-extend-native */
       // $FlowFixMe  force setting of indexOf
@@ -67,7 +70,34 @@ window.svgviewer = {
     }
 
     // the control, the container
-    control = document.querySelector('#' + id);
+    // control = document.querySelector('#' + id);
+    control = document.querySelector('#' + id + ' div.animation_cmds');
+    headerRight = document.querySelector('#header > div.right');
+    if (control && headerRight) {
+      btnMenu = control.querySelector('div.menu');
+      no_anim = this._hasClass(control, 'no_anim');
+      no_menu = this._hasClass(control, 'no_menu');
+      if (!no_anim || !no_menu) {
+        // clean header region
+        while (headerRight.firstChild) {
+          headerRight.removeChild(headerRight.firstChild);
+        }
+        control.parentNode.removeChild(control);
+        headerRight.appendChild(control);
+        // change id of container
+        this.id = 'header';
+
+        // update size if one is missing
+        if (no_anim) {
+          control.style.width = '0.91em';
+          if (btnMenu != null) {
+            btnMenu.style.left = 0;
+          }
+        } else if (no_menu) {
+          control.style.width = '2.05em';
+        }
+      }
+    }
 
     if (control) {
       // look for the buttons
@@ -205,7 +235,7 @@ window.svgviewer = {
    * @return {void}
    */
   'initAnimation': function initAnimation(restart, duration) {
-    var elemAnim;
+    var elemAnim, elemPlay, elemStop;
 
     if (this.animator) {
       this.animator.init(restart, duration, this.handler, this);
@@ -214,6 +244,7 @@ window.svgviewer = {
     elemAnim = document.querySelector('div#svgcanvas > div.animation_cmds');
     if (elemAnim) {
       elemAnim.style.display = 'block';
+      this._removeClass(elemAnim, 'no_anim');
     }
   },
 
@@ -494,73 +525,110 @@ window.svgviewer = {
   /**
    * Prepares the context menu.
    * @param {HtmlElement} canvas The svg canvas (usually its a div).
+   * @param {HtmlElement} elemTrigger An additional trigger element (usually
+   * its a div).
    * @return {void}
    */
-  'initContextMenu': function initContextMenu(canvas) {
+  'initContextMenu': function initContextMenu(canvas, elemTrigger) {
     var menuVisible = false,
         self = this,
-        handlerClose;
+        bg = null,
+        menu = null,
+
+        // the handler to open the context menu
+        handlerShow = function(mode, posX, posY) {
+          var child1;
+
+          // get menu container and its background
+          bg = document.getElementById('svgmenu_bg');
+          menu = document.querySelector('svg#svgmenu');
+
+          if (bg && menu) {
+            // check for rearranging the dom - necessary on first call only
+            if (bg.parentNode !== document.body) {
+              // get first child of 'body'
+              child1 = document.body.firstChild;
+              // remove bg and context menu
+              if (bg.parentNode && menu.parentNode) {
+                bg.parentNode.removeChild(bg);
+                menu.parentNode.removeChild(menu);
+              }
+
+              // insert them into body
+              if (document.body.insertBefore) {
+                document.body.insertBefore(bg, child1);
+                document.body.insertBefore(menu, child1);
+              } else if (document.body.insertAdjacentElement) {
+                document.body.insertAdjacentElement('afterbegin', menu);
+                document.body.insertAdjacentElement('afterbegin', bg);
+              } else {
+                document.body.innerHTML = bg.outerHTML + menu.outerHTML
+                  + document.body.innerHTML;
+              }
+
+              // // add handler to close the context menu
+              // handlerClose = function handlerClose() {
+              //   // if menu is visible: hide it
+              //   if (menuVisible && bg && menu) {
+              //     bg.style.display = 'none';
+              //     menu.style.display = 'none';
+              //     menuVisible = false;
+              //   }
+              // };
+
+              bg.addEventListener('click', handlerClose);
+              menu.addEventListener('click', handlerClose);
+            }
+
+            // show background of menu
+            bg.style.display = 'block';
+            // set pos of menu
+            // menu.style.left = "".concat(event.clientX, "px");
+            // menu.style.top = "".concat(event.clientY, "px");
+            if (mode == 'R') {
+              menu.style.left = '';
+              menu.style.right = posX;
+              menu.style.top = posY;
+            } else {
+              menu.style.right = '';
+              menu.style.left = ''.concat(posX, 'px');
+              menu.style.top = ''.concat(posY, 'px');
+            }
+            // show it
+            menu.style.display = 'block';
+            // init context menu
+            self._initMenu();
+            // store state
+            menuVisible = true;
+          }
+        },
+
+        // the handler to close the context menu
+        handlerClose = function() {
+          // if menu is visible: hide it
+          if (menuVisible && bg && menu) {
+            bg.style.display = 'none';
+            menu.style.display = 'none';
+            menuVisible = false;
+          }
+        };
+
 
     // show the context menu
     canvas.addEventListener('contextmenu', function (event) {
-      var bg, child1, menu;
-
       if (!menuVisible) {
-        // get menu container and its background
-        bg = document.getElementById('svgmenu_bg');
-        menu = document.querySelector('svg#svgmenu');
-
-        if (bg && menu) {
-          // check for rearranging the dom - necessary on first call only
-          if (bg.parentNode !== document.body) {
-            // get first child of 'body'
-            child1 = document.body.firstChild;
-            // remove bg and context menu
-            if (bg.parentNode && menu.parentNode) {
-              bg.parentNode.removeChild(bg);
-              menu.parentNode.removeChild(menu);
-            }
-
-            // insert them into body
-            if (document.body.insertBefore) {
-              document.body.insertBefore(bg, child1);
-              document.body.insertBefore(menu, child1);
-            } else if (document.body.insertAdjacentElement) {
-              document.body.insertAdjacentElement('afterbegin', menu);
-              document.body.insertAdjacentElement('afterbegin', bg);
-            } else {
-              document.body.innerHTML = bg.outerHTML + menu.outerHTML
-                + document.body.innerHTML;
-            }
-
-            // add handler to close the context menu
-            handlerClose = function handlerClose() {
-              // if menu is visible: hide it
-              if (menuVisible && bg && menu) {
-                bg.style.display = 'none';
-                menu.style.display = 'none';
-                menuVisible = false;
-              }
-            };
-
-            bg.addEventListener('click', handlerClose);
-            menu.addEventListener('click', handlerClose);
-          }
-
-          // show background of menu
-          bg.style.display = 'block';
-          // set pos of menu
-          menu.style.left = "".concat(event.clientX, "px");
-          menu.style.top = "".concat(event.clientY, "px");
-          // show it
-          menu.style.display = 'block';
-          // init context menu
-          self._initMenu();
-          // store state
-          menuVisible = true;
-        }
+        handlerShow('L', event.clientX, event.clientY);
       }
     });
+
+    if (elemTrigger != null) {
+      // show/hide the context menu
+      elemTrigger.addEventListener('click', function (event) {
+        if (!menuVisible) {
+          handlerShow('R', '1.3em', '8.9em');
+        }
+      });
+    }
   },
   /* eslint-enable max-statements */
 
@@ -780,6 +848,29 @@ window.svgviewer = {
         classes.splice(pos, REMOVE_1);
         elem.className = classes.join(' ');
       }
+    }
+  },
+
+  /**
+   * Checks if a style class from an element exists.
+   * @param {Element} elem The element to handle.
+   * @param {string} clazz The name of the style class to remove.
+   * @return {bool} True if given class exists on the given element, otherwise
+   * false.
+   */
+  '_hasClass': function(elem, clazz) {
+    var NOT_FOUND = -1,
+        classes,
+        cn = elem.className,
+        pos;
+
+    // if any class found
+    if (cn) {
+      // get all existing class names
+      classes = cn.split(' ');
+      // check if class exists
+      pos = classes.indexOf(clazz);
+      return pos > NOT_FOUND;
     }
   }
   // #endregion -- Utilities. -------------------------------------------------
