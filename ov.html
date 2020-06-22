@@ -154,8 +154,10 @@ function init() {
     // 'nw': ...
     'u20_21': ['info20'],
     'u18_21': ['info18'],
-    'u16_21': ['info16', 'system6'],
-    'u15_21': ['info15', 'system4'],
+    // , 'system6'
+    'u16_21': ['info16'],
+    // , 'system4'
+    'u15_21': ['info15'],
     'u14_21': ['info14'],
     'u13_21': ['info13'],
     'u12_21': ['info12'],
@@ -252,6 +254,17 @@ function showPw() {
     elemBg.style.display = 'block';
     if (elemPw != null) {
       elemPw.focus();
+      var handleKeyUp = function(event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          elemPw.removeEventListener('keyup', handleKeyUp);
+          var elemOk = document.getElementById('pw_ok');
+          if (elemOk !== null) {
+            elemOk.click();
+          }
+        }
+      };
+      elemPw.addEventListener('keyup', handleKeyUp);
     }
   }
 }
