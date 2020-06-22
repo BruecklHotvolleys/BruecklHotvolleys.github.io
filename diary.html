@@ -22,6 +22,7 @@ div.info {
   <script src="/script/polyfills.js"></script>
   <script src="/script/request.js"></script>
   <script src="/script/utils.js"></script>
+  <script src="/script/code.js"></script>
   <script>
 function init() {
   window.bhv.utils.setBack('tagebuch');
@@ -33,13 +34,27 @@ function init() {
  * @return {void}
  */
 function loadDiary() {
-  var key = window.bhv.request.utils.getKey(),
-      query = '/data/training/diary_' + key + '.json';
+  var key = window.bhv.request.utils.getKey(), query, check,
+      checks = {
+        'a': 1,
+        'b': 3
+      };
+
+  if (!checks[key]) {
+    return false;
+  }
+  check = window.bhv.code.check();
+  if (check !== checks[key] && check !== 0) {
+    return false;
+  }
+
+  query = '/data/training/diary_' + key + '.json';
 
   // try to load diary
   _getData(query, setDiary.bind(this), function(info) {
     // TODO error handler
   });
+  return true;
 }
 
 /**

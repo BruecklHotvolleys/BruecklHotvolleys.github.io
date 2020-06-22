@@ -11,11 +11,120 @@
 body {
   margin: 0;
 }
+
+a.locked_1, a.locked_2, a.locked_3, a.locked_4 {
+  display: none;
+}
+.expandable.locked_1, .expandable.locked_2,
+.expandable.locked_3, .expandable.locked_4 {
+  cursor: default;
+}
+h2.locked_1 > div.expander, h2.locked_2 > div.expander,
+h2.locked_3 > div.expander, h2.locked_4 > div.expander {
+  display: none;
+}
+
+div#lock {
+  font-size: 4em;
+  position: fixed;
+  left: 0.5em;
+  top: 3.5em;
+  background-color: black;
+  width: 5em;
+  height: 4em;
+  border-radius: 20%;
+  box-shadow: 0 0 1em 1em lightblue;
+  cursor: pointer;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  display: none;
+}
+div#lock:before {
+  content: '';
+  position: absolute;
+  top: -3em;
+  left: 0.75em;
+  width: 3.5em;
+  height: 3.5em;
+  box-sizing: border-box;
+  border: 1em solid black;
+  border-radius: 50%;
+  border-bottom: 1em solid transparent;
+  border-right: 1em solid transparent;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+div#lock:after {
+  content: '';
+  position: absolute;
+  top: -1.5em;
+  left: 0.75em;
+  width: 3.5em;
+  height: 4em;
+  box-sizing: border-box;
+  border: 1em solid black;
+  border-top: 0 none;
+}
+
+div#pw_bg {
+  display: none;
+  position: absolute;
+  background-color: lightblue;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  text-align: left;
+}
+div#pw_title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2em;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.4em;
+  font-size: 5em;
+  background-color: #111;
+  color: lightblue;
+  text-align: left;
+}
+input#pw {
+  position: absolute;
+  top: 5em;
+  left: 0;
+  height: 3em;
+  width: 100%;
+  border: 0 none;
+  padding: 0 1.1em;
+  font-size: 2em;
+  text-align: left;
+}
+button#pw_ok {
+  position: absolute;
+  top: 3.2em;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border: 0 none;
+  font-size: 5em;
+  font-weight: bold;
+  background-color: lightblue;
+}
   </style>
   <link rel="shortcut icon" href="/favicons/favicon.ico">
   <script src="/script/polyfills.js"></script>
   <script src="/elements/expander/script.js"></script>
   <script src="/script/utils.js"></script>
+  <script src="/script/code.js"></script>
   <script>
 // connects the service worker
 window.bhv.utils.connectSW();
@@ -119,6 +228,93 @@ function init() {
   keepOpen.archive = keepOpen.a19.concat(keepOpen.a20);
 
   window.bhv.elements.expander.init(expanders, keepOpen);
+
+  // show locked if necessary
+  var cur = window.localStorage.getItem('pw'),
+      res = window.bhv.code.check(cur);
+  if (res < 0) {
+    var elemLock = document.getElementById('lock'),
+        elemOk = document.getElementById('pw_ok');
+    if (elemLock != null && elemOk != null) {
+      elemLock.style.display = 'block';
+      addEvent(elemLock, 'click', showPw);
+      addEvent(elemOk, 'click', hidePw);
+    }
+  } else {
+    updateOV(res);
+  }
+}
+
+function showPw() {
+  var elemBg = document.getElementById('pw_bg'),
+      elemPw = document.getElementById('pw');
+  if (elemBg != null) {
+    elemBg.style.display = 'block';
+    if (elemPw != null) {
+      elemPw.focus();
+    }
+  }
+}
+function hidePw() {
+  var elemBg = document.getElementById('pw_bg'),
+      elemPw = document.getElementById('pw'),
+      pw = '', res;
+  if (elemPw != null) {
+    pw = elemPw.value;
+    elemPw.value = '';
+    res = window.bhv.code.check(pw);
+    if (res < 0) {
+      window.localStorage.removeItem('pw');
+    } else {
+      window.localStorage.setItem('pw', pw);
+      var elemLock = document.getElementById('lock');
+      if (elemLock != null) {
+        elemLock.style.display = 'none';
+      }
+      updateOV(res);
+    }
+  }
+  if (elemBg != null) {
+    elemBg.style.display = 'none';
+  }
+}
+
+function addEvent(elem, event, handler) {
+  if (elem.addEventListener) {
+    elem.addEventListener(event, handler); //, false);
+  } else if (elem.attachEvent)  {
+    elem.attachEvent('on' + event, function(ev) {
+      if (!ev) ev = window.event;
+      if (ev.target == undefined) {
+        ev.target = ev.srcElement;
+      }
+      handler(ev);
+    });
+  }
+}
+
+function updateOV(code) {
+  for (var key = 1; key <= 4; ++key) {
+    if (key === code || code === 0) {
+      var clazz = '.locked_' + key,
+          elems = document.querySelectorAll(clazz);
+      for (var e = 0; e < elems.length; ++e) {
+        removeClass(elems[e], clazz.substr(1));
+      }
+    }
+  }
+}
+
+function removeClass(elem, clazz) {
+  var cn = elem.className;
+  if (cn) {
+    var classes = cn.split(' '),
+        pos = classes.indexOf(clazz);
+    if (pos > -1) {
+      classes.splice(pos, 1);
+      elem.className = classes.join(' ');
+    }
+  }
 }
   </script>
 </head>
@@ -146,13 +342,13 @@ function init() {
       <h2 id="u15_21" class="expandable">U15 - Midi</h2>
       <div id="u15_21_2" class="expanded_container">
         <a id="info15" href="/info/u15.html"><h3>Infos</h3></a>
-        <a id="system4" href="/system4"><h3>Spielsystem</h3></a>
+        <!--a id="system4" href="/system4"><h3>Spielsystem</h3></a-->
       </div>
 
       <h2 id="u16_21" class="expandable">U16 - Schülerinnen</h2>
       <div id="u16_21_2" class="expanded_container">
         <a id="info16" href="/info/u16.html"><h3>Infos</h3></a>
-        <a id="system6" href="/system6"><h3>Spielsystem</h3></a>
+        <!--a id="system6" href="/system6"><h3>Spielsystem</h3></a-->
       </div>
 
       <h2 id="u18_21" class="expandable">U18 - Jugend weiblich</h2>
@@ -168,26 +364,26 @@ function init() {
 
     <h1 id="ak" class="expandable"><br>Allgemeine Klasse<br>&nbsp;</h1>
     <div id="ak_2" class="expanded_container">
-      <h2 id="br3_21" class="expandable">Brückl 3 - Unterliga</h2>
+      <h2 id="br3_21" class="expandable locked_3">Brückl 3 - Unterliga</h2>
       <div id="br3_21_2" class="expanded_container">
-        <a id="training_b" href="presence.html?key=b"><h3>Anwesenheit</h3></a>
-        <a id="training_jungs" href="presence.html?key=jungs"><h3>Anwesenheit Jungs</h3></a>
-        <a id="tagebuch_b" href="diary.html?key=b"><h3>Trainingstagebuch</h3></a>
-        <!--a id="spielfeld6" href="/system6/spielfeld"><h3>Spielsystem 4</h3></a-->
-        <a id="system6" href="/system6"><h3>Spielsystem</h3></a>
+        <a id="training_b" href="presence.html?key=b" class="locked_3"><h3>Anwesenheit</h3></a>
+        <a id="training_jungs" href="presence.html?key=jungs" class="locked_3"><h3>Anwesenheit Jungs</h3></a>
+        <a id="tagebuch_b" href="diary.html?key=b" class="locked_3"><h3>Trainingstagebuch</h3></a>
+        <!--a id="spielfeld6" href="/system6/spielfeld" class="locked_3"><h3>Spielsystem 4</h3></a-->
+        <a id="system6" href="/system6" class="locked_3"><h3>Spielsystem</h3></a>
       </div>
 
-      <h2 id="br2_21">Brückl 2 - Landesliga</h2>
+      <h2 id="br2_21" class="expandable locked_2">Brückl 2 - Landesliga</h2>
       <!--h2 id="br2_21" class="expandable">Brückl 2 - Landesliga</h2>
       <div id="br2_21_2" class="expanded_container">
       </div-->
 
-      <h2 id="br1_21" class="expandable">Brückl 1 - Bundesliga</h2>
+      <h2 id="br1_21" class="expandable locked_1">Brückl 1 - Bundesliga</h2>
       <div id="br1_21_2" class="expanded_container">
-        <a id="herzhirn_21" href="/teambuilding/herzhirn_21"><h3>Herz + Hirn</h3></a>
-        <a id="training_a" href="presence.html?key=a"><h3>Anwesenheit</h3></a>
-        <a id="tagebuch_a" href="diary.html?key=a"><h3>Trainingstagebuch</h3></a>
-        <a id="system1" href="/system1"><h3>Spielsystem</h3></a>
+        <a id="herzhirn_21" href="/teambuilding/herzhirn_21" class="locked_1"><h3>Herz + Hirn</h3></a>
+        <a id="training_a" href="presence.html?key=a" class="locked_1"><h3>Anwesenheit</h3></a>
+        <a id="tagebuch_a" href="diary.html?key=a" class="locked_1"><h3>Trainingstagebuch</h3></a>
+        <a id="system1" href="/system1" class="locked_1"><h3>Spielsystem</h3></a>
       </div>
     </div>
 
@@ -384,5 +580,11 @@ function init() {
       <a id="divinfo21" href="info/info21.html"><h3>Allgemeine Infos</h3></a>
     </div>
   </nav>
+  <div id="lock">&nbsp;</div>
+  <div id="pw_bg">
+    <div id="pw_title">Passwort:</div>
+    <input id="pw" type="password" placeholder="Passwort" inputmode="text" />
+    <button id="pw_ok" type="button">Ok</button>
+  </div>
 </body>
 </html>

@@ -13,6 +13,12 @@ if (window.bhv.training === undefined) {
  */
 window.bhv.training.presence = {
 
+  checks: {
+    'a': 1,
+    'b': 3,
+    'jungs': 3
+  },
+
   /**
    * The diary data.
    */
@@ -24,16 +30,25 @@ window.bhv.training.presence = {
 
   /**
    * Starts the creation of the presence view.
-   * @return {void}
+   * @return {bool} True if password is ok, otherwise false.
    */
   init: function() {
-    var key = window.bhv.request.utils.getKey(),
-        query = '/data/training/' + key + '.json';
+    var key = window.bhv.request.utils.getKey(), query, check;
 
+    if (!this.checks[key]) {
+      return false;
+    }
+    check = window.bhv.code.check();
+    if (check !== this.checks[key] && check !== 0) {
+      return false;
+    }
+
+    query = '/data/training/' + key + '.json';
     // load data and continue with init2
     this._getData(query, this.init2.bind(this), function(info) {
       // TODO error handler
     });
+    return true;
   },
 
   /**

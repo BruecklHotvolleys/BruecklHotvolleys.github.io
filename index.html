@@ -43,6 +43,10 @@ a {
   <script>
 // register service worker
 window.bhv.utils.registerSW();
+
+if (window.location.search == '?reset') {
+  window.localStorage.removeItem('pw');
+}
   </script>
 </head>
 <body>

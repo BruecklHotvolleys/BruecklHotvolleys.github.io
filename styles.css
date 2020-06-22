@@ -220,7 +220,7 @@ table.tactics div {
 }
 
 /* -- content -------------------------------------------------------------- */
-div#content_container {
+div#content_container, div#loader {
   position: absolute;
   left: 1em;
   top: 11em;
@@ -231,6 +231,13 @@ div#content_container {
   overflow: auto;
   text-align: left;
   box-sizing: border-box;
+}
+div#content_container.locked {
+  display: none;
+}
+div#loader {
+  font-size: 5em;
+  top: 2em;
 }
 
 /* --  ------------------------------------------------ */

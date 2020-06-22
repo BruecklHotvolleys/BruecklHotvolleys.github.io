@@ -124,6 +124,7 @@ strong {
   font-size: inherit;
 }
   </style>
+  <script src="/script/code.js"></script>
   <script>
 var data = {
   "title": "Herz + Hirn",
@@ -214,7 +215,20 @@ function init(data, withBack) {
       elemInf = document.getElementById('info'),
       elemLnks = document.getElementById('footer'),
       elemBack = document.getElementById('back'),
-      l;
+      l,
+      cont = document.getElementById('content_container'),
+      check = window.bhv.code.check();
+
+  if (check === 1 || check === 0) {
+    var loader = document.getElementById('loader');
+    if (loader && cont) {
+      loader.style.display = 'none';
+      cont.style.display = 'block';
+    }
+  } else {
+    cont.parentNode.removeChild(cont);
+    return false;
+  }
 
   data_history.push(data);
 
@@ -330,7 +344,8 @@ function handleBackLink(event) {
     <a href="/ov.html#herzhirn_21"><img src="/image/bhv1.gif"/></a>
     </div>
   </div>
-  <div id="content_container">
+  <div id="loader">Loading...</div>
+  <div id="content_container" class="locked">
     <div class="container">
      <div id="title" class="title">Title</div>
      <div id="info" class="info">Info</div>
