@@ -264,8 +264,9 @@ function showPw() {
           }
         }
       };
-      elemPw.addEventListener('keyup', handleKeyUp);
+      //elemPw.addEventListener('keyup', handleKeyUp);
     }
+    document.body.style.overflow = 'hidden';
   }
 }
 function hidePw() {
@@ -290,6 +291,7 @@ function hidePw() {
   if (elemBg != null) {
     elemBg.style.display = 'none';
   }
+  document.body.style.overflow = 'auto';
 }
 
 function addEvent(elem, event, handler) {
