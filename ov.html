@@ -249,8 +249,11 @@ function init() {
 
 function showPw() {
   var elemBg = document.getElementById('pw_bg'),
-      elemPw = document.getElementById('pw');
-  if (elemBg != null) {
+      elemPw = document.getElementById('pw'),
+      elemNav = document.getElementById('nav');
+  if (elemBg != null && elemNav != null) {
+    document.body.style.overflow = 'hidden';
+    elemNav.style.display = 'none';
     elemBg.style.display = 'block';
     if (elemPw != null) {
       elemPw.focus();
@@ -266,12 +269,12 @@ function showPw() {
       };
       //elemPw.addEventListener('keyup', handleKeyUp);
     }
-    document.body.style.overflow = 'hidden';
   }
 }
 function hidePw() {
   var elemBg = document.getElementById('pw_bg'),
       elemPw = document.getElementById('pw'),
+      elemNav = document.getElementById('nav'),
       pw = '', res;
   if (elemPw != null) {
     pw = elemPw.value;
@@ -292,6 +295,7 @@ function hidePw() {
     elemBg.style.display = 'none';
   }
   document.body.style.overflow = 'auto';
+  elemNav.style.display = 'block';
 }
 
 function addEvent(elem, event, handler) {
@@ -334,7 +338,7 @@ function removeClass(elem, clazz) {
   </script>
 </head>
 <body onload="init();">
-  <nav role="navigation">
+  <nav id="nav" role="navigation">
 
     <h1 id="nw" class="expandable" style=""><br>Nachwuchs<br>&nbsp;</h1>
     <div id="nw_2" class="expanded_container">
