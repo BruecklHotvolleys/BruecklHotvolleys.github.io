@@ -19,7 +19,7 @@ div.container {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
 }
 div.title {
   position: absolute;
@@ -74,6 +74,7 @@ p {
 }
 #footer {
   padding: 0;
+  white-space: nowrap;
 }
 #footer > div {
   position: relative;
@@ -132,27 +133,35 @@ var data = {
   "items": [
     {
       "title": "Technik",
-      "info": "<p>Aufspiel: Tempo + Daumen<br>Mitte: Richtung geben mit dem Handgelenk, nicht mit dem Körper<br>Außen: Runterziehen -&gt; 3m-Linie, Tempo<br>ein Trick für jede Spielerin</p>",
+      "info": "<ul><li><p><strong>Aufspiel:</strong> Tempo + Daumen</p></li><li><p><strong>Mitte:</strong> Richtung geben mit dem Handgelenk, nicht mit dem Körper</p></li><li><p><strong>Außen:</strong> Runterziehen -&gt; 3m-Linie, Tempo</p></li><li><p><strong>Trick:</strong> ein Trick für jede Spielerin</p></li></ul>",
       "items": [
         {
           "title": "Aufspiel",
-          "info": ""
+          "info": "<p>Vorbereitung - Körbchenstellung, Daumen zurück<br>Spannung aus den Fingern und den Zehen(!)<br>Die Daumen beschleunigen den Ball</p>"
         },
         {
           "title": "Mitte",
-          "info": ""
+          "info": "<p>Hinter dem Ball bleiben, den Ball aus dem Handgelenk Richtung geben:</p><ul><li>Drehung um den Zeigefinger (1 Uhr)<br>der Ball soll links am Block vorbeistreifen</li><li>Drehung um den kleinen Finger (11 Uhr)<br>der Ball soll rechts am Block vorbeistreifen</li></ul>"
         },
         {
           "title": "Außen",
-          "info": ""
+          "info": "<ul><li><p>Von außen anlaufen,</p></li><li><p>min 4m vom Netz starten,</p></li><li><p>gerade und schnell laufen.</p></li><li><p>Je weiter innen der Ball ist, umso agressiver in den Ball<br>hineinspringen und extrem diagonal schlagen!</p></li></ul>"
         },
         {
           "title": "Tricks",
-          "info": "<p>Block-Out provozieren</p>",
+          "info": "<p><strong>Angriff</strong></p><ul><li>Block-Out provozieren</li><li>Block hoch anschlagen</li><li>Ball hoch in den Block + Sichern</li></ul>",
           "items": [
             {
               "title": "Block-Out",
-              "info": "<p>Wenn der Ball nah am Netz und weit genug außen ist,<br>kann die Angreiferin den Ball mit der Schlaghand nach außen drücken<br>und so den Ball vom Block ins Out spielen =&gt; <strong>Punkt für uns</strong>.</p>"
+              "info": "<p>Wenn der Ball nah am Netz und weit genug außen ist,<br>kann ich den Ball mit der Schlaghand nach außen drücken<br>und so den Ball vom Block ins Out spielen =&gt; <strong>Punkt für uns</strong>.</p>"
+            },
+            {
+              "title": "Block hoch anschlagen",
+              "info": "<p>Wenn es mir gelingt den Block oben zu treffen,<br>wird der Ball nach oben abgefälscht<br>und damit schwieriger zu verteidigen.</p>"
+            },
+            {
+              "title": "In den Block + Sichern",
+              "info": "<p>Wenn der Ball zu nah am Block ist,<br>kann ich ihn mittelfest hoch in den Block schlagen<br>und damit eine 'einfache' Sicherung ermöglichen.</p>"
             }
           ]
         }
@@ -160,7 +169,7 @@ var data = {
     },
     {
       "title": "Infos zum Angriff",
-      "info": "<p>Wann: Zeitpunkt des Absprungs<br>Wo: Ort des Absprung</p>",
+      "info": "<ul><li><strong>Wann:</strong> Zeitpunkt des Absprungs</li><li><strong>Wo:</strong> Ort des Absprung</li></ul><p>(siehe auch Spielsystem)</p>",
       "items": [
         {
           "title": "Wann",
@@ -169,6 +178,24 @@ var data = {
         {
           "title": "Wo",
           "info": "<p>1: bei der Aufspielerin(vor ihr)<br>3: bei der Aufspielerin (hinter ihr)<br>4: ca. 2-3m vor der Aufspielerin</p><p>5v: ca.1-1,5m vor der Aufspielerin<br>6: Pos. 4 - &quot;bei der Antenne&quot;<br>8: ca. 3,5-4m vor der Aufspielerin</p><p>0: Pos. 4 - &quot;bei der Antenne links&quot;<br>2: Pos. 2 - &quot;bei der Antenne rechts&quot;</p><p>9er - Hinterfeld<br>immer knapp(!) hinter der 3m-Linie<br>Mitte: genau in der Mitte<br>Pipe: hinter der Aufspielerin<br>1: rechts, knapp innerhalb der Seitenlinie</p>"
+        }
+      ]
+    },
+    {
+      "title": "Verteidigung",
+      "info": "<p>Unterschiede Damen - Herren<br>Auswirkungen</p><ul><li>Zonen</li><li>Laufbereitschaft</li></ul>",
+      "items": [
+        {
+          "title": "Damen - Herren",
+          "info": "<ul><li>Körpergröße</li><li>Kraft</li><li>Reichweite</li></ul>"
+        },
+        {
+          "title": "Zonen",
+          "info": "<p><img src=\"zonen.png\" alt=\"Zonen\" /></p><ul><li><strong>a</strong> Blockschatten</li><li><strong>b</strong> In dieser Zone besteht bei harten Bällen kaum eine Chance zur Verteidigung - hierher kann aber (hoffentlich) auch niemand hart schlagen</li><li><strong>c</strong> Angriffe in diese Zone kommen häufig vor, sind aber schwierig zu verteidigen</li><li><strong>d</strong> Angriffe in diese Zone sind (etwas) leichter zu verteidigen...</li></ul><p><strong>Spielerinnen (müssen) weiter weg vom Netz starten</strong></p>"
+        },
+        {
+          "title": "Laufbereitschaft",
+          "info": "<p>Da der Raum vor einer Spielerin im Damenbereich größer ist, wird der Schupfer über den Block 'einfacher' für die Angreiferin.</p><p>Deshalb ist die Bereitschaft einen Ball zu erlaufen im Damenbereich noch wichtiger als bei den Herren!</p>"
         }
       ]
     },
@@ -299,9 +326,10 @@ function centerImages() {
     for (var i = 0; i < imgs.length; ++i) {
       var w = imgs[i].width;
       if (isFinite(w) && w > 0) {
-        imgs[i].style.position = 'absolute';
-        imgs[i].style.left = '50%';
-        imgs[i].style.marginLeft = '-' + Math.floor(w / 2) + 'px';
+        // imgs[i].style.position = 'relative';
+        // imgs[i].style.left = '50%';
+        // imgs[i].style.marginLeft = '-' + Math.floor(w / 2) + 'px';
+        imgs[i].parentNode.style.textAlign = 'center';
       } else {
         retry = true;
       }

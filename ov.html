@@ -264,17 +264,6 @@ function showPw() {
     elemBg.style.display = 'block';
     if (elemPw != null) {
       elemPw.focus();
-      var handleKeyUp = function(event) {
-        if (event.keyCode === 13) {
-          event.preventDefault();
-          elemPw.removeEventListener('keyup', handleKeyUp);
-          var elemOk = document.getElementById('pw_ok');
-          if (elemOk !== null) {
-            elemOk.click();
-          }
-        }
-      };
-      //elemPw.addEventListener('keyup', handleKeyUp);
     }
   }
 }
@@ -607,7 +596,7 @@ function removeClass(elem, clazz) {
     </div>
   </nav>
   <div id="lock">&nbsp;</div>
-  <form id="pw_bg">
+  <form id="pw_bg" onsubmit="hidePw(); return false;">
     <label id="pw_title" for="pw">Passwort:</label>
     <input id="pw" type="password" placeholder="Passwort" inputmode="text" />
     <button id="pw_ok" type="button">Ok</button>
