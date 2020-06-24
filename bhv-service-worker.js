@@ -11,7 +11,7 @@ const CACHE = {
   'info': 'bhv-infoapp-14545db906177853eedc9ed447cbd3db',
   'statistics_19': 'bhv-infoapp-1721c54a73e426c061a4da259e61d823',
   'teambuilding_19': 'bhv-infoapp-9aeecfc5514d12fd7a4ac6ca488835d7',
-  'teambuilding_21': 'bhv-infoapp-d4571b977a503fedc150179dc236fc35'
+  'teambuilding_21': 'bhv-infoapp-265a8dcbec62919f159b4f0611fa0f39'
 };
 const FILES = {
   'main': [
@@ -334,6 +334,7 @@ const FILES = {
   'teambuilding_21': [
     '/teambuilding/herzhirn_21/2005241.jpeg',
     '/teambuilding/herzhirn_21/2005242.jpeg',
+    '/teambuilding/herzhirn_21/angriff_auf.jpeg',
     '/teambuilding/herzhirn_21/',
     '/teambuilding/herzhirn_21/index.html',
     '/teambuilding/herzhirn_21/info.png',

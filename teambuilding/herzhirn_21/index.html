@@ -61,7 +61,7 @@ div.info {
   font-weight: normal;
   overflow: auto;
 }
-p, ol, ul, li {
+p, ol, ul, li, strong, p * {
   font-size: 1em;
   text-align: left;
 }
@@ -121,9 +121,6 @@ div.w25 {
   width: 25%;
 }
 
-strong {
-  font-size: inherit;
-}
   </style>
   <script src="/script/code.js"></script>
   <script>
@@ -149,8 +146,12 @@ var data = {
         },
         {
           "title": "Tricks",
-          "info": "<p><strong>Angriff</strong></p><ul><li>Block-Out provozieren</li><li>Block hoch anschlagen</li><li>Ball hoch in den Block + Sichern</li></ul>",
+          "info": "<p><strong>Aufspiel</strong></p><ul><li>Angriff der Aufspielerin</li></ul><p><strong>Angriff</strong></p><ul><li>Block-Out provozieren</li><li>Block hoch anschlagen</li><li>Ball hoch in den Block + Sichern</li></ul>",
           "items": [
+            {
+              "title": "Angriff der Aufspielerin",
+              "info": "<p><img src=\"angriff_auf.jpeg\" alt=\"Angriff der Aufspielerin?\" /></p><p>Die Aufspielerin muss das Blockverhalten beobachten oder 'spüren' und wissen, wo die Gegnerinnen stehen.<br>Der Angriff muss ansatzlos gespielt werden - <del>eine Hand zum Ball</del> oder Angriff verstecken.</p>"
+            },
             {
               "title": "Block-Out",
               "info": "<p>Wenn der Ball nah am Netz und weit genug außen ist,<br>kann ich den Ball mit der Schlaghand nach außen drücken<br>und so den Ball vom Block ins Out spielen =&gt; <strong>Punkt für uns</strong>.</p>"
@@ -380,6 +381,5 @@ function handleBackLink(event) {
      <div id="footer" class="links footer">Links</div>
     </div>
   </div>
-  <!--div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div-->
 </body>
 </html>
