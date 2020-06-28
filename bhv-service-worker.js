@@ -2,16 +2,16 @@
 
 // the names and the files of the cache
 const CACHE = {
-  'main': 'bhv-infoapp-297ed451bb7720938dcf5409a6fbca99',
-  'data': 'bhv-infoapp-c8179f54873a3a399d0b3cf71410eed0',
-  'system1': 'bhv-infoapp-d3a015bf3df64aba589e7ef98ca5cc5d',
-  'system4': 'bhv-infoapp-966cb466748ba1a4f164e68bc109a97d',
-  'system6': 'bhv-infoapp-441a37770d4478069e05424f06c180ba',
-  'favicons': 'bhv-infoapp-330b73fc504d548333704fb32f4ddb85',
-  'info': 'bhv-infoapp-14545db906177853eedc9ed447cbd3db',
-  'statistics_19': 'bhv-infoapp-1721c54a73e426c061a4da259e61d823',
-  'teambuilding_19': 'bhv-infoapp-9aeecfc5514d12fd7a4ac6ca488835d7',
-  'teambuilding_21': 'bhv-infoapp-aeebb32ee640ad136c8e7551611610ca'
+  'main': 'bhv-infoapp-main-25ce4d578c9c96ff5cf4a7ea6445e365',
+  'data': 'bhv-infoapp-data-83783950dde048eb4fd66c8256b08578',
+  'system1': 'bhv-infoapp-system1-d3a015bf3df64aba589e7ef98ca5cc5d',
+  'system4': 'bhv-infoapp-system4-966cb466748ba1a4f164e68bc109a97d',
+  'system6': 'bhv-infoapp-system6-441a37770d4478069e05424f06c180ba',
+  'favicons': 'bhv-infoapp-favicons-330b73fc504d548333704fb32f4ddb85',
+  'info': 'bhv-infoapp-info-14545db906177853eedc9ed447cbd3db',
+  'statistics_19': 'bhv-infoapp-statistics_19-1721c54a73e426c061a4da259e61d823',
+  'teambuilding_19': 'bhv-infoapp-teambuilding_19-9aeecfc5514d12fd7a4ac6ca488835d7',
+  'teambuilding_21': 'bhv-infoapp-teambuilding_21-f9d92bf1577fc549fadbf8b90cb0303d'
 };
 const FILES = {
   'main': [
