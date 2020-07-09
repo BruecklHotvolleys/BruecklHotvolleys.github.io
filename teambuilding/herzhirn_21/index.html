@@ -120,6 +120,61 @@ div.w33 {
 div.w25 {
   width: 25%;
 }
+
+/* -- presentation --------------------------------------------------------- */
+div.presentation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+div.presentation img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+}
+div.presentation_text {
+  position: absolute;
+  left: 52%;
+  width: 48%;
+
+  top: 1em;
+  font-size: 2.5em;
+  text-align: left;
+}
+@media (orientation: portrait) {
+  div.presentation img {
+    position: relative;
+    width: 100%;
+  }
+
+  div.presentation_text {
+    position: relative;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 1em 0.5em;
+    box-sizing: border-box;
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 450px) {
+  div.presentation img {
+    position: relative;
+    width: 100%;
+  }
+
+  div.presentation_text {
+    position: relative;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 1em 0.5em;
+    box-sizing: border-box;
+    font-size: 2.5em;
+  }
+}
   </style>
   <script src="/script/code.js"></script>
   <script>
@@ -136,12 +191,84 @@ var data = ﻿{
           "info": "<p>Vorbereitung - Körbchenstellung, Daumen zurück<br>Spannung aus den Fingern und den Zehen(!)<br>Die Daumen beschleunigen den Ball</p>"
         },
         {
-          "title": "Mitte",
-          "info": "<p>Hinter dem Ball bleiben, den Ball aus dem Handgelenk Richtung geben:</p><ul><li>Drehung um den Zeigefinger (1 Uhr)<br>der Ball soll links am Block vorbeistreifen</li><li>Drehung um den kleinen Finger (11 Uhr)<br>der Ball soll rechts am Block vorbeistreifen</li></ul>"
+          "title": "Angriff",
+          "info": "<ul><li><strong>Mitte</strong></li><li><strong>Außen</strong></li></ul>",
+          "items": [
+            {
+              "title": "Mitte",
+              "info": "<p>Hinter dem Ball bleiben, den Ball aus dem Handgelenk Richtung geben:</p><ul><li>Drehung um den Zeigefinger (1 Uhr),<br>der Ball soll links am Block vorbeistreifen,</li><li>Drehung um den kleinen Finger (11 Uhr),<br>der Ball soll rechts am Block vorbeistreifen.</li></ul>"
+            },
+            {
+              "title": "Außen",
+              "info": "<ul><li>Von außen anlaufen,</li><li>min 4m vom Netz starten,</li><li>gerade und schnell laufen.</li></ul><ul><li>Je weiter innen der Ball ist, umso agressiver in den Ball hineinspringen und extrem diagonal schlagen!</li></ul>"
+            }
+          ]
         },
         {
-          "title": "Außen",
-          "info": "<ul><li>Von außen anlaufen,</li><li>min 4m vom Netz starten,</li><li>gerade und schnell laufen.</li><li>Je weiter innen der Ball ist, umso agressiver in den Ball<br>hineinspringen und extrem diagonal schlagen!</li></ul>"
+          "type": "presentation",
+          "title": "Verteidigung",
+          "items": [
+            {
+              "type": "presentation_item",
+              "title": "UZ - „Baggern“",
+              "info": "<center style=\"font-size: 3em;\">Das Untere Zuspiel<br>„Baggern“<br> <br><b>Annahme + Verteidigung</b></center>"
+            },
+            {
+              "type": "presentation_item",
+              "title": "Technik 1",
+              "info": "<p><img src=\"uz/technik1.png\" alt=\"Technik 1\" /></p><ul><li>Die Arme sind völlig gestreckt und geschlossen.</li><li>Die Daumen fixieren die Hände.</li></ul>"
+            },
+            {
+              "type": "presentation_item",
+              "title": "Technik 2",
+              "info": "<p><img src=\"uz/technik2.png\" alt=\"Technik 2\" /></p><ul><li>Der Ball wird mit den Unterarmen gespielt.</li><li>Knapp über den Handgelenken, ca. im 1. Drittel.</li></ul>"
+            },
+            {
+              "type": "presentation_item",
+              "title": "Technik 3",
+              "info": "<p><img src=\"uz/technik3.png\" alt=\"Technik 3\" /></p><p><strong>Bewegungsablauf</strong><br>Der Ball wird so gespielt, dass die Kraft der Beine mit ruhigen Armen auf ihn übetragen wird.</p>"
+            },
+            {
+              "type": "presentation_item",
+              "title": "Technik 4",
+              "info": "<p><img src=\"uz/technik4.png\" alt=\"Technik 4\" /></p><p>Das Körpergewicht wird auf den vorderen Fuß verlagert.</p>"
+            },
+            {
+              "type": "presentation_item",
+              "title": "Technik 5",
+              "info": "<p><img src=\"uz/technik5.png\" alt=\"Technik 5\" /></p><p>Die Arme werden nicht aktiv eingesetzt, nur die Schultergelenke werden angehoben.<br>Der Ball wird quasi in die gewünschte Spielrichtung „gedrückt“.</p>"
+            },
+            {
+              "type": "presentation_item",
+              "title": "Technik 6",
+              "info": "<p><img src=\"uz/technik6.png\" alt=\"Technik 6\" /></p><p>Der Oberkörper bleibt in leichter Vorlage, der Körper befindet sich hinter dem Ball.<br>Beide Schultern müssen in die gewünschte Spielrichtung zeigen.</p>"
+            },
+            {
+              "type": "presentation_item",
+              "title": "Abwehrbagger",
+              "info": "<p><img src=\"uz/abwehrbagger1.png\" alt=\"Abbwehrbagger\" /></p>"
+            },
+            {
+              "type": "presentation_item",
+              "title": "Abwehrbagger seitlich",
+              "info": "<p><img src=\"uz/abwehrbagger2.png\" alt=\"Abbwehrbagger seitlich\" /></p>"
+            },
+            {
+              "type": "presentation_item",
+              "title": "Damen - Herren",
+              "info": "<p><strong>Unterschiede</strong></p><ul><li>Körpergröße</li><li>Kraft</li><li>Reichweite</li><li>unterschiedliche Konzentrationsfähigkeit<br>Verteilte Aufmerksamkeite - Punktkonzentration</li></ul><p><strong>Folgen</strong></p><ul><li>Abschlaghöhe</li><li>Schlaghärte</li><li>Taktische Variabilität</li></ul>"
+            },
+            {
+              "type": "presentation_item",
+              "title": "Die Zonen",
+              "info": "<p><img src=\"uz/zonen.png\" alt=\"Die Zonen\" /></p><ul><li><strong>a</strong> Blockschatten</li><li><strong>b</strong> In dieser Zone besteht bei harten Bällen kaum eine Chance zur Verteidigung - hierher kann aber (hoffentlich) auch niemand hart schlagen</li><li><strong>c</strong> Angriffe in diese Zone kommen häufig vor, sind aber schwierig zu verteidigen</li><li><strong>d</strong> Angriffe in diese Zone sind (etwas) leichter zu verteidigen...</li></ul><ul><li>Männer verteidigen als erstes im Bereich von 5-8m vom Angriffsort,</li><li>Frauen im Bereich von 6-9m.</li></ul><p><strong>Die Spielerinnen müssen(!) weiter weg vom Netz starten.</strong></p>"
+            },
+            {
+              "type": "presentation_item",
+              "title": "Laufbereitschaft",
+              "info": "<p>Da der Raum vor einer Spielerin im Damenbereich größer ist, wird der Schupfer über den Block 'einfacher' für die Angreiferin.</p><p>Deshalb ist die Bereitschaft einen Ball zu erlaufen im Damenbereich noch wichtiger als bei den Herren!</p>"
+            }
+          ]
         },
         {
           "title": "Tricks",
@@ -153,15 +280,15 @@ var data = ﻿{
             },
             {
               "title": "Block-Out",
-              "info": "<p>Wenn der Ball nah am Netz und weit genug außen ist,<br>kann ich den Ball mit der Schlaghand nach außen drücken<br>und so den Ball vom Block ins Out spielen =&gt; <strong>Punkt für uns</strong>.</p>"
+              "info": "<p>Wenn der Ball nah am Netz und weit genug außen ist, kann ich den Ball mit der Schlaghand nach außen drücken und so den Ball vom Block ins Out spielen =&gt; <strong>Punkt für uns</strong>.</p>"
             },
             {
               "title": "Block hoch anschlagen",
-              "info": "<p>Wenn es mir gelingt den Block oben zu treffen,<br>wird der Ball nach oben abgefälscht<br>und damit schwieriger zu verteidigen.</p>"
+              "info": "<p>Wenn es mir gelingt den Block oben zu treffen, wird der Ball nach oben abgefälscht und damit schwieriger zu verteidigen.</p>"
             },
             {
               "title": "In den Block + Sichern",
-              "info": "<p>Wenn der Ball zu nah am Block ist,<br>kann ich ihn mittelfest hoch in den Block schlagen<br>und damit eine 'einfache' Sicherung ermöglichen.</p>"
+              "info": "<p>Wenn der Ball zu nah am Block ist, kann ich ihn mittelfest hoch in den Block schlagen und damit eine 'einfache' Sicherung ermöglichen.</p>"
             }
           ]
         }
@@ -178,24 +305,6 @@ var data = ﻿{
         {
           "title": "Wo",
           "info": "<p>1: bei der Aufspielerin(vor ihr)<br>3: bei der Aufspielerin (hinter ihr)<br>4: ca. 2-3m vor der Aufspielerin</p><p>5v: ca.1-1,5m vor der Aufspielerin<br>6: Pos. 4 - &quot;bei der Antenne&quot;<br>8: ca. 3,5-4m vor der Aufspielerin</p><p>0: Pos. 4 - &quot;bei der Antenne links&quot;<br>2: Pos. 2 - &quot;bei der Antenne rechts&quot;</p><p>9er - Hinterfeld<br>immer knapp(!) hinter der 3m-Linie<br>Mitte: genau in der Mitte<br>Pipe: hinter der Aufspielerin<br>1: rechts, knapp innerhalb der Seitenlinie</p>"
-        }
-      ]
-    },
-    {
-      "title": "Verteidigung",
-      "info": "<p>Unterschiede Damen - Herren<br>Auswirkungen</p><ul><li>Zonen</li><li>Laufbereitschaft</li></ul>",
-      "items": [
-        {
-          "title": "Damen - Herren",
-          "info": "<ul><li>Körpergröße</li><li>Kraft</li><li>Reichweite</li></ul>"
-        },
-        {
-          "title": "Zonen",
-          "info": "<p><img src=\"zonen.png\" alt=\"Zonen\" /></p><ul><li><strong>a</strong> Blockschatten</li><li><strong>b</strong> In dieser Zone besteht bei harten Bällen kaum eine Chance zur Verteidigung - hierher kann aber (hoffentlich) auch niemand hart schlagen</li><li><strong>c</strong> Angriffe in diese Zone kommen häufig vor, sind aber schwierig zu verteidigen</li><li><strong>d</strong> Angriffe in diese Zone sind (etwas) leichter zu verteidigen...</li></ul><p><strong>Spielerinnen (müssen) weiter weg vom Netz starten</strong></p>"
-        },
-        {
-          "title": "Laufbereitschaft",
-          "info": "<p>Da der Raum vor einer Spielerin im Damenbereich größer ist, wird der Schupfer über den Block 'einfacher' für die Angreiferin.</p><p>Deshalb ist die Bereitschaft einen Ball zu erlaufen im Damenbereich noch wichtiger als bei den Herren!</p>"
         }
       ]
     },
@@ -232,8 +341,7 @@ var data = ﻿{
       ]
     }
   ]
-}
-;
+};
 
 var data_history = [],
     links = null;
@@ -301,6 +409,14 @@ function createLink(item, index, cnt) {
       lnk = '<div' + id + ' class="column w' + Math.round(100 / cnt) + clazz + '">'
     + item.title
     + '</div>';
+
+/* TODO: presentation
+  var clazz = '',
+      id = '',
+      lnk;
+
+  if
+*/
 
   return lnk;
 }
