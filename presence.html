@@ -66,7 +66,7 @@ div.c3 > div:first-child {
 }
 div.c5 {
   right: 0;
-  width: 4.5em;
+  width: 4.51em;
 }
 div.x1 {
   position: relative;
@@ -75,12 +75,18 @@ div.x1 {
   font-size: 2.5em;
   white-space: nowrap;
 }
+div.x1.ul {
+  border-bottom-width: 2px;
+}
 div.x2 {
   position: relative;
   width: 100%;
   height: 2.4em;
   font-size: 2.5em;
   white-space: nowrap;
+}
+div.column div.x2 {
+  border-bottom-width: 2px;
 }
 div.c4 {
   left: 13.5em;
@@ -120,8 +126,25 @@ div.data > div > div {
   border-width: 0px 1px 1px 0px;
   background-color: lightgray;
   color: #333;
-  line-height: 140%;
+  line-height: 142%;
   font-size: 0.95em;
+}
+div.data > div > div.we {
+  background-color: darkgray;
+}
+div.data > div > div.sunday {
+  border-right-width: 2px;
+}
+div.data > div > div.ul {
+  border-bottom-width: 2px;
+}
+div.data > div > div > div {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  font-size: 0.9em;
+  text-align: right;
 }
 div.data > div > div.colspan2 {
   width: 3em;
@@ -130,23 +153,47 @@ div.data > div > div.colspan2 {
 div.data > div > div:first-child {
   border-width: 0px 1px 1px 1px;
 }
+div.data > div > div:first-child.sunday {
+  border-right-width: 2px;
+}
+div.data > div > div:first-child.ul {
+  border-bottom-width: 2px;
+}
 /* data cells of first row */
 div.data > div:first-child > div {
-  border-width: 1px 1px 0px 0px;
+  border-width: 0px 1px 0px 0px;
   font-weight: bold;
+}
+div.data > div:first-child > div.sunday {
+  border-right-width: 2px;
 }
 /* first data cell of first row (= top left cell) */
 div.data > div:first-child > div:first-child {
-  border-width: 1px 1px 0px 1px;
+  border-width: 0px 1px 0px 1px;
+}
+div.data > div:first-child > div:first-child {
+  border-right-width: 2px;
 }
 /* data cells of second row */
 div.data > div:nth-child(2) > div {
   border-width: 0px 1px 1px 0px;
   font-weight: bold;
 }
+div.data > div:nth-child(2) > div.sunday {
+  border-right-width: 2px;
+}
+div.data > div:nth-child(2) > div.ul {
+  border-bottom-width: 2px;
+}
 /* first data cell of second row */
 div.data > div:nth-child(2) > div:first-child {
   border-width: 0px 1px 1px 1px;
+}
+div.data > div:nth-child(2) > div:first-child.sunday {
+  border-right-width: 2px;
+}
+div.data > div:nth-child(2) > div:first-child.ul {
+  border-bottom-width: 2px;
 }
 /* data-cells, sum row */
 div.data > div:last-child > div {

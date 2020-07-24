@@ -306,18 +306,22 @@ window.bhv.training.presence = {
   },
   _createCol15: function(data, targets) {
     var html = '<div class="x2">&nbsp;</div>',
-        tpl = '<div class="x1">{{name}}</div>',
-        tplTargets = '<div class="x1 link_target" data-target="{{data}}">{{name}}</div>',
-        name;
+        tpl = '<div class="x1{{xclass}}">{{name}}</div>',
+        tplTargets = '<div class="x1 link_target{{xclass}}" data-target="{{data}}">{{name}}</div>',
+        name, xclass;
 
     for (var i = 0; i < data.lineheader.length; ++i) {
       name = data.lineheader[i];
+      xclass = i == data.lineheader.length - 2 ? ' ul' : '';
       if (targets && targets[name]) {
         html += tplTargets
           .replace('{{data}}', name)
-          .replace('{{name}}', this._nbsp(name));
+          .replace('{{name}}', this._nbsp(name))
+          .replace('{{xclass}}', xclass);
       } else {
-        html += tpl.replace('{{name}}', this._nbsp(name));
+        html += tpl
+          .replace('{{name}}', this._nbsp(name))
+          .replace('{{xclass}}', xclass);
       }
     }
 
@@ -325,20 +329,28 @@ window.bhv.training.presence = {
   },
   _createCol2: function(data, info, index) {
     var html = '<div class="x2">' + info + '</div>', // &sum; %
-        tpl = '<div class="x1">{{value}}</div>';
+        tpl = '<div class="x1{{xclass}}">{{value}}</div>',
+        xclass;
 
     for (var i = 0; i < data.data.length; ++i) {
-      html += tpl.replace('{{value}}', data.data[i][index]); // 0 1
+      xclass = i == data.data.length - 2 ? ' ul' : '';
+      html += tpl
+        .replace('{{value}}', data.data[i][index])
+        .replace('{{xclass}}', xclass);
     }
 
     return html;
   },
   _createCol3: function(data, info, index) {
     var html = '<div class="x2">' + info + '&nbsp;</div>', // &sum; %
-        tpl = '<div class="x1">&nbsp;{{value}}&nbsp;</div>';
+        tpl = '<div class="x1{{xclass}}">&nbsp;{{value}}&nbsp;</div>',
+        xclass;
 
     for (var i = 0; i < data.data.length; ++i) {
-      html += tpl.replace('{{value}}', data.data[i][index]); // 0 1
+      xclass = i == data.data.length - 2 ? ' ul' : '';
+      html += tpl
+        .replace('{{value}}', data.data[i][index])
+        .replace('{{xclass}}', xclass);
     }
 
     return html;
@@ -353,9 +365,9 @@ window.bhv.training.presence = {
   _createColData: function(data, diary) {
     var html = '',
       tplRow = '<div class="x1">{{content}}</div>',
-      tplCol = '<div>{{content}}</div>',
-      tplColDiary = '<div class="link_diary" data-diary="{{data}}">{{content}}</div>',
-      tplCol2 = '<div class="colspan2">{{content}}</div>';
+      tplCol = '<div{{xclass2}}>{{content}}</div>',
+      tplColDiary = '<div class="link_diary{{xclass1}}" data-diary="{{data}}">{{content}}</div>',
+      tplCol2 = '<div class="colspan2{{xclass1}}">{{content}}</div>';
 
     for (var row = -2, r2 = data.data.length; row < r2; ++row) {
       var htmlRow = '',
@@ -366,22 +378,46 @@ window.bhv.training.presence = {
 
       // create a row of the data column
       for (var c = row < 0 ? 0 : 2, c2 = src.length; c < c2; ++c) {
-        var value;
+        var value, buf, xclass1 = '', xclass2 = '', dat, day;
+
+        // detect weekend, sunday
+        dat = new Date(data.headerinfo[row < 0 ? c : c - 2]);
+        if (isFinite(dat)) {
+          day = dat.getDay();
+          // sunday
+          if (day == 0) {
+            xclass1 = ' we sunday';
+          // saturday
+          } else if (day == 6) {
+            xclass1 = ' we';
+          }
+        } else {
+          // block always are on sunday
+          xclass1 = ' we sunday';
+          xclass2 = ' class="we sunday"';
+        }
+        // detect end of header, end of data(last row are sums)
+        if (row == -1 || row == r2 - 2) {
+          xclass1 += ' ul';
+        }
+        // create xclass2 from xclass1
+        if (xclass1 != '') {
+          xclass2 = ' class="' + xclass1 + '"';
+        }
 
         switch (row) {
           // header 1
           case -2:
-            value = '' + src[c];
+            value = src[c] === '' ? '' : this._nbsp(src[c]);
             break;
 
           // header 2
           case -1:
-            // value = src[c] === null ? '' : '' + src[c];
             keyDay = '';
             if (src[c] === null) {
               value = '';
             } else {
-              value = '' + src[c];
+              value = src[c] === '' ? '' : this._nbsp(src[c]);
               // get key of day
               keyDay = data.headerinfo[c];
             }
@@ -390,23 +426,30 @@ window.bhv.training.presence = {
           // data (0-n)
           default:
             if (lastRow) {
-              value = src[c] ? ('' + src[c]) : '';
+              value = src[c] ? this._nbsp('' + src[c]) : '';
             } else {
-              value = src[c] === 1 ? '&#x2600;' : '';
+              value = src[c] === "1" ? '&#x2600;' : (typeof(src[c]) === 'string' ? src[c] : '');
             }
             break;
         }
 
         if (row == -1 && value.length > 2 && c < c2 - 1) {
-          htmlRow += tplCol2.replace('{{content}}', this._nbsp(value));
+          htmlRow += tplCol2
+            .replace('{{content}}', value)
+            .replace('{{xclass1}}', xclass1)
+            .replace('{{xclass2}}', xclass2);
           ++c;
         } else if (row == -1 && diary && diary[keyDay]) {
           htmlRow += tplColDiary
             .replace('{{data}}', keyDay)
-            .replace('{{content}}', this._nbsp(value));
+            .replace('{{content}}', value)
+            .replace('{{xclass1}}', xclass1)
+            .replace('{{xclass2}}', xclass2);
         } else {
-          htmlRow += tplCol.replace('{{content}}', value === ''
-            ? '&nbsp;' : this._nbsp(value));
+          htmlRow += tplCol
+            .replace('{{content}}', value === '' ? '&nbsp;' : value)
+            .replace('{{xclass1}}', xclass1)
+            .replace('{{xclass2}}', xclass2);
         }
       }
 
