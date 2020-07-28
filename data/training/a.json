@@ -289,7 +289,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">6</div>",
+      "6",
       "<div style=\"background-color: gold;\">-2</div>",
       "",
       "",
@@ -298,7 +298,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">6</div>",
+      "6",
       "<div style=\"background-color: darkgreen;\">0</div>"
     ],
     [
@@ -361,7 +361,7 @@
       "",
       "",
       "1",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: orange;\">-4</div>",
       "",
       "",
@@ -370,7 +370,7 @@
       "",
       "",
       "1",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: orange;\">-4</div>"
     ],
     [
@@ -433,7 +433,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: red;\">-6</div>",
       "",
       "",
@@ -442,7 +442,7 @@
       "",
       "",
       "1",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: orange;\">-4</div>"
     ],
     [
@@ -505,7 +505,7 @@
       "",
       "",
       "1",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: orange;\">-4</div>",
       "",
       "",
@@ -514,7 +514,7 @@
       "",
       "",
       "1",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: orange;\">-4</div>"
     ],
     [
@@ -577,7 +577,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">4</div>",
+      "4",
       "<div style=\"background-color: gold;\">-2</div>",
       "",
       "",
@@ -586,7 +586,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: red;\">-6</div>"
     ],
     [
@@ -649,7 +649,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">6</div>",
+      "6",
       "<div style=\"background-color: darkgreen;\">0</div>",
       "",
       "",
@@ -658,7 +658,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">5</div>",
+      "5",
       "<div style=\"background-color: lime;\">-1</div>"
     ],
     [
@@ -721,7 +721,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">5</div>",
+      "5",
       "<div style=\"background-color: lime;\">-1</div>",
       "",
       "",
@@ -730,7 +730,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">4</div>",
+      "4",
       "<div style=\"background-color: gold;\">-2</div>"
     ],
     [
@@ -793,7 +793,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">1</div>",
+      "1",
       "<div style=\"background-color: orange;\">-5</div>",
       "",
       "",
@@ -802,7 +802,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">3</div>",
+      "3",
       "<div style=\"background-color: orange;\">-5</div>"
     ],
     [
@@ -865,7 +865,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: red;\">-6</div>",
       "",
       "",
@@ -874,7 +874,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: red;\">-8</div>"
     ],
     [
@@ -937,7 +937,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: red;\">-6</div>",
       "",
       "",
@@ -946,7 +946,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: red;\">-8</div>"
     ],
     [
@@ -1009,7 +1009,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: red;\">-6</div>",
       "",
       "",
@@ -1018,7 +1018,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: red;\">-8</div>"
     ],
     [
@@ -1081,7 +1081,7 @@
       "",
       "",
       "1",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: orange;\">-4</div>",
       "",
       "",
@@ -1090,7 +1090,7 @@
       "",
       "",
       "1",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: orange;\">-4</div>"
     ],
     [
@@ -1153,7 +1153,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: red;\">-8</div>",
       "",
       "",
@@ -1162,7 +1162,7 @@
       "",
       "",
       "1",
-      "<div style=\"background-color: darkgreen;\">2</div>",
+      "2",
       "<div style=\"background-color: gold;\">-2</div>"
     ],
     [
@@ -1225,7 +1225,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: red;\">-6</div>",
       "",
       "",
@@ -1234,7 +1234,7 @@
       "",
       "",
       "1",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: red;\">-6</div>"
     ],
     [
@@ -1297,7 +1297,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: red;\">-8</div>",
       "",
       "",
@@ -1306,7 +1306,7 @@
       "",
       "",
       "",
-      "<div style=\"background-color: darkgreen;\">0</div>",
+      "0",
       "<div style=\"background-color: red;\">-8</div>"
     ],
     [
