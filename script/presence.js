@@ -378,11 +378,12 @@ window.bhv.training.presence = {
 
       // create a row of the data column
       for (var c = row < 0 ? 0 : 2, c2 = src.length; c < c2; ++c) {
-        var value, buf, xclass1 = '', xclass2 = '', dat, day;
+        var value, buf, xclass1 = '', xclass2 = '', dat, day, isDate;
 
         // detect weekend, sunday
         dat = new Date(data.headerinfo[row < 0 ? c : c - 2]);
-        if (isFinite(dat)) {
+        isDate = isFinite(dat);
+        if (isDate) {
           day = dat.getDay();
           // sunday
           if (day == 0) {
@@ -428,7 +429,8 @@ window.bhv.training.presence = {
             if (lastRow) {
               value = src[c] ? this._nbsp('' + src[c]) : '';
             } else {
-              value = src[c] === "1" ? '&#x2600;' : (typeof(src[c]) === 'string' ? src[c] : '');
+              value = src[c] === '1' && isDate ? '&#x2600;'
+                  : (typeof(src[c]) === 'string' ? src[c] : '');
             }
             break;
         }
