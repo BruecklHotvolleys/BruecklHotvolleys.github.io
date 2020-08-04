@@ -334,8 +334,8 @@
       "",
       "",
       "",
-      "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "6",
+      "<div style=\"background-color: darkgreen;\">0</div>"
     ],
     [
       "25",
@@ -416,7 +416,7 @@
       "",
       "1",
       "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "<div style=\"background-color: orange;\">-4</div>"
     ],
     [
       "24",
@@ -497,7 +497,7 @@
       "",
       "",
       "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "<div style=\"background-color: red;\">-8</div>"
     ],
     [
       "23",
@@ -578,7 +578,7 @@
       "",
       "",
       "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "<div style=\"background-color: red;\">-6</div>"
     ],
     [
       "26",
@@ -659,7 +659,7 @@
       "",
       "1",
       "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "<div style=\"background-color: orange;\">-4</div>"
     ],
     [
       "23",
@@ -740,7 +740,7 @@
       "",
       "",
       "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "<div style=\"background-color: red;\">-6</div>"
     ],
     [
       "19",
@@ -820,12 +820,12 @@
       "",
       "",
       "",
-      "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "4",
+      "<div style=\"background-color: gold;\">-2</div>"
     ],
     [
-      "25",
-      "86",
+      "24",
+      "83",
       "1",
       "",
       "1",
@@ -883,8 +883,8 @@
       "",
       "",
       "",
-      "1",
-      "<div style=\"background-color: orange;\">-5</div>",
+      "6",
+      "<div style=\"background-color: darkgreen;\">0</div>",
       "",
       "",
       "",
@@ -901,8 +901,8 @@
       "",
       "",
       "1",
-      "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "4",
+      "<div style=\"background-color: gold;\">-2</div>"
     ],
     [
       "22",
@@ -964,8 +964,8 @@
       "",
       "",
       "",
-      "0",
-      "<div style=\"background-color: red;\">-6</div>",
+      "6",
+      "<div style=\"background-color: darkgreen;\">0</div>",
       "",
       "",
       "",
@@ -983,7 +983,7 @@
       "",
       "1",
       "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "<div style=\"background-color: red;\">-6</div>"
     ],
     [
       "23",
@@ -1045,8 +1045,8 @@
       "",
       "",
       "",
-      "0",
-      "<div style=\"background-color: red;\">-6</div>",
+      "6",
+      "<div style=\"background-color: darkgreen;\">0</div>",
       "",
       "",
       "",
@@ -1055,7 +1055,7 @@
       "",
       "",
       "0",
-      "<div style=\"background-color: red;\">?</div>",
+      "<div style=\"background-color: red;\">-8</div>",
       "",
       "",
       "",
@@ -1064,7 +1064,7 @@
       "",
       "1",
       "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "<div style=\"background-color: red;\">-6</div>"
     ],
     [
       "23",
@@ -1126,8 +1126,8 @@
       "",
       "",
       "",
-      "0",
-      "<div style=\"background-color: red;\">-6</div>",
+      "6",
+      "<div style=\"background-color: darkgreen;\">0</div>",
       "",
       "",
       "",
@@ -1145,7 +1145,7 @@
       "",
       "",
       "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "<div style=\"background-color: red;\">-8</div>"
     ],
     [
       "17",
@@ -1226,7 +1226,7 @@
       "",
       "1",
       "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "<div style=\"background-color: orange;\">-4</div>"
     ],
     [
       "21",
@@ -1306,8 +1306,8 @@
       "",
       "",
       "1",
-      "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "4",
+      "<div style=\"background-color: darkgreen;\">0</div>"
     ],
     [
       "23",
@@ -1388,7 +1388,7 @@
       "",
       "1",
       "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "<div style=\"background-color: orange;\">-4</div>"
     ],
     [
       "17",
@@ -1469,7 +1469,7 @@
       "",
       "",
       "0",
-      "<div style=\"background-color: red;\">?</div>"
+      "<div style=\"background-color: red;\">-8</div>"
     ],
     [
       "22",
