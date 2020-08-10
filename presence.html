@@ -78,13 +78,17 @@ div.x1 {
 div.x1.ul {
   border-bottom-width: 2px;
 }
+/* bestätigt */
 div.x2 {
   position: relative;
   width: 100%;
   height: 2.4em;
   font-size: 2.5em;
   white-space: nowrap;
+  padding: 0.5em 0.1em 0 0;
+  font-weight: bold;
 }
+/* bestätigt */
 div.column div.x2 {
   border-bottom-width: 2px;
 }
@@ -138,17 +142,24 @@ div.data > div > div.sunday {
 div.data > div > div.ul {
   border-bottom-width: 2px;
 }
-div.data > div > div > div {
+
+/* bestätigt */
+/* div.data > div > div > div */
+div.kstate {
   position: relative;
   top: 0;
   left: 0;
+  box-sizing: border-box;
+  padding: 0 0.1em 0 0;
   height: 100%;
-  font-size: 0.9em;
+  font-size: 1em;
   text-align: right;
 }
+/* wahrscheinlich - toTest */
 div.data > div > div.colspan2 {
   width: 3em;
 }
+
 /* first data cell of a row */
 div.data > div > div:first-child {
   border-width: 0px 1px 1px 1px;
@@ -227,6 +238,42 @@ div#training_info > div.info {
 }
 div#training_info > div.info * {
   font-size: 1em;
+}
+
+
+div.column.xcolumn:nth-of-type(1) {
+  left: 0;
+  width: 5em;
+}
+div.column.xcolumn:nth-of-type(2) {
+  left: 5em;
+  width: 5em;
+}
+div.column.xcolumn:nth-of-type(3) {
+  left: 10em;
+  width: 3.5em;
+}
+div.column.xcolumn:nth-of-type(4) {
+  left: 13.5em;
+  width: 5em;
+}
+div.column.xcolumn:nth-last-of-type(1) {
+  right: 0;
+  width: 5em;
+}
+div.column.xcolumn:nth-of-type(2) > div,
+div.column.xcolumn:nth-of-type(3) > div,
+div.column.xcolumn:nth-of-type(4) > div {
+  text-align: right;
+}
+
+div.column.xdata {
+  left: 13.5em;
+  right: 5em;
+  overflow: hidden;
+}
+div.column.xdata.xdata4 {
+  left: 18.5em;
 }
 /* -- training info - (end) ------------------------------------------------ */
   </style>
