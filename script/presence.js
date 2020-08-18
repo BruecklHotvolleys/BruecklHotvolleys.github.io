@@ -442,7 +442,7 @@ window.bhv.training.presence = {
    * @param {JSON} diary The loaded diary or null.
    * @return {string} The html view.
    */
-  _addDataCol(data, diary, start, end) {
+  _addDataCol: function(data, diary, start, end) {
     //_createColData: function(data, diary) {
     var html = '',
       tplRow = '<div class="x1">{{content}}</div>',

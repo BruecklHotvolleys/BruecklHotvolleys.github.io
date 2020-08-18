@@ -2,8 +2,8 @@
 
 // the names and the files of the cache
 const CACHE = {
-  'main': 'bhv-infoapp-main-5f11b0e8da3c475518d91253a20a953a',
-  'data': 'bhv-infoapp-data-ca58fd516c0d050808be58cb1c721014',
+  'main': 'bhv-infoapp-main-74d41fb95e89cf6b33883b84c31333ac',
+  'data': 'bhv-infoapp-data-87337b1c87b9df8eee8f96cf19230147',
   'system1': 'bhv-infoapp-system1-d3a015bf3df64aba589e7ef98ca5cc5d',
   'system4': 'bhv-infoapp-system4-966cb466748ba1a4f164e68bc109a97d',
   'system6': 'bhv-infoapp-system6-441a37770d4478069e05424f06c180ba',
@@ -11,7 +11,7 @@ const CACHE = {
   'info': 'bhv-infoapp-info-14545db906177853eedc9ed447cbd3db',
   'statistics_19': 'bhv-infoapp-statistics_19-1721c54a73e426c061a4da259e61d823',
   'teambuilding_19': 'bhv-infoapp-teambuilding_19-9aeecfc5514d12fd7a4ac6ca488835d7',
-  'teambuilding_21': 'bhv-infoapp-teambuilding_21-26e5b28127caad08dcf8451e57cdf1c8'
+  'teambuilding_21': 'bhv-infoapp-teambuilding_21-df7e6013a9f01da1e1c8fb5807a4c1ca'
 };
 const FILES = {
   'main': [

@@ -17,15 +17,18 @@ window.bhv.code = {
     if (typeof str !== 'string' || str.length % 3 !== 0) {
       return null
     }
-    var key = 'b'.codePointAt(0);
+    // var key = 'b'.codePointAt(0);
+    var key = 'b'.charCodeAt(0);
     for (var i = 0; i < pw.length; ++i) {
-      key = key ^ pw.codePointAt(i);
+      // key = key ^ pw.codePointAt(i);
+      key = key ^ pw.charCodeAt(i);
     }
     var result = '';
     for (var j = 0; j < str.length; j += 3) {
       var part = str.substr(j, 3);
       var pos = this._from62(part) ^ key;
-      result += String.fromCodePoint(pos);
+      // result += String.fromCodePoint(pos);
+      result += String.fromCharCode(pos);
     }
     return result;
   },
@@ -40,6 +43,7 @@ window.bhv.code = {
   check: function(pw) {
     if (pw === undefined) {
       pw = window.localStorage.getItem('pw');
+      //console.log('password from local storage');
     }
     for (var i = 0; i <= 4; ++i) {
       if (this.decode(this.encoded[i], pw) === 'bhv.bhv') {
