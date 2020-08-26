@@ -4,7 +4,14 @@
   <meta charset="UTF-8">
   <title>Brückl hotvolleys</title>
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/elements/expander/styles.css">
+<style>
+a h3::after {
+  opacity: 0;
+}
+</style>
   <link rel="shortcut icon" href="/favicons/favicon.ico">
+  <script src="/elements/expander/script.js"></script>
   <script src="/script/code.js"></script>
   <script>
 function init() {
@@ -16,6 +23,9 @@ function init() {
       loader.style.display = 'none';
       cont.style.display = 'block';
     }
+
+    window.bhv.elements.expander.initOV(); // (expanders, keepOpen);
+
   } else {
     cont.parentNode.removeChild(cont);
   }
@@ -31,8 +41,9 @@ function init() {
 </div>
 </div>
   <div id="loader">Loading...</div>
-  <div id="content_container" class="locked"><h1 class="tactics">Annahme</h1>
-<div style="overflow-x: auto;">
+  <div id="content_container" class="locked"><h1 id="h_1" class="tactics expandable">Annahme</h1>
+<div id="h_1_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="3er_riegel" href="/system6/annahme/zudritt.html"><h3>3er Riegel</h3></a></td>
@@ -45,8 +56,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Aufspiel + Angriff</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_2" class="tactics expandable">Aufspiel + Angriff</h1>
+<div id="h_2_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="wann_1" href="/system6/aufspiel/wann_1.html"><h3>Wann 1</h3></a></td>
@@ -89,8 +102,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Angriff + Sicherung</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_3" class="tactics expandable">Angriff + Sicherung</h1>
+<div id="h_3_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="angriff_06" href="aufspiel/angriff_06.html"><h3>Angriff 0/6</h3></a></td>
@@ -107,8 +122,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Basis</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_4" class="tactics expandable">Basis</h1>
+<div id="h_4_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="basis_1" href="verteidigung/basis_1.html"><h3>Basis 1</h3></a></td>
@@ -131,8 +148,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Block + Feldverteidigung</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_5" class="tactics expandable">Block + Feldverteidigung</h1>
+<div id="h_5_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="block" href="blockinfo/block.html"><h3>Infos zum Block</h3></a></td>
@@ -208,8 +227,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Spielfeld</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_6" class="tactics expandable">Spielfeld</h1>
+<div id="h_6_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="spielfeld" href="/imageview.html?i=system6%2Fspielfeld%2Fspielfeld.png&t=Spielfeld&x=Das%20Spielfeld.&b=%2Fsystem6%23spielfeld"><h3>Spielfeld</h3></a></td>
@@ -229,6 +250,7 @@ function init() {
 </table>
 </div>
 
+</div>
 </div>
   <div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div>
 </div>

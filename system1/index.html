@@ -4,7 +4,14 @@
   <meta charset="UTF-8">
   <title>Brückl hotvolleys</title>
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/elements/expander/styles.css">
+<style>
+a h3::after {
+  opacity: 0;
+}
+</style>
   <link rel="shortcut icon" href="/favicons/favicon.ico">
+  <script src="/elements/expander/script.js"></script>
   <script src="/script/code.js"></script>
   <script>
 function init() {
@@ -16,6 +23,9 @@ function init() {
       loader.style.display = 'none';
       cont.style.display = 'block';
     }
+
+    window.bhv.elements.expander.initOV(); // (expanders, keepOpen);
+
   } else {
     cont.parentNode.removeChild(cont);
   }
@@ -31,7 +41,10 @@ function init() {
 </div>
 </div>
   <div id="loader">Loading...</div>
-  <div id="content_container" class="locked"><h1 class="tactics">Annahme</h1>
+  <div id="content_container" class="locked"><h1 id="h_1" class="tactics expandable">Annahme</h1>
+<div id="h_1_2" class="expanded_container">
+  <h2 id="h_2" class="tactics expandable">Grundlagen</h2>
+<div id="h_2_2" class="expanded_container">
 <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
@@ -48,6 +61,10 @@ function init() {
   </tr>
 </table>
 </div>
+
+</div>
+<h2 id="h_3" class="tactics expandable">Standard</h2>
+<div id="h_3_2" class="expanded_container">
 <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
@@ -93,8 +110,115 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Aufspiel + Angriff</h1>
+</div>
+<h2 id="h_4" class="tactics expandable">Einbeiner</h2>
+<div id="h_4_2" class="expanded_container">
 <div style="overflow-x: auto;">
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="l1_angetaeuschtes_doppelquick_mit_diagonalspielerin" href="annahme_einbeiner/l1_angetaeuschtes_doppelquick_mit_diagonalspielerin.html"><h3>L1<div>angetäuschtes "Doppelquick" mit Diagonalspielerin</div></h3></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="annahme_einbeiner/l1_angetaeuschtes_doppelquick_mit_diagonalspielerin.html"><img src="annahme_einbeiner/l1_angetaeuschtes_doppelquick_mit_diagonalspielerin.png" alt="L1, angetäuschtes 'Doppelquick" mit Diagonalspielerin"></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="annahme_einbeiner/l1_angetaeuschtes_doppelquick_mit_diagonalspielerin.html"><div>Aufspielerin Pos. 1, Diagonalspielerin ist Linkshänderin, und "fliegt" nach außen</div></a></td>
+
+  </tr>
+</table>
+</div>
+<div style="overflow-x: auto;">
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="l2_mb" href="annahme_einbeiner/l2_mb.html"><h3>L2<div>MB</div></h3></a></td>
+<td><a id="l2_aussenangreiferin_kreuzt" href="annahme_einbeiner/l2_aussenangreiferin_kreuzt.html"><h3>L2<div>Außenangreiferin kreuzt</div></h3></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="annahme_einbeiner/l2_mb.html"><img src="annahme_einbeiner/l2_mb.png" alt="L2, MB"></a></td>
+<td><a href="annahme_einbeiner/l2_aussenangreiferin_kreuzt.html"><img src="annahme_einbeiner/l2_aussenangreiferin_kreuzt.png" alt="L2, Außenangreiferin kreuzt"></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="annahme_einbeiner/l2_mb.html"><div>Der Einbeiner der Mittelblockerin</div></a></td>
+<td><a href="annahme_einbeiner/l2_aussenangreiferin_kreuzt.html"><div>Aufspielerin Pos 2, Außenangreiferin kreuzt von links nach rechts</div></a></td>
+
+  </tr>
+</table>
+</div>
+<div style="overflow-x: auto;">
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="l3_mb" href="annahme_einbeiner/l3_mb.html"><h3>L3<div>MB</div></h3></a></td>
+<td><a id="l3_aussenangreiferin_kreuzt" href="annahme_einbeiner/l3_aussenangreiferin_kreuzt.html"><h3>L3<div>Außenangreiferin kreuzt</div></h3></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="annahme_einbeiner/l3_mb.html"><img src="annahme_einbeiner/l3_mb.png" alt="L3, MB"></a></td>
+<td><a href="annahme_einbeiner/l3_aussenangreiferin_kreuzt.html"><img src="annahme_einbeiner/l3_aussenangreiferin_kreuzt.png" alt="L3, Außenangreiferin kreuzt"></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="annahme_einbeiner/l3_mb.html"><div>Der Einbeiner der Mittelblockerin</div></a></td>
+<td><a href="annahme_einbeiner/l3_aussenangreiferin_kreuzt.html"><div>Aufspielerin Pos 3, Außenangreiferin kreuzt von links nach rechts</div></a></td>
+
+  </tr>
+</table>
+</div>
+<div style="overflow-x: auto;">
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="l4_mb" href="annahme_einbeiner/l4_mb.html"><h3>L4<div>MB</div></h3></a></td>
+<td><a id="l4_aussenangreiferin_kreuzt" href="annahme_einbeiner/l4_aussenangreiferin_kreuzt.html"><h3>L4<div>Außenangreiferin kreuzt</div></h3></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="annahme_einbeiner/l4_mb.html"><img src="annahme_einbeiner/l4_mb.png" alt="L4, MB"></a></td>
+<td><a href="annahme_einbeiner/l4_aussenangreiferin_kreuzt.html"><img src="annahme_einbeiner/l4_aussenangreiferin_kreuzt.png" alt="L4, Außenangreiferin kreuzt"></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="annahme_einbeiner/l4_mb.html"><div>Der Einbeiner der Mittelblockerin</div></a></td>
+<td><a href="annahme_einbeiner/l4_aussenangreiferin_kreuzt.html"><div>Aufspielerin Pos. 4, Außenangreiferin kreuzt von links nach rechts</div></a></td>
+
+  </tr>
+</table>
+</div>
+
+</div>
+<h2 id="h_5" class="tactics expandable">Tricks</h2>
+<div id="h_5_2" class="expanded_container">
+<div style="overflow-x: auto;">
+<table class="tactics" align="center" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><a id="l2_angetaeuschte_l1" href="annahme_tricks/l2_angetaeuschte_l1.html"><h3>L2<div>angetäuschte L1</div></h3></a></td>
+<td><a id="l3_angetaeuschte_l6" href="annahme_tricks/l3_angetaeuschte_l6.html"><h3>L3<div>angetäuschte L6</div></h3></a></td>
+<td><a id="l4_angetaeuschte_l5" href="annahme_tricks/l4_angetaeuschte_l5.html"><h3>L4<div>angetäuschte L5</div></h3></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="annahme_tricks/l2_angetaeuschte_l1.html"><img src="annahme_tricks/l2_angetaeuschte_l1.png" alt="L2, angetäuschte L1"></a></td>
+<td><a href="annahme_tricks/l3_angetaeuschte_l6.html"><img src="annahme_tricks/l3_angetaeuschte_l6.png" alt="L3, angetäuschte L6"></a></td>
+<td><a href="annahme_tricks/l4_angetaeuschte_l5.html"><img src="annahme_tricks/l4_angetaeuschte_l5.png" alt="L4, angetäuschte L5"></a></td>
+
+  </tr>
+  <tr>
+    <td><a href="annahme_tricks/l2_angetaeuschte_l1.html"><div>Die Aufspielerin täuscht an, dass sie von Position 1 einläuft.</div></a></td>
+<td><a href="annahme_tricks/l3_angetaeuschte_l6.html"><div>Die Aufspielerin täuscht an, dass sie von Position 6 einläuft.</div></a></td>
+<td><a href="annahme_tricks/l4_angetaeuschte_l5.html"><div>Die Aufspielerin täuscht an, dass sie von Position 5 einläuft.</div></a></td>
+
+  </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+<h1 id="h_6" class="tactics expandable">Aufspiel + Angriff</h1>
+<div id="h_6_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="wann_1" href="angriff/wann_1.html"><h3>Wann 1</h3></a></td>
@@ -152,8 +276,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Angriff + Sicherung</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_7" class="tactics expandable">Angriff + Sicherung</h1>
+<div id="h_7_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="angriff_0_6" href="angriff/angriff_0_6.html"><h3>Angriff 0/6</h3></a></td>
@@ -192,8 +318,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Basis</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_8" class="tactics expandable">Basis</h1>
+<div id="h_8_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="basis_1" href="verteidigung/basis_1.html"><h3>Basis 1</h3></a></td>
@@ -213,8 +341,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Block + Feldverteidigung</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_9" class="tactics expandable">Block + Feldverteidigung</h1>
+<div id="h_9_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="block" href="blockinfo/block.html"><h3>Block</h3></a></td>
@@ -255,15 +385,15 @@ function init() {
 <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
-    <td><a id="block_3_schnellangriff" href="verteidigung/block_3_schnellangriff.html"><h3>Block 3 - Schnellangriff</h3></a></td>
-<td><a id="block_3_1_schnellangriff" href="verteidigung/block_3_1_schnellangriff.html"><h3>Block 3(1) - Schnellangriff</h3></a></td>
-<td><a id="block_3_5_schnellangriff" href="verteidigung/block_3_5_schnellangriff.html"><h3>Block 3(5) - Schnellangriff</h3></a></td>
+    <td><a id="block_3_schnellangriff" href="verteidigung/block_3_schnellangriff.html"><h3>Block 3<div>Schnellangriff</div></h3></a></td>
+<td><a id="block_3_1_schnellangriff" href="verteidigung/block_3_1_schnellangriff.html"><h3>Block 3(1)<div>Schnellangriff</div></h3></a></td>
+<td><a id="block_3_5_schnellangriff" href="verteidigung/block_3_5_schnellangriff.html"><h3>Block 3(5)<div>Schnellangriff</div></h3></a></td>
 
   </tr>
   <tr>
-    <td><a href="verteidigung/block_3_schnellangriff.html"><img src="verteidigung/block_3_schnellangriff.png" alt="Block 3 - Schnellangriff"></a></td>
-<td><a href="verteidigung/block_3_1_schnellangriff.html"><img src="verteidigung/block_3_1_schnellangriff.png" alt="Block 3(1) - Schnellangriff"></a></td>
-<td><a href="verteidigung/block_3_5_schnellangriff.html"><img src="verteidigung/block_3_5_schnellangriff.png" alt="Block 3(5) - Schnellangriff"></a></td>
+    <td><a href="verteidigung/block_3_schnellangriff.html"><img src="verteidigung/block_3_schnellangriff.png" alt="Block 3, Schnellangriff"></a></td>
+<td><a href="verteidigung/block_3_1_schnellangriff.html"><img src="verteidigung/block_3_1_schnellangriff.png" alt="Block 3(1), Schnellangriff"></a></td>
+<td><a href="verteidigung/block_3_5_schnellangriff.html"><img src="verteidigung/block_3_5_schnellangriff.png" alt="Block 3(5), Schnellangriff"></a></td>
 
   </tr>
   <tr>
@@ -294,6 +424,7 @@ function init() {
 </table>
 </div>
 
+</div>
 </div>
   <div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div>
 </div>

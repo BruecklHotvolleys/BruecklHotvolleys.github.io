@@ -114,10 +114,12 @@ h1 > sub, h2 > sub, h3 > sub, h4 > sub, h5 > sub, h6 > sub {
 
 /* -- tactics overview ----------------------------------------------------- */
 h1.tactics {
-  padding: 0.2em;
+  padding: 0.5em;
   text-align: center;
 }
-
+h2.tactics {
+  padding: 0.6em;
+}
 table.tactics {
   margin: auto auto 2em auto;
 }
@@ -132,6 +134,11 @@ table.tactics td {
 }
 table.tactics div {
   font-size: 2.5em;
+}
+table.tactics h3 > div {
+  font-size: 0.6em;
+  background-color: lightblue;
+  white-space: normal;
 }
 
 /* -- header --------------------------------------------------------------- */

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Brückl hotvolleys</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="shortcut icon" href="/favicons/favicon.ico">
+  <script src="/script/polyfills.js"></script>
+  <script src="/script/animator.js"></script>
+  <script src="/script/svgviewer.js"></script>
+  <style>
+body {
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div#svgcanvas {
+  position: absolute;
+  left: 1em;
+  top: 11em;
+  right: 1em;
+  min-width: 10em;
+  bottom: 4.8em;
+  background-color: aliceblue;
+}
+div#svgcanvas > svg {
+  height: 100%;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+div#svgcanvas > div.animation_cmds {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 5em;
+  width: 9.9em;
+  border-radius: 0.1em;
+  background-color: darkgray;
+  display: none;
+}
+div#header div.animation_cmds {
+  position: absolute;
+  top: 0.15em;
+  right: 0.2em;
+  height: 1.1em;
+  width: 3.18em;
+  border: 0 none;
+  border-radius: 0.1em;
+  background-color: darkgray;
+  display: none;
+}
+div#svgcanvas > div.animation_cmds > div {
+  position: absolute;
+  top: 0.1em;
+  left: 0.1em;
+  height: 4.8em;
+  width: 4.8em;
+  border-radius: 0.1em;
+  background-color: lightgray;
+  overflow: hidden;
+}
+div#header div.animation_cmds > div {
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  height: 7.8em;
+  width: 7.8em;
+  border-radius: 0.1em;
+  background-color: lightgray;
+  overflow: hidden;
+}
+div#svgcanvas > div.animation_cmds.no_anim > div.play,
+div#svgcanvas > div.animation_cmds.no_anim > div.stop,
+div#svgcanvas > div.animation_cmds.no_menu > div.menu,
+div#header div.animation_cmds.no_anim > div.play,
+div#header div.animation_cmds.no_anim > div.stop,
+div#header div.animation_cmds.no_menu > div.menu {
+  display: none;
+}
+div#svgcanvas > div.animation_cmds > div.stop {
+  left: 5em;
+}
+div#header div.animation_cmds > div.stop {
+  left: 7.9em;
+}
+div#svgcanvas > div.animation_cmds > div > div,
+div#header div.animation_cmds > div > div {
+  position: absolute;
+  left: 1em;
+  top: 0.8em;
+  z-index: 1;
+  background-color: lightgray;
+}
+
+div#svgcanvas > div.animation_cmds > div.play,
+div#header div.animation_cmds > div.play {
+  cursor: pointer;
+}
+div#svgcanvas > div.animation_cmds > div.play > div {
+  width: 0;
+  height: 0;
+  border-top: 1.5em solid transparent;
+  border-left: 3em solid gray;
+  border-bottom: 1.5em solid transparent;
+}
+div#header div.animation_cmds > div.play > div {
+  width: 0;
+  height: 0;
+  border-top: 3.1em solid transparent;
+  border-left: 6em solid gray;
+  border-bottom: 3.1em solid transparent;
+}
+
+div#svgcanvas > div.animation_cmds > div.pause,
+div#header div.animation_cmds > div.pause {
+  cursor: pointer;
+  display: none;
+}
+div#svgcanvas > div.animation_cmds > div.pause > div {
+  box-sizing: border-box;
+  width: 2.8em;
+  height: 3em;
+  border: 1em solid gray;
+  border-width: 0 1em;
+}
+div#header div.animation_cmds > div.pause > div {
+  box-sizing: border-box;
+  width: 5.8em;
+  height: 5.9em;
+  border: 2em solid gray;
+  border-width: 0 2em;
+}
+
+div#svgcanvas > div.animation_cmds > div.stop > div {
+  top: 0.9em;
+  width: 2.8em;
+  height: 2.8em;
+  background-color: gray;
+  opacity: 0.5;
+}
+div#header div.animation_cmds > div.stop > div {
+  top: 0.9em;
+  width: 5.8em;
+  height: 5.9em;
+  background-color: gray;
+  opacity: 0.5;
+}
+
+div#svgcanvas > div.animation_cmds.play > div.play,
+div#header div.animation_cmds.play > div.play {
+  display: none;
+}
+div#svgcanvas > div.animation_cmds.play > div.pause,
+div#header div.animation_cmds.play > div.pause {
+  display: block;
+}
+div#svgcanvas > div.animation_cmds.play > div.stop,
+div#svgcanvas > div.animation_cmds.pause > div.stop,
+div#header div.animation_cmds.play > div.stop,
+div#header div.animation_cmds.pause > div.stop {
+  cursor: pointer;
+}
+div#svgcanvas > div.animation_cmds.play > div.stop > div,
+div#svgcanvas > div.animation_cmds.pause > div.stop > div,
+div#header div.animation_cmds.play > div.stop > div,
+div#header div.animation_cmds.pause > div.stop > div {
+  opacity: 1;
+}
+
+div#header div.animation_cmds > div.menu {
+  left: 15.8em;
+}
+div#header div.animation_cmds > div.menu > div.d1 {
+  box-sizing: border-box;
+  width: 5.8em;
+  height: 5.9em;
+  border: 2em solid gray;
+  border-width: 1.5em 0;
+}
+div#header div.animation_cmds > div.menu > div.d2 {
+  top: 3em;
+  width: 5.8em;
+  height: 1.5em;
+  background: gray;
+}
+
+#svgmenu {
+  background-color: transparent;
+}
+  </style>
+  <script>
+function init() {
+  // block default context menu
+  window.addEventListener('contextmenu', function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    return false;
+  });
+
+  // init footer (if any text to set)
+  var footer = '';
+  if (footer) {
+    var elemFooter = document.querySelector('#footer');
+    if (elemFooter) {
+      elemFooter.innerHTML = footer;
+      elemFooter.style.textAlign = 'center';
+    }
+  }
+
+  // its already evaluated as body script
+  // // get scripts and evaluate them
+  // var elemTpl = document.querySelector('#svg_script');
+  // if (elemTpl) {
+  //   eval(elemTpl.innerText);
+  // }
+
+  // check for menu, if any: init it
+  var elemCanvas = document.querySelector('div#svgcanvas'),
+      elemMenu = document.querySelector('#svgmenu'),
+      elemAnims = document.querySelector('div#svgcanvas > div.animation_cmds'),
+      elemMenuCm = document.querySelector('div#svgcanvas > div.animation_cmds > div.menu');
+  if (elemCanvas && elemAnims && elemMenu && elemMenuCm) {
+    svgviewer.menuHandler = menuHandler;
+    elemAnims.style.display = 'block';
+    // elemMenuCm.style.display = 'block';
+    svgviewer._removeClass(elemAnims, 'no_menu');
+    svgviewer.initContextMenu(elemCanvas, elemMenuCm);
+  }
+
+  // handle animation
+  var i, mode = '',
+      anim = document.querySelector('div#svgcanvas > div.animation_cmds'),
+      btns = anim.querySelectorAll('div'),
+      handler = function(event) {
+        var mode = anim.className.indexOf('play') > -1 ? 'play'
+          : (anim.className.indexOf('pause') > -1 ? 'pause' : 'stop'),
+            cmd = '',
+            nextMode = '';
+
+        switch (this.className) {
+          case 'play':
+            if (mode == 'stop' || mode == 'pause') {
+              cmd = 'play';
+              nextMode = 'animation_cmds play';
+            }
+            break;
+          case 'pause':
+            if (mode == 'play') {
+              cmd = 'pause';
+              nextMode = 'animation_cmds pause';
+            }
+            break;
+          case 'stop':
+            if (mode == 'play' || mode == 'pause') {
+              cmd = 'stop';
+              nextMode = 'animation_cmds';
+            }
+            break;
+          // no-default
+        }
+
+        if (nextMode && cmd) {
+          console.log(cmd);
+          anim.className = nextMode;
+
+          // TODO set animation mode
+        }
+      };
+  for (i = 0; i < btns.length; ++i) {
+    btns[i].addEventListener('click', handler);
+  }
+
+  // init viewer
+  svgviewer.init('svgcanvas');
+}
+
+function menuHandler(fullkey, state) {
+  // console.log('Menuitem: ' + fullkey + ' -> ' + state);
+  svgviewer.setOption(fullkey, state);
+}
+  </script>
+</head>
+<body onload="init();">
+<div class="container">
+<div id="header"><div class="left">
+<a href="/system1/#aufspiel-old"><img src="/image/bhv1.gif"/></a>
+<div>??? title ???</div>
+</div><div class="right">
+<a href="/system1/#aufspiel-old"><img src="/image/bhv1.gif"/></a>
+</div>
+</div>
+<div id="svgcanvas"><div class="animation_cmds no_anim no_menu">
+  <div class="play"><div>&nbsp;</div></div>
+  <div class="pause"><div>&nbsp;</div></div>
+  <div class="stop"><div>&nbsp;</div></div>
+  <div class="menu"><div class="d1">&nbsp;</div><div class="d2">&nbsp;</div></div>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 540" width="100%" heigth="540" height="100%"><rect id="bg" x="0" y="0" width="1100" height="540" />
+
+<!-- draw the net -->
+<g id="netz" transform="translate(50, 290)">
+ <line x1="0" y1="15" x2="1000" y2="15"></line>
+ <line x1="0" y1="25" x2="1000" y2="25"></line>
+ <line x1="0" y1="35" x2="1000" y2="35"></line>
+ <line x1="0" y1="45" x2="1000" y2="45"></line>
+ <line x1="0" y1="55" x2="1000" y2="55"></line>
+ <line x1="0" y1="65" x2="1000" y2="65"></line>
+ <line x1="0" y1="75" x2="1000" y2="75"></line>
+ <line x1="0" y1="85" x2="1000" y2="85"></line>
+ <line x1="0" y1="95" x2="1000" y2="95"></line>
+
+ <line x1="0" y1="1" x2="0" y2="105"></line>
+ <line x1="10" y1="1" x2="10" y2="105"></line>
+ <line x1="20" y1="1" x2="20" y2="105"></line>
+ <line x1="30" y1="1" x2="30" y2="105"></line>
+ <line x1="40" y1="1" x2="40" y2="105"></line>
+ <line class="antenna" x1="50" y1="-80" x2="50" y2="105"></line>
+ <line class="antennaX" x1="50" y1="-80" x2="50" y2="105"></line>
+ <line x1="60" y1="1" x2="60" y2="105"></line>
+ <line x1="70" y1="1" x2="70" y2="105"></line>
+ <line x1="80" y1="1" x2="80" y2="105"></line>
+ <line x1="90" y1="1" x2="90" y2="105"></line>
+
+ <line x1="100" y1="1" x2="100" y2="105"></line>
+ <line x1="110" y1="1" x2="110" y2="105"></line>
+ <line x1="120" y1="1" x2="120" y2="105"></line>
+ <line x1="130" y1="1" x2="130" y2="105"></line>
+ <line x1="140" y1="1" x2="140" y2="105"></line>
+ <line x1="150" y1="1" x2="150" y2="105"></line>
+ <line x1="160" y1="1" x2="160" y2="105"></line>
+ <line x1="170" y1="1" x2="170" y2="105"></line>
+ <line x1="180" y1="1" x2="180" y2="105"></line>
+ <line x1="190" y1="1" x2="190" y2="105"></line>
+
+ <line x1="200" y1="1" x2="200" y2="105"></line>
+ <line x1="210" y1="1" x2="210" y2="105"></line>
+ <line x1="220" y1="1" x2="220" y2="105"></line>
+ <line x1="230" y1="1" x2="230" y2="105"></line>
+ <line x1="240" y1="1" x2="240" y2="105"></line>
+ <line x1="250" y1="1" x2="250" y2="105"></line>
+ <line x1="260" y1="1" x2="260" y2="105"></line>
+ <line x1="270" y1="1" x2="270" y2="105"></line>
+ <line x1="280" y1="1" x2="280" y2="105"></line>
+ <line x1="290" y1="1" x2="290" y2="105"></line>
+
+ <line x1="300" y1="1" x2="300" y2="105"></line>
+ <line x1="310" y1="1" x2="310" y2="105"></line>
+ <line x1="320" y1="1" x2="320" y2="105"></line>
+ <line x1="330" y1="1" x2="330" y2="105"></line>
+ <line x1="340" y1="1" x2="340" y2="105"></line>
+ <line x1="350" y1="1" x2="350" y2="105"></line>
+ <line x1="360" y1="1" x2="360" y2="105"></line>
+ <line x1="370" y1="1" x2="370" y2="105"></line>
+ <line x1="380" y1="1" x2="380" y2="105"></line>
+ <line x1="390" y1="1" x2="390" y2="105"></line>
+
+ <line x1="400" y1="1" x2="400" y2="105"></line>
+ <line x1="410" y1="1" x2="410" y2="105"></line>
+ <line x1="420" y1="1" x2="420" y2="105"></line>
+ <line x1="430" y1="1" x2="430" y2="105"></line>
+ <line x1="440" y1="1" x2="440" y2="105"></line>
+ <line x1="450" y1="1" x2="450" y2="105"></line>
+ <line x1="460" y1="1" x2="460" y2="105"></line>
+ <line x1="470" y1="1" x2="470" y2="105"></line>
+ <line x1="480" y1="1" x2="480" y2="105"></line>
+ <line x1="490" y1="1" x2="490" y2="105"></line>
+
+ <line x1="500" y1="1" x2="500" y2="105"></line>
+ <line x1="510" y1="1" x2="510" y2="105"></line>
+ <line x1="520" y1="1" x2="520" y2="105"></line>
+ <line x1="530" y1="1" x2="530" y2="105"></line>
+ <line x1="540" y1="1" x2="540" y2="105"></line>
+ <line x1="550" y1="1" x2="550" y2="105"></line>
+ <line x1="560" y1="1" x2="560" y2="105"></line>
+ <line x1="570" y1="1" x2="570" y2="105"></line>
+ <line x1="580" y1="1" x2="580" y2="105"></line>
+ <line x1="590" y1="1" x2="590" y2="105"></line>
+
+ <line x1="600" y1="1" x2="600" y2="105"></line>
+ <line x1="610" y1="1" x2="610" y2="105"></line>
+ <line x1="620" y1="1" x2="620" y2="105"></line>
+ <line x1="630" y1="1" x2="630" y2="105"></line>
+ <line x1="640" y1="1" x2="640" y2="105"></line>
+ <line x1="650" y1="1" x2="650" y2="105"></line>
+ <line x1="660" y1="1" x2="660" y2="105"></line>
+ <line x1="670" y1="1" x2="670" y2="105"></line>
+ <line x1="680" y1="1" x2="680" y2="105"></line>
+ <line x1="690" y1="1" x2="690" y2="105"></line>
+
+ <line x1="700" y1="1" x2="700" y2="105"></line>
+ <line x1="710" y1="1" x2="710" y2="105"></line>
+ <line x1="720" y1="1" x2="720" y2="105"></line>
+ <line x1="730" y1="1" x2="730" y2="105"></line>
+ <line x1="740" y1="1" x2="740" y2="105"></line>
+ <line x1="750" y1="1" x2="750" y2="105"></line>
+ <line x1="760" y1="1" x2="760" y2="105"></line>
+ <line x1="770" y1="1" x2="770" y2="105"></line>
+ <line x1="780" y1="1" x2="780" y2="105"></line>
+ <line x1="790" y1="1" x2="790" y2="105"></line>
+
+ <line x1="800" y1="1" x2="800" y2="105"></line>
+ <line x1="810" y1="1" x2="810" y2="105"></line>
+ <line x1="820" y1="1" x2="820" y2="105"></line>
+ <line x1="830" y1="1" x2="830" y2="105"></line>
+ <line x1="840" y1="1" x2="840" y2="105"></line>
+ <line x1="850" y1="1" x2="850" y2="105"></line>
+ <line x1="860" y1="1" x2="860" y2="105"></line>
+ <line x1="870" y1="1" x2="870" y2="105"></line>
+ <line x1="880" y1="1" x2="880" y2="105"></line>
+ <line x1="890" y1="1" x2="890" y2="105"></line>
+
+ <line x1="900" y1="1" x2="900" y2="105"></line>
+ <line x1="910" y1="1" x2="910" y2="105"></line>
+ <line x1="920" y1="1" x2="920" y2="105"></line>
+ <line x1="930" y1="1" x2="930" y2="105"></line>
+ <line x1="940" y1="1" x2="940" y2="105"></line>
+ <line class="antenna" x1="950" y1="-80" x2="950" y2="105"></line>
+ <line class="antennaX" x1="950" y1="-80" x2="950" y2="105"></line>
+ <line x1="960" y1="1" x2="960" y2="105"></line>
+ <line x1="970" y1="1" x2="970" y2="105"></line>
+ <line x1="980" y1="1" x2="980" y2="105"></line>
+ <line x1="990" y1="1" x2="990" y2="105"></line>
+
+ <line x1="1000" y1="1" x2="1000" y2="105"></line>
+
+ <line class="top" x1="-1" y1="5" x2="1001" y2="5"></line>
+ <line class="top" x1="-1" y1="103" x2="1001" y2="103"></line>
+
+ <line class="antenna_bag" x1="52" y1="3" x2="51" y2="105"></line>
+ <line class="antenna_bag" x1="948" y1="3" x2="949" y2="105"></line>
+</g>
+
+  <g/>
+  <g class="set_other">
+    <g class="button">
+      <rect x="115" y="310" width="70" height="70" style="fill: #A9A9A9;" rx="15" ry="15"/>
+      <rect x="120" y="315" width="60" height="60" style="fill: #D3D3D3;" rx="10" ry="10"/>
+      <text dy="0.35em" text-anchor="middle" x="150" y="345">0</text>
+    </g>
+    <g class="button">
+      <rect x="115" y="405" width="70" height="70" style="fill: #A9A9A9;" rx="15" ry="15"/>
+      <rect x="120" y="410" width="60" height="60" style="fill: #D3D3D3;" rx="10" ry="10"/>
+      <image x="121" y="412" width="58" height="58" xlink:href="images/set_0.png"/>
+      <image x="121" y="412" width="58" height="58" xlink:href="images/set_0_hi.png" class="hi"/>
+    </g>
+    <path class="arrow" d="M650,260 c-245,-210 -440,-250 -500,-40 l-2,-13 m2,13 l9,-9"/>
+    <text class="subtitle" dy="0.35em" text-anchor="middle" x="550" y="510"><tspan class="bold">Außenangriff:</tspan> Hoher Ball auf Position 4.</text>
+  </g>
+  <g class="set_main">
+    <g class="button">
+      <rect x="204" y="310" width="70" height="70" style="fill: #FFA500;" rx="15" ry="15"/>
+      <rect x="209" y="315" width="60" height="60" style="fill: #FFD700;" rx="10" ry="10"/>
+      <text dy="0.35em" text-anchor="middle" x="239" y="345">6</text>
+    </g>
+    <g class="button">
+      <rect x="204" y="405" width="70" height="70" style="fill: #FFA500;" rx="15" ry="15"/>
+      <rect x="209" y="410" width="60" height="60" style="fill: #FFD700;" rx="10" ry="10"/>
+      <image x="210" y="412" width="58" height="58" xlink:href="images/set_6.png"/>
+      <image x="210" y="412" width="58" height="58" xlink:href="images/set_6_hi.png" class="hi"/>
+    </g>
+    <path class="arrow" d="M650,260 c-220,-120 -430,-150 -500,-40 l2,-13 m-2,13 l12,-5"/>
+    <text class="subtitle" dy="0.35em" text-anchor="middle" x="550" y="510">Halbschneller Ball auf Position 4.</text>
+  </g>
+  <g class="set_main">
+    <g class="button">
+      <rect x="293" y="310" width="70" height="70" style="fill: #FFA500;" rx="15" ry="15"/>
+      <rect x="298" y="315" width="60" height="60" style="fill: #FFD700;" rx="10" ry="10"/>
+      <text dy="0.35em" text-anchor="middle" x="328" y="345">8</text>
+    </g>
+    <g class="button">
+      <rect x="293" y="405" width="70" height="70" style="fill: #FFA500;" rx="15" ry="15"/>
+      <rect x="298" y="410" width="60" height="60" style="fill: #FFD700;" rx="10" ry="10"/>
+      <image x="299" y="412" width="58" height="58" xlink:href="images/set_8.png"/>
+      <image x="299" y="412" width="58" height="58" xlink:href="images/set_8_hi.png" class="hi"/>
+    </g>
+    <path class="arrow" d="M650,260 c-160,-138 -285,-140 -327,-40 l0,-12 m0,12 l9,-8"/>
+    <text class="subtitle" dy="0.35em" text-anchor="middle" x="550" y="510">Halbschneller Ball außerhalb des <tspan class="bold">4ers</tspan>.</text>
+  </g>
+  <g class="set_main">
+    <g class="button">
+      <rect x="382" y="310" width="70" height="70" style="fill: #FFA500;" rx="15" ry="15"/>
+      <rect x="387" y="315" width="60" height="60" style="fill: #FFD700;" rx="10" ry="10"/>
+      <text dy="0.35em" text-anchor="middle" x="417" y="345">4</text>
+    </g>
+    <g class="button">
+      <rect x="382" y="405" width="70" height="70" style="fill: #FFA500;" rx="15" ry="15"/>
+      <rect x="387" y="410" width="60" height="60" style="fill: #FFD700;" rx="10" ry="10"/>
+      <image x="388" y="412" width="58" height="58" xlink:href="images/set_4.png"/>
+      <image x="388" y="412" width="58" height="58" xlink:href="images/set_4_hi.png" class="hi"/>
+    </g>
+    <path class="arrow" d="M650,260 l-230,-40 l7,7 m-7,-7 l10,-3.5"/>
+    <text class="subtitle" dy="0.35em" text-anchor="middle" x="550" y="510"><tspan class="bold">Kurzschuss:</tspan> Schneller Ball vor der Aufspielerin (ca. 3m weg).</text>
+  </g>
+  <g class="set_other">
+    <g class="button">
+      <rect x="471" y="310" width="70" height="70" style="fill: #A9A9A9;" rx="15" ry="15"/>
+      <rect x="476" y="315" width="60" height="60" style="fill: #D3D3D3;" rx="10" ry="10"/>
+      <text dy="0.35em" text-anchor="middle" x="506" y="345">5v</text>
+    </g>
+    <g class="button">
+      <rect x="471" y="405" width="70" height="70" style="fill: #A9A9A9;" rx="15" ry="15"/>
+      <rect x="476" y="410" width="60" height="60" style="fill: #D3D3D3;" rx="10" ry="10"/>
+      <image x="477" y="412" width="58" height="58" xlink:href="images/set_5v.png"/>
+      <image x="477" y="412" width="58" height="58" xlink:href="images/set_5v_hi.png" class="hi"/>
+    </g>
+    <path class="arrow" d="M650,260 c-68,-138 -120,-140 -140,-40 l-2,-13 m2,13 l7.5,-11"/>
+    <text class="subtitle" dy="0.35em" text-anchor="middle" x="550" y="510">Halbschneller Ball zwischen <tspan class="bold">4er</tspan> und <tspan class="bold">1er</tspan>.</text>
+  </g>
+  <g class="set_main">
+    <g class="button">
+      <rect x="560" y="310" width="70" height="70" style="fill: #FFA500;" rx="15" ry="15"/>
+      <rect x="565" y="315" width="60" height="60" style="fill: #FFD700;" rx="10" ry="10"/>
+      <text dy="0.35em" text-anchor="middle" x="595" y="345">1</text>
+    </g>
+    <g class="button">
+      <rect x="560" y="405" width="70" height="70" style="fill: #FFA500;" rx="15" ry="15"/>
+      <rect x="565" y="410" width="60" height="60" style="fill: #FFD700;" rx="10" ry="10"/>
+      <image x="566" y="412" width="58" height="58" xlink:href="images/set_1.png"/>
+      <image x="566" y="412" width="58" height="58" xlink:href="images/set_1_hi.png" class="hi"/>
+    </g>
+    <path class="arrow" d="M650,260 l-50,-40 l3,10 m-3,-10 l10,-1"/>
+    <text class="subtitle" dy="0.35em" text-anchor="middle" x="550" y="510"><tspan class="bold">Aufsteiger:</tspan> Schneller Ball vor der Aufspielerin.</text>
+  </g>
+  <g class="set_main">
+    <g class="button">
+      <rect x="649" y="310" width="70" height="70" style="fill: #FFA500;" rx="15" ry="15"/>
+      <rect x="654" y="315" width="60" height="60" style="fill: #FFD700;" rx="10" ry="10"/>
+      <text dy="0.35em" text-anchor="middle" x="684" y="345">3</text>
+    </g>
+    <g class="button">
+      <rect x="649" y="405" width="70" height="70" style="fill: #FFA500;" rx="15" ry="15"/>
+      <rect x="654" y="410" width="60" height="60" style="fill: #FFD700;" rx="10" ry="10"/>
+      <image x="655" y="412" width="58" height="58" xlink:href="images/set_3.png"/>
+      <image x="655" y="412" width="58" height="58" xlink:href="images/set_3_hi.png" class="hi"/>
+    </g>
+    <path class="arrow" d="M650,260 l50,-40 l-3,10 m3,-10 l-10,-1"/>
+    <text class="subtitle" dy="0.35em" text-anchor="middle" x="550" y="510"><tspan class="bold">Aufsteiger hinten:</tspan> Schneller Ball hinter der Aufspielerin.</text>
+  </g>
+  <g class="set_other">
+    <g class="button">
+      <rect x="738" y="310" width="70" height="70" style="fill: #A9A9A9;" rx="15" ry="15"/>
+      <rect x="743" y="315" width="60" height="60" style="fill: #D3D3D3;" rx="10" ry="10"/>
+      <text dy="0.35em" text-anchor="middle" x="773" y="345">5h</text>
+    </g>
+    <g class="button">
+      <rect x="738" y="405" width="70" height="70" style="fill: #A9A9A9;" rx="15" ry="15"/>
+      <rect x="743" y="410" width="60" height="60" style="fill: #D3D3D3;" rx="10" ry="10"/>
+      <image x="744" y="412" width="58" height="58" xlink:href="images/set_5h.png"/>
+      <image x="744" y="412" width="58" height="58" xlink:href="images/set_5h_hi.png" class="hi"/>
+    </g>
+    <path class="arrow" d="M650,260 c68,-138 120,-140 140,-40 l2,-13 m-2,13 l-7.5,-11"/>
+    <text class="subtitle" dy="0.35em" text-anchor="middle" x="550" y="510">Halbschneller Ball hinter der Aufspielerin.</text>
+  </g>
+  <g class="set_other">
+    <g class="button">
+      <rect x="827" y="310" width="70" height="70" style="fill: #A9A9A9;" rx="15" ry="15"/>
+      <rect x="832" y="315" width="60" height="60" style="fill: #D3D3D3;" rx="10" ry="10"/>
+      <text dy="0.35em" text-anchor="middle" x="862" y="345">E</text>
+    </g>
+    <g class="button">
+      <rect x="827" y="405" width="70" height="70" style="fill: #A9A9A9;" rx="15" ry="15"/>
+      <rect x="832" y="410" width="60" height="60" style="fill: #D3D3D3;" rx="10" ry="10"/>
+      <image x="833" y="412" width="58" height="58" xlink:href="images/set_E.png"/>
+      <image x="833" y="412" width="58" height="58" xlink:href="images/set_E_hi.png" class="hi"/>
+    </g>
+    <path class="arrow" d="M650,260 c168,-138 220,-140 240,-40 l2,-13 m-2,13 l-7.5,-11"/>
+    <text class="subtitle" dy="0.35em" text-anchor="middle" x="550" y="510"><tspan class="bold">Einbeiner/Flieger:</tspan> Halbschneller Ball hinter der Aufspielerin.</text>
+  </g>
+  <g class="set_main">
+    <g class="button">
+      <rect x="916" y="310" width="70" height="70" style="fill: #FFA500;" rx="15" ry="15"/>
+      <rect x="921" y="315" width="60" height="60" style="fill: #FFD700;" rx="10" ry="10"/>
+      <text dy="0.35em" text-anchor="middle" x="951" y="345">2</text>
+    </g>
+    <g class="button">
+      <rect x="916" y="405" width="70" height="70" style="fill: #FFA500;" rx="15" ry="15"/>
+      <rect x="921" y="410" width="60" height="60" style="fill: #FFD700;" rx="10" ry="10"/>
+      <image x="922" y="412" width="58" height="58" xlink:href="images/set_2.png"/>
+      <image x="922" y="412" width="58" height="58" xlink:href="images/set_2_hi.png" class="hi"/>
+    </g>
+    <path class="arrow" d="M650,260 c155,-210 260,-250 290,-40 l-8,-11 m8,11 l4,-13"/>
+    <text class="subtitle" dy="0.35em" text-anchor="middle" x="550" y="510"><tspan class="bold">Diagonalangriff:</tspan> Hoher Ball über Position 2.</text>
+  </g>
+  <ellipse cx="650" cy="260" rx="20" ry="20" style="fill: #F2F2F2; stroke: none;"/>
+</svg>
+</div>
+<div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div>
+</div>
+</div>
+</body>
+</html>

@@ -4,7 +4,14 @@
   <meta charset="UTF-8">
   <title>Brückl hotvolleys</title>
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/elements/expander/styles.css">
+<style>
+a h3::after {
+  opacity: 0;
+}
+</style>
   <link rel="shortcut icon" href="/favicons/favicon.ico">
+  <script src="/elements/expander/script.js"></script>
   <script src="/script/code.js"></script>
   <script>
 function init() {
@@ -16,6 +23,9 @@ function init() {
       loader.style.display = 'none';
       cont.style.display = 'block';
     }
+
+    window.bhv.elements.expander.initOV(); // (expanders, keepOpen);
+
   } else {
     cont.parentNode.removeChild(cont);
   }
@@ -31,8 +41,9 @@ function init() {
 </div>
 </div>
   <div id="loader">Loading...</div>
-  <div id="content_container" class="locked"><h1 class="tactics">Annahme</h1>
-<div style="overflow-x: auto;">
+  <div id="content_container" class="locked"><h1 id="h_1" class="tactics expandable">Annahme</h1>
+<div id="h_1_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="annahme" href="/imageview.html?i=system4%2Fannahme.png&t=L%C3%A4ufer%201&x=Die%20Annahme%20des%20gegnerischen%20Service.&b=%2Fsystem4%23annahme"><h3>Läufer 1</h3></a></td>
@@ -52,8 +63,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Aufspiel</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_2" class="tactics expandable">Aufspiel</h1>
+<div id="h_2_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="aufspiel" href="/imageview.html?i=system4%2Faufspiel.png&t=L%C3%A4ufer%201&x=Das%20Aufspiel%20und%20die%20Vorbereitung%20auf%20den%20eigenen%20Angriff.&b=%2Fsystem4%23aufspiel"><h3>Läufer 1</h3></a></td>
@@ -73,8 +86,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Angriff</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_3" class="tactics expandable">Angriff</h1>
+<div id="h_3_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="angriff4" href="/imageview.html?i=system4%2Fangriff4.png&t=Links%3A%20Pos%204&x=Der%20Angriff%20%C3%BCber%20die%20Position%204%20mit%20Sicherung.&b=%2Fsystem4%23angriff4"><h3>Links: Pos 4</h3></a></td>
@@ -97,8 +112,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Basis</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_4" class="tactics expandable">Basis</h1>
+<div id="h_4_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="basis" href="/imageview.html?i=system4%2Fbasis.png&t=Vorbereitung&x=Wir%20gehen%20in%20die%20Basis%2C%20sobald%20der%20Ball%20beim%20Gegner%20ist.&b=%2Fsystem4%23basis"><h3>Vorbereitung</h3></a></td>
@@ -118,8 +135,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Verteidigung (mit Block)</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_5" class="tactics expandable">Verteidigung (mit Block)</h1>
+<div id="h_5_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="block4" href="/imageview.html?i=system4%2Fblock4.png&t=Links%3A%20Pos%204&x=Der%20Block%20auf%20der%20Position%204%20gegen%20einen%20gegnerischen%20Angriff.&b=%2Fsystem4%23block4"><h3>Links: Pos 4</h3></a></td>
@@ -142,8 +161,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Verteidigung (mit Block) - Position 2</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_6" class="tactics expandable">Verteidigung (mit Block) - Position 2</h1>
+<div id="h_6_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="block2" href="/imageview.html?i=system4%2Fblock2.png&t=Einzelblock&x=Der%20Block%20auf%20der%20Position%202%20gegen%20einen%20gegnerischen%20Angriff.&b=%2Fsystem4%23block2"><h3>Einzelblock</h3></a></td>
@@ -163,8 +184,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Verteidigung (ohne Block)</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_7" class="tactics expandable">Verteidigung (ohne Block)</h1>
+<div id="h_7_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="ohne4" href="/imageview.html?i=system4%2Fohne4.png&t=Links%3A%20Pos%204&x=Geschenkter%20Ball%20bei%20Position%204.&b=%2Fsystem4%23ohne4"><h3>Links: Pos 4</h3></a></td>
@@ -187,8 +210,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">Aufspiel (nach Verteidigung)</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_8" class="tactics expandable">Aufspiel (nach Verteidigung)</h1>
+<div id="h_8_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="aufspielv" href="/imageview.html?i=system4%2Faufspiel_v.png&t=Aufspiel&x=Das%20Aufspiel%20und%20die%20Vorbereitung%20auf%20den%20eigenen%20Angriff%20nach%20einer%20Verteidigung.&b=%2Fsystem4%23aufspielv"><h3>Aufspiel</h3></a></td>
@@ -205,8 +230,10 @@ function init() {
 </table>
 </div>
 
-<h1 class="tactics">ohne Block, frühes Erkennen</h1>
-<div style="overflow-x: auto;">
+</div>
+<h1 id="h_9" class="tactics expandable">ohne Block, frühes Erkennen</h1>
+<div id="h_9_2" class="expanded_container">
+  <div style="overflow-x: auto;">
 <table class="tactics" align="center" cellspacing="0" cellpadding="10">
   <tr>
     <td><a id="weg" href="/imageview.html?i=system4%2Fohne.png&t=Ohne%20-%20Weg!&x=Geschenkter%20Ball%20nach%20fr%C3%BCher%20Entscheidung.&b=%2Fsystem4%23weg"><h3>Ohne - Weg!</h3></a></td>
@@ -226,6 +253,7 @@ function init() {
 </table>
 </div>
 
+</div>
 </div>
   <div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div>
 </div>
