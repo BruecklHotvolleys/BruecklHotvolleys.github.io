@@ -478,7 +478,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "CA"
     ],
     [
@@ -598,7 +598,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "BD"
     ],
     [
@@ -718,7 +718,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "ND"
     ],
     [
@@ -838,7 +838,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "SG"
     ],
     [
@@ -958,7 +958,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "AJ"
     ],
     [
@@ -1078,7 +1078,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "SM"
     ],
     [
@@ -1198,7 +1198,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "LE"
     ],
     [
@@ -1318,7 +1318,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "CM"
     ],
     [
@@ -1438,7 +1438,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "LM"
     ],
     [
@@ -1558,7 +1558,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "YM"
     ],
     [
@@ -1678,7 +1678,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "SP"
     ],
     [
@@ -1798,7 +1798,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "VP"
     ],
     [
@@ -1918,7 +1918,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "SR"
     ],
     [
@@ -2038,7 +2038,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "TS"
     ],
     [
@@ -2158,7 +2158,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">?</div>",
       "YV"
     ],
     [
@@ -2278,7 +2278,7 @@
       "",
       "",
       "",
-      "<div class=\"kstate\" style=\"background-color: red;\"></div>",
+      "<div class=\"kstate\" style=\"background-color: red;\">??</div>",
       "&nbsp;&sum;"
     ]
   ]
