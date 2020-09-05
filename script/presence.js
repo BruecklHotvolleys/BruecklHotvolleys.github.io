@@ -146,15 +146,16 @@ window.bhv.training.presence = {
       // connect diary
       if (window.bhv.training.presence.diary != null) {
         var lnks = document.querySelectorAll(
-            "div#content_container > div#training div.link_diary");
+            "div#content_container > div#training div.link_diary"),
+            lnks2 = document.querySelectorAll(
+            "div#content_container > div#training div.link_diary > span");
 
         main = document.querySelector('div#training');
         info = document.querySelector('div#training_info');
         if (main && info && lnks) {
 
           // show info
-          var handler = function(event) {
-            var elem = event.target;
+          var showInfo = function(elem) {
             if (elem && elem.hasAttribute('data-diary')) {
               var key = elem.getAttribute('data-diary'),
                   infoTit = document.querySelector('div#training_info > div.title'),
@@ -167,9 +168,23 @@ window.bhv.training.presence = {
                 main.style.display = 'none';
               }
             }
-          };
-          for (var i = 0; i < lnks.length; ++i) {
+          }, handler = function(event) {
+            showInfo(event.target);
+          }, handler2 = function(event) {
+            var elem = event.target;
+            if (elem) {
+              showInfo(elem.parentNode);
+            }
+          }, i;
+
+          for (i = 0; i < lnks.length; ++i) {
             lnks[i].addEventListener('click', handler);
+          }
+
+          if (lnks2) {
+            for (i = 0; i < lnks2.length; ++i) {
+              lnks2[i].addEventListener('click', handler2);
+            }
           }
         }
       }
@@ -464,7 +479,7 @@ window.bhv.training.presence = {
       // create a row of the data column
       // for (var c = row < 0 ? 0 : 2, c2 = src.length; c < c2; ++c) {
       for (var col = start; col <= end; ++col) {
-        var value, xclass1 = '', xclass2 = '', dat, day, isDate;
+        var value, xclass1 = '', xclass2 = '', dat, day, isDate, isLongHeader;
 
         // #region detect weekend, sunday
         // dat = new Date(data.headerinfo[row < 0 ? c : c - 2]);
@@ -524,13 +539,26 @@ window.bhv.training.presence = {
         }
 
         // check for double col header
-        // if (row == -1 && value.length > 2 && c < c2 - 1) {
-        if (row == -1 && value.length > 2 && col < end) {
+        isLongHeader = false;
+        if (row == -1 && col < end) {
+          if (value.length > 3) {
+            isLongHeader = true;
+          } else if (value.length === 3) {
+            if (isFinite(value[1]) && isFinite(value[2])) {
+              value = value[0]
+                  + '<span class="smaller">' + value[1] + value[2] + '</span>';
+            } else {
+              isLongHeader = true;
+            }
+          }
+        }
+
+        if (isLongHeader) {
           htmlRow += tplCol2
             .replace('{{content}}', value)
             .replace('{{xclass1}}', xclass1)
             .replace('{{xclass2}}', xclass2);
-          ++c;
+          ++col;
 
         // try to connect header with diary
         } else if (row == -1 && diary && diary[keyDay]) {
