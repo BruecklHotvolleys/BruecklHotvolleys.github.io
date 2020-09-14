@@ -2,8 +2,8 @@
 
 // the names and the files of the cache
 const CACHE = {
-  'main': 'bhv-infoapp-main-9bf436316994ef6032c45ca600e24458',
-  'data': 'bhv-infoapp-data-2af8a553f0f37fb73b596e6d86222ba7',
+  'main': 'bhv-infoapp-main-d0bba2089e96690c8e64076807e0d098',
+  'data': 'bhv-infoapp-data-0abd2de6e7a548330a77a4d41f02b0fa',
   'system1': 'bhv-infoapp-system1-396e168e59deacc76eaa7b4b1fbf8334',
   'system4': 'bhv-infoapp-system4-cce310d598413509c955f7a3dad58314',
   'system6': 'bhv-infoapp-system6-e0b78a63025a9acaa66928075091f4c6',
@@ -26,6 +26,7 @@ const FILES = {
     '/results.html',
     '/schedule.html',
     '/standings.html',
+    '/todos.html',
     '/styles.css',
     '/README.md',
     '/favicon.ico',
@@ -72,7 +73,10 @@ const FILES = {
     '/data/training/diary_a.json',
     '/data/training/diary_b.json',
     '/data/training/jungs.json',
-    '/data/training/targets_a.json'
+    '/data/training/targets_a.json',
+    '/data/training/todos_16.json',
+    '/data/training/todos_a.json',
+    '/data/training/todos_b.json'
   ],
   'system1': [
     '/system1/angriff/angriff_0_6.html',

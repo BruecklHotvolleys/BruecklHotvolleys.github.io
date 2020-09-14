@@ -12,9 +12,10 @@ body {
   margin: 0;
 }
 
-a.locked_1, a.locked_2, a.locked_3, a.locked_4 {
+.locked_0, .locked_1, .locked_2, .locked_3, .locked_4 {
   display: none;
 }
+/*
 .expandable.locked_1, .expandable.locked_2,
 .expandable.locked_3, .expandable.locked_4 {
   cursor: default;
@@ -22,8 +23,9 @@ a.locked_1, a.locked_2, a.locked_3, a.locked_4 {
 h2.locked_1 > div.expander, h2.locked_2 > div.expander,
 h2.locked_3 > div.expander, h2.locked_4 > div.expander {
   display: none;
-}
+} */
 
+/* -- lock ----------------------------------------------------------------- */
 div#lock {
   font-size: 4em;
   position: fixed;
@@ -73,6 +75,7 @@ div#lock:after {
   border-top: 0 none;
 }
 
+/* -- password ------------------------------------------------------------- */
 form#pw_bg {
   display: none;
   position: absolute;
@@ -142,6 +145,7 @@ window.bhv.utils.connectSW();
  */
 function init() {
   var expanders = [
+    'todos',
     'nw',
     'u12_21', 'u13_21', 'u14_21', 'u15_21', 'u16_21', 'u18_21', 'u20_21',
     'ak',
@@ -158,6 +162,9 @@ function init() {
   ],
   keepOpen = {
 
+    // todos
+    'todos': ['todo_a', 'todo_b', 'todo_16'],
+
     // 'nw': ...
     'u20_21': ['info20'],
     'u18_21': ['info18'],
@@ -173,7 +180,9 @@ function init() {
     // 'spielfeld6',
     'br3_21': ['training_b', 'training_jungs', 'tagebuch_b', 'system6', 'zeiten_b'],
     'br2_21': [],
-    'br1_21': ['herzhirn_21', 'training_a', 'tagebuch_a', 'system1', 'zeiten_a', 'heimtraining'],
+    'br1_21': ['herzhirn_21', 'training_a', 'tagebuch_a', 'system1',
+               'schedule_br1g_21', 'results_br1g_21', 'standings_br1g_21', 'players_br1g_21',
+               'zeiten_a', 'heimtraining'],
 
     // 'archive': ...
     // 'a19': ...
@@ -309,7 +318,7 @@ function addEvent(elem, event, handler) {
 }
 
 function updateOV(code) {
-  for (var key = 1; key <= 4; ++key) {
+  for (var key = 0; key <= 4; ++key) {
     if (key === code || code === 0) {
       var clazz = '.locked_' + key,
           elems = document.querySelectorAll(clazz);
@@ -335,6 +344,13 @@ function removeClass(elem, clazz) {
 </head>
 <body onload="init();">
   <nav id="nav" role="navigation">
+
+    <h1 id="todos" class="expandable locked_0" style=""><br>Todos<br>&nbsp;</h1>
+    <div id="todos_2" class="expanded_container">
+      <a id="todo_a" class="locked_0" href="todos.html?key=a"><h3>A</h3></a>
+      <a id="todo_b" class="locked_0" href="todos.html?key=b"><h3>B</h3></a>
+      <a id="todo_16" class="locked_0" href="todos.html?key=16"><h3>U16</h3></a>
+    </div>
 
     <h1 id="nw" class="expandable" style=""><br>Nachwuchs<br>&nbsp;</h1>
     <div id="nw_2" class="expanded_container">
@@ -394,14 +410,20 @@ function removeClass(elem, clazz) {
       <div id="br2_21_2" class="expanded_container">
       </div-->
 
-      <h2 id="br1_21" class="expandable locked_1">Brückl 1 - Bundesliga</h2>
+      <h2 id="br1_21" class="expandable">Brückl 1 - Bundesliga</h2>
       <div id="br1_21_2" class="expanded_container">
         <a id="herzhirn_21" href="/teambuilding/herzhirn_21/" class="locked_1"><h3>Herz + Hirn</h3></a>
         <a id="training_a" href="presence.html?key=a" class="locked_1"><h3>Anwesenheit</h3></a>
         <a id="tagebuch_a" href="diary.html?key=a" class="locked_1"><h3>Trainingstagebuch</h3></a>
         <a id="system1" href="/system1/" class="locked_1"><h3>Spielsystem</h3></a>
-        <a id="zeiten_a" href="/training/zeiten_a.html"><h3>Trainingszeiten</h3></a>
-        <a id="heimtraining" href="/training/heimtraining.html"><h3>Heimtraining</h3></a>
+
+        <a id="schedule_br1g_21" href="schedule.html?key=br1g_21"><h3>Spieltermine</h3></a>
+        <a id="results_br1g_21" href="results.html?key=br1g_21"><h3>Ergebnisse</h3></a>
+        <a id="standings_br1g_21" href="standings.html?key=br1g_21"><h3>Tabelle</h3></a>
+        <a id="players_br1g_21" href="players.html?key=br1g_21"><h3>Spielerinnen</h3></a>
+
+        <a id="zeiten_a" href="/training/zeiten_a.html" class="locked_1"><h3>Trainingszeiten</h3></a>
+        <a id="heimtraining" href="/training/heimtraining.html" class="locked_1"><h3>Heimtraining</h3></a>
       </div>
     </div>
 
@@ -474,7 +496,6 @@ function removeClass(elem, clazz) {
         </div>
         <h2 id="br1_20" class="expandable">Brückl 1 - Bundesliga</h2>
         <div id="br1_20_2" class="expanded_container">
-          <!--a id="schedule_br1g_20" href="schedule.html?key=br1g_20"><h3>Spieltermine</h3></a-->
           <a id="results_br1g_20" href="results.html?key=br1g_20"><h3>Ergebnisse</h3></a>
           <a id="standings_br1g_20" href="standings.html?key=br1g_20"><h3>Tabelle</h3></a>
           <a id="players_br1g_20" href="players.html?key=br1g_20"><h3>Spielerinnen</h3></a>

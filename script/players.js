@@ -1,6 +1,10 @@
 var activeSeason = '21';
 
 var map = {
+  '21': {
+    // BL
+    'br1g_21': [33165, null, 'Bundesliga'],
+  },
   '20': {
     // UL      tea_id, -,    title
     'br4g_20': [31662, null, 'Unterliga 4'],

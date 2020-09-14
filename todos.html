@@ -1,0 +1,149 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Brückl hotvolleys</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+/* div {
+  text-align: left;
+}
+div.title {
+  padding: 0.1em 0.2em;
+  background-color: darkgray;
+  color: #EEE;
+  font-weight: bold;
+  font-size: 3em;
+}
+div.info {
+  font-size: 2.5em;
+  padding: 0.25em;
+} */
+div#content_container > div {
+  text-align: left;
+  font-size: 3em;
+}
+div#content_container * {
+  text-align: left;
+}
+div#content_container > div * {
+  font-size: 1em;
+}
+div#content_container > div p {
+  margin-bottom: 0.5em;
+}
+  </style>
+  <script src="/script/polyfills.js"></script>
+  <script src="/script/request.js"></script>
+  <script src="/script/utils.js"></script>
+  <script src="/script/code.js"></script>
+  <script>
+function init() {
+  window.bhv.utils.setBack('todo');
+  loadTodos();
+}
+
+/**
+ * Try to load the todos.
+ * @return {void}
+ */
+function loadTodos() {
+  var key = window.bhv.request.utils.getKey(), query, check,
+      checks = {
+        'a': 0,
+        'b': 0,
+        '16': 0
+      };
+
+  if (!checks[key] && checks[key] !== 0) {
+    return false;
+  }
+  check = window.bhv.code.check();
+  if (check !== checks[key] && check !== 0) {
+    return false;
+  }
+
+  query = '/data/training/todos_' + key + '.json';
+
+  // try to load todos
+  _getData(query, setTodos.bind(this), function(info) {
+    // TODO error handler
+  });
+
+  return true;
+}
+
+/**
+ * Creates the todos.
+ * @param {string} rawTodos The todos data.
+ * @return {void}
+ */
+function setTodos(rawTodos) {
+  var container, title,
+      key = window.bhv.request.utils.getKey();
+      // todos = JSON.parse(rawTodos),
+      // html = '',
+      //tpl = '<div class="title">{{title}}</div>'
+      //    + '<div class="info">{{info}}</div>',
+      //
+      // /**
+      //  * Formats the date (day, month).
+      //  * @param {string} dat The date key.
+      //  * @param {integer} start Th epos where to extract the date info.
+      //  * @return {string} The formatted part of the date.
+      //  */
+      // _fmt = function(dat, start) {
+      //   var d = dat.substr(start, 2);
+      //
+      //   if (d[0] == '0') {
+      //     d = d.substr(1);
+      //   }
+      //
+      //   return d;
+      // };
+
+  // title
+  title = document.getElementById('title');
+  if (title && key) {
+    title.innerHTML = 'Todos ' + key.toUpperCase();
+  }
+  // inject html
+  container = document.getElementById('content_container');
+  if (container) {
+    container.innerHTML = '<div>' + rawTodos + '</div>';
+  }
+}
+
+/**
+ * Starts the loading of the data.
+ * @param {string} query The html query.
+ * @param {Function} The handler of the laoded data.
+ * @param {Function} The error handler.
+ * @return {void}
+ */
+function _getData(query, onSuccess, onError) {
+  var request = new XMLHttpRequest();
+
+  request.overrideMimeType('application/json');
+  request.open('GET', query, true);
+  request.onreadystatechange = function() {
+    if (request.readyState === 4 && request.status === 200) {
+      onSuccess(request.responseText);
+    }
+  };
+  request.send();
+}
+  </script>
+</head>
+<body onload="init();">
+  <div id="header">
+    <div class="left">
+    <a href="/ov.html"><img src="/image/bhv1.gif"/></a>
+    <div id="title">Todos</div>
+    </div><div class="right">
+    <a href="/ov.html"><img src="/image/bhv1.gif"/></a>
+    </div>
+  </div>
+  <div id="content_container"><pre id="content">Loading...</pre></div>
+  <div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div>
+<body>
+</html>

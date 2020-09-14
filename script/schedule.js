@@ -428,15 +428,19 @@ var activeSeason = '21';
 var mapLeague = {
   // dont forget to set the ids of the clubs in calendar/controller -> 21, 1220
   // on calling  window.bhv.schedule.getAllSchedules(...)
+  '21': {
+    // liga 26179, team: 33165
+    'br1g_21': [26179, window.bhv.schedule.leagueSchedules, 'Termine Bundesliga', 33165],
+  },
   '20': {
-    // UL 24971 3: 31661, 4: 31662
-    'br4g_20': [24971, window.bhv.schedule.leagueSchedules, 'Termine Unterliga', 31662],
-    'br3g_20': [24971, window.bhv.schedule.leagueSchedules, 'Termine Unterliga', 31661],
-    // LLD: Termine/24967: Team als array von (vrn_id, tea_id)
-    'br2g_20': [24967, window.bhv.schedule.leagueSchedules, 'Termine Landesliga (GD)', [1220, 31654]],
-    'br2m_20': [25506, window.bhv.schedule.leagueSchedules, 'Termine Landesliga (MPO)', [1220, 31654]],
-    // BL 24649, 1: 30505
-    'br1g_20': [24649, window.bhv.schedule.leagueSchedules, 'Termine Bundesliga', 30505],
+    // // UL 24971 3: 31661, 4: 31662
+    // 'br4g_20': [24971, window.bhv.schedule.leagueSchedules, 'Termine Unterliga', 31662],
+    // 'br3g_20': [24971, window.bhv.schedule.leagueSchedules, 'Termine Unterliga', 31661],
+    // // LLD: Termine/24967: Team als array von (vrn_id, tea_id)
+    // 'br2g_20': [24967, window.bhv.schedule.leagueSchedules, 'Termine Landesliga (GD)', [1220, 31654]],
+    // 'br2m_20': [25506, window.bhv.schedule.leagueSchedules, 'Termine Landesliga (MPO)', [1220, 31654]],
+    // // BL 24649, 1: 30505
+    // 'br1g_20': [24649, window.bhv.schedule.leagueSchedules, 'Termine Bundesliga', 30505],
   },
   '19': {
     // 'br4g_19': [22934, window.bhv.schedule.leagueSchedules, 'Termine Unterliga (GD)', 29075],

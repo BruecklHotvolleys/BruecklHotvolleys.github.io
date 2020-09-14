@@ -1,5 +1,11 @@
 var activeSeason = '21';
 var mapLeague = {
+  '21': {
+    // liga 26179, team: 33165
+    'br1g_20': [26179, leagueResults, 'Ergebnisse Bundesliga', 33165],
+  },
+
+
   '20': {
     // UL 24971 3: 31661, 4: 31662
     'br4g_20': [24971, leagueResults, 'Ergebnisse Unterliga', 31662],
@@ -10,7 +16,6 @@ var mapLeague = {
     // BL 24649, 1: 30505
     'br1g_20': [24649, leagueResults, 'Ergebnisse Bundesliga', 30505],
   },
-
   '19': {
     'br4g_19': [22934, leagueResults, 'Ergebnisse Unterliga (GD)', 29075],
     'br4_19': [23784, leagueResults, 'Ergebnisse Unterliga (FD)', 29075],
