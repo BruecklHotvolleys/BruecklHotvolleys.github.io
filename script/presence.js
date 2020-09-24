@@ -418,14 +418,26 @@ window.bhv.training.presence = {
   // #endregion
 
   _addXCol: function(data, targets, index) {
-    var html = '<div class="x2">' + data.header1[index] + '</div>',
+    // var html = '<div class="x2">' + data.header1[index] + '</div>',
+    var html = '',
+        tplXCol = '<div class="x2">{{content}}</div>',
+        tplXCol2 = '<div class="x2 x2b">{{content1}}<div>{{content2}}</div></div>',
         tpl = '<div class="x1{{xclass}}">{{value}}</div>',
         tplTargets = '<div class="x1 link_target{{xclass}}" data-target="{{data}}">{{value}}</div>',
         // tplColStart = '<div class="column c{{index}}"{{attribs}}>',
         tplColStart = '<div class="column xcolumn">',
         tplColEnd = '</div>',
-        // curData = data.data[index],
-        value, xclass;
+        value, xclass, parts;
+
+    // header 1 - special handling for pipe
+    if (data.header1[index].indexOf('|') > -1) {
+      parts = data.header1[index].split('|', 2);
+      html = tplXCol2
+          .replace('{{content1}}', parts[0])
+          .replace('{{content2}}', parts[1]);
+    } else {
+      html = tplXCol.replace('{{content}}', data.header1[index]);
+    }
 
     // handle each row
     for (var row = 0; row < data.data.length; ++row) {
