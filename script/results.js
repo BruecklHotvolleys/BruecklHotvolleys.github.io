@@ -2,7 +2,9 @@ var activeSeason = '21';
 var mapLeague = {
   '21': {
     // liga 26179, team: 33165
-    'br1g_20': [26179, leagueResults, 'Ergebnisse Bundesliga', 33165],
+    'br1g_21': [26179, leagueResults, 'Ergebnisse Bundesliga', 33165],
+    // scorer
+    // http://www.volleynet.at/volleynet/service/xml2.php?action=scorer&bew_id=26179&tea_kurz=%27Br%C3%BCckl%27
   },
 
 
