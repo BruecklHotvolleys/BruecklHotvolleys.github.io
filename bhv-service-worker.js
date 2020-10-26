@@ -10,7 +10,7 @@ const CACHE = {
   'favicons': 'bhv-infoapp-favicons-330b73fc504d548333704fb32f4ddb85',
   'info': 'bhv-infoapp-info-14545db906177853eedc9ed447cbd3db',
   'statistics_19': 'bhv-infoapp-statistics_19-1721c54a73e426c061a4da259e61d823',
-  'statistics_21': 'bhv-infoapp-statistics_21-76e09d475105e74ff92b4327ed2d5376',
+  'statistics_21': 'bhv-infoapp-statistics_21-0bb78b95a7d0f66f211b5f82e946b23a',
   'teambuilding_19': 'bhv-infoapp-teambuilding_19-9aeecfc5514d12fd7a4ac6ca488835d7',
   'teambuilding_21': 'bhv-infoapp-teambuilding_21-1d935a12406f3b78b70a9ac5097f9e0a'
 };
