@@ -4,6 +4,10 @@ var map = {
   '21': {
     // BL
     'br1g_21': [33165, null, 'Bundesliga'],
+    // LL 26515, 33597
+    'br2g_21': [33597, null, 'Landesliga'],
+    // UL 26519, 33611
+    'br3g_21': [33611, null, 'Unterliga']
   },
   '20': {
     // UL      tea_id, -,    title

@@ -12,7 +12,7 @@ body {
   margin: 0;
 }
 
-.locked_0, .locked_1, .locked_2, .locked_3, .locked_4 {
+.locked_0, .locked_1, .locked_2, .locked_3, .locked_4, .locked_any {
   display: none;
 }
 /*
@@ -178,8 +178,9 @@ function init() {
 
     // 'ak': ...
     // 'spielfeld6',
-    'br3_21': ['training_b', 'training_jungs', 'tagebuch_b', 'system6', 'zeiten_b'],
-    'br2_21': [],
+    'br3_21': ['training_b', 'training_jungs', 'tagebuch_b', 'system6', 'zeiten_b',
+              'schedule_br3g_21', 'results_br3g_21', 'statistics_br3g_21', 'standings_br3g_21', 'players_br3g_21'],
+    'br2_21': ['schedule_br2g_21', 'results_br2g_21', 'statistics_br2g_21', 'standings_br2g_21', 'players_br2g_21'],
     'br1_21': ['herzhirn_21', 'training_a', 'tagebuch_a', 'system1',
                'schedule_br1g_21', 'results_br1g_21', 'statistics_br1g_21', 'standings_br1g_21', 'players_br1g_21',
                'zeiten_a', 'heimtraining'],
@@ -321,9 +322,14 @@ function updateOV(code) {
   for (var key = 0; key <= 4; ++key) {
     if (key === code || code === 0) {
       var clazz = '.locked_' + key,
-          elems = document.querySelectorAll(clazz);
+          clazzAny = '.locked_any',
+          elems = document.querySelectorAll(clazz),
+          elemsAny = document.querySelectorAll(clazzAny);
       for (var e = 0; e < elems.length; ++e) {
         removeClass(elems[e], clazz.substr(1));
+      }
+      for (var e = 0; e < elemsAny.length; ++e) {
+        removeClass(elemsAny[e], 'locked_any');
       }
     }
   }
@@ -402,13 +408,24 @@ function removeClass(elem, clazz) {
         <a id="tagebuch_b" href="diary.html?key=b" class="locked_3"><h3>Trainingstagebuch</h3></a>
         <!--a id="spielfeld6" href="/system6/spielfeld/" class="locked_3"><h3>Spielsystem 4</h3></a-->
         <a id="system6" href="/system6/" class="locked_3"><h3>Spielsystem</h3></a>
+
+        <a id="schedule_br3g_21" href="schedule.html?key=br3g_21"><h3>Spieltermine</h3></a>
+        <a id="results_br3g_21" href="results.html?key=br3g_21"><h3>Ergebnisse</h3></a>
+        <a id="statistics_br3g_21" href="/statistics/21/bhv3_gd.html" class="locked_3"><h3>Statistik</h3></a>
+        <a id="standings_br3g_21" href="standings.html?key=br3g_21"><h3>Tabelle</h3></a>
+        <a id="players_br3g_21" href="players.html?key=br3g_21"><h3>Spielerinnen</h3></a>
+
         <a id="zeiten_b" href="/training/zeiten_b.html"><h3>Trainingszeiten</h3></a>
       </div>
 
-      <h2 id="br2_21" class="expandable locked_2">Brückl 2 - Landesliga</h2>
-      <!--h2 id="br2_21" class="expandable">Brückl 2 - Landesliga</h2>
+      <h2 id="br2_21" class="expandable">Brückl 2 - Landesliga</h2>
       <div id="br2_21_2" class="expanded_container">
-      </div-->
+        <a id="schedule_br2g_21" href="schedule.html?key=br2g_21"><h3>Spieltermine</h3></a>
+        <a id="results_br2g_21" href="results.html?key=br2g_21"><h3>Ergebnisse</h3></a>
+        <a id="statistics_br2g_21" href="/statistics/21/bhv2_gd.html" class="locked_any"><h3>Statistik</h3></a>
+        <a id="standings_br2g_21" href="standings.html?key=br2g_21"><h3>Tabelle</h3></a>
+        <a id="players_br2g_21" href="players.html?key=br2g_21"><h3>Spielerinnen</h3></a>
+      </div>
 
       <h2 id="br1_21" class="expandable">Brückl 1 - Bundesliga</h2>
       <div id="br1_21_2" class="expanded_container">

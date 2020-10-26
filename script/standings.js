@@ -2,6 +2,10 @@ var activeSeason = '21';
 var map = {
   '21': {
     'br1g_21': [26179, leagueStandings, 'Tabelle Bundesliga'],
+    // LL 26515, 33597
+    'br2g_21': [26515, leagueStandings, 'Tabelle Landesliga'],
+    // UL 26519, 33611
+    'br3g_21': [26519, leagueStandings, 'Tabelle Unterliga']
   },
   '20': {
     'br4g_20': [24971, leagueStandings, 'Tabelle Unterliga'],

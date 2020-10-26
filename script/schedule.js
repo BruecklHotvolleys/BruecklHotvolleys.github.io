@@ -429,8 +429,12 @@ var mapLeague = {
   // dont forget to set the ids of the clubs in calendar/controller -> 21, 1220
   // on calling  window.bhv.schedule.getAllSchedules(...)
   '21': {
-    // liga 26179, team: 33165
+    // BL 26179, team: 33165
     'br1g_21': [26179, window.bhv.schedule.leagueSchedules, 'Termine Bundesliga', 33165],
+    // LL 26515, 33597
+    'br2g_21': [26515, window.bhv.schedule.leagueSchedules, 'Termine Landesliga', [1220, 33597]],
+    // UL 26519, 33611
+    'br3g_21': [26519, window.bhv.schedule.leagueSchedules, 'Termine Unterliga', 33611]
   },
   '20': {
     // // UL 24971 3: 31661, 4: 31662
