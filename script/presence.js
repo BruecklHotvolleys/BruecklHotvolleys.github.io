@@ -560,7 +560,7 @@ window.bhv.training.presence = {
               value = value[0]
                   + '<span class="smaller">' + value[1] + value[2] + '</span>';
             } else {
-              isLongHeader = true;
+              value = '<span class="smallerblock">' + value + '</span>';
             }
           }
         }
