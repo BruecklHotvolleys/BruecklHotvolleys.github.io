@@ -131,6 +131,11 @@ button#pw_ok {
 }
   </style>
   <link rel="shortcut icon" href="/favicons/favicon.ico">
+  <script>
+if (window.location.search == '?pwreset') {
+  window.localStorage.removeItem('pw');
+}
+  </script>
   <script src="/script/polyfills.js"></script>
   <script src="/elements/expander/script.js"></script>
   <script src="/script/utils.js"></script>
@@ -401,7 +406,7 @@ function removeClass(elem, clazz) {
 
     <h1 id="ak" class="expandable"><br>Allgemeine Klasse<br>&nbsp;</h1>
     <div id="ak_2" class="expanded_container">
-      <h2 id="br3_21" class="expandable locked_3">Brückl 3 - Unterliga</h2>
+      <h2 id="br3_21" class="expandable">Brückl 3 - Unterliga</h2>
       <div id="br3_21_2" class="expanded_container">
         <a id="training_b" href="presence.html?key=b" class="locked_3"><h3>Anwesenheit</h3></a>
         <a id="training_jungs" href="presence.html?key=jungs" class="locked_3"><h3>Anwesenheit Jungs</h3></a>
@@ -415,7 +420,7 @@ function removeClass(elem, clazz) {
         <a id="standings_br3g_21" href="standings.html?key=br3g_21"><h3>Tabelle</h3></a>
         <a id="players_br3g_21" href="players.html?key=br3g_21"><h3>Spielerinnen</h3></a>
 
-        <a id="zeiten_b" href="/training/zeiten_b.html"><h3>Trainingszeiten</h3></a>
+        <a id="zeiten_b" href="/training/zeiten_b.html" class="locked_3"><h3>Trainingszeiten</h3></a>
       </div>
 
       <h2 id="br2_21" class="expandable">Brückl 2 - Landesliga</h2>
@@ -635,6 +640,7 @@ function removeClass(elem, clazz) {
       <a id="wunsch" href="info/wunschzettel.html"><h3>Ein Wunschzettel</h3></a>
       <a id="gesucht" href="info/gesucht.html"><h3>Gesucht!<br>Bitte an Freunde und Bekannte weiterleiten.</h3></a>
       <a id="divinfo21" href="info/info21.html"><h3>Allgemeine Infos</h3></a>
+      <a id="pwreset" href="ov.html?pwreset" class="locked_any"><h3>Passwort zurücksetzen</h3></a>
     </div>
   </nav>
   <div id="lock">&nbsp;</div>
@@ -643,5 +649,10 @@ function removeClass(elem, clazz) {
     <input id="pw" type="password" placeholder="Passwort" inputmode="text" />
     <button id="pw_ok" type="button">Ok</button>
   </form>
+  <!--script>
+if (window.location.search == '?pwreset') {
+  alert('Passwort zurückgesetzt.');
+}
+</script-->
 </body>
 </html>
