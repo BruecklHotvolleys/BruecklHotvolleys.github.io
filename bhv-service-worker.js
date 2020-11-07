@@ -450,6 +450,8 @@ self.addEventListener('fetch', (evt) => {
     nameCache = CACHE['teambuilding_19'];
   } else if (evt.request.url.indexOf('/teambuilding/herzhirn_21') > -1) {
     nameCache = CACHE['teambuilding_21'];
+  } else if (evt.request.url.indexOf('/videofeedback') > -1) {
+    nameCache = CACHE['videofeedback'];
   }
 
   // fetch a ressource
