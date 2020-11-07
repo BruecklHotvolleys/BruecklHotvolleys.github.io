@@ -53,8 +53,8 @@ div#divFps {
   position: absolute;
   top: 10px;
   right: 10px;
-  height: 25px;
-  width: 25px;
+  height: 40px;
+  width: 40px;
   z-index: 99;
   background-color: aliceblue;
   border-radius: 3px;
@@ -62,19 +62,19 @@ div#divFps {
 #menu > div.line {
   position: absolute;
   left: 5px;
-  width: 15px;
-  height: 3px;
+  width: 30px;
+  height: 5px;
   background-color: lightgray;
   overflow: hidden;
 }
 #menu > div.line.l1 {
-  top: 5px;
+  top: 7px;
 }
 #menu > div.line.l2 {
-  top: 11px;
+  top: 18px;
 }
 #menu > div.line.l3 {
-  top: 17px;
+  top: 29px;
 }
 #menu:hover > div.line {
   background-color: gray;
@@ -82,7 +82,7 @@ div#divFps {
 #menu > ul {
   display: block;
   position: absolute;
-  top: 25px;
+  top: 40px;
   right: 0px;
   width: 200px;
   margin: 0;
@@ -94,7 +94,7 @@ div#divFps {
   position: relative;
   left: 0;
   width: 100%;
-  height: 25px;
+  height: 30px;
   margin: 0;
   padding: 0 0 0 28px;
   color: #111;
@@ -107,7 +107,7 @@ div#divFps {
   left: 0;
   top: 0;
   width: 25px;
-  height: 25px;
+  height: 30px;
   text-align: center;
   background-color: #DDD;
 }
@@ -503,7 +503,7 @@ function init_video() {
   </label>
 
   <div id="containerLive">
-  <video id="video" autoplay loop muted src="demo.mp4" type="video/mp4" />
+  <video id="video" autoplay loop muted controls src="demo.mp4" type="video/mp4" />
   </div>
 
   <div id="containerDelayed">

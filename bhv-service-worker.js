@@ -12,7 +12,8 @@ const CACHE = {
   'statistics_19': 'bhv-infoapp-statistics_19-1721c54a73e426c061a4da259e61d823',
   'statistics_21': 'bhv-infoapp-statistics_21-d65e10a7d3e8b0e6b5ecbd7b15e2150a',
   'teambuilding_19': 'bhv-infoapp-teambuilding_19-9aeecfc5514d12fd7a4ac6ca488835d7',
-  'teambuilding_21': 'bhv-infoapp-teambuilding_21-1d935a12406f3b78b70a9ac5097f9e0a'
+  'teambuilding_21': 'bhv-infoapp-teambuilding_21-1d935a12406f3b78b70a9ac5097f9e0a',
+  'videofeedback': 'bhv-infoapp-videofeedback-b2bf9c76a8cca61e78575a5946bd20c0'
 };
 const FILES = {
   'main': [
@@ -378,6 +379,11 @@ const FILES = {
     '/teambuilding/herzhirn_21/tb2/tb3a.jpeg',
     '/teambuilding/herzhirn_21/tb2/tb3b.jpeg',
     '/teambuilding/herzhirn_21/zonen.png'
+  ],
+  'videofeedback': [
+    '/videofeedback/',
+    '/videofeedback/index.html',
+    '/videofeedback/demo.mp4'
   ]
 };
 
