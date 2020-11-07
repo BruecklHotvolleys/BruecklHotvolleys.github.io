@@ -1,0 +1,513 @@
+<html>
+ <head>
+  <title>Video Feedback</title>
+  <style>
+body {
+  margin: 0;
+  background-color: lightgray;
+}
+
+div#containerLive, div#containerDelayed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+div#containerLive {
+  display: block;
+  /* background-color: gold; */
+}
+div#containerDelayed {
+  display: none;
+  /* background-color: orange; */
+}
+
+video#video, img#img {
+  display: block;
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+div#divFps {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 20px;
+  width: 30px;
+
+  text-align: center;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 19px;
+  line-height: 111%;
+  z-index: 99;
+  opacity: 0.5;
+
+  color: #111;
+  background-color: aliceblue;
+  border-radius: 3px;
+}
+
+#menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 25px;
+  width: 25px;
+  z-index: 99;
+  background-color: aliceblue;
+  border-radius: 3px;
+}
+#menu > div.line {
+  position: absolute;
+  left: 5px;
+  width: 15px;
+  height: 3px;
+  background-color: lightgray;
+  overflow: hidden;
+}
+#menu > div.line.l1 {
+  top: 5px;
+}
+#menu > div.line.l2 {
+  top: 11px;
+}
+#menu > div.line.l3 {
+  top: 17px;
+}
+#menu:hover > div.line {
+  background-color: gray;
+}
+#menu > ul {
+  display: block;
+  position: absolute;
+  top: 25px;
+  right: 0px;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+}
+#menu > ul > li {
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  left: 0;
+  width: 100%;
+  height: 25px;
+  margin: 0;
+  padding: 0 0 0 28px;
+  color: #111;
+  background-color: lightgray;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 22px;
+}
+#menu > ul > li > span.marker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  background-color: #DDD;
+}
+#menu > ul > li:hover {
+  color: lightgray;
+  background-color: dimgray;
+}
+#menu > ul > li:hover > span.marker {
+  background-color: #BBB;
+}
+
+input#cbmenu {
+  display:none;
+}
+input#cbmenu + label#menu > ul {
+  display: none;
+}
+input#cbmenu:checked + label#menu > ul {
+  display: block;
+}
+
+#menu .select-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+#menu .select-wrapper::before {
+  pointer-events: none;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  content: " ";
+  transform: rotate(45deg);
+  border-right: solid 3px #111;
+  border-bottom: solid 3px #111;
+  width: 7px;
+  height: 7px;
+  box-sizing: border-box;
+  background: transparent;
+  color: #111;
+}
+
+#menu select {
+  height: 100%;
+  width: 100%;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  /*background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8nwYAAmoBZ0eMiB8AAAAASUVORK5CYII=) repeat;*/
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 2px 2px 5px 1px rgba(0,0,0,.3);
+  color: #111;
+  cursor: pointer;
+  /*font-family: 'Open Sans', sans-serif;*/
+  font-size: 16px;
+  /*height: 40px;*/
+  outline: none;
+  padding-left: 7px;
+}
+#menu > ul > li:hover select,
+#menu > ul > li:hover .select-wrapper::before {
+  color: lightgray;
+  border-color: lightgray;
+}
+
+#menu select option {
+  color: #666;
+}
+
+#menu select::-ms-expand {
+  display: none;
+}
+#menu select:focus::-ms-value {
+  background-color: transparent;
+}
+  </style>
+  <script>
+var showLive = true,
+    showDelayed = false,
+    fullscreen = false;
+
+var containerLive,
+    containerDelayed;
+
+
+var video = null;
+var width = 0,
+    height = 0;
+var canvas = null,
+    ctx = null;
+var img = null;
+var fps = 0,
+    fps1 = 0, fps2 = 0, fps3 = 0, fps4 = 0, fps5 = 0,
+    wait = 0;
+var buffer = [];
+var delay = 3,
+    delayText = 'Verzögerung (#)';
+
+var menu_yes = '&check;', // &checkmark; &otimes;
+    menu_no = '&cir;',
+    menu_yes_str = 'x',
+    menu_no_str = '';
+
+function init() {
+  containerLive = document.getElementById('containerLive');
+  containerDelayed = document.getElementById('containerDelayed');
+  initMenu();
+
+  // live view
+  video = document.getElementById('video');
+
+  // helper canvas to create images to store
+  canvas = document.createElement('canvas');
+  ctx = canvas.getContext('2d');
+  img = document.getElementById('img');
+
+  // init reading the video
+  video.addEventListener('canplay', function() {
+    width = video.videoWidth / 2;
+    height = video.videoHeight / 2;
+    canvas.setAttribute('width', width);
+    canvas.setAttribute('height', height);
+    timerCallback();
+  }, false);
+
+  // fps
+  setInterval(function() {
+    // document.title = "Fps: " + fps;
+
+    if (fps1 != 0) {
+      fps5 = fps4;
+      fps4 = fps3;
+      fps3 = fps2;
+      fps2 = fps1;
+      fps1 = fps;
+      wait = (fps5 + fps4 + fps3 + fps2 + fps1) / 5 * delay;
+    } else {
+      fps5 = fps4 = fps3 = fps2 = fps1 = fps;
+      wait = fps * delay;
+    }
+    divFps.innerText = '' + fps;
+    fps = 0;
+  }, 1000);
+}
+
+/**
+ * Reads a frame of the video.
+ */
+function timerCallback() {
+  // nothing if video is not running
+  if (video.paused || video.ended) {
+    fps = 0;
+    wait = 0;
+    return;
+  }
+
+  // get a frame
+  fps += 1;
+  computeFrame();
+
+  // restart reading loop
+  setTimeout(function() {
+    timerCallback();
+  }, 0);
+}
+
+function computeFrame() {
+  ctx.drawImage(video, 0, 0, width, height);
+
+  var data = canvas.toDataURL('image/png');
+  buffer.push(data);
+
+  var wait = fps * delay;
+  if (buffer.length > wait) {
+    var data = buffer.shift();
+    img.setAttribute('src', data);
+  }
+}
+
+function initMenu() {
+  var mis = document.querySelectorAll('#menu li');
+  for (var i = 0; i < mis.length; ++i) {
+    var mi = mis[i];
+    mi.addEventListener('click', function(e) {
+      var id = this.getAttribute('id'),
+          mark = this.querySelector('span'),
+          nr;
+      console.log('menuitem: ' + id + ' '
+          + (mark != null ? mark.innerText : ''));
+
+      switch (id) {
+
+        // show live
+        case 'mi1':
+          showLive = !showLive;
+          containerLive.style.display = showLive ? 'block' : 'none';
+          // mark.innerHTML = showLive ? menu_yes : menu_no;
+          setMI(mark, showLive);
+          updateContainer();
+          break;
+
+        // show delayed
+        case 'mi2':
+          showDelayed = !showDelayed;
+          containerDelayed.style.display = showDelayed ? 'block' : 'none';
+          //mark.innerHTML = showDelayed ? menu_yes : menu_no;
+          setMI(mark, showDelayed);
+          updateContainer();
+          break;
+
+        // TODO fullscreen
+        case 'mi3':
+          fullscreen = !fullscreen;
+          mark.innerHTML = fullscreen ? menu_yes : menu_no;
+          break;
+
+        // get number of seconds to wait
+        case 'mi4':
+          nr = parseInt(window.prompt('Verzögerung:', delay));
+          if (!isNaN(nr)) {
+            delay = nr;
+            // check if buffer is too large
+            var wait = fps * delay;
+            while (buffer.length > wait) {
+              var data = buffer.shift();
+            }
+          }
+          break;
+      }
+    }, false);
+  }
+}
+
+function setMI(item, value) {
+  item.innerHTML = value ? menu_yes : menu_no;
+  if (item.innerText.length > 2) {
+    item.innerText = value ? menu_yes_str : menu_no_str;
+  }
+}
+
+function updateContainer() {
+  if (showLive && showDelayed) {
+    containerLive.style.width = '50%';
+    containerDelayed.style.width = '50%';
+    containerDelayed.style.left = '50%';
+  } else {
+    containerLive.style.width = '100%';
+    containerDelayed.style.width = '100%';
+    containerDelayed.style.left = '0';
+  }
+}
+
+function open_menu() {
+  var cb = document.getElementById('cbmenu'), mi4;
+
+  if (cb && cb.checked) {
+    mi4 = document.getElementById('mi4');
+    if (mi4) {
+      mi4.innerText = delayText.replace('#', delay);
+    }
+  }
+}
+
+// -- video handling ---------------------------------------------------------
+
+function init_video() {
+  const videoElement = document.querySelector('video#video');
+  //const audioSelect = document.querySelector('select#audioSource');
+  const videoSelect = document.querySelector('select#videoSource');
+
+  // navigator.mediaDevices.getUserMedia({audio: true, video: true})
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(navigator.mediaDevices.enumerateDevices()
+          .then(gotDevices)
+          .then(getStream))
+    .catch(handleError);
+
+  function gotDevices(deviceInfos) {
+    for (let i = 0; i !== deviceInfos.length; ++i) {
+      const deviceInfo = deviceInfos[i];
+      const option = document.createElement('option');
+      option.value = deviceInfo.deviceId;
+      if (deviceInfo.kind === 'audioinput') {
+        // ignore audios
+        //   option.text = deviceInfo.label ||
+        //     'microphone ' + (audioSelect.length + 1);
+        //   audioSelect.appendChild(option);
+      } else if (deviceInfo.kind === 'audiooutput') {
+        // ignore audios
+      } else if (deviceInfo.kind === 'videoinput') {
+        option.text = deviceInfo.label || 'camera ' + (videoSelect.length + 1);
+        videoSelect.appendChild(option);
+      } else {
+        console.log('Found another kind of device: ', deviceInfo);
+      }
+    }
+  }
+
+  function getStream() {
+    if (window.stream) {
+      window.stream.getTracks().forEach(function(track) {
+        track.stop();
+      });
+    }
+    window.stream = null;
+    videoElement.srcObject = null;
+
+
+    const constraints = {};
+    var any = false;
+
+    if (videoSelect.value.substr(0, 3) === 'xx-') {
+      if (videoSelect.value === 'xx-demo') {
+        //<video id="video" autoplay loop muted src="demo.mp4" type="video/mp4" />
+        videoElement.setAttribute('type', 'video/mp4');
+        videoElement.setAttribute('src', 'demo.mp4');
+        videoElement.load();
+        try {
+          videoElement.play();
+        } catch (ex) {}
+      } else {
+        videoElement.pause();
+        videoElement.currentTime = 0;
+        videoElement.removeAttribute('src');
+        videoElement.removeAttribute('type');
+      }
+    } else {
+      videoElement.pause();
+      videoElement.currentTime = 0;
+      videoElement.removeAttribute('src');
+      videoElement.removeAttribute('type');
+
+      constraints.video = {
+        deviceId: { exact: videoSelect.value }
+      };
+      any = true;
+    }
+
+    // if (audioSelect.value.substr(0, 3) === 'xx-') {
+    //
+    // } else {
+    //   constraints.audio = {
+    //     deviceId: { exact: audioSelect.value }
+    //   };
+    //   any = true;
+    // }
+
+    if (any) {
+      navigator.mediaDevices.getUserMedia(constraints).
+        then(gotStream).catch(handleError);
+    }
+  }
+
+  //audioSelect.onchange = getStream;
+  videoSelect.onchange = getStream;
+
+  function gotStream(stream) {
+    window.stream = stream; // make stream available to console
+    videoElement.srcObject = stream;
+  }
+
+  function handleError(error) {
+    console.error('Error: ', error);
+  }
+}
+  </script>
+ </head>
+ <body onload="init(); init_video();">
+  <div id="divFps">&nbsp;</div>
+
+  <input type="checkbox" id="cbmenu" onclick="open_menu();" />
+  <label id="menu" for="cbmenu">
+    <div class="line l1">&nbsp;</div>
+    <div class="line l2">&nbsp;</div>
+    <div class="line l3">&nbsp;</div>
+    <ul>
+      <li id="mi1"><span class="marker">&check;</span>Live</li>
+      <li id="mi2"><span class="marker">&cir;</span>Verzögert</li>
+      <!--li id="mi3"><span class="marker">&cir;</span>Vollbild</li-->
+      <li id="mi4"></li>
+      <!--li id="mi5"><div class="select-wrapper"><select id="audioSource">
+        <option value="xx-none">Ohne Ton</option>
+      </select></div></li-->
+      <li id="mi6"><div class="select-wrapper"><select id="videoSource">
+        <option value="xx-none">Ohne Bild</option>
+        <option value="xx-demo" selected>Demo</option>
+      </select></div></li>
+    </ul>
+  </label>
+
+  <div id="containerLive">
+  <video id="video" autoplay loop muted src="demo.mp4" type="video/mp4" />
+  </div>
+
+  <div id="containerDelayed">
+  <img id="img" />
+  </div>
+ </body>
+</html>
