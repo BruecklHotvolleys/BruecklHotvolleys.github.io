@@ -2,7 +2,7 @@
 
 // the names and the files of the cache
 const CACHE = {
-  'main': 'bhv-infoapp-main-fe2aeaf6d1955d4e4c8b183c1cb80dfb',
+  'main': 'bhv-infoapp-main-1ca4aea0ce43791e4cf98a2c91d3838e',
   'data': 'bhv-infoapp-data-bc8e3e71e20b617ca9ce8d29cf9ec0d0',
   'system1': 'bhv-infoapp-system1-396e168e59deacc76eaa7b4b1fbf8334',
   'system4': 'bhv-infoapp-system4-cce310d598413509c955f7a3dad58314',
@@ -65,6 +65,7 @@ const FILES = {
     '/u12/certificate.jpeg',
     '/u13/certificate.jpeg',
     '/training/heimtraining.html',
+    '/training/heimtraining16.html',
     '/training/sommer.html',
     '/training/zeiten_a.html',
     '/training/zeiten_b.html'

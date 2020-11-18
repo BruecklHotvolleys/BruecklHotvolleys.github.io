@@ -183,7 +183,7 @@ function init() {
 
     // 'ak': ...
     // 'spielfeld6',
-    'br3_21': ['training_b', 'training_jungs', 'tagebuch_b', 'system6', 'zeiten_b',
+    'br3_21': ['heimtraining16', 'training_b', 'training_jungs', 'tagebuch_b', 'system6', 'zeiten_b',
               'schedule_br3g_21', 'results_br3g_21', 'statistics_br3g_21', 'standings_br3g_21', 'players_br3g_21'],
     'br2_21': ['schedule_br2g_21', 'results_br2g_21', 'statistics_br2g_21', 'standings_br2g_21', 'players_br2g_21'],
     'br1_21': ['herzhirn_21', 'training_a', 'tagebuch_a', 'system1',
@@ -408,6 +408,7 @@ function removeClass(elem, clazz) {
     <div id="ak_2" class="expanded_container">
       <h2 id="br3_21" class="expandable">Brückl 3 - Unterliga</h2>
       <div id="br3_21_2" class="expanded_container">
+        <a id="heimtraining16" href="/training/heimtraining16.html" class="locked_3"><h3>Heimtraining</h3></a>
         <a id="training_b" href="presence.html?key=b" class="locked_3"><h3>Anwesenheit</h3></a>
         <a id="training_jungs" href="presence.html?key=jungs" class="locked_3"><h3>Anwesenheit Jungs</h3></a>
         <a id="tagebuch_b" href="diary.html?key=b" class="locked_3"><h3>Trainingstagebuch</h3></a>
@@ -435,6 +436,8 @@ function removeClass(elem, clazz) {
       <h2 id="br1_21" class="expandable">Brückl 1 - Bundesliga</h2>
       <div id="br1_21_2" class="expanded_container">
         <a id="herzhirn_21" href="/teambuilding/herzhirn_21/" class="locked_1"><h3>Herz + Hirn</h3></a>
+        <a id="heimtraining" href="/training/heimtraining.html" class="locked_1"><h3>Heimtraining II</h3></a>
+
         <a id="training_a" href="presence.html?key=a" class="locked_1"><h3>Anwesenheit</h3></a>
         <a id="tagebuch_a" href="diary.html?key=a" class="locked_1"><h3>Trainingstagebuch</h3></a>
         <a id="system1" href="/system1/" class="locked_1"><h3>Spielsystem</h3></a>
@@ -446,7 +449,6 @@ function removeClass(elem, clazz) {
         <a id="players_br1g_21" href="players.html?key=br1g_21"><h3>Spielerinnen</h3></a>
 
         <a id="zeiten_a" href="/training/zeiten_a.html" class="locked_1"><h3>Trainingszeiten</h3></a>
-        <a id="heimtraining" href="/training/heimtraining.html" class="locked_1"><h3>Heimtraining II</h3></a>
         <a id="videofeedback" href="/videofeedback" class="locked_1"><h3>Videofeedback</h3></a>
       </div>
     </div>
