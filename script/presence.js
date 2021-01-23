@@ -14,10 +14,16 @@ if (window.bhv.training === undefined) {
 window.bhv.training.presence = {
 
   checks: {
+    'a20': 1,
     'a': 1,
     'b': 3,
-    'jungs': 3
+    'jungs': 3,
+    // admin
+    'a1': 0,
+    'a2': 0,
+    'a3': 0
   },
+  old_create: ['a20', 'b', 'jungs'],
 
   /**
    * The diary data.
@@ -35,7 +41,7 @@ window.bhv.training.presence = {
   init: function() {
     var key = window.bhv.request.utils.getKey(), query, check;
 
-    if (!this.checks[key]) {
+    if (!this.checks[key] && this.checks[key] !== 0) {
       return false;
     }
     check = window.bhv.code.check();
@@ -83,11 +89,11 @@ window.bhv.training.presence = {
         query = '/data/training/targets_' + key + '.json',
 
         continueOk = function(rawtargets) {
-          this.initCreate(rawdata, rawdiary, rawtargets);
+          this.initCreate(key, rawdata, rawdiary, rawtargets);
         },
         continueNok = function(info) {
           // TODO error handler if any real problem
-          this.initCreate(rawdata, rawdiary, null);
+          this.initCreate(key, rawdata, rawdiary, null);
         };
 
     // try to load targets
@@ -96,12 +102,13 @@ window.bhv.training.presence = {
 
   /**
    * Creates the presence view from the loaded data.
+   * @param {string} key The key of the data to display.
    * @param {string} rawdata The loaded data(JSON).
    * @param {string} rawdiary The loaded data of the diary(JSON).
    * @param {string} rawtargets The loaded data of the targets(JSON).
    * @return {void}
    */
-  initCreate: function(rawdata, rawdiary, rawtargets) {
+  initCreate: function(key, rawdata, rawdiary, rawtargets) {
     var html, container,
         data = JSON.parse(rawdata),
         diary = rawdiary != null ? JSON.parse(rawdiary) : null,
@@ -111,9 +118,16 @@ window.bhv.training.presence = {
     if (data) {
 
       // create view
-      html = this.create(data, diary, targets);
-      if (html == '') {
-        html = '???';
+      if (this.old_create.indexOf(key) > -1) {
+        html = this.create(data, diary, targets);
+      } else {
+        // special handling for xinfos
+        if (!diary && data.xinfo) {
+          diary = data.xinfo;
+        }
+
+        // new create
+        html = this.create2(data.config, data, diary, targets);
       }
 
       // inject html
@@ -265,22 +279,10 @@ window.bhv.training.presence = {
    * @return {string} The html view.
    */
   create: function(data, diary, targets) {
-    // return '<div id="training">'
-    //   + this._createHeader(data)
-    //   + this._createColumn(1, data, diary, targets)
-    //   + this._createColumn(2, data, diary, targets)
-    //   + this._createColumn(3, data, diary, targets)
-    //   + this._createColumn(4, data, diary, targets)
-    //   + this._createColumn(5, data, diary, targets)
-    //   + '</div>'
-    //   + '<div id="training_info">'
-    //   + '<div class="title">&nbsp;</div>'
-    //   + '<div class="info">&nbsp;</div>'
-    //   + '</div>';
 
     // container + main header
     var i, colData1 = -1,
-        html = this._createHeader(data)
+        html = this._createHeader(data.name)
             + '<div id="training">';
 
     for (i = 0; i < data.headerinfo.length; ++i) {
@@ -318,9 +320,121 @@ window.bhv.training.presence = {
       + '</div>';
   },
 
-  _createHeader: function(data) {
+  /**
+   * Creates the view - v2.
+   * @param {JSON} config The configuration.
+   * @param {JSON} data The loaded data.
+   * @param {JSON} diary The loaded diary or null.
+   * @param {string} targets The loaded targets or null.
+   * @return {string} The html view.
+   */
+  create2: function(config, data, diary, targets) {
+
+    // container + main header
+    var col, cols, //, i, colData1 = -1,
+        html = this._createHeader(config.caption)
+            + '<div id="training" class="' + config.stylekey + '">',
+        htmlData = '';
+
+    if (data && Array.isArray(data.data) && Array.isArray(data.data[0])) {
+      cols = data.data[0].length;
+
+      for (col = 0; col < cols; ++col) {
+        if (col < config.left) {
+          html += this._createLeftColumn(config, col, data, diary, targets);
+        } else if (col >= cols - config.right - 1) {
+          if (htmlData != '') {
+            html += htmlData;
+            htmlData = '';
+          }
+          html += this._createRightColumn(config, col, data, diary, targets);
+        } else {
+          htmlData += this._createDataColumn(config, col, cols - config.right - 1, data, diary, targets);
+          col = cols - config.right - 1;
+        }
+      }
+    }
+
+    if (htmlData != '') {
+      html += htmlData;
+      // htmlData = '';
+    }
+
+    // terminate container, add info view, return result
+    return html + '</div>'
+      + '<div id="training_info">'
+      + '<div class="title">&nbsp;</div>'
+      + '<div class="info">&nbsp;</div>'
+      + '</div>';
+  },
+
+  _createLeftColumn: function(config, col, data, diary, targets) {
+    var src, html = '', isHeader,
+        tplXCol = '<div class="x2">{{content}}</div>',
+        tplXCol2 = '<div class="x2 x2b">{{content1}}<div>{{content2}}</div></div>',
+        tpl = '<div class="x1{{xclass}}">{{value}}</div>',
+        tplTargets = '<div class="x1 link_target{{xclass}}" data-target="{{data}}">{{value}}</div>',
+        tplColStart = '<div class="column xcolumn">',
+        tplColEnd = '</div>',
+        row, rows = config.header
+          + (data && Array.isArray(data.data) ? data.data.length : 0),
+        value, vals, lenOfValue, xclass;
+
+    for (row = 0; row < rows; ++row) {
+      isHeader = row < config.header;
+      src = isHeader ? data['header' + (row + 1)]
+          : data.data[row - config.header];
+      if (src) {
+        value = src[col];
+        if (value === undefined || value === "") {
+          value = ' ';
+        }
+        lenOfValue = value.length;
+        value = this._nbsp(value);
+        xclass = '';
+        if (col < config.left && lenOfValue > config.left_max_length[col]) {
+          xclass = ' smaller';
+        }
+
+        vals = value.split('|', 2);
+        if (row == 0 && isHeader) {
+          html += vals.length == 2
+            ? tplXCol2
+                .replace('{{content1}}', vals[0])
+                .replace('{{content2}}', vals[1])
+            : tplXCol.replace('{{content}}', vals[0]);
+          ++row;
+        } else {
+          // html += tpl
+          //   .replace('{{value}}', vals[0])
+          //   .replace('{{xclass}}', xclass);
+          // try to link to targets
+          if (targets && targets[value]) {
+            html += tplTargets
+              .replace('{{data}}', vals[0])
+              .replace('{{value}}', vals[0])
+              .replace('{{xclass}}', xclass);
+
+          // usual cell
+          } else {
+            html += tpl
+              .replace('{{value}}', vals[0])
+              .replace('{{xclass}}', xclass);
+          }
+        }
+      }
+    }
+
+    return tplColStart + html + tplColEnd;
+  },
+
+  _createRightColumn: function(config, col, data, diary, targets) {
+    return this._createLeftColumn(config, col, data, diary, targets);
+  },
+
+  _createHeader: function(caption) {
     return "<div class=\"caption\">{{title}}</div>"
-      .replace('{{title}}', this._nbsp(data.name));
+      .replace('{{title}}', this._nbsp(caption));
   },
 
   // #region old
@@ -470,7 +584,6 @@ window.bhv.training.presence = {
    * @return {string} The html view.
    */
   _addDataCol: function(data, diary, start, end) {
-    //_createColData: function(data, diary) {
     var html = '',
       tplRow = '<div class="x1">{{content}}</div>',
       tplCol = '<div{{xclass2}}>{{content}}</div>',
@@ -489,12 +602,10 @@ window.bhv.training.presence = {
           keyDay = '';
 
       // create a row of the data column
-      // for (var c = row < 0 ? 0 : 2, c2 = src.length; c < c2; ++c) {
       for (var col = start; col <= end; ++col) {
         var value, xclass1 = '', xclass2 = '', dat, day, isDate, isLongHeader;
 
         // #region detect weekend, sunday
-        // dat = new Date(data.headerinfo[row < 0 ? c : c - 2]);
         dat = new Date(data.headerinfo[col]);
         isDate = isFinite(dat);
         if (isDate) {
@@ -592,17 +703,98 @@ window.bhv.training.presence = {
       html += tplRow.replace('{{content}}', htmlRow);
     }
 
-    // return {
-    //   "html": '<div class="data">' + html + '</div>',
-    //   //                header + datarows
-    //   "style": 'height: ' + (6 + 3 * data.data.length) + 'em;'
-    // };
-
     //                          header + datarows
     attribs = ' style="height: ' + (6 + 3 * data.data.length) + 'em;"';
     return tplColStart.replace('{{attribs}}', attribs)
         + '<div class="data">' + html + '</div>'
         + tplColEnd;
+  },
+
+  _createDataColumn: function(config, start, end, data, diary, targets) {
+    var src, html = '', htmlRow, isHeader,
+      tplRow = '<div class="x1">{{content}}</div>',
+      tplCol = '<div{{xclass2}}>{{content}}</div>',
+      tplColDiary = '<div class="link_diary{{xclass1}}" data-diary="{{data}}">{{content}}</div>',
+      // tplCol2 = '<div class="colspan2{{xclass1}}">{{content}}</div>',
+      attribs = '',
+      tplColStart = '<div class="column xdata xdata{{index}}"{{attribs}}>'
+          .replace('{{index}}', start),
+      tplColEnd = '</div>',
+      col,
+      row, rows = config.header
+        + (data && Array.isArray(data.data) ? data.data.length : 0),
+      value, vals, xclasses, keysDays = [];
+
+    for (row = 0; row < rows; ++row) {
+      htmlRow = '';
+      isHeader = row < config.header;
+      src = isHeader ? data['header' + (row + 1)]
+          : data.data[row - config.header];
+
+      if (src) {
+        // create a row of the data column
+        for (col = start; col <= end; ++col) {
+          value = src[col];
+          if (value === undefined || value === '') {
+            value = ' ';
+          }
+          value = this._nbsp(value);
+          vals = value.split('|', 2);
+
+          if (row == 0) {
+            keysDays.push(vals.length == 2 ? vals[1] : '')
+          }
+          xclasses = this._we(keysDays[col - start]);
+
+          // if (row == 0 && isHeader && vals.length == 2 && diary && diary[vals[1]]) {
+          if (isHeader && diary && diary[keysDays[col - start]]) {
+            htmlRow += tplColDiary
+              .replace('{{data}}', keysDays[col - start])
+              .replace('{{content}}', vals[0])
+              .replace('{{xclass1}}', xclasses[0])
+              .replace('{{xclass2}}', xclasses[1]);
+
+          } else {
+            htmlRow += tplCol
+              .replace('{{content}}', vals[0])
+              .replace('{{xclass1}}', xclasses[0])
+              .replace('{{xclass2}}', xclasses[1]);
+          }
+        }
+      }
+
+      html += tplRow.replace('{{content}}', htmlRow);
+    }
+
+
+    //                          header + datarows
+    // attribs = ' style="height: ' + (6 + 3 * data.data.length) + 'em;"';
+    attribs = ' style="height: ' + (3 * rows) + 'em;"';
+    return tplColStart.replace('{{attribs}}', attribs)
+        + '<div class="data">' + html + '</div>'
+        + tplColEnd;
+  },
+
+  _we: function(dt) {
+    var dat = new Date(dt),
+        isDate = isFinite(dat),
+        day,
+        result = ['', ''];
+
+    if (isDate) {
+      day = dat.getDay();
+      // sunday
+      if (day == 0) {
+        result[0] = ' we sunday';
+        result[1] = ' class="we sunday"';
+      // saturday
+      } else if (day == 6) {
+        result[0] = ' we';
+        result[1] = ' class="we"';
+      }
+    }
+
+    return result;
   },
 
   _nbsp: function(txt) {

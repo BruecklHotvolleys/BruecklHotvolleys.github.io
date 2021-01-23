@@ -2,7 +2,9 @@ var activeSeason = '21';
 var mapLeague = {
   '21': {
     // liga 26179, team: 33165
-    'br1g_21': [26179, leagueResults, 'Ergebnisse Bundesliga', 33165],
+    'br1g_21': [26179, leagueResults, 'Ergebnisse (Herbst)', 33165],
+    'br1sp_21': [26760, leagueResults, 'Ergebnisse', 33165],
+    'br1cup_21': [26176, leagueResults, 'Ergebnisse (Cup)', 33212],
     // LL 26515, 33597
     'br2g_21': [26515, leagueResults, 'Ergebnisse Landesliga', 33597, 1220],
     // UL 26519, 33611

@@ -12,7 +12,7 @@ html, * {
   text-align: left;
 }
 div#training {
-  display: inline-block;
+  display: block;
   position: relative;
   width: 100%;
   font-family: Arial,sans-serif;
@@ -38,43 +38,17 @@ div.column > div {
   border-bottom-width: 1px;
   background-color: lightgray;
 }
-/*
-div.c1 {
-  left: 0;
-  width: 4.5em;
-}
-div.c2 {
-  left: 4.5em;
-  width: 4em;
-}
-div.c3 {
-  left: 8.5em;
-  width: 5em;
-}
-div.c2 > div, div.c3 > div {
-  text-align: right;
-}
-div.c2 > div:first-child {
-  box-sizing: border-box;
-  padding-top: 0.8em;
-  font-weight: bolder;
-}
-div.c3 > div:first-child {
-  box-sizing: border-box;
-  padding-top: 0.8em;
-  font-weight: 900;
-}
-div.c5 {
-  right: 0;
-  width: 4.51em;
-}
-*/
 div.x1 {
   position: relative;
   width: 100%;
   height: 1.2em;
   font-size: 2.5em;
   white-space: nowrap;
+}
+div.x1.smaller {
+  font-size: 2em;
+  line-height: 100%;
+  margin: 0.3em 0 0 0;
 }
 div.x1.ul {
   border-bottom-width: 2px;
@@ -102,14 +76,13 @@ div.x2.x2b > div {
   font-size: 0.6em;
   font-weight: bold;
 }
-
-div.c4 {
+/*div.c4 {
   left: 13.5em;
   right: 4.5em;
   background-color: lightgray;
   height: 3em;
   overflow: hidden;
-}
+}*/
 div.data {
   position: relative;
   box-sizing: content-box;
@@ -193,7 +166,7 @@ div.data > div:first-child > div.sunday {
 div.data > div:first-child > div:first-child {
   border-width: 0px 1px 0px 1px;
 }
-div.data > div:first-child > div:first-child {
+div.data > div:first-child > div:first-child.sunday {
   border-right-width: 2px;
 }
 /* data cells of second row */
@@ -220,11 +193,26 @@ div.data > div:nth-child(2) > div:first-child.ul {
 /* data-cells, sum row */
 div.data > div:last-child > div {
   background-color: darkgray;
+  border-bottom-width: 2px;
+}
+div#training.v2 div.data > div:nth-last-child(2) > div {
+  background-color: darkgray;
+  border-top-width: 1px;
 }
 /* sum row */
 div#training div.column div.x1:last-child {
   background-color: darkgray;
+  border-bottom-width: 2px;
 }
+div#training.v2 div.column div.x1:nth-last-child(2) {
+  background-color: darkgray;
+  border-top-width: 1px;
+}
+/* header - v2 (dzt nur databereich, x2 hat es schon)*/
+div#training.v2 div.data > div:nth-child(2) > div {
+  border-bottom-width: 2px;
+}
+
 span.smaller {
   background: inherit;
   font-size: 0.5em;
@@ -278,13 +266,16 @@ div.column.xcolumn:nth-of-type(4) {
   left: 13.5em;
   width: 5em;
 }
+/* div#training added to make it more specific */
 div.column.xcolumn:nth-last-of-type(1) {
+  left: auto;
   right: 0;
   width: 5em;
 }
 div.column.xcolumn:nth-of-type(2) > div,
 div.column.xcolumn:nth-of-type(3) > div,
-div.column.xcolumn:nth-of-type(4) > div {
+div.column.xcolumn:nth-of-type(4) > div,
+div.column.xcolumn:nth-last-of-type(1) > div {
   text-align: right;
 }
 
@@ -295,6 +286,29 @@ div.column.xdata {
 }
 div.column.xdata.xdata4 {
   left: 18.5em;
+}
+div.column.xdata.xdata2 {
+  left: 10em;
+}
+
+div.data div.x1:first-child div.link_diary:before,
+div.data div.x1:first-child div.link_diary:after {
+  position: absolute;
+  font-size: 0.4em;
+  bottom: -0.65em;
+  right: 0.25em;
+  font-weight: bolder;
+}
+div.data div.x1:first-child div.link_diary:before {
+  content: "\2022";
+  right: -0.1em;
+  bottom: -0.2em;
+  font-size: 1.2em;
+  color: #EEE;
+}
+div.data div.x1:first-child div.link_diary:after {
+  content: "i";
+  color: #111;
 }
 /* -- training info - (end) ------------------------------------------------ */
   </style>

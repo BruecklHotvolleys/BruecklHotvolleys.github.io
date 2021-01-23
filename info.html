@@ -1,57 +1,48 @@
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <title>Brückl hotvolleys</title>
   <link rel="stylesheet" href="/styles.css">
   <style>
-/* div {
+html, * {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
   text-align: left;
 }
-div.title {
-  padding: 0.1em 0.2em;
-  background-color: darkgray;
-  color: #EEE;
-  font-weight: bold;
-  font-size: 3em;
-}
-div.info {
+th {
+  padding: 0.1em 0.3em;
   font-size: 2.5em;
-  padding: 0.25em;
-} */
-div#content_container > div {
-  text-align: left;
-  font-size: 3em;
+  background-color: #CCC;
 }
-div#content_container * {
-  text-align: left;
+td {
+  padding: 0.1em 0.4em;
+  font-size: 2em;
 }
-div#content_container > div * {
-  font-size: 1em;
-}
-div#content_container > div p {
-  margin-bottom: 0.5em;
+tr:nth-child(2n+1) td {
+  background-color: #EEE;
 }
   </style>
   <script src="/script/polyfills.js"></script>
   <script src="/script/request.js"></script>
+  <script src="/script/presence.js"></script>
   <script src="/script/utils.js"></script>
   <script src="/script/code.js"></script>
   <script>
 function init() {
-  window.bhv.utils.setBack('todo');
-  loadTodos();
+  window.bhv.utils.setBack('info');
+  loadInfo();
 }
 
 /**
- * Try to load the todos.
+ * Try to load the info.
  * @return {bool} Ok or nok.
  */
-function loadTodos() {
+function loadInfo() {
   var key = window.bhv.request.utils.getKey(), query, check,
       checks = {
-        'a': 0,
-        'b': 0,
-        '16': 0
+        'a': 0
       };
 
   if (!checks[key] && checks[key] !== 0) {
@@ -62,10 +53,10 @@ function loadTodos() {
     return false;
   }
 
-  query = '/data/training/todos_' + key + '.json';
+  query = '/data/training/info_' + key + '.json';
 
-  // try to load todos
-  _getData(query, setTodos.bind(this), function(info) {
+  // try to load info
+  _getData(query, setInfo.bind(this), function(err) {
     // TODO error handler
   });
 
@@ -73,43 +64,56 @@ function loadTodos() {
 }
 
 /**
- * Creates the todos.
- * @param {string} rawTodos The todos data.
+ * Creates the info.
+ * @param {string} rawInfo The info data.
  * @return {void}
  */
-function setTodos(rawTodos) {
-  var container, title,
+function setInfo(rawInfo) {
+  var container, title, html = '', _nbsp,
+      info = JSON.parse(rawInfo), row,
+      i, i2, j, j2,
       key = window.bhv.request.utils.getKey();
-      // todos = JSON.parse(rawTodos),
-      // html = '',
-      //tpl = '<div class="title">{{title}}</div>'
-      //    + '<div class="info">{{info}}</div>',
-      //
-      // /**
-      //  * Formats the date (day, month).
-      //  * @param {string} dat The date key.
-      //  * @param {integer} start Th epos where to extract the date info.
-      //  * @return {string} The formatted part of the date.
-      //  */
-      // _fmt = function(dat, start) {
-      //   var d = dat.substr(start, 2);
-      //
-      //   if (d[0] == '0') {
-      //     d = d.substr(1);
-      //   }
-      //
-      //   return d;
-      // };
 
   // title
   title = document.getElementById('title');
   if (title && key) {
-    title.innerHTML = 'Todos ' + key.toUpperCase();
+    title.innerHTML = 'Info ' + key.toUpperCase();
   }
+
+  // create html
+  if (Array.isArray(info)) {
+    _nbsp = function(txt) {
+      if (txt === '') {
+        return '&nbsp;';
+      }
+      if (!txt || !txt.replace) {
+        txt = '???';
+      }
+      return txt.replace(/ /g, '&nbsp;');
+    };
+    html = '<table cellspacing="0" cellpadding="0">';
+    for (i = 0, i2 = info.length + 1; i < i2; ++i) {
+      row = info[i < info.length ? i : 0];
+      if (Array.isArray(row)) {
+        html += '<tr>';
+        for (j = 0, j2 = row.length; j < j2; ++j) {
+          if (i > 0 && i < info.length) {
+            html += '<td>' + _nbsp(row[j]) + '</td>';
+          } else {
+            html += '<th>' + _nbsp(row[j]) + '</th>';
+          }
+        }
+        html += '</tr>';
+      }
+    }
+    html += '</table>'
+  }
+
   // inject html
   container = document.getElementById('content_container');
   if (container) {
-    container.innerHTML = '<div>' + rawTodos + '</div>';
+    container.innerHTML = html == ''
+        ? '<div><pre>' + rawInfo + '</pre></div>' : html;
   }
 }
 
@@ -138,12 +142,12 @@ function _getData(query, onSuccess, onError) {
   <div id="header">
     <div class="left">
     <a href="/ov.html"><img src="/image/bhv1.gif"/></a>
-    <div id="title">Todos</div>
+    <div id="title">Info</div>
     </div><div class="right">
     <a href="/ov.html"><img src="/image/bhv1.gif"/></a>
     </div>
   </div>
   <div id="content_container"><pre id="content">Loading...</pre></div>
   <div id="footer">Brückl Hotvolleys<div>Brückl Hotvolleys</div></div>
-<body>
+</body>
 </html>

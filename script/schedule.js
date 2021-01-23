@@ -430,7 +430,9 @@ var mapLeague = {
   // on calling  window.bhv.schedule.getAllSchedules(...)
   '21': {
     // BL 26179, team: 33165
-    'br1g_21': [26179, window.bhv.schedule.leagueSchedules, 'Termine Bundesliga', 33165],
+    'br1g_21': [26179, window.bhv.schedule.leagueSchedules, 'Termine (Herbst)', 33165],
+    'br1sp_21': [26760, window.bhv.schedule.leagueSchedules, 'Termine', 33165],
+    'br1cup_21': [26176, window.bhv.schedule.leagueSchedules, 'Termine (Cup)', 33212],
     // LL 26515, 33597
     'br2g_21': [26515, window.bhv.schedule.leagueSchedules, 'Termine Landesliga', [1220, 33597]],
     // UL 26519, 33611

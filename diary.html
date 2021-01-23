@@ -68,31 +68,32 @@ function setDiary(rawDiary) {
       keys = Object.keys(diary),
       html = '',
       tpl = '<div class="title">{{title}}</div>'
-          + '<div class="info">{{info}}</div>',
+          + '<div class="info">{{info}}</div>';
 
-      /**
-       * Formats the date (day, month).
-       * @param {string} dat The date key.
-       * @param {integer} start Th epos where to extract the date info.
-       * @return {string} The formatted part of the date.
-       */
-      _fmt = function(dat, start) {
-        var d = dat.substr(start, 2);
-
-        if (d[0] == '0') {
-          d = d.substr(1);
-        }
-
-        return d;
-      };
+      // /**
+      //  * Formats the date (day, month).
+      //  * @param {string} dat The date key.
+      //  * @param {integer} start Th epos where to extract the date info.
+      //  * @return {string} The formatted part of the date.
+      //  */
+      // _fmt = function(dat, start) {
+      //   var d = dat.substr(start, 2);
+      //
+      //   if (d[0] == '0') {
+      //     d = d.substr(1);
+      //   }
+      //
+      //   return d;
+      // };
 
   // create the html code
   for (var i = 0; i < keys.length; ++i) {
     var dat = keys[i];
 
     html += tpl
-      .replace('{{title}}',
-        _fmt(dat, 8) + '.' + _fmt(dat, 5) + '.: ' + diary[dat].title)
+      //.replace('{{title}}',
+      //  _fmt(dat, 8) + '.' + _fmt(dat, 5) + '.: ' + diary[dat].title)
+      .replace('{{title}}', diary[dat].title)
       .replace('{{info}}', diary[dat].info);
   }
 

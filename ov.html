@@ -168,7 +168,8 @@ function init() {
   keepOpen = {
 
     // todos
-    'todos': ['todo_a', 'todo_b', 'todo_16'],
+    'todos': ['info_a', 'training_a1', 'training_a2', 'training_a3',
+              'todo_a', 'todo_b', 'todo_16'],
 
     // 'nw': ...
     'u20_21': ['info20'],
@@ -186,8 +187,10 @@ function init() {
     'br3_21': ['heimtraining16', 'training_b', 'training_jungs', 'tagebuch_b', 'system6', 'zeiten_b',
               'schedule_br3g_21', 'results_br3g_21', 'statistics_br3g_21', 'standings_br3g_21', 'players_br3g_21'],
     'br2_21': ['schedule_br2g_21', 'results_br2g_21', 'statistics_br2g_21', 'standings_br2g_21', 'players_br2g_21'],
-    'br1_21': ['herzhirn_21', 'training_a', 'tagebuch_a', 'system1',
-               'schedule_br1g_21', 'results_br1g_21', 'statistics_br1g_21', 'standings_br1g_21', 'players_br1g_21',
+    'br1_21': ['herzhirn_21', 'training_a', 'training_a20', 'tagebuch_a', 'system1',
+               'schedule_br1sp_21', 'results_br1sp_21', 'standings_br1sp_21', 'players_br1sp_21',
+               'schedule_br1cup_21', 'results_br1cup_21',
+               'schedule_br1g_21', 'results_br1g_21', 'statistics_br1g_21', 'standings_br1g_21',
                'zeiten_a', 'heimtraining', 'videofeedback'],
 
     // 'archive': ...
@@ -361,9 +364,13 @@ function removeClass(elem, clazz) {
       <a id="todo_a" class="locked_0" href="todos.html?key=a"><h3>A</h3></a>
       <a id="todo_b" class="locked_0" href="todos.html?key=b"><h3>B</h3></a>
       <a id="todo_16" class="locked_0" href="todos.html?key=16"><h3>U16</h3></a>
+      <a id="info_a" class="locked_0" href="info.html?key=a"><h3>Infos A</h3></a>
+      <a id="training_a1" href="presence.html?key=a1" class="locked_0"><h3>Jänner</h3></a>
+      <a id="training_a2" href="presence.html?key=a2" class="locked_0"><h3>Feber</h3></a>
+      <a id="training_a2" href="presence.html?key=a3" class="locked_0"><h3>März</h3></a>
     </div>
 
-    <h1 id="nw" class="expandable" style=""><br>Nachwuchs<br>&nbsp;</h1>
+    <!--h1 id="nw" class="expandable" style=""><br>Nachwuchs<br>&nbsp;</h1>
     <div id="nw_2" class="expanded_container">
 
       <h2 id="u12_21" class="expandable">U12 - Supermini II</h2>
@@ -384,13 +391,13 @@ function removeClass(elem, clazz) {
       <h2 id="u15_21" class="expandable">U15 - Midi</h2>
       <div id="u15_21_2" class="expanded_container">
         <a id="info15" href="/info/u15.html"><h3>Infos</h3></a>
-        <!--a id="system4" href="/system4/"><h3>Spielsystem</h3></a-->
+        <!- -a id="system4" href="/system4/"><h3>Spielsystem</h3></a- ->
       </div>
 
       <h2 id="u16_21" class="expandable">U16 - Schülerinnen</h2>
       <div id="u16_21_2" class="expanded_container">
         <a id="info16" href="/info/u16.html"><h3>Infos</h3></a>
-        <!--a id="system6" href="/system6/"><h3>Spielsystem</h3></a-->
+        <!- -a id="system6" href="/system6/"><h3>Spielsystem</h3></a- ->
       </div>
 
       <h2 id="u18_21" class="expandable">U18 - Jugend weiblich</h2>
@@ -402,17 +409,17 @@ function removeClass(elem, clazz) {
       <div id="u20_21_2" class="expanded_container">
         <a id="info20" href="/info/u20.html"><h3>Infos</h3></a>
       </div>
-    </div>
+    </div-->
 
     <h1 id="ak" class="expandable"><br>Allgemeine Klasse<br>&nbsp;</h1>
     <div id="ak_2" class="expanded_container">
-      <h2 id="br3_21" class="expandable">Brückl 3 - Unterliga</h2>
+      <!-- h2 id="br3_21" class="expandable">Brückl 3 - Unterliga</h2>
       <div id="br3_21_2" class="expanded_container">
         <a id="heimtraining16" href="/training/heimtraining16.html" class="locked_3"><h3>Heimtraining</h3></a>
         <a id="training_b" href="presence.html?key=b" class="locked_3"><h3>Anwesenheit</h3></a>
         <a id="training_jungs" href="presence.html?key=jungs" class="locked_3"><h3>Anwesenheit Jungs</h3></a>
         <a id="tagebuch_b" href="diary.html?key=b" class="locked_3"><h3>Trainingstagebuch</h3></a>
-        <!--a id="spielfeld6" href="/system6/spielfeld/" class="locked_3"><h3>Spielsystem 4</h3></a-->
+        <!- -a id="spielfeld6" href="/system6/spielfeld/" class="locked_3"><h3>Spielsystem 4</h3></a- ->
         <a id="system6" href="/system6/" class="locked_3"><h3>Spielsystem</h3></a>
 
         <a id="schedule_br3g_21" href="schedule.html?key=br3g_21"><h3>Spieltermine</h3></a>
@@ -431,25 +438,31 @@ function removeClass(elem, clazz) {
         <a id="statistics_br2g_21" href="/statistics/21/bhv2_gd.html" class="locked_any"><h3>Statistik</h3></a>
         <a id="standings_br2g_21" href="standings.html?key=br2g_21"><h3>Tabelle</h3></a>
         <a id="players_br2g_21" href="players.html?key=br2g_21"><h3>Spielerinnen</h3></a>
-      </div>
+      </div-->
 
       <h2 id="br1_21" class="expandable">Brückl 1 - Bundesliga</h2>
       <div id="br1_21_2" class="expanded_container">
         <a id="herzhirn_21" href="/teambuilding/herzhirn_21/" class="locked_1"><h3>Herz + Hirn</h3></a>
-        <a id="heimtraining" href="/training/heimtraining.html" class="locked_1"><h3>Heimtraining II</h3></a>
+        <!--a id="heimtraining" href="/training/heimtraining.html" class="locked_1"><h3>Heimtraining II</h3></a-->
 
         <a id="training_a" href="presence.html?key=a" class="locked_1"><h3>Anwesenheit</h3></a>
+        <a id="training_a20" href="presence.html?key=a20" class="locked_1"><h3>Anwesenheit (alt)</h3></a>
         <a id="tagebuch_a" href="diary.html?key=a" class="locked_1"><h3>Trainingstagebuch</h3></a>
         <a id="system1" href="/system1/" class="locked_1"><h3>Spielsystem</h3></a>
 
-        <a id="schedule_br1g_21" href="schedule.html?key=br1g_21"><h3>Spieltermine</h3></a>
-        <a id="results_br1g_21" href="results.html?key=br1g_21"><h3>Ergebnisse</h3></a>
-        <a id="statistics_br1g_21" href="/statistics/21/bhv1_gd.html"><h3>Statistik</h3></a>
-        <a id="standings_br1g_21" href="standings.html?key=br1g_21"><h3>Tabelle</h3></a>
-        <a id="players_br1g_21" href="players.html?key=br1g_21"><h3>Spielerinnen</h3></a>
+        <a id="schedule_br1sp_21" href="schedule.html?key=br1sp_21"><h3>Spieltermine</h3></a>
+        <a id="results_br1sp_21" href="results.html?key=br1sp_21"><h3>Ergebnisse</h3></a>
+        <a id="standings_br1sp_21" href="standings.html?key=br1sp_21"><h3>Tabelle</h3></a>
+        <a id="players_br1sp_21" href="players.html?key=br1sp_21"><h3>Spielerinnen</h3></a>
+
+        <a id="schedule_br1cup_21" href="schedule.html?key=br1cup_21"><h3>Spieltermine (Cup)</h3></a>
+        <a id="results_br1cup_21" href="results.html?key=br1cup_21"><h3>Ergebnisse (Cup)</h3></a>
+
+        <a id="standings_br1g_21" href="standings.html?key=br1g_21"><h3>Tabelle (Herbst)</h3></a>
+        <a id="statistics_br1g_21" href="/statistics/21/bhv1_gd.html" class="locked_1"><h3>Statistik (Herbst)</h3></a>
 
         <a id="zeiten_a" href="/training/zeiten_a.html" class="locked_1"><h3>Trainingszeiten</h3></a>
-        <a id="videofeedback" href="/videofeedback" class="locked_1"><h3>Videofeedback</h3></a>
+        <!--a id="videofeedback" href="/videofeedback" class="locked_1"><h3>Videofeedback</h3></a-->
       </div>
     </div>
 
