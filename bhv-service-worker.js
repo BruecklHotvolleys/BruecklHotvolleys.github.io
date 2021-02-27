@@ -3,14 +3,14 @@
 // the names and the files of the cache
 const CACHE = {
   'main': 'bhv-infoapp-main-34d6267db1e65168d4fb490e19227762',
-  'data': 'bhv-infoapp-data-9527893ce4fedaaaad3c61cc5999d17d',
+  'data': 'bhv-infoapp-data-be1554614a760b3635e269891ca3b323',
   'system1': 'bhv-infoapp-system1-396e168e59deacc76eaa7b4b1fbf8334',
   'system4': 'bhv-infoapp-system4-cce310d598413509c955f7a3dad58314',
   'system6': 'bhv-infoapp-system6-e0b78a63025a9acaa66928075091f4c6',
   'favicons': 'bhv-infoapp-favicons-330b73fc504d548333704fb32f4ddb85',
   'info': 'bhv-infoapp-info-14545db906177853eedc9ed447cbd3db',
   'statistics_19': 'bhv-infoapp-statistics_19-1721c54a73e426c061a4da259e61d823',
-  'statistics_21': 'bhv-infoapp-statistics_21-5c013b00569d0c5894de8b2f4cb089a5',
+  'statistics_21': 'bhv-infoapp-statistics_21-75d04719e4d00993022d7ab6aba72fc2',
   'teambuilding_19': 'bhv-infoapp-teambuilding_19-9aeecfc5514d12fd7a4ac6ca488835d7',
   'teambuilding_21': 'bhv-infoapp-teambuilding_21-1d935a12406f3b78b70a9ac5097f9e0a',
   'videofeedback': 'bhv-infoapp-videofeedback-b2bf9c76a8cca61e78575a5946bd20c0'
@@ -85,6 +85,7 @@ const FILES = {
     '/data/training/b.json',
     '/data/training/diary_a.json',
     '/data/training/diary_b.json',
+    '/data/training/diary_u16.json',
     '/data/training/info_a.json',
     '/data/training/jungs.json',
     '/data/training/targets_a.json',
