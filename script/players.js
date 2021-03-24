@@ -8,7 +8,9 @@ var map = {
     // LL 26515, 33597
     'br2g_21': [33597, null, 'Landesliga'],
     // UL 26519, 33611
-    'br3g_21': [33611, null, 'Unterliga']
+    'br3g_21': [33611, null, 'Unterliga'],
+    // U16
+    'u16_21_1': [34211, null, 'U16']
   },
   '20': {
     // UL      tea_id, -,    title
