@@ -436,7 +436,9 @@ var mapLeague = {
     // LL 26515, 33597
     'br2g_21': [26515, window.bhv.schedule.leagueSchedules, 'Termine Landesliga', [1220, 33597]],
     // UL 26519, 33611
-    'br3g_21': [26519, window.bhv.schedule.leagueSchedules, 'Termine Unterliga', 33611]
+    'br3g_21': [26519, window.bhv.schedule.leagueSchedules, 'Termine Unterliga', 33611],
+    // U16
+    'u16_21_1': [27020, window.bhv.schedule.leagueSchedules, 'ÖMS U16', [1220, 34211]]
   },
   '20': {
     // // UL 24971 3: 31661, 4: 31662

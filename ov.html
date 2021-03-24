@@ -149,110 +149,153 @@ window.bhv.utils.connectSW();
  * return {void}
  */
 function init() {
-  var expanders = [
-    'todos',
-    'nw',
-    'u12_21', 'u13_21', 'u14_21', 'u15_21', 'u16_21', 'u18_21', 'u20_21',
-    'ak',
-    'br3_21', 'br2_21', 'br1_21',
-    //'training',
-    'archive',
-    'a19',
-     'u10_19', 'u11_19', 'u12_19', 'u13_19', 'u15_19', 'u17_19',
-     'br4_19', 'br3_19', 'br2_19', 'br1_19',
-    'a20',
-     'u12_20', 'u13_20', 'u14_20', 'u15_20', 'u16_20', 'u18_20', 'u20_20',
-     'br4_20', 'br3_20', 'br2_20', 'br1_20',
-    'info'
-  ],
-  keepOpen = {
+  // var expanders = [
+    // //'todos',
+    // 'intern',
 
-    // todos
-    'todos': ['info_a', 'training_a1', 'training_a2', 'training_a3',
-              'todo_a', 'todo_b', 'todo_16'],
+    // 'nw',
+    // 'u12_21', 'u13_21', 'u14_21', 'u15_21', 'u16_21', 'u18_21', 'u20_21',
+    // 'ak',
+    // 'br3_21', 'br2_21', 'br1_21',
+    // //'training',
+    // 'archive',
+    // 'a19',
+    //  'u10_19', 'u11_19', 'u12_19', 'u13_19', 'u15_19', 'u17_19',
+    //  'br4_19', 'br3_19', 'br2_19', 'br1_19',
+    // 'a20',
+    //  'u12_20', 'u13_20', 'u14_20', 'u15_20', 'u16_20', 'u18_20', 'u20_20',
+    //  'br4_20', 'br3_20', 'br2_20', 'br1_20',
+    // 'info'
+  // ],
+  var expanders = [],
+  expanders0 = document.getElementsByClassName('expandable'),
+  keepOpen = {},
+  links = document.getElementsByTagName('a');
+  // keepOpen = {
 
-    // 'nw': ...
-    'u20_21': ['info20'],
-    'u18_21': ['info18'],
-    // , 'system6'
-    'u16_21': ['info16'],
-    // , 'system4'
-    'u15_21': ['info15'],
-    'u14_21': ['info14'],
-    'u13_21': ['info13'],
-    'u12_21': ['info12'],
+  //   // todos
+  //   'todos': ['info_a', 'training_a1', 'training_a2', 'training_a3',
+  //             'todo_a', 'todo_b', 'todo_16'],
 
-    // 'ak': ...
-    // 'spielfeld6',
-    'br3_21': ['heimtraining16', 'training_b', 'training_jungs', 'tagebuch_b', 'system6', 'zeiten_b',
-              'schedule_br3g_21', 'results_br3g_21', 'statistics_br3g_21', 'standings_br3g_21', 'players_br3g_21'],
-    'br2_21': ['schedule_br2g_21', 'results_br2g_21', 'statistics_br2g_21', 'standings_br2g_21', 'players_br2g_21'],
-    'br1_21': ['herzhirn_21', 'training_a', 'training_a20', 'tagebuch_a', 'system1',
-               'schedule_br1sp_21', 'results_br1sp_21', 'standings_br1sp_21', 'players_br1sp_21',
-               'schedule_br1cup_21', 'results_br1cup_21',
-               'schedule_br1g_21', 'results_br1g_21', 'statistics_br1g_21', 'standings_br1g_21',
-               'zeiten_a', 'heimtraining', 'videofeedback'],
+  //   // 'nw': ...
+  //   'u20_21': ['info20'],
+  //   'u18_21': ['info18'],
+  //   // , 'system6'
+  //   'u16_21': ['info16'],
+  //   // , 'system4'
+  //   'u15_21': ['info15'],
+  //   'u14_21': ['info14'],
+  //   'u13_21': ['info13'],
+  //   'u12_21': ['info12'],
 
-    // 'archive': ...
-    // 'a19': ...
-    'u10_19': ['results_u10f_19', 'standings_u10f_19', 'schedule_u10_19', 'standings_u10_19'],
-    'u11_19': ['schedule_u11_19', 'standings_u11_19', 'standings_u11f_19', 'standings_u11m_19',
-               'results_u11f_19', 'results_u11m_19'],
-    'u12_19': ['certificate_u12x_19', 'standings_u12x_19', 'results_u12x_19', 'statistics_u12x_19',
-               'standings_u12f_19', 'standings_u12m_19', 'results_u12f_19', 'results_u12m_19',
-               'schedule_u12_19', 'standings_u12q_19'],
-    'u13_19': ['certificate_u13x_19', 'standings_u13x_19', 'results_u13x_19', 'statistics_u13x_19',
-               'standings_u13f_19', 'results_u13f_19', 'schedule_u13_19', 'standings_u13_19',
-               'statistics_u13_19'],
-    'u15_19': ['standings_u15f_19', 'results_u15f_19', 'statistics_u15_19', 'schedule_u15_19',
-               'standings_u15_19', 'statistics_u15pn_19'],
-    'u17_19': ['statistics_u17_19', 'standings_u17_19', 'results_u17_19'],
-    'br4_19': ['results_br4g_19', 'standings_br4g_19', 'schedule_br4_19', 'results_br4_19',
-               'standings_br4_19', 'statistics_br4_19'],
-    'br3_19': ['schedule_br3_19', 'results_br3_19', 'standings_br3_19', 'statistics_br3_19',
-               'results_br3g_19', 'standings_br3g_19', 'statistics_br3g_19', 'teambuilding_br3_19'],
-    'br2_19': ['results_br2g_19', 'standings_br2g_19', 'results_br2m_19', 'schedule_br2m_19',
-               'statistics_br2_19'],
-    'br1_19': ['schedule_br1_19', 'results_br1_19', 'standings_br1_19', 'results_br1g_19',
-               'standings_br1g_19'],
-    // 'a20': ...
-    'u20_20': ['standings_u20_20', 'players_u20_20'],
-    'u16_20': ['schedule_u16_20', 'standings_u16_20', 'players_u16_20'],
-    'u15_20': ['schedule_u15_20', 'standings_u15_20', 'players_u15_20'],
-    'u14_20': ['schedule_u14_20', 'standings_u14_20', 'players_u14_20', 'players_u14m_20'],
-    'u13_20': ['schedule_u13_20', 'standings_u13_20', 'players_u13_20', 'players_u13m_20'],
-    'u12_20': ['schedule_u12_20', 'standings_u12_20', 'players_u12_20'],
+  //   // 'ak': ...
+  //   // 'spielfeld6',
+  //   'br3_21': ['heimtraining16', 'training_b', 'training_jungs', 'tagebuch_b', 'system6', 'zeiten_b',
+  //             'schedule_br3g_21', 'results_br3g_21', 'statistics_br3g_21', 'standings_br3g_21', 'players_br3g_21'],
+  //   'br2_21': ['schedule_br2g_21', 'results_br2g_21', 'statistics_br2g_21', 'standings_br2g_21', 'players_br2g_21'],
+  //   'br1_21': ['herzhirn_21', 'training_a', 'training_a20', 'tagebuch_a', 'system1',
+  //              'schedule_br1sp_21', 'results_br1sp_21', 'standings_br1sp_21', 'players_br1sp_21',
+  //              'schedule_br1cup_21', 'results_br1cup_21',
+  //              'schedule_br1g_21', 'results_br1g_21', 'statistics_br1g_21', 'standings_br1g_21',
+  //              'zeiten_a', 'heimtraining', 'videofeedback'],
 
-    // 'schedule_br4g_20'; 'schedule_br3g_20'; 'schedule_br2m_20', 'schedule_br2g_20'; 'schedule_br1g_20'
-    'br4_20': ['results_br4g_20', 'standings_br4g_20', 'players_br4g_20'],
-    'br3_20': ['results_br3g_20', 'standings_br3g_20', 'players_br3g_20'],
-    'br2_20': ['results_br2m_20', 'results_br2g_20', 'standings_br2g_20', 'players_br2g_20'],
-    'br1_20': ['results_br1g_20', 'standings_br1g_20', 'players_br1g_20'],
+  //   // 'archive': ...
+  //   // 'a19': ...
+  //   'u10_19': ['results_u10f_19', 'standings_u10f_19', 'schedule_u10_19', 'standings_u10_19'],
+  //   'u11_19': ['schedule_u11_19', 'standings_u11_19', 'standings_u11f_19', 'standings_u11m_19',
+  //              'results_u11f_19', 'results_u11m_19'],
+  //   'u12_19': ['certificate_u12x_19', 'standings_u12x_19', 'results_u12x_19', 'statistics_u12x_19',
+  //              'standings_u12f_19', 'standings_u12m_19', 'results_u12f_19', 'results_u12m_19',
+  //              'schedule_u12_19', 'standings_u12q_19'],
+  //   'u13_19': ['certificate_u13x_19', 'standings_u13x_19', 'results_u13x_19', 'statistics_u13x_19',
+  //              'standings_u13f_19', 'results_u13f_19', 'schedule_u13_19', 'standings_u13_19',
+  //              'statistics_u13_19'],
+  //   'u15_19': ['standings_u15f_19', 'results_u15f_19', 'statistics_u15_19', 'schedule_u15_19',
+  //              'standings_u15_19', 'statistics_u15pn_19'],
+  //   'u17_19': ['statistics_u17_19', 'standings_u17_19', 'results_u17_19'],
+  //   'br4_19': ['results_br4g_19', 'standings_br4g_19', 'schedule_br4_19', 'results_br4_19',
+  //              'standings_br4_19', 'statistics_br4_19'],
+  //   'br3_19': ['schedule_br3_19', 'results_br3_19', 'standings_br3_19', 'statistics_br3_19',
+  //              'results_br3g_19', 'standings_br3g_19', 'statistics_br3g_19', 'teambuilding_br3_19'],
+  //   'br2_19': ['results_br2g_19', 'standings_br2g_19', 'results_br2m_19', 'schedule_br2m_19',
+  //              'statistics_br2_19'],
+  //   'br1_19': ['schedule_br1_19', 'results_br1_19', 'standings_br1_19', 'results_br1g_19',
+  //              'standings_br1g_19'],
+  //   // 'a20': ...
+  //   'u20_20': ['standings_u20_20', 'players_u20_20'],
+  //   'u16_20': ['schedule_u16_20', 'standings_u16_20', 'players_u16_20'],
+  //   'u15_20': ['schedule_u15_20', 'standings_u15_20', 'players_u15_20'],
+  //   'u14_20': ['schedule_u14_20', 'standings_u14_20', 'players_u14_20', 'players_u14m_20'],
+  //   'u13_20': ['schedule_u13_20', 'standings_u13_20', 'players_u13_20', 'players_u13m_20'],
+  //   'u12_20': ['schedule_u12_20', 'standings_u12_20', 'players_u12_20'],
 
-    // infos
-    'info': ['calendar', 'wunsch', 'gesucht', 'divinfo21']
-  };
+  //   // 'schedule_br4g_20'; 'schedule_br3g_20'; 'schedule_br2m_20', 'schedule_br2g_20'; 'schedule_br1g_20'
+  //   'br4_20': ['results_br4g_20', 'standings_br4g_20', 'players_br4g_20'],
+  //   'br3_20': ['results_br3g_20', 'standings_br3g_20', 'players_br3g_20'],
+  //   'br2_20': ['results_br2m_20', 'results_br2g_20', 'standings_br2g_20', 'players_br2g_20'],
+  //   'br1_20': ['results_br1g_20', 'standings_br1g_20', 'players_br1g_20'],
 
-  // current season - juniors
-  keepOpen.nw = keepOpen.u20_21.concat(
-    keepOpen.u18_21, keepOpen.u16_21, keepOpen.u15_21,
-    keepOpen.u14_21, keepOpen.u13_21, keepOpen.u12_21);
-  // current season - seniors
-  keepOpen.ak = keepOpen.br3_21.concat(keepOpen.br2_21, keepOpen.br1_21);
+  //   // infos
+  //   'info': ['calendar', 'wunsch', 'gesucht', 'divinfo21']
+  // };
 
-  // the archive
-  keepOpen.a19 = keepOpen.u10_19.concat(
-    keepOpen.u11_19, keepOpen.u12_19, keepOpen.u13_19, keepOpen.u15_19, keepOpen.u17_19,
-    keepOpen.br4_19, keepOpen.br3_19, keepOpen.br2_19, keepOpen.br1_19,
-    'divinfo19'
-  );
-  keepOpen.a20 = keepOpen.u20_20.concat(
-    keepOpen.u18_20, keepOpen.u16_20, keepOpen.u15_20,
-    keepOpen.u14_20, keepOpen.u13_20, keepOpen.u12_20,
-    keepOpen.br4_20, keepOpen.br3_20, keepOpen.br2_20, keepOpen.br1_20,
-    'divinfo20'
-  );
-  keepOpen.archive = keepOpen.a19.concat(keepOpen.a20);
+  // // current season - juniors
+  // keepOpen.nw = keepOpen.u20_21.concat(
+  //   keepOpen.u18_21, keepOpen.u16_21, keepOpen.u15_21,
+  //   keepOpen.u14_21, keepOpen.u13_21, keepOpen.u12_21);
+  // // current season - seniors
+  // keepOpen.ak = keepOpen.br3_21.concat(keepOpen.br2_21, keepOpen.br1_21);
+
+  // // the archive
+  // keepOpen.a19 = keepOpen.u10_19.concat(
+  //   keepOpen.u11_19, keepOpen.u12_19, keepOpen.u13_19, keepOpen.u15_19, keepOpen.u17_19,
+  //   keepOpen.br4_19, keepOpen.br3_19, keepOpen.br2_19, keepOpen.br1_19,
+  //   'divinfo19'
+  // );
+  // keepOpen.a20 = keepOpen.u20_20.concat(
+  //   keepOpen.u18_20, keepOpen.u16_20, keepOpen.u15_20,
+  //   keepOpen.u14_20, keepOpen.u13_20, keepOpen.u12_20,
+  //   keepOpen.br4_20, keepOpen.br3_20, keepOpen.br2_20, keepOpen.br1_20,
+  //   'divinfo20'
+  // );
+  // keepOpen.archive = keepOpen.a19.concat(keepOpen.a20);
+
+  for (var i = 0, i2 = expanders0.length; i < i2; ++i) {
+    var id = expanders0[i].id;
+    if (id) {
+      expanders.push(id);
+    }
+  }
+
+  // keep open on return to overview
+  var checkElems = function(elem) {
+    
+
+    if (elem && elem.id) {
+      var par = elem.parentNode;
+
+      while (par && par.className && par.className.indexOf('expanded_container') >= 0) {
+        var id = par.id.substring(0, par.id.length - 2);
+        if (keepOpen[id] === undefined) {
+          keepOpen[id] = [];
+        }
+        keepOpen[id].push(elem.id);
+
+        par = par.parentNode;
+      }
+    }
+  }
+
+  for (var i = 0, i2 = expanders0.length; i < i2; ++i) {
+    checkElems(expanders0[i]);
+  }
+  for (var i = 0, i2 = links.length; i < i2; ++i) {
+    checkElems(links[i]);
+  }
+
+
+  console.log(keepOpen);
+
 
   window.bhv.elements.expander.init(expanders, keepOpen);
 
@@ -359,21 +402,35 @@ function removeClass(elem, clazz) {
 <body onload="init();">
   <nav id="nav" role="navigation">
 
-    <h1 id="todos" class="expandable locked_0" style=""><br>Todos<br>&nbsp;</h1>
-    <div id="todos_2" class="expanded_container">
-      <a id="todo_a" class="locked_0" href="todos.html?key=a"><h3>A</h3></a>
-      <a id="todo_b" class="locked_0" href="todos.html?key=b"><h3>B</h3></a>
-      <a id="todo_16" class="locked_0" href="todos.html?key=16"><h3>U16</h3></a>
-      <a id="info_a" class="locked_0" href="info.html?key=a"><h3>Infos A</h3></a>
-      <a id="training_a1" href="presence.html?key=a1" class="locked_0"><h3>Jänner</h3></a>
-      <a id="training_a2" href="presence.html?key=a2" class="locked_0"><h3>Feber</h3></a>
-      <a id="training_a2" href="presence.html?key=a3" class="locked_0"><h3>März</h3></a>
+    <h1 id="intern" class="expandable locked_0" style=""><br>Intern<br>&nbsp;</h1>
+    <div id="intern_2" class="expanded_container">
+
+      <h2 id="todos" class="expandable">Todos</h2>
+      <div id="todos_2" class="expanded_container">
+        <a id="todo_a" class="locked_0" href="todos.html?key=a"><h3>A</h3></a>
+        <a id="todo_b" class="locked_0" href="todos.html?key=b"><h3>B</h3></a>
+        <a id="todo_16" class="locked_0" href="todos.html?key=16"><h3>U16</h3></a>
+        <a id="info_a" class="locked_0" href="info.html?key=a"><h3>Infos A</h3></a>
+      </div>
+      
+      <h2 id="intern_a" class="expandable">A</h2>
+      <div id="intern_a_2" class="expanded_container">
+        <a id="training_a1" href="presence.html?key=a1" class="locked_0"><h3>Jänner</h3></a>
+        <a id="training_a2" href="presence.html?key=a2" class="locked_0"><h3>Feber</h3></a>
+        <a id="training_a3" href="presence.html?key=a3" class="locked_0"><h3>März</h3></a>
+      </div>
+
+      <h2 id="intern_b" class="expandable">U16</h2>
+      <div id="intern_b_2" class="expanded_container">
+        <a id="training_b2" href="presence.html?key=b2" class="locked_0"><h3>Feber</h3></a>
+        <a id="training_b3" href="presence.html?key=b3" class="locked_0"><h3>März</h3></a>
+      </div>
     </div>
 
-    <!--h1 id="nw" class="expandable" style=""><br>Nachwuchs<br>&nbsp;</h1>
+    <h1 id="nw" class="expandable" style=""><br>Nachwuchs<br>&nbsp;</h1>
     <div id="nw_2" class="expanded_container">
 
-      <h2 id="u12_21" class="expandable">U12 - Supermini II</h2>
+      <!--h2 id="u12_21" class="expandable">U12 - Supermini II</h2>
       <div id="u12_21_2" class="expanded_container">
         <a id="info12" href="/info/u12.html"><h3>Infos</h3></a>
       </div>
@@ -392,24 +449,29 @@ function removeClass(elem, clazz) {
       <div id="u15_21_2" class="expanded_container">
         <a id="info15" href="/info/u15.html"><h3>Infos</h3></a>
         <!- -a id="system4" href="/system4/"><h3>Spielsystem</h3></a- ->
-      </div>
+      </div-->
 
       <h2 id="u16_21" class="expandable">U16 - Schülerinnen</h2>
       <div id="u16_21_2" class="expanded_container">
         <a id="info16" href="/info/u16.html"><h3>Infos</h3></a>
-        <!- -a id="system6" href="/system6/"><h3>Spielsystem</h3></a- ->
+        <a id="system6" href="/system6/"><h3>Spielsystem</h3></a>
+        <a id="training_b" href="presence.html?key=b" class="locked_3"><h3>Anwesenheit</h3></a>
+        <a id="tagebuch_b" href="diary.html?key=b" class="locked_1"><h3>Trainingstagebuch</h3></a>
+
+        <a id="schedule_u16_21_1" href="schedule.html?key=u16_21_1"><h3>Spieltermine</h3></a>
       </div>
 
       <h2 id="u18_21" class="expandable">U18 - Jugend weiblich</h2>
       <div id="u18_21_2" class="expanded_container">
         <a id="info18" href="/info/u18.html"><h3>Infos</h3></a>
+        <a id="system6" href="/system6/"><h3>Spielsystem</h3></a>
       </div>
 
       <h2 id="u20_21" class="expandable">U20 - Juniorinnen</h2>
       <div id="u20_21_2" class="expanded_container">
         <a id="info20" href="/info/u20.html"><h3>Infos</h3></a>
       </div>
-    </div-->
+    </div>
 
     <h1 id="ak" class="expandable"><br>Allgemeine Klasse<br>&nbsp;</h1>
     <div id="ak_2" class="expanded_container">

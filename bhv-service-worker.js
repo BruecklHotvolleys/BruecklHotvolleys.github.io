@@ -2,8 +2,8 @@
 
 // the names and the files of the cache
 const CACHE = {
-  'main': 'bhv-infoapp-main-34d6267db1e65168d4fb490e19227762',
-  'data': 'bhv-infoapp-data-2ec2457595c88ef76da84af5a6614a6c',
+  'main': 'bhv-infoapp-main-ce8d1ca3b662ce40dc0e471a661b144a',
+  'data': 'bhv-infoapp-data-5d992933de25b12dcdf968fb6afdfae9',
   'system1': 'bhv-infoapp-system1-396e168e59deacc76eaa7b4b1fbf8334',
   'system4': 'bhv-infoapp-system4-cce310d598413509c955f7a3dad58314',
   'system6': 'bhv-infoapp-system6-e0b78a63025a9acaa66928075091f4c6',
@@ -84,6 +84,7 @@ const FILES = {
     '/data/training/a8.json',
     '/data/training/b.json',
     '/data/training/b2.json',
+    '/data/training/b20.json',
     '/data/training/b3.json',
     '/data/training/b4.json',
     '/data/training/diary_a.json',
