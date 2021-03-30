@@ -8,7 +8,9 @@ var mapLeague = {
     // LL 26515, 33597
     'br2g_21': [26515, leagueResults, 'Ergebnisse Landesliga', 33597, 1220],
     // UL 26519, 33611
-    'br3g_21': [26519, leagueResults, 'Ergebnisse Unterliga', 33611]
+    'br3g_21': [26519, leagueResults, 'Ergebnisse Unterliga', 33611],
+    // U16
+    'u16_21_1': [27020, leagueResults, 'ÖMS U16 - Gruppe 4', 34211, 1220]
     // scorer
     // http://www.volleynet.at/volleynet/service/xml2.php?action=scorer&bew_id=26179&tea_kurz=%27Br%C3%BCckl%27
   },

@@ -6,7 +6,9 @@ var map = {
     // LL 26515, 33597
     'br2g_21': [26515, leagueStandings, 'Tabelle Landesliga'],
     // UL 26519, 33611
-    'br3g_21': [26519, leagueStandings, 'Tabelle Unterliga']
+    'br3g_21': [26519, leagueStandings, 'Tabelle Unterliga'],
+    // U16
+    'u16_21_1': [27020, leagueStandings, 'ÖMS U16 - Gruppe 4']
   },
   '20': {
     'br4g_20': [24971, leagueStandings, 'Tabelle Unterliga'],
