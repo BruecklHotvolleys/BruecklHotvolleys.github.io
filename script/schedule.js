@@ -438,7 +438,9 @@ var mapLeague = {
     // UL 26519, 33611
     'br3g_21': [26519, window.bhv.schedule.leagueSchedules, 'Termine Unterliga', 33611],
     // U16
-    'u16_21_1': [27020, window.bhv.schedule.leagueSchedules, 'ÖMS U16', [1220, 34211]]
+    'u16_21_1': [27020, window.bhv.schedule.leagueSchedules, 'ÖMS U16 - Halbfinale', [1220, 34211]],
+    // U18
+    'u18_21_5': [27058, window.bhv.schedule.leagueSchedules, 'ÖMS U18 - Gruppe 5', [1220, 34236]]
   },
   '20': {
     // // UL 24971 3: 31661, 4: 31662
