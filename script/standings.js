@@ -2,7 +2,7 @@ var activeSeason = '21';
 var map = {
   '21': {
     'br1g_21': [26179, leagueStandings, 'Tabelle (Herbst)'],
-    'br1sp_21': [26760, leagueStandings, 'Tabelle'],
+    'br1sp_21': [26760, leagueStandings, 'Tabelle (BL2)'],
     // LL 26515, 33597
     'br2g_21': [26515, leagueStandings, 'Tabelle Landesliga'],
     // UL 26519, 33611
