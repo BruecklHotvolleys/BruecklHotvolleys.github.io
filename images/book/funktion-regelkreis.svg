@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="440" height="260" version="1.1" viewBox="0 0 440 260">
+  <g class="actors">
+    <ellipse cx="0" cy="0" rx="70" ry="25" id="ellipse_1" transform="translate(220 50)" style="stroke: #0000ff; stroke-opacity: 0; stroke-width: 5; fill: #ffd700; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(220 49) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; pointer-events: none;">Temperatur</text>
+    <ellipse cx="0" cy="0" rx="70" ry="25" id="ellipse_2" transform="translate(90 200)" style="stroke: #0000ff; stroke-opacity: 0; stroke-width: 5; fill: #ffd700; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(90 199) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; pointer-events: none;">Heizkörper</text>
+    <ellipse cx="0" cy="0" rx="70" ry="25" id="ellipse_3" transform="translate(350 200)" style="stroke: #0000ff; stroke-opacity: 0; stroke-width: 5; fill: #ffd700; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(350 199) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; pointer-events: none;">Begrenzer</text>
+    <g id="arrow_4" transform="translate(90 200)">
+      <line x1="19.648" y1="-22.671" x2="110.352" y2="-127.329" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="99.605,-123.411 110.352,-127.329 108.001,-116.134" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_5" transform="translate(90 200)">
+      <line x1="19.648" y1="-22.671" x2="110.352" y2="-127.329" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="99.605,-123.411 110.352,-127.329 108.001,-116.134" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="10" ry="10" id="ellipse_6" transform="translate(178 75)" style="stroke: none; fill: #008000; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" id="text_7" transform="translate(178 75) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; font-weight: bold;">+</text>
+    <g id="arrow_8" transform="translate(220 50)">
+      <line x1="19.648" y1="22.671" x2="110.352" y2="127.329" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="108.001,116.134 110.352,127.329 99.605,123.411" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_9" transform="translate(220 50)">
+      <line x1="19.648" y1="22.671" x2="110.352" y2="127.329" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="108.001,116.134 110.352,127.329 99.605,123.411" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="10" ry="10" id="ellipse_10" transform="translate(335 157)" style="stroke: none; fill: #008000; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" id="text_11" transform="translate(335 157) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; font-weight: bold;">+</text>
+    <g id="arrow_12" transform="translate(350 200)">
+      <line x1="-70" y1="0" x2="-190" y2="0" style="stroke: #ff0000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-180,5.556 -190,0 -180,-5.556" style="stroke: #ff0000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_13" transform="translate(350 200)">
+      <line x1="-70" y1="0" x2="-190" y2="0" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-180,5.556 -190,0 -180,-5.556" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="10" ry="10" id="ellipse_14" transform="translate(175 184)" style="stroke: none; fill: #ff0000; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" id="text_15" transform="translate(175 182) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; font-weight: bold;">-</text>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Selects the first matching dom element.
+ * @param {string} selector The selector of the element.
+ * @param {DOMElement} parent The optional root of the search (default: document).
+ * @returns DOMElement The first matching DOM element.
+ */
+function $(selector, parent) {
+  return (parent ? parent : document).querySelector(selector);
+}
+
+/**
+ * Selects DOMElements.
+ * @param {string} selector The selector of the DOMElements.
+ * @param {DOMElement} parent The optional root of the search (default: document).
+ * @returns {NodeList} The list of matching DOMElements.
+ */
+function $$(selector, parent) {
+  return (parent ? parent : document).querySelectorAll(selector);
+}
+
+/**
+ * Connects an event handler to a given DOMElement.
+ * @param {DOMElement} elem The DOMElement to handle.
+ * @param {string} event The name of the event to handle.
+ * @param {Function} handler The ebvent handler.
+ * @returns {void}
+ */
+function $event(elem, event, handler) {
+  elem.addEventListener(event, handler);
+}
+/**
+ * The effects data and handler.
+ */
+var effects = {
+  
+  /**
+   * Initializes the effects info.
+   */
+  'init': function() {
+    // the ids of all controls with effects
+    this.ids = Object.keys(this.infos);
+    // connect event handling
+    $event($('svg'), 'click', this.onClick.bind(this));
+    $event($('svg'), 'mouseover', this.onMouseOver.bind(this));
+    $event($('svg'), 'mouseout', this.onMouseOut.bind(this));
+
+    return this;
+  },
+  
+  /**
+   * The effect infos.
+   */
+  'infos': {
+  "ellipse_1": {
+    "fill": {
+      "common": "#ffd700",
+      "hover": "#ffd700"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "0.39"
+    }
+  },
+  "ellipse_2": {
+    "fill": {
+      "common": "#ffd700",
+      "hover": "#ffd700"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "0.39"
+    }
+  },
+  "ellipse_3": {
+    "fill": {
+      "common": "#ffd700",
+      "hover": "#ffd700"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "0.39"
+    }
+  },
+  "arrow_4": {
+    "stroke": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "arrow_5": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_6": {
+    "fill": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "text_7": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "arrow_8": {
+    "stroke": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "arrow_9": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_10": {
+    "fill": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "text_11": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "arrow_12": {
+    "stroke": {
+      "common": "#ff0000",
+      "hover": "#ff0000"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "arrow_13": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_14": {
+    "fill": {
+      "common": "#ff0000",
+      "hover": "#ff0000"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "text_15": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  }
+},
+  /**
+   * The grouping infos.
+   */
+  'groups': {
+  "byId": {
+    "ellipse_2": "heat",
+    "arrow_4": "heat",
+    "arrow_5": "heat",
+    "ellipse_6": "heat",
+    "text_7": "heat",
+    "ellipse_3": "limit",
+    "arrow_12": "limit",
+    "arrow_13": "limit",
+    "ellipse_14": "limit",
+    "text_15": "limit",
+    "ellipse_1": "temp",
+    "arrow_8": "temp",
+    "arrow_9": "temp",
+    "ellipse_10": "temp",
+    "text_11": "temp"
+  },
+  "byName": {
+    "heat": [
+      "ellipse_2",
+      "arrow_4",
+      "arrow_5",
+      "ellipse_6",
+      "text_7"
+    ],
+    "limit": [
+      "ellipse_3",
+      "arrow_12",
+      "arrow_13",
+      "ellipse_14",
+      "text_15"
+    ],
+    "temp": [
+      "ellipse_1",
+      "arrow_8",
+      "arrow_9",
+      "ellipse_10",
+      "text_11"
+    ]
+  }
+},
+  
+  'ids': null,
+  'clicked': null,
+  'hover': [],
+
+  /**
+   * Handles a click event to set the active style effects.
+   *
+   * @param Event event The event info.
+   * @returns void
+   */
+  'onClick': function(event) {
+    var id = event.target.id, 
+        id2 = null,
+        oldClicked = this.clicked;
+    if ((!id || this.ids.indexOf(id) < 0) && event.target.parentNode) {
+      id = event.target.parentNode.id;
+    }
+    
+    if (id && this.ids.indexOf(id) >= 0) {
+      id2 = this.groups.byId[id] ? "g" + this.groups.byId[id] : "i" + id;
+    }
+    
+    // reset if any old
+    if (oldClicked) {
+      this.setStyle(oldClicked, this.hover.indexOf(oldClicked) >= 0 ? "hover" : "common");
+      this.clicked = null;
+    }
+    
+    // set new clicked item
+    if (id2 && id2 !== oldClicked) {
+      this.clicked = id2;
+      this.setStyle(id2, this.hover.indexOf(id2) >= 0 ? "activehover" : "active");
+    }
+  },
+
+  /**
+   * Handles a mouse over event to set the hover style effects.
+   *
+   * @param Event event The event info.
+   * @returns void
+   */
+  'onMouseOver': function(event) {
+    var id = event.target.id, id2;
+    if ((!id || this.ids.indexOf(id) < 0) && event.target.parentNode) {
+      id = event.target.parentNode.id;
+    }
+    
+    if (id && this.ids.indexOf(id) >= 0) {
+      id2 = this.groups.byId[id] ? "g" + this.groups.byId[id] : "i" + id;
+      
+      if (this.hover.indexOf(id2) < 0) {
+        this.hover.push(id2);
+        this.setStyle(id2, this.clicked === id2 ? "activehover" : "hover");
+      }
+    }
+  },
+
+  /**
+   * Handles a mouse leave event to set the hover style effects.
+   *
+   * @param Event event The event info.
+   * @returns void
+   */
+  'onMouseOut': function(event) {
+    var id = event.target.id, id2;
+    if ((!id || this.ids.indexOf(id) < 0) && event.target.parentNode) {
+      id = event.target.parentNode.id;
+    }
+    
+    if (id && this.ids.indexOf(id) >= 0) {
+      id2 = this.groups.byId[id] ? "g" + this.groups.byId[id] : "i" + id;
+      
+      var pos = this.hover.indexOf(id2);
+      if (pos >= 0) {
+        this.hover.splice(pos, 1);
+        this.setStyle(id2, this.clicked === id2 ? "active" : "common");
+      }
+    }
+  },
+
+  /**
+   * Sets the styles to set the effects.
+   * @param string id2 The id of the elem to style.
+   * @param string style Th ekey of the style to set.
+   * @returns void
+   */
+  'setStyle': function(id2, style) {
+    var type = id2.charAt(0),
+        id = id2.substr(1);
+    
+    if (type === 'g') {
+      var items = this.groups.byName[id];
+      if (items) {
+        items.forEach((item) => this.setStyle('i' + item, style)); 
+      }
+    } else if (type === 'i') {
+      this.setStyle2($('#' + id), id, style);
+     }
+  },
+
+  /**
+   * Sets the styles to set the effects.
+   * @param Element elem Th eelem to style.
+   * @param string id The name of the styles to get.
+   * @param string key The key of the style to get.
+   * @returns void
+   */
+  'setStyle2': function(elem, id, key) {
+    var info = this.infos[id];
+    
+    if (!elem || !elem.tagName || !info) {
+      return;
+    }
+    
+    // handle groups
+    if (elem.tagName === 'g') {
+      var children = elem.children;
+      for (var i = 0; i < children.length; ++i) {
+        this.setStyle2(children[i], id, key);
+      }
+      
+    } else {
+      // set style of item
+      Object.keys(info).forEach((name) =>  {
+        elem.style[name] = info[name][key];
+      });
+    }
+  }
+}.init();
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

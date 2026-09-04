@@ -1,0 +1,172 @@
+<div class="container full"><div class="img"><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="285" height="200" version="1.1" viewBox="0 0 285 200">
+  <g>
+    <rect x="0" y="0" width="285" height="200" style="stroke: none; fill: #d3d3d3;"/>
+  </g>
+  <g class="actors">
+    <g id="arrow_1" transform="translate(50 125)">
+      <line x1="0" y1="0" x2="10" y2="-45" style="stroke: #000000; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 3.5;"/>
+      <polyline points="2.407,-36.443 10,-45 13.254,-34.033" style="stroke: #000000; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 3.5; fill: none;"/>
+    </g>
+    <g id="arrow_2" transform="translate(142 105)">
+      <line x1="0" y1="0" x2="10" y2="-45" style="stroke: #000000; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 3.5;"/>
+      <polyline points="2.407,-36.443 10,-45 13.254,-34.033" style="stroke: #000000; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 3.5; fill: none;"/>
+    </g>
+    <g id="draw_3" transform="translate(0 0)">
+      <line x1="50" y1="140" x2="148.481" y2="122.635" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="148.481" y1="122.635" x2="147.96" y2="119.681" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="147.96" y1="119.681" x2="147.439" y2="116.726" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="147.439" y1="116.726" x2="49.943" y2="133.918" id="draw_3_4" data-anim-index="4" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="147.96" y1="119.681" x2="152.884" y2="118.813" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="152.884" y1="118.813" x2="216.896" y2="107.525" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="216.896" y1="107.525" x2="216.896" y2="139.525" style="fill: none; stroke: #111111; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round;"/>
+      <ellipse cx="216.896" cy="139.525" rx="3" ry="3" style="stroke: none; fill: #111111;"/>
+      <line x1="216.896" y1="107.525" x2="215.334" y2="98.662" style="fill: none; stroke: #111111; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="215.334" y1="98.662" x2="141.257" y2="110.395" id="draw_3_10" data-anim-index="9" style="fill: none; stroke: #111111; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="216.896" y1="107.525" x2="226.744" y2="105.789" style="fill: none; stroke: #111111; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="226.744" y1="105.789" x2="231.668" y2="104.921" style="fill: none; stroke: #111111; stroke-width: 14; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="226.744" y1="105.789" x2="231.668" y2="104.921" style="fill: none; stroke: #808080; stroke-width: 12; stroke-linecap: round; stroke-linejoin: round;"/>
+    </g>
+  </g>
+  <!-- context menu - - - - - - - - - - -->
+  <rect id="contextmenu_bg" x="0" y="0" />
+  <g id="contextmenu" class="contextmenu">
+    <rect x="0" y="0" width="204" height="100" rx="5" ry="5" />
+    <g id="ID_animation" class="ID_mi_stop">
+      <g class="menuitem" data-item="ID_mi_play" transform="translate(0 0)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 12 10 l 7 7 l -7 7 z" class="mi-play" />
+       <text x="30" y="25">Start</text>
+      </g>
+      <g class="menuitem" data-item="ID_mi_pause" transform="translate(0 32)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 12 10 v 14 M 18 10 v 14" class="mi-pause" />
+       <text x="30" y="25">Pause</text>
+      </g>
+      <g class="menuitem" data-item="ID_mi_stop" transform="translate(0 64)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 8 10 h 14 v 14 h -14 z" class="mi-stop" />
+       <text x="30" y="25">Stop</text>
+      </g>
+    </g>
+  </g>
+  <style>
+#contextmenu_bg {
+  width: 100%;
+  height: 100%;
+  fill: #7777777f;
+}
+#contextmenu_bg, #contextmenu {
+  display: none;
+  cursor: default;
+}
+
+g.contextmenu > rect, g.submenu > rect {
+  stroke: gray;
+  stroke-width: 3px;
+  fill: lightgray;
+}
+
+g.menuitem > rect, g.submenuitem > rect {
+  stroke: none;
+  fill: lightgray;
+}
+g.menuitem > * {
+  pointer-events: none;
+}
+g.menuitem > rect.bg {
+  pointer-events: all;
+  cursor: pointer;
+}
+g.menuitem:hover > rect.bg, g.submenuitem:hover > rect.bg {
+  fill: darkgray;
+}
+g.menuitem > text, g.submenuitem > text {
+  stroke: none;
+  fill: #111;
+  font-family: Arial;
+  font-size: 22px;
+}
+g.menuitem.mono > text, g.submenuitem.mono > text {
+  font-family: Consolas, monospace;
+  white-space: pre;
+}
+g.menuitem > rect.cb, g.menuitem > circle.rb {
+  stroke: gray;
+  stroke-width: 2px;
+  fill: none;
+}
+g.menuitem > circle.rb2 {
+  stroke: none;
+  fill: #111;
+}
+
+g.menuitem > path.cb2, g.submenuitem > path.marker_submenu {
+  stroke: #111;
+  stroke-width: 2px;
+  fill: none;
+  display: block;
+}
+g.submenu {
+  display: none;
+}
+g.submenuitem:hover > g.submenu {
+  display: block;
+}
+
+#contextmenu > rect.separator {
+  fill: #BBB;
+  stroke: none;
+}
+
+
+g.menuitem > path.mi-play, g.menuitem > path.mi-stop {
+  stroke: none;
+  fill: #444;
+}
+g.menuitem > path.mi-pause {
+  stroke: #444;
+  stroke-width: 3px;
+  fill: none;
+}
+
+
+g.actors.animation > g.move {
+  display: none !important;
+}
+
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"],
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"] > rect.bg,
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"] > rect.bg {
+  cursor: default;
+}
+g#ID_animation.ID_mi_play > g[data-item="ID_mi_play"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_play > g[data-item="ID_mi_play"] > rect.bg {
+  cursor: default;
+}
+g#ID_animation.ID_mi_pause > g[data-item="ID_mi_pause"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_pause > g[data-item="ID_mi_pause"] > rect.bg {
+  cursor: default;
+}
+  </style>
+</svg></div><div class="text"><h1 id="h_1">Thema</h1>
+<p><strong>Die Rumpfmuskulatur kräftigen.</strong></p>
+<h1 id="h_2">Beschreibung</h1>
+<ol>
+<li>Der Körper ist gestreckt und wird seitlich am linken Unterarm und am linken Fuß abgestützt.</li>
+<li>Den rechten Arm und das rechte Bein anheben, halten oder 10x langsam(!) heben und wieder absenken.</li>
+<li>Das Gleiche rechts.</li>
+</ol>
+<h1 id="h_3">Hinweise</h1>
+<ul>
+<li>Stabil im Körper - kein Hüftknick.</li>
+<li>Die Bewegung erst beginnen, wenn der Körper ruhig und gerade gehalten werden kann.</li>
+</ul>
+</div></div>

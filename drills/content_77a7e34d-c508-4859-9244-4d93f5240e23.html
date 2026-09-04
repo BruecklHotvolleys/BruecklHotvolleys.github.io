@@ -1,0 +1,173 @@
+<div class="container full"><div class="img"><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="360" height="210" version="1.1" viewBox="0 0 360 210">
+  <g>
+    <rect x="0" y="0" width="360" height="210" style="stroke: none; fill: #d3d3d3;"/>
+  </g>
+  <g class="actors">
+    <g id="arrow_1" transform="translate(163 70)">
+      <line x1="0" y1="0" x2="12" y2="-29" style="stroke: #000000; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 3.5;"/>
+      <polyline points="3.043,-21.884 12,-29 13.31,-17.636" style="stroke: #000000; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 3.5; fill: none;"/>
+    </g>
+    <g transform="translate(0 0)">
+      <line x1="150" y1="155" x2="75" y2="155" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="75" y1="155" x2="62" y2="155" style="fill: none; stroke: #111111; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="62" y1="155" x2="55" y2="155" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="62" y1="155" x2="55" y2="155" style="fill: none; stroke: #808080; stroke-width: 13; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="75" y1="155" x2="154.874" y2="184.072" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+    </g>
+    <g id="draw_3" transform="translate(0 0)">
+      <line x1="300" y1="159" x2="313" y2="159" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="313" y1="159" x2="225.538" y2="110.519" id="draw_3_2" data-anim-index="2" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="225.538" y1="110.519" x2="155.999" y2="82.424" id="draw_3_3" data-anim-index="3" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="155.999" y1="82.424" x2="144.873" y2="77.928" id="draw_3_4" data-anim-index="4" style="fill: none; stroke: #111111; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="144.873" y1="77.928" x2="138.383" y2="75.306" id="draw_3_5" data-anim-index="5" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="144.873" y1="77.928" x2="138.383" y2="75.306" id="draw_3_6" data-anim-index="6" style="fill: none; stroke: #808080; stroke-width: 13; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="155.999" y1="82.424" x2="117.697" y2="114.563" id="draw_3_7" data-anim-index="7" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="117.697" y1="114.563" x2="151.154" y2="151.72" id="draw_3_8" data-anim-index="8" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+    </g>
+  </g>
+  <!-- context menu - - - - - - - - - - -->
+  <rect id="contextmenu_bg" x="0" y="0" />
+  <g id="contextmenu" class="contextmenu">
+    <rect x="0" y="0" width="204" height="100" rx="5" ry="5" />
+    <g id="ID_animation" class="ID_mi_stop">
+      <g class="menuitem" data-item="ID_mi_play" transform="translate(0 0)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 12 10 l 7 7 l -7 7 z" class="mi-play" />
+       <text x="30" y="25">Start</text>
+      </g>
+      <g class="menuitem" data-item="ID_mi_pause" transform="translate(0 32)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 12 10 v 14 M 18 10 v 14" class="mi-pause" />
+       <text x="30" y="25">Pause</text>
+      </g>
+      <g class="menuitem" data-item="ID_mi_stop" transform="translate(0 64)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 8 10 h 14 v 14 h -14 z" class="mi-stop" />
+       <text x="30" y="25">Stop</text>
+      </g>
+    </g>
+  </g>
+  <style>
+#contextmenu_bg {
+  width: 100%;
+  height: 100%;
+  fill: #7777777f;
+}
+#contextmenu_bg, #contextmenu {
+  display: none;
+  cursor: default;
+}
+
+g.contextmenu > rect, g.submenu > rect {
+  stroke: gray;
+  stroke-width: 3px;
+  fill: lightgray;
+}
+
+g.menuitem > rect, g.submenuitem > rect {
+  stroke: none;
+  fill: lightgray;
+}
+g.menuitem > * {
+  pointer-events: none;
+}
+g.menuitem > rect.bg {
+  pointer-events: all;
+  cursor: pointer;
+}
+g.menuitem:hover > rect.bg, g.submenuitem:hover > rect.bg {
+  fill: darkgray;
+}
+g.menuitem > text, g.submenuitem > text {
+  stroke: none;
+  fill: #111;
+  font-family: Arial;
+  font-size: 22px;
+}
+g.menuitem.mono > text, g.submenuitem.mono > text {
+  font-family: Consolas, monospace;
+  white-space: pre;
+}
+g.menuitem > rect.cb, g.menuitem > circle.rb {
+  stroke: gray;
+  stroke-width: 2px;
+  fill: none;
+}
+g.menuitem > circle.rb2 {
+  stroke: none;
+  fill: #111;
+}
+
+g.menuitem > path.cb2, g.submenuitem > path.marker_submenu {
+  stroke: #111;
+  stroke-width: 2px;
+  fill: none;
+  display: block;
+}
+g.submenu {
+  display: none;
+}
+g.submenuitem:hover > g.submenu {
+  display: block;
+}
+
+#contextmenu > rect.separator {
+  fill: #BBB;
+  stroke: none;
+}
+
+
+g.menuitem > path.mi-play, g.menuitem > path.mi-stop {
+  stroke: none;
+  fill: #444;
+}
+g.menuitem > path.mi-pause {
+  stroke: #444;
+  stroke-width: 3px;
+  fill: none;
+}
+
+
+g.actors.animation > g.move {
+  display: none !important;
+}
+
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"],
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"] > rect.bg,
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"] > rect.bg {
+  cursor: default;
+}
+g#ID_animation.ID_mi_play > g[data-item="ID_mi_play"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_play > g[data-item="ID_mi_play"] > rect.bg {
+  cursor: default;
+}
+g#ID_animation.ID_mi_pause > g[data-item="ID_mi_pause"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_pause > g[data-item="ID_mi_pause"] > rect.bg {
+  cursor: default;
+}
+  </style>
+</svg></div><div class="text"><h1 id="h_1">Thema</h1>
+<p><strong>Die Beinstrecker kräftigen.</strong></p>
+<h1 id="h_2">Beschreibung</h1>
+<ol>
+<li>In Rückenlage die Beine anheben,</li>
+<li>die Partnerin „legt” sich mit ihren Schultern auf die Fußsohlen,</li>
+<li>15x die Knie beugen und strecken.</li>
+</ol>
+<h1 id="h_3">Hinweise</h1>
+<ul>
+<li>Die Paare nicht nach Freundschaft, sondern nach Gewicht zusammenstellen.</li>
+<li>Der Vorteil dieser Übung ist, dass die Spielerinnen nicht nur die Beine kräftigen,
+sondern auch im Gleichgewicht bleiben müssen. <br />
+Das ist bei Anfängerinnen auch der Nachteil, da sie noch nicht die Kraft haben,
+die Partnerin hochzudrücken - die Knie werden überlastet.</li>
+</ul>
+</div></div>

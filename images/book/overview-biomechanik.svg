@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="305" height="145" version="1.1" viewBox="0 0 305 145">
+  <g>
+    <rect x="0" y="0" width="305" height="145" style="stroke: none; fill: #d3d3d3;"/>
+  </g>
+  <g class="actors">
+    <path d="M 75 60 C 99 60 99 25 123 25 L 123 35 C 99 35 99 60 75 60" transform="translate(0 0)" style="stroke: #ffd700; stroke-width: 2; fill: #ffd700;"/>
+    <path d="M 75 60 C 99 60 99 85 123 85 L 123 95 C 99 95 99 60 75 60" transform="translate(0 0)" style="stroke: #ffd700; stroke-width: 2; fill: #ffd700;"/>
+    <path d="M 178 90 C 200.5 90 200.5 60 223 60 L 223 70 C 200.5 70 200.5 90 178 90" transform="translate(0 0)" style="stroke: #ffd700; stroke-width: 2; fill: #ffd700;"/>
+    <path d="M 178 90 C 200.5 90 200.5 110 223 110 L 223 120 C 200.5 120 200.5 90 178 90" transform="translate(0 0)" style="stroke: #ffd700; stroke-width: 2; fill: #ffd700;"/>
+    <ellipse cx="0" cy="0" rx="15" ry="10" transform="translate(25 60)" style="stroke: none; fill: #ffd700;"/>
+    <ellipse cx="0" cy="0" rx="15" ry="10" transform="translate(75 60)" style="stroke: none; fill: #ffd700;"/>
+    <rect x="0" y="0" width="50" height="20" transform="translate(25 50)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(50 59) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Mechanik</text>
+    <ellipse cx="0" cy="0" rx="15" ry="10" transform="translate(122.5 30)" style="stroke: none; fill: #ffd700;"/>
+    <ellipse cx="0" cy="0" rx="15" ry="10" transform="translate(177.5 30)" style="stroke: none; fill: #ffd700;"/>
+    <rect x="0" y="0" width="55" height="20" transform="translate(122.5 20)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(150 29) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Kinematik</text>
+    <ellipse cx="0" cy="0" rx="15" ry="10" transform="translate(122.5 90)" style="stroke: none; fill: #ffd700;"/>
+    <ellipse cx="0" cy="0" rx="15" ry="10" transform="translate(177.5 90)" style="stroke: none; fill: #ffd700;"/>
+    <rect x="0" y="0" width="55" height="20" transform="translate(122.5 80)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(150 89) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Dynamik</text>
+    <ellipse cx="0" cy="0" rx="15" ry="10" transform="translate(222.5 65)" style="stroke: none; fill: #ffd700;"/>
+    <ellipse cx="0" cy="0" rx="15" ry="10" transform="translate(277.5 65)" style="stroke: none; fill: #ffd700;"/>
+    <rect x="0" y="0" width="55" height="20" transform="translate(222.5 55)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(250 64) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Statik</text>
+    <ellipse cx="0" cy="0" rx="15" ry="10" transform="translate(222.5 115)" style="stroke: none; fill: #ffd700;"/>
+    <ellipse cx="0" cy="0" rx="15" ry="10" transform="translate(277.5 115)" style="stroke: none; fill: #ffd700;"/>
+    <rect x="0" y="0" width="55" height="20" transform="translate(222.5 105)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(250 114) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Kinetik</text>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

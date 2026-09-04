@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="1200" height="500" version="1.1" viewBox="0 0 1200 500">
+  <g class="actors">
+    <line x1="0" y1="0" x2="0" y2="175" transform="translate(355 75)" style="fill: none; stroke: #111111; stroke-width: 3;"/>
+    <rect x="0" y="0" width="400" height="74" transform="translate(155 40)" style="stroke: #111111; stroke-width: 3; fill: #dddddd;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(355 70)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 30px;">Die Lebensbedingungen</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(355 80) translate(0 23)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 30px;">beeinflussen die ...</text>
+    <line x1="0" y1="0" x2="0" y2="-175" transform="translate(600 425)" style="fill: none; stroke: #111111; stroke-width: 3;"/>
+    <rect x="0" y="0" width="400" height="74" transform="translate(400 390)" style="stroke: #111111; stroke-width: 3; fill: #dddddd;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(600 420)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 30px;">... wird zum</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(600 430) translate(0 23)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 30px;">handlungsfähigem Subjekt.</text>
+    <ellipse cx="0" cy="0" rx="100" ry="100" transform="translate(110 250)" style="stroke: #111111; stroke-width: 5; fill: #dddddd;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(110 245)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 35px;">Äußere</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(110 255) translate(0 27)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 35px;">Realität</text>
+    <ellipse cx="0" cy="0" rx="100" ry="100" transform="translate(600 250)" style="stroke: #111111; stroke-width: 5; fill: #dddddd;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(600 245)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 35px;">Der</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(600 255) translate(0 27)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 35px;">Mensch</text>
+    <ellipse cx="0" cy="0" rx="100" ry="100" transform="translate(1090 250)" style="stroke: #111111; stroke-width: 5; fill: #dddddd;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(1090 245)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 35px;">Innere</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(1090 255) translate(0 27)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 35px;">Realität</text>
+    <rect x="0" y="0" width="240" height="30" transform="translate(235 235)" style="stroke: none; fill: #dddddd;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(355 250) translate(0 10)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 25px;">soziale Interaktion</text>
+    <polyline points="210.0,265.0 480.0,265.0 430.0,280.0 430.0,265.0" transform="translate(0 0)" style="stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; fill: #111111;"/>
+    <polyline points="500.0,235.0 230.0,235.0 280.0,220.0 280.0,235.0" transform="translate(0 0)" style="stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; fill: #111111;"/>
+    <polyline points="990.0,265.0 720.0,265.0 770.0,280.0 770.0,265.0" transform="translate(0 0)" style="stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; fill: #111111;"/>
+    <polyline points="700.0,235.0 970.0,235.0 920.0,220.0 920.0,235.0" transform="translate(0 0)" style="stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; fill: #111111;"/>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="de">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/brueckl-hotvolleys/concepts/favicon.ico">
+  <title>NW-Konzept</title>
+  <style>
+html, body, * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  
+  padding: 0;
+  border: 0 none;
+  margin: 0;
+  
+  font-size: 14pt;
+}
+html, body {
+  overflow: hidden;
+}
+div.header {
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  
+  left: 0;
+  padding-left: 50px;
+  width: 100%;
+  top: 0;
+  height: 50px;
+    
+  background-color: #CCCCCC;  
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+div.header > div.title {
+  font-family: Arial;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 8px 0 0 0;
+}
+div.header > div.subtitle {
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 0.8em;
+}
+
+div.header > span.icon {
+  position: absolute;
+  left: 50px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+  
+  border-radius: 50%;
+  background-color: darkred;
+  color: #EEEEEE;
+  text-align: center;
+  font-size: 1.75em;
+}
+div.header > img {
+  position: absolute;
+  left: 50px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+}
+div.header > span.header {
+  position: absolute;
+  top: 1px;
+  left: 100px;
+  font-size: 0.5em;
+}
+div.header > span.text {
+  position: absolute;
+  padding: 12px 10px 12px 50px;
+}
+div.header > span.footer {
+  position: absolute;
+  bottom: 1px;
+  left: 100px;
+  font-size: 0.5em;
+}
+div.header > a.to_menu {
+  position: absolute;
+  top: 9px;
+  right: 50px;
+  width: 69px;
+  height: 32px;
+  z-index: 1; 
+  text-decoration: none;
+  background-color: #DDD;
+  background-image: url("/images//bhv2.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+svg#button-fullscreen {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  z-index: 1; 
+}
+div.content {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  bottom: 30px;
+
+  background-color: #EEEEEE;
+  overflow: hidden;
+}
+div.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+h1, h2, h3 {
+  margin: 0.5em 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.3em;
+}
+ol, ul {
+  padding-left: 1.5em;
+}
+p {
+  margin: 0.5em 0;
+}
+
+div.img {
+  box-sizing: border-box;
+  overflow: hidden; 
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+
+  padding: 1.5% 0;
+  text-align: center;
+}
+div.img > svg {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+}
+
+div.text {
+  box-sizing: border-box;
+  padding: 1%;
+}
+
+@media (orientation: landscape) {
+  div.container.full {
+    overflow: hidden;
+  }
+  div.container.full > div.img, 
+  div.container.full > div.text {
+    float: left;
+    width: 50%;
+  }
+  div.container.full > div.text {
+    height: 100%;
+    overflow: auto;
+  }
+}
+label.tree-menu {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  z-index: 99;
+  border-radius: 7px;
+  background-color: dimgray;
+  
+  cursor: pointer;
+}
+label.tree-menu > span {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  
+  color: gray;
+  text-align: center;
+  font-size: 30px;
+  line-height: 100%;
+
+  cursor: pointer;
+}
+
+input {
+  background-color: blue;
+  position: absolute;
+  left: -1000px;
+}
+
+div.tree {
+  display: none;
+
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  bottom: 30px;
+  z-index: 99;
+  
+  overflow: hidden;
+}
+div.tree > div.tree-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  overflow: hidden;
+  
+  background-color: #DDDDDD;
+  opacity: 0.1;
+}
+div.tree > div.tree-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33%;
+  min-width: 400px;
+  max-width: 600px;
+  height: 100%;
+  
+  overflow: auto;
+  
+  background-color: #DDDDDD;
+}
+input#tree-toggle:checked + div.tree {
+  display: block;
+}
+
+@media (width < 400px) {
+  div.tree > div.tree-content {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+div.item {
+  position: relative;
+}
+
+div.item > input.item-toggle + label > span:first-child {
+  display: none;
+}
+div.item > input.item-toggle + label > span:nth-child(2) {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > span:first-child {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > span:nth-child(2) {
+  display: none;
+}
+
+div.item > input.item-toggle + label > img:first-child {
+  display: none;
+}
+div.item > input.item-toggle + label > img:nth-child(2) {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > img:first-child {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > img:nth-child(2) {
+  display: none;
+}
+
+div.item > input.item-toggle:checked ~ .item-container {
+  display: block;
+}
+
+
+
+div.item > label {
+  position: absolute;
+  left: 3px;
+  width: 20px;
+  top: 15px;
+  height: 20px;
+  background-color: dimgray;
+  color: lightgray;
+  border-radius: 50%;
+  text-align: center;
+}
+.touch div.item > label {
+  top: 6px;
+  left: 6px;
+  height: 38px;
+  width: 38px;
+}
+.touch div.item > label > img {
+  height: 38px;
+  width: 38px;
+}
+
+div.item > .item-header {
+  display: block;
+  position: relative;
+  height: 50px;
+  margin: 0 0 0 26px;
+
+  white-space: nowrap;
+  
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.touch div.item > .item-header {
+  margin-left: 46px;
+}
+div.item.root > .item-header, 
+.touch div.item.root > .item-header {
+  margin: 0;
+}
+
+div.item > span.item-header > span.icon {
+  position: absolute;
+  left: 2px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+  
+  border-radius: 50%;
+  background-color: darkred;
+  color: #EEEEEE;
+  text-align: center;
+  font-size: 1.75em;
+}
+div.item > span.item-header > img {
+  position: absolute;
+  left: 2px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+}
+div.item > .item-header > span.header {
+  position: absolute;
+  top: 1px;
+  left: 50px;
+  font-size: 0.5em;
+}
+div.item > .item-header > span.text {
+  position: absolute;
+  padding: 12px 10px 16px 50px;
+}
+div.item > .item-header:hover, div.item > .item-header:hover > span.text {
+  background-color: #CCCCCC;
+}
+div.item > .item-header > span.footer {
+  position: absolute;
+  bottom: 1px;
+  left: 50px;
+  font-size: 0.5em;
+}
+
+div.item > div.item-container {
+  position: relative;
+  padding-left: 26px;
+
+  display: none;
+}
+div.footer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 30px;
+  box-sizing: border-box;
+  padding: 5px 5px;
+  
+  overflow: hidden;
+  background-color: #CCCCCC;
+
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14pt;
+}
+
+  </style>
+<script>
+  document.documentElement.className += (("ontouchstart" in document.documentElement) ? ' touch' : ' no-touch');
+</script>
+  <script>
+function init() {
+  var items = document.querySelectorAll("div.tree span.item-header");
+  items.forEach((item) => item.addEventListener("click", onTreeItemClick));
+  
+  initFullscreen();
+}
+
+function onTreeItemClick(event) {
+  // if any animator: ensure end of running animation
+  if (window.animator) {
+    animator.stop();
+  }
+  
+  var item = searchTreeItem(event.target ? event.target : event.srcElement);
+  var id = item && item.dataset && item.dataset.id ? item.dataset.id : "??";
+  
+  //alert("click: " + id);
+  loadData("/concepts/header_" + id + ".html", (header) => {
+    var h = document.querySelector("div.header");
+    if (h) {
+      h.innerHTML = header;
+      setTimeout(function() {
+        initFullscreen();
+      }, 111);
+    }
+  });
+  loadData("/concepts/content_" + id + ".html", (header) => {
+    var c = document.querySelector("div.content");
+    if (c) {
+      c.innerHTML = header;
+    }
+  });
+  setTimeout(function() {
+    loadScript("/concepts/script_" + id + ".js", "script_" + id + "\\.js", () => {
+      console.log("Script for " + id + " has been loaded.");
+    });
+  }, 55);
+  closeTree();
+}
+
+function searchTreeItem(elem) {
+  while (elem) {
+    if (elem.className.indexOf("item-header") >= 0) {
+      return elem;
+    }
+    elem = elem.parentNode;
+  }
+  
+  return null;
+}
+
+function loadData(data, handler) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+        handler(this.responseText);
+      } else {
+        handler(this.status);
+      }
+    }
+  };
+  xhttp.open("GET", data, true);
+  xhttp.send();
+}
+
+var registeredScript = undefined;
+
+function unregisterPreviousScript() {
+  if (registeredScript) {
+    console.log("Unregister " + registeredScript);
+    if (typeof unregister === 'function') {
+      unregister();
+    }
+
+    var elem = document.querySelector("script[src$=" + registeredScript + "]");
+    if (elem) {
+      elem.remove();
+    }
+    registeredScript = undefined;
+    console.log("Unregister done.");
+  }
+}
+
+function loadScript(url, key, callback) {
+  unregisterPreviousScript();
+
+  console.log("Register " + url);
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  
+  if (script.readyState) { // only required for IE<9
+    script.onreadystatechange = function() {
+      if (script.readyState === "loaded" || script.readyState === "complete") {
+        script.onreadystatechange = null;
+        if (callback) {
+          callback();
+        }
+      }
+    };
+  } else {  // Others
+    script.onload = function() {
+      if (callback) {
+        callback();
+      }
+    };
+  }
+
+  script.src = url;
+  document.getElementsByTagName("head")[0].appendChild(script);
+  registeredScript = key;
+  console.log("Register " + key + "/" + url + " done.");
+}
+
+function closeTree() {
+  var cb = document.getElementById('tree-toggle');
+  if (cb && cb.checked) {
+    cb.checked = false;
+  }
+}
+
+var requestFullscreen, exitFullscreen;
+
+function initFullscreen() {
+  requestFullscreen = document.getElementById("request-fullscreen");
+  exitFullscreen = document.getElementById("exit-fullscreen");
+  
+  var btn = document.getElementById("button-fullscreen");
+  if (btn) {
+    btn.addEventListener("click", toggleFullscreen);
+  }
+  
+  document.addEventListener("fullscreenchange", function() {
+    updateFullscreenInfo();
+  });
+  
+  updateFullscreenInfo();
+}
+
+function updateFullscreenInfo() {
+  if (document.fullscreenElement) {
+    requestFullscreen.setAttribute("stroke", "transparent");
+    exitFullscreen.setAttribute("stroke", "black");
+  } else {
+    requestFullscreen.setAttribute("stroke", "black");
+    exitFullscreen.setAttribute("stroke", "transparent");
+  }
+}
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+  </script>
+ </head>
+ <body onload="init();">
+<div class="header"><span class="text">NW-Konzept</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><a href="/menu.html" class="to_menu">&nbsp;</a><svg xmlns="http://www.w3.org/2000/svg" id="button-fullscreen" width="30" height="30">
+  <path id="request-fullscreen"
+    stroke="black" stroke-width="3" fill="none"
+    d="M 10, 2  L  2, 2  L  2,10
+       M 20, 2  L 28, 2  L 28,10
+       M 28,20  L 28,28  L 20,28
+       M 10,28  L  2,28  L  2,20" />
+  <path id="exit-fullscreen"
+    stroke="transparent" stroke-width="3" fill="none"
+    d="M 10, 2  L 10,10  L  2, 10
+       M 20, 2  L 20,10  L 28, 10
+       M 28,20  L 20,20  L 20, 28
+       M 10,28  L 10,20  L  2, 20" />
+</svg>
+</div>
+
+<label class="tree-menu" for="tree-toggle"><span>=</span></label>
+<input type="checkbox" checked id="tree-toggle" />
+<div class="tree"><div class="tree-bg">&nbsp;</div><div class="tree-content"><div class="item root">
+ <span class="item-header" data-id="01edc5de-f3ad-1840-9ef7-d8bc852bbadc"><span class="text">NW-Konzept</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+</div><div class="item">
+ <input type="checkbox" id="01ee358c-9403-1458-89ca-735c923081d6" class="item-toggle" #checked# />
+ <label for="01ee358c-9403-1458-89ca-735c923081d6" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ee358c-9403-1458-89ca-735c923081d6"><span class="text">1:1 - Die ersten Spiele</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Die erste Spielfom für Anfänger</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ee3572-47ab-10c0-95d5-47902be7d23a"><span class="text">Das 1:1 Turnier</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Die erste Wettkampfform.</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="793f6857-e90f-41da-b687-12260e13f9e5" class="item-toggle" #checked# />
+ <label for="793f6857-e90f-41da-b687-12260e13f9e5" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="793f6857-e90f-41da-b687-12260e13f9e5"><span class="text">U12: Supermini I</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">2 gegen 2, 4,5m x 9m</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ef24dd-ed57-12b6-a3e0-add94fccf28e"><span class="text">Infos</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">U12 - Superminis I</span></span>
+</div><div class="item">
+ <input type="checkbox" id="01ef9d6b-adac-1f6f-a025-77485f7a1667" class="item-toggle" #checked# />
+ <label for="01ef9d6b-adac-1f6f-a025-77485f7a1667" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ef9d6b-adac-1f6f-a025-77485f7a1667"><span class="text">U12: Supermini I</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Wie starten ins 2:2</span></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="f3c37f8a-1e12-4774-9187-a0057eb62b0b" class="item-toggle" #checked# />
+ <label for="f3c37f8a-1e12-4774-9187-a0057eb62b0b" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="f3c37f8a-1e12-4774-9187-a0057eb62b0b"><span class="text">Angriff</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="c9be816d-6d66-464d-af89-7b49dae2e015"><span class="text">Tom und Jerry</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Eine ausgewählte Spielerin beschäftigen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="20b51eb2-773b-483f-9f37-cf41264a8e3d"><span class="text">Micky Maus</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Die Gegnerinnen sollen sich gegenseitig stören</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="91605d62-7cbc-4047-82f8-9356ee60c076" class="item-toggle" #checked# />
+ <label for="91605d62-7cbc-4047-82f8-9356ee60c076" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="91605d62-7cbc-4047-82f8-9356ee60c076"><span class="text">Grundlagen</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="2746039b-7de0-4b46-867f-abd5c04dce17"><span class="text">2x Spielen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Min. 2x spielen, bevor der Ball zum Gegner fliegt als Vorbereitung des Angriffsaufbaus.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="75fb1f0b-b5d1-420f-a5b6-c694de6db823"><span class="text">Ich! Zu mir!</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Entscheidungen durch Rufen unterstützen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="393d52c5-1a12-4acc-ab4c-d4f205f8fd5b"><span class="text">3x Spielen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Vereinfachter Anlauf</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="bb05148c-d8e6-438c-80ce-e0029b76cf8b"><span class="text">Außenfuß</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Richtige Belastung beim Ballkontakt</span></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01ef9d66-11d5-120e-b9aa-ed959f3c3280" class="item-toggle" #checked# />
+ <label for="01ef9d66-11d5-120e-b9aa-ed959f3c3280" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ef9d66-11d5-120e-b9aa-ed959f3c3280"><span class="text">U12: Supermini I - Fortgeschrittene</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Es wird schwieriger</span></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="a8b79f4c-c908-44cd-9a64-e5ef2832368f" class="item-toggle" #checked# />
+ <label for="a8b79f4c-c908-44cd-9a64-e5ef2832368f" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="a8b79f4c-c908-44cd-9a64-e5ef2832368f"><span class="text">Angriff</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="c9be816d-6d66-464d-af89-7b49dae2e015"><span class="text">Tom und Jerry</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Eine ausgewählte Spielerin beschäftigen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="20b51eb2-773b-483f-9f37-cf41264a8e3d"><span class="text">Micky Maus</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Die Gegnerinnen sollen sich gegenseitig stören</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="6da30a31-3d10-4b24-992b-d81702e523d4" class="item-toggle" #checked# />
+ <label for="6da30a31-3d10-4b24-992b-d81702e523d4" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="6da30a31-3d10-4b24-992b-d81702e523d4"><span class="text">Grundlagen</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="2746039b-7de0-4b46-867f-abd5c04dce17"><span class="text">2x Spielen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Min. 2x spielen, bevor der Ball zum Gegner fliegt als Vorbereitung des Angriffsaufbaus.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="75fb1f0b-b5d1-420f-a5b6-c694de6db823"><span class="text">Ich! Zu mir!</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Entscheidungen durch Rufen unterstützen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="393d52c5-1a12-4acc-ab4c-d4f205f8fd5b"><span class="text">3x Spielen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Vereinfachter Anlauf</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="bb05148c-d8e6-438c-80ce-e0029b76cf8b"><span class="text">Außenfuß</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Richtige Belastung beim Ballkontakt</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="cad87081-932b-4609-92b2-97bd73dfb5f5"><span class="text">3x Spielen +</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">3x Spielen mit Angriff über Außen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="4e5e108e-6512-499e-a26e-52902f63b6b7"><span class="text">3x Spielen ++</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Zusätzlich mit Sicherung</span></span>
+</div></div>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="abb7044c-cd27-4702-8271-31886c144e5b" class="item-toggle" #checked# />
+ <label for="abb7044c-cd27-4702-8271-31886c144e5b" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="abb7044c-cd27-4702-8271-31886c144e5b"><span class="text">U13: Supermini II</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">3 gegen 3, 6m x 12m</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ef24e4-def6-16d9-afbf-5e10f69e24cb"><span class="text">Infos</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">U13 - Superminis I</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01edc5e6-961d-1358-b4d5-8e76b2475982"><span class="text">Grundlegendes</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Möglichkeiten im 3:3 </span></span>
+</div><div class="item">
+ <input type="checkbox" id="01ef9d67-b11d-1d79-bfe5-e0e44d794710" class="item-toggle" #checked# />
+ <label for="01ef9d67-b11d-1d79-bfe5-e0e44d794710" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ef9d67-b11d-1d79-bfe5-e0e44d794710"><span class="text">U13: Supermini II - leicht</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Wir starten einfach</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="99d2ed82-6481-49f2-9d46-987eb47409c8"><span class="text">Annahme/Verteidigung/Basis</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Annahme und Verteidigung zu dritt</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01edc8bf-2a29-11e8-978a-4f8341e25b70" class="item-toggle" #checked# />
+ <label for="01edc8bf-2a29-11e8-978a-4f8341e25b70" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01edc8bf-2a29-11e8-978a-4f8341e25b70"><span class="text">U13: Supermini II</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Das &quot;Standard&quot; Supermini-II-System </span></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="01ee5b0d-45de-1dd0-a688-728336aa0e6d" class="item-toggle" #checked# />
+ <label for="01ee5b0d-45de-1dd0-a688-728336aa0e6d" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ee5b0d-45de-1dd0-a688-728336aa0e6d"><span class="text">Annahme</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="ce1676c1-2547-4567-ac38-bb1786ed28fb"><span class="text">Annahme</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Annahme zu zweit</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01ee5b06-2e50-1260-b118-e54b14a5e84e" class="item-toggle" #checked# />
+ <label for="01ee5b06-2e50-1260-b118-e54b14a5e84e" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ee5b06-2e50-1260-b118-e54b14a5e84e"><span class="text">Verteidigung</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="d0f92603-944e-45cf-92e5-19607914f903"><span class="text">Basis</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Vorbereitung auf die Verteidigung</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="1e433518-2ea7-427c-b62c-02929f3133d8"><span class="text">Block 2</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="a9df4e66-b979-4367-ae1b-968041363e3d"><span class="text">Block 3</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ce72eeff-d6cf-4b6c-a950-e7bb5f796bac"><span class="text">Block 4</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef9dc3-2be3-139b-85b5-eae787c6f2dc"><span class="text">Ohne</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Ohne Block</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01ee5b0f-2cd7-12b8-b143-b4e960355666" class="item-toggle" #checked# />
+ <label for="01ee5b0f-2cd7-12b8-b143-b4e960355666" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ee5b0f-2cd7-12b8-b143-b4e960355666"><span class="text">Aufspiel + Angriff</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01f1809c-34f5-1bf1-9d4d-1d66ad75b053"><span class="text">Aufspiel</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Hoch über außen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee5afc-a285-1cc0-a669-1acb20d32dca"><span class="text">Angriff links (0)</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee5b06-ef6e-1a00-92ec-b9c8b8423ffb"><span class="text">Angriff rechts (2)</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div></div>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="b84c6dbf-beb8-4762-a3df-09f6fa417ae7" class="item-toggle" #checked# />
+ <label for="b84c6dbf-beb8-4762-a3df-09f6fa417ae7" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="b84c6dbf-beb8-4762-a3df-09f6fa417ae7"><span class="text">U14: Mini</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">4 gegen 4, 7m x 14m</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01f04dfa-b5bc-1fdf-a351-b8b9a7d18dde"><span class="text">Infos</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">U14: Minis</span></span>
+</div><div class="item">
+ <input type="checkbox" id="01ef408f-e02d-1be9-b0a9-68f6a9b0409d" class="item-toggle" #checked# />
+ <label for="01ef408f-e02d-1be9-b0a9-68f6a9b0409d" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ef408f-e02d-1be9-b0a9-68f6a9b0409d"><span class="text">U14: Mini 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Mini-Karo - Das Basissystem</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ee9a7d-57d1-1547-a5a8-75dc77f49ead"><span class="text">Service</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Sichtblock vs. Verteidigungsvorbereitung</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="e15fa724-97bf-4c9f-982b-ae79e4bb3a06"><span class="text">Annahme</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div><div class="item">
+ <input type="checkbox" id="01ef4093-fd39-1365-92ff-e11ef3307048" class="item-toggle" #checked# />
+ <label for="01ef4093-fd39-1365-92ff-e11ef3307048" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ef4093-fd39-1365-92ff-e11ef3307048"><span class="text">Verteidigung</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Die Defensive</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="77c30441-a958-4ade-99c8-0ee00bc17ba4"><span class="text">Basis</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Die Grundstellung</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef4092-efc8-1c59-b4f8-2e6a56d81a29"><span class="text">Block 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">(rechts)</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef409a-906c-190b-b288-085999cc5436"><span class="text">Block 4</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">(links)</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef409a-3e6b-1fb2-9d20-579d2a4505be"><span class="text">Block 3</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">(Mitte)</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef4093-5fd3-17b0-b174-4ec338d0761c"><span class="text">Ohne</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">(Kein Block)</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01ef40a2-8fb0-1730-a022-855036ba437e" class="item-toggle" #checked# />
+ <label for="01ef40a2-8fb0-1730-a022-855036ba437e" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ef40a2-8fb0-1730-a022-855036ba437e"><span class="text">Aufspiel - Angriff - Sicherung</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Die Offensive</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="bedb3796-ff6c-4662-b6f4-96d9496b3d25"><span class="text">Aufspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee9a91-d944-1e35-b33c-4d94ecf2f9c4"><span class="text">Angriff</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Ich will den Punkt machen!</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="37949b68-11a9-4b28-b083-a2a6638ec08c"><span class="text">Angriff 4 - 0</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Angriffssicherung</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="314fe596-92d1-4eb6-9b7e-a65b925270bf"><span class="text">Angriff 2 - 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Angriffssicherung</span></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f042d8-0bde-190f-a3d9-a953628e0fc7" class="item-toggle" #checked# />
+ <label for="01f042d8-0bde-190f-a3d9-a953628e0fc7" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f042d8-0bde-190f-a3d9-a953628e0fc7"><span class="text">25/26</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Schnelligkeit ist Trumpf</span></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="01f055fa-d96e-1fd4-b0dc-4f618f7becd5" class="item-toggle" #checked# />
+ <label for="01f055fa-d96e-1fd4-b0dc-4f618f7becd5" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f055fa-d96e-1fd4-b0dc-4f618f7becd5"><span class="text">Annahme</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="4094bf9f-cd1c-4067-b456-4bddaf0fa735"><span class="text">Annahme</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Aufspiel auf Pos 2</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f055fd-fe93-1528-9d2d-eea00b112607" class="item-toggle" #checked# />
+ <label for="01f055fd-fe93-1528-9d2d-eea00b112607" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f055fd-fe93-1528-9d2d-eea00b112607"><span class="text">Verteidigung</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="6d370842-b8bf-430e-b571-5c8957dbdf89"><span class="text">Basis</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Die Grundstellung</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="e3cb59a3-e274-44b2-a194-97ca1eed2826"><span class="text">Block 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Block rechts</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="702ae3c2-d7a2-4aeb-a833-b026717c17f2"><span class="text">Block 3(5)</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Handzeichen 5 zur Abstimmung mit Hinterspielerin</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="1ca60cf7-6322-4cbe-83d1-4b084b531546"><span class="text">Block 3(1)</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Handzeichen 1 zur Abstimmung mit Hinterspielerin</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="5217bca1-1635-4d54-b6fd-abafe88faeb4"><span class="text">Block 4</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Block links</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f055f3-9dae-1fc3-802e-c17ca507ab89"><span class="text">Ohne</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Kein Block gegen Geschenkte Bälle</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="8d32881b-39d1-4910-9b13-8aaf12c3477c"><span class="text">Basis (Doppelblock 2)</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Basis, wenn ein Doppelblock geg. Außenangriff vorbereitet wird</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01efa1e1-443a-1c33-83df-c87e07376fe3"><span class="text">Doppelblock 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">&quot;Mehr&quot; Block gegen die Hauptangreiferin</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="636c36dc-4685-4420-be65-4075c4aa6ab3" class="item-toggle" #checked# />
+ <label for="636c36dc-4685-4420-be65-4075c4aa6ab3" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="636c36dc-4685-4420-be65-4075c4aa6ab3"><span class="text">Aufspiel + Angriff</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01f117eb-f51d-12f4-8aad-8ae3b7be8172"><span class="text">Aufspiel</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Tempo! Schnelligkeit ist Trumpf</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f0560e-621a-17f8-8d53-0c6dc8610fb4"><span class="text">Vorbereitung auf den Angriff</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Wo greifen wir an?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f05663-947f-1f45-bb87-d87a9475aa2d"><span class="text">Vorbereitung auf den Angriff - V</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Wo greifen wir an nach Verteidigung?</span></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01efa038-01db-10b8-8202-6823b2ec746c" class="item-toggle" #checked# />
+ <label for="01efa038-01db-10b8-8202-6823b2ec746c" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01efa038-01db-10b8-8202-6823b2ec746c"><span class="text">Großfeld</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Erste Versuche am Großfeld</span></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="01efa047-f571-14ca-9829-d82fb9c8ac82" class="item-toggle" #checked# />
+ <label for="01efa047-f571-14ca-9829-d82fb9c8ac82" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01efa047-f571-14ca-9829-d82fb9c8ac82"><span class="text">Das Spielfeld</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Infos zum Spielfeld, und zu Positionen + Aufgaben</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="d579bbb7-8618-4e4c-8377-3e00a0b952cd"><span class="text">Die Zonen und die Linien</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01efa049-18cb-1c94-8b5f-0a699165977e"><span class="text">Die Positionen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">1-6 und die jeweiligen Aufgaben</span></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="7ccd43ce-d350-4842-a1ce-9001e7fea633"><span class="text">Basis</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Basis = Verteidigung = Annahme = ...</span></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="03d07c41-bdaf-4be8-a555-cfc266f92c55" class="item-toggle" #checked# />
+ <label for="03d07c41-bdaf-4be8-a555-cfc266f92c55" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="03d07c41-bdaf-4be8-a555-cfc266f92c55"><span class="text">U16: Schülerinnen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">6 gegen 6, 9m x 18m</span></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="9973663e-45b6-43e4-843b-348a5018fdf7" class="item-toggle" #checked# />
+ <label for="9973663e-45b6-43e4-843b-348a5018fdf7" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="9973663e-45b6-43e4-843b-348a5018fdf7"><span class="text">Infos</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">U16 - Schülerinnen</span></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="93141d8d-e3a9-459f-a14b-4f2d4a6e2c25" class="item-toggle" #checked# />
+ <label for="93141d8d-e3a9-459f-a14b-4f2d4a6e2c25" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="93141d8d-e3a9-459f-a14b-4f2d4a6e2c25"><span class="text">Das Spielfeld</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Infos zum Spielfeld, und zu Positionen + Aufgaben</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="d579bbb7-8618-4e4c-8377-3e00a0b952cd"><span class="text">Die Zonen und die Linien</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="bf641cfc-8fe2-49a0-ab9f-506b343cdcc3"><span class="text">Die Positionen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">1-6 und die Aufgaben</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="fc640b1f-124d-4a45-b5c2-961b51893c04" class="item-toggle" #checked# />
+ <label for="fc640b1f-124d-4a45-b5c2-961b51893c04" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="fc640b1f-124d-4a45-b5c2-961b51893c04"><span class="text">Der Block</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="0a1e686f-eb5a-4002-a680-320be385e35b"><span class="text">Aktiver Block</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Aktiv versuchen zu punkten.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="048bf23e-c511-4ad7-9bdb-7c80ab364361"><span class="text">Passiver Block</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Der Ball soll nicht über das Netz - oder wenigstens gebremst werden.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="5178dc1a-5054-49f5-bf78-89fb085f2c9c"><span class="text">Einzelblock</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Wenn nicht mehr möglich ist...</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="e256f469-ba13-48d1-8b9a-86340cb4d8cd"><span class="text">Doppelblock</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Der Standard - wenn möglich.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="5bf56326-5533-4589-82b9-30be2a66c961"><span class="text">Dreifachblock</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Den Gegner überladen</span></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="01f17fc3-3bd0-18e7-98e0-ffb2e2d34bab"><span class="text">26/27</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">&quot;Wirbelwind&quot;</span></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="01ef24eb-c8f7-100c-8c34-76e17e76c3c2"><span class="text">U18: Jugend weiblich</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Infos</span></span>
+</div></div></div>
+
+<div class="content"><div class="container"><div class="text"><h1 id="h_1">Unser Nachwuchskonzept</h1>
+<p>Zur durchgängigen Ausbildung und Entwicklung unserer Spielerinnen.</p>
+<h2 id="h_1_1">Ziele</h2>
+<ul>
+<li>
+<p>Fördern und Fordern.</p>
+</li>
+<li>
+<p>Mit Spaß und Eifer den Weg an die Spitze schaffen.</p>
+</li>
+<li>
+<p>Wer weniger tun will, darf auch dabeibleiben. <br />
+Bei den Jüngeren gibt es Mannschaften für alle. <br />
+Bei den Älteren könnte es sein, dass sie dann aber nur in der zweiten Mannschaft spielen wird.</p>
+</li>
+</ul>
+</div></div>
+
+<script>
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+
+function unregister() {
+  document.removeEventListener('contextmenu', onContextMenu);
+}
+window.unregister = unregister;
+}());
+
+</script></div>
+<div class="footer">NW-Konzept</div>
+
+ </body>
+</html>

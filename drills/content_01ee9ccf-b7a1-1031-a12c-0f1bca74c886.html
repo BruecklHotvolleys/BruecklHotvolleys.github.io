@@ -1,0 +1,174 @@
+<div class="container full"><div class="img"><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="150" height="300" version="1.1" viewBox="0 0 150 300">
+  <g>
+    <rect x="0" y="0" width="150" height="300" style="stroke: none; fill: #d3d3d3;"/>
+  </g>
+  <g class="actors">
+    <g id="draw_1" transform="translate(0 0)">
+      <line x1="75" y1="255" x2="60" y2="255" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="60" y1="255" x2="63.922" y2="210.171" id="draw_1_2" data-anim-index="2" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="63.922" y1="210.171" x2="62.177" y2="160.202" id="draw_1_3" data-anim-index="3" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="62.177" y1="160.202" x2="62.177" y2="157.202" id="draw_1_4" data-anim-index="4" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="62.177" y1="157.202" x2="62.177" y2="87.202" id="draw_1_5" data-anim-index="5" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="62.177" y1="87.202" x2="75.858" y2="124.789" id="draw_1_6" data-anim-index="6" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="75.858" y1="124.789" x2="98.839" y2="144.073" id="draw_1_7" data-anim-index="7" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="62.177" y1="87.202" x2="62.177" y2="74.202" id="draw_1_8" data-anim-index="8" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="62.177" y1="74.202" x2="62.177" y2="67.202" id="draw_1_9" data-anim-index="9" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="62.177" y1="74.202" x2="62.177" y2="67.202" id="draw_1_10" data-anim-index="10" style="fill: none; stroke: #808080; stroke-width: 12; stroke-linecap: round; stroke-linejoin: round;"/>
+    </g>
+    <g id="draw_2" transform="translate(0 0)">
+      <line x1="55" y1="251" x2="55.837" y2="239.029" id="draw_2_1" data-anim-index="1" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="55.837" y1="239.029" x2="72.742" y2="202.777" id="draw_2_2" data-anim-index="2" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="72.742" y1="202.777" x2="61.855" y2="159.114" id="draw_2_3" data-anim-index="3" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+    </g>
+  </g>
+  <!-- context menu - - - - - - - - - - -->
+  <rect id="contextmenu_bg" x="0" y="0" />
+  <g id="contextmenu" class="contextmenu">
+    <rect x="0" y="0" width="204" height="100" rx="5" ry="5" />
+    <g id="ID_animation" class="ID_mi_stop">
+      <g class="menuitem" data-item="ID_mi_play" transform="translate(0 0)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 12 10 l 7 7 l -7 7 z" class="mi-play" />
+       <text x="30" y="25">Start</text>
+      </g>
+      <g class="menuitem" data-item="ID_mi_pause" transform="translate(0 32)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 12 10 v 14 M 18 10 v 14" class="mi-pause" />
+       <text x="30" y="25">Pause</text>
+      </g>
+      <g class="menuitem" data-item="ID_mi_stop" transform="translate(0 64)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 8 10 h 14 v 14 h -14 z" class="mi-stop" />
+       <text x="30" y="25">Stop</text>
+      </g>
+    </g>
+  </g>
+  <style>
+#contextmenu_bg {
+  width: 100%;
+  height: 100%;
+  fill: #7777777f;
+}
+#contextmenu_bg, #contextmenu {
+  display: none;
+  cursor: default;
+}
+
+g.contextmenu > rect, g.submenu > rect {
+  stroke: gray;
+  stroke-width: 3px;
+  fill: lightgray;
+}
+
+g.menuitem > rect, g.submenuitem > rect {
+  stroke: none;
+  fill: lightgray;
+}
+g.menuitem > * {
+  pointer-events: none;
+}
+g.menuitem > rect.bg {
+  pointer-events: all;
+  cursor: pointer;
+}
+g.menuitem:hover > rect.bg, g.submenuitem:hover > rect.bg {
+  fill: darkgray;
+}
+g.menuitem > text, g.submenuitem > text {
+  stroke: none;
+  fill: #111;
+  font-family: Arial;
+  font-size: 22px;
+}
+g.menuitem.mono > text, g.submenuitem.mono > text {
+  font-family: Consolas, monospace;
+  white-space: pre;
+}
+g.menuitem > rect.cb, g.menuitem > circle.rb {
+  stroke: gray;
+  stroke-width: 2px;
+  fill: none;
+}
+g.menuitem > circle.rb2 {
+  stroke: none;
+  fill: #111;
+}
+
+g.menuitem > path.cb2, g.submenuitem > path.marker_submenu {
+  stroke: #111;
+  stroke-width: 2px;
+  fill: none;
+  display: block;
+}
+g.submenu {
+  display: none;
+}
+g.submenuitem:hover > g.submenu {
+  display: block;
+}
+
+#contextmenu > rect.separator {
+  fill: #BBB;
+  stroke: none;
+}
+
+
+g.menuitem > path.mi-play, g.menuitem > path.mi-stop {
+  stroke: none;
+  fill: #444;
+}
+g.menuitem > path.mi-pause {
+  stroke: #444;
+  stroke-width: 3px;
+  fill: none;
+}
+
+
+g.actors.animation > g.move {
+  display: none !important;
+}
+
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"],
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"] > rect.bg,
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"] > rect.bg {
+  cursor: default;
+}
+g#ID_animation.ID_mi_play > g[data-item="ID_mi_play"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_play > g[data-item="ID_mi_play"] > rect.bg {
+  cursor: default;
+}
+g#ID_animation.ID_mi_pause > g[data-item="ID_mi_pause"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_pause > g[data-item="ID_mi_pause"] > rect.bg {
+  cursor: default;
+}
+  </style>
+</svg></div><div class="text"><h1 id="h_1">Thema</h1>
+<p><strong>Den Muskeln im Knöchelbereich stärken und das Balancegefühl verbessern.</strong></p>
+<h1 id="h_2">Beschreibung</h1>
+<ol>
+<li>Die Spielerin steht auf einem Bein, die Ferse ist entlastet, das Knie leicht gebeugt.</li>
+<li>Ev. den anderen Fuß hinten überkreuzen und am Unterschenkel anlegen.</li>
+<li>Einbeinige Kniebeuge (andeuten).</li>
+<li>Beinwechsel.</li>
+</ol>
+<h1 id="h_3">Hinweise</h1>
+<p>Langsam - es geht um die Balance und die Haltekraft.</p>
+<h1 id="h_4">Variationen</h1>
+<ul>
+<li>Auf einer Matte - <br />
+durch den weichen Untergrund wird es schwieriger.</li>
+<li>Die Schuhe ausziehen, umdrehen und darauf balancieren. <br />
+Mit dem linken Fuß am rechten Schuh stehen und umgekehrt, dadurch soll gewährleistet werden,
+dass die Spielerin eher nach außen kippt. <br />
+Das soll 'trainiert' werden, weniger nach innen - das ist schlecht fürs Fußgewölbe.</li>
+<li>Augen zu - wer schafft es dann noch?</li>
+</ul>
+</div></div>

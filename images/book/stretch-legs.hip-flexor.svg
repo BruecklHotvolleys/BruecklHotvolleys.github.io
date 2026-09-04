@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="330" height="540" version="1.1" viewBox="0 0 330 540">
+  <g>
+    <rect x="0" y="0" width="330" height="540" style="stroke: none; fill: #d3d3d3;"/>
+  </g>
+  <g class="actors">
+    <ellipse cx="0" cy="0" rx="20" ry="20" transform="translate(50 50)" style="stroke: none; fill: #a9a9a9;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(50 50) translate(0 11)" style="stroke: none; font-family: Arial; fill: #111111; font-size: 30px; font-weight: bold;">1</text>
+    <g transform="translate(0 0)">
+      <line x1="170" y1="120" x2="170" y2="130" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="170" y1="130" x2="270" y2="130" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="270" y1="130" x2="215.034" y2="128.081" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="215.034" y1="128.081" x2="279.786" y2="133.746" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="270" y1="130" x2="269.651" y2="126.015" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="269.651" y1="126.015" x2="263.986" y2="61.263" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="263.986" y1="61.263" x2="269.963" y2="60.74" style="fill: none; stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="269.963" y1="60.74" x2="277.778" y2="105.056" style="fill: none; stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <ellipse cx="277.778" cy="105.056" rx="2.5" ry="2.5" style="stroke: none; fill: #111111;"/>
+      <line x1="263.986" y1="61.263" x2="262.853" y2="48.312" style="fill: none; stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="262.853" y1="48.312" x2="262.417" y2="43.331" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="262.853" y1="48.312" x2="260.884" y2="48.659" style="fill: none; stroke: #111111; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="260.884" y1="48.659" x2="260.448" y2="43.678" style="fill: none; stroke: #696969; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="20" ry="20" transform="translate(50 200)" style="stroke: none; fill: #a9a9a9;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(50 200) translate(0 11)" style="stroke: none; font-family: Arial; fill: #111111; font-size: 30px; font-weight: bold;">2</text>
+    <g transform="translate(0 0)">
+      <line x1="160" y1="300" x2="170" y2="300" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="170" y1="300" x2="170" y2="250" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="170" y1="250" x2="220" y2="250" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="220" y1="250" x2="220" y2="300" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="220" y1="300" x2="274.966" y2="301.919" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="220" y1="250" x2="221.71" y2="245.302" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="221.71" y1="245.302" x2="217.732" y2="244.883" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="217.732" y1="244.883" x2="153.088" y2="238.089" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="153.088" y1="238.089" x2="153.715" y2="232.122" style="fill: none; stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="153.715" y1="232.122" x2="198.708" y2="232.907" style="fill: none; stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <ellipse cx="198.708" cy="232.907" rx="2.5" ry="2.5" style="stroke: none; fill: #111111;"/>
+      <line x1="153.088" y1="238.089" x2="140.159" y2="236.73" style="fill: none; stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="140.159" y1="236.73" x2="135.187" y2="236.208" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="140.159" y1="236.73" x2="140.124" y2="238.73" style="fill: none; stroke: #111111; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="140.124" y1="238.73" x2="135.152" y2="238.207" style="fill: none; stroke: #696969; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="20" ry="20" transform="translate(50 375)" style="stroke: none; fill: #a9a9a9;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(50 375) translate(0 11)" style="stroke: none; font-family: Arial; fill: #111111; font-size: 30px; font-weight: bold;">3</text>
+    <g transform="translate(0 0)">
+      <line x1="160" y1="500" x2="170" y2="500" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="170" y1="500" x2="129.042" y2="471.321" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="129.042" y1="471.321" x2="179.042" y2="471.321" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="179.042" y1="471.321" x2="220" y2="500" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="220" y1="500" x2="274.966" y2="501.919" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="179.042" y1="471.321" x2="178.521" y2="468.367" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="178.521" y1="468.367" x2="175.057" y2="466.367" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="175.057" y1="466.367" x2="118.766" y2="433.867" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="118.766" y1="433.867" x2="121.766" y2="428.671" style="fill: none; stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="121.766" y1="428.671" x2="162.55" y2="447.688" style="fill: none; stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <ellipse cx="162.55" cy="447.688" rx="2.5" ry="2.5" style="stroke: none; fill: #111111;"/>
+      <line x1="118.766" y1="433.867" x2="107.507" y2="427.367" style="fill: none; stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="107.507" y1="427.367" x2="103.177" y2="424.867" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="107.507" y1="427.367" x2="106.662" y2="429.179" style="fill: none; stroke: #111111; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="106.662" y1="429.179" x2="102.332" y2="426.679" style="fill: none; stroke: #696969; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round;"/>
+    </g>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

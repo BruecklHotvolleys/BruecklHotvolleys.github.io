@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="628" height="522" version="1.1" viewBox="0 0 628 522">
+  <g class="actors">
+    <line x1="0" y1="0" x2="0" y2="490" transform="translate(590 10)" style="fill: none; stroke: #111111; stroke-width: 3;"/>
+    <line x1="0" y1="0" x2="20" y2="0" transform="translate(580 11)" style="fill: none; stroke: #111111; stroke-width: 3;"/>
+    <text x="0" y="0" text-anchor="end" transform="translate(623 9) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">16</text>
+    <line x1="0" y1="0" x2="20" y2="0" transform="translate(580 61)" style="fill: none; stroke: #111111; stroke-width: 3;"/>
+    <line x1="0" y1="0" x2="20" y2="0" transform="translate(580 111)" style="fill: none; stroke: #111111; stroke-width: 3;"/>
+    <text x="0" y="0" text-anchor="end" transform="translate(623 109) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">14</text>
+    <line x1="0" y1="0" x2="20" y2="0" transform="translate(580 161)" style="fill: none; stroke: #111111; stroke-width: 3;"/>
+    <line x1="0" y1="0" x2="20" y2="0" transform="translate(580 211)" style="fill: none; stroke: #111111; stroke-width: 3;"/>
+    <text x="0" y="0" text-anchor="end" transform="translate(623 209) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">12</text>
+    <line x1="0" y1="0" x2="20" y2="0" transform="translate(580 261)" style="fill: none; stroke: #111111; stroke-width: 3;"/>
+    <line x1="0" y1="0" x2="20" y2="0" transform="translate(580 311)" style="fill: none; stroke: #111111; stroke-width: 3;"/>
+    <text x="0" y="0" text-anchor="end" transform="translate(623 309) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">10</text>
+    <line x1="0" y1="0" x2="20" y2="0" transform="translate(580 361)" style="fill: none; stroke: #111111; stroke-width: 3;"/>
+    <line x1="0" y1="0" x2="20" y2="0" transform="translate(580 411)" style="fill: none; stroke: #111111; stroke-width: 3;"/>
+    <text x="0" y="0" text-anchor="end" transform="translate(623 409) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">8</text>
+    <line x1="0" y1="0" x2="20" y2="0" transform="translate(580 461)" style="fill: none; stroke: #111111; stroke-width: 3;"/>
+    <line x1="0" y1="0" x2="20" y2="0" transform="translate(580 511)" style="fill: none; stroke: #111111; stroke-width: 3;"/>
+    <text x="0" y="0" text-anchor="end" transform="translate(623 509) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">6</text>
+    <text x="0" y="0" text-anchor="end" transform="translate(572 9) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Alter</text>
+    <rect x="0" y="0" width="150" height="100" transform="translate(60 210)" style="stroke: #111111; stroke-width: 3; fill: #dddddd;"/>
+    <rect x="0" y="0" width="20" height="100" transform="translate(60 110)" style="stroke: #111111; stroke-width: 3; fill: #dddddd;"/>
+    <rect x="0" y="0" width="20" height="100" transform="translate(92.4 110)" style="stroke: #111111; stroke-width: 3; fill: #dddddd;"/>
+    <rect x="0" y="0" width="20" height="100" transform="translate(157.2 110)" style="stroke: #111111; stroke-width: 3; fill: #dddddd;"/>
+    <rect x="0" y="0" width="20" height="100" transform="translate(189.6 110)" style="stroke: #111111; stroke-width: 3; fill: #dddddd;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(135 255)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 16px;">Grundlagentraining</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(135 265) translate(0 12)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 16px;">übrige Sportarten</text>
+    <rect x="0" y="0" width="150" height="100" transform="translate(380 210)" style="stroke: #111111; stroke-width: 3; fill: #dddddd;"/>
+    <rect x="0" y="0" width="20" height="100" transform="translate(380 110)" style="stroke: #111111; stroke-width: 3; fill: #dddddd;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(390 160) rotate(-90) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Volleyball</text>
+    <rect x="0" y="0" width="20" height="100" transform="translate(412.4 110)" style="stroke: #111111; stroke-width: 3; fill: #dddddd;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(422.4 160) rotate(-90) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Hockey</text>
+    <rect x="0" y="0" width="20" height="100" transform="translate(444.8 110)" style="stroke: #111111; stroke-width: 3; fill: #dddddd;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(454.8 160) rotate(-90) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Handball</text>
+    <rect x="0" y="0" width="20" height="100" transform="translate(477.2 110)" style="stroke: #111111; stroke-width: 3; fill: #dddddd;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(487.2 160) rotate(-90) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Fußball</text>
+    <rect x="0" y="0" width="20" height="100" transform="translate(509.6 110)" style="stroke: #111111; stroke-width: 3; fill: #dddddd;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(519.6 160) rotate(-90) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Basketball</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(455 255)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 16px;">Grundlagentraining</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(455 265) translate(0 12)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 16px; letter-spacing: 5px;">SPIELE</text>
+    <rect x="0" y="0" width="580" height="200" transform="translate(10 310)" style="stroke: #111111; stroke-width: 5; fill: #dddddd;"/>
+    <line x1="0" y1="0" x2="580" y2="0" transform="translate(10 361)" style="fill: none; stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 5 11;"/>
+    <line x1="0" y1="0" x2="580" y2="0" transform="translate(10 411)" style="fill: none; stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 5 13;"/>
+    <line x1="0" y1="0" x2="580" y2="0" transform="translate(10 461)" style="fill: none; stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 5 13;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 386) translate(0 11)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 29px; letter-spacing: 10px;">SPORTMOTORISCHE</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 436) translate(0 11)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 29px; letter-spacing: 10px;">GRUNDAUSBILDUNG</text>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

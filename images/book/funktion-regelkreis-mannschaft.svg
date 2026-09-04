@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="830" height="430" version="1.1" viewBox="0 0 830 430">
+  <g class="actors">
+    <g id="arrow_1" transform="translate(300 75)">
+      <line x1="-6.868" y1="24.038" x2="-43.132" y2="150.962" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-35.043,142.873 -43.132,150.962 -45.727,139.82" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_2" transform="translate(300 75)">
+      <line x1="-6.868" y1="24.038" x2="-43.132" y2="150.962" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-35.043,142.873 -43.132,150.962 -45.727,139.82" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="10" ry="10" id="ellipse_3" transform="translate(247 205)" style="stroke: none; fill: #008000; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" id="text_4" transform="translate(247 205) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; font-weight: bold;">+</text>
+    <g id="arrow_5" transform="translate(260 255)">
+      <line x1="-37.6" y1="-28.2" x2="-102.4" y2="-76.8" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-97.733,-66.356 -102.4,-76.8 -91.067,-75.244" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_6" transform="translate(260 255)">
+      <line x1="-37.6" y1="-28.2" x2="-102.4" y2="-76.8" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-97.733,-66.356 -102.4,-76.8 -91.067,-75.244" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="10" ry="10" id="ellipse_7" transform="translate(158 195)" style="stroke: none; fill: #008000; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" id="text_8" transform="translate(158 195) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; font-weight: bold;">+</text>
+    <g id="arrow_9" transform="translate(125 145)">
+      <line x1="46.424" y1="-18.57" x2="128.576" y2="-51.43" style="stroke: #ff0000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="117.228,-52.875 128.576,-51.43 121.355,-42.558" style="stroke: #ff0000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_10" transform="translate(125 145)">
+      <line x1="46.424" y1="-18.57" x2="128.576" y2="-51.43" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="117.228,-52.875 128.576,-51.43 121.355,-42.558" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="10" ry="10" id="ellipse_11" transform="translate(233 84)" style="stroke: none; fill: #ff0000; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" id="text_12" transform="translate(233 82) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; font-weight: bold;">-</text>
+    <g id="arrow_13" transform="translate(260 255)">
+      <line x1="12.758" y1="19.137" x2="47.242" y2="70.863" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="46.317,59.461 47.242,70.863 37.072,65.624" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_14" transform="translate(260 255)">
+      <line x1="12.758" y1="19.137" x2="47.242" y2="70.863" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="46.317,59.461 47.242,70.863 37.072,65.624" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="10" ry="10" id="ellipse_15" transform="translate(310 304)" style="stroke: none; fill: #008000; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" id="text_16" transform="translate(310 304) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; font-weight: bold;">+</text>
+    <g id="arrow_17" transform="translate(330 345)">
+      <line x1="29.848" y1="-16.281" x2="190.152" y2="-103.719" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="178.712,-103.808 190.152,-103.719 184.033,-94.053" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_18" transform="translate(330 345)">
+      <line x1="29.848" y1="-16.281" x2="190.152" y2="-103.719" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="178.712,-103.808 190.152,-103.719 184.033,-94.053" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="10" ry="10" id="ellipse_19" transform="translate(497 238)" style="stroke: none; fill: #008000; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" id="text_20" transform="translate(497 238) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; font-weight: bold;">+</text>
+    <g id="arrow_21" transform="translate(340 350)">
+      <line x1="56.302" y1="-8.89" x2="133.698" y2="-21.11" style="stroke: #ff0000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="122.953,-25.038 133.698,-21.11 124.686,-14.063" style="stroke: #ff0000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_22" transform="translate(340 350)">
+      <line x1="56.302" y1="-8.89" x2="133.698" y2="-21.11" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="122.953,-25.038 133.698,-21.11 124.686,-14.063" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="10" ry="10" id="ellipse_23" transform="translate(452 318)" style="stroke: none; fill: #ff0000; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" id="text_24" transform="translate(452 316) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; font-weight: bold;">-</text>
+    <g id="arrow_25" transform="translate(305 74)">
+      <line x1="34.361" y1="20.477" x2="210.639" y2="125.523" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="204.892,115.632 210.639,125.523 199.204,125.177" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_26" transform="translate(305 74)">
+      <line x1="34.361" y1="20.477" x2="210.639" y2="125.523" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="204.892,115.632 210.639,125.523 199.204,125.177" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="10" ry="10" id="ellipse_27" transform="translate(505 178)" style="stroke: none; fill: #008000; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" id="text_28" transform="translate(505 178) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; font-weight: bold;">+</text>
+    <g id="arrow_29" transform="translate(305 75)">
+      <line x1="20.969" y1="22.832" x2="204.031" y2="222.168" style="stroke: #ff0000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="201.359,211.044 204.031,222.168 193.176,218.56" style="stroke: #ff0000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_30" transform="translate(305 75)">
+      <line x1="20.969" y1="22.832" x2="204.031" y2="222.168" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="201.359,211.044 204.031,222.168 193.176,218.56" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="10" ry="10" id="ellipse_31" transform="translate(504 274)" style="stroke: none; fill: #ff0000; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" id="text_32" transform="translate(504 272) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; font-weight: bold;">-</text>
+    <g id="arrow_33" transform="translate(550 225)">
+      <line x1="25.928" y1="-27.78" x2="114.072" y2="-122.22" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="103.187,-118.7 114.072,-122.22 111.31,-111.119" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_34" transform="translate(550 225)">
+      <line x1="25.928" y1="-27.78" x2="114.072" y2="-122.22" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="103.187,-118.7 114.072,-122.22 111.31,-111.119" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="10" ry="10" id="ellipse_35" transform="translate(642 108)" style="stroke: none; fill: #008000; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" id="text_36" transform="translate(642 108) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; font-weight: bold;">+</text>
+    <ellipse cx="0" cy="0" rx="10" ry="10" id="ellipse_37" transform="translate(685 120)" style="stroke: none; fill: #ff0000; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" id="text_38" transform="translate(685 118) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; font-weight: bold;">-</text>
+    <g id="arrow_39" transform="translate(550 320)">
+      <line x1="15.805" y1="-25.499" x2="134.195" y2="-216.501" style="stroke: #ff0000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="124.204,-210.928 134.195,-216.501 133.649,-205.074" style="stroke: #ff0000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_40" transform="translate(550 320)">
+      <line x1="15.805" y1="-25.499" x2="134.195" y2="-216.501" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="124.204,-210.928 134.195,-216.501 133.649,-205.074" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_41" transform="translate(680 75)">
+      <line x1="-80" y1="0" x2="-310" y2="0" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-300,5.556 -310,0 -300,-5.556" style="stroke: #008000; stroke-opacity: 0; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g id="arrow_42" transform="translate(680 75)">
+      <line x1="-80" y1="0" x2="-310" y2="0" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-300,5.556 -310,0 -300,-5.556" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="10" ry="10" id="ellipse_43" transform="translate(390 61)" style="stroke: none; fill: #008000; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" id="text_44" transform="translate(390 61) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; font-weight: bold;">+</text>
+    <ellipse cx="0" cy="0" rx="70" ry="25" id="ellipse_45" transform="translate(300 75)" style="stroke: #0000ff; stroke-opacity: 0; stroke-width: 5; fill: #ffd700; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 74) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; pointer-events: none;">Motivation</text>
+    <ellipse cx="0" cy="0" rx="70" ry="25" id="ellipse_46" transform="translate(250 250)" style="stroke: #0000ff; stroke-opacity: 0; stroke-width: 5; fill: #ffd700; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(250 249) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; pointer-events: none;">Training</text>
+    <ellipse cx="0" cy="0" rx="100" ry="30" id="ellipse_47" transform="translate(120 150)" style="stroke: #0000ff; stroke-opacity: 0; stroke-width: 5; fill: #ffd700; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(120 149) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; pointer-events: none;">Überforderung</text>
+    <ellipse cx="0" cy="0" rx="70" ry="25" id="ellipse_48" transform="translate(330 350)" style="stroke: #0000ff; stroke-opacity: 0; stroke-width: 5; fill: #ffd700; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(330 349) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; pointer-events: none;">Können</text>
+    <ellipse cx="0" cy="0" rx="70" ry="25" id="ellipse_49" transform="translate(550 220)" style="stroke: #0000ff; stroke-opacity: 0; stroke-width: 5; fill: #ffd700; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(550 219) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; pointer-events: none;">Siege</text>
+    <ellipse cx="0" cy="0" rx="80" ry="27" id="ellipse_50" transform="translate(550 320)" style="stroke: #0000ff; stroke-opacity: 0; stroke-width: 5; fill: #ffd700; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(550 319) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; pointer-events: none;">Niederlagen</text>
+    <ellipse cx="0" cy="0" rx="100" ry="30" id="ellipse_51" transform="translate(700 75)" style="stroke: #0000ff; stroke-opacity: 0; stroke-width: 5; fill: #ffd700; fill-opacity: 0;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(700 74) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px; pointer-events: none;">Selbstwertgefühl</text>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Selects the first matching dom element.
+ * @param {string} selector The selector of the element.
+ * @param {DOMElement} parent The optional root of the search (default: document).
+ * @returns DOMElement The first matching DOM element.
+ */
+function $(selector, parent) {
+  return (parent ? parent : document).querySelector(selector);
+}
+
+/**
+ * Selects DOMElements.
+ * @param {string} selector The selector of the DOMElements.
+ * @param {DOMElement} parent The optional root of the search (default: document).
+ * @returns {NodeList} The list of matching DOMElements.
+ */
+function $$(selector, parent) {
+  return (parent ? parent : document).querySelectorAll(selector);
+}
+
+/**
+ * Connects an event handler to a given DOMElement.
+ * @param {DOMElement} elem The DOMElement to handle.
+ * @param {string} event The name of the event to handle.
+ * @param {Function} handler The ebvent handler.
+ * @returns {void}
+ */
+function $event(elem, event, handler) {
+  elem.addEventListener(event, handler);
+}
+/**
+ * The effects data and handler.
+ */
+var effects = {
+  
+  /**
+   * Initializes the effects info.
+   */
+  'init': function() {
+    // the ids of all controls with effects
+    this.ids = Object.keys(this.infos);
+    // connect event handling
+    $event($('svg'), 'click', this.onClick.bind(this));
+    $event($('svg'), 'mouseover', this.onMouseOver.bind(this));
+    $event($('svg'), 'mouseout', this.onMouseOut.bind(this));
+
+    return this;
+  },
+  
+  /**
+   * The effect infos.
+   */
+  'infos': {
+  "arrow_1": {
+    "stroke": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "arrow_2": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_3": {
+    "fill": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "text_4": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "arrow_5": {
+    "stroke": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "arrow_6": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_7": {
+    "fill": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "text_8": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "arrow_9": {
+    "stroke": {
+      "common": "#ff0000",
+      "hover": "#ff0000"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "arrow_10": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_11": {
+    "fill": {
+      "common": "#ff0000",
+      "hover": "#ff0000"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "text_12": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "arrow_13": {
+    "stroke": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "arrow_14": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_15": {
+    "fill": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "text_16": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "arrow_17": {
+    "stroke": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "arrow_18": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_19": {
+    "fill": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "text_20": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "arrow_21": {
+    "stroke": {
+      "common": "#ff0000",
+      "hover": "#ff0000"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "arrow_22": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_23": {
+    "fill": {
+      "common": "#ff0000",
+      "hover": "#ff0000"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "text_24": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "arrow_25": {
+    "stroke": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "arrow_26": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_27": {
+    "fill": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "text_28": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "arrow_29": {
+    "stroke": {
+      "common": "#ff0000",
+      "hover": "#ff0000"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "arrow_30": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_31": {
+    "fill": {
+      "common": "#ff0000",
+      "hover": "#ff0000"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "text_32": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "arrow_33": {
+    "stroke": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "arrow_34": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_35": {
+    "fill": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "text_36": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_37": {
+    "fill": {
+      "common": "#ff0000",
+      "hover": "#ff0000"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "text_38": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "arrow_39": {
+    "stroke": {
+      "common": "#ff0000",
+      "hover": "#ff0000"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "arrow_40": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "arrow_41": {
+    "stroke": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "arrow_42": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_43": {
+    "fill": {
+      "common": "#008000",
+      "hover": "#008000"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1"
+    }
+  },
+  "text_44": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#111111"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "ellipse_45": {
+    "fill": {
+      "common": "#ffd700",
+      "hover": "#ffd700"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "0.39"
+    }
+  },
+  "ellipse_46": {
+    "fill": {
+      "common": "#ffd700",
+      "hover": "#ffd700"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "0.39"
+    }
+  },
+  "ellipse_47": {
+    "fill": {
+      "common": "#ffd700",
+      "hover": "#ffd700"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "0.39"
+    }
+  },
+  "ellipse_48": {
+    "fill": {
+      "common": "#ffd700",
+      "hover": "#ffd700"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "0.39"
+    }
+  },
+  "ellipse_49": {
+    "fill": {
+      "common": "#ffd700",
+      "hover": "#ffd700"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "0.39"
+    }
+  },
+  "ellipse_50": {
+    "fill": {
+      "common": "#ffd700",
+      "hover": "#ffd700"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "0.39"
+    }
+  },
+  "ellipse_51": {
+    "fill": {
+      "common": "#ffd700",
+      "hover": "#ffd700"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "0.39"
+    }
+  }
+},
+  /**
+   * The grouping infos.
+   */
+  'groups': {
+  "byId": {
+    "arrow_17": "can",
+    "arrow_18": "can",
+    "ellipse_19": "can",
+    "text_20": "can",
+    "arrow_21": "can",
+    "arrow_22": "can",
+    "ellipse_23": "can",
+    "text_24": "can",
+    "ellipse_48": "can",
+    "arrow_1": "mot",
+    "arrow_2": "mot",
+    "ellipse_3": "mot",
+    "text_4": "mot",
+    "arrow_25": "mot",
+    "arrow_26": "mot",
+    "ellipse_27": "mot",
+    "text_28": "mot",
+    "arrow_29": "mot",
+    "arrow_30": "mot",
+    "ellipse_31": "mot",
+    "text_32": "mot",
+    "ellipse_45": "mot",
+    "ellipse_37": "lost",
+    "text_38": "lost",
+    "arrow_39": "lost",
+    "arrow_40": "lost",
+    "ellipse_50": "lost",
+    "arrow_41": "wert",
+    "arrow_42": "wert",
+    "ellipse_43": "wert",
+    "text_44": "wert",
+    "ellipse_51": "wert",
+    "arrow_9": "ford",
+    "arrow_10": "ford",
+    "ellipse_11": "ford",
+    "text_12": "ford",
+    "ellipse_47": "ford",
+    "arrow_33": "win",
+    "arrow_34": "win",
+    "ellipse_35": "win",
+    "text_36": "win",
+    "ellipse_49": "win",
+    "arrow_5": "train",
+    "arrow_6": "train",
+    "ellipse_7": "train",
+    "text_8": "train",
+    "arrow_13": "train",
+    "arrow_14": "train",
+    "ellipse_15": "train",
+    "text_16": "train",
+    "ellipse_46": "train"
+  },
+  "byName": {
+    "can": [
+      "arrow_17",
+      "arrow_18",
+      "ellipse_19",
+      "text_20",
+      "arrow_21",
+      "arrow_22",
+      "ellipse_23",
+      "text_24",
+      "ellipse_48"
+    ],
+    "mot": [
+      "arrow_1",
+      "arrow_2",
+      "ellipse_3",
+      "text_4",
+      "arrow_25",
+      "arrow_26",
+      "ellipse_27",
+      "text_28",
+      "arrow_29",
+      "arrow_30",
+      "ellipse_31",
+      "text_32",
+      "ellipse_45"
+    ],
+    "lost": [
+      "ellipse_37",
+      "text_38",
+      "arrow_39",
+      "arrow_40",
+      "ellipse_50"
+    ],
+    "wert": [
+      "arrow_41",
+      "arrow_42",
+      "ellipse_43",
+      "text_44",
+      "ellipse_51"
+    ],
+    "ford": [
+      "arrow_9",
+      "arrow_10",
+      "ellipse_11",
+      "text_12",
+      "ellipse_47"
+    ],
+    "win": [
+      "arrow_33",
+      "arrow_34",
+      "ellipse_35",
+      "text_36",
+      "ellipse_49"
+    ],
+    "train": [
+      "arrow_5",
+      "arrow_6",
+      "ellipse_7",
+      "text_8",
+      "arrow_13",
+      "arrow_14",
+      "ellipse_15",
+      "text_16",
+      "ellipse_46"
+    ]
+  }
+},
+  
+  'ids': null,
+  'clicked': null,
+  'hover': [],
+
+  /**
+   * Handles a click event to set the active style effects.
+   *
+   * @param Event event The event info.
+   * @returns void
+   */
+  'onClick': function(event) {
+    var id = event.target.id, 
+        id2 = null,
+        oldClicked = this.clicked;
+    if ((!id || this.ids.indexOf(id) < 0) && event.target.parentNode) {
+      id = event.target.parentNode.id;
+    }
+    
+    if (id && this.ids.indexOf(id) >= 0) {
+      id2 = this.groups.byId[id] ? "g" + this.groups.byId[id] : "i" + id;
+    }
+    
+    // reset if any old
+    if (oldClicked) {
+      this.setStyle(oldClicked, this.hover.indexOf(oldClicked) >= 0 ? "hover" : "common");
+      this.clicked = null;
+    }
+    
+    // set new clicked item
+    if (id2 && id2 !== oldClicked) {
+      this.clicked = id2;
+      this.setStyle(id2, this.hover.indexOf(id2) >= 0 ? "activehover" : "active");
+    }
+  },
+
+  /**
+   * Handles a mouse over event to set the hover style effects.
+   *
+   * @param Event event The event info.
+   * @returns void
+   */
+  'onMouseOver': function(event) {
+    var id = event.target.id, id2;
+    if ((!id || this.ids.indexOf(id) < 0) && event.target.parentNode) {
+      id = event.target.parentNode.id;
+    }
+    
+    if (id && this.ids.indexOf(id) >= 0) {
+      id2 = this.groups.byId[id] ? "g" + this.groups.byId[id] : "i" + id;
+      
+      if (this.hover.indexOf(id2) < 0) {
+        this.hover.push(id2);
+        this.setStyle(id2, this.clicked === id2 ? "activehover" : "hover");
+      }
+    }
+  },
+
+  /**
+   * Handles a mouse leave event to set the hover style effects.
+   *
+   * @param Event event The event info.
+   * @returns void
+   */
+  'onMouseOut': function(event) {
+    var id = event.target.id, id2;
+    if ((!id || this.ids.indexOf(id) < 0) && event.target.parentNode) {
+      id = event.target.parentNode.id;
+    }
+    
+    if (id && this.ids.indexOf(id) >= 0) {
+      id2 = this.groups.byId[id] ? "g" + this.groups.byId[id] : "i" + id;
+      
+      var pos = this.hover.indexOf(id2);
+      if (pos >= 0) {
+        this.hover.splice(pos, 1);
+        this.setStyle(id2, this.clicked === id2 ? "active" : "common");
+      }
+    }
+  },
+
+  /**
+   * Sets the styles to set the effects.
+   * @param string id2 The id of the elem to style.
+   * @param string style Th ekey of the style to set.
+   * @returns void
+   */
+  'setStyle': function(id2, style) {
+    var type = id2.charAt(0),
+        id = id2.substr(1);
+    
+    if (type === 'g') {
+      var items = this.groups.byName[id];
+      if (items) {
+        items.forEach((item) => this.setStyle('i' + item, style)); 
+      }
+    } else if (type === 'i') {
+      this.setStyle2($('#' + id), id, style);
+     }
+  },
+
+  /**
+   * Sets the styles to set the effects.
+   * @param Element elem Th eelem to style.
+   * @param string id The name of the styles to get.
+   * @param string key The key of the style to get.
+   * @returns void
+   */
+  'setStyle2': function(elem, id, key) {
+    var info = this.infos[id];
+    
+    if (!elem || !elem.tagName || !info) {
+      return;
+    }
+    
+    // handle groups
+    if (elem.tagName === 'g') {
+      var children = elem.children;
+      for (var i = 0; i < children.length; ++i) {
+        this.setStyle2(children[i], id, key);
+      }
+      
+    } else {
+      // set style of item
+      Object.keys(info).forEach((name) =>  {
+        elem.style[name] = info[name][key];
+      });
+    }
+  }
+}.init();
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

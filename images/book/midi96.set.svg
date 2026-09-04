@@ -1,0 +1,1824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="1300" height="1380" version="1.1" viewBox="0 0 1300 1380">
+  <defs>
+    <radialGradient id="courtFill" cx="1100" cy="-20" r="150%" spreadMethod="pad" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffe166"/>
+      <stop offset="100%" stop-color="#d69e48"/>
+    </radialGradient>
+  </defs>
+  <g>
+    <rect x="0" y="0" width="1300" height="1380" style="stroke: none; fill: #bdb5b7;"/>
+    <rect x="200" y="-20" width="900" height="1200" clip-path="inset(20px 0 0 0)" style="fill: url('#courtFill'); stroke: #0000b2; stroke-width: 5;"/>
+    <line x1="200" y1="580" x2="1100" y2="580" style="fill: none; stroke: #0000b2; stroke-width: 5;"/>
+    <line x1="200" y1="880" x2="1100" y2="880" style="fill: none; stroke: #0000b2; stroke-width: 5;"/>
+    <line x1="185" y1="880" x2="35" y2="880" style="fill: none; stroke: #0000b2; stroke-width: 5; stroke-dasharray: 15 15;"/>
+    <line x1="1115" y1="880" x2="1265" y2="880" style="fill: none; stroke: #0000b2; stroke-width: 5; stroke-dasharray: 15 15;"/>
+    <line x1="200" y1="280" x2="1100" y2="280" style="fill: none; stroke: #0000b2; stroke-width: 5;"/>
+    <line x1="185" y1="280" x2="35" y2="280" style="fill: none; stroke: #0000b2; stroke-width: 5; stroke-dasharray: 15 15;"/>
+    <line x1="1115" y1="280" x2="1265" y2="280" style="fill: none; stroke: #0000b2; stroke-width: 5; stroke-dasharray: 15 15;"/>
+  </g>
+  <g class="actors">
+    <rect x="0" y="0" width="1100" height="525" rx="15" ry="15" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(100 5)" style="stroke: #808080; stroke-width: 10; fill: #d3d3d3;"/>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info">
+      <line x1="0" y1="0" x2="1050" y2="0" transform="translate(125 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="1000" y2="0" transform="translate(150 240)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="1000" y2="0" transform="translate(150 250)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="1000" y2="0" transform="translate(150 260)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="1000" y2="0" transform="translate(150 270)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="1000" y2="0" transform="translate(150 280)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="1000" y2="0" transform="translate(150 290)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="1000" y2="0" transform="translate(150 300)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="1000" y2="0" transform="translate(150 310)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="1000" y2="0" transform="translate(150 320)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="1050" y2="0" transform="translate(125 330)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(150 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(160 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(170 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(180 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(190 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(200 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(210 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(220 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(230 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(240 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(250 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(260 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(270 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(280 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(290 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(300 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(310 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(320 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(330 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(340 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(350 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(360 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(370 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(380 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(390 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(400 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(410 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(420 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(430 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(440 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(450 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(460 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(470 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(480 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(490 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(500 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(510 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(520 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(530 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(540 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(550 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(560 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(570 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(580 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(590 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(600 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(610 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(620 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(630 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(640 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(650 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(660 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(670 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(680 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(690 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(700 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(710 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(720 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(730 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(740 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(750 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(760 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(770 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(780 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(790 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(800 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(810 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(820 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(830 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(840 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(850 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(860 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(870 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(880 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(890 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(900 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(910 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(920 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(930 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(940 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(950 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(960 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(970 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(980 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(990 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1000 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1010 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1020 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1030 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1040 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1050 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1060 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1070 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1080 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1090 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1100 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1110 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1120 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1130 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1140 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1150 230)" style="fill: none; stroke: #000000; stroke-width: 0.5;"/>
+      <line x1="0" y1="0" x2="1002" y2="0" transform="translate(149 232)" style="fill: none; stroke: #ffffff; stroke-width: 7;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(204 231)" style="fill: none; stroke: #ffffff; stroke-width: 10;"/>
+      <line x1="0" y1="0" x2="0" y2="100" transform="translate(1096 231)" style="fill: none; stroke: #ffffff; stroke-width: 10;"/>
+      <line x1="0" y1="0" x2="0" y2="-80" transform="translate(201 230)" style="fill: none; stroke: #ffffff; stroke-width: 2;"/>
+      <line x1="0" y1="0" x2="0" y2="-9" transform="translate(201 230)" style="fill: none; stroke: #ff0000; stroke-width: 2;"/>
+      <line x1="0" y1="0" x2="0" y2="-9" transform="translate(201 210)" style="fill: none; stroke: #ff0000; stroke-width: 2;"/>
+      <line x1="0" y1="0" x2="0" y2="-9" transform="translate(201 190)" style="fill: none; stroke: #ff0000; stroke-width: 2;"/>
+      <line x1="0" y1="0" x2="0" y2="-9" transform="translate(201 170)" style="fill: none; stroke: #ff0000; stroke-width: 2;"/>
+      <line x1="0" y1="0" x2="0" y2="-80" transform="translate(1099 230)" style="fill: none; stroke: #ffffff; stroke-width: 2;"/>
+      <line x1="0" y1="0" x2="0" y2="-9" transform="translate(1099 230)" style="fill: none; stroke: #ff0000; stroke-width: 2;"/>
+      <line x1="0" y1="0" x2="0" y2="-9" transform="translate(1099 210)" style="fill: none; stroke: #ff0000; stroke-width: 2;"/>
+      <line x1="0" y1="0" x2="0" y2="-9" transform="translate(1099 190)" style="fill: none; stroke: #ff0000; stroke-width: 2;"/>
+      <line x1="0" y1="0" x2="0" y2="-9" transform="translate(1099 170)" style="fill: none; stroke: #ff0000; stroke-width: 2;"/>
+    </g>
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 525 -380 C 300 -600 120 -600 75 -400" id="path_128" transform="translate(200 580)" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_129" transform="translate(320 -20)">
+      <polyline points="-34.339,188.049 -45,200 -49.515,184.634" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 525 -380 C 300 -600 120 -600 75 -400" id="path_130" transform="translate(200 580)" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_131" transform="translate(320 -20)">
+      <polyline points="-34.339,188.049 -45,200 -49.515,184.634" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_132" transform="translate(238 245)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_133" transform="translate(275 260) translate(0 42)" style="stroke: none; font-family: Arial; fill: #444444; font-size: 55px;">0</text>
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_134" transform="translate(238 350)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAAB/0lEQVR4XuWSAU7EMAwE7/8PgYfcB/gREKQga9dOnXTba31II8HEl3p6PL4+Ph/vBInqkKgOieqQqA6J6pCoDokZfn++O3h2VUhk6JHP5/M/+C7RJLawsZa7hJMYEcVG4Vd8ASRGbMUiV4wmMWI22IvHO8+GRMSe2CtFkxihjI7AZ6ohsYUiOuKMeBIZjoxuHBlOIkNfBBdVc0Q4iSxnRTcuEfz3YVHw6OUpYxskZokW3cL7V7XOA5+9AolZ+jIYtEUm4JLBjZXoTIC9MzOfgcQqM9GZbwzv2prPQmIP2eg+N4rAe0azM5DYQzYYwzP3eHMrkNiLt+wIG91/9z5/2eBGtHTEKPQWwY2tAGQ02+/CZ6xAQkXmW8ugjG2QUKEIVsc2SKiwwQiGeRwR2yChpMdhMHJWbIOEkijYi7PgPUpIKLFxNhajoxeA9ykgocQLttGZcLxzLySUYBBG4t/IEdEklGBMD/CicRbP8e5VSCjBiCgu8niO969AQgkG2LDRGQYro0koweVHwTPn+JwZSCjBpe3CXpSN8c7xjhVIKMGFM8FetJ3DmVlIKPGC8Dw70+duE+wtmgnG2eg8CwkldsloUYyO5uws+hlIKMksOBOsgMQr6NGZF7QXEq/g7YIbR4d2SFSHRHVIVIdEdUhUh0R1SFSHRHVIVIdEdUhU5wfkmAkk1UIjEQAAAABJRU5ErkJggg==" width="60" height="61" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(275 390) scale(1.1)" style="pointer-events: none;"/>
+    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAACAUlEQVR4XuWSUU7EMAwFOQifnB2uw0U4AxCkIOs9O3XS127rRRoJJt7U0+Xl8/3j5ZkgUR0S1SFRHRLVIVEdEtUhMcPvz3cHz64KiQw98uv17T/4LtEktrCxlruEkxgRxUbhV3wBJEZsxSJXjCYxYjbYi8c7z4ZExJ7YK0WTGKGMjsBnqiGxhSI64ox4EhmOjG4cGU4iQ18EF1VzRDiJLGdFNy4R/PdhUfDo5SljGyRmiRbdwvtXtc4Dn70CiVn6Mhi0RSbgksGNlehMgL0zM5+BxCoz0ZlvDO/ams9CYg/Z6D43isB7RrMzkNhDNhjDM/d4cyuQ2Iu37Agb3X/3Pn/Z4Ea0dMQo9BbBja0AZDTb78JnrEBCReZby6CMbZBQoQhWxzZIqLDBCIZ5HBHbIKGkx2EwclZsg4SSKNiLs+A9SkgosXE2FqOjF4D3KSChxAu20ZlwvHMvJJRgEEbi38gR0SSUYEwP8KJxFs/x7lVIKMGIKC7yeI73r0BCCQbYsNEZBiujSSjB5UfBM+f4nBlIKMGl7cJelI3xzvGOFUgowYUzwV60ncOZWUgo8YLwPDvT524T7C2aCcbZ6DwLCSV2yWhRjI7m7Cz6GUgoySw4E6yAxCPo0ZkXtBcSj+DpghtHh3ZIVIdEdUhUh0R1SFSHRHVIVIdEdUhUh0R1SFTnB3c/DO76mhkfAAAAAElFTkSuQmCC" width="60" height="61" id="image_136" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(275 390) scale(1.1)" style="pointer-events: none; display: none;"/>
+    <rect x="0" y="0" width="1050" height="80" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_137" transform="translate(125 435)" style="stroke: none; fill: #d3d3d3; fill-opacity: 0; pointer-events: none;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_138" transform="translate(650 475) translate(0 11)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Ein hoher Angriff über die Außenposition.</text>
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 525 -380 C 457.5 -510 403.5 -510 390 -400" id="path_139" transform="translate(200 580)" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_140" transform="translate(603.5 70)">
+      <polyline points="-4.748,97.977 -13.5,110 -19.085,96.217" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 525 -380 C 457.5 -510 403.5 -510 390 -400" id="path_141" transform="translate(200 580)" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_142" transform="translate(603.5 70)">
+      <polyline points="-6.094,99.826 -13.5,110 -18.226,98.338" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_143" transform="translate(553 245)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_144" transform="translate(590 260) translate(0 42)" style="stroke: none; font-family: Arial; fill: #444444; font-size: 55px;">5v</text>
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_145" transform="translate(553 350)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAAB5klEQVR4Xu2T7W3DMAwFs/8g7SBeoBu19Q8BwnsUJX7IdtgWOKA4yjEvjl9fH5+vvwSJ6pCoDonqkKgOieqQuILfv+8GznZDYgd9oAZetwMS2Zwhx3EscUU0iWz+gxXePri9mxg24op3mUQmltiroklkYH2yyFsFR2N3R5OIkBV78jbBuLiXXe8yCS+ZsY3HBmf+lHseHYzLZvDI4FnsbK6x4z0mYWEWk/FTf0zwLCQjtn0O3jsCiRW0kBaqnbFwe7AWkh17cmvwKKRFzs55uC14FCEtNDrrQfr8CCQk2hNcXUY6G2F0Hw8kRrToHjzTn8WlV5Gu1e5lhUQG0tKrjK7NiiaRgbS0xWke72WFRBRpYclFPN7TAoko2qIWr30W3tMCiSijJUdeuqaPwhnOrZCIIIWNoiwznD8qWFvcM2tzPOONJhEBl7JGjWYr81VIeJGeQjQYo/ozOFuFhBcpWAuyzvE+6Fch4WW28GwuncF5BiQ8tG9dWxbnK2dwngEJD7iotKznDM4zIOFhZVE8I53DMzjPgISHc7G2bPtfOlMm+KSFjpbEmFFQf06aRyGxE4yWgmZfXBQSO9n99FYgsZvdT3AGieqQqA6J6pCoDonqkKgOieqQqA6J6pCoDonqkKgOier8ACl67yHolBJ/AAAAAElFTkSuQmCC" width="60" height="61" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(590 390) scale(1.1)" style="pointer-events: none;"/>
+    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAAB6ElEQVR4Xu2TW07DQAxFuxA+WTtsh42wBiAflkb3eh5+TJKaIh0JHU8an6Z5fH18Pv4TJKpDojokqkOiOiSqQ+IM/v5+BJzthsQO2sAReN0OSGRzhHy/vS9xRjSJbF7BA54+WN5NDOtxxrtMIhNL7FnRJDKwPlnkqYKjsbujSUTIij14mmBc3Muud5mEl8xY4bbBmT/lllsH47IZ3DJ4Fjubj9jxHpOwMIvJ+KnfJngWkhErn4P3jkBihVGIhI7OWLg8eBSSHXtwaXAvRCJn5zxcFtyL0BbqnfWgfX4EEhryBFeX0c5G6N3HA4keEt2CZ9qzuPQq2rWje1khkYG29Cq9a7OiSWSgLW1xI4/3skIiiraw5iIe72mBRJTRohY/+iy8pwUSUXpL9rx2TRuFM5xbIRFBC+tFWWY4v1XwaHHPTOZ4xhtNIgIuZY3qzVbmq5Dwoj2FaDBGtWdwtgoJL1rwKMg6x/ugX4WEl9nCs7l2BucZkPAg3/poWZyvnMF5BiQ84KLasp4zOM+AhIeVRfGMdg7P4DwDEh6OxWRZ+V87Uyb4QEJ7S2JML6g9p82jkNgJRmtBsy8uComd7H56K5DYze4nOINEdUhUh0R1SFSHRHVIVIdEdUhUh0R1SFSHRHVIVIdEdX4BIOFjzxpCtA0AAAAASUVORK5CYII=" width="60" height="61" id="image_147" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(590 390) scale(1.1)" style="pointer-events: none; display: none;"/>
+    <rect x="0" y="0" width="1050" height="80" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_148" transform="translate(125 435)" style="stroke: none; fill: #d3d3d3; fill-opacity: 0; pointer-events: none;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_149" transform="translate(650 459.5) translate(0 11)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Kombination zum 1er oder 4er:</text>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_150" transform="translate(650 490.5) translate(0 11)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Ein halbschneller Ball zwischen den Schuss/4er und den 1er.</text>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_151" transform="translate(725 200)">
+      <line x1="0" y1="0" x2="-50" y2="-20" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-39.89,-7.579 -50,-20 -34.113,-22.022" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_152" transform="translate(725 200)">
+      <line x1="0" y1="0" x2="-50" y2="-20" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-39.89,-7.579 -50,-20 -34.113,-22.022" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_153" transform="translate(638 245)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_154" transform="translate(675 260) translate(0 42)" style="stroke: none; font-family: Arial; fill: #444444; font-size: 55px;">1</text>
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_155" transform="translate(638 350)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAABeklEQVR4Xu2S0W3EIBAFr/9CkkLcQDpKjg8kNA98dnYBeeGk+WCAlcbc6+fr+7USIqIjIjoioiMiOiKiI6In798v3WhEeJHirsK7PRHhRQo5juMjO7gzIrzYwQ2WDB4ZLcKLq8FlOGf0QIQH+dUYdcaolxbhwd1YhnOeJyKs/Od1GdwzWoQVS3C+97hghrTIH6cG53ohwsKd12UgHWd7IcLCp1jGlZ5nONsLERbOgvmK3A8TnAP4ijzHO5zthQgLtZBWMM9yn7O9EGGBEa1gBnL92OAytrbXWj8+mEFn63yHs70QYaEWcSe4d2xChAVGMISea87rgQgLjLgaPOJlMyIsMIpBNTcyNiHCypW40ZElIqyUQfy7zo5NiLDC0NmBRISVHMxonpuFCCtlcBnOc7MQYWUH7+C5iLCyg3fwXERYYXBaLxfMMzMRYWXJ4DI6fHBiyeAS7s9ERHREREdEdERER0R0RERHRHREREdEdERER0R0RERHRHT+AFlXwBzVq0p0AAAAAElFTkSuQmCC" width="60" height="61" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(675 390) scale(1.1)" style="pointer-events: none;"/>
+    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAABfElEQVR4Xu2SQW7EIBAE9yE55u3Jd/KRvCEJByRUbXvt9ADaMSvVgQJGKrOPr4/Px50QkR0R2RGRHRHZEZEdET35+/3QjUZEFCXuLLzbExFRlJDvt/enrODOiIhiBe9wy+CR0SKiOBvchnNGD0REUF+NUUeMemkREVyNZTjnRSLC5T+vy+Ce0SJcnOB67+WCGbJH/ThbcG4UIhyuvC4D6Tg7ChEOz2IZ13qe4ewoRDgcBfMVuZ8muAbwFXmOdzg7ChEOWyF7wTzLfc6OQoQDI/aCGcj1ywa3sVt7e+uXD2bQ0bre4ewoRDhsRVwJ7h1bEOHACIbQc815PRDhwIizwSNetiLCgVEM2nIjYwsiXM7EjY5sEeHSBvHvOju2IMKFobMDiQiXGsxonpuFCJc2uA3nuVmIcFnBK3guIlxW8AqeiwgXBpf17YJ5ZiYiXG4Z3EanDy7cMriF+zMRkR0R2RGRHRHZEZEdEdkRkR0R2RGRHRHZEZEdEdkRkZ1f2yd2kXF4riEAAAAASUVORK5CYII=" width="60" height="61" id="image_157" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(675 390) scale(1.1)" style="pointer-events: none; display: none;"/>
+    <rect x="0" y="0" width="1050" height="80" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_158" transform="translate(125 435)" style="stroke: none; fill: #d3d3d3; fill-opacity: 0; pointer-events: none;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_159" transform="translate(650 475) translate(0 11)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Ein Schnellangriff vor der Aufspielerin.</text>
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 525 -380 C 675 -600 795 -600 825 -400" id="path_160" transform="translate(200 580)" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_161" transform="translate(995 -20)">
+      <polyline points="35.615,185.001 30,200 20.232,187.309" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 525 -380 C 675 -600 795 -600 825 -400" id="path_162" transform="translate(200 580)" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_163" transform="translate(995 -20)">
+      <polyline points="35.615,185.001 30,200 20.232,187.309" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_164" transform="translate(988 245)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_165" transform="translate(1025 260) translate(0 42)" style="stroke: none; font-family: Arial; fill: #444444; font-size: 55px;">2</text>
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_166" transform="translate(988 350)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAABz0lEQVR4Xu2T0W3DMAwFs/8g7SBZoBu18QcB4R1lRyIlwEwLHGCfaEFnp4+fr+/HJwFRHYjqQFQHojoQ1YFYzevv90D9LiCyscAr9LlVQGRiMc/n85Sd0RCZvBP7H7wYiEw+KtgiNK7HrmiILEZid0ZDZDETbNG6VyYQGczGWvDKaIgoo/+7bWR7r/tmARFlNLYNtmdvE6xfqkcbqF/W0L2zgIgwEqvXuq57ZwERQQ/fRnjX3r053TsLiAjeF9MondH7WwUf6OE1qhfovQTdOwOIKHr4XpD3UvRe984AIorGtcHqvZn2WvfOACLKWVy7puu6pvtmARGlF9SLU6/7ZQMRxSK8II3T9VsH96J0TV+Q7pcNRBQNbMMUm98VewARRYN77IxsgYjiBVtcz+seK4GIchama6WDvbXbB3tfsXxwL/ad9R1ARLgKsi+q6zujISJojAZ7M6WCvRBvxptbBcQsdnCN8eaufgUrgZjBi+2FeLPe3CogZvACziK8eZ1ZBcQMowGj85lAzDAaMDqfCcQMbcBxfRXgBV89kwXEDHbgdw9uc7cNnuEjg0d+FVlAVAeiOhDVgagORHUgqgNRHYjqQFQHojoQ1YGoDkR1/gDTmrfikSWOxgAAAABJRU5ErkJggg==" width="60" height="61" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(1025 390) scale(1.1)" style="pointer-events: none;"/>
+    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAAB0ElEQVR4Xu2TUU7EMAwF9yB8cna4DhfhDEA/LEVvnHYTO5HqBWmkduJGmXZ5fH18Pl4JiOpAVAeiOhDVgagOxGr+/n4O1O8CIhsLvEKfWwVEJhbz/fZ+ys5oiEyeif0PXgxEJi8VbBEa12NXNEQWI7E7oyGymAm2aN0rE4gMZmMteGU0RJTR/902sr3XfbOAiDIa2wbbs7cJ1i/Vow3UL2vo3llARBiJ1Wtd172zgIigh28jvGvv3pzunQVEBO+LaZTO6P2tgg/08BrVC/Regu6dAUQUPXwvyHspeq97ZwARRePaYPXeTHute2cAEeUsrl3TdV3TfbOAiNIL6sWp1/2ygYhiEV6Qxun6rYN7UbqmL0j3ywYiiga2YYrN74o9gIiiwT12RrZARPGCLa7ndY+VQEQ5C9O10sHe2u2Dva9YPrgX+8z6DiAiXAXZF9X1ndEQETRGg72ZUsFeiDfjza0CYhY7uMZ4c1e/gpVAzODF9kK8WW9uFRAzeAFnEd68zqwCYobRgNH5TCBmGA0Ync8EYoY24Li+CvCCr57JAmIGO/CzB7e52wbP8JLBI7+KLCCqA1EdiOpAVAeiOhDVgagORHUgqgNRHYjqQFQHojq/M+JGZ9a97wcAAAAASUVORK5CYII=" width="60" height="61" id="image_168" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(1025 390) scale(1.1)" style="pointer-events: none; display: none;"/>
+    <rect x="0" y="0" width="1050" height="80" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_169" transform="translate(125 435)" style="stroke: none; fill: #d3d3d3; fill-opacity: 0; pointer-events: none;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_170" transform="translate(650 475) translate(0 11)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Ein hoher Ball bei der rechten Antenne.</text>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="ball_171" transform="translate(725 200) scale(0.6)">
+      <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00;"/>
+      <path d="M 520 -355.5 C 503.333 -372.167 495 -391.75 516.667 -403 C 508.333 -394.667 511.667 -375.5 535 -357 L 520 -355.512 L 535 -357 Q 527.5 -353.833 520 -355.512" transform="translate(-525 380)" style="stroke: none; fill: #0000ff;"/>
+      <path d="M 545.661 -365.833 C 533.161 -378.333 528.994 -390.833 526.661 -398.333 Q 543.328 -386.429 549.994 -379.167 Q 549.828 -372 545.647 -365.833 Z" transform="translate(-525 380)" style="stroke: none; fill: #0000ff;"/>
+    </g>
+    <g class="player set" transform="translate(750 655) rotate(-90)">
+      <ellipse cx="0" cy="0" rx="50" ry="25" style="stroke: none; fill: #b22222;"/>
+      <g class="prepare-block">
+        <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="22.5" y1="-25" x2="37.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="block">
+        <line x1="-41" y1="-25" x2="41" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="prepare-defense">
+        <line x1="-37.5" y1="0" x2="-62.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="-62.5" y1="-25" x2="-62.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="37.5" y1="0" x2="62.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="62.5" y1="-25" x2="62.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="defense">
+        <line x1="-41" y1="0" x2="0" y2="-75" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="41" y1="0" x2="0" y2="-75" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="attack">
+        <line x1="37.5" y1="0" x2="37.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="attack-left">
+        <line x1="-37.5" y1="0" x2="-37.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="set">
+        <line x1="-37.5" y1="0" x2="-20" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="37.5" y1="0" x2="20" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <text x="0" y="0" dy="0.35em" style="stroke: none; font-family: Arial; fill: #ffff00; font-size: 45px; text-anchor: middle;">H</text>
+    </g>
+    <g transform="translate(725 655)">
+      <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00;"/>
+      <path d="M 520 99.5 C 503.333 82.833 495 63.25 516.667 52 C 508.333 60.333 511.667 79.5 535 98 L 520 99.488 L 535 98 Q 527.5 101.167 520 99.488" transform="translate(-525 -75)" style="stroke: none; fill: #0000ff;"/>
+      <path d="M 545.661 89.167 C 533.161 76.667 528.994 64.167 526.661 56.667 Q 543.328 68.571 549.994 75.833 Q 549.828 83 545.647 89.167 Z" transform="translate(-525 -75)" style="stroke: none; fill: #0000ff;"/>
+    </g>
+    <line x1="0" y1="0" x2="140" y2="-50" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_approach_info" transform="translate(510 980)" style="fill: none; stroke: #808080; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 15;"/>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_approach_info" transform="translate(510 980)">
+      <line x1="0" y1="0" x2="30" y2="-270" style="stroke: #808080; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="13.435,-246.687 30,-270 41.043,-243.619" style="stroke: #808080; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <line x1="0" y1="0" x2="40" y2="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_approach_info" transform="translate(610 930)" style="fill: none; stroke: #808080; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 15;"/>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_approach_info" transform="translate(610 930)">
+      <line x1="0" y1="0" x2="30" y2="-220" style="stroke: #808080; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="12.861,-197.106 30,-220 40.384,-193.353" style="stroke: #808080; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g class="player" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_approach_info" transform="translate(650 930) rotate(7.765)">
+      <ellipse cx="0" cy="0" rx="50" ry="25" style="stroke: none; fill: #b22222;"/>
+      <g class="prepare-block">
+        <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="22.5" y1="-25" x2="37.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="block">
+        <line x1="-41" y1="-25" x2="41" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="prepare-defense">
+        <line x1="-37.5" y1="0" x2="-62.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="-62.5" y1="-25" x2="-62.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="37.5" y1="0" x2="62.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="62.5" y1="-25" x2="62.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="defense">
+        <line x1="-41" y1="0" x2="0" y2="-75" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="41" y1="0" x2="0" y2="-75" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="attack">
+        <line x1="37.5" y1="0" x2="37.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="attack-left">
+        <line x1="-37.5" y1="0" x2="-37.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="set">
+        <line x1="-37.5" y1="0" x2="-20" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="37.5" y1="0" x2="20" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <text x="0" y="0" dy="0.35em" style="stroke: none; font-family: Arial; fill: #ffff00; font-size: 45px; text-anchor: middle;">3</text>
+    </g>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_approach_info" transform="translate(100 980)">
+      <line x1="0" y1="0" x2="150" y2="-270" style="stroke: #808080; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="125.718,-254.891 150,-270 150,-241.401" style="stroke: #808080; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g class="player" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_approach_info" transform="translate(100 980) rotate(29.055)">
+      <ellipse cx="0" cy="0" rx="50" ry="25" style="stroke: none; fill: #b22222;"/>
+      <g class="prepare-block">
+        <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="22.5" y1="-25" x2="37.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="block">
+        <line x1="-41" y1="-25" x2="41" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="prepare-defense">
+        <line x1="-37.5" y1="0" x2="-62.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="-62.5" y1="-25" x2="-62.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="37.5" y1="0" x2="62.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="62.5" y1="-25" x2="62.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="defense">
+        <line x1="-41" y1="0" x2="0" y2="-75" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="41" y1="0" x2="0" y2="-75" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="attack">
+        <line x1="37.5" y1="0" x2="37.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="attack-left">
+        <line x1="-37.5" y1="0" x2="-37.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="set">
+        <line x1="-37.5" y1="0" x2="-20" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="37.5" y1="0" x2="20" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <text x="0" y="0" dy="0.35em" style="stroke: none; font-family: Arial; fill: #ffff00; font-size: 45px; text-anchor: middle;">4</text>
+    </g>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_approach_info" transform="translate(1150 980)">
+      <line x1="0" y1="0" x2="-100" y2="-270" style="stroke: #808080; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-104.341,-241.732 -100,-270 -78.293,-251.38" style="stroke: #808080; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <g class="player" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_approach_info" transform="translate(1150 980) rotate(-20.323)">
+      <ellipse cx="0" cy="0" rx="50" ry="25" style="stroke: none; fill: #b22222;"/>
+      <g class="prepare-block">
+        <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="22.5" y1="-25" x2="37.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="block">
+        <line x1="-41" y1="-25" x2="41" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="prepare-defense">
+        <line x1="-37.5" y1="0" x2="-62.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="-62.5" y1="-25" x2="-62.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="37.5" y1="0" x2="62.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="62.5" y1="-25" x2="62.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="defense">
+        <line x1="-41" y1="0" x2="0" y2="-75" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="41" y1="0" x2="0" y2="-75" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="attack">
+        <line x1="37.5" y1="0" x2="37.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="attack-left">
+        <line x1="-37.5" y1="0" x2="-37.5" y2="-50" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <g class="set">
+        <line x1="-37.5" y1="0" x2="-20" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+        <line x1="37.5" y1="0" x2="20" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round;"/>
+      </g>
+      <text x="0" y="0" dy="0.35em" style="stroke: none; font-family: Arial; fill: #ffff00; font-size: 45px; text-anchor: middle;">2</text>
+    </g>
+  </g>
+  <!-- context menu - - - - - - - - - - -->
+  <rect id="contextmenu_bg" x="0" y="0" />
+  <g id="contextmenu" class="contextmenu">
+    <rect x="0" y="0" width="204" height="36" rx="5" ry="5" />
+    <g class="submenuitem" data-group="#keys#" transform="translate(0 0)">
+     <rect x="2" y="2" width="200" height="32" class="bg" />
+     <text x="30" y="25">Info</text>
+     <path d="M 190 12 l 5 5 l -5 5" class="marker_submenu" />
+     <g class="submenu" transform="translate(204 0)">
+      <rect x="0" y="0" width="204" height="68" rx="5" ry="5" />
+      <g class="menuitem" data-item="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(0 0)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <rect x="7" y="10" width="15" height="15" rx="1" ry="1" class="cb" />
+       <path d="M 8 17 l 5 7 l 13 -19" class="cb2" />
+       <text x="30" y="25">Aufspiel</text>
+      </g>
+      <g class="menuitem" data-item="ID_window_editor_control_graphics_actor_actor_Actor_option_approach_info" transform="translate(0 32)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <rect x="7" y="10" width="15" height="15" rx="1" ry="1" class="cb" />
+       <path d="M 8 17 l 5 7 l 13 -19" class="cb2" />
+       <text x="30" y="25">Anläufe</text>
+      </g>
+     </g>
+    </g>
+  </g>
+  <style>
+#contextmenu_bg {
+  width: 100%;
+  height: 100%;
+  fill: #7777777f;
+}
+#contextmenu_bg, #contextmenu {
+  display: none;
+  cursor: default;
+}
+
+g.contextmenu > rect, g.submenu > rect {
+  stroke: gray;
+  stroke-width: 3px;
+  fill: lightgray;
+}
+
+g.menuitem > rect, g.submenuitem > rect {
+  stroke: none;
+  fill: lightgray;
+  /*cursor: pointer;*/
+}
+g.menuitem > * {
+  pointer-events: none;
+}
+g.menuitem > rect.bg {
+  pointer-events: all;
+  cursor: pointer;
+}
+g.submenuitem > rect.bg {
+  /*pointer-events: all;*/
+}
+g.menuitem:hover > rect.bg, g.submenuitem:hover > rect.bg {
+  fill: darkgray;
+}
+g.menuitem > text, g.submenuitem > text {
+  stroke: none;
+  fill: #111;
+  font-family: Arial;
+  font-size: 22px;
+  /*cursor: pointer;*/
+}
+/*
+g.submenuitem > rect, g.submenuitem > text {
+  cursor: default;
+}
+*/
+g.menuitem > rect.cb, g.menuitem > circle.rb {
+  stroke: gray;
+  stroke-width: 2px;
+  fill: none;
+}
+g.menuitem > circle.rb2 {
+  stroke: none;
+  fill: #111;
+}
+
+g.menuitem > path.cb2, g.submenuitem > path.marker_submenu {
+  stroke: #111;
+  stroke-width: 2px;
+  fill: none;
+  display: block;
+}
+g.submenu {
+  display: none;
+}
+g.submenuitem:hover > g.submenu {
+  display: block;
+}
+
+#contextmenu > rect.separator {
+  fill: #BBB;
+  stroke: none;
+}
+
+
+g.menuitem > path.mi-play, g.menuitem > path.mi-stop {
+  stroke: none;
+  fill: #444;
+}
+g.menuitem > path.mi-pause {
+  stroke: #444;
+  stroke-width: 3px;
+  fill: none;
+}
+
+
+g.actors.animation > g.move {
+  display: none !important;
+}
+g.player > g {
+  display: none;
+}
+g.player.attack > g.attack {
+  display: block;
+}
+g.player.attack-left > g.attack-left {
+  display: block;
+}
+g.player.prepare-block > g.prepare-block {
+  display: block;
+}
+g.player.block > g.block {
+  display: block;
+}
+g.player.prepare-defense > g.prepare-defense {
+  display: block;
+}
+g.player.defense > g.defense {
+  display: block;
+}
+g.player.set > g.set {
+  display: block;
+}
+
+  </style>
+<script>//<![CDATA[
+(function(){
+/**
+ * Selects the first matching dom element.
+ * @param {string} selector The selector of the element.
+ * @param {DOMElement} parent The optional root of the search (default: document).
+ * @returns DOMElement The first matching DOM element.
+ */
+function $(selector, parent) {
+  return (parent ? parent : document).querySelector(selector);
+}
+
+/**
+ * Selects DOMElements.
+ * @param {string} selector The selector of the DOMElements.
+ * @param {DOMElement} parent The optional root of the search (default: document).
+ * @returns {NodeList} The list of matching DOMElements.
+ */
+function $$(selector, parent) {
+  return (parent ? parent : document).querySelectorAll(selector);
+}
+
+/**
+ * Connects an event handler to a given DOMElement.
+ * @param {DOMElement} elem The DOMElement to handle.
+ * @param {string} event The name of the event to handle.
+ * @param {Function} handler The event handler.
+ * @returns {void}
+ */
+function $event(elem, event, handler) {
+  elem.addEventListener(event, handler);
+}
+//-- create menu script -------------------------------------- (vvv) --
+// --- ios helper --------------------------------- vv ---
+var timer = null,
+    cmPosX = -1000,
+    cmPosY = -1000;
+
+function touchstart(e) {
+  cmPosX = e.touches[0].clientX;
+  cmPosY = e.touches[0].clientY;
+  touchend();
+  if (e.touches.length === 1) {
+    timer = setTimeout(function() { onlongtouch(cmPosX, cmPosY); }, 800);
+  }
+}
+
+function touchmove(e) {
+  if (timer) {
+    if (Math.abs(cmPosX - e.touches[0].clientX) > 5 ||
+        Math.abs(cmPosY - e.touches[0].clientY) > 5) {
+      touchend();
+    }
+  }
+}
+
+function touchend() {
+  if (timer) {
+    clearTimeout(timer);
+    timer = null;
+  }
+}
+
+function onlongtouch(x,y){
+  timer = null;
+  showContextMenu(x, y);
+}
+
+$event(document, 'touchstart', touchstart);
+$event(document, 'touchend', touchend);
+$event(document, 'touchmove', touchmove);
+// --- ios helper --------------------------------- ^^ ---/* global $$ */
+var cm, bg,
+    contextmenu = false;
+
+function onContextMenu(event) {
+  event.preventDefault();
+
+  // ignore clicks outside of svg area
+  var svg = _getSvgImg();
+  if (!svg || !svg.contains(event.target)) {
+    return;
+  }
+
+  // InternalError is unique for firefox
+  //var isFirefox = !!window.InternalError,
+  //    x = isFirefox ? event.clientX : event.pageX,
+  //    y = isFirefox ? event.clientY : event.pageY;
+  showContextMenu(event.clientX, event.clientY);
+}
+
+function _getSvgImg() {
+  var svg = $('div.img > svg');
+  if (!svg) {
+    svg = $('svg');
+  }
+  return svg;
+}
+
+function showContextMenu(x, y) {
+  // show context menu if not visible
+  if (!contextmenu) {
+    contextmenu = true;
+
+    /**
+     * Switch an option state.
+     * @param {NodeList} elems A list of html elements.
+     * @returns {void}
+     */
+    var setOpts = function(elems) {
+      if (elems) {
+        for (var i = 0, i2 = elems.length; i < i2; ++i) {
+          var elem = elems[i],
+              elemP = elem.parentNode;
+
+          if (elemP.dataset && elemP.dataset.item) {
+            var key = elemP.dataset.item;
+            if (option.data[key] === true || option.data[key] === false) {
+              elem.style.display = option.data[key] ? 'block' : 'none';
+     	    }
+          }
+        }
+      }
+    };
+
+    // handle all options: radios and checkboxes
+    var rbs = document.getElementsByClassName('rb2'),
+        cbs = document.getElementsByClassName('cb2');
+    setOpts(rbs);
+    setOpts(cbs);
+
+    // show background + context menu
+    cm.style.display = 'block';
+    bg.style.display = 'block';
+
+    //var svg = document.getElementsByTagName('svg')[0], pt, svgP;
+    var svg = _getSvgImg(), pt, svgP;
+    try {
+      // transform point to SVG coordinates
+      pt = new DOMPoint(x,y);
+      svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+    } catch {
+      // old browsers: create SVG point, set pos, transform to SVG coordinates
+      pt = svg.createSVGPoint();
+      pt.x = x;
+      pt.y = y;
+      svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+    }
+
+    cm.setAttribute('transform', 'translate(' + svgP.x + ' ' + svgP.y + ') scale(1.95)');
+  }
+}
+
+function onClick(event) {
+  if (contextmenu) {
+    contextmenu = false;
+    cm.style.display = 'none';
+    bg.style.display = 'none';
+
+    var node = event.target;
+    while (node) {
+      if (node.dataset && node.dataset.item) {
+        if (node.parentNode
+            && node.parentNode.parentNode
+            && node.parentNode.parentNode.dataset
+            && node.parentNode.parentNode.dataset.group) {
+          option.reset(node.parentNode.parentNode.dataset.group);
+        }
+
+        option.set(node.dataset.item);
+        node = null;
+      } else {
+        node = node.parentNode;
+      }
+    }
+  }
+}
+
+var option = {
+  data: {
+    'ID_window_editor_control_graphics_actor_actor_Actor_option_approach_info': true,
+    'ID_window_editor_control_graphics_actor_actor_Actor_option_set_info': true
+  },
+
+  // the current state info
+  _current: {
+  },
+
+  // TODO animation, effects
+  // the connected animation info
+  'animator': undefined,
+  'animation0': undefined,
+  // the connected effects handler
+  effects: null,
+
+  reset: function(keys) {
+    if (typeof keys === 'string') {
+      var keys2 = keys.split(',');
+      if (Array.isArray(keys2)) {
+        for (var i = 0, i2 = keys2.length; i < i2; ++i) {
+          this.data[keys2[i]] = false;
+          this._updateElems(keys2[i], false);
+        }
+      }
+    }
+  },
+
+  set: function(key) {
+    this.data[key] = !this.data[key];
+    this._updateElems(key);
+  },
+
+  init: function() {
+    for (var key in this.data) {
+      console.log('_updateElems ' + key);
+      
+      this._updateElems(key);
+    }
+  },
+
+  getCurrent: function(id) {
+    if (this._current[id] !== undefined) {
+      return this._current[id];
+    }
+    return true;
+  },
+
+  _updateElems: function(key, state) {
+    var st = state === undefined ? this.data[key] : state;
+
+    // items that reflect the state
+    var elems = $$('[data-option="' + key + '"]');
+    if (elems) {
+      for (var i = 0, i2 = elems.length; i < i2; ++i) {
+        var elem = elems[i];
+        elem.style.display = st ? "block" : "none";
+        if (elem.id) {
+          this._current[elem.id] = st;
+        }
+      }
+    }
+
+    // items that reflect the inverted state
+    elems = $$('[data-option="' + key + '_not"]');
+    if (elems) {
+      for (var i = 0, i2 = elems.length; i < i2; ++i) {
+        var elem = elems[i];
+        elem.style.display = st ? "none" : "block";
+        if (elem.id) {
+          this._current[elem.id] = !st;
+        }
+      }
+    }
+  }
+};
+
+option.init();
+
+cm = $('#contextmenu');
+bg = $('#contextmenu_bg');
+$event(document, 'contextmenu', onContextMenu);
+$event(bg, 'click', onClick);
+$event(cm, 'click', onClick);
+
+// init size of context submenu items (because of text size)
+$$('g.submenuitem').forEach((sub) => {
+  $event(sub, 'mouseenter', () => {
+    var txts = $$('g.submenu > g.menuitem > text');
+    // 200 size of menu item + 2px width border, 30 is left of text field
+    var len = 170;
+    txts.forEach((txt) => len = Math.max(len, Math.ceil(txt.getBBox().width + 5)));
+    if (len > 170) {
+      var first = true;
+      txts.forEach((txt) => {
+        if (first) {
+          var rc = $('rect', txt.parentNode.parentNode);
+          rc.style.width = (len + 34) + 'px';
+          first = false;
+        }
+        var rc = $('rect', txt.parentNode);
+        rc.style.width = (len + 30) + 'px';
+      });
+    }
+  });
+});
+
+//-- create menu script -------------------------------------- (^^^) --
+var animation0 = {
+  "image_136": {
+    "visible-common": false,
+    "visible-active": true,
+    "visible-hover": true,
+    "visible-activehover": true
+  },
+  "image_147": {
+    "visible-common": false,
+    "visible-active": true,
+    "visible-hover": true,
+    "visible-activehover": true
+  },
+  "image_157": {
+    "visible-common": false,
+    "visible-active": true,
+    "visible-hover": true,
+    "visible-activehover": true
+  },
+  "image_168": {
+    "visible-common": false,
+    "visible-active": true,
+    "visible-hover": true,
+    "visible-activehover": true
+  }
+};
+/* global animator, animation0 */
+
+/**
+ * The effects data and handler.
+ */
+var effects = {
+  /**
+   * The effect infos.
+   */
+  'infos': {
+  "path_128": {
+    "stroke": {
+      "common": "#b22222",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "arrow_129": {
+    "stroke": {
+      "common": "#b22222",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "path_130": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#d3d3d3",
+      "active": "#d3d3d3",
+      "activehover": "#d3d3d3"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "0.5",
+      "active": "0.5",
+      "activehover": "0.5"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "arrow_131": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#d3d3d3",
+      "active": "#d3d3d3",
+      "activehover": "#d3d3d3"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "0.5",
+      "active": "0.5",
+      "activehover": "0.5"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "rectangle_132": {
+    "fill": {
+      "common": "#808080",
+      "hover": "#ffff00",
+      "active": "#ffff00",
+      "activehover": "#ffff00"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "stroke": {
+      "common": "#696969",
+      "hover": "#ffa500",
+      "active": "#ffa500",
+      "activehover": "#ffa500"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    }
+  },
+  "text_133": {
+    "fill": {
+      "common": "#444444",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    }
+  },
+  "rectangle_134": {
+    "fill": {
+      "common": "#808080",
+      "hover": "#ffff00",
+      "active": "#ffff00",
+      "activehover": "#ffff00"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "stroke": {
+      "common": "#696969",
+      "hover": "#ffa500",
+      "active": "#ffa500",
+      "activehover": "#ffa500"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    }
+  },
+  "rectangle_137": {
+    "fill": {
+      "common": "#d3d3d3",
+      "hover": "#d3d3d3",
+      "active": "#d3d3d3",
+      "activehover": "#d3d3d3"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "text_138": {
+    "fill": {
+      "common": "#000000",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "path_139": {
+    "stroke": {
+      "common": "#b22222",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "arrow_140": {
+    "stroke": {
+      "common": "#b22222",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "path_141": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#d3d3d3",
+      "active": "#d3d3d3",
+      "activehover": "#d3d3d3"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "0.5",
+      "active": "0.5",
+      "activehover": "0.5"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "arrow_142": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#d3d3d3",
+      "active": "#d3d3d3",
+      "activehover": "#d3d3d3"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "0.5",
+      "active": "0.5",
+      "activehover": "0.5"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "rectangle_143": {
+    "fill": {
+      "common": "#808080",
+      "hover": "#ffff00",
+      "active": "#ffff00",
+      "activehover": "#ffff00"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "stroke": {
+      "common": "#696969",
+      "hover": "#ffa500",
+      "active": "#ffa500",
+      "activehover": "#ffa500"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    }
+  },
+  "text_144": {
+    "fill": {
+      "common": "#444444",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    }
+  },
+  "rectangle_145": {
+    "fill": {
+      "common": "#808080",
+      "hover": "#ffff00",
+      "active": "#ffff00",
+      "activehover": "#ffff00"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "stroke": {
+      "common": "#696969",
+      "hover": "#ffa500",
+      "active": "#ffa500",
+      "activehover": "#ffa500"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    }
+  },
+  "rectangle_148": {
+    "fill": {
+      "common": "#d3d3d3",
+      "hover": "#d3d3d3",
+      "active": "#d3d3d3",
+      "activehover": "#d3d3d3"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "text_149": {
+    "fill": {
+      "common": "#000000",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "text_150": {
+    "fill": {
+      "common": "#000000",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "arrow_151": {
+    "stroke": {
+      "common": "#b22222",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "arrow_152": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#d3d3d3",
+      "active": "#d3d3d3",
+      "activehover": "#d3d3d3"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "0.5",
+      "active": "0.5",
+      "activehover": "0.5"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "rectangle_153": {
+    "fill": {
+      "common": "#808080",
+      "hover": "#ffff00",
+      "active": "#ffff00",
+      "activehover": "#ffff00"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "stroke": {
+      "common": "#696969",
+      "hover": "#ffa500",
+      "active": "#ffa500",
+      "activehover": "#ffa500"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    }
+  },
+  "text_154": {
+    "fill": {
+      "common": "#444444",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    }
+  },
+  "rectangle_155": {
+    "fill": {
+      "common": "#808080",
+      "hover": "#ffff00",
+      "active": "#ffff00",
+      "activehover": "#ffff00"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "stroke": {
+      "common": "#696969",
+      "hover": "#ffa500",
+      "active": "#ffa500",
+      "activehover": "#ffa500"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    }
+  },
+  "rectangle_158": {
+    "fill": {
+      "common": "#d3d3d3",
+      "hover": "#d3d3d3",
+      "active": "#d3d3d3",
+      "activehover": "#d3d3d3"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "text_159": {
+    "fill": {
+      "common": "#000000",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "path_160": {
+    "stroke": {
+      "common": "#b22222",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "arrow_161": {
+    "stroke": {
+      "common": "#b22222",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "path_162": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#d3d3d3",
+      "active": "#d3d3d3",
+      "activehover": "#d3d3d3"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "0.5",
+      "active": "0.5",
+      "activehover": "0.5"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "arrow_163": {
+    "stroke": {
+      "common": "#000000",
+      "hover": "#d3d3d3",
+      "active": "#d3d3d3",
+      "activehover": "#d3d3d3"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "0.5",
+      "active": "0.5",
+      "activehover": "0.5"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "rectangle_164": {
+    "fill": {
+      "common": "#808080",
+      "hover": "#ffff00",
+      "active": "#ffff00",
+      "activehover": "#ffff00"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "stroke": {
+      "common": "#696969",
+      "hover": "#ffa500",
+      "active": "#ffa500",
+      "activehover": "#ffa500"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    }
+  },
+  "text_165": {
+    "fill": {
+      "common": "#444444",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    }
+  },
+  "rectangle_166": {
+    "fill": {
+      "common": "#808080",
+      "hover": "#ffff00",
+      "active": "#ffff00",
+      "activehover": "#ffff00"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "stroke": {
+      "common": "#696969",
+      "hover": "#ffa500",
+      "active": "#ffa500",
+      "activehover": "#ffa500"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    }
+  },
+  "rectangle_169": {
+    "fill": {
+      "common": "#d3d3d3",
+      "hover": "#d3d3d3",
+      "active": "#d3d3d3",
+      "activehover": "#d3d3d3"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "text_170": {
+    "fill": {
+      "common": "#000000",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "ball_171": {
+    "topMost": {
+      "common": true,
+      "hover": true,
+      "active": true,
+      "activehover": true
+    }
+  }
+},
+  /**
+   * The grouping infos.
+   */
+  'groups': {
+  "byId": {
+    "path_160": "grp_2",
+    "arrow_161": "grp_2",
+    "path_162": "grp_2",
+    "arrow_163": "grp_2",
+    "rectangle_164": "grp_2",
+    "text_165": "grp_2",
+    "rectangle_166": "grp_2",
+    "image_167": "grp_2",
+    "image_168": "grp_2",
+    "rectangle_169": "grp_2",
+    "text_170": "grp_2",
+    "path_128": "grp_0",
+    "arrow_129": "grp_0",
+    "path_130": "grp_0",
+    "arrow_131": "grp_0",
+    "rectangle_132": "grp_0",
+    "text_133": "grp_0",
+    "rectangle_134": "grp_0",
+    "image_135": "grp_0",
+    "image_136": "grp_0",
+    "rectangle_137": "grp_0",
+    "text_138": "grp_0",
+    "path_139": "grp_5v",
+    "arrow_140": "grp_5v",
+    "path_141": "grp_5v",
+    "arrow_142": "grp_5v",
+    "rectangle_143": "grp_5v",
+    "text_144": "grp_5v",
+    "rectangle_145": "grp_5v",
+    "image_146": "grp_5v",
+    "image_147": "grp_5v",
+    "rectangle_148": "grp_5v",
+    "text_149": "grp_5v",
+    "text_150": "grp_5v",
+    "arrow_151": "grp_1",
+    "arrow_152": "grp_1",
+    "rectangle_153": "grp_1",
+    "text_154": "grp_1",
+    "rectangle_155": "grp_1",
+    "image_156": "grp_1",
+    "image_157": "grp_1",
+    "rectangle_158": "grp_1",
+    "text_159": "grp_1"
+  },
+  "byName": {
+    "grp_2": [
+      "path_160",
+      "arrow_161",
+      "path_162",
+      "arrow_163",
+      "rectangle_164",
+      "text_165",
+      "rectangle_166",
+      "image_167",
+      "image_168",
+      "rectangle_169",
+      "text_170"
+    ],
+    "grp_0": [
+      "path_128",
+      "arrow_129",
+      "path_130",
+      "arrow_131",
+      "rectangle_132",
+      "text_133",
+      "rectangle_134",
+      "image_135",
+      "image_136",
+      "rectangle_137",
+      "text_138"
+    ],
+    "grp_5v": [
+      "path_139",
+      "arrow_140",
+      "path_141",
+      "arrow_142",
+      "rectangle_143",
+      "text_144",
+      "rectangle_145",
+      "image_146",
+      "image_147",
+      "rectangle_148",
+      "text_149",
+      "text_150"
+    ],
+    "grp_1": [
+      "arrow_151",
+      "arrow_152",
+      "rectangle_153",
+      "text_154",
+      "rectangle_155",
+      "image_156",
+      "image_157",
+      "rectangle_158",
+      "text_159"
+    ]
+  }
+},
+
+  'ids': null,
+  'clicked': null,
+  'hover': [],
+
+  //'current': {},
+  'animator': undefined,
+  'animation0': undefined,
+  // TODO: the connected options handler
+  option: null,
+
+
+  'topMostList': {
+    'common': [],
+    'active': [],
+    'hover': [],
+    'activehover': []
+  },
+
+  /**
+   * Initializes the effects info.
+   */
+  'init': function() {
+    // the ids of all controls with effects
+    this.ids = Object.keys(this.infos);
+    // connect event handling
+    $event($('svg'), 'click', this.onClick.bind(this));
+    $event($('svg'), 'mouseover', this.onMouseOver.bind(this));
+    $event($('svg'), 'mouseout', this.onMouseOut.bind(this));
+
+    // prepare topmost handling
+    this.ids.forEach((id) => {
+      var info = this.infos[id];
+      if (info && info['topMost']) {
+        var tm = info['topMost'];
+        if (tm['common']) this.topMostList.common.push(id);
+        if (tm['active']) this.topMostList.active.push(id);
+        if (tm['hover']) this.topMostList.hover.push(id);
+        if (tm['activehover']) this.topMostList.activehover.push(id);
+        delete info['topMost'];
+      }
+    });
+
+    const keys = this.infos ? Object.keys(this.infos) : [];
+    if (this.animation0) {
+      const keys2 = Object.keys(this.animation0);
+      keys2.forEach((key2) => {
+        if (keys.indexOf(key2) === -1) {
+          keys.push(key2);
+        }
+      });
+    }
+    keys.forEach((key) => {
+      this.setStyle2($('#' + key), key, "common");
+    });
+
+    return this;
+  },
+
+  /**
+   * Handles a click event to set the active style effects.
+   *
+   * @param {Event} event The event info.
+   * @returns void
+   */
+  'onClick': function(event) {
+    var id = event.target.id,
+        id2 = null,
+        oldClicked = this.clicked;
+    if ((!id || this.ids.indexOf(id) < 0) && event.target.parentNode) {
+      id = event.target.parentNode.id;
+    }
+
+    if (id && this.ids.indexOf(id) >= 0) {
+      id2 = this.groups.byId[id] ? "g" + this.groups.byId[id] : "i" + id;
+    }
+
+    // reset if any old
+    if (oldClicked) {
+      this.setStyle(oldClicked, this.hover.indexOf(oldClicked) >= 0 ? "hover" : "common");
+      this.clicked = null;
+    }
+
+    // set new clicked item
+    if (id2 && id2 !== oldClicked) {
+      this.clicked = id2;
+      this.setStyle(id2, this.hover.indexOf(id2) >= 0 ? "activehover" : "active");
+    }
+  },
+
+  /**
+   * Handles a mouse over event to set the hover style effects.
+   *
+   * @param {Event} event The event info.
+   * @returns void
+   */
+  'onMouseOver': function(event) {
+    var id = event.target.id, id2;
+    if ((!id || this.ids.indexOf(id) < 0) && event.target.parentNode) {
+      id = event.target.parentNode.id;
+    }
+
+    if (id && this.ids.indexOf(id) >= 0) {
+      id2 = this.groups.byId[id] ? "g" + this.groups.byId[id] : "i" + id;
+
+      if (this.hover.indexOf(id2) < 0) {
+        this.hover.push(id2);
+        this.setStyle(id2, this.clicked === id2 ? "activehover" : "hover");
+      }
+    }
+  },
+
+  /**
+   * Handles a mouse leave event to set the hover style effects.
+   *
+   * @param {Event} event The event info.
+   * @returns void
+   */
+  'onMouseOut': function(event) {
+    var id = event.target.id, id2;
+    if ((!id || this.ids.indexOf(id) < 0) && event.target.parentNode) {
+      id = event.target.parentNode.id;
+    }
+
+    if (id && this.ids.indexOf(id) >= 0) {
+      id2 = this.groups.byId[id] ? "g" + this.groups.byId[id] : "i" + id;
+
+      var pos = this.hover.indexOf(id2);
+      if (pos >= 0) {
+        this.hover.splice(pos, 1);
+        //this.current[id2] = this.clicked === id2 ? "active" : "common";
+        this.setStyle(id2, this.clicked === id2 ? "active" : "common");
+      }
+    }
+  },
+
+  /**
+   * Sets the styles to set the effects.
+   * @param {string} id2 The id of the elem to style.
+   * @param {string} key The key of the style to use.
+   * @returns void
+   */
+  'setStyle': function(id2, key) {
+    var type = id2.charAt(0),
+        id = id2.substr(1);
+
+    if (type === 'g') {
+      var items = this.groups.byName[id];
+      if (items) {
+        items.forEach((item) => this.setStyle('i' + item, key));
+      }
+    } else if (type === 'i') {
+      //this.current[id] = key;
+      this.setStyle2($('#' + id), id, key);
+     }
+
+     // handle topmost list
+     if (this.topMostList[key]) {
+       this.topMostList[key].forEach((id) => this._toFront($('#' + id)));
+     }
+  },
+
+  /**
+   * Sets the styles to set the effects.
+   * @param {Element} elem Th eelem to style.
+   * @param {string} id The name of the styles to get.
+   * @param {string} key The key of the style to use.
+   * @returns void
+   */
+  'setStyle2': function(elem, id, key) {
+    if (!elem || !elem.tagName) {
+      return;
+    }
+
+    // handle groups
+    if (elem.tagName === 'g') {
+      // to front
+      var info = this.infos[id];
+      if (Object.keys(info).indexOf('toFront') >= 0) {
+        elem = this._toFront(elem);
+      }
+      var children = elem.children;
+      for (var i = 0; i < children.length; ++i) {
+        this.setStyle2(children[i], id, key);
+      }
+    } else {
+      // set style of item
+      var info = this.infos[id];
+      if (info) {
+        Object.keys(info).forEach((name) =>  {
+          if ("toFront" !== name) {
+            elem.style[name] = info[name][key];
+          } else if (elem.id === id) {
+            this._toFront(elem);
+          }
+        });
+      }
+
+      // if not done with animation (handle: visibility)
+      if (!this.animator || !this.animator.isActive()) {
+        if (this.animation0 && this.animation0[id]
+            && this.animation0[id]['visible-' + key] !== undefined) {
+          elem.style.display = this.animation0[id]['visible-' + key] ? 'block' : 'none';
+        }
+      }
+    }
+  },
+
+  '_toFront': function(elem) {
+    if (elem) {
+      // https://stackoverflow.com/questions/6566406/svg-re-ordering-z-index-raphael-optional
+      // https://developer.mozilla.org/de/docs/Web/API/Node/insertBefore
+      return elem.parentNode.appendChild(elem);
+    }
+    return elem;
+  }
+}; //.init();
+
+if (typeof animator !== 'undefined') {
+  animator.effects = effects;
+  effects.animator = animator;
+}
+if (typeof animation0 !== 'undefined') {
+  effects.animation0 = animation0;
+}
+
+effects.init();
+}());
+//]]></script>
+</svg>
+

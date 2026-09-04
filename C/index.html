@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="de">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/C/favicon.ico">
+  <title>C-Kader</title>
+  <style>
+html, body, * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  
+  padding: 0;
+  border: 0 none;
+  margin: 0;
+  
+  font-size: 14pt;
+}
+html, body {
+  overflow: hidden;
+}
+div.header {
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  
+  left: 0;
+  padding-left: 50px;
+  width: 100%;
+  top: 0;
+  height: 50px;
+    
+  background-color: #CCCCCC;  
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+div.header > div.title {
+  font-family: Arial;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 8px 0 0 0;
+}
+div.header > div.subtitle {
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 0.8em;
+}
+
+div.header > span.icon {
+  position: absolute;
+  left: 50px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+  
+  border-radius: 50%;
+  background-color: darkred;
+  color: #EEEEEE;
+  text-align: center;
+  font-size: 1.75em;
+}
+div.header > img {
+  position: absolute;
+  left: 50px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+}
+div.header > span.header {
+  position: absolute;
+  top: 1px;
+  left: 100px;
+  font-size: 0.5em;
+}
+div.header > span.text {
+  position: absolute;
+  padding: 12px 10px 12px 50px;
+}
+div.header > span.footer {
+  position: absolute;
+  bottom: 1px;
+  left: 100px;
+  font-size: 0.5em;
+}
+div.header > a.to_menu {
+  position: absolute;
+  top: 9px;
+  right: 50px;
+  width: 69px;
+  height: 32px;
+  z-index: 1; 
+  text-decoration: none;
+  background-color: #DDD;
+  background-image: url("/images//bhv2.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+svg#button-fullscreen {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  z-index: 1; 
+}
+div.content {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  bottom: 30px;
+
+  background-color: #EEEEEE;
+  overflow: hidden;
+}
+div.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+h1, h2, h3 {
+  margin: 0.5em 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.3em;
+}
+ol, ul {
+  padding-left: 1.5em;
+}
+p {
+  margin: 0.5em 0;
+}
+
+div.img {
+  box-sizing: border-box;
+  overflow: hidden; 
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+
+  padding: 1.5% 0;
+  text-align: center;
+}
+div.img > svg {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+}
+
+div.text {
+  box-sizing: border-box;
+  padding: 1%;
+}
+
+@media (orientation: landscape) {
+  div.container.full {
+    overflow: hidden;
+  }
+  div.container.full > div.img, 
+  div.container.full > div.text {
+    float: left;
+    width: 50%;
+  }
+  div.container.full > div.text {
+    height: 100%;
+    overflow: auto;
+  }
+}
+label.tree-menu {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  z-index: 99;
+  border-radius: 7px;
+  background-color: dimgray;
+  
+  cursor: pointer;
+}
+label.tree-menu > span {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  
+  color: gray;
+  text-align: center;
+  font-size: 30px;
+  line-height: 100%;
+
+  cursor: pointer;
+}
+
+input {
+  background-color: blue;
+  position: absolute;
+  left: -1000px;
+}
+
+div.tree {
+  display: none;
+
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  bottom: 30px;
+  z-index: 99;
+  
+  overflow: hidden;
+}
+div.tree > div.tree-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  overflow: hidden;
+  
+  background-color: #DDDDDD;
+  opacity: 0.1;
+}
+div.tree > div.tree-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33%;
+  min-width: 400px;
+  max-width: 600px;
+  height: 100%;
+  
+  overflow: auto;
+  
+  background-color: #DDDDDD;
+}
+input#tree-toggle:checked + div.tree {
+  display: block;
+}
+
+@media (width < 400px) {
+  div.tree > div.tree-content {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+div.item {
+  position: relative;
+}
+
+div.item > input.item-toggle + label > span:first-child {
+  display: none;
+}
+div.item > input.item-toggle + label > span:nth-child(2) {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > span:first-child {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > span:nth-child(2) {
+  display: none;
+}
+
+div.item > input.item-toggle + label > img:first-child {
+  display: none;
+}
+div.item > input.item-toggle + label > img:nth-child(2) {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > img:first-child {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > img:nth-child(2) {
+  display: none;
+}
+
+div.item > input.item-toggle:checked ~ .item-container {
+  display: block;
+}
+
+
+
+div.item > label {
+  position: absolute;
+  left: 3px;
+  width: 20px;
+  top: 15px;
+  height: 20px;
+  background-color: dimgray;
+  color: lightgray;
+  border-radius: 50%;
+  text-align: center;
+}
+.touch div.item > label {
+  top: 6px;
+  left: 6px;
+  height: 38px;
+  width: 38px;
+}
+.touch div.item > label > img {
+  height: 38px;
+  width: 38px;
+}
+
+div.item > .item-header {
+  display: block;
+  position: relative;
+  height: 50px;
+  margin: 0 0 0 26px;
+
+  white-space: nowrap;
+  
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.touch div.item > .item-header {
+  margin-left: 46px;
+}
+div.item.root > .item-header, 
+.touch div.item.root > .item-header {
+  margin: 0;
+}
+
+div.item > span.item-header > span.icon {
+  position: absolute;
+  left: 2px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+  
+  border-radius: 50%;
+  background-color: darkred;
+  color: #EEEEEE;
+  text-align: center;
+  font-size: 1.75em;
+}
+div.item > span.item-header > img {
+  position: absolute;
+  left: 2px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+}
+div.item > .item-header > span.header {
+  position: absolute;
+  top: 1px;
+  left: 50px;
+  font-size: 0.5em;
+}
+div.item > .item-header > span.text {
+  position: absolute;
+  padding: 12px 10px 16px 50px;
+}
+div.item > .item-header:hover, div.item > .item-header:hover > span.text {
+  background-color: #CCCCCC;
+}
+div.item > .item-header > span.footer {
+  position: absolute;
+  bottom: 1px;
+  left: 50px;
+  font-size: 0.5em;
+}
+
+div.item > div.item-container {
+  position: relative;
+  padding-left: 26px;
+
+  display: none;
+}
+div.footer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 30px;
+  box-sizing: border-box;
+  padding: 5px 5px;
+  
+  overflow: hidden;
+  background-color: #CCCCCC;
+
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14pt;
+}
+
+  </style>
+<script>
+  document.documentElement.className += (("ontouchstart" in document.documentElement) ? ' touch' : ' no-touch');
+</script>
+  <script>
+function init() {
+  var items = document.querySelectorAll("div.tree span.item-header");
+  items.forEach((item) => item.addEventListener("click", onTreeItemClick));
+  
+  initFullscreen();
+}
+
+function onTreeItemClick(event) {
+  // if any animator: ensure end of running animation
+  if (window.animator) {
+    animator.stop();
+  }
+  
+  var item = searchTreeItem(event.target ? event.target : event.srcElement);
+  var id = item && item.dataset && item.dataset.id ? item.dataset.id : "??";
+  
+  //alert("click: " + id);
+  loadData("/C/header_" + id + ".html", (header) => {
+    var h = document.querySelector("div.header");
+    if (h) {
+      h.innerHTML = header;
+      setTimeout(function() {
+        initFullscreen();
+      }, 111);
+    }
+  });
+  loadData("/C/content_" + id + ".html", (header) => {
+    var c = document.querySelector("div.content");
+    if (c) {
+      c.innerHTML = header;
+    }
+  });
+  setTimeout(function() {
+    loadScript("/C/script_" + id + ".js", "script_" + id + "\\.js", () => {
+      console.log("Script for " + id + " has been loaded.");
+    });
+  }, 55);
+  closeTree();
+}
+
+function searchTreeItem(elem) {
+  while (elem) {
+    if (elem.className.indexOf("item-header") >= 0) {
+      return elem;
+    }
+    elem = elem.parentNode;
+  }
+  
+  return null;
+}
+
+function loadData(data, handler) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+        handler(this.responseText);
+      } else {
+        handler(this.status);
+      }
+    }
+  };
+  xhttp.open("GET", data, true);
+  xhttp.send();
+}
+
+var registeredScript = undefined;
+
+function unregisterPreviousScript() {
+  if (registeredScript) {
+    console.log("Unregister " + registeredScript);
+    if (typeof unregister === 'function') {
+      unregister();
+    }
+
+    var elem = document.querySelector("script[src$=" + registeredScript + "]");
+    if (elem) {
+      elem.remove();
+    }
+    registeredScript = undefined;
+    console.log("Unregister done.");
+  }
+}
+
+function loadScript(url, key, callback) {
+  unregisterPreviousScript();
+
+  console.log("Register " + url);
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  
+  if (script.readyState) { // only required for IE<9
+    script.onreadystatechange = function() {
+      if (script.readyState === "loaded" || script.readyState === "complete") {
+        script.onreadystatechange = null;
+        if (callback) {
+          callback();
+        }
+      }
+    };
+  } else {  // Others
+    script.onload = function() {
+      if (callback) {
+        callback();
+      }
+    };
+  }
+
+  script.src = url;
+  document.getElementsByTagName("head")[0].appendChild(script);
+  registeredScript = key;
+  console.log("Register " + key + "/" + url + " done.");
+}
+
+function closeTree() {
+  var cb = document.getElementById('tree-toggle');
+  if (cb && cb.checked) {
+    cb.checked = false;
+  }
+}
+
+var requestFullscreen, exitFullscreen;
+
+function initFullscreen() {
+  requestFullscreen = document.getElementById("request-fullscreen");
+  exitFullscreen = document.getElementById("exit-fullscreen");
+  
+  var btn = document.getElementById("button-fullscreen");
+  if (btn) {
+    btn.addEventListener("click", toggleFullscreen);
+  }
+  
+  document.addEventListener("fullscreenchange", function() {
+    updateFullscreenInfo();
+  });
+  
+  updateFullscreenInfo();
+}
+
+function updateFullscreenInfo() {
+  if (document.fullscreenElement) {
+    requestFullscreen.setAttribute("stroke", "transparent");
+    exitFullscreen.setAttribute("stroke", "black");
+  } else {
+    requestFullscreen.setAttribute("stroke", "black");
+    exitFullscreen.setAttribute("stroke", "transparent");
+  }
+}
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+  </script>
+ </head>
+ <body onload="init();">
+<div class="header"><span class="text">C-Kader</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Die ersten Versuche am Großfeld</span><a href="/menu.html" class="to_menu">&nbsp;</a><svg xmlns="http://www.w3.org/2000/svg" id="button-fullscreen" width="30" height="30">
+  <path id="request-fullscreen"
+    stroke="black" stroke-width="3" fill="none"
+    d="M 10, 2  L  2, 2  L  2,10
+       M 20, 2  L 28, 2  L 28,10
+       M 28,20  L 28,28  L 20,28
+       M 10,28  L  2,28  L  2,20" />
+  <path id="exit-fullscreen"
+    stroke="transparent" stroke-width="3" fill="none"
+    d="M 10, 2  L 10,10  L  2, 10
+       M 20, 2  L 20,10  L 28, 10
+       M 28,20  L 20,20  L 20, 28
+       M 10,28  L 10,20  L  2, 20" />
+</svg>
+</div>
+
+<label class="tree-menu" for="tree-toggle"><span>=</span></label>
+<input type="checkbox" checked id="tree-toggle" />
+<div class="tree"><div class="tree-bg">&nbsp;</div><div class="tree-content"><div class="item root">
+ <span class="item-header" data-id="01ef4094-7c50-175c-a007-7d7a9d7b5fd1"><span class="text">C-Kader</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Die ersten Versuche am Großfeld</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef409a-6bca-1aa8-aa63-03ba89a63ba7"><span class="text">Das 6:6 - &quot;6er vorne&quot;</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Jede spielt jede Position</span></span>
+</div><div class="item">
+ <input type="checkbox" id="01efc6e3-e819-1b75-92af-a8e3c1a9739c" class="item-toggle" #checked# />
+ <label for="01efc6e3-e819-1b75-92af-a8e3c1a9739c" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01efc6e3-e819-1b75-92af-a8e3c1a9739c"><span class="text">Das Spielfeld</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Infos zum Spielfeld, und zu Positionen + Aufgaben</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="d579bbb7-8618-4e4c-8377-3e00a0b952cd"><span class="text">Die Zonen und die Linien</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01efc6e2-6d45-16e3-9d0f-35c484540d54"><span class="text">Die Positionen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">1-6 und die Aufgaben</span></span>
+</div></div>
+</div></div></div>
+
+<div class="content"><div class="container"></div>
+
+<script>
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+
+function unregister() {
+  document.removeEventListener('contextmenu', onContextMenu);
+}
+window.unregister = unregister;
+}());
+
+</script></div>
+<div class="footer">C-Kader</div>
+
+ </body>
+</html>

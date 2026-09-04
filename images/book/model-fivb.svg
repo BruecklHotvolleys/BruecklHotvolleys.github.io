@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="300" height="300" version="1.1" viewBox="0 0 300 300">
+  <g class="actors">
+    <text x="0" y="0" text-anchor="middle" transform="translate(150 150) translate(0 114)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 300px;">?</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(150 290)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">FIVB</text>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

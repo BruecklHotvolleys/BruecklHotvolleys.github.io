@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="250" height="250" version="1.1" viewBox="0 0 250 250">
+  <defs>
+    <mask id="xarea_1" maskContentUnits="userSpaceOnUse">
+      <ellipse cx="125" cy="125" rx="125" ry="125" fill="white"/>
+    </mask>
+    <mask id="xarea_3" maskContentUnits="userSpaceOnUse">
+      <ellipse cx="0" cy="0" rx="110" ry="110" fill="white"/>
+      <ellipse cx="0" cy="0" rx="45" ry="45" fill="black"/>
+    </mask>
+  </defs>
+  <g>
+    <rect x="0" y="0" width="250" height="250" style="stroke: none; fill: #d3d3d3;"/>
+  </g>
+  <g class="actors">
+    <g style="mask: url(#xarea_1);">
+      <g transform="translate(125 125)">
+        <g style="mask: url(#xarea_3);">
+          <path d="M 0 0 L 0 -100 A 100 100 0 0 1 99.211 12.533 Z" style="fill: #0000ff;"/>
+          <path d="M 0 0 L 99.211 12.533 A 100 100 0 0 1 58.779 80.902 Z" style="fill: #ff69b4;"/>
+          <path d="M 0 0 L 58.779 80.902 A 100 100 0 0 1 -99.211 12.533 Z" style="fill: #ff0000;"/>
+          <path d="M 0 0 L -99.211 12.533 A 100 100 0 0 1 -95.106 -30.902 Z" style="fill: #ffa500;"/>
+          <path d="M 0 0 L -95.106 -30.902 A 100 100 0 0 1 -0 -100 Z" style="fill: #00ff7f;"/>
+        </g>
+        <text x="51.008" y="-44.969" text-anchor="middle" transform="translate(0 6.333)" style="stroke: none; fill: #ffffff; font-size: 16.667px; font-family: Arial, Helvetica, sans-serif;">Technik</text>
+        <text x="51.008" y="-44.969" text-anchor="middle" transform="translate(0 20.891)" style="stroke: none; fill: #ffffff; font-size: 11.117px; font-family: Arial, Helvetica, sans-serif;">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;27%</text>
+        <text x="60.252" y="35.633" text-anchor="middle" transform="translate(0 6.333)" style="stroke: none; fill: #111111; font-size: 16.667px; font-family: Arial, Helvetica, sans-serif;">Taktik</text>
+        <text x="60.252" y="35.633" text-anchor="middle" transform="translate(0 20.891)" style="stroke: none; fill: #111111; font-size: 11.117px; font-family: Arial, Helvetica, sans-serif;">13%</text>
+        <text x="-25.02" y="57.819" text-anchor="middle" transform="translate(0 6.333)" style="stroke: none; fill: #111111; font-size: 16.667px; font-family: Arial, Helvetica, sans-serif;">&#xA0;&#xA0;&#xA0;Kommunikation</text>
+        <text x="-25.02" y="57.819" text-anchor="middle" transform="translate(0 20.891)" style="stroke: none; fill: #111111; font-size: 11.117px; font-family: Arial, Helvetica, sans-serif;">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;33%</text>
+        <text x="-74.667" y="-7.058" text-anchor="middle" transform="translate(0 6.333)" style="stroke: none; fill: #111111; font-size: 16.667px; font-family: Arial, Helvetica, sans-serif;">Bewegung</text>
+        <text x="-74.667" y="-7.058" text-anchor="middle" transform="translate(0 20.891)" style="stroke: none; fill: #111111; font-size: 11.117px; font-family: Arial, Helvetica, sans-serif;">7%</text>
+        <text x="-42.321" y="-58.249" text-anchor="middle" transform="translate(0 6.333)" style="stroke: none; fill: #111111; font-size: 16.667px; font-family: Arial, Helvetica, sans-serif;">&#xA0;Psyche</text>
+        <text x="-42.321" y="-58.249" text-anchor="middle" transform="translate(0 20.891)" style="stroke: none; fill: #111111; font-size: 11.117px; font-family: Arial, Helvetica, sans-serif;">&#xA0;&#xA0;20%</text>
+      </g>
+    </g>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

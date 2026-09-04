@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="210" height="180" version="1.1" viewBox="0 0 210 180">
+  <g>
+    <rect x="0" y="0" width="210" height="180" style="stroke: none; fill: #d3d3d3;"/>
+  </g>
+  <g class="actors">
+    <g transform="translate(0 0)">
+      <line x1="120" y1="135" x2="130.876" y2="140.071" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="130.876" y1="140.071" x2="116.984" y2="61.287" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="116.984" y1="61.287" x2="161.979" y2="114.91" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="161.979" y1="114.91" x2="150.045" y2="113.656" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="116.984" y1="61.287" x2="113.12" y2="62.322" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="113.12" y1="62.322" x2="64.824" y2="75.263" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="64.824" y1="75.263" x2="55.765" y2="109.07" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="64.824" y1="75.263" x2="77.324" y2="96.914" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="64.824" y1="75.263" x2="52.87" y2="76.309" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="52.87" y1="76.309" x2="48.87" y2="76.309" style="fill: none; stroke: #111111; stroke-width: 14; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="52.87" y1="76.309" x2="48.87" y2="76.309" style="fill: none; stroke: #808080; stroke-width: 12; stroke-linecap: round; stroke-linejoin: round;"/>
+    </g>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

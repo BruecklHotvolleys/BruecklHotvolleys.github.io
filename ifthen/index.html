@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="de">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/ifthen/favicon.ico">
+  <title>Entscheidungssituationen</title>
+  <style>
+html, body, * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  
+  padding: 0;
+  border: 0 none;
+  margin: 0;
+  
+  font-size: 14pt;
+}
+html, body {
+  overflow: hidden;
+}
+div.header {
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  
+  left: 0;
+  padding-left: 50px;
+  width: 100%;
+  top: 0;
+  height: 50px;
+    
+  background-color: #CCCCCC;  
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+div.header > div.title {
+  font-family: Arial;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 8px 0 0 0;
+}
+div.header > div.subtitle {
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 0.8em;
+}
+
+div.header > span.icon {
+  position: absolute;
+  left: 50px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+  
+  border-radius: 50%;
+  background-color: darkred;
+  color: #EEEEEE;
+  text-align: center;
+  font-size: 1.75em;
+}
+div.header > img {
+  position: absolute;
+  left: 50px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+}
+div.header > span.header {
+  position: absolute;
+  top: 1px;
+  left: 100px;
+  font-size: 0.5em;
+}
+div.header > span.text {
+  position: absolute;
+  padding: 12px 10px 12px 50px;
+}
+div.header > span.footer {
+  position: absolute;
+  bottom: 1px;
+  left: 100px;
+  font-size: 0.5em;
+}
+div.header > a.to_menu {
+  position: absolute;
+  top: 9px;
+  right: 50px;
+  width: 69px;
+  height: 32px;
+  z-index: 1; 
+  text-decoration: none;
+  background-color: #DDD;
+  background-image: url("/images//bhv2.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+svg#button-fullscreen {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  z-index: 1; 
+}
+div.content {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  bottom: 30px;
+
+  background-color: #EEEEEE;
+  overflow: hidden;
+}
+div.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+h1, h2, h3 {
+  margin: 0.5em 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.3em;
+}
+ol, ul {
+  padding-left: 1.5em;
+}
+p {
+  margin: 0.5em 0;
+}
+
+div.img {
+  box-sizing: border-box;
+  overflow: hidden; 
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+
+  padding: 1.5% 0;
+  text-align: center;
+}
+div.img > svg {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+}
+
+div.text {
+  box-sizing: border-box;
+  padding: 1%;
+}
+
+@media (orientation: landscape) {
+  div.container.full {
+    overflow: hidden;
+  }
+  div.container.full > div.img, 
+  div.container.full > div.text {
+    float: left;
+    width: 50%;
+  }
+  div.container.full > div.text {
+    height: 100%;
+    overflow: auto;
+  }
+}
+label.tree-menu {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  z-index: 99;
+  border-radius: 7px;
+  background-color: dimgray;
+  
+  cursor: pointer;
+}
+label.tree-menu > span {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  
+  color: gray;
+  text-align: center;
+  font-size: 30px;
+  line-height: 100%;
+
+  cursor: pointer;
+}
+
+input {
+  background-color: blue;
+  position: absolute;
+  left: -1000px;
+}
+
+div.tree {
+  display: none;
+
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  bottom: 30px;
+  z-index: 99;
+  
+  overflow: hidden;
+}
+div.tree > div.tree-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  overflow: hidden;
+  
+  background-color: #DDDDDD;
+  opacity: 0.1;
+}
+div.tree > div.tree-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33%;
+  min-width: 400px;
+  max-width: 600px;
+  height: 100%;
+  
+  overflow: auto;
+  
+  background-color: #DDDDDD;
+}
+input#tree-toggle:checked + div.tree {
+  display: block;
+}
+
+@media (width < 400px) {
+  div.tree > div.tree-content {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+div.item {
+  position: relative;
+}
+
+div.item > input.item-toggle + label > span:first-child {
+  display: none;
+}
+div.item > input.item-toggle + label > span:nth-child(2) {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > span:first-child {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > span:nth-child(2) {
+  display: none;
+}
+
+div.item > input.item-toggle + label > img:first-child {
+  display: none;
+}
+div.item > input.item-toggle + label > img:nth-child(2) {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > img:first-child {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > img:nth-child(2) {
+  display: none;
+}
+
+div.item > input.item-toggle:checked ~ .item-container {
+  display: block;
+}
+
+
+
+div.item > label {
+  position: absolute;
+  left: 3px;
+  width: 20px;
+  top: 15px;
+  height: 20px;
+  background-color: dimgray;
+  color: lightgray;
+  border-radius: 50%;
+  text-align: center;
+}
+.touch div.item > label {
+  top: 6px;
+  left: 6px;
+  height: 38px;
+  width: 38px;
+}
+.touch div.item > label > img {
+  height: 38px;
+  width: 38px;
+}
+
+div.item > .item-header {
+  display: block;
+  position: relative;
+  height: 50px;
+  margin: 0 0 0 26px;
+
+  white-space: nowrap;
+  
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.touch div.item > .item-header {
+  margin-left: 46px;
+}
+div.item.root > .item-header, 
+.touch div.item.root > .item-header {
+  margin: 0;
+}
+
+div.item > span.item-header > span.icon {
+  position: absolute;
+  left: 2px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+  
+  border-radius: 50%;
+  background-color: darkred;
+  color: #EEEEEE;
+  text-align: center;
+  font-size: 1.75em;
+}
+div.item > span.item-header > img {
+  position: absolute;
+  left: 2px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+}
+div.item > .item-header > span.header {
+  position: absolute;
+  top: 1px;
+  left: 50px;
+  font-size: 0.5em;
+}
+div.item > .item-header > span.text {
+  position: absolute;
+  padding: 12px 10px 16px 50px;
+}
+div.item > .item-header:hover, div.item > .item-header:hover > span.text {
+  background-color: #CCCCCC;
+}
+div.item > .item-header > span.footer {
+  position: absolute;
+  bottom: 1px;
+  left: 50px;
+  font-size: 0.5em;
+}
+
+div.item > div.item-container {
+  position: relative;
+  padding-left: 26px;
+
+  display: none;
+}
+div.footer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 30px;
+  box-sizing: border-box;
+  padding: 5px 5px;
+  
+  overflow: hidden;
+  background-color: #CCCCCC;
+
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14pt;
+}
+
+  </style>
+<script>
+  document.documentElement.className += (("ontouchstart" in document.documentElement) ? ' touch' : ' no-touch');
+</script>
+  <script>
+function init() {
+  var items = document.querySelectorAll("div.tree span.item-header");
+  items.forEach((item) => item.addEventListener("click", onTreeItemClick));
+  
+  initFullscreen();
+}
+
+function onTreeItemClick(event) {
+  // if any animator: ensure end of running animation
+  if (window.animator) {
+    animator.stop();
+  }
+  
+  var item = searchTreeItem(event.target ? event.target : event.srcElement);
+  var id = item && item.dataset && item.dataset.id ? item.dataset.id : "??";
+  
+  //alert("click: " + id);
+  loadData("/ifthen/header_" + id + ".html", (header) => {
+    var h = document.querySelector("div.header");
+    if (h) {
+      h.innerHTML = header;
+      setTimeout(function() {
+        initFullscreen();
+      }, 111);
+    }
+  });
+  loadData("/ifthen/content_" + id + ".html", (header) => {
+    var c = document.querySelector("div.content");
+    if (c) {
+      c.innerHTML = header;
+    }
+  });
+  setTimeout(function() {
+    loadScript("/ifthen/script_" + id + ".js", "script_" + id + "\\.js", () => {
+      console.log("Script for " + id + " has been loaded.");
+    });
+  }, 55);
+  closeTree();
+}
+
+function searchTreeItem(elem) {
+  while (elem) {
+    if (elem.className.indexOf("item-header") >= 0) {
+      return elem;
+    }
+    elem = elem.parentNode;
+  }
+  
+  return null;
+}
+
+function loadData(data, handler) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+        handler(this.responseText);
+      } else {
+        handler(this.status);
+      }
+    }
+  };
+  xhttp.open("GET", data, true);
+  xhttp.send();
+}
+
+var registeredScript = undefined;
+
+function unregisterPreviousScript() {
+  if (registeredScript) {
+    console.log("Unregister " + registeredScript);
+    if (typeof unregister === 'function') {
+      unregister();
+    }
+
+    var elem = document.querySelector("script[src$=" + registeredScript + "]");
+    if (elem) {
+      elem.remove();
+    }
+    registeredScript = undefined;
+    console.log("Unregister done.");
+  }
+}
+
+function loadScript(url, key, callback) {
+  unregisterPreviousScript();
+
+  console.log("Register " + url);
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  
+  if (script.readyState) { // only required for IE<9
+    script.onreadystatechange = function() {
+      if (script.readyState === "loaded" || script.readyState === "complete") {
+        script.onreadystatechange = null;
+        if (callback) {
+          callback();
+        }
+      }
+    };
+  } else {  // Others
+    script.onload = function() {
+      if (callback) {
+        callback();
+      }
+    };
+  }
+
+  script.src = url;
+  document.getElementsByTagName("head")[0].appendChild(script);
+  registeredScript = key;
+  console.log("Register " + key + "/" + url + " done.");
+}
+
+function closeTree() {
+  var cb = document.getElementById('tree-toggle');
+  if (cb && cb.checked) {
+    cb.checked = false;
+  }
+}
+
+var requestFullscreen, exitFullscreen;
+
+function initFullscreen() {
+  requestFullscreen = document.getElementById("request-fullscreen");
+  exitFullscreen = document.getElementById("exit-fullscreen");
+  
+  var btn = document.getElementById("button-fullscreen");
+  if (btn) {
+    btn.addEventListener("click", toggleFullscreen);
+  }
+  
+  document.addEventListener("fullscreenchange", function() {
+    updateFullscreenInfo();
+  });
+  
+  updateFullscreenInfo();
+}
+
+function updateFullscreenInfo() {
+  if (document.fullscreenElement) {
+    requestFullscreen.setAttribute("stroke", "transparent");
+    exitFullscreen.setAttribute("stroke", "black");
+  } else {
+    requestFullscreen.setAttribute("stroke", "black");
+    exitFullscreen.setAttribute("stroke", "transparent");
+  }
+}
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+  </script>
+ </head>
+ <body onload="init();">
+<div class="header"><span class="text">Entscheidungssituationen</span><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><a href="/menu.html" class="to_menu">&nbsp;</a><svg xmlns="http://www.w3.org/2000/svg" id="button-fullscreen" width="30" height="30">
+  <path id="request-fullscreen"
+    stroke="black" stroke-width="3" fill="none"
+    d="M 10, 2  L  2, 2  L  2,10
+       M 20, 2  L 28, 2  L 28,10
+       M 28,20  L 28,28  L 20,28
+       M 10,28  L  2,28  L  2,20" />
+  <path id="exit-fullscreen"
+    stroke="transparent" stroke-width="3" fill="none"
+    d="M 10, 2  L 10,10  L  2, 10
+       M 20, 2  L 20,10  L 28, 10
+       M 28,20  L 20,20  L 20, 28
+       M 10,28  L 10,20  L  2, 20" />
+</svg>
+</div>
+
+<label class="tree-menu" for="tree-toggle"><span>=</span></label>
+<input type="checkbox" checked id="tree-toggle" />
+<div class="tree"><div class="tree-bg">&nbsp;</div><div class="tree-content"><div class="item root">
+ <span class="item-header" data-id="01ee54e0-5cb7-17b0-ac1b-5aa0f83b324a"><span class="text">Entscheidungssituationen</span><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /></span>
+</div><div class="item">
+ <input type="checkbox" id="5fae4d07-2867-4194-bcfd-e2cc621a9c2c" class="item-toggle" #checked# />
+ <label for="5fae4d07-2867-4194-bcfd-e2cc621a9c2c" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="5fae4d07-2867-4194-bcfd-e2cc621a9c2c"><span class="text">Die Situationen</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="cd6aa07f-5c8f-4a15-85c0-07b47541912a" class="item-toggle" #checked# />
+ <label for="cd6aa07f-5c8f-4a15-85c0-07b47541912a" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="cd6aa07f-5c8f-4a15-85c0-07b47541912a"><span class="text">Den Ball beobachten</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="16d9f3a3-a5a8-4269-9567-716945ee45b9"><span class="text">Wo ist der Angriff zu erwarten?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie weit ist die Annahme vom Netz weg?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="5c11c295-3c27-45a9-bdff-6eece1c7236b"><span class="text">Hektik vermeiden</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie kann die Aufspielerin einen zu hektischen Spielaufbau vermeiden?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="8d522473-6956-4ca8-950b-6fad24381042"><span class="text">Weite Wege</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin soll die Aufspielerin spielen?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="12dadf55-20d6-4633-93a5-af55fba18237"><span class="text">Erfolgreich angreifen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie kann die Angreiferin erfolgreich sein, wenn nicht alles passt?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="cdb2cda8-54b5-4c23-9666-70a14b46dc79" class="item-toggle" #checked# />
+ <label for="cdb2cda8-54b5-4c23-9666-70a14b46dc79" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="cdb2cda8-54b5-4c23-9666-70a14b46dc79"><span class="text">Warten oder hingehen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Kommt der Ball oder nicht?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="484ecda5-bf30-494a-a4d8-192ac9f5bbff"><span class="text">&lt;&lt;Orientierung am Spielfeld 1&gt;&gt;</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d7c31fc4-a840-4182-906f-71e0f093493e"><span class="text">&lt;&lt;Orientierung am Spielfeld 2&gt;&gt;</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="d79b7243-bf19-4b2a-a17c-13a44ba8c487"><span class="text">Den Ball im Oberen oder Unteren Zuspiel spielen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Soll die Spielerin den Ball im Oberen oder Unteren Zuspiel weiterspielen?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="388d3f78-2db2-4b81-a217-bbc2ae237bdd"><span class="text">Den Punkt suchen?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie weit ist das Aufspiel vom Netz weg?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="5c40bbb9-f7e3-4187-8774-ded4587d93d3"><span class="text">Blocken oder Lösen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie erfolgt das Aufspiel?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="b94acb18-f7c3-42f7-82cf-e86672adc75e"><span class="text">Den Verteidigungsort (gegen Linienangriffe) wählen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wo soll im Feld verteidigt werden?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="a93a2b67-3d04-4e15-8cee-c060d6a187b2"><span class="text">Den Verteidigungsort (gegen Diagonalangriffe) wählen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wo soll im Feld verteidigt werden?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="361cb1db-2862-48ee-9564-3289c8d3074e"><span class="text">Die Feldverteidigung auf der Position 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie lang ist das Aufspiel?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="70480328-693a-4dbe-8814-28e457101605"><span class="text">Den Blockort wählen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie lang ist das Aufspiel?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="7ab3bf91-f2c9-408c-9d2a-d3f6b9ce2fe0" class="item-toggle" #checked# />
+ <label for="7ab3bf91-f2c9-408c-9d2a-d3f6b9ce2fe0" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="7ab3bf91-f2c9-408c-9d2a-d3f6b9ce2fe0"><span class="text">Blocken oder Lösen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wo erfolgt der Angriff?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="c7f75059-09f1-4998-9c1e-91c4e33d71f3"><span class="text">Den Block schließen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="5441b6f0-b979-4384-8db0-edf5eb310bcf"><span class="text">Doppelblock am Kleinfeld</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="57bc5651-70a3-4b21-8308-73f4de5bbaa0"><span class="text">Hol' Sie Dir!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="0b7bcb87-73de-4a71-8a72-0411e8a90700"><span class="text">Blockort finden 3</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="bb6be560-d8fd-45eb-a6b9-ca13f1acfb30"><span class="text">Angriff und Blockbildung üben 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="bf7bae46-3e4f-4f9b-8a0d-105cc1955da9"><span class="text">Angriff und Blockbildung üben 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="9c64f47f-3921-4e2a-beb8-fad26dddbe3d"><span class="text">Seitlich oder vor dem Körper?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie gelingt die Annahme am Besten?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="59e20a6e-83af-45a6-b72d-b14eafec55e1"><span class="text">Wo verteidigen?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie weit ist das Aufspiel vom Netz?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="ffb17928-6797-4bf3-b40e-91bc0dda17b9" class="item-toggle" #checked# />
+ <label for="ffb17928-6797-4bf3-b40e-91bc0dda17b9" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="ffb17928-6797-4bf3-b40e-91bc0dda17b9"><span class="text">Ball In oder Out</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Den Ball annehmen oder ihn ins Out lassen?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01297794-1aeb-44c4-9e8c-b9a47158041a"><span class="text">In oder Out</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="cf4609d9-4a40-45a6-8abc-b9632c42f788"><span class="text">Die Aufspielrichtung 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie zeigt die Aufspielerin die Richtung des Aufspiels an?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="17ce4872-5937-49d8-b95d-09b332a7fc77" class="item-toggle" #checked# />
+ <label for="17ce4872-5937-49d8-b95d-09b332a7fc77" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="17ce4872-5937-49d8-b95d-09b332a7fc77"><span class="text">Der Ball fliegt zwischen zwei Spielerinnen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wer nimmt den Ball?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="832e4dea-2782-4790-ac12-e6b0e7345348"><span class="text">2 Annahmespielerinnen blockieren</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="9cbf7bd0-9469-41ec-b356-4b03eab8945d"><span class="text">Die Grundübung 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ebb25926-6aa5-4334-905d-a2f14163b3dc"><span class="text">Die Grundübung 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="e13d64d6-3006-43db-bce9-a76123d2fefe"><span class="text">Aufspielen oder Lösen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Was tun, wenn der Ball nicht zur Aufspielerin kommt?</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="9446faf0-c3d2-4e00-8916-ce88c0209b3e" class="item-toggle" #checked# />
+ <label for="9446faf0-c3d2-4e00-8916-ce88c0209b3e" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="9446faf0-c3d2-4e00-8916-ce88c0209b3e"><span class="text">Die Gegnerin beobachten</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="75bcf795-4a39-4855-b9c7-4b72c1b71e48" class="item-toggle" #checked# />
+ <label for="75bcf795-4a39-4855-b9c7-4b72c1b71e48" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="75bcf795-4a39-4855-b9c7-4b72c1b71e48"><span class="text">Den Ball spielen</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="4ff4f0be-dd86-4247-bd80-97d522431a18"><span class="text">Ein Sicherheitsangriff</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin mit dem Ball, wenn es ein Problem gibt?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="dc3f47c6-b8e7-4e55-aff3-c20a6ed0c7eb" class="item-toggle" #checked# />
+ <label for="dc3f47c6-b8e7-4e55-aff3-c20a6ed0c7eb" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="dc3f47c6-b8e7-4e55-aff3-c20a6ed0c7eb"><span class="text">Den Block anschlagen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie kann die Angreiferin einen gut gestellten Doppelblock überwinden?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="194b5cce-b6de-4ec3-bf8e-9a808469769d"><span class="text">5 Sterne</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="6daa8d74-9af4-47f2-92c7-195433da1b54" class="item-toggle" #checked# />
+ <label for="6daa8d74-9af4-47f2-92c7-195433da1b54" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="6daa8d74-9af4-47f2-92c7-195433da1b54"><span class="text">Lücken ausnützen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin angreifen?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="8f6e7488-52a5-4721-a435-a8ba2e30f1e6"><span class="text">Finde den leeren Raum!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="f439baa7-1d0a-4f62-b7fb-6bb231404694" class="item-toggle" #checked# />
+ <label for="f439baa7-1d0a-4f62-b7fb-6bb231404694" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="f439baa7-1d0a-4f62-b7fb-6bb231404694"><span class="text">Was macht die gegnerische Mittelblockerin? 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin soll die Aufspielerin spielen?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="d2ee1e04-8109-4cc2-8125-7d8338d78aec"><span class="text">Lies den Block 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="52ee5664-0eb0-4a0c-9a44-c5f82e36b989" class="item-toggle" #checked# />
+ <label for="52ee5664-0eb0-4a0c-9a44-c5f82e36b989" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="52ee5664-0eb0-4a0c-9a44-c5f82e36b989"><span class="text">Was macht die gegnerische Mittelblockerin? 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin soll die Aufspielerin spielen?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="11b9d7dd-2ad5-4308-bfcb-b2f5d3b77420"><span class="text">Lies den Block 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d2ee1e04-8109-4cc2-8125-7d8338d78aec"><span class="text">Lies den Block 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="214ce248-34f5-4727-8270-32d009fb45b9"><span class="text">Aufspielen oder Angreifen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wird die Aufspielerin geblockt?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="334f179d-7a0a-4bb9-86f6-9c9fa2463d20"><span class="text">Wer blockt die Aufspielerin?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin soll die Aufspielerin spielen?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="dbd38da0-266d-4777-b534-b31a748e7ea1" class="item-toggle" #checked# />
+ <label for="dbd38da0-266d-4777-b534-b31a748e7ea1" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="dbd38da0-266d-4777-b534-b31a748e7ea1"><span class="text">Ist der Doppelblock geschlossen? 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie gut steht der gegnerische Block?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="43f440a7-2db7-4b14-8545-c83362ae358e"><span class="text">Miteinander sprechen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="9c5c36be-dcc5-4aac-a502-1cb3b2bc40e8" class="item-toggle" #checked# />
+ <label for="9c5c36be-dcc5-4aac-a502-1cb3b2bc40e8" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="9c5c36be-dcc5-4aac-a502-1cb3b2bc40e8"><span class="text">Außenangriff gegen Einzelblock</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie kann die Angreiferin einen Einzelblock überwinden?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="749f6909-4b1c-4594-9c66-bc1e798567bf"><span class="text">Den Block überwinden</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="5b5bb115-9ba4-49a4-8c24-5494176246ed"><span class="text">2:2 Schupferspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="8033f8a7-258b-43ef-8f25-d4f832f929df"><span class="text">1 gegen 1 - Block und Angriff</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="d56a4c50-dd65-48f4-97de-ef58ee362d72" class="item-toggle" #checked# />
+ <label for="d56a4c50-dd65-48f4-97de-ef58ee362d72" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="d56a4c50-dd65-48f4-97de-ef58ee362d72"><span class="text">Mittelangreiferin gegen Block</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin angreifen?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="64fed3f5-8766-4d44-987d-8d402fe62eb3"><span class="text">Block überwinden für Mittelblockerinnen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="816d4dac-61fc-4296-87e2-76f787af5bf9"><span class="text">Mittelangreiferin gegen Feldverteidigung Position 6</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin angreifen?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="18618e88-da88-4ec5-8990-bcd0f05ca11c"><span class="text">Die Staffel</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wer bekommt den Ball?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01efc5e5-3285-115a-a25b-72ca6fc467fb"><span class="text">Schlagen oder drücken</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie nah ist der Ball am Block?</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="2aea1615-7e1c-4fb6-841c-98ee1ca39e20" class="item-toggle" #checked# />
+ <label for="2aea1615-7e1c-4fb6-841c-98ee1ca39e20" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="2aea1615-7e1c-4fb6-841c-98ee1ca39e20"><span class="text">Die Handlung der Gegnerin antizipieren</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="d580292b-31fc-4546-8fd5-575ba21697d7" class="item-toggle" #checked# />
+ <label for="d580292b-31fc-4546-8fd5-575ba21697d7" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="d580292b-31fc-4546-8fd5-575ba21697d7"><span class="text">Lesen lernen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie kann ich die Absichten einer Angreiferin frühzeitig erkennen?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="72fc8832-2eb3-40d5-a114-cf5fab55681a"><span class="text">Bewegungsmuster 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">3m-6m-Laufen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="eb3fcd9b-2dc2-4d97-ac08-12308a9ed395"><span class="text">Bewegungsmuster 5</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Ein Spielform für die Feldverteidigung</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="9cbf7bd0-9469-41ec-b356-4b03eab8945d"><span class="text">Die Grundübung 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ebb25926-6aa5-4334-905d-a2f14163b3dc"><span class="text">Die Grundübung 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="33ebe9fd-0380-4d8d-b6f9-01370df32349"><span class="text">Bewegungsmuster 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Einspielen 1:1</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="c24cc3c1-562a-4993-b9d0-2e207471c2da"><span class="text">Bewegungsmuster 3</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Eine Spielform für die Außenangreifer</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="a76a9e09-0c0c-461d-b63d-7ea2871b8b7d"><span class="text">Lesen am Kleinfeld 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="61aaeb5c-47bb-4cb1-b392-5c5d92dd4ebd"><span class="text">Lesen 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="fa2fedc2-1911-46a8-8eda-44516dffe3e6"><span class="text">Lesen 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="6f25f4cb-df1d-4401-850b-97604f5216b1"><span class="text">Lesen am Kleinfeld 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="b1db5874-0526-48ed-927e-396029d09452" class="item-toggle" #checked# />
+ <label for="b1db5874-0526-48ed-927e-396029d09452" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="b1db5874-0526-48ed-927e-396029d09452"><span class="text">Die Verteidigung gegen Drehschlag</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin spielt die Angreiferin?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ee160f-ee18-1fe8-a386-49d8531c9f43"><span class="text">Abrollen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="efa2fda7-42ff-4d70-bf0b-55d151e9eed5" class="item-toggle" #checked# />
+ <label for="efa2fda7-42ff-4d70-bf0b-55d151e9eed5" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="efa2fda7-42ff-4d70-bf0b-55d151e9eed5"><span class="text">Verteidigen oder Einlaufen? 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Muss die Aufspielerin verteidigen, oder soll sie sich auf das Aufspiel vorbereiten?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="294fb257-9401-4fdd-92b5-d25f1b4f8a3b"><span class="text">2 Ballberührungen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="02ab94d4-77d1-4d07-82d4-16e520fea8ce"><span class="text">5:5 mit offenem Laufen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="604c395e-522a-408b-beb3-98cf81e92882"><span class="text">5:5 mit offenem Laufen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="4c2fc1df-ba95-4e94-bfce-da9209379f2a"><span class="text">2 Ballberührungen einführen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="5ce7d05e-e88e-4d0f-8504-8ba1ed8473d4" class="item-toggle" #checked# />
+ <label for="5ce7d05e-e88e-4d0f-8504-8ba1ed8473d4" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="5ce7d05e-e88e-4d0f-8504-8ba1ed8473d4"><span class="text">Verteidigen oder Einlaufen? 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Muss die Aufspielerin verteidigen, oder soll sie sich auf das Aufspiel vorbereiten?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="294fb257-9401-4fdd-92b5-d25f1b4f8a3b"><span class="text">2 Ballberührungen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="02ab94d4-77d1-4d07-82d4-16e520fea8ce"><span class="text">5:5 mit offenem Laufen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="604c395e-522a-408b-beb3-98cf81e92882"><span class="text">5:5 mit offenem Laufen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="4c2fc1df-ba95-4e94-bfce-da9209379f2a"><span class="text">2 Ballberührungen einführen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="86941f8a-1292-4826-8b3e-09610271469a" class="item-toggle" #checked# />
+ <label for="86941f8a-1292-4826-8b3e-09610271469a" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="86941f8a-1292-4826-8b3e-09610271469a"><span class="text">Den Blockort wählen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wo soll geblockt werden?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="c7f75059-09f1-4998-9c1e-91c4e33d71f3"><span class="text">Den Block schließen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="2c5655d7-7666-46bd-88f8-ad8caa4cec5e"><span class="text">Schlagarm beobachten</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ff475c6b-1584-48e1-afb8-35d86b43a539"><span class="text">Blockort finden 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="f1f7e76e-c036-4568-95fb-c6bfd1012384"><span class="text">Blockort finden 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="0b7bcb87-73de-4a71-8a72-0411e8a90700"><span class="text">Blockort finden 3</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="fecbd2ac-2729-4fe4-819c-656b4ab5362a"><span class="text">Schau auf die Angreiferin! 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="48f4f3bf-2627-4138-b78c-1a0e6f649841"><span class="text">Schau auf die Angreiferin! 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ec980a3e-795f-447b-97dd-d601b561366a"><span class="text">Blockbildung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="b1d6656a-5ed1-439f-92b3-f975b8d74448"><span class="text">Sprungservice?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wer nimmt an?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="f687de53-d604-46ad-806f-08442ecff7f2"><span class="text">Libera und Flatterservice</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wer nimmt an?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="b319e069-82b5-46d1-b668-fbac2a0c9ae0"><span class="text">Die Anlaufrichtung</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin spielt die Angreiferin?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="97fd6d10-c87d-42d4-966b-0cba42c8a17f"><span class="text">Der Schlagarm der Angreiferin</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin spielt die Angreiferin?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="63694fa0-4f8b-46fc-967a-efef728ab2e5"><span class="text">Die Feldverteidigung hinten gegen die Aufspielerin</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Muss die Spielerin gleich verteidigen, oder muss sie sich auf einen Angriffsschlag vorbereiten?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="03127c48-b292-492e-9587-805d8258b8f4"><span class="text">Verteidigung - Jetzt oder weiter vorbereiten?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wird der Ball aufgespielt?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="05a9cf21-8f5e-45b7-b512-d0b149f762a7"><span class="text">Die Aufspielrichtung 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie zeigt die Aufspielerin die Richtung des Aufspiels an?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="3e340f23-6b7b-49cf-ac25-a5eb3d4415dd"><span class="text">Ausdrehen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Was macht die Angreiferin, wenn sie in Schlagarmrichtung schlagen will?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="16d9f3a3-a5a8-4269-9567-716945ee45b9"><span class="text">Wo ist der Angriff zu erwarten?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie weit ist die Annahme vom Netz weg?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="5c40bbb9-f7e3-4187-8774-ded4587d93d3"><span class="text">Blocken oder Lösen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie erfolgt das Aufspiel?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="7ab3bf91-f2c9-408c-9d2a-d3f6b9ce2fe0" class="item-toggle" #checked# />
+ <label for="7ab3bf91-f2c9-408c-9d2a-d3f6b9ce2fe0" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="7ab3bf91-f2c9-408c-9d2a-d3f6b9ce2fe0"><span class="text">Blocken oder Lösen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wo erfolgt der Angriff?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="c7f75059-09f1-4998-9c1e-91c4e33d71f3"><span class="text">Den Block schließen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="5441b6f0-b979-4384-8db0-edf5eb310bcf"><span class="text">Doppelblock am Kleinfeld</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="57bc5651-70a3-4b21-8308-73f4de5bbaa0"><span class="text">Hol' Sie Dir!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="0b7bcb87-73de-4a71-8a72-0411e8a90700"><span class="text">Blockort finden 3</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="bb6be560-d8fd-45eb-a6b9-ca13f1acfb30"><span class="text">Angriff und Blockbildung üben 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="bf7bae46-3e4f-4f9b-8a0d-105cc1955da9"><span class="text">Angriff und Blockbildung üben 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="cf4609d9-4a40-45a6-8abc-b9632c42f788"><span class="text">Die Aufspielrichtung 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie zeigt die Aufspielerin die Richtung des Aufspiels an?</span></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="2b969b27-f6f3-4c8b-bfc6-7f3426a43d45" class="item-toggle" #checked# />
+ <label for="2b969b27-f6f3-4c8b-bfc6-7f3426a43d45" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="2b969b27-f6f3-4c8b-bfc6-7f3426a43d45"><span class="text">Die Mitspielerin beobachten</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="02439c45-bdcf-4ee7-8bf8-0c4a4a6adb4c"><span class="text">Ist die Schnellangreiferin bereit?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Ist die Schnellangreiferin bereit zum Angriff oder nicht?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="fc7712d6-56b4-4990-bbc1-0253d496c194" class="item-toggle" #checked# />
+ <label for="fc7712d6-56b4-4990-bbc1-0253d496c194" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="fc7712d6-56b4-4990-bbc1-0253d496c194"><span class="text">Ist der Doppelblock geschlossen? 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie gut steht der eigene Block?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="d989db70-d99d-4797-9d9c-c0ec0aec9bf5"><span class="text">Schütz die Lücke!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="29c16aac-a96e-420a-8e5d-06609e7fff5e"><span class="text">Eine routinierte Spielerin neben einer 'Anfängerin'</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wer nimmt den Ball?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="e13d64d6-3006-43db-bce9-a76123d2fefe"><span class="text">Aufspielen oder Lösen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Was tun, wenn der Ball nicht zur Aufspielerin kommt?</span></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="3dc3b9ce-b86a-4f7e-abd5-b8bec4a6b2d4" class="item-toggle" #checked# />
+ <label for="3dc3b9ce-b86a-4f7e-abd5-b8bec4a6b2d4" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="3dc3b9ce-b86a-4f7e-abd5-b8bec4a6b2d4"><span class="text">Die Grundaktionen</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="849a3c15-51ff-40ef-b466-fdb3495ef444" class="item-toggle" #checked# />
+ <label for="849a3c15-51ff-40ef-b466-fdb3495ef444" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="849a3c15-51ff-40ef-b466-fdb3495ef444"><span class="text">Das Service</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ee8f05-4e1d-15e2-b598-c37ba6bd8b3d"><span class="text">Lang oder Kurz</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Die Länge des Service auf die Annahmesituation abstimmen.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee8f09-38e3-1b9b-a60a-fc0ec0ab04a8"><span class="text">Anservieren oder (Zwischen-)räume suchen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Eine Spielerin anservieren oder eine freien Raum</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="834da716-3106-420b-9881-df1c337eaabb" class="item-toggle" #checked# />
+ <label for="834da716-3106-420b-9881-df1c337eaabb" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="834da716-3106-420b-9881-df1c337eaabb"><span class="text">Die Annahme</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="050c418a-4139-494a-a9fa-30f1eab3d20b"><span class="text">Libera?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie werden die Annahmebereiche verteilt?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="cdb2cda8-54b5-4c23-9666-70a14b46dc79" class="item-toggle" #checked# />
+ <label for="cdb2cda8-54b5-4c23-9666-70a14b46dc79" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="cdb2cda8-54b5-4c23-9666-70a14b46dc79"><span class="text">Warten oder hingehen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Kommt der Ball oder nicht?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="484ecda5-bf30-494a-a4d8-192ac9f5bbff"><span class="text">&lt;&lt;Orientierung am Spielfeld 1&gt;&gt;</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d7c31fc4-a840-4182-906f-71e0f093493e"><span class="text">&lt;&lt;Orientierung am Spielfeld 2&gt;&gt;</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="d79b7243-bf19-4b2a-a17c-13a44ba8c487"><span class="text">Den Ball im Oberen oder Unteren Zuspiel spielen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Soll die Spielerin den Ball im Oberen oder Unteren Zuspiel weiterspielen?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="b1d6656a-5ed1-439f-92b3-f975b8d74448"><span class="text">Sprungservice?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wer nimmt an?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="f687de53-d604-46ad-806f-08442ecff7f2"><span class="text">Libera und Flatterservice</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wer nimmt an?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="9c64f47f-3921-4e2a-beb8-fad26dddbe3d"><span class="text">Seitlich oder vor dem Körper?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie gelingt die Annahme am Besten?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="ffb17928-6797-4bf3-b40e-91bc0dda17b9" class="item-toggle" #checked# />
+ <label for="ffb17928-6797-4bf3-b40e-91bc0dda17b9" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="ffb17928-6797-4bf3-b40e-91bc0dda17b9"><span class="text">Ball In oder Out</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Den Ball annehmen oder ihn ins Out lassen?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01297794-1aeb-44c4-9e8c-b9a47158041a"><span class="text">In oder Out</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="17ce4872-5937-49d8-b95d-09b332a7fc77" class="item-toggle" #checked# />
+ <label for="17ce4872-5937-49d8-b95d-09b332a7fc77" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="17ce4872-5937-49d8-b95d-09b332a7fc77"><span class="text">Der Ball fliegt zwischen zwei Spielerinnen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wer nimmt den Ball?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="832e4dea-2782-4790-ac12-e6b0e7345348"><span class="text">2 Annahmespielerinnen blockieren</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="9cbf7bd0-9469-41ec-b356-4b03eab8945d"><span class="text">Die Grundübung 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ebb25926-6aa5-4334-905d-a2f14163b3dc"><span class="text">Die Grundübung 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="29c16aac-a96e-420a-8e5d-06609e7fff5e"><span class="text">Eine routinierte Spielerin neben einer 'Anfängerin'</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wer nimmt den Ball?</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="03704719-9ad1-4735-b9ad-d7fd883d3e40" class="item-toggle" #checked# />
+ <label for="03704719-9ad1-4735-b9ad-d7fd883d3e40" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="03704719-9ad1-4735-b9ad-d7fd883d3e40"><span class="text">Das Aufspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="5c11c295-3c27-45a9-bdff-6eece1c7236b"><span class="text">Hektik vermeiden</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie kann die Aufspielerin einen zu hektischen Spielaufbau vermeiden?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="8d522473-6956-4ca8-950b-6fad24381042"><span class="text">Weite Wege</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin soll die Aufspielerin spielen?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="efa2fda7-42ff-4d70-bf0b-55d151e9eed5" class="item-toggle" #checked# />
+ <label for="efa2fda7-42ff-4d70-bf0b-55d151e9eed5" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="efa2fda7-42ff-4d70-bf0b-55d151e9eed5"><span class="text">Verteidigen oder Einlaufen? 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Muss die Aufspielerin verteidigen, oder soll sie sich auf das Aufspiel vorbereiten?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="294fb257-9401-4fdd-92b5-d25f1b4f8a3b"><span class="text">2 Ballberührungen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="02ab94d4-77d1-4d07-82d4-16e520fea8ce"><span class="text">5:5 mit offenem Laufen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="604c395e-522a-408b-beb3-98cf81e92882"><span class="text">5:5 mit offenem Laufen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="4c2fc1df-ba95-4e94-bfce-da9209379f2a"><span class="text">2 Ballberührungen einführen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="5ce7d05e-e88e-4d0f-8504-8ba1ed8473d4" class="item-toggle" #checked# />
+ <label for="5ce7d05e-e88e-4d0f-8504-8ba1ed8473d4" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="5ce7d05e-e88e-4d0f-8504-8ba1ed8473d4"><span class="text">Verteidigen oder Einlaufen? 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Muss die Aufspielerin verteidigen, oder soll sie sich auf das Aufspiel vorbereiten?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="294fb257-9401-4fdd-92b5-d25f1b4f8a3b"><span class="text">2 Ballberührungen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="02ab94d4-77d1-4d07-82d4-16e520fea8ce"><span class="text">5:5 mit offenem Laufen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="604c395e-522a-408b-beb3-98cf81e92882"><span class="text">5:5 mit offenem Laufen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="4c2fc1df-ba95-4e94-bfce-da9209379f2a"><span class="text">2 Ballberührungen einführen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="02439c45-bdcf-4ee7-8bf8-0c4a4a6adb4c"><span class="text">Ist die Schnellangreiferin bereit?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Ist die Schnellangreiferin bereit zum Angriff oder nicht?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="f439baa7-1d0a-4f62-b7fb-6bb231404694" class="item-toggle" #checked# />
+ <label for="f439baa7-1d0a-4f62-b7fb-6bb231404694" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="f439baa7-1d0a-4f62-b7fb-6bb231404694"><span class="text">Was macht die gegnerische Mittelblockerin? 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin soll die Aufspielerin spielen?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="d2ee1e04-8109-4cc2-8125-7d8338d78aec"><span class="text">Lies den Block 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="52ee5664-0eb0-4a0c-9a44-c5f82e36b989" class="item-toggle" #checked# />
+ <label for="52ee5664-0eb0-4a0c-9a44-c5f82e36b989" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="52ee5664-0eb0-4a0c-9a44-c5f82e36b989"><span class="text">Was macht die gegnerische Mittelblockerin? 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin soll die Aufspielerin spielen?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="11b9d7dd-2ad5-4308-bfcb-b2f5d3b77420"><span class="text">Lies den Block 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d2ee1e04-8109-4cc2-8125-7d8338d78aec"><span class="text">Lies den Block 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="214ce248-34f5-4727-8270-32d009fb45b9"><span class="text">Aufspielen oder Angreifen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wird die Aufspielerin geblockt?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="334f179d-7a0a-4bb9-86f6-9c9fa2463d20"><span class="text">Wer blockt die Aufspielerin?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin soll die Aufspielerin spielen?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="18618e88-da88-4ec5-8990-bcd0f05ca11c"><span class="text">Die Staffel</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wer bekommt den Ball?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="e13d64d6-3006-43db-bce9-a76123d2fefe"><span class="text">Aufspielen oder Lösen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Was tun, wenn der Ball nicht zur Aufspielerin kommt?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee296d-eed2-1558-984e-6f51808f5761"><span class="text">Aufspielerin verteidigt oder sichert 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wer spielt auf?  =&gt;  Mittelblockerin</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee2960-19b5-1ad0-855e-a18271020dd6"><span class="text">Aufspielerin verteidigt oder sichert 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wer spielt auf?  =&gt;  Libera</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="d4e704b7-a92d-40cd-9dec-63606d71dde4" class="item-toggle" #checked# />
+ <label for="d4e704b7-a92d-40cd-9dec-63606d71dde4" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="d4e704b7-a92d-40cd-9dec-63606d71dde4"><span class="text">Der Angriff</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="06718138-9391-49cf-95f9-905e63caa15d"><span class="text">Angriff oder Sicherung</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Angreifen oder Sichern?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="12dadf55-20d6-4633-93a5-af55fba18237"><span class="text">Erfolgreich angreifen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie kann die Angreiferin erfolgreich sein, wenn nicht alles passt?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="4ff4f0be-dd86-4247-bd80-97d522431a18"><span class="text">Ein Sicherheitsangriff</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin mit dem Ball, wenn es ein Problem gibt?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="dc3f47c6-b8e7-4e55-aff3-c20a6ed0c7eb" class="item-toggle" #checked# />
+ <label for="dc3f47c6-b8e7-4e55-aff3-c20a6ed0c7eb" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="dc3f47c6-b8e7-4e55-aff3-c20a6ed0c7eb"><span class="text">Den Block anschlagen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie kann die Angreiferin einen gut gestellten Doppelblock überwinden?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="194b5cce-b6de-4ec3-bf8e-9a808469769d"><span class="text">5 Sterne</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="6daa8d74-9af4-47f2-92c7-195433da1b54" class="item-toggle" #checked# />
+ <label for="6daa8d74-9af4-47f2-92c7-195433da1b54" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="6daa8d74-9af4-47f2-92c7-195433da1b54"><span class="text">Lücken ausnützen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin angreifen?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="8f6e7488-52a5-4721-a435-a8ba2e30f1e6"><span class="text">Finde den leeren Raum!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="dbd38da0-266d-4777-b534-b31a748e7ea1" class="item-toggle" #checked# />
+ <label for="dbd38da0-266d-4777-b534-b31a748e7ea1" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="dbd38da0-266d-4777-b534-b31a748e7ea1"><span class="text">Ist der Doppelblock geschlossen? 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie gut steht der gegnerische Block?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="43f440a7-2db7-4b14-8545-c83362ae358e"><span class="text">Miteinander sprechen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="9c5c36be-dcc5-4aac-a502-1cb3b2bc40e8" class="item-toggle" #checked# />
+ <label for="9c5c36be-dcc5-4aac-a502-1cb3b2bc40e8" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="9c5c36be-dcc5-4aac-a502-1cb3b2bc40e8"><span class="text">Außenangriff gegen Einzelblock</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie kann die Angreiferin einen Einzelblock überwinden?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="749f6909-4b1c-4594-9c66-bc1e798567bf"><span class="text">Den Block überwinden</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="5b5bb115-9ba4-49a4-8c24-5494176246ed"><span class="text">2:2 Schupferspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="8033f8a7-258b-43ef-8f25-d4f832f929df"><span class="text">1 gegen 1 - Block und Angriff</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="d56a4c50-dd65-48f4-97de-ef58ee362d72" class="item-toggle" #checked# />
+ <label for="d56a4c50-dd65-48f4-97de-ef58ee362d72" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="d56a4c50-dd65-48f4-97de-ef58ee362d72"><span class="text">Mittelangreiferin gegen Block</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin angreifen?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="64fed3f5-8766-4d44-987d-8d402fe62eb3"><span class="text">Block überwinden für Mittelblockerinnen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="816d4dac-61fc-4296-87e2-76f787af5bf9"><span class="text">Mittelangreiferin gegen Feldverteidigung Position 6</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin angreifen?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="e13d64d6-3006-43db-bce9-a76123d2fefe"><span class="text">Aufspielen oder Lösen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Was tun, wenn der Ball nicht zur Aufspielerin kommt?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01efc5e5-3285-115a-a25b-72ca6fc467fb"><span class="text">Schlagen oder drücken</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie nah ist der Ball am Block?</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="dac7feed-02c4-458c-b9d8-deeea8d88028" class="item-toggle" #checked# />
+ <label for="dac7feed-02c4-458c-b9d8-deeea8d88028" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="dac7feed-02c4-458c-b9d8-deeea8d88028"><span class="text">Die Sicherung</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ee8f10-f189-19b4-b158-d2f7ac94564f"><span class="text">Sicherung</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Die Aufspielerin entscheidet</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee8f1a-e5c3-1a53-8dc4-193c491ef19f"><span class="text">Sicherung 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wieviel Zeit habe ich?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="06718138-9391-49cf-95f9-905e63caa15d"><span class="text">Angriff oder Sicherung</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Angreifen oder Sichern?</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="427315a5-1259-4fab-9f42-d7403d205e12" class="item-toggle" #checked# />
+ <label for="427315a5-1259-4fab-9f42-d7403d205e12" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="427315a5-1259-4fab-9f42-d7403d205e12"><span class="text">Der Block</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="16d9f3a3-a5a8-4269-9567-716945ee45b9"><span class="text">Wo ist der Angriff zu erwarten?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie weit ist die Annahme vom Netz weg?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="388d3f78-2db2-4b81-a217-bbc2ae237bdd"><span class="text">Den Punkt suchen?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie weit ist das Aufspiel vom Netz weg?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="86941f8a-1292-4826-8b3e-09610271469a" class="item-toggle" #checked# />
+ <label for="86941f8a-1292-4826-8b3e-09610271469a" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="86941f8a-1292-4826-8b3e-09610271469a"><span class="text">Den Blockort wählen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wo soll geblockt werden?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="c7f75059-09f1-4998-9c1e-91c4e33d71f3"><span class="text">Den Block schließen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="2c5655d7-7666-46bd-88f8-ad8caa4cec5e"><span class="text">Schlagarm beobachten</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ff475c6b-1584-48e1-afb8-35d86b43a539"><span class="text">Blockort finden 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="f1f7e76e-c036-4568-95fb-c6bfd1012384"><span class="text">Blockort finden 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="0b7bcb87-73de-4a71-8a72-0411e8a90700"><span class="text">Blockort finden 3</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="fecbd2ac-2729-4fe4-819c-656b4ab5362a"><span class="text">Schau auf die Angreiferin! 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="48f4f3bf-2627-4138-b78c-1a0e6f649841"><span class="text">Schau auf die Angreiferin! 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ec980a3e-795f-447b-97dd-d601b561366a"><span class="text">Blockbildung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="70480328-693a-4dbe-8814-28e457101605"><span class="text">Den Blockort wählen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie lang ist das Aufspiel?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="03127c48-b292-492e-9587-805d8258b8f4"><span class="text">Verteidigung - Jetzt oder weiter vorbereiten?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wird der Ball aufgespielt?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="05a9cf21-8f5e-45b7-b512-d0b149f762a7"><span class="text">Die Aufspielrichtung 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie zeigt die Aufspielerin die Richtung des Aufspiels an?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="cf4609d9-4a40-45a6-8abc-b9632c42f788"><span class="text">Die Aufspielrichtung 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie zeigt die Aufspielerin die Richtung des Aufspiels an?</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="947c262b-1a06-4c18-852a-75f7c3fb654f" class="item-toggle" #checked# />
+ <label for="947c262b-1a06-4c18-852a-75f7c3fb654f" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="947c262b-1a06-4c18-852a-75f7c3fb654f"><span class="text">Die Feldverteidigung</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="16d9f3a3-a5a8-4269-9567-716945ee45b9"><span class="text">Wo ist der Angriff zu erwarten?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie weit ist die Annahme vom Netz weg?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="d580292b-31fc-4546-8fd5-575ba21697d7" class="item-toggle" #checked# />
+ <label for="d580292b-31fc-4546-8fd5-575ba21697d7" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="d580292b-31fc-4546-8fd5-575ba21697d7"><span class="text">Lesen lernen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie kann ich die Absichten einer Angreiferin frühzeitig erkennen?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="72fc8832-2eb3-40d5-a114-cf5fab55681a"><span class="text">Bewegungsmuster 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">3m-6m-Laufen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="eb3fcd9b-2dc2-4d97-ac08-12308a9ed395"><span class="text">Bewegungsmuster 5</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Ein Spielform für die Feldverteidigung</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="9cbf7bd0-9469-41ec-b356-4b03eab8945d"><span class="text">Die Grundübung 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ebb25926-6aa5-4334-905d-a2f14163b3dc"><span class="text">Die Grundübung 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="33ebe9fd-0380-4d8d-b6f9-01370df32349"><span class="text">Bewegungsmuster 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Einspielen 1:1</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="c24cc3c1-562a-4993-b9d0-2e207471c2da"><span class="text">Bewegungsmuster 3</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Eine Spielform für die Außenangreifer</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="a76a9e09-0c0c-461d-b63d-7ea2871b8b7d"><span class="text">Lesen am Kleinfeld 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="61aaeb5c-47bb-4cb1-b392-5c5d92dd4ebd"><span class="text">Lesen 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="fa2fedc2-1911-46a8-8eda-44516dffe3e6"><span class="text">Lesen 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="6f25f4cb-df1d-4401-850b-97604f5216b1"><span class="text">Lesen am Kleinfeld 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="b1db5874-0526-48ed-927e-396029d09452" class="item-toggle" #checked# />
+ <label for="b1db5874-0526-48ed-927e-396029d09452" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="b1db5874-0526-48ed-927e-396029d09452"><span class="text">Die Verteidigung gegen Drehschlag</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin spielt die Angreiferin?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ee160f-ee18-1fe8-a386-49d8531c9f43"><span class="text">Abrollen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="cdb2cda8-54b5-4c23-9666-70a14b46dc79" class="item-toggle" #checked# />
+ <label for="cdb2cda8-54b5-4c23-9666-70a14b46dc79" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="cdb2cda8-54b5-4c23-9666-70a14b46dc79"><span class="text">Warten oder hingehen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Kommt der Ball oder nicht?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="484ecda5-bf30-494a-a4d8-192ac9f5bbff"><span class="text">&lt;&lt;Orientierung am Spielfeld 1&gt;&gt;</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d7c31fc4-a840-4182-906f-71e0f093493e"><span class="text">&lt;&lt;Orientierung am Spielfeld 2&gt;&gt;</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="efa2fda7-42ff-4d70-bf0b-55d151e9eed5" class="item-toggle" #checked# />
+ <label for="efa2fda7-42ff-4d70-bf0b-55d151e9eed5" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="efa2fda7-42ff-4d70-bf0b-55d151e9eed5"><span class="text">Verteidigen oder Einlaufen? 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Muss die Aufspielerin verteidigen, oder soll sie sich auf das Aufspiel vorbereiten?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="294fb257-9401-4fdd-92b5-d25f1b4f8a3b"><span class="text">2 Ballberührungen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="02ab94d4-77d1-4d07-82d4-16e520fea8ce"><span class="text">5:5 mit offenem Laufen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="604c395e-522a-408b-beb3-98cf81e92882"><span class="text">5:5 mit offenem Laufen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="4c2fc1df-ba95-4e94-bfce-da9209379f2a"><span class="text">2 Ballberührungen einführen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="5ce7d05e-e88e-4d0f-8504-8ba1ed8473d4" class="item-toggle" #checked# />
+ <label for="5ce7d05e-e88e-4d0f-8504-8ba1ed8473d4" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="5ce7d05e-e88e-4d0f-8504-8ba1ed8473d4"><span class="text">Verteidigen oder Einlaufen? 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Muss die Aufspielerin verteidigen, oder soll sie sich auf das Aufspiel vorbereiten?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="294fb257-9401-4fdd-92b5-d25f1b4f8a3b"><span class="text">2 Ballberührungen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="02ab94d4-77d1-4d07-82d4-16e520fea8ce"><span class="text">5:5 mit offenem Laufen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="604c395e-522a-408b-beb3-98cf81e92882"><span class="text">5:5 mit offenem Laufen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="4c2fc1df-ba95-4e94-bfce-da9209379f2a"><span class="text">2 Ballberührungen einführen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="d79b7243-bf19-4b2a-a17c-13a44ba8c487"><span class="text">Den Ball im Oberen oder Unteren Zuspiel spielen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Soll die Spielerin den Ball im Oberen oder Unteren Zuspiel weiterspielen?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="b94acb18-f7c3-42f7-82cf-e86672adc75e"><span class="text">Den Verteidigungsort (gegen Linienangriffe) wählen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wo soll im Feld verteidigt werden?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="a93a2b67-3d04-4e15-8cee-c060d6a187b2"><span class="text">Den Verteidigungsort (gegen Diagonalangriffe) wählen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wo soll im Feld verteidigt werden?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="361cb1db-2862-48ee-9564-3289c8d3074e"><span class="text">Die Feldverteidigung auf der Position 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie lang ist das Aufspiel?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="9c64f47f-3921-4e2a-beb8-fad26dddbe3d"><span class="text">Seitlich oder vor dem Körper?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie gelingt die Annahme am Besten?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="b319e069-82b5-46d1-b668-fbac2a0c9ae0"><span class="text">Die Anlaufrichtung</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin spielt die Angreiferin?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="97fd6d10-c87d-42d4-966b-0cba42c8a17f"><span class="text">Der Schlagarm der Angreiferin</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wohin spielt die Angreiferin?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="59e20a6e-83af-45a6-b72d-b14eafec55e1"><span class="text">Wo verteidigen?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie weit ist das Aufspiel vom Netz?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="ffb17928-6797-4bf3-b40e-91bc0dda17b9" class="item-toggle" #checked# />
+ <label for="ffb17928-6797-4bf3-b40e-91bc0dda17b9" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="ffb17928-6797-4bf3-b40e-91bc0dda17b9"><span class="text">Ball In oder Out</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Den Ball annehmen oder ihn ins Out lassen?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01297794-1aeb-44c4-9e8c-b9a47158041a"><span class="text">In oder Out</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="fc7712d6-56b4-4990-bbc1-0253d496c194" class="item-toggle" #checked# />
+ <label for="fc7712d6-56b4-4990-bbc1-0253d496c194" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="fc7712d6-56b4-4990-bbc1-0253d496c194"><span class="text">Ist der Doppelblock geschlossen? 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie gut steht der eigene Block?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="d989db70-d99d-4797-9d9c-c0ec0aec9bf5"><span class="text">Schütz die Lücke!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="63694fa0-4f8b-46fc-967a-efef728ab2e5"><span class="text">Die Feldverteidigung hinten gegen die Aufspielerin</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Muss die Spielerin gleich verteidigen, oder muss sie sich auf einen Angriffsschlag vorbereiten?</span></span>
+</div><div class="item">
+ <input type="checkbox" id="17ce4872-5937-49d8-b95d-09b332a7fc77" class="item-toggle" #checked# />
+ <label for="17ce4872-5937-49d8-b95d-09b332a7fc77" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="17ce4872-5937-49d8-b95d-09b332a7fc77"><span class="text">Der Ball fliegt zwischen zwei Spielerinnen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wer nimmt den Ball?</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="832e4dea-2782-4790-ac12-e6b0e7345348"><span class="text">2 Annahmespielerinnen blockieren</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="9cbf7bd0-9469-41ec-b356-4b03eab8945d"><span class="text">Die Grundübung 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ebb25926-6aa5-4334-905d-a2f14163b3dc"><span class="text">Die Grundübung 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="29c16aac-a96e-420a-8e5d-06609e7fff5e"><span class="text">Eine routinierte Spielerin neben einer 'Anfängerin'</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wer nimmt den Ball?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="03127c48-b292-492e-9587-805d8258b8f4"><span class="text">Verteidigung - Jetzt oder weiter vorbereiten?</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wird der Ball aufgespielt?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="05a9cf21-8f5e-45b7-b512-d0b149f762a7"><span class="text">Die Aufspielrichtung 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie zeigt die Aufspielerin die Richtung des Aufspiels an?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="cf4609d9-4a40-45a6-8abc-b9632c42f788"><span class="text">Die Aufspielrichtung 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Wie zeigt die Aufspielerin die Richtung des Aufspiels an?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="3e340f23-6b7b-49cf-ac25-a5eb3d4415dd"><span class="text">Ausdrehen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000105.svg" /><span class="footer">Was macht die Angreiferin, wenn sie in Schlagarmrichtung schlagen will?</span></span>
+</div></div>
+</div></div>
+</div></div></div>
+
+<div class="content"><div class="container"><div class="text"><p>Entscheidungen können im Volleyball spielentscheidend sein -
+hier finden sie eine ganze Reihe von mehr oder weniger isolierten Situationen
+zum Training der Entscheidungsfähigkeit ihrer Spielerinnen.</p>
+</div></div>
+
+<script>
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+
+function unregister() {
+  document.removeEventListener('contextmenu', onContextMenu);
+}
+window.unregister = unregister;
+}());
+
+</script></div>
+<div class="footer">Entscheidungssituationen</div>
+
+ </body>
+</html>

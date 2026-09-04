@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="400" height="240" version="1.1" viewBox="0 0 400 240">
+  <g class="actors">
+    <line x1="0" y1="0" x2="-125" y2="120" transform="translate(200 60)" style="fill: none; stroke: #0000cd; stroke-width: 20;"/>
+    <line x1="0" y1="0" x2="-100" y2="-120" transform="translate(300 180)" style="fill: none; stroke: #0000cd; stroke-width: 20;"/>
+    <ellipse cx="0" cy="0" rx="75" ry="35" transform="translate(200 60)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(200 50) translate(0 7)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 18px;">Entscheidungs-</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(200 70) translate(0 7)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 18px;">fähigkeit</text>
+    <ellipse cx="0" cy="0" rx="75" ry="35" transform="translate(100 180)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(100 179) translate(0 7)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 18px;">Wissen</text>
+    <ellipse cx="0" cy="0" rx="75" ry="35" transform="translate(300 180)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 179) translate(0 7)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 18px;">Beobachten</text>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

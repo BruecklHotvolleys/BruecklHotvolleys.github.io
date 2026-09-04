@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="de">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/brueckl-hotvolleys/texts/favicon.ico">
+  <title>Volleybase - Das Buch</title>
+  <style>
+html, body, * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  
+  padding: 0;
+  border: 0 none;
+  margin: 0;
+  
+  font-size: 14pt;
+}
+html, body {
+  overflow: hidden;
+}
+div.header {
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  
+  left: 0;
+  padding-left: 50px;
+  width: 100%;
+  top: 0;
+  height: 50px;
+    
+  background-color: #CCCCCC;  
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+div.header > div.title {
+  font-family: Arial;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 8px 0 0 0;
+}
+div.header > div.subtitle {
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 0.8em;
+}
+
+div.header > span.icon {
+  position: absolute;
+  left: 50px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+  
+  border-radius: 50%;
+  background-color: darkred;
+  color: #EEEEEE;
+  text-align: center;
+  font-size: 1.75em;
+}
+div.header > img {
+  position: absolute;
+  left: 50px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+}
+div.header > span.header {
+  position: absolute;
+  top: 1px;
+  left: 100px;
+  font-size: 0.5em;
+}
+div.header > span.text {
+  position: absolute;
+  padding: 12px 10px 12px 50px;
+}
+div.header > span.footer {
+  position: absolute;
+  bottom: 1px;
+  left: 100px;
+  font-size: 0.5em;
+}
+div.header > a.to_menu {
+  position: absolute;
+  top: 9px;
+  right: 50px;
+  width: 69px;
+  height: 32px;
+  z-index: 1; 
+  text-decoration: none;
+  background-color: #DDD;
+  background-image: url("/images//bhv2.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+svg#button-fullscreen {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  z-index: 1; 
+}
+div.content {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  bottom: 30px;
+
+  background-color: #EEEEEE;
+  overflow: hidden;
+}
+div.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+h1, h2, h3 {
+  margin: 0.5em 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.3em;
+}
+ol, ul {
+  padding-left: 1.5em;
+}
+p {
+  margin: 0.5em 0;
+}
+
+div.img {
+  box-sizing: border-box;
+  overflow: hidden; 
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+
+  padding: 1.5% 0;
+  text-align: center;
+}
+div.img > svg {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+}
+
+div.text {
+  box-sizing: border-box;
+  padding: 1%;
+}
+
+@media (orientation: landscape) {
+  div.container.full {
+    overflow: hidden;
+  }
+  div.container.full > div.img, 
+  div.container.full > div.text {
+    float: left;
+    width: 50%;
+  }
+  div.container.full > div.text {
+    height: 100%;
+    overflow: auto;
+  }
+}
+label.tree-menu {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  z-index: 99;
+  border-radius: 7px;
+  background-color: dimgray;
+  
+  cursor: pointer;
+}
+label.tree-menu > span {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  
+  color: gray;
+  text-align: center;
+  font-size: 30px;
+  line-height: 100%;
+
+  cursor: pointer;
+}
+
+input {
+  background-color: blue;
+  position: absolute;
+  left: -1000px;
+}
+
+div.tree {
+  display: none;
+
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  bottom: 30px;
+  z-index: 99;
+  
+  overflow: hidden;
+}
+div.tree > div.tree-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  overflow: hidden;
+  
+  background-color: #DDDDDD;
+  opacity: 0.1;
+}
+div.tree > div.tree-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33%;
+  min-width: 400px;
+  max-width: 600px;
+  height: 100%;
+  
+  overflow: auto;
+  
+  background-color: #DDDDDD;
+}
+input#tree-toggle:checked + div.tree {
+  display: block;
+}
+
+@media (width < 400px) {
+  div.tree > div.tree-content {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+div.item {
+  position: relative;
+}
+
+div.item > input.item-toggle + label > span:first-child {
+  display: none;
+}
+div.item > input.item-toggle + label > span:nth-child(2) {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > span:first-child {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > span:nth-child(2) {
+  display: none;
+}
+
+div.item > input.item-toggle + label > img:first-child {
+  display: none;
+}
+div.item > input.item-toggle + label > img:nth-child(2) {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > img:first-child {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > img:nth-child(2) {
+  display: none;
+}
+
+div.item > input.item-toggle:checked ~ .item-container {
+  display: block;
+}
+
+
+
+div.item > label {
+  position: absolute;
+  left: 3px;
+  width: 20px;
+  top: 15px;
+  height: 20px;
+  background-color: dimgray;
+  color: lightgray;
+  border-radius: 50%;
+  text-align: center;
+}
+.touch div.item > label {
+  top: 6px;
+  left: 6px;
+  height: 38px;
+  width: 38px;
+}
+.touch div.item > label > img {
+  height: 38px;
+  width: 38px;
+}
+
+div.item > .item-header {
+  display: block;
+  position: relative;
+  height: 50px;
+  margin: 0 0 0 26px;
+
+  white-space: nowrap;
+  
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.touch div.item > .item-header {
+  margin-left: 46px;
+}
+div.item.root > .item-header, 
+.touch div.item.root > .item-header {
+  margin: 0;
+}
+
+div.item > span.item-header > span.icon {
+  position: absolute;
+  left: 2px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+  
+  border-radius: 50%;
+  background-color: darkred;
+  color: #EEEEEE;
+  text-align: center;
+  font-size: 1.75em;
+}
+div.item > span.item-header > img {
+  position: absolute;
+  left: 2px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+}
+div.item > .item-header > span.header {
+  position: absolute;
+  top: 1px;
+  left: 50px;
+  font-size: 0.5em;
+}
+div.item > .item-header > span.text {
+  position: absolute;
+  padding: 12px 10px 16px 50px;
+}
+div.item > .item-header:hover, div.item > .item-header:hover > span.text {
+  background-color: #CCCCCC;
+}
+div.item > .item-header > span.footer {
+  position: absolute;
+  bottom: 1px;
+  left: 50px;
+  font-size: 0.5em;
+}
+
+div.item > div.item-container {
+  position: relative;
+  padding-left: 26px;
+
+  display: none;
+}
+div.footer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 30px;
+  box-sizing: border-box;
+  padding: 5px 5px;
+  
+  overflow: hidden;
+  background-color: #CCCCCC;
+
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14pt;
+}
+
+  </style>
+<script>
+  document.documentElement.className += (("ontouchstart" in document.documentElement) ? ' touch' : ' no-touch');
+</script>
+  <script>
+function init() {
+  var items = document.querySelectorAll("div.tree span.item-header");
+  items.forEach((item) => item.addEventListener("click", onTreeItemClick));
+  
+  initFullscreen();
+}
+
+function onTreeItemClick(event) {
+  // if any animator: ensure end of running animation
+  if (window.animator) {
+    animator.stop();
+  }
+  
+  var item = searchTreeItem(event.target ? event.target : event.srcElement);
+  var id = item && item.dataset && item.dataset.id ? item.dataset.id : "??";
+  
+  //alert("click: " + id);
+  loadData("/texts/header_" + id + ".html", (header) => {
+    var h = document.querySelector("div.header");
+    if (h) {
+      h.innerHTML = header;
+      setTimeout(function() {
+        initFullscreen();
+      }, 111);
+    }
+  });
+  loadData("/texts/content_" + id + ".html", (header) => {
+    var c = document.querySelector("div.content");
+    if (c) {
+      c.innerHTML = header;
+    }
+  });
+  setTimeout(function() {
+    loadScript("/texts/script_" + id + ".js", "script_" + id + "\\.js", () => {
+      console.log("Script for " + id + " has been loaded.");
+    });
+  }, 55);
+  closeTree();
+}
+
+function searchTreeItem(elem) {
+  while (elem) {
+    if (elem.className.indexOf("item-header") >= 0) {
+      return elem;
+    }
+    elem = elem.parentNode;
+  }
+  
+  return null;
+}
+
+function loadData(data, handler) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+        handler(this.responseText);
+      } else {
+        handler(this.status);
+      }
+    }
+  };
+  xhttp.open("GET", data, true);
+  xhttp.send();
+}
+
+var registeredScript = undefined;
+
+function unregisterPreviousScript() {
+  if (registeredScript) {
+    console.log("Unregister " + registeredScript);
+    if (typeof unregister === 'function') {
+      unregister();
+    }
+
+    var elem = document.querySelector("script[src$=" + registeredScript + "]");
+    if (elem) {
+      elem.remove();
+    }
+    registeredScript = undefined;
+    console.log("Unregister done.");
+  }
+}
+
+function loadScript(url, key, callback) {
+  unregisterPreviousScript();
+
+  console.log("Register " + url);
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  
+  if (script.readyState) { // only required for IE<9
+    script.onreadystatechange = function() {
+      if (script.readyState === "loaded" || script.readyState === "complete") {
+        script.onreadystatechange = null;
+        if (callback) {
+          callback();
+        }
+      }
+    };
+  } else {  // Others
+    script.onload = function() {
+      if (callback) {
+        callback();
+      }
+    };
+  }
+
+  script.src = url;
+  document.getElementsByTagName("head")[0].appendChild(script);
+  registeredScript = key;
+  console.log("Register " + key + "/" + url + " done.");
+}
+
+function closeTree() {
+  var cb = document.getElementById('tree-toggle');
+  if (cb && cb.checked) {
+    cb.checked = false;
+  }
+}
+
+var requestFullscreen, exitFullscreen;
+
+function initFullscreen() {
+  requestFullscreen = document.getElementById("request-fullscreen");
+  exitFullscreen = document.getElementById("exit-fullscreen");
+  
+  var btn = document.getElementById("button-fullscreen");
+  if (btn) {
+    btn.addEventListener("click", toggleFullscreen);
+  }
+  
+  document.addEventListener("fullscreenchange", function() {
+    updateFullscreenInfo();
+  });
+  
+  updateFullscreenInfo();
+}
+
+function updateFullscreenInfo() {
+  if (document.fullscreenElement) {
+    requestFullscreen.setAttribute("stroke", "transparent");
+    exitFullscreen.setAttribute("stroke", "black");
+  } else {
+    requestFullscreen.setAttribute("stroke", "black");
+    exitFullscreen.setAttribute("stroke", "transparent");
+  }
+}
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+  </script>
+ </head>
+ <body onload="init();">
+<div class="header"><span class="text">Volleybase - Das Buch</span><br><img src="/images/img-01edd3bc-1bad-12d8-9961-07b31be9294e.svg" /><span class="footer">Gedanken und Einsichten</span><a href="/menu.html" class="to_menu">&nbsp;</a><svg xmlns="http://www.w3.org/2000/svg" id="button-fullscreen" width="30" height="30">
+  <path id="request-fullscreen"
+    stroke="black" stroke-width="3" fill="none"
+    d="M 10, 2  L  2, 2  L  2,10
+       M 20, 2  L 28, 2  L 28,10
+       M 28,20  L 28,28  L 20,28
+       M 10,28  L  2,28  L  2,20" />
+  <path id="exit-fullscreen"
+    stroke="transparent" stroke-width="3" fill="none"
+    d="M 10, 2  L 10,10  L  2, 10
+       M 20, 2  L 20,10  L 28, 10
+       M 28,20  L 20,20  L 20, 28
+       M 10,28  L 10,20  L  2, 20" />
+</svg>
+</div>
+
+<label class="tree-menu" for="tree-toggle"><span>=</span></label>
+<input type="checkbox" checked id="tree-toggle" />
+<div class="tree"><div class="tree-bg">&nbsp;</div><div class="tree-content"><div class="item root">
+ <span class="item-header" data-id="01ef411f-acd0-1c75-9823-4c2a9b006824"><span class="text">Volleybase - Das Buch</span><br><img src="/images/img-01edd3bc-1bad-12d8-9961-07b31be9294e.svg" /><span class="footer">Gedanken und Einsichten</span></span>
+</div><div class="item">
+ <input type="checkbox" id="01ef4123-0f13-1ee8-9842-750d68f08e50" class="item-toggle" #checked# />
+ <label for="01ef4123-0f13-1ee8-9842-750d68f08e50" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ef4123-0f13-1ee8-9842-750d68f08e50"><span class="text">&quot;Man gewinnt mit dem Kopf!&quot;</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Der gedankliche Übergang zum Spitzensport</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ef411c-12ba-1175-9b82-fbde6f6d686a"><span class="text">Einleitung I</span><img src="/images/img-01edd3b3-72fa-1d00-ba18-bd16d290f6fd.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef411d-bd41-111f-a85c-5b4ed0e30254"><span class="text">Einleitung II</span><img src="/images/img-01edd3b3-72fa-1d00-ba18-bd16d290f6fd.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef4121-f04f-19bd-b7c0-8875160f66e4"><span class="text">Einleitung III</span><img src="/images/img-01edd3b3-72fa-1d00-ba18-bd16d290f6fd.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef417e-3d3f-1c99-a4a4-c6801312422a"><span class="text">Einleitung IV</span><img src="/images/img-01edd3b3-72fa-1d00-ba18-bd16d290f6fd.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01ef4175-8665-19cc-b88e-ff05df4e917b" class="item-toggle" #checked# />
+ <label for="01ef4175-8665-19cc-b88e-ff05df4e917b" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ef4175-8665-19cc-b88e-ff05df4e917b"><span class="text">Biologie</span><img src="/images/img-7ae1b68e-ee50-4223-8e54-ba9064493f3d.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ef4176-36b5-1df9-8f95-a39b41006053"><span class="text">Die menschliche Entwicklung</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Vom Kleinkind zum Erwachsenen  </span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef416e-2988-1968-a02c-7ee072e6f453"><span class="text">Die biologischen Grundlagen</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Oder: Warum und wie kann man durch Training etwas verändern?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef4179-90b4-17ad-8775-0c53765faa65"><span class="text">Die biologischen Grundlagen  </span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Die Organsysteme  </span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef417b-9998-1de5-b0f4-9dda0eb58a6f"><span class="text">Die Muskulatur</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Ein Überblick, die Funktionen und die Gruppierung</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01ef4adb-5928-1e40-9db9-a2c46e605528" class="item-toggle" #checked# />
+ <label for="01ef4adb-5928-1e40-9db9-a2c46e605528" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ef4adb-5928-1e40-9db9-a2c46e605528"><span class="text">Theorie</span><img src="/images/img-7ae1b68e-ee50-4223-8e54-ba9064493f3d.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ef4ae0-f33f-10ce-b890-976e61db8a1c"><span class="text">Die Biomechanik</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Biomechanik = Biologie + Mechanik, oder: Die Auswirkungen der Mechanik auf das Biologische  </span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef4aed-993f-11ed-a6ff-a93d2b4db807"><span class="text">Die Analyse komplexer Bewegungsabläufe  </span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Die Grundlage für das Techniktraining  </span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef4b2b-54b4-1d9b-a9a0-1c5e25495438"><span class="text">Die Methodik  </span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Theoretische Grundlagen des Trainings  </span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef4b37-7b92-13a8-ae1b-16298426fb2c"><span class="text">Die Aggression im Sport  </span><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef4b4e-63ba-1e62-8aaa-a566383c9228"><span class="text">Institutionelle Belastungen</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer"> durch die Schule aus der Sicht eines Sportvereins</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef4b76-84c7-1696-899b-8e033c880aeb"><span class="text">Wie &quot;funktionieren&quot; Mannschaften ?!</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer"> nach den Theorien der Sozialforschung</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef4c68-dca9-1f3d-8995-f32dc1ddee5f"><span class="text">Sportpädagogik</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Leistungsdenken vs. Spaßfaktor  </span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef4c67-4c15-1bc1-a1d0-eeaa234a015f"><span class="text">Die Schule  </span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Ein Wunschzettel an die Spielerinnen  </span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01ef4c65-f7ee-1927-a400-0c33b1ba5519" class="item-toggle" #checked# />
+ <label for="01ef4c65-f7ee-1927-a400-0c33b1ba5519" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ef4c65-f7ee-1927-a400-0c33b1ba5519"><span class="text">Vermitteln</span><img src="/images/img-7ae1b68e-ee50-4223-8e54-ba9064493f3d.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ef4c77-a7c5-1ec0-b92d-97584670ad12"><span class="text">Wie gewinne ich ein Volleyballspiel?  </span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">(Einflussfaktoren nach Doug Beal, Nationalteamtrainer der US-Herrenmannschaft)  </span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef4cda-cc05-1d31-90de-12d665f8753f"><span class="text"> Die Grundlagen des Volleyballs</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer"> Grundsätzliches - darauf kann man aufbauen!</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef4d3e-585f-133c-af12-e0861a4497ed"><span class="text"> Geschlechtsspezifische Unterschiede</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer"> Konsequenzen für das Spiel und das Training</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f0df7f-092e-1d47-9cca-145df262f4a0"><span class="text">Ein Vergleich von Modellen zur Vermittlung von Volleyball</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Der Versuch einer Betrachtung unter dem Gesichtspunkt der Sozialisationstheorie</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f0efb8-5926-12b6-9f6a-8240fc5c3a47"><span class="text">Der Volleyball Lehrweg</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Spielerisch zum Erfolg</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f10c4f-bcc3-16df-af4d-6a3853331fa9"><span class="text">Der Ball</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Damit wird gespielt  </span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f10c4a-6c66-18f9-a04a-a50df63af84e"><span class="text">3:3 - Ein einfaches System  </span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Spielen lernen  </span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f10dbd-66d2-1d83-8bb9-ccde977d580f"><span class="text">3 Angreiferinnen für Midi</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">(Historisch) Ein offensives Spielsystem</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f11fba-de07-1142-8db6-0b96e725336a"><span class="text">Das Sportkonzept</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Die Struktur für einen erfolgreichen Aufbau</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f138fc-03e9-120c-b04c-7996f21d7c5e"><span class="text">Ein Rahmentrainingsplan</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Was lehre/lerne ich wann?  </span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f13904-d8ac-129d-8a0e-ffe14d8fbe6c"><span class="text">Der Trainingsplan  </span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Ein Beispiel  </span></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="01f1852d-605a-1c52-b876-72b1e6aaee32"><span class="text">Allgemeines</span><img src="/images/img-7ae1b68e-ee50-4223-8e54-ba9064493f3d.svg" /></span>
+</div><div class="item">
+ <input type="checkbox" id="01f1851a-e695-163b-b3ac-6e7639cb0ef4" class="item-toggle" #checked# />
+ <label for="01f1851a-e695-163b-b3ac-6e7639cb0ef4" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f1851a-e695-163b-b3ac-6e7639cb0ef4"><span class="text">Volleyball speziell</span><img src="/images/img-7ae1b68e-ee50-4223-8e54-ba9064493f3d.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="01f11e24-dcd6-1b2f-a257-3d24accf0f2a" class="item-toggle" #checked# />
+ <label for="01f11e24-dcd6-1b2f-a257-3d24accf0f2a" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f11e24-dcd6-1b2f-a257-3d24accf0f2a"><span class="text">Die Positionen</span><br><img src="/images/img-7ae1b68e-ee50-4223-8e54-ba9064493f3d.svg" /><span class="footer">Zu den Positionen</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01f186a7-77df-1014-83e7-fcaa1899b600"><span class="text">Aufspielerin</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Die Spielmacherin</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f11bc8-fbe1-16d6-a82d-a687390b094d"><span class="text">Aufspieler finden</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Wer soll Aufspieler werden?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f185c1-4a2e-10bb-876b-aa87f40297bc"><span class="text">Libera</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Annahme- und Verteidigungsspezialistin</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f1860f-45f8-1ca0-a282-33c87b1a584e"><span class="text">Mittelblockerin</span><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="01f186a7-67ae-1ded-89d0-24c567e63bca"><span class="text">Die Technik, kurz und bündig</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Die Basis des erfolgreichen Volleyballs</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f1869f-ea63-162e-8314-c3be70e894eb"><span class="text">Das Service</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Die Spieleröffnung</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f186a7-6f2a-14e6-9fe9-427107eda9a8"><span class="text">Die Annahme</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">90% oder besser! - Höchste Qualität versus wenige Erfolgserlebnisse</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f1869d-9414-145a-94a7-0c686c76b955"><span class="text">Neue Kategorie</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">###</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f186ad-3821-1a7f-881e-fda6b1f9b93e"><span class="text">Neue Kategorie</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">###</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f186a0-5b44-12d0-b3a9-878eca987f3e"><span class="text">Neue Kategorie</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">###</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f1852a-f6b6-1ece-8979-3f0bed0e8a39" class="item-toggle" #checked# />
+ <label for="01f1852a-f6b6-1ece-8979-3f0bed0e8a39" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f1852a-f6b6-1ece-8979-3f0bed0e8a39"><span class="text">Zum Spiel</span><img src="/images/img-7ae1b68e-ee50-4223-8e54-ba9064493f3d.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01f1853e-52c6-14c7-bfff-f81624931da8"><span class="text">Vor dem Spiel</span><br><img src="/images/img-7ae1b68e-ee50-4223-8e54-ba9064493f3d.svg" /><span class="footer">Eine gute Vorbereitung ist das halbe Spiel - Grafiken verkleinern!</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f1853a-bcbe-11fd-9d87-349d0d4d63cf"><span class="text">Nach dem Spiel</span><br><img src="/images/img-7ae1b68e-ee50-4223-8e54-ba9064493f3d.svg" /><span class="footer">Das Spiel ist mit dem Schlusspfiff noch nicht zu Ende</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f1851d-676e-1daa-b0d5-5d9f91a874af" class="item-toggle" #checked# />
+ <label for="01f1851d-676e-1daa-b0d5-5d9f91a874af" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f1851d-676e-1daa-b0d5-5d9f91a874af"><span class="text">Trainer</span><img src="/images/img-7ae1b68e-ee50-4223-8e54-ba9064493f3d.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01f18520-9244-13fb-9fdf-cf1e22a1299a"><span class="text">Die Anforderungen an den Trainer</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Realistisch, idealtypisch, utopisch, ...</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f18527-1a93-1f94-bdf1-395b4bd4f61f"><span class="text">Trainer - Co-Trainer</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Optimale mannschaftsübergreifende Betreuung</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f18524-e12b-1637-a59c-02977fff0418" class="item-toggle" #checked# />
+ <label for="01f18524-e12b-1637-a59c-02977fff0418" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f18524-e12b-1637-a59c-02977fff0418"><span class="text">Nachwort</span><img src="/images/img-7ae1b68e-ee50-4223-8e54-ba9064493f3d.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01f18528-6c54-15c1-a298-64226abe2180"><span class="text">Das Trainerparadoxon = Das Trainerdilemma</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Oder: Warum können nur erfolglose Trainer zufrieden sein?</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f18528-324a-16b4-a6a5-7a890a7a743a"><span class="text">Das Trainerparadoxon = Das Trainerdilemma</span><br><img src="/images/img-01edd3b7-2580-1620-a0a2-f87e5a8035e0.svg" /><span class="footer">Teil 2: Reaktionen und Antworten</span></span>
+</div></div>
+</div></div></div>
+
+<div class="content"><div class="container"></div>
+
+<script>
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+
+function unregister() {
+  document.removeEventListener('contextmenu', onContextMenu);
+}
+window.unregister = unregister;
+}());
+
+</script></div>
+<div class="footer">Volleybase - Das Buch</div>
+
+ </body>
+</html>

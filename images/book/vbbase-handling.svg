@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="600" height="485" version="1.1" viewBox="0 0 600 485">
+  <g class="actors">
+    <g transform="translate(0 0)">
+      <line x1="300" y1="250" x2="300" y2="50" style="fill: none; stroke: #808080; stroke-width: 1;"/>
+      <line x1="300" y1="250" x2="456.366" y2="125.302" style="fill: none; stroke: #808080; stroke-width: 1;"/>
+      <line x1="300" y1="250" x2="494.986" y2="294.504" style="fill: none; stroke: #808080; stroke-width: 1;"/>
+      <line x1="300" y1="250" x2="386.777" y2="430.194" style="fill: none; stroke: #808080; stroke-width: 1;"/>
+      <line x1="300" y1="250" x2="213.223" y2="430.194" style="fill: none; stroke: #808080; stroke-width: 1;"/>
+      <line x1="300" y1="250" x2="105.014" y2="294.504" style="fill: none; stroke: #808080; stroke-width: 1;"/>
+      <line x1="300" y1="250" x2="143.634" y2="125.302" style="fill: none; stroke: #808080; stroke-width: 1;"/>
+    </g>
+    <path d="M 300 250 L 300 50 L 456 125 Z" transform="translate(0 0)" style="stroke: none; fill: #00008b;"/>
+    <path d="M 300 250 L 300 50 L 456 125 Z" transform="translate(0 0)" style="stroke: none; fill: #ffffff; fill-opacity: 0.55;"/>
+    <path d="M 300 250 L 456 125 L 495 295 Z" transform="translate(0 0)" style="stroke: none; fill: #00008b;"/>
+    <path d="M 300 250 L 456 125 L 495 295 Z" transform="translate(0 0)" style="stroke: none; fill: #ffffff; fill-opacity: 0.42;"/>
+    <path d="M 300 250 L 495 295 L 387 430 Z" transform="translate(0 0)" style="stroke: none; fill: #00008b;"/>
+    <path d="M 300 250 L 495 295 L 387 430 Z" transform="translate(0 0)" style="stroke: none; fill: #ffffff; fill-opacity: 0.28;"/>
+    <path d="M 300 250 L 387 430 L 213 430 Z" transform="translate(0 0)" style="stroke: none; fill: #00008b;"/>
+    <path d="M 300 250 L 387 430 L 213 430 Z" transform="translate(0 0)" style="stroke: none; fill: #ffffff; fill-opacity: 0.15;"/>
+    <path d="M 300 250 L 213 430 L 105 295 Z" transform="translate(0 0)" style="stroke: none; fill: #00008b;"/>
+    <path d="M 300 250 L 213 430 L 105 295 Z" transform="translate(0 0)" style="stroke: none; fill: #ffffff; fill-opacity: 0.02;"/>
+    <path d="M 300 250 L 105 295 L 144 125 Z" transform="translate(0 0)" style="stroke: none; fill: #00008b;"/>
+    <path d="M 300 250 L 105 295 L 144 125 Z" transform="translate(0 0)" style="stroke: none; fill: #ffffff; fill-opacity: 0.22;"/>
+    <path d="M 300 250 L 144 125 L 300 50 Z" transform="translate(0 0)" style="stroke: none; fill: #00008b;"/>
+    <path d="M 300 250 L 144 125 L 300 50 Z" transform="translate(0 0)" style="stroke: none; fill: #ffffff; fill-opacity: 0.35;"/>
+    <ellipse cx="0" cy="0" rx="78" ry="37" transform="translate(300 50)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 38) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Angriffs-</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 61) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">schlag</text>
+    <ellipse cx="0" cy="0" rx="78" ry="37" transform="translate(456 125)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(456 123) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Finte</text>
+    <ellipse cx="0" cy="0" rx="78" ry="37" transform="translate(495 295)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(495 293) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Block</text>
+    <ellipse cx="0" cy="0" rx="78" ry="37" transform="translate(387 430)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(387 418) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Nottechniken</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(387 441) translate(0 7)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 18px;">Rolle, Hecht, ...</text>
+    <ellipse cx="0" cy="0" rx="78" ry="37" transform="translate(213 430)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(213 418) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Unteres</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(213 441) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Zuspiel</text>
+    <ellipse cx="0" cy="0" rx="78" ry="37" transform="translate(105 295)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(105 283) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Oberes</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(105 306) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Zuspiel</text>
+    <ellipse cx="0" cy="0" rx="78" ry="37" transform="translate(144 125)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(144 123) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Service</text>
+    <ellipse cx="0" cy="0" rx="105" ry="50" transform="translate(300 250)" style="stroke: none; fill: #ffa500;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 233) translate(0 13)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 34px;">Die Ball-</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 266) translate(0 13)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 34px;">aktionen</text>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

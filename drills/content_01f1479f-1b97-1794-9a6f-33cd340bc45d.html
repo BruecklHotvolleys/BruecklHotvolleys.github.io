@@ -1,0 +1,169 @@
+<div class="container full"><div class="img"><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="145" height="285" version="1.1" viewBox="0 0 145 285">
+  <g>
+    <rect x="0" y="0" width="145" height="285" style="stroke: none; fill: #d3d3d3;"/>
+  </g>
+  <g class="actors">
+    <g id="draw_1" transform="translate(0 0)">
+      <line x1="65" y1="250" x2="75" y2="250" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="75" y1="250" x2="72.436" y2="201.067" id="draw_1_2" data-anim-index="2" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="72.436" y1="201.067" x2="75.157" y2="149.138" id="draw_1_3" data-anim-index="3" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="75.157" y1="149.138" x2="75.157" y2="145.138" id="draw_1_4" data-anim-index="4" style="fill: none; stroke: #111111; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="75.157" y1="145.138" x2="75.157" y2="75.138" id="draw_1_5" data-anim-index="5" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="75.157" y1="75.138" x2="75.157" y2="62.138" id="draw_1_6" data-anim-index="6" style="fill: none; stroke: #111111; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="75.157" y1="62.138" x2="75.157" y2="55.138" id="draw_1_7" data-anim-index="7" style="fill: none; stroke: #111111; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="75.157" y1="62.138" x2="75.157" y2="55.138" id="draw_1_8" data-anim-index="8" style="fill: none; stroke: #808080; stroke-width: 13; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="75.157" y1="75.138" x2="75.157" y2="35.138" id="draw_1_9" data-anim-index="9" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <ellipse cx="75.157" cy="35.138" rx="3.5" ry="3.5" id="draw_1_10" data-anim-index="9" style="stroke: none; fill: #111111;"/>
+      <ellipse cx="75.157" cy="35.138" rx="2" ry="2" id="draw_1_11" data-anim-index="9" style="stroke: none; fill: #ff0000;"/>
+    </g>
+  </g>
+  <!-- context menu - - - - - - - - - - -->
+  <rect id="contextmenu_bg" x="0" y="0" />
+  <g id="contextmenu" class="contextmenu">
+    <rect x="0" y="0" width="204" height="100" rx="5" ry="5" />
+    <g id="ID_animation" class="ID_mi_stop">
+      <g class="menuitem" data-item="ID_mi_play" transform="translate(0 0)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 12 10 l 7 7 l -7 7 z" class="mi-play" />
+       <text x="30" y="25">Start</text>
+      </g>
+      <g class="menuitem" data-item="ID_mi_pause" transform="translate(0 32)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 12 10 v 14 M 18 10 v 14" class="mi-pause" />
+       <text x="30" y="25">Pause</text>
+      </g>
+      <g class="menuitem" data-item="ID_mi_stop" transform="translate(0 64)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 8 10 h 14 v 14 h -14 z" class="mi-stop" />
+       <text x="30" y="25">Stop</text>
+      </g>
+    </g>
+  </g>
+  <style>
+#contextmenu_bg {
+  width: 100%;
+  height: 100%;
+  fill: #7777777f;
+}
+#contextmenu_bg, #contextmenu {
+  display: none;
+  cursor: default;
+}
+
+g.contextmenu > rect, g.submenu > rect {
+  stroke: gray;
+  stroke-width: 3px;
+  fill: lightgray;
+}
+
+g.menuitem > rect, g.submenuitem > rect {
+  stroke: none;
+  fill: lightgray;
+}
+g.menuitem > * {
+  pointer-events: none;
+}
+g.menuitem > rect.bg {
+  pointer-events: all;
+  cursor: pointer;
+}
+g.menuitem:hover > rect.bg, g.submenuitem:hover > rect.bg {
+  fill: darkgray;
+}
+g.menuitem > text, g.submenuitem > text {
+  stroke: none;
+  fill: #111;
+  font-family: Arial;
+  font-size: 22px;
+}
+g.menuitem.mono > text, g.submenuitem.mono > text {
+  font-family: Consolas, monospace;
+  white-space: pre;
+}
+g.menuitem > rect.cb, g.menuitem > circle.rb {
+  stroke: gray;
+  stroke-width: 2px;
+  fill: none;
+}
+g.menuitem > circle.rb2 {
+  stroke: none;
+  fill: #111;
+}
+
+g.menuitem > path.cb2, g.submenuitem > path.marker_submenu {
+  stroke: #111;
+  stroke-width: 2px;
+  fill: none;
+  display: block;
+}
+g.submenu {
+  display: none;
+}
+g.submenuitem:hover > g.submenu {
+  display: block;
+}
+
+#contextmenu > rect.separator {
+  fill: #BBB;
+  stroke: none;
+}
+
+
+g.menuitem > path.mi-play, g.menuitem > path.mi-stop {
+  stroke: none;
+  fill: #444;
+}
+g.menuitem > path.mi-pause {
+  stroke: #444;
+  stroke-width: 3px;
+  fill: none;
+}
+
+
+g.actors.animation > g.move {
+  display: none !important;
+}
+
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"],
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"] > rect.bg,
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"] > rect.bg {
+  cursor: default;
+}
+g#ID_animation.ID_mi_play > g[data-item="ID_mi_play"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_play > g[data-item="ID_mi_play"] > rect.bg {
+  cursor: default;
+}
+g#ID_animation.ID_mi_pause > g[data-item="ID_mi_pause"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_pause > g[data-item="ID_mi_pause"] > rect.bg {
+  cursor: default;
+}
+  </style>
+</svg></div><div class="text"><h1 id="h_1">Thema</h1>
+<p><strong>Die Beinstrecker kräftigen.</strong></p>
+<h1 id="h_2">Beschreibung</h1>
+<ol>
+<li>Die Kniebeuge ist die Grundübung zur Kräftigung der Beinstrecker.</li>
+<li>Der Blick geht nach vorne und leicht nach oben, damit der Kopf und der Rücken
+gerade bleiben.</li>
+<li>Die Arme werden genau über dem Körperschwerpunkt nach oben gehalten und
+halten eine leichte Stange(z.B. einen Besenstiel) ziemlich breit.</li>
+<li>Die Fußstellung ist gut schulterbreit,</li>
+<li>die Zehen zeigen leicht nach außen,</li>
+<li>die Knie werden in der Beinachse gebeugt.</li>
+</ol>
+<h1 id="h_3">Hinweise</h1>
+<ul>
+<li>Alles von der „normale” Kniebeuge.</li>
+<li>Gerade Arme - später kommt ein Zusatzgewicht dazu.</li>
+<li>Der Schulterbereich muss gut gedehnt sein, damit das „Gewicht” immer über dem
+Schwerpunkt bleibt.</li>
+</ul>
+</div></div>

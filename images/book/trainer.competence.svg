@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="470" height="260" version="1.1" viewBox="0 0 470 260">
+  <g class="actors">
+    <ellipse cx="0" cy="0" rx="1" ry="1" transform="translate(350 220)" style="stroke: none; fill: #000000; fill-opacity: 0.25;"/>
+    <ellipse cx="0" cy="0" rx="1" ry="1" transform="translate(120 220)" style="stroke: none; fill: #000000; fill-opacity: 0.25;"/>
+    <path d="M 350 220 Q 235 260 120 220" transform="translate(0 0)" style="stroke: #111111; stroke-width: 1; fill: none;"/>
+    <g transform="translate(235 260)">
+      <polyline points="-109.666,-34.027 -115,-40 -107.111,-41.373" style="stroke: #111111; stroke-width: 1; fill: none;"/>
+    </g>
+    <text x="0" y="0" text-anchor="middle" transform="translate(235 228) translate(0 3.04)" style="stroke: none; fill: #000000; font-size: 8px; font-weight: bold; font-family: Arial;">Vorbild: Sportlich und als Mensch</text>
+    <ellipse cx="0" cy="0" rx="1" ry="1" transform="translate(423 167)" style="stroke: none; fill: #000000; fill-opacity: 0.25;"/>
+    <ellipse cx="0" cy="0" rx="1" ry="1" transform="translate(396 65)" style="stroke: none; fill: #000000; fill-opacity: 0.25;"/>
+    <path d="M 423 167 Q 455 112 396 65" transform="translate(0 0)" style="stroke: #111111; stroke-width: 1; fill: none;"/>
+    <g transform="translate(455 112)">
+      <polyline points="-55.948,-39.597 -59,-47 -51.102,-45.68" style="stroke: #111111; stroke-width: 1; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="1" ry="1" transform="translate(349 40)" style="stroke: none; fill: #000000; fill-opacity: 0.25;"/>
+    <ellipse cx="0" cy="0" rx="1" ry="1" transform="translate(78 62)" style="stroke: none; fill: #000000; fill-opacity: 0.25;"/>
+    <path d="M 349 40 Q 197 -10 78 62" transform="translate(0 0)" style="stroke: #111111; stroke-width: 1; fill: none;"/>
+    <g transform="translate(197 -10)">
+      <polyline points="-110.998,71.704 -119,72 -115.024,65.049" style="stroke: #111111; stroke-width: 1; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="1" ry="1" transform="translate(74 195)" style="stroke: none; fill: #000000; fill-opacity: 0.25;"/>
+    <ellipse cx="0" cy="0" rx="1" ry="1" transform="translate(43 100)" style="stroke: none; fill: #000000; fill-opacity: 0.25;"/>
+    <path d="M 74 195 Q 16 150 43 100" transform="translate(0 0)" style="stroke: #111111; stroke-width: 1; fill: none;"/>
+    <g transform="translate(16 150)">
+      <polyline points="20.252,-45.688 27,-50 27.096,-41.993" style="stroke: #111111; stroke-width: 1; fill: none;"/>
+    </g>
+    <rect x="0" y="0" width="107" height="35" rx="5" ry="5" transform="translate(9 130)" style="stroke: none; fill: #ffffff; fill-opacity: 0.88;"/>
+    <text x="0" y="0" text-anchor="start" transform="translate(15 138) translate(0 6.08)" style="stroke: none; fill: #000000; font-size: 8px; font-weight: bold; font-family: Arial;">Entwicklung der</text>
+    <text x="0" y="0" text-anchor="start" transform="translate(15 150) translate(0 6.08)" style="stroke: none; fill: #000000; font-size: 8px; font-weight: bold; font-family: Arial;">&quot;emotionalen Intelligenz&quot;</text>
+    <path d="M 235 130 L 245 163 Q 250 183 265 183 L 445 183" transform="translate(0 0)" style="stroke: #8b0000; stroke-width: 1; fill: none;"/>
+    <path d="M 235 130 L 245 163 Q 257 215 295 213 L 400 213" transform="translate(0 0)" style="stroke: #8b0000; stroke-width: 1; fill: none;"/>
+    <path d="M 235 130 L 225 163 Q 213 215 175 213 L 65 213" transform="translate(0 0)" style="stroke: #8b0000; stroke-width: 1; fill: none;"/>
+    <path d="M 235 130 L 245 97 Q 257 45 295 47 L 415 47" transform="translate(0 0)" style="stroke: #8b0000; stroke-width: 1; fill: none;"/>
+    <path d="M 235 130 L 170 87 Q 160 81.5 150 82 L 25 82" transform="translate(0 0)" style="stroke: #8b0000; stroke-width: 1; fill: none;"/>
+    <text x="0" y="0" text-anchor="start" transform="translate(300 55) translate(0 4.18)" style="stroke: none; fill: #000000; font-size: 11px; font-weight: bold; font-family: Arial;">Methodenkompetenz</text>
+    <text x="0" y="0" text-anchor="start" transform="translate(350 176) translate(0 4.18)" style="stroke: none; fill: #000000; font-size: 11px; font-weight: bold; font-family: Arial;">Fachkompetenz</text>
+    <text x="0" y="0" text-anchor="start" transform="translate(300 205) translate(0 4.18)" style="stroke: none; fill: #000000; font-size: 11px; font-weight: bold; font-family: Arial;">Selbstkompetenz</text>
+    <text x="0" y="0" text-anchor="end" transform="translate(160 205) translate(0 4.18)" style="stroke: none; fill: #000000; font-size: 11px; font-weight: bold; font-family: Arial;">Sozialkompetenz</text>
+    <text x="0" y="0" text-anchor="end" transform="translate(126 74) translate(0 4.18)" style="stroke: none; fill: #000000; font-size: 11px; font-weight: bold; font-family: Arial;">Management- und</text>
+    <text x="0" y="0" text-anchor="end" transform="translate(140 89) translate(0 4.18)" style="stroke: none; fill: #000000; font-size: 11px; font-weight: bold; font-family: Arial;">Führungskompetenz</text>
+    <ellipse cx="0" cy="0" rx="100" ry="38" transform="translate(235 130)" style="stroke: #0000ff; stroke-width: 5; fill: #ffff00;"/>
+    <ellipse cx="0" cy="0" rx="1" ry="1" transform="translate(235 130)" style="stroke: none; fill: #000000;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(235 122) translate(0 5.7)" style="stroke: none; fill: #000000; font-size: 15px; font-weight: bold; font-family: Arial;">Handlungskompetente</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(235 138) translate(0 5.7)" style="stroke: none; fill: #000000; font-size: 15px; font-weight: bold; font-family: Arial;">Trainerpersönlichkeit</text>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

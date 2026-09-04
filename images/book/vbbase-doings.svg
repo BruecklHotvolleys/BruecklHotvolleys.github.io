@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="600" height="425" version="1.1" viewBox="0 0 600 425">
+  <g class="actors">
+    <path d="M 500 175 L 425 350 L 175 350 L 100 175 Z" transform="translate(0 0)" style="stroke: none; fill: #ffa500;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 262.5) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Die Spielhandlungen</text>
+    <line x1="0" y1="0" x2="200" y2="100" transform="translate(300 75)" style="fill: none; stroke: #0000cd; stroke-width: 25;"/>
+    <g transform="translate(300 75)">
+      <line x1="0" y1="0" x2="125.763" y2="62.881" style="stroke: #d3d3d3; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="119.303,53.44 125.763,62.881 114.334,63.378" style="stroke: #d3d3d3; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <line x1="0" y1="0" x2="-75" y2="175" transform="translate(500 175)" style="fill: none; stroke: #0000cd; stroke-width: 25;"/>
+    <g transform="translate(500 175)">
+      <line x1="0" y1="0" x2="-50.183" y2="117.094" style="stroke: #d3d3d3; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-41.138,110.091 -50.183,117.094 -51.35,105.714" style="stroke: #d3d3d3; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <line x1="0" y1="0" x2="-250" y2="0" transform="translate(425 350)" style="fill: none; stroke: #0000cd; stroke-width: 25;"/>
+    <g transform="translate(425 350)">
+      <line x1="0" y1="0" x2="-152" y2="0" style="stroke: #d3d3d3; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-142,5.556 -152,0 -142,-5.556" style="stroke: #d3d3d3; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <line x1="0" y1="0" x2="-75" y2="-175" transform="translate(175 350)" style="fill: none; stroke: #0000cd; stroke-width: 25;"/>
+    <g transform="translate(175 350)">
+      <line x1="0" y1="0" x2="-50.183" y2="-117.094" style="stroke: #d3d3d3; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-51.35,-105.714 -50.183,-117.094 -41.138,-110.091" style="stroke: #d3d3d3; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <line x1="0" y1="0" x2="400" y2="0" transform="translate(100 175)" style="fill: none; stroke: #0000cd; stroke-width: 25;"/>
+    <g transform="translate(100 175)">
+      <line x1="0" y1="0" x2="302" y2="0" style="stroke: #d3d3d3; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="292,-5.556 302,0 292,5.556" style="stroke: #d3d3d3; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="75" ry="38" transform="translate(300 75)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 74) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Service</text>
+    <ellipse cx="0" cy="0" rx="75" ry="38" transform="translate(500 175)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(500 174) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Annahme</text>
+    <ellipse cx="0" cy="0" rx="75" ry="38" transform="translate(425 350)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(425 349) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Aufspiel</text>
+    <ellipse cx="0" cy="0" rx="75" ry="38" transform="translate(175 350)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(175 349) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Angriff</text>
+    <ellipse cx="0" cy="0" rx="75" ry="38" transform="translate(100 175)" style="stroke: none; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(100 174) translate(0 6)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 15px;">Block</text>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

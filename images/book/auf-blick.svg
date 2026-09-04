@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="240" height="410" version="1.1" viewBox="0 0 240 410">
+  <g>
+    <rect x="0" y="0" width="240" height="410" style="stroke: none; fill: #d3d3d3;"/>
+  </g>
+  <g class="actors">
+    <g transform="translate(145 130)">
+      <line x1="0" y1="0" x2="-115" y2="-10" style="stroke: #111111; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-107.415,-4.879 -115,-10 -106.645,-13.735" style="stroke: #111111; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <text x="0" y="0" text-anchor="middle" transform="translate(80 132) rotate(4) translate(0 3.8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 10px;">Schuss</text>
+    <g transform="translate(145 130)">
+      <line x1="0" y1="0" x2="-94" y2="-65.5" style="stroke: #111111; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-89.977,-57.28 -94,-65.5 -84.895,-64.573" style="stroke: #111111; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <text x="0" y="0" text-anchor="middle" transform="translate(88 100) rotate(35) translate(0 3.8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 10px;">Position 4</text>
+    <g transform="translate(145 130)">
+      <line x1="0" y1="0" x2="-66" y2="-94" style="stroke: #111111; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-65.04,-84.899 -66,-94 -57.766,-90.007" style="stroke: #111111; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <text x="0" y="0" text-anchor="middle" transform="translate(98 75) rotate(55) translate(0 3.8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 10px;">Schnell</text>
+    <g transform="translate(145 130)">
+      <line x1="0" y1="0" x2="74" y2="-88" style="stroke: #111111; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="65.45,-84.738 74,-88 72.253,-79.017" style="stroke: #111111; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <text x="0" y="0" text-anchor="middle" transform="translate(186 95) rotate(-50) translate(0 3.8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 10px;">Position 2</text>
+    <g transform="translate(145 130) scale(0.5)">
+      <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00;"/>
+      <path d="M 140 154.5 C 123.333 137.833 115 118.25 136.667 107 C 128.333 115.333 131.667 134.5 155 153 L 140 154.488 L 155 153 Q 147.5 156.167 140 154.488" transform="translate(-145 -130)" style="stroke: none; fill: #0000ff;"/>
+      <path d="M 165.661 144.167 C 153.161 131.667 148.994 119.167 146.661 111.667 Q 163.328 123.571 169.994 130.833 Q 169.828 138 165.647 144.167 Z" transform="translate(-145 -130)" style="stroke: none; fill: #0000ff;"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="6" ry="10" transform="translate(148 135) rotate(12)" style="stroke: none; fill: #111111;"/>
+    <g transform="translate(0 0)">
+      <line x1="150" y1="371" x2="166" y2="369" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="166" y1="369" x2="156" y2="328" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="156" y1="328" x2="166" y2="270" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="166" y1="270" x2="176" y2="336" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="176" y1="336" x2="196" y2="375" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="196" y1="375" x2="181" y2="380" style="fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="166" y1="270" x2="163.557" y2="200.043" style="fill: none; stroke: #111111; stroke-width: 16; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="163.557" y1="200.043" x2="160.557" y2="184.043" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <ellipse cx="160.557" cy="184.043" rx="10" ry="13" style="stroke: none; fill: #111111;"/>
+      <ellipse cx="160.557" cy="184.043" rx="8" ry="11" style="stroke: none; fill: #808080;"/>
+      <line x1="163.557" y1="200.043" x2="148.765" y2="168.322" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="148.765" y1="168.322" x2="145.715" y2="133.455" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="163.557" y1="200.043" x2="149.321" y2="168.069" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="149.321" y1="168.069" x2="146.271" y2="133.202" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="146.271" y1="133.202" x2="146.009" y2="130.213" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+    </g>
+    <g transform="translate(130 180)">
+      <line x1="0" y1="0" x2="-115" y2="0" style="stroke: #111111; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;"/>
+      <polyline points="-107,4.444 -115,0 -107,-4.444" style="stroke: #111111; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    </g>
+    <text x="0" y="0" text-anchor="middle" transform="translate(74.5 188) translate(0 3.8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 10px;">Blickrichtung</text>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

@@ -1,0 +1,178 @@
+<div class="container full"><div class="img"><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="270" height="200" version="1.1" viewBox="0 0 270 200">
+  <g>
+    <rect x="0" y="0" width="270" height="200" style="stroke: none; fill: #d3d3d3;"/>
+  </g>
+  <g class="actors">
+    <g id="arrow_1" transform="translate(118 74)">
+      <line x1="0" y1="0" x2="-25" y2="-25" style="stroke: #000000; stroke-width: 1; stroke-dasharray: 1 2;"/>
+      <polyline points="-21.857,-14.001 -25,-25 -14.001,-21.857" style="stroke: #000000; stroke-width: 1; stroke-dasharray: 1 2; fill: none;"/>
+    </g>
+    <g id="arrow_2" transform="translate(118 74)">
+      <line x1="0" y1="0" x2="25" y2="25" style="stroke: #000000; stroke-width: 1; stroke-dasharray: 1 2;"/>
+      <polyline points="21.857,14.001 25,25 14.001,21.857" style="stroke: #000000; stroke-width: 1; stroke-dasharray: 1 2; fill: none;"/>
+    </g>
+    <g transform="translate(0 0)">
+      <line x1="70" y1="220" x2="76.976" y2="120.244" style="fill: none; stroke: #111111; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="76.976" y1="120.244" x2="79.171" y2="99.359" style="fill: none; stroke: #111111; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round;"/>
+      <ellipse cx="79.171" cy="99.359" rx="11" ry="15" style="stroke: none; fill: #111111;"/>
+      <ellipse cx="79.171" cy="99.359" rx="9" ry="13" style="stroke: none; fill: #808080;"/>
+      <line x1="76.976" y1="120.244" x2="123.577" y2="105.102" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="123.577" y1="105.102" x2="80.417" y2="63.422" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+    </g>
+    <g id="draw_4" transform="translate(0 0)">
+      <line x1="207" y1="220" x2="196.547" y2="120.548" id="draw_4_1" data-anim-index="1" style="fill: none; stroke: #111111; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="196.547" y1="120.548" x2="192.901" y2="99.867" id="draw_4_2" data-anim-index="2" style="fill: none; stroke: #111111; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round;"/>
+      <ellipse cx="192.901" cy="99.867" rx="11" ry="15" id="draw_4_3" data-anim-index="2" style="stroke: none; fill: #111111;"/>
+      <ellipse cx="192.901" cy="99.867" rx="9" ry="13" id="draw_4_4" data-anim-index="2" style="stroke: none; fill: #808080;"/>
+      <line x1="196.547" y1="120.548" x2="127.603" y2="62.697" id="draw_4_5" data-anim-index="3" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="127.603" y1="62.697" x2="119.943" y2="56.269" id="draw_4_6" data-anim-index="4" style="fill: none; stroke: #111111; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;"/>
+      <line x1="127.603" y1="62.697" x2="117.961" y2="74.188" id="draw_4_7" data-anim-index="5" style="fill: none; stroke: #111111; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round;"/>
+      <ellipse cx="117.961" cy="74.188" rx="15" ry="15" id="draw_4_8" data-anim-index="5" style="stroke: none; fill: #eeeeee;"/>
+    </g>
+  </g>
+  <!-- context menu - - - - - - - - - - -->
+  <rect id="contextmenu_bg" x="0" y="0" />
+  <g id="contextmenu" class="contextmenu">
+    <rect x="0" y="0" width="204" height="100" rx="5" ry="5" />
+    <g id="ID_animation" class="ID_mi_stop">
+      <g class="menuitem" data-item="ID_mi_play" transform="translate(0 0)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 12 10 l 7 7 l -7 7 z" class="mi-play" />
+       <text x="30" y="25">Start</text>
+      </g>
+      <g class="menuitem" data-item="ID_mi_pause" transform="translate(0 32)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 12 10 v 14 M 18 10 v 14" class="mi-pause" />
+       <text x="30" y="25">Pause</text>
+      </g>
+      <g class="menuitem" data-item="ID_mi_stop" transform="translate(0 64)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 8 10 h 14 v 14 h -14 z" class="mi-stop" />
+       <text x="30" y="25">Stop</text>
+      </g>
+    </g>
+  </g>
+  <style>
+#contextmenu_bg {
+  width: 100%;
+  height: 100%;
+  fill: #7777777f;
+}
+#contextmenu_bg, #contextmenu {
+  display: none;
+  cursor: default;
+}
+
+g.contextmenu > rect, g.submenu > rect {
+  stroke: gray;
+  stroke-width: 3px;
+  fill: lightgray;
+}
+
+g.menuitem > rect, g.submenuitem > rect {
+  stroke: none;
+  fill: lightgray;
+}
+g.menuitem > * {
+  pointer-events: none;
+}
+g.menuitem > rect.bg {
+  pointer-events: all;
+  cursor: pointer;
+}
+g.menuitem:hover > rect.bg, g.submenuitem:hover > rect.bg {
+  fill: darkgray;
+}
+g.menuitem > text, g.submenuitem > text {
+  stroke: none;
+  fill: #111;
+  font-family: Arial;
+  font-size: 22px;
+}
+g.menuitem.mono > text, g.submenuitem.mono > text {
+  font-family: Consolas, monospace;
+  white-space: pre;
+}
+g.menuitem > rect.cb, g.menuitem > circle.rb {
+  stroke: gray;
+  stroke-width: 2px;
+  fill: none;
+}
+g.menuitem > circle.rb2 {
+  stroke: none;
+  fill: #111;
+}
+
+g.menuitem > path.cb2, g.submenuitem > path.marker_submenu {
+  stroke: #111;
+  stroke-width: 2px;
+  fill: none;
+  display: block;
+}
+g.submenu {
+  display: none;
+}
+g.submenuitem:hover > g.submenu {
+  display: block;
+}
+
+#contextmenu > rect.separator {
+  fill: #BBB;
+  stroke: none;
+}
+
+
+g.menuitem > path.mi-play, g.menuitem > path.mi-stop {
+  stroke: none;
+  fill: #444;
+}
+g.menuitem > path.mi-pause {
+  stroke: #444;
+  stroke-width: 3px;
+  fill: none;
+}
+
+
+g.actors.animation > g.move {
+  display: none !important;
+}
+
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"],
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"] > rect.bg,
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"] > rect.bg {
+  cursor: default;
+}
+g#ID_animation.ID_mi_play > g[data-item="ID_mi_play"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_play > g[data-item="ID_mi_play"] > rect.bg {
+  cursor: default;
+}
+g#ID_animation.ID_mi_pause > g[data-item="ID_mi_pause"] {
+  opacity: 0.5;
+}
+g#ID_animation.ID_mi_pause > g[data-item="ID_mi_pause"] > rect.bg {
+  cursor: default;
+}
+  </style>
+</svg></div><div class="text"><h1 id="h_1">Thema</h1>
+<p><strong>Den Ballkontakt beim Block erfahren.</strong></p>
+<h1 id="h_2">Beschreibung</h1>
+<ul>
+<li>Eine Spielerin hält die Oberarme gerade nach vorne, die Unterarme werden schräg
+nach oben gehalten (linke Spielerin).</li>
+<li>Die Übende steht in der Blockhaltung und rollt einen Ball auf der schrägen Ebene auf und ab.</li>
+</ul>
+<p>Mehrmals wechseln.</p>
+<h1 id="h_3">Variationen</h1>
+<ul>
+<li>Die linke Spielerin hält die Arme manchmal steiler, manchmal flacher.</li>
+<li>Die linke Spielerin steht leicht erhöht (z.B. Langbank).</li>
+</ul>
+<h1 id="h_4">Bälle/Geräte</h1>
+<p>1 Ball pro Paar.</p>
+</div></div>

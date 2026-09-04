@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="700" height="700" version="1.1" viewBox="0 0 700 700">
+  <g>
+    <rect x="0" y="0" width="700" height="700" style="stroke: none; fill: #dddddd;"/>
+  </g>
+  <g class="actors">
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(150 150)" style="stroke: #111111; stroke-width: 25; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(150 150)" style="stroke: #ff0000; stroke-width: 15; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(350 150)" style="stroke: #111111; stroke-width: 25; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(350 150)" style="stroke: #ff0000; stroke-width: 15; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(550 150)" style="stroke: #111111; stroke-width: 25; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(550 150)" style="stroke: #ff0000; stroke-width: 15; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(150 350)" style="stroke: #111111; stroke-width: 25; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(150 350)" style="stroke: #ff0000; stroke-width: 15; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(350 350)" style="stroke: #111111; stroke-width: 25; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(350 350)" style="stroke: #ff0000; stroke-width: 15; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(550 350)" style="stroke: #111111; stroke-width: 25; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(550 350)" style="stroke: #ff0000; stroke-width: 15; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(150 550)" style="stroke: #111111; stroke-width: 25; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(150 550)" style="stroke: #ff0000; stroke-width: 15; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(350 550)" style="stroke: #111111; stroke-width: 25; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(350 550)" style="stroke: #ff0000; stroke-width: 15; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(550 550)" style="stroke: #111111; stroke-width: 25; fill: none;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" transform="translate(550 550)" style="stroke: #ff0000; stroke-width: 15; fill: none;"/>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

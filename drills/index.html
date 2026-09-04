@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html lang="de">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/drills/favicon.ico">
+  <title>Die Übungen</title>
+  <style>
+html, body, * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  
+  padding: 0;
+  border: 0 none;
+  margin: 0;
+  
+  font-size: 14pt;
+}
+html, body {
+  overflow: hidden;
+}
+div.header {
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  
+  left: 0;
+  padding-left: 50px;
+  width: 100%;
+  top: 0;
+  height: 50px;
+    
+  background-color: #CCCCCC;  
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+div.header > div.title {
+  font-family: Arial;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 8px 0 0 0;
+}
+div.header > div.subtitle {
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 0.8em;
+}
+
+div.header > span.icon {
+  position: absolute;
+  left: 50px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+  
+  border-radius: 50%;
+  background-color: darkred;
+  color: #EEEEEE;
+  text-align: center;
+  font-size: 1.75em;
+}
+div.header > img {
+  position: absolute;
+  left: 50px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+}
+div.header > span.header {
+  position: absolute;
+  top: 1px;
+  left: 100px;
+  font-size: 0.5em;
+}
+div.header > span.text {
+  position: absolute;
+  padding: 12px 10px 12px 50px;
+}
+div.header > span.footer {
+  position: absolute;
+  bottom: 1px;
+  left: 100px;
+  font-size: 0.5em;
+}
+div.header > a.to_menu {
+  position: absolute;
+  top: 9px;
+  right: 50px;
+  width: 69px;
+  height: 32px;
+  z-index: 1; 
+  text-decoration: none;
+  background-color: #DDD;
+  background-image: url("/images//bhv2.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+svg#button-fullscreen {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  z-index: 1; 
+}
+div.content {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  bottom: 30px;
+
+  background-color: #EEEEEE;
+  overflow: hidden;
+}
+div.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+h1, h2, h3 {
+  margin: 0.5em 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.3em;
+}
+ol, ul {
+  padding-left: 1.5em;
+}
+p {
+  margin: 0.5em 0;
+}
+
+div.img {
+  box-sizing: border-box;
+  overflow: hidden; 
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+
+  padding: 1.5% 0;
+  text-align: center;
+}
+div.img > svg {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+}
+
+div.text {
+  box-sizing: border-box;
+  padding: 1%;
+}
+
+@media (orientation: landscape) {
+  div.container.full {
+    overflow: hidden;
+  }
+  div.container.full > div.img, 
+  div.container.full > div.text {
+    float: left;
+    width: 50%;
+  }
+  div.container.full > div.text {
+    height: 100%;
+    overflow: auto;
+  }
+}
+label.tree-menu {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  z-index: 99;
+  border-radius: 7px;
+  background-color: dimgray;
+  
+  cursor: pointer;
+}
+label.tree-menu > span {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  
+  color: gray;
+  text-align: center;
+  font-size: 30px;
+  line-height: 100%;
+
+  cursor: pointer;
+}
+
+input {
+  background-color: blue;
+  position: absolute;
+  left: -1000px;
+}
+
+div.tree {
+  display: none;
+
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  bottom: 30px;
+  z-index: 99;
+  
+  overflow: hidden;
+}
+div.tree > div.tree-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  overflow: hidden;
+  
+  background-color: #DDDDDD;
+  opacity: 0.1;
+}
+div.tree > div.tree-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33%;
+  min-width: 400px;
+  max-width: 600px;
+  height: 100%;
+  
+  overflow: auto;
+  
+  background-color: #DDDDDD;
+}
+input#tree-toggle:checked + div.tree {
+  display: block;
+}
+
+@media (width < 400px) {
+  div.tree > div.tree-content {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+div.item {
+  position: relative;
+}
+
+div.item > input.item-toggle + label > span:first-child {
+  display: none;
+}
+div.item > input.item-toggle + label > span:nth-child(2) {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > span:first-child {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > span:nth-child(2) {
+  display: none;
+}
+
+div.item > input.item-toggle + label > img:first-child {
+  display: none;
+}
+div.item > input.item-toggle + label > img:nth-child(2) {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > img:first-child {
+  display: block;
+}
+div.item > input.item-toggle:checked + label > img:nth-child(2) {
+  display: none;
+}
+
+div.item > input.item-toggle:checked ~ .item-container {
+  display: block;
+}
+
+
+
+div.item > label {
+  position: absolute;
+  left: 3px;
+  width: 20px;
+  top: 15px;
+  height: 20px;
+  background-color: dimgray;
+  color: lightgray;
+  border-radius: 50%;
+  text-align: center;
+}
+.touch div.item > label {
+  top: 6px;
+  left: 6px;
+  height: 38px;
+  width: 38px;
+}
+.touch div.item > label > img {
+  height: 38px;
+  width: 38px;
+}
+
+div.item > .item-header {
+  display: block;
+  position: relative;
+  height: 50px;
+  margin: 0 0 0 26px;
+
+  white-space: nowrap;
+  
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.touch div.item > .item-header {
+  margin-left: 46px;
+}
+div.item.root > .item-header, 
+.touch div.item.root > .item-header {
+  margin: 0;
+}
+
+div.item > span.item-header > span.icon {
+  position: absolute;
+  left: 2px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+  
+  border-radius: 50%;
+  background-color: darkred;
+  color: #EEEEEE;
+  text-align: center;
+  font-size: 1.75em;
+}
+div.item > span.item-header > img {
+  position: absolute;
+  left: 2px;
+  width: 46px;
+  top: 2px;
+  height: 46px;
+}
+div.item > .item-header > span.header {
+  position: absolute;
+  top: 1px;
+  left: 50px;
+  font-size: 0.5em;
+}
+div.item > .item-header > span.text {
+  position: absolute;
+  padding: 12px 10px 16px 50px;
+}
+div.item > .item-header:hover, div.item > .item-header:hover > span.text {
+  background-color: #CCCCCC;
+}
+div.item > .item-header > span.footer {
+  position: absolute;
+  bottom: 1px;
+  left: 50px;
+  font-size: 0.5em;
+}
+
+div.item > div.item-container {
+  position: relative;
+  padding-left: 26px;
+
+  display: none;
+}
+div.footer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 30px;
+  box-sizing: border-box;
+  padding: 5px 5px;
+  
+  overflow: hidden;
+  background-color: #CCCCCC;
+
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14pt;
+}
+
+  </style>
+<script>
+  document.documentElement.className += (("ontouchstart" in document.documentElement) ? ' touch' : ' no-touch');
+</script>
+  <script>
+function init() {
+  var items = document.querySelectorAll("div.tree span.item-header");
+  items.forEach((item) => item.addEventListener("click", onTreeItemClick));
+  
+  initFullscreen();
+}
+
+function onTreeItemClick(event) {
+  // if any animator: ensure end of running animation
+  if (window.animator) {
+    animator.stop();
+  }
+  
+  var item = searchTreeItem(event.target ? event.target : event.srcElement);
+  var id = item && item.dataset && item.dataset.id ? item.dataset.id : "??";
+  
+  //alert("click: " + id);
+  loadData("/drills/header_" + id + ".html", (header) => {
+    var h = document.querySelector("div.header");
+    if (h) {
+      h.innerHTML = header;
+      setTimeout(function() {
+        initFullscreen();
+      }, 111);
+    }
+  });
+  loadData("/drills/content_" + id + ".html", (header) => {
+    var c = document.querySelector("div.content");
+    if (c) {
+      c.innerHTML = header;
+    }
+  });
+  setTimeout(function() {
+    loadScript("/drills/script_" + id + ".js", "script_" + id + "\\.js", () => {
+      console.log("Script for " + id + " has been loaded.");
+    });
+  }, 55);
+  closeTree();
+}
+
+function searchTreeItem(elem) {
+  while (elem) {
+    if (elem.className.indexOf("item-header") >= 0) {
+      return elem;
+    }
+    elem = elem.parentNode;
+  }
+  
+  return null;
+}
+
+function loadData(data, handler) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+        handler(this.responseText);
+      } else {
+        handler(this.status);
+      }
+    }
+  };
+  xhttp.open("GET", data, true);
+  xhttp.send();
+}
+
+var registeredScript = undefined;
+
+function unregisterPreviousScript() {
+  if (registeredScript) {
+    console.log("Unregister " + registeredScript);
+    if (typeof unregister === 'function') {
+      unregister();
+    }
+
+    var elem = document.querySelector("script[src$=" + registeredScript + "]");
+    if (elem) {
+      elem.remove();
+    }
+    registeredScript = undefined;
+    console.log("Unregister done.");
+  }
+}
+
+function loadScript(url, key, callback) {
+  unregisterPreviousScript();
+
+  console.log("Register " + url);
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  
+  if (script.readyState) { // only required for IE<9
+    script.onreadystatechange = function() {
+      if (script.readyState === "loaded" || script.readyState === "complete") {
+        script.onreadystatechange = null;
+        if (callback) {
+          callback();
+        }
+      }
+    };
+  } else {  // Others
+    script.onload = function() {
+      if (callback) {
+        callback();
+      }
+    };
+  }
+
+  script.src = url;
+  document.getElementsByTagName("head")[0].appendChild(script);
+  registeredScript = key;
+  console.log("Register " + key + "/" + url + " done.");
+}
+
+function closeTree() {
+  var cb = document.getElementById('tree-toggle');
+  if (cb && cb.checked) {
+    cb.checked = false;
+  }
+}
+
+var requestFullscreen, exitFullscreen;
+
+function initFullscreen() {
+  requestFullscreen = document.getElementById("request-fullscreen");
+  exitFullscreen = document.getElementById("exit-fullscreen");
+  
+  var btn = document.getElementById("button-fullscreen");
+  if (btn) {
+    btn.addEventListener("click", toggleFullscreen);
+  }
+  
+  document.addEventListener("fullscreenchange", function() {
+    updateFullscreenInfo();
+  });
+  
+  updateFullscreenInfo();
+}
+
+function updateFullscreenInfo() {
+  if (document.fullscreenElement) {
+    requestFullscreen.setAttribute("stroke", "transparent");
+    exitFullscreen.setAttribute("stroke", "black");
+  } else {
+    requestFullscreen.setAttribute("stroke", "black");
+    exitFullscreen.setAttribute("stroke", "transparent");
+  }
+}
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+  </script>
+ </head>
+ <body onload="init();">
+<div class="header"><span class="text">Die Übungen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><a href="/menu.html" class="to_menu">&nbsp;</a><svg xmlns="http://www.w3.org/2000/svg" id="button-fullscreen" width="30" height="30">
+  <path id="request-fullscreen"
+    stroke="black" stroke-width="3" fill="none"
+    d="M 10, 2  L  2, 2  L  2,10
+       M 20, 2  L 28, 2  L 28,10
+       M 28,20  L 28,28  L 20,28
+       M 10,28  L  2,28  L  2,20" />
+  <path id="exit-fullscreen"
+    stroke="transparent" stroke-width="3" fill="none"
+    d="M 10, 2  L 10,10  L  2, 10
+       M 20, 2  L 20,10  L 28, 10
+       M 28,20  L 20,20  L 20, 28
+       M 10,28  L 10,20  L  2, 20" />
+</svg>
+</div>
+
+<label class="tree-menu" for="tree-toggle"><span>=</span></label>
+<input type="checkbox" checked id="tree-toggle" />
+<div class="tree"><div class="tree-bg">&nbsp;</div><div class="tree-content"><div class="item root">
+ <span class="item-header" data-id="caa11bbc-fca3-4142-877a-f56447002bf5"><span class="text">Die Übungen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <input type="checkbox" id="a03d33c2-2514-477f-ad1c-e7865f1fb846" class="item-toggle" #checked# />
+ <label for="a03d33c2-2514-477f-ad1c-e7865f1fb846" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="a03d33c2-2514-477f-ad1c-e7865f1fb846"><span class="text">Die Grundtechniken</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Technik zuerst</span></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="5a96bfa3-40f9-438b-a240-4b3d792ef334" class="item-toggle" #checked# />
+ <label for="5a96bfa3-40f9-438b-a240-4b3d792ef334" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="5a96bfa3-40f9-438b-a240-4b3d792ef334"><span class="text">Die Grundlagen</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="f4328ada-75b7-4f57-9ab2-01ee73eda284"><span class="text">Fangen und Werfen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Fangen und Werfen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="261f113b-0d57-4f21-9516-fb253fc14773"><span class="text">Fangen und Werfen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Paarweise fangen und werfen, auch als Wettkampf.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="1a8f23e2-5f17-43d9-8674-8caf92cf3e9c"><span class="text">Das Spiegellaufen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Schnelle Bewegungen nach optischen Signalen.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="09095e69-e90c-47b1-b18b-69eefbfdd514"><span class="text">Die Beinarbeit</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Beinarbeit verbessern.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="8164739d-72af-4952-aa73-5e9554b50fe6"><span class="text">Laufen und Springen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Das bewusste Laufen und Springen erlernen.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="09cfff62-d6c3-4895-a4ae-ea08e4a0f7d8"><span class="text">Laufen und Springen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Das bewusste Laufen und Springen erlernen.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="e78c4bfe-3ef7-4f31-b764-7efdbcb83d3a"><span class="text">Ein Steinchen im Schuh</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Ein Steinchen unter der Ferse zur Erinnerung.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="f6056fcf-c00d-4635-8d1c-c0cd32f404e8"><span class="text">Spionball</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Mitspielerin finden.</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="211596b7-c657-47f2-822b-717ebdb32e6a" class="item-toggle" #checked# />
+ <label for="211596b7-c657-47f2-822b-717ebdb32e6a" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="211596b7-c657-47f2-822b-717ebdb32e6a"><span class="text">Das Obere Zuspiel - &quot;Pritschen&quot;</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="373a6c9e-cfed-432f-994b-b11fd7f792a8"><span class="text">Die Knotenpunkte</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Knotenpunkte des Oberen Zuspiels</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="19364800-4fa5-4707-bcfc-b5ba3566ac50"><span class="text">Die Armposition fixieren</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="3e5ed2f8-d46f-4758-a15a-aeb668ba4895"><span class="text">Grundtechnik mit 2 Bällen üben</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="c428f3d5-b819-4f65-93cd-373df319701f"><span class="text">OZ und UZ mit (seitlicher) Bewegung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="18f71d42-e6f1-4bf5-ba88-4ee73239fa99" class="item-toggle" #checked# />
+ <label for="18f71d42-e6f1-4bf5-ba88-4ee73239fa99" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="18f71d42-e6f1-4bf5-ba88-4ee73239fa99"><span class="text">Das Untere Zuspiel - &quot;Baggern&quot;</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="e2b0bca5-afe4-4bd9-92b8-383d385f2c0f" class="item-toggle" #checked# />
+ <label for="e2b0bca5-afe4-4bd9-92b8-383d385f2c0f" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="e2b0bca5-afe4-4bd9-92b8-383d385f2c0f"><span class="text">Vorbereitung</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Das untere Zuspiel durch verschiedene Übungen vorbereiten</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="e73c2ee9-4572-4f95-af9a-21e2341627ba"><span class="text">Beinarbeit</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Beinarbeit mit schnellen Füßen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="ba1d5843-37bc-4b13-bb5a-ffecbf60c6d4"><span class="text">Knie abbiegen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="3774d74d-c158-454b-8520-f18595de406c"><span class="text">&quot;Schweinchen-Volleyball&quot;</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="bfe41b9c-d834-4d37-b4b2-c4fc59593bb1"><span class="text">Breite Beinstellung 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="e757f6d5-942e-4890-af02-ec1dbb5502f2"><span class="text">Die Knotenpunkte</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Das Untere Zuspiel</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="ca7bb5f4-ba6f-4a0b-a5ed-099270d91bfa" class="item-toggle" #checked# />
+ <label for="ca7bb5f4-ba6f-4a0b-a5ed-099270d91bfa" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="ca7bb5f4-ba6f-4a0b-a5ed-099270d91bfa"><span class="text">Erlernen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Das untere Zuspiel erlernen</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="86a43583-1294-4254-a5c4-c22d16fe636f"><span class="text">Erlernen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="9618470e-3e78-4ae1-a76d-9f056fb0778f" class="item-toggle" #checked# />
+ <label for="9618470e-3e78-4ae1-a76d-9f056fb0778f" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="9618470e-3e78-4ae1-a76d-9f056fb0778f"><span class="text">Üben</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Üben, Korrigieren und Verbessern</span></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="463fb869-98ed-402f-a2a7-a1ef0585dffd" class="item-toggle" #checked# />
+ <label for="463fb869-98ed-402f-a2a7-a1ef0585dffd" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="463fb869-98ed-402f-a2a7-a1ef0585dffd"><span class="text">Arme</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Armposition und -haltung</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="154b2046-7502-4ef7-83b9-0bdcfadf78bf"><span class="text">Die Armposition fixieren (sanft)</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ebfbb4d7-1273-44e3-bfbe-b88a45fad98b"><span class="text">Die Armposition fixieren (hart)</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">&quot;Folterstaberln&quot;</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="2298125f-80f9-443f-a547-700ed7f9abbe" class="item-toggle" #checked# />
+ <label for="2298125f-80f9-443f-a547-700ed7f9abbe" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="2298125f-80f9-443f-a547-700ed7f9abbe"><span class="text">Beine und Körper</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Beinarbeit und Körperhaltung</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="d6ea5ab4-9248-478a-aa67-df1384c9660f"><span class="text">Breite Beinstellung 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="141e7958-fc7a-4409-b286-6a3238271011"><span class="text">Beinarbeit</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Beinarbeit für das Untere Zuspiel verbessern</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="65e96c33-e45f-433b-9f94-472d71f972e3"><span class="text">Frosch</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="e5491a5c-ebc2-4931-84e9-1a2d6855236d"><span class="text">Breit stehen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="6ebd3ec0-b426-4a29-af28-a24d7f774047"><span class="text">Körperhaltung 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="8dba679d-e078-413f-9e2e-44c400d47f6b"><span class="text">Körperhaltung 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="52268c8d-0542-4c13-91d3-857a6152367f"><span class="text">Körperhaltung 3</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d45c6b90-a4fe-49eb-bade-c0534324986b"><span class="text">Seitlich spielen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="3e5ed2f8-d46f-4758-a15a-aeb668ba4895"><span class="text">Mit 2 Bällen üben</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f058fc-0d77-171e-9318-0f76abf16140"><span class="text">6 x 12</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Bewegung zum Ball</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="68cad273-90cf-4134-8d39-881ec22b4a0d" class="item-toggle" #checked# />
+ <label for="68cad273-90cf-4134-8d39-881ec22b4a0d" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="68cad273-90cf-4134-8d39-881ec22b4a0d"><span class="text">Spielformen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Mit- und Gegeneinander</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="c428f3d5-b819-4f65-93cd-373df319701f"><span class="text">OZ und UZ mit (seitlicher) Bewegung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="c897c2f2-2728-4b2c-a331-bde51f5061c7"><span class="text">Baggerspiel 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Baggerlafale</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="7652b19c-899f-4b52-b15c-e1cb11a84d88"><span class="text">Baggerspiel 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="b97383bf-1be3-493e-8a3a-38b03c7cd8b0" class="item-toggle" #checked# />
+ <label for="b97383bf-1be3-493e-8a3a-38b03c7cd8b0" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="b97383bf-1be3-493e-8a3a-38b03c7cd8b0"><span class="text">Das Service</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="39b8d3fd-c1aa-4069-b99b-e9adcd777297"><span class="text">Das Service von oben</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="59ebac54-ff7c-4e6b-b4bf-78a6359bf180"><span class="text">Triff Sie!</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Das Service unter leichtem Druck üben.</span></span>
+</div><div class="item">
+ <input type="checkbox" id="01eecb3f-81a7-1cca-9d56-82f864947ad3" class="item-toggle" #checked# />
+ <label for="01eecb3f-81a7-1cca-9d56-82f864947ad3" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01eecb3f-81a7-1cca-9d56-82f864947ad3"><span class="text">Sprungservice</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Varianten und Einführung</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01eecb39-9aaf-105c-87e0-f464f589b8f5"><span class="text">Jump-Float</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Sprung-Flatter-Service, Mini-Jump</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01eecb4f-7dad-17a4-a31e-b40c4e21c2b8"><span class="text">Sprungservice</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Das Spiel druckvoll eröffnen</span></span>
+</div><div class="item">
+ <input type="checkbox" id="01eecb4e-7487-1f9a-b3d0-11e8efffd710" class="item-toggle" #checked# />
+ <label for="01eecb4e-7487-1f9a-b3d0-11e8efffd710" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01eecb4e-7487-1f9a-b3d0-11e8efffd710"><span class="text">Erlernen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Das Sprungservice erlernen</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01eecb3a-c367-1903-bd14-1a0c210c6848"><span class="text">Aufwurf</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Den Ballwurf erlernen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01eecb4f-acf3-1ae5-b335-4b390254e935"><span class="text">Anlauf</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Nur Anlaufen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01eecb3e-35d5-1348-916d-e79873d53cf9"><span class="text">Sprung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01eecb40-aa0e-1668-a395-008660dd00b7"><span class="text">Schlag</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Den Ball treffen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01eecb49-b452-1f21-be89-292189ce841d"><span class="text">Landung</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Weich landen und die Verteidigung vorbereiten</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01efa803-18c0-151c-b1bc-31eb1601af7c" class="item-toggle" #checked# />
+ <label for="01efa803-18c0-151c-b1bc-31eb1601af7c" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01efa803-18c0-151c-b1bc-31eb1601af7c"><span class="text">Üben</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Übung macht den Meister</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01efa808-aa97-11ed-b1a5-edfdb259d389"><span class="text">Aufwurf und Schlag-Fangen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Nur Fangen...</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f181f3-4853-197f-b17a-1d174955602a"><span class="text">Näher ans Netz</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Das Service leichter machen</span></span>
+</div></div>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f1650f-8a9f-1a87-a55a-34911df71e48" class="item-toggle" #checked# />
+ <label for="01f1650f-8a9f-1a87-a55a-34911df71e48" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f1650f-8a9f-1a87-a55a-34911df71e48"><span class="text">Das Aufspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01f16518-7065-1b45-92d9-d5d8e445f10f"><span class="text">Die Arme strecken</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">&quot;Slowenisch&quot; - ohne Ellbogeneinsatz aufspielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f16520-d4af-167a-aad8-1e10b3bdd61c"><span class="text">Der Daumen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Den Ball beschleunigen</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="b1591371-9f46-4562-a8f0-9cf1be041377" class="item-toggle" #checked# />
+ <label for="b1591371-9f46-4562-a8f0-9cf1be041377" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="b1591371-9f46-4562-a8f0-9cf1be041377"><span class="text">Der Angriffsschlag</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="2c5ca94f-3587-4da3-a8c9-24cd1fea2ab0" class="item-toggle" #checked# />
+ <label for="2c5ca94f-3587-4da3-a8c9-24cd1fea2ab0" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="2c5ca94f-3587-4da3-a8c9-24cd1fea2ab0"><span class="text">Der Anlauf</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="8164739d-72af-4952-aa73-5e9554b50fe6"><span class="text">Laufen und Springen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Das bewusste Laufen und Springen erlernen.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="fa202a95-57c9-4cd7-b8d0-12eb21e9fbdd"><span class="text">Den Anlauf lernen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Schrittfolge beim Anlauf erlernen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="7195796a-daf2-4b11-b5f4-fa51d71c8a24"><span class="text">Hintern runter!</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Das Absenken des Körperschwerpunkts beim Stemmschritt üben.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="a0548c12-3c9a-4c2f-8b69-86832883b6db"><span class="text">Abstand halten 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Den Abstand vom Netz bei der Landung erzwingen.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="c8b27a80-2a53-474a-97fd-cb02532daeee"><span class="text">Abstand halten 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Beim Schnellangriff das Nach-Vorne-Springen verhindern.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="e0789840-7323-419f-b30a-0899ad451335"><span class="text">Der Anlauf über eine Matte</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Den langen Stemmschritt erzwingen.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="9f07fe6b-a817-4e2c-8019-d0eacf2f6a2f"><span class="text">Die Anlaufwege lernen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Teilbewegungen ohne Timingprobleme kombinieren lernen.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="9f454333-8d8a-47b4-be1c-44acce2ab8b1"><span class="text">Die Ausgangsposition für den Anlauf</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Das Einnehmen der Ausgangsposition für den Anlauf üben.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="c785cf0a-b33e-4209-a825-3cbedca479c7"><span class="text">Laufen und Bewegen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Den Übergang vom Laufen zum Anlauf für den Schlag lernen.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="b77eb8c6-e2d4-4c3d-8655-a331b02c40eb"><span class="text">Die Schrittfolge der Außenangreiferin</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Standard-Schrittfolgen der Außenangreiferin.</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="2a1fe88f-f17c-43e4-8220-f303b2e47698" class="item-toggle" #checked# />
+ <label for="2a1fe88f-f17c-43e4-8220-f303b2e47698" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="2a1fe88f-f17c-43e4-8220-f303b2e47698"><span class="text">Der Absprung</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="09cfff62-d6c3-4895-a4ae-ea08e4a0f7d8"><span class="text">Laufen und Springen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Das bewusste Laufen und Springen erlernen.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="7717c244-19ba-47d4-bfff-b6568d15e93d"><span class="text">Der Armschwung 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Den beidarmigen Armschwung erlernen.</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="a47a7647-d457-4a8a-8784-9110d45aae7b" class="item-toggle" #checked# />
+ <label for="a47a7647-d457-4a8a-8784-9110d45aae7b" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="a47a7647-d457-4a8a-8784-9110d45aae7b"><span class="text">Der Armschwung</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="7717c244-19ba-47d4-bfff-b6568d15e93d"><span class="text">Der Armschwung 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Den beidarmigen Armschwung erlernen.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="b152dc7f-7d1c-48ed-b3fa-41b68ddd1ad0"><span class="text">Der Armschwung 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Den Armschwung üben.</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="335c3100-0105-40e0-a90f-2947068d5455" class="item-toggle" #checked# />
+ <label for="335c3100-0105-40e0-a90f-2947068d5455" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="335c3100-0105-40e0-a90f-2947068d5455"><span class="text">Die Schlagbewegung</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="1ea39e4e-10ab-4c10-9223-93ac9edd98d6"><span class="text">Die Schlagbewegung vorbereiten</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ec83b009-1e38-4280-a604-4741476fa42c"><span class="text">Das Teppichklopfen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="b152dc7f-7d1c-48ed-b3fa-41b68ddd1ad0"><span class="text">Der Armschwung 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Den Armschwung üben.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="c5b55f12-abff-48fb-8410-bbb1009b93d4"><span class="text">Die Schlagbewegung im Stand 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="54333816-703b-4048-b1be-e589fdcec38d"><span class="text">Die Schlagbewegung im Stand 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Schlag am Netz</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="37aac607-580a-4417-af37-e1704be959ec"><span class="text">Die Schlagbewegung im Stand 3</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Hoch abschlagen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="8c0e7a4b-f5dc-4d98-8e4c-608128f3ffe5"><span class="text">Tennisbälle werfen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Armschwung für Wurf/Schlag</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="e971d96a-4104-416d-92db-47ca5abe85b5"><span class="text">Tennisbälle werfen 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="cf73c3b0-730f-42ed-9a53-a68505f3f041"><span class="text">Tennisbälle werfen 3</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="a8e94f88-12a4-488f-b13c-27b4563e4a3b"><span class="text">Schlag - Verteidigung 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d61d7585-f49f-4d42-8307-6b782ebfcb92"><span class="text">Schlag - Verteidigung 3</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="72164e5a-7a8f-4ef2-80f8-c97e94ab4c64"><span class="text">Schlagfangen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="6eb976f0-f89f-47ba-846e-f3ea9c3e1eaf"><span class="text">Squash</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="fa453b5a-b09d-47d3-a406-c8a8f489caa7" class="item-toggle" #checked# />
+ <label for="fa453b5a-b09d-47d3-a406-c8a8f489caa7" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="fa453b5a-b09d-47d3-a406-c8a8f489caa7"><span class="text">Der Handgelenkseinsatz</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="cb00d844-28c0-4e6f-8abe-f6cc022d7ce3"><span class="text">Das Schnelle Handgelenk</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Locker und schnell im Handgelenk</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="c34f5e60-9f16-44c0-bb6c-564ef34aea3a"><span class="text">Der seitliche Handgelenkseinsatz 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Den seitlichen Handgelenkseinsatz erlernen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ede766-cf5c-1cf8-b3f9-8d06331f8871"><span class="text">Der seitliche Handgelenkseinsatz 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Den seitlichen Handgelenkseinsatz üben</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="60885d3d-7aa3-496e-b8ae-40cc206d8aeb" class="item-toggle" #checked# />
+ <label for="60885d3d-7aa3-496e-b8ae-40cc206d8aeb" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="60885d3d-7aa3-496e-b8ae-40cc206d8aeb"><span class="text">Die Landung</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="70fde5e0-5b76-4350-87c1-28761217f817"><span class="text">Die Landung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="c4af5757-034e-42ef-8c79-eb03ec14d9cf" class="item-toggle" #checked# />
+ <label for="c4af5757-034e-42ef-8c79-eb03ec14d9cf" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="c4af5757-034e-42ef-8c79-eb03ec14d9cf"><span class="text">Das Timing</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="3c0ebb0d-e0b8-4c28-a5e3-628dcb32edd7"><span class="text">Das Timing für den Angriff</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="f03638a1-0995-4d95-829e-776e64ca32bd"><span class="text">Den Schnellangriff Erlernen 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="6b8344df-2a0c-4d62-8fa4-1a4aba6abb7b"><span class="text">Den Schnellangriff Erlernen 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="dfd37676-3619-4a76-8986-8e5bd10a3e05"><span class="text">Den Schnellangriff Erlernen 3</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="fc4a5321-c002-440a-b1a6-46d12d7e7456"><span class="text">Schlag den 2. Ball! 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="818a52a1-0960-430e-97df-0b9382af1c0d"><span class="text">Schlag den 2. Ball! 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="467e68d9-035b-4c04-ae72-41e4681ea7ec" class="item-toggle" #checked# />
+ <label for="467e68d9-035b-4c04-ae72-41e4681ea7ec" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="467e68d9-035b-4c04-ae72-41e4681ea7ec"><span class="text">Der Einbeiner</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="749dd96e-6b74-4aa1-a572-2a080ce03409"><span class="text">Eine Einführung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="2615da30-ee97-4d72-8c30-5e617ab6a8cf"><span class="text">Den Einbeiner lernen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d0ccabdc-3201-4504-bbce-f4df91759f90"><span class="text">Den Einbeiner üben</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="520a9438-b4e1-49a9-9ef9-49d986005495"><span class="text">Der Einbeiner um einen Besen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="3981244b-2cb7-4b6b-9f65-f464ad78288d"><span class="text">Eine koordinative Aufwärmübung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="5169875b-c76b-46ec-b3b4-45937380094f"><span class="text">Erwisch den Ball!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01edf041-a039-13e8-99a3-cf6a0134cb1b"><span class="text">Gehaltene Bälle im Stand schlagen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="8b922947-eee1-42af-b407-fe5b4822e059"><span class="text">Gehaltene Bälle schlagen - Vorbereitung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="48e5b675-1615-4ed6-bb58-5bc89215da3c"><span class="text">Gehaltene Bälle schlagen 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="602a3919-383b-447a-8b53-d6792757ade2"><span class="text">Gehaltene Bälle schlagen 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="c45029a8-bdc2-488d-9cc1-bc0a21de29d6"><span class="text">Selbstaufgeworfene Bälle schlagen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="e0738503-9d2e-48e7-8dcf-739ce86f42f1"><span class="text">1er aufwerfen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="895493bd-cba9-46c6-9be4-1c716fcb2d81"><span class="text">5er aufwerfen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="dd27dcfd-327c-4c95-a219-2cd3eeed4d5d" class="item-toggle" #checked# />
+ <label for="dd27dcfd-327c-4c95-a219-2cd3eeed4d5d" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="dd27dcfd-327c-4c95-a219-2cd3eeed4d5d"><span class="text">Der Block</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="35ee3659-3f2e-49ad-aaa3-9e36f0c204fa"><span class="text">Den Ballkontakt erfahren</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="658facee-709a-4b5e-acca-6f6eef8211bc"><span class="text">Die Körperposition</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="17f2fd1c-85ee-4f51-8942-1a4014025115"><span class="text">Die Armführung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="207b3d96-78dd-4ca7-90ff-818a75f5b27b"><span class="text">Blocken Lernen 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="b3a13a71-21b6-4286-a30f-6c5daf63e189"><span class="text">Blocken Lernen 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="3a2e0a8f-dac9-4f1b-b3ea-c6e938a5cbda"><span class="text">Die Armposition fixieren</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="213053a1-713e-430a-97ca-2bd4fa2dcc0f"><span class="text">Schnapp Dir den Ball!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="f699e1ec-6c37-4a89-9fc3-8e27cefdd3b7"><span class="text">Die Schrittfolge 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Außenblockspieler holt nur wenig(!) aus</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="0480a530-c4c1-48a9-95f1-713a42813008"><span class="text">Die Schrittfolge 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Swingblock</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01edf131-3f89-12f0-90e5-c0c77e7e3fd8"><span class="text">Bewusst Übergreifen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="d4061271-30aa-4f0f-b1ab-f9a3048bc5a3" class="item-toggle" #checked# />
+ <label for="d4061271-30aa-4f0f-b1ab-f9a3048bc5a3" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="d4061271-30aa-4f0f-b1ab-f9a3048bc5a3"><span class="text">Die Grundaktionen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Taktik und Technik vereinen</span></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="53a3f098-5c06-4408-9e53-b9d92f29c1c3" class="item-toggle" #checked# />
+ <label for="53a3f098-5c06-4408-9e53-b9d92f29c1c3" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="53a3f098-5c06-4408-9e53-b9d92f29c1c3"><span class="text">Das Service</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="47b2d34d-aad8-4a94-af2f-9bc2c60d40c0"><span class="text">Ein gezieltes Service</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Ziele treffen lernen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="594dbf0d-18e2-41ed-a1da-53d2fd8d2f24"><span class="text">Service mit Gummiband</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Flaches Service üben</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="2444f76b-8455-4f88-a2be-621ef9322fee"><span class="text">Gezieltes Service</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Triff die Lücke!</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="c9fa3bbb-1598-46ac-b194-d7cdd41bf5f3"><span class="text">Aufschlag hinterher</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="832e4dea-2782-4790-ac12-e6b0e7345348"><span class="text">2 Annahmespielerinnen blockieren</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="c36f43f5-3d85-4bd7-b508-13604aa3d2e3"><span class="text">Chaos</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Service und Annahme mit Stress</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="d13b761c-b41a-44e4-a7c8-c706b8f3e0fc"><span class="text">Genauigkeit!</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Präzision und kommentieren</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="951598b3-d93b-41d3-a2f4-846e0b300ac3"><span class="text">Service - Annahme - Fangen mit Nachlaufen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="592adb1d-99d7-470d-b428-382ef47ac247"><span class="text">Service-Annahme-Spiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="995ad043-8e0d-45b2-a4f5-f7e822ea77f9"><span class="text">Servicestaffel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="03bfb0aa-5ff5-4591-a6d7-e983b0be194b"><span class="text">Toter Fisch</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="9b89317b-5e17-4b5a-8785-03479d1b4dc0" class="item-toggle" #checked# />
+ <label for="9b89317b-5e17-4b5a-8785-03479d1b4dc0" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="9b89317b-5e17-4b5a-8785-03479d1b4dc0"><span class="text">Die Annahme</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="484ecda5-bf30-494a-a4d8-192ac9f5bbff"><span class="text">Orientierung am Spielfeld 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d7c31fc4-a840-4182-906f-71e0f093493e"><span class="text">Orientierung am Spielfeld 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01297794-1aeb-44c4-9e8c-b9a47158041a"><span class="text">In oder Out</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d6ea5ab4-9248-478a-aa67-df1384c9660f"><span class="text">Breite Beinstellung 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="6bded7dc-4865-48f1-834e-40ce7a2a96ca"><span class="text">Vorwärts-Rückwärts Bewegen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d245b228-62a6-4a36-a4f4-a67fc386ec1a"><span class="text">Annehmen und Bewegen 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="2528dbab-6250-459b-82bb-093b96b9c3ac"><span class="text">Annehmen und Bewegen 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="c2e76c25-a803-4357-b4f3-8343a7684c98"><span class="text">Annehmen im Oberen Zuspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d8b092c6-8852-4b7f-a8c9-8417088a5821"><span class="text">Annehmen und Angreifen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="c36f43f5-3d85-4bd7-b508-13604aa3d2e3"><span class="text">Chaos</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Service und Annahme mit Stress</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="fac33934-732a-4434-84d2-17ffd5064969"><span class="text">Körperposition</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d13b761c-b41a-44e4-a7c8-c706b8f3e0fc"><span class="text">Genauigkeit!</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Präzision und kommentieren</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="223a36ba-f622-4948-aa77-d48f6ed0996e"><span class="text">Seitlich Bewegen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="a2a12b10-9448-4f1b-aa7e-5d0690f4092b"><span class="text">Einspielen als Annahme und Verteidigungsübung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="951598b3-d93b-41d3-a2f4-846e0b300ac3"><span class="text">Service - Annahme - Fangen mit Nachlaufen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="592adb1d-99d7-470d-b428-382ef47ac247"><span class="text">Service-Annahme-Spiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="fe6066f6-e64c-451e-9091-22fbe4493d1c" class="item-toggle" #checked# />
+ <label for="fe6066f6-e64c-451e-9091-22fbe4493d1c" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="fe6066f6-e64c-451e-9091-22fbe4493d1c"><span class="text">Das Aufspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="d40108e6-0802-458b-a5a6-51c5b385ce03"><span class="text">Dreieck der Aufspielerinnen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="49a1aae3-edff-484f-81b4-33779ad81920"><span class="text">Genauigkeit 0er</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="2d7ffc51-75ba-40d1-9d83-fcc22ed994fe"><span class="text">Genauigkeit 2er</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01edf27b-02c9-14f0-910b-c28fae57b747"><span class="text">Aufspielerviereck</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f1650d-7ef0-1170-b5a7-13792223f35a"><span class="text">Einspielen L4</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Einlaufen und Aufspielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f164fd-31e0-11ab-9035-dccfc15a2d7c"><span class="text">Einspielen L2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Einlaufen und 2er aufspielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f16503-18dd-14e6-90f7-78ba40b0cb6a"><span class="text">Die Schrittfolge</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Am Ende immer links-rechts!</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="53a387b0-5b3a-4ea4-8c08-02d00c96e3cd"><span class="text">Gute und Schlechte Erste Bälle</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d2ee1e04-8109-4cc2-8125-7d8338d78aec"><span class="text">Lies den Block 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="11b9d7dd-2ad5-4308-bfcb-b2f5d3b77420"><span class="text">Lies den Block 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="23ea7f32-108e-44b1-a552-ddab7a63b5de"><span class="text">Müde Aufspielerin</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="79f5cd6b-7263-4a60-9983-1f5eca03a1de"><span class="text">Schnelle Aufspielerin</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="14345d80-7379-441f-8363-eed196130cfc"><span class="text">Spielelemente unter Laufstreß üben</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Schlagbewegung, Feldverteidigung, Aufspiel, Einlaufen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="08187603-d6bb-4abe-98e5-029e900002a2"><span class="text">Aufspiel - Schlag - Verteidigung im Spielfluss</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f056b1-ee41-16a7-96a5-b0296c7dcc0d"><span class="text">50 4er</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Ballsicherheit beim Aufspiel</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="52c75da9-0895-4fb3-98b2-e685003aed03" class="item-toggle" #checked# />
+ <label for="52c75da9-0895-4fb3-98b2-e685003aed03" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="52c75da9-0895-4fb3-98b2-e685003aed03"><span class="text">Der Angriff</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="01f0e4da-9990-19c0-adfc-384a8d5ddbe4" class="item-toggle" #checked# />
+ <label for="01f0e4da-9990-19c0-adfc-384a8d5ddbe4" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f0e4da-9990-19c0-adfc-384a8d5ddbe4"><span class="text">Einspielen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Wenn die Schulter schon warm ist...</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="a8e94f88-12a4-488f-b13c-27b4563e4a3b"><span class="text">Schlag - Verteidigung 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="79d98755-824b-4e17-aea3-125e291097f4"><span class="text">Schlag - Verteidigung 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="3f261575-9aa6-4b9d-b82b-e9fd30e51db5"><span class="text">Schlag - Verteidigung im Dreieck</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="08187603-d6bb-4abe-98e5-029e900002a2"><span class="text">Aufspiel - Schlag - Verteidigung im Spielfluss</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="14345d80-7379-441f-8363-eed196130cfc"><span class="text">Spielelemente unter Laufstreß üben</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Schlagbewegung, Feldverteidigung, Aufspiel, Einlaufen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="97ef4ac1-48fa-4ffc-97bd-17831e697ef7"><span class="text">Mit sich selbst spielen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Paarweise mit sich selbst spielen</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f0e4d7-ecec-1833-bdcc-8d3e50e309cf" class="item-toggle" #checked# />
+ <label for="01f0e4d7-ecec-1833-bdcc-8d3e50e309cf" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f0e4d7-ecec-1833-bdcc-8d3e50e309cf"><span class="text">Gegen den Block</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Den Block sehen und überwinden</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="5b5bb115-9ba4-49a4-8c24-5494176246ed"><span class="text">2:2 Schupferspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01edfdb7-4c57-1850-9158-b382f4d3caaf"><span class="text">Den Block überwinden 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01edfe42-8de1-1420-af43-0d4dce95105e"><span class="text">Den Block überwinden 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01edfe45-617a-1f50-a863-2a6c4dbe6845"><span class="text">Den Block überwinden 3</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="749f6909-4b1c-4594-9c66-bc1e798567bf"><span class="text">Den Block überwinden</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="43f440a7-2db7-4b14-8545-c83362ae358e"><span class="text">Miteinander sprechen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="8033f8a7-258b-43ef-8f25-d4f832f929df"><span class="text">1 gegen 1 - Block und Angriff</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="bf7bae46-3e4f-4f9b-8a0d-105cc1955da9"><span class="text">Angriff und Blockbildung üben 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="bb6be560-d8fd-45eb-a6b9-ca13f1acfb30"><span class="text">Angriff und Blockbildung üben 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f0e4db-6a03-1094-87e1-ef52088029f6" class="item-toggle" #checked# />
+ <label for="01f0e4db-6a03-1094-87e1-ef52088029f6" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f0e4db-6a03-1094-87e1-ef52088029f6"><span class="text">Konzentration</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Konzentration hoch halten</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="6c4ce3d3-fb27-4c14-828f-7d8814c8ad0f"><span class="text">Schlag und Tschüss</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="e2c022d8-ed76-4917-83bd-6e7eba256314"><span class="text">Y(X) &gt; Grenze = Ok</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f0e4ec-22bc-15cb-8368-4c976452debb" class="item-toggle" #checked# />
+ <label for="01f0e4ec-22bc-15cb-8368-4c976452debb" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f0e4ec-22bc-15cb-8368-4c976452debb"><span class="text">Außenangreifer</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Schwerpunktsetzung - Üben von Teilelementen</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="c8db4f25-74cb-4830-ac53-002ddae88c38"><span class="text">Die Bewegung der Außenangreiferin</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="80c7b2ab-b0c6-4415-8a30-48dd85e364d6"><span class="text">Einschlagen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="194b5cce-b6de-4ec3-bf8e-9a808469769d"><span class="text">5 Sterne</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d8b092c6-8852-4b7f-a8c9-8417088a5821"><span class="text">Annehmen und Angreifen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="f426846a-81d0-4841-8811-a7067653d70b"><span class="text">Diagonal Schlagen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="b8d324a3-9f9d-4173-a4f1-24d16a488b64"><span class="text">Rechte Seite gegen Linke Seite</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="8f6e7488-52a5-4721-a435-a8ba2e30f1e6"><span class="text">Finde den leeren Raum!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="9ec02328-e64e-4c5a-a480-66a881c5bb7d"><span class="text">Triff die Ecke!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="628ac8ee-439a-4b3c-b76b-a87fc01b70b7"><span class="text">Hilf dir selbst!</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Verteidigen, Angreifen und Eigensicherung</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="7bc14481-aae0-40a7-b349-4cc2b3baf4ec"><span class="text">Aufzug 1/C</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f0e4f0-ca15-1b6b-84b8-e603c1142535" class="item-toggle" #checked# />
+ <label for="01f0e4f0-ca15-1b6b-84b8-e603c1142535" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f0e4f0-ca15-1b6b-84b8-e603c1142535"><span class="text">Mittelblocker</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Schwerpunktsetzung - Üben von Teilelementen</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="73f9e6e1-68a5-4d69-a86e-16c7398b6b8c"><span class="text">Die Bewegung der Mittelblockerin</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="64fed3f5-8766-4d44-987d-8d402fe62eb3"><span class="text">Block überwinden für Mittelblockerinnen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="3c037909-5317-4073-bd70-7b476beeb5fe"><span class="text">Angriffsvariationen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="73679605-7eea-49c4-970e-c14a5d2ca9df"><span class="text">Ballkontrolle unter Streß</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="bc934464-27bf-416c-8601-f9ab86610a71" class="item-toggle" #checked# />
+ <label for="bc934464-27bf-416c-8601-f9ab86610a71" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="bc934464-27bf-416c-8601-f9ab86610a71"><span class="text">Der Block</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="ec980a3e-795f-447b-97dd-d601b561366a"><span class="text">Blockbildung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="48f4f3bf-2627-4138-b78c-1a0e6f649841"><span class="text">Schau auf die Angreiferin! 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="8033f8a7-258b-43ef-8f25-d4f832f929df"><span class="text">1 gegen 1 - Block und Angriff</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="79d98755-824b-4e17-aea3-125e291097f4"><span class="text">Schlag - Verteidigung 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="5b5bb115-9ba4-49a4-8c24-5494176246ed"><span class="text">2:2 Schupferspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="bf7bae46-3e4f-4f9b-8a0d-105cc1955da9"><span class="text">Angriff und Blockbildung üben 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="bb6be560-d8fd-45eb-a6b9-ca13f1acfb30"><span class="text">Angriff und Blockbildung üben 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="7bc14481-aae0-40a7-b349-4cc2b3baf4ec"><span class="text">Aufzug 1/b</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="73679605-7eea-49c4-970e-c14a5d2ca9df"><span class="text">Ballkontrolle unter Streß</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="73f9e6e1-68a5-4d69-a86e-16c7398b6b8c"><span class="text">Die Bewegung der Mittelblockerin</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="64fed3f5-8766-4d44-987d-8d402fe62eb3"><span class="text">Block überwinden für Mittelblockerinnen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ff475c6b-1584-48e1-afb8-35d86b43a539"><span class="text">Blockort finden 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="f1f7e76e-c036-4568-95fb-c6bfd1012384"><span class="text">Blockort finden 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="0b7bcb87-73de-4a71-8a72-0411e8a90700"><span class="text">Blockort finden 3</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="c7f75059-09f1-4998-9c1e-91c4e33d71f3"><span class="text">Den Block schließen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="5441b6f0-b979-4384-8db0-edf5eb310bcf"><span class="text">Doppelblock am Kleinfeld</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="80c7b2ab-b0c6-4415-8a30-48dd85e364d6"><span class="text">Einschlagen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="57bc5651-70a3-4b21-8308-73f4de5bbaa0"><span class="text">Hol' Sie Dir!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="41faf441-814e-440e-b7fe-3fac88b52aaf"><span class="text">Netzentscheidungen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="fecbd2ac-2729-4fe4-819c-656b4ab5362a"><span class="text">Schau auf die Angreiferin! 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="2c5655d7-7666-46bd-88f8-ad8caa4cec5e"><span class="text">Schlagarm beobachten</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="0ceed342-b4d8-4b93-b2d0-13b6e28f7dd1" class="item-toggle" #checked# />
+ <label for="0ceed342-b4d8-4b93-b2d0-13b6e28f7dd1" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="0ceed342-b4d8-4b93-b2d0-13b6e28f7dd1"><span class="text">Die Feldverteidigung</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="01f058f0-d858-10d9-ab71-d7dbea97088c" class="item-toggle" #checked# />
+ <label for="01f058f0-d858-10d9-ab71-d7dbea97088c" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f058f0-d858-10d9-ab71-d7dbea97088c"><span class="text">Positionen (Fernsicherung)</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Die Positionen für die Feldverteigung mit &quot;Fern&quot;-sicherung erlernen und üben</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="33ebe9fd-0380-4d8d-b6f9-01370df32349"><span class="text">Bewegungsmuster 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Einspielen 1:1</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="72fc8832-2eb3-40d5-a114-cf5fab55681a"><span class="text">Bewegungsmuster 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">3m-6m-Laufen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="c24cc3c1-562a-4993-b9d0-2e207471c2da"><span class="text">Bewegungsmuster 3</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Eine Spielform für die Außenangreifer</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="0789f5e6-70bf-426f-b8bd-0cfa85e53260"><span class="text">Bewegungsmuster 4</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Bleib hinten!</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="eb3fcd9b-2dc2-4d97-ac08-12308a9ed395"><span class="text">Bewegungsmuster 5</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Ein Spielform für die Feldverteidigung</span></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="97ef4ac1-48fa-4ffc-97bd-17831e697ef7"><span class="text">Mit sich selbst spielen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Paarweise mit sich selbst spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="a8e94f88-12a4-488f-b13c-27b4563e4a3b"><span class="text">Schlag - Verteidigung 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d61d7585-f49f-4d42-8307-6b782ebfcb92"><span class="text">Schlag - Verteidigung 3</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="5b5bb115-9ba4-49a4-8c24-5494176246ed"><span class="text">2:2 Schupferspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="9a9f892d-3c5e-4ecc-aa63-7a96a230cc31"><span class="text">Absicherung durch die Hinterspielerin</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="08187603-d6bb-4abe-98e5-029e900002a2"><span class="text">Aufspiel - Schlag - Verteidigung im Spielfluss</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="73679605-7eea-49c4-970e-c14a5d2ca9df"><span class="text">Ballkontrolle unter Streß</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="64fed3f5-8766-4d44-987d-8d402fe62eb3"><span class="text">Block überwinden für Mittelblockerinnen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="bfdc6c83-32d1-46f4-90eb-a4e1000d9092"><span class="text">Bück Dich!</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Körperhaltung</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="f426846a-81d0-4841-8811-a7067653d70b"><span class="text">Diagonal Schlagen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="df918a14-28aa-44bf-baf0-64c62f60d524"><span class="text">Diagonale Bälle</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="887b0a35-7e27-41d5-9108-40be9f364a16"><span class="text">Die Verteidigung gegen Diagonalangriffe</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="60e73848-6b23-48a5-bb94-d4c4f2a9c06e"><span class="text">Die Verteidigung vorbereiten</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="3e5ed2f8-d46f-4758-a15a-aeb668ba4895"><span class="text">Grundtechniken mit 2 Bällen üben</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="628ac8ee-439a-4b3c-b76b-a87fc01b70b7"><span class="text">Hilf dir selbst!</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Verteidigen, Angreifen und Eigensicherung</span></span>
+</div><div class="item">
+ <input type="checkbox" id="01f0603b-ccef-1f42-b346-cfe22475e404" class="item-toggle" #checked# />
+ <label for="01f0603b-ccef-1f42-b346-cfe22475e404" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f0603b-ccef-1f42-b346-cfe22475e404"><span class="text">&quot;Lesen&quot;</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Die Handlung der Angreiferin antizipieren</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="a76a9e09-0c0c-461d-b63d-7ea2871b8b7d"><span class="text">Lesen am Kleinfeld 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="6f25f4cb-df1d-4401-850b-97604f5216b1"><span class="text">Lesen am Kleinfeld 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="61aaeb5c-47bb-4cb1-b392-5c5d92dd4ebd"><span class="text">Lesen 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="fa2fedc2-1911-46a8-8eda-44516dffe3e6"><span class="text">Lesen 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f0602c-e26c-16ef-9180-1024917d3d7d" class="item-toggle" #checked# />
+ <label for="01f0602c-e26c-16ef-9180-1024917d3d7d" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f0602c-e26c-16ef-9180-1024917d3d7d"><span class="text">Vorbereitende Übungen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Bewegen am Feld</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="79380d4b-9990-4bac-80eb-c91f34c206a7"><span class="text">Tausch den Platz!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="851ccf67-991e-4c41-99b3-c2dbabd4b8e0"><span class="text">Netzannäherung 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="003ca90c-e9ad-4192-b5ef-67b2ce585dd9"><span class="text">Netzannäherung 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="b8d324a3-9f9d-4173-a4f1-24d16a488b64"><span class="text">Rechte Seite gegen Linke Seite</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ac379780-a183-4588-ad24-db0a3a88dd90"><span class="text">Rechts verteidigen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="3f261575-9aa6-4b9d-b82b-e9fd30e51db5"><span class="text">Schlag - Verteidigung im Dreieck</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="6c4ce3d3-fb27-4c14-828f-7d8814c8ad0f"><span class="text">Schlag und Tschüss</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d989db70-d99d-4797-9d9c-c0ec0aec9bf5"><span class="text">Schütz die Lücke!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="43f01d83-f54a-4bf5-9edf-28c999c0271a"><span class="text">Sicherung nach Verteidigung</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">paarweise Einspielen mit Sicherung</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f058f5-818f-1766-ba4b-8eb47a188c2d"><span class="text">Sicherung im Dreieck I</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Sicherung der Außenangreiferin nach Verteidigung im Dreieck</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="a18ae3c2-7f5b-4f7e-a2f0-bf15ca040d5c"><span class="text">Sicherung im Dreieck II</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Sicherung der Schnellangreiferin nach Verteidigung im Dreieck</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="14345d80-7379-441f-8363-eed196130cfc"><span class="text">Spielelemente unter Laufstreß üben</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Schlagbewegung, Feldverteidigung, Aufspiel, Einlaufen</span></span>
+</div><div class="item">
+ <input type="checkbox" id="01f058f9-ae1d-16b7-b111-ab9df62168d8" class="item-toggle" #checked# />
+ <label for="01f058f9-ae1d-16b7-b111-ab9df62168d8" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f058f9-ae1d-16b7-b111-ab9df62168d8"><span class="text">Lernen/Einspielen</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="59063772-948a-4463-9e94-84d25c6a29a2"><span class="text">Verteidigung gegen Außenangriffe</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f058fe-54e5-1f72-9593-2be7ac279cef" class="item-toggle" #checked# />
+ <label for="01f058fe-54e5-1f72-9593-2be7ac279cef" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f058fe-54e5-1f72-9593-2be7ac279cef"><span class="text">Einspielen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Einspielübungen mit Feldbezug</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01f18539-9b6e-1dc8-a52e-eb45a7a14e8d"><span class="text">Einspielen mit Nachlaufen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Einspielen in der Kleingruppe</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f058f5-6fe9-1caf-a2b2-3ee32b8ec780" class="item-toggle" #checked# />
+ <label for="01f058f5-6fe9-1caf-a2b2-3ee32b8ec780" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f058f5-6fe9-1caf-a2b2-3ee32b8ec780"><span class="text">Spielformen</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="e2c022d8-ed76-4917-83bd-6e7eba256314"><span class="text">Y(X) &gt; Grenze = Ok</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f058f6-18fc-1437-a491-5a8348037840" class="item-toggle" #checked# />
+ <label for="01f058f6-18fc-1437-a491-5a8348037840" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f058f6-18fc-1437-a491-5a8348037840"><span class="text">Abrollen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Eine Verteidigungstechnik</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ee096a-9c63-1498-a96d-4d6ab7c50cf6"><span class="text">Abrollen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Japanrolle</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee0968-66bd-1610-b2ff-34050a84ae94"><span class="text">Abrollen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Japanrolle</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="d3bdafea-0013-488f-a28b-5bf582956fa7"><span class="text">Abrollen 3</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Japanrolle</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee160f-ee18-1fe8-a386-49d8531c9f43"><span class="text">Abrollen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f058ef-9978-1955-9c21-b7f9e6942525" class="item-toggle" #checked# />
+ <label for="01f058ef-9978-1955-9c21-b7f9e6942525" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f058ef-9978-1955-9c21-b7f9e6942525"><span class="text">Wille</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Der Wille kann Berge versetzen!</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="2e6319ab-ebdc-49e4-a86e-1ac75cd92d52"><span class="text">15x Verteidigen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Sich überwinden</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="f7e1c00e-d560-4ce8-8aaf-3964003d0bfa"><span class="text">20 Bälle</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="251462b0-f607-4153-a6a7-17100e70eee8"><span class="text">10 Berührungen 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="24327cea-21da-466d-aa4d-0a6950425b19"><span class="text">10 Berührungen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="3c590bad-febe-4132-946e-e5b3e6ac5ccc"><span class="text">Japanische Verteidigung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="13e2183f-3a1c-4117-9a75-7e81f1a1d79a"><span class="text">Keine Angst!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="4fd25206-c6bf-48c4-aecc-c3d043e7a3f2"><span class="text">Rette den Ball!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="97cd18a6-7b11-4039-bc72-668ff3d673f6"><span class="text">Matten über Kasten</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="ba80404c-4e93-4b72-9176-a8b100671cce" class="item-toggle" #checked# />
+ <label for="ba80404c-4e93-4b72-9176-a8b100671cce" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="ba80404c-4e93-4b72-9176-a8b100671cce"><span class="text">Die Sicherung</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="01ef3608-9858-180f-b91a-a99688fbf427" class="item-toggle" #checked# />
+ <label for="01ef3608-9858-180f-b91a-a99688fbf427" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ef3608-9858-180f-b91a-a99688fbf427"><span class="text">Vorbereitung</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Die Sicherung vorbereiten</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="5b5bb115-9ba4-49a4-8c24-5494176246ed"><span class="text">2:2 Schupferspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="5c5ef136-f595-471a-a32c-a83559d1898f"><span class="text">Station 1 - Gegen die Mauer</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d6e5dddc-8b03-422e-bced-05d5d1ae0699"><span class="text">Station 2 - Gegen die weiche Mauer</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="71b49df8-ffb2-47e6-a15e-6c3c1f9c437f"><span class="text">Station 3 - Ins Netz</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="aacf9a6d-880d-4b33-a6c5-b18ac44a29b7"><span class="text">Station 4 - Am Basketballkorb</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="6978fff6-40bd-4951-8ade-d559257e12db"><span class="text">Station 5 - Ergänzungsübungen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="73679605-7eea-49c4-970e-c14a5d2ca9df"><span class="text">Ballkontrolle unter Streß</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="4fd25206-c6bf-48c4-aecc-c3d043e7a3f2"><span class="text">Rette den Ball!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01ef3614-9167-1f5d-b9ce-0290f330109d" class="item-toggle" #checked# />
+ <label for="01ef3614-9167-1f5d-b9ce-0290f330109d" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ef3614-9167-1f5d-b9ce-0290f330109d"><span class="text">Lernen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Die Sicherung im System lernen</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="e0934648-ed80-41d0-a6aa-f077346c2324"><span class="text">Sicherung Vorbereiten</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="43f01d83-f54a-4bf5-9edf-28c999c0271a"><span class="text">Sicherung nach Verteidigung</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">paarweise Einspielen mit Sicherung</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="189f2b57-5806-428e-aaa5-983836a7a914"><span class="text">In den Block schlagen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f058f5-818f-1766-ba4b-8eb47a188c2d"><span class="text">Sicherung im Dreieck I</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Sicherung der Außenangreiferin nach Verteidigung im Dreieck</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="a18ae3c2-7f5b-4f7e-a2f0-bf15ca040d5c"><span class="text">Sicherung im Dreieck II</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Sicherung der Schnellangreiferin nach Verteidigung im Dreieck</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01ef3616-e2af-1148-9830-02ea7957455c" class="item-toggle" #checked# />
+ <label for="01ef3616-e2af-1148-9830-02ea7957455c" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ef3616-e2af-1148-9830-02ea7957455c"><span class="text">Üben</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Sie Sicherung spielnah üben</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="b403f32e-0005-4b02-b278-4cef95610fd5"><span class="text">Sichern üben 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Lösungen gegen den unüberwindbaren Block</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="7dcee2a8-feae-4b07-be22-c7fb2ee2e9fa"><span class="text">Sichern üben 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Lösungen gegen den unüberwindbaren Block</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="bf7bae46-3e4f-4f9b-8a0d-105cc1955da9"><span class="text">Angriff und Blockbildung üben 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="bb6be560-d8fd-45eb-a6b9-ca13f1acfb30"><span class="text">Angriff und Blockbildung üben 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="9a9f892d-3c5e-4ecc-aa63-7a96a230cc31"><span class="text">Absicherung durch die Hinterspielerin</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="80c7b2ab-b0c6-4415-8a30-48dd85e364d6"><span class="text">Einschlagen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="628ac8ee-439a-4b3c-b76b-a87fc01b70b7"><span class="text">Hilf dir selbst!</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Verteidigen, Angreifen und Eigensicherung</span></span>
+</div></div>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="c7dcafea-7900-4682-8b85-95f955abba7f" class="item-toggle" #checked# />
+ <label for="c7dcafea-7900-4682-8b85-95f955abba7f" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="c7dcafea-7900-4682-8b85-95f955abba7f"><span class="text">Die Kondition</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="2cf9ff54-72d1-4094-a3e0-67b8ee07d405" class="item-toggle" #checked# />
+ <label for="2cf9ff54-72d1-4094-a3e0-67b8ee07d405" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="2cf9ff54-72d1-4094-a3e0-67b8ee07d405"><span class="text">Die Koordination</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="a517f302-2980-4b06-9dab-b490298e4cb2" class="item-toggle" #checked# />
+ <label for="a517f302-2980-4b06-9dab-b490298e4cb2" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="a517f302-2980-4b06-9dab-b490298e4cb2"><span class="text">Mehrballübungen</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="f6766b7a-cfbf-4ac0-b67c-1e3f3bbdceec"><span class="text">2 Bälle kontrollieren</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="09e60aca-01a6-4311-bcea-633b889966b1"><span class="text">2 Bälle zu dritt</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="75d7d444-796b-40d5-8688-c30873599c05"><span class="text">2 Bälle zu viert</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="e223649d-3b55-43b6-b8f7-0d8f17dd3f00"><span class="text">Einspielen mit (viel) Stress</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="950f8e01-3ee5-49fa-b3cb-2f16047026be"><span class="text">Im Kreis herum 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="910ffedf-b626-408b-b7f4-9c549cb66616"><span class="text">Im Kreis herum 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="41565053-3ecf-44a2-9ca7-a412d4ef72fc"><span class="text">Jonglieren zu zweit</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="521a32b9-522a-45f1-adcb-867c04737f4a"><span class="text">Spielen mit Nachlaufen mit Zusatzbällen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="3e5ed2f8-d46f-4758-a15a-aeb668ba4895"><span class="text">Grundtechniken mit 2 Bällen üben</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="48b6e49f-f528-4d5b-a17c-2fba92442895" class="item-toggle" #checked# />
+ <label for="48b6e49f-f528-4d5b-a17c-2fba92442895" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="48b6e49f-f528-4d5b-a17c-2fba92442895"><span class="text">Der Luftballon</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="a04f6e4e-1f75-4a82-839c-6a138c39d525"><span class="text">Die Ballone vertreiben</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ee00482e-2199-495e-929a-5bf0060e5b10"><span class="text">Die Knallstaffel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="abf63bee-4390-403b-b8f8-2b41f444148f"><span class="text">Einlaufen mit Luftballon 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="fb4c0998-ed86-408d-a7dd-52d7d788286c"><span class="text">Einlaufen mit Luftballon 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="0cdf8152-5ffb-4ed4-b1d3-154a89631df9"><span class="text">Hundefußball</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Luftballontreiben</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="a039019a-b5d4-4180-8786-1ad2c84c2549" class="item-toggle" #checked# />
+ <label for="a039019a-b5d4-4180-8786-1ad2c84c2549" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="a039019a-b5d4-4180-8786-1ad2c84c2549"><span class="text">Jonglieren</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Jonglieren lernen</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ee83f4-bb7e-14ea-a660-a2ec8e3efd60"><span class="text">Ballwurf</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Armhaltung und Ballwurf</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef1e7c-34c0-1c00-a357-b4c0e3543ff8"><span class="text">2 Bälle</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Grundbewegung mit 2 Bällen lernen und üben</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef1e87-0bf9-1992-a41d-69af4b4420a5"><span class="text">3 Bälle</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Grundbewegung mit 3 Bällen lernen und üben</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f0c801-d60a-1a63-acf8-eae98cedf6de" class="item-toggle" #checked# />
+ <label for="01f0c801-d60a-1a63-acf8-eae98cedf6de" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f0c801-d60a-1a63-acf8-eae98cedf6de"><span class="text">Ohne Ball</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="192e818e-0b9a-48b4-9f69-68cad22fca1f"><span class="text">Runter schlagen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Gegenseitig aus dem Gleichgewicht bringen.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="a0fd360f-a67d-4bb7-9f93-e531b9d00895"><span class="text">Die Spirale</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d3bfcf02-45e4-4186-9aa5-4646f07a7b58"><span class="text">Kaninchenjagd</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f0c7ec-f5ae-15e6-ad29-27a759c62efa" class="item-toggle" #checked# />
+ <label for="01f0c7ec-f5ae-15e6-ad29-27a759c62efa" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f0c7ec-f5ae-15e6-ad29-27a759c62efa"><span class="text">Einzeln</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">v.a. Ballgeschicklichkeit</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="43dba609-184d-46c8-a47d-18af04ee5743"><span class="text">Mit der Nase im Netz</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="dac6e081-a58a-4319-a44e-c38c431ee7d0"><span class="text">Steh auf!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="a5b54885-9622-47af-b7ba-07b05cc8c8b0"><span class="text">Spielfeld, was bist Du?</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="5e94af9b-aafc-46ce-9873-9fcd664d5775"><span class="text">Wo ist der Ball?</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="135a744a-da1f-4fde-952a-c52334e4d966"><span class="text">Volley Spielen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f0c801-eb6e-1922-a001-457ce5257e19" class="item-toggle" #checked# />
+ <label for="01f0c801-eb6e-1922-a001-457ce5257e19" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f0c801-eb6e-1922-a001-457ce5257e19"><span class="text">Paarweise</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Einspielen zu zweit mit Abwandlungen</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="17402934-6821-4c1e-bd03-1fde044f218f"><span class="text">6 Ballkontakte</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Individuelle Ballkontrolle</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="c9ef6a4c-3881-4afe-b869-6fe921cad5d4"><span class="text">Diagonal Einspielen über das Netz</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="59456cf9-7dfd-458e-a91e-58e82d96ee26"><span class="text">Einspielen als Spielaufbauübung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="7623b8bc-cf29-4c1d-b202-5c8b25a7211f"><span class="text">Einspielen über das Netz</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="e256d536-da73-424b-ab95-a0fd9e588187"><span class="text">Renn mal!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="09095e69-e90c-47b1-b18b-69eefbfdd514"><span class="text">Die Beinarbeit</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Beinarbeit verbessern.</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f0c7f0-fd24-179f-890c-e4f03a75f56c" class="item-toggle" #checked# />
+ <label for="01f0c7f0-fd24-179f-890c-e4f03a75f56c" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f0c7f0-fd24-179f-890c-e4f03a75f56c"><span class="text">Spielen in (Klein-)Gruppen</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="02ab94d4-77d1-4d07-82d4-16e520fea8ce"><span class="text">5:5 mit offenem Laufen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="604c395e-522a-408b-beb3-98cf81e92882"><span class="text">5:5 mit offenem Laufen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="1a7849a0-8f23-47c0-ac3e-07fdbd6ab5f5"><span class="text">Durcheinander ordnen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ded960d4-ac10-4d2d-bf4d-f43b37531aae"><span class="text">Einspielen als Spielaufbauübung 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="acbcad68-a4a1-43ec-b9f5-6509d21ae2af"><span class="text">Überkopfspiel 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="45bd5443-a94e-458d-a7e8-da883b727ed6"><span class="text">Überkopfspiel 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="97ef4ac1-48fa-4ffc-97bd-17831e697ef7"><span class="text">Mit sich selbst spielen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Paarweise mit sich selbst spielen</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f0c8a1-3019-1000-8fae-815fdc8d5c59" class="item-toggle" #checked# />
+ <label for="01f0c8a1-3019-1000-8fae-815fdc8d5c59" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f0c8a1-3019-1000-8fae-815fdc8d5c59"><span class="text">Sonstiges</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="007b9b0b-e1c9-4140-bfd8-b80ea94dc3cf"><span class="text">Tausendfüßlerrennen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="99fae8f4-128b-407d-b35b-1a0376c89256"><span class="text">Schleuderball</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01ee83e9-1f9d-1388-8bd4-b18d17d9ec29" class="item-toggle" #checked# />
+ <label for="01ee83e9-1f9d-1388-8bd4-b18d17d9ec29" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ee83e9-1f9d-1388-8bd4-b18d17d9ec29"><span class="text">Experimente (Jonglieren)</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Nur Test!</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ee2ef3-cf9a-1718-9e51-17988eed4675"><span class="text">Ballwurf-1000</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Test</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="c653ca16-84c5-44da-8a66-e144b5b3ec1c"><span class="text">Ballwurf-100</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Wie werfe und fange ich den Ball </span></span>
+</div><div class="item">
+ <span class="item-header" data-id="55e2492d-0fb6-43d3-8c31-f300d87905d2"><span class="text">Test</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee9a9e-661c-1603-8f71-6bfa7a9edd2f"><span class="text">Parable on court</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">###</span></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="129354ec-fd6c-44b5-9a48-fa52628366b7" class="item-toggle" #checked# />
+ <label for="129354ec-fd6c-44b5-9a48-fa52628366b7" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="129354ec-fd6c-44b5-9a48-fa52628366b7"><span class="text">Die Beweglichkeit</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="c1bdbe95-a35b-4974-ac6f-ecd9ae87fbfc"><span class="text">Bewegen mit Ball (1)</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Einzeln gegen die Mauer</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="006ba9b9-595e-44ec-803b-224a6f9972e5"><span class="text">Bewegen mit Ball (2)</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Paarweise</span></span>
+</div><div class="item">
+ <input type="checkbox" id="01ee8985-54cb-1766-bcd4-a6d10d6bdb8b" class="item-toggle" #checked# />
+ <label for="01ee8985-54cb-1766-bcd4-a6d10d6bdb8b" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ee8985-54cb-1766-bcd4-a6d10d6bdb8b"><span class="text">Beweglichkeit mit Ball 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Einzeln gegen die Mauer</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ee8995-37d8-19fa-831d-8d1925ee65e4"><span class="text">Körperrotation</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Beweglichkeit in der Hüfte</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee898a-9adb-1c3d-a1b4-bd2303583903"><span class="text">Bücken und Strecken</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Kräftigen und das Gleichgewicht halten</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee89f2-ae6f-1fd9-a169-b805871b4c98"><span class="text">Aufsetzen und Hinlegen mit Ball</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee8ae7-f3d5-160f-b095-1f501f5b1749"><span class="text">Sitzen und Rollen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Im Sitzen den rollenden Ball kontrollieren</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee8c9e-6a93-1b31-aa93-e2d4ccdc5931"><span class="text">Fast eine Rolle rückwärts</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Beweglichkeit und Geschicklichkeit und Ballkontrolle</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01ee8995-4cb1-1147-bbb2-33a4403339cc" class="item-toggle" #checked# />
+ <label for="01ee8995-4cb1-1147-bbb2-33a4403339cc" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ee8995-4cb1-1147-bbb2-33a4403339cc"><span class="text">Beweglichkeit mit Ball 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Paarweise</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ee8b25-8032-1d59-9d85-86aff449fea9"><span class="text">Körperrotation 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Beweglichkeit in der Hüfte</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee8b15-15fe-1858-9b16-864d39a5264b"><span class="text">Körperrotation 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Beweglichkeit in der Hüfte</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee8ca2-69d5-16f5-b3f9-c1aa8e5dc3ad"><span class="text">Bücken und Strecken</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Kräftigen und das Geleichgewicht halten</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee8d1f-ba3e-11f0-a3e0-8e3b796e1c5f"><span class="text">Aufsetzen und Hinlegen mit Ball</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee8de5-3622-1edb-bbb8-b46285d0eb7a"><span class="text">Sitzen und Rollen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Im Sitzen den rollenden Ball miteinander kontrollieren</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee8ef6-0518-1946-a8fa-fe4fde653c8f"><span class="text">Fast eine Rolle rückwärts</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Beweglichkeit und Geschicklichkeit und Ballkontrolle</span></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="22967942-4175-4a9a-8e61-cd85be88421e" class="item-toggle" #checked# />
+ <label for="22967942-4175-4a9a-8e61-cd85be88421e" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="22967942-4175-4a9a-8e61-cd85be88421e"><span class="text">Die Schnelligkeit</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="f7e1c00e-d560-4ce8-8aaf-3964003d0bfa"><span class="text">20 Bälle</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="6a753000-2559-4ed7-897a-12c2b8aa814c"><span class="text">3m Spiel mit Laufen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ec2899a1-c9f0-4fd4-a17d-6a0f2c5c0298"><span class="text">Abschießen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d245b228-62a6-4a36-a4f4-a67fc386ec1a"><span class="text">Annehmen und Bewegen 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="2528dbab-6250-459b-82bb-093b96b9c3ac"><span class="text">Annehmen und Bewegen 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="1848140c-b363-430c-b4a1-cfbce594f85b"><span class="text">Auf und nieder!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="c9fa3bbb-1598-46ac-b194-d7cdd41bf5f3"><span class="text">Aufschlag hinterher</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="7652b19c-899f-4b52-b15c-e1cb11a84d88"><span class="text">&lt;&lt;Baggerspiel 2&gt;&gt;</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="fee8319f-cd32-47fd-ad2e-d669c04eed58"><span class="text">Ballholen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="7d48087c-3b98-47b4-be26-d20574082fe8"><span class="text">Die Atome</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="09095e69-e90c-47b1-b18b-69eefbfdd514"><span class="text">Die Beinarbeit</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Beinarbeit verbessern.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="b25cdef3-f154-42f7-a6ef-fd1d8449425a"><span class="text">Die Reise nach Jerusalem</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="c0f2415c-5e86-4fd8-bc0c-6d6987d2b2b8"><span class="text">Drachen schießen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="e17714a8-624f-4069-8b1a-123db71bd22a"><span class="text">Drachenschwanzjagd</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="e58c4f25-ec61-44de-a9dc-7fec20d135f0"><span class="text">Kettenfangen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="97cd18a6-7b11-4039-bc72-668ff3d673f6"><span class="text">Matten über Kasten</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="e256d536-da73-424b-ab95-a0fd9e588187"><span class="text">Renn mal!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="59e09be8-63a2-4c3a-8aea-b06c079425bc"><span class="text">Schwarz und Weiss</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="995ad043-8e0d-45b2-a4f5-f7e822ea77f9"><span class="text">Servicestaffel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="372c9e23-3a46-467e-9a6c-c5eb8dbceade"><span class="text">Spring über den Ball!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f18531-d4ec-1657-b93a-0f5e67f3ceeb"><span class="text">Sprints</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f1854e-ca90-1da3-939c-c66b79332140"><span class="text">Skippings</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Schnelligkeit der Füße</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="371aca7a-175b-443e-b6cb-686df4d7bb11" class="item-toggle" #checked# />
+ <label for="371aca7a-175b-443e-b6cb-686df4d7bb11" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="371aca7a-175b-443e-b6cb-686df4d7bb11"><span class="text">Die Kraft</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="a6a0f523-aac2-48c4-830f-b83804418263" class="item-toggle" #checked# />
+ <label for="a6a0f523-aac2-48c4-830f-b83804418263" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="a6a0f523-aac2-48c4-830f-b83804418263"><span class="text">Der Bauch</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="f5510c00-a7ae-443c-8116-964815f528df"><span class="text">Die geraden Bauchmuskeln 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Sit-Ups</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="0b1bbfdd-0c36-4695-9081-857a901da0f5"><span class="text">Die geraden Bauchmuskeln 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Sit-Ups - Beine hoch</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="549d2c01-f554-4daa-a737-e1e661b5d0de"><span class="text">Die Oberen Bauchmuskeln 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Schultern anheben</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="6b3887e8-0592-4a7a-a770-e0f335dd2d87"><span class="text">Die Oberen Bauchmuskeln 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Schultern anheben (erleichtert)</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="378b06c9-e1a2-454f-af23-762a96968955"><span class="text">Die schrägen Bauchmuskeln</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Sit-Ups schräg</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="6d90f292-a088-40a6-a949-ce486ca2d512"><span class="text">Die unteren Bauchmuskeln 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Becken anheben</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="287565b6-04bd-464e-8899-1d8b3f82faee"><span class="text">Die unteren Bauchmuskeln 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Becken anheben</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="74e6d670-0ce2-4ece-ae3b-a5453665663a" class="item-toggle" #checked# />
+ <label for="74e6d670-0ce2-4ece-ae3b-a5453665663a" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="74e6d670-0ce2-4ece-ae3b-a5453665663a"><span class="text">Der Rücken</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="c50a952a-632d-4b20-bd7d-de7891e325a6"><span class="text">Beinheben</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="54927bcb-d178-4413-af88-1f7972081e6c"><span class="text">Den Rücken stabilisieren 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">&quot;Bauchlage vorwärts&quot;</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="e1cac691-a679-41c8-879b-318359d9a59b"><span class="text">Den Rücken stabilisieren 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">&quot;Bauchlage vorwärts&quot; - dynamisch</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="f580788f-9cc9-4150-9b09-ecf5104c808a"><span class="text">Den Rücken stabilisieren 3</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">&quot;Bauchlage vorwärts - diagonal instabil&quot;</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="995fd837-88d5-49ff-818b-e5ff61022658"><span class="text">Der Lendenbereich</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="874e84f5-5d53-45ab-ac3f-822d1df5dcbb"><span class="text">Die Rückenstrecker 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">&quot;Hampelmann&quot; liegend</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="575a9d3e-c668-47bb-b261-05c5dc625297"><span class="text">Die Rückenstrecker 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Arme und Beine - Auf und ab</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="754ba830-df0f-4783-be6f-4c8dbeb5f66c"><span class="text">Die Rückenstrecker 3</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Oberkörper zur Seite drehen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="cb699f1b-4e93-400c-a054-f0c7e828105b"><span class="text">Die Rückenstrecker 4</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Arme vor und zurück</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="966aa58b-62da-4336-a5e3-f9ea1ca92deb"><span class="text">Oberkörper heben</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="5b2f27dd-5b37-47ee-a6c4-c505a4dfd31d" class="item-toggle" #checked# />
+ <label for="5b2f27dd-5b37-47ee-a6c4-c505a4dfd31d" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="5b2f27dd-5b37-47ee-a6c4-c505a4dfd31d"><span class="text">Der Rumpf</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ee9ce5-cc73-1a98-866c-392879f36a63"><span class="text">Die Rumpfmuskulatur kräftigen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">&quot;Bauchlage&quot; 1</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="d02f1d5e-cf0c-4960-a15e-d878edb5dd7c"><span class="text">Die Rumpfmuskulatur kräftigen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">&quot;Bauchlage&quot; 2 + 3</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee9c6d-9fe2-1bff-a26c-13b5befee85b"><span class="text">Die Rumpfmuskulatur kräftigen 2b - dynamisch</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Mit Bewegung...</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee9cf1-bdf3-18a9-9c7b-0561b978a5c8"><span class="text">Die Rumpfmuskulatur kräftigen 3</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">&quot;Bauchlage&quot; 4 - rückwärts</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="d69a8b8d-e1ea-4f92-a3af-686a69097929"><span class="text">Den Schulterbereich kräftigen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Liegestütz</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee9cd2-0139-16d3-9f95-9aa2ae2836f9"><span class="text">Den Schulterbereich kräftigen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Liegestütz 2</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f13ea0-d855-13bb-81bf-b23f64d187b1"><span class="text">Den Schulterbereich kräftigen 3</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Liegestütz - breit</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee9cd4-7ffe-134f-8135-a64fe6add8d0"><span class="text">Den Schulterbereich kräftigen 4</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Liegestütz rückwärts</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee9ce5-ecb4-1f4b-8378-9fb89d0d92b2"><span class="text">Den Schulterbereich kräftigen 5</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Froschliegestütz</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="6362fe67-5511-4ea6-ba19-c11b6e016135" class="item-toggle" #checked# />
+ <label for="6362fe67-5511-4ea6-ba19-c11b6e016135" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="6362fe67-5511-4ea6-ba19-c11b6e016135"><span class="text">Die Beine</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="77a7e34d-c508-4859-9244-4d93f5240e23"><span class="text">Die Beinpresse mit Partner</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="db43d2bb-fe38-4f61-89b7-2356ff4d4214"><span class="text">Die Kniebeuge</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f1479f-1b97-1794-9a6f-33cd340bc45d"><span class="text">Die Kniebeuge II</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Kniebuege mit Armen in Hochhalte</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="9a4f3bd1-7b70-44a1-96af-69591b02bd4f"><span class="text">Die Kniebeuge mit Ball</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="81f374ae-545f-48e8-a72e-0916cf0d4623"><span class="text">Die Oberschenkelrückseite I</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Beckenlift</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ef3fe8-769b-1a89-abb5-81d513a6c884"><span class="text">Die Oberschenkelrückseite II</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">(Statisch)</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee9ccf-b7a1-1031-a12c-0f1bca74c886"><span class="text">Knöchel stärken</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Einbeinige Kniebeuge</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="f344fe3f-c60b-4cfa-8f49-2b8b96adb6ce"><span class="text">Knöchel stärken + Ball</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Einbeiniges OZ und UZ - aus den Beinen</span></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="94f271a6-3dc2-44ee-bcfa-925a2967d506" class="item-toggle" #checked# />
+ <label for="94f271a6-3dc2-44ee-bcfa-925a2967d506" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="94f271a6-3dc2-44ee-bcfa-925a2967d506"><span class="text">Die Ausdauer</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="6a753000-2559-4ed7-897a-12c2b8aa814c"><span class="text">3m Spiel mit Laufen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d245b228-62a6-4a36-a4f4-a67fc386ec1a"><span class="text">Annehmen und Bewegen 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="2528dbab-6250-459b-82bb-093b96b9c3ac"><span class="text">Annehmen und Bewegen 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="3c590bad-febe-4132-946e-e5b3e6ac5ccc"><span class="text">Japanische Verteidigung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="c428f3d5-b819-4f65-93cd-373df319701f"><span class="text">OZ und UZ mit (seitlicher) Bewegung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="dac6e081-a58a-4319-a44e-c38c431ee7d0"><span class="text">Steh auf!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01eea1e0-bcee-1d8e-bc8d-52da16f82b3b" class="item-toggle" #checked# />
+ <label for="01eea1e0-bcee-1d8e-bc8d-52da16f82b3b" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01eea1e0-bcee-1d8e-bc8d-52da16f82b3b"><span class="text">Das Dehnen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Ein einfaches, aber ziemlich komplettes Programm  - Es fehlen noch Übungen.</span></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="01eea1f3-37d5-1afe-902e-72bf4f03cb7a" class="item-toggle" #checked# />
+ <label for="01eea1f3-37d5-1afe-902e-72bf4f03cb7a" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01eea1f3-37d5-1afe-902e-72bf4f03cb7a"><span class="text">Füße und Unterschenkel</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01eea279-58be-1b5e-91e1-aaf7b6cbd5c8"><span class="text">Fußgelenke aktivieren</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01eea279-3776-1820-b93f-7c44426ad268"><span class="text">Unterschenkel vorne</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01eea272-24f6-1ce7-be5a-4d6fff66d820"><span class="text">Unterschenkel hinten</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01eea27f-180a-1c79-a03e-5caa5c260048"><span class="text">Unterschenkel hinten (einzeln)</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">(Eine Alternative...)</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01eea1e0-f0c5-1dfb-bb3a-76d2925e5549" class="item-toggle" #checked# />
+ <label for="01eea1e0-f0c5-1dfb-bb3a-76d2925e5549" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01eea1e0-f0c5-1dfb-bb3a-76d2925e5549"><span class="text">Oberschenkel und Gesäß</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01eea273-5548-1b0b-9e75-4555f4010f8a"><span class="text">Rückseite</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Rückseite dehnen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01eea279-035d-1b74-b84d-0865b96c1d75"><span class="text">Vorderseite</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Vorderseite dehnen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01eea287-6bdc-17a0-94c2-362243dd19e1"><span class="text">Innenseite</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Innenseite dehnen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01eea284-ecd9-122a-b32d-2353b6d0fb15"><span class="text">Außenseite</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Außenseite dehnen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="5f8db334-302a-4e3e-a21f-fc2b93192f71"><span class="text">Gesäß dehnen (Verknotung)</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f13bfb-507d-1d55-b58c-da918fc17e80"><span class="text">Hüftbeuger</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Den Hüftbeuger dehnen</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01eea1e7-4b18-1870-a060-c54da7a3f79f" class="item-toggle" #checked# />
+ <label for="01eea1e7-4b18-1870-a060-c54da7a3f79f" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01eea1e7-4b18-1870-a060-c54da7a3f79f"><span class="text">Schulterbereich</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01f0c95e-61a5-1098-99db-7c2fa99831a8"><span class="text">Arm nach hinten</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Schulter nach hinten dehnen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f0c967-5624-1012-8c56-3248e77e4717"><span class="text">Arm nach hinten 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Alternative: Die Schulter nach hinten im Stehen dehnen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f0c992-446a-1bf2-85fc-ce518a35130d"><span class="text">Auf den Arm legen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Schulter nach vorne dehnen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f0c9ee-f39a-123d-8f1e-204a179bf5fe"><span class="text">Die Hand zwischen die Schulterblätter</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Schulter nach oben hinten dehnen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f0ca06-0fb2-1675-83c1-b93e0779fc35"><span class="text">Überstrecken</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Schulter unten nach hinten dehnen</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01eea27b-4147-1b68-a53f-0bf55d320cf4" class="item-toggle" #checked# />
+ <label for="01eea27b-4147-1b68-a53f-0bf55d320cf4" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01eea27b-4147-1b68-a53f-0bf55d320cf4"><span class="text">Hals und Nacken</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="5513acdc-3690-4f2b-a6a8-a009960818e9"><span class="text">Hals und Nacken dehnen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01eea282-7ef4-11e4-a309-29e0c8876dba" class="item-toggle" #checked# />
+ <label for="01eea282-7ef4-11e4-a309-29e0c8876dba" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01eea282-7ef4-11e4-a309-29e0c8876dba"><span class="text">Handgelenke</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="41100a93-528b-41e5-b22f-c1bad2d3b93c"><span class="text">Handgelenke dehnen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01ed54b6-056a-17f8-aa39-48343f9cff37" class="item-toggle" #checked# />
+ <label for="01ed54b6-056a-17f8-aa39-48343f9cff37" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01ed54b6-056a-17f8-aa39-48343f9cff37"><span class="text">(Mit-)Denken</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Verschiedenen Übungen, die Mitdenken erfordern</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01ed54b3-8379-1570-b47c-c492bcc76150"><span class="text">Spielen oder Laufen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Einspielen, Mitdenken, Entscheiden</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="e2c022d8-ed76-4917-83bd-6e7eba256314"><span class="text">Y(X) &gt; Grenze = Ok</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="14345d80-7379-441f-8363-eed196130cfc"><span class="text">Spielelemente unter Laufstreß üben</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Schlagbewegung, Feldverteidigung, Aufspiel, Einlaufen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="fecbd2ac-2729-4fe4-819c-656b4ab5362a"><span class="text">Schau auf die Angreiferin! 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="7d635c9e-5b54-4c01-a0f6-4c1cb1b66fd8" class="item-toggle" #checked# />
+ <label for="7d635c9e-5b54-4c01-a0f6-4c1cb1b66fd8" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="7d635c9e-5b54-4c01-a0f6-4c1cb1b66fd8"><span class="text">Für die Nachwuchsspielsysteme</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Die verschiedenen Spielsystemen erlernen und üben</span></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="9c9ef9fd-4bcf-43d9-9e1a-f27079a65093" class="item-toggle" #checked# />
+ <label for="9c9ef9fd-4bcf-43d9-9e1a-f27079a65093" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="9c9ef9fd-4bcf-43d9-9e1a-f27079a65093"><span class="text">Die Superminis I - 2:2</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="294fb257-9401-4fdd-92b5-d25f1b4f8a3b"><span class="text">2 Ballberührungen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="4c2fc1df-ba95-4e94-bfce-da9209379f2a"><span class="text">2 Ballberührungen einführen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="60e73848-6b23-48a5-bb94-d4c4f2a9c06e"><span class="text">Die Verteidigung vorbereiten</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="ffe677c0-b48b-4ac6-9686-ef2bf0e1be91" class="item-toggle" #checked# />
+ <label for="ffe677c0-b48b-4ac6-9686-ef2bf0e1be91" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="ffe677c0-b48b-4ac6-9686-ef2bf0e1be91"><span class="text">Die Superminis II - 3:3</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="fc213ecb-fa10-4ecf-82dc-2bd7673ab885"><span class="text">Annahme und Aufspiel über Kopf</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="9aefe685-811a-4030-9711-8b602f18c088"><span class="text">Annahme und frontales Aufspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d7f73ef9-e739-45da-944d-15c6eeb2f44b"><span class="text">Der Angriff</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="3707d70e-d197-4725-91be-4aebd228ef71"><span class="text">Die Annahme</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="5962faf9-e24e-432e-9ba5-db3239d97d70"><span class="text">Die Annahme zu dritt</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="92adaeda-12ea-4a02-81fe-9cb74d3862fe"><span class="text">Die Basis</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="9cbf7bd0-9469-41ec-b356-4b03eab8945d"><span class="text">Die Grundübung 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="ebb25926-6aa5-4334-905d-a2f14163b3dc"><span class="text">Die Grundübung 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="3e77fc17-9dcf-46b2-b9a9-f0ba9c6a381a"><span class="text">Die Verteidigung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="252f99c7-1af2-42d1-9a56-1d28aac6d353"><span class="text">Im Spielfluss - Verteidigung-Aufspiel-Angriff</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="60e73848-6b23-48a5-bb94-d4c4f2a9c06e"><span class="text">Die Verteidigung vorbereiten</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="6f25f4cb-df1d-4401-850b-97604f5216b1"><span class="text">Lesen am Kleinfeld 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="a76a9e09-0c0c-461d-b63d-7ea2871b8b7d"><span class="text">Lesen am Kleinfeld 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="82e8b72e-3265-4314-a5dd-599cc5e134e4" class="item-toggle" #checked# />
+ <label for="82e8b72e-3265-4314-a5dd-599cc5e134e4" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="82e8b72e-3265-4314-a5dd-599cc5e134e4"><span class="text">Die Minis und Midis - 4:4</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="d9412e2f-d976-4f99-9e53-e74d26435bb1" class="item-toggle" #checked# />
+ <label for="d9412e2f-d976-4f99-9e53-e74d26435bb1" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="d9412e2f-d976-4f99-9e53-e74d26435bb1"><span class="text">Das Karo</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="cfca3510-bc90-4aff-a465-bc605d49013c"><span class="text">Das Karo</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="36f4702d-7305-4570-ad72-4e48c387e571"><span class="text">Die Annahme</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="d3a67ce6-e857-40d5-ac30-7a0ce38f3e8d" class="item-toggle" #checked# />
+ <label for="d3a67ce6-e857-40d5-ac30-7a0ce38f3e8d" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="d3a67ce6-e857-40d5-ac30-7a0ce38f3e8d"><span class="text">Das Karo mit doppelter Kurzsicherung</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="5e377fba-33a1-4db2-be36-2f0bba6b486e"><span class="text">Das Service</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="2e2eef67-1f35-4d38-99d5-9672a8f90dfb"><span class="text">Die Aufgabenverteilung</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="b877e1f6-53f9-436c-b9dc-6149bdb41285"><span class="text">Die Basis</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="7372e8b7-6352-4b8b-a3b3-c8d0b8aac6dd"><span class="text">Die Verteidigung gegen Angriffe in der Mitte</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="181a4dbf-6a13-4fb0-8e97-227101d596d1"><span class="text">Die Verteidigung gegen Außenangriffe</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="395ff612-a40d-47d4-8187-bf0e6db893ad"><span class="text">Die Verteidigung gegen Geschenkte Bälle</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="36f4702d-7305-4570-ad72-4e48c387e571"><span class="text">Die Annahme</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="a17b707b-d337-4e5b-9679-89f1abd1a8f1" class="item-toggle" #checked# />
+ <label for="a17b707b-d337-4e5b-9679-89f1abd1a8f1" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="a17b707b-d337-4e5b-9679-89f1abd1a8f1"><span class="text">Das Spielsystem für Fortgeschrittene</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="b50fd165-3503-4391-9427-a9692d785cf2"><span class="text">Das Aufspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="74be796e-7800-42fd-969b-1a1db3dca12d"><span class="text">Das Service</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="1221d0af-e7fc-4894-a64c-7343f88bfa9b"><span class="text">Die Angriffssicherung in der Mitte</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="103f665c-9044-4943-b9c0-33daedbd63f6"><span class="text">Die Angriffssicherung links oder rechts</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="8ab4224a-3104-4ad0-b746-ee4c11ea271d"><span class="text">Die Annahme</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="1a5b068b-87af-443c-929c-ab49bce3dab8"><span class="text">Die Basis</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="b51bdd4d-7312-4f5a-9a31-987e1af629bb"><span class="text">Die Verteidigung - Doppelblock Mitte</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="1f7706a1-5103-4023-b03d-90be17766094"><span class="text">Die Verteidigung - Doppelblock rechts oder links</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="5ce0530a-9c27-415e-ad7c-cb52e3b9b0b0"><span class="text">Die Verteidigung - Einzelblock Mitte</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="847b05d2-f30c-426b-88c4-9c544ea2baef"><span class="text">Die Verteidigung - Geschenkter Ball</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <span class="item-header" data-id="ff3bbd02-200a-41c5-a2d9-f3c2c11ce198"><span class="text">Zu dritt üben</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="7ab43108-7f36-47e1-897c-b0774cda06a0" class="item-toggle" #checked# />
+ <label for="7ab43108-7f36-47e1-897c-b0774cda06a0" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="7ab43108-7f36-47e1-897c-b0774cda06a0"><span class="text">Verschiedene Spielformen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">(Volley-)Ballgeschicklichkeit</span></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="2a366336-4509-4bba-a4ac-f0ab0cd04e58" class="item-toggle" #checked# />
+ <label for="2a366336-4509-4bba-a4ac-f0ab0cd04e58" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="2a366336-4509-4bba-a4ac-f0ab0cd04e58"><span class="text">Großfeld</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="97ef4ac1-48fa-4ffc-97bd-17831e697ef7"><span class="text">Mit sich selbst spielen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Paarweise mit sich selbst spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="f6056fcf-c00d-4635-8d1c-c0cd32f404e8"><span class="text">Spionball</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Die Mitspielerin finden.</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="46aa42bc-3e3f-49eb-aaed-d4139e9cdff8"><span class="text">4 Felder Spiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="604c395e-522a-408b-beb3-98cf81e92882"><span class="text">5:5 mit offenem Laufen 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="02ab94d4-77d1-4d07-82d4-16e520fea8ce"><span class="text">5:5 mit offenem Laufen 2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Denken und Spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="ab6478bf-4df6-4574-a51a-bf1198f69a24"><span class="text">Bälle sammeln</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="126a443c-0b43-43fe-97f0-1ad806a5ffc3"><span class="text">Extrapunktspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="c234ba71-9926-4071-a7c1-0a4e45acd736"><span class="text">Queens of the Court</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="8721a635-43d4-40f0-9223-d4233fb634f5"><span class="text">Schaff den Lauf</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="6c4ce3d3-fb27-4c14-828f-7d8814c8ad0f"><span class="text">Schlag und Tschüss</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="592adb1d-99d7-470d-b428-382ef47ac247"><span class="text">Service-Annahme-Spiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="03bfb0aa-5ff5-4591-a6d7-e983b0be194b"><span class="text">Toter Fisch</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="45bd5443-a94e-458d-a7e8-da883b727ed6"><span class="text">Überkopfspiel 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="7652b19c-899f-4b52-b15c-e1cb11a84d88"><span class="text">Baggerspiel 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="e2c022d8-ed76-4917-83bd-6e7eba256314"><span class="text">Y(X) &gt; Grenze = Ok</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="4b8ab51a-9c9e-4d76-90f1-f99ac36a99f0" class="item-toggle" #checked# />
+ <label for="4b8ab51a-9c9e-4d76-90f1-f99ac36a99f0" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="4b8ab51a-9c9e-4d76-90f1-f99ac36a99f0"><span class="text">Kleinfeld</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="294fb257-9401-4fdd-92b5-d25f1b4f8a3b"><span class="text">2 Ballberührungen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="5b5bb115-9ba4-49a4-8c24-5494176246ed"><span class="text">2:2 Schupferspiel</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="6a753000-2559-4ed7-897a-12c2b8aa814c"><span class="text">3m Spiel mit Laufen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="c897c2f2-2728-4b2c-a331-bde51f5061c7"><span class="text">Baggerspiel 1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Baggerlafale</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="5441b6f0-b979-4384-8db0-edf5eb310bcf"><span class="text">Doppelblock am Kleinfeld</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="d2a68070-80fb-4926-9996-2879ffb834ee"><span class="text">Midisystem als Denkaufgabe und Bewegungsspiel.</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="97ef4ac1-48fa-4ffc-97bd-17831e697ef7"><span class="text">Mit sich selbst spielen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Paarweise mit sich selbst spielen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="4b9b6488-982f-412d-8c44-5edc94d37d74"><span class="text">Stressed Queens Of The Court</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="acbcad68-a4a1-43ec-b9f5-6509d21ae2af"><span class="text">Überkopfspiel 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="b9c1a9d6-e6f2-4cf3-942f-a92ca4742528" class="item-toggle" #checked# />
+ <label for="b9c1a9d6-e6f2-4cf3-942f-a92ca4742528" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="b9c1a9d6-e6f2-4cf3-942f-a92ca4742528"><span class="text">Weitere Spiele</span><br><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /><span class="footer">Der Umgang mit den Mitspielerinnen</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="a95a76af-1c49-4fd9-b5d3-b9bc13acdb2b"><span class="text">Alles</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="14874733-4118-4a2b-b20c-f62610cf5c28"><span class="text">Ball über die Schnur</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="77e34728-f86c-4673-928e-cef89d847378"><span class="text">Frisbee 1</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="cb534e0a-aad5-4fd2-a517-41944aad954d"><span class="text">Frisbee 2</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="f63155ce-1234-4503-ab7d-81684c9b0e74"><span class="text">Schnappball (=Parteiball, 8er-Ball, 10er-Ball)</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="1848140c-b363-430c-b4a1-cfbce594f85b"><span class="text">Auf und nieder!</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01ee8cb2-e9d4-1355-96ec-5d1cf0098143"><span class="text">3 Schritte</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Siche gegenseitig Abschießen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="99fae8f4-128b-407d-b35b-1a0376c89256"><span class="text">Schleuderball</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="92e7693b-f768-4365-9da8-e9a33a78124e" class="item-toggle" #checked# />
+ <label for="92e7693b-f768-4365-9da8-e9a33a78124e" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="92e7693b-f768-4365-9da8-e9a33a78124e"><span class="text">Sonstiges</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <input type="checkbox" id="44802cd2-7634-4a5b-9904-c5c01c0548c9" class="item-toggle" #checked# />
+ <label for="44802cd2-7634-4a5b-9904-c5c01c0548c9" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="44802cd2-7634-4a5b-9904-c5c01c0548c9"><span class="text">Kennenlernen am Trainingslager</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="faa9a384-746c-40ee-b676-65c166a23a0f"><span class="text">8 Wörter finden</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="6617b8e4-c73a-41a8-9944-f2bca363d71b"><span class="text">ABC-Assoziationen</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="fbb6be50-310a-4d6a-9797-8afaee135100"><span class="text">Das ist mein ...</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="82029283-133c-4fb5-9701-34a4f9461836"><span class="text">Kofferpacken</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="e7633533-f511-4ed5-a967-13929b483a85" class="item-toggle" #checked# />
+ <label for="e7633533-f511-4ed5-a967-13929b483a85" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="e7633533-f511-4ed5-a967-13929b483a85"><span class="text">Vertrauen schaffen</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="df31a354-2c80-4c81-abc8-bac0306cb293"><span class="text">Umkippen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Teambuilding - Vertrauen</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="9e566ac2-577e-4a05-acd3-8e0aa2f1e732"><span class="text">Weiterreichen</span><br><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /><span class="footer">Teambuilding - Gemeinsam sind wir stark!</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="c20294ba-bedb-4f7d-a5a1-38bab438a23f" class="item-toggle" #checked# />
+ <label for="c20294ba-bedb-4f7d-a5a1-38bab438a23f" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="c20294ba-bedb-4f7d-a5a1-38bab438a23f"><span class="text">Gemeinsam eine Aufgabe lösen</span><img src="/images/img-00000000-0000-0000-0000-000000000102.svg" /></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="e31eca38-20c9-4759-b7ae-b82bdf339461"><span class="text">Der Knoten</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="99fae8f4-128b-407d-b35b-1a0376c89256"><span class="text">Schleuderball</span><img src="/images/img-00000000-0000-0000-0000-000000000103.svg" /></span>
+</div></div>
+</div></div>
+</div></div></div>
+
+<div class="content"><div class="container"></div>
+
+<script>
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+
+function unregister() {
+  document.removeEventListener('contextmenu', onContextMenu);
+}
+window.unregister = unregister;
+}());
+
+</script></div>
+<div class="footer">Die Übungen</div>
+
+ </body>
+</html>
