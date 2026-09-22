@@ -1,0 +1,47 @@
+#>info>Ich will Volleyball!
+# L2:info-c:Volksschülerinnen:/infos/werbung/Volleyball-Schnuppertraining.pdf
+# L2:info-b:Mittelschule & Gymnasium:/infos/werbung/Volleyball-Werbung.jpg
+#<<
+#
+>rule>Regelkunde
+  tactics:rules:Die neuen Regeln:/infos/articles/regeln.html
+<<
+>ak>Allgemeine Klasse
+ >ll>Landesliga
+  tactics:ll-strong:Gemeinsam sind wir stark!:/infos/LL/gemeinsam.html
+#  tactics:tac-bl-extra:Aufgaben:/infos/BL/aufgaben.html
+  D:dat-ll:Termine
+#  R:res-ll:Ergebnisse
+#  S:sta-ll:Tabelle
+#  P:pla-ll:Spielerinnen
+#  tactics:tac-bl-extra:Aufgaben:/infos/BL/aufgaben.html
+ <<
+# >cup>Cup - Team 1
+#  D:dat-cup1:Termine
+#  R:res-cup1:Ergebnisse
+#  S:sta-cup1:Tabelle
+#  P:pla-cup1:Spielerinnen
+# <<
+# >cup>Cup - Team 2
+#  D:dat-cup2:Termine
+#  R:res-cup2:Ergebnisse
+#  S:sta-cup2:Tabelle
+#  P:pla-cup2:Spielerinnen
+# <<
+ >ul2>Unterliga - 2
+  tactics:ul2-strong:Gemeinsam sind wir stark!:/infos/UL-2/gemeinsam.html
+  D:dat-ul2:Termine
+#  R:res-ul2:Ergebnisse
+#  S:sta-ul2:Tabelle
+#  P:pla-ul2:Spielerinnen
+ <<
+ >ul3>Unterliga - 3
+  tactics:ul3-strong:Gemeinsam sind wir stark!:/infos/UL-3/gemeinsam.html
+  D:dat-ul3:Termine
+#  R:res-ul3:Ergebnisse
+#  S:sta-ul3:Tabelle
+#  P:pla-ul3:Spielerinnen
+#  tactics:tac-ul-3-1:Spielsystem:/infos/UL-3/Grossfeld-1/index.html
+#  tactics:tac-ul-3-1:Spielsystem Fortgeschrittene:/infos/UL-3/Grossfeld-2/index.html
+ <<
+<<

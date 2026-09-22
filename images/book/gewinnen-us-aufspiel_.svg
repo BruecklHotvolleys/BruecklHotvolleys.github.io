@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="1300" height="1200" version="1.1" viewBox="0 0 1300 1200">
+  <defs>
+    <radialGradient id="courtFill" cx="1100" cy="-800" r="150%" spreadMethod="pad" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffe166"/>
+      <stop offset="100%" stop-color="#d69e48"/>
+    </radialGradient>
+  </defs>
+  <g>
+    <rect x="0" y="0" width="1300" height="1200" style="stroke: none; fill: #bdb5b7;"/>
+    <rect x="200" y="-800" width="900" height="1800" style="fill: url('#courtFill'); stroke: #0000b2; stroke-width: 5;"/>
+    <line x1="200" y1="100" x2="1100" y2="100" style="fill: none; stroke: #0000b2; stroke-width: 5;"/>
+    <line x1="200" y1="400" x2="1100" y2="400" style="fill: none; stroke: #0000b2; stroke-width: 5;"/>
+    <line x1="185" y1="400" x2="35" y2="400" style="fill: none; stroke: #0000b2; stroke-width: 5; stroke-dasharray: 15 15;"/>
+    <line x1="1115" y1="400" x2="1265" y2="400" style="fill: none; stroke: #0000b2; stroke-width: 5; stroke-dasharray: 15 15;"/>
+    <line x1="200" y1="1015" x2="200" y2="1030" style="fill: none; stroke: #0000b2; stroke-width: 5;"/>
+    <line x1="1100" y1="1015" x2="1100" y2="1030" style="fill: none; stroke: #0000b2; stroke-width: 5;"/>
+  </g>
+  <g class="actors">
+    <rect x="0" y="0" width="450" height="350" rx="25" ry="25" transform="translate(650 130)" style="stroke: none; fill: #008000;"/>
+    <rect x="0" y="0" width="420" height="350" rx="25" ry="25" transform="translate(230 130)" style="stroke: none; fill: #ffff00;"/>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

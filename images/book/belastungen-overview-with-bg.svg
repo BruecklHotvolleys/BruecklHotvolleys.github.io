@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="400" height="300" version="1.1" viewBox="0 0 400 300">
+  <g>
+    <rect x="0" y="0" width="400" height="300" style="stroke: none; fill: #00000000;"/>
+  </g>
+  <g class="actors">
+    <path d="M 100 50 L 300 50 L 200 200 Z" transform="translate(0 0)" style="stroke: #ff0000; stroke-width: 30; stroke-linecap: round; stroke-linejoin: round; fill: #ffff00;"/>
+    <ellipse cx="0" cy="0" rx="70" ry="25" transform="translate(100 50)" style="stroke: #0000ff; stroke-width: 5; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(100 49) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px;">LehrerInnen</text>
+    <ellipse cx="0" cy="0" rx="70" ry="25" transform="translate(300 50)" style="stroke: #0000ff; stroke-width: 5; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 49) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px;">Eltern</text>
+    <ellipse cx="0" cy="0" rx="70" ry="25" transform="translate(200 200)" style="stroke: #0000ff; stroke-width: 5; fill: #ffd700;"/>
+    <text x="0" y="0" text-anchor="middle" transform="translate(200 199) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 20px;">SchülerInnen</text>
+  </g>
+<script>//<![CDATA[
+(function(){
+/**
+ * Handles the context menu trigger to block it.
+ * @param {Event} event The event data.
+ * @returns {Boolean} true
+ */
+function onContextMenu(event) {
+  event.preventDefault();
+  return true;
+}
+
+// set a context menu handler
+document.addEventListener('contextmenu', onContextMenu);
+}());
+//]]></script>
+</svg>
+

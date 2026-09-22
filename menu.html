@@ -67,15 +67,43 @@ a {
   
   filter: drop-shadow(20px 20px 10px darkred);
 }
+a.infos {
+    float: right;
+    padding-top: 0px;
+    border-radius: 50%;
+    width: 170px;
+    font-size: 4em;
+    height: 170px;
+    background-color: blue;
+    color: #EEE;
+    font-family: serif;
+    filter: drop-shadow(20px 20px 10px darkblue);
+    margin: 0 25px 30px 25px;
+}
+div.infos {
+  float: left;
+  width: 170px;
+  height: 170px;
+  margin: 0 25px 30px 25px;
+}
+@media (max-width: 500px) {
+  div.infos {
+    display: none;
+  }
+}
+
   </style>
  </head>
  <body>
   <div class="bg">&nbsp;</div>
   <div class="content"><div class="links">
+  <div class="infos">&nbsp;</div>
+  <a class="infos" href="/infos/ov.html">i</a>
+  <br>
   <a href="/drills">Übungen</a>
   <a href="/ifthen">Entscheiden</a>
   <a href="/concepts">NW</a>
-  <br><br>
+  <br>
   <a href="/C">C</a>
   <a href="/B">B</a>
   <br>

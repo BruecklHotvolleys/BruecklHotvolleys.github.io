@@ -1,0 +1,222 @@
+/* -- main settings -------------------------------------------------------- */
+*, html, body {
+  margin: 0;
+  border: 0 none;
+  padding: 0;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  text-align: center;
+}
+html, body {
+  background: aliceblue;  /* aliceblue #F0F8FF */
+}
+
+@media (min-width: 500px) and (max-width: 750px) {
+  *, html, body {
+    font-size: 16px;
+  }
+}
+@media (min-width: 750px) and (max-width: 1000px) {
+  *, html, body {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1333px) {
+  *, html, body {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1333px) and (max-width: 1667px) {
+  *, html, body {
+    font-size: 22px;
+  }
+}
+@media (min-width: 1667px) and (max-width: 2000px) {
+  *, html, body {
+    font-size: 24px;
+  }
+}
+@media (min-width: 2000px) and (max-width: 2500px) {
+  *, html, body {
+    font-size: 26px;
+  }
+}
+@media (min-width: 2500px) and (max-width: 3000px) {
+  *, html, body {
+    font-size: 28px;
+  }
+}
+@media (min-width: 3000px) {
+  *, html, body {
+    font-size: 30px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+  margin: 0;
+  margin-bottom: 0.05em;
+  padding: 0;
+
+  font-weight: bold;
+  background: lightblue;
+
+  white-space: nowrap;
+  overflow: hidden;
+}
+h1 {
+  font-size: 3em;
+  padding: 0.5em;
+  line-height: 150%;
+}
+h2 {
+  font-size: 2.5em;
+  padding: 0.5em;
+}
+h3 {
+  font-size: 2em;
+  padding: 0.5em;
+}
+h4 {
+  font-size: 1.6em;
+  padding: 0.4em;
+}
+h5 {
+  font-size: 1.3em;
+  padding: 0.4em;
+}
+h6 {
+  font-size: 1em;
+  padding: 0.3em;
+}
+a {
+  color: #111;
+  text-decoration: none;
+}
+h1 > sub, h2 > sub, h3 > sub, h4 > sub, h5 > sub, h6 > sub {
+  font-size: 0.5em;
+  background-color: lightblue;
+}
+
+/* -- header --------------------------------------------------------------- */
+#header {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5em;
+
+  background-color: lightblue;
+
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#header > div.left {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  background-color: lightblue;
+}
+#header > div.right {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  background-color: lightblue;
+}
+#header > div > a {
+  position: relative;
+  display: inline-block;
+  height: 5em;
+  padding: 0.5em;
+  box-sizing: border-box;
+  background-color: lightblue;
+}
+#header > div > a > img {
+  height: 4em;
+  width: auto;
+}
+#header > div > div {
+  position: relative;
+  display: inline-block;
+
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0 0.1em 0.4em 0;
+  border-top: 0.5em solid lightblue;
+
+  font-size: 2em;
+  line-height: 112%;
+  font-weight: bold;
+  background-color: lightblue;
+
+  z-index: 1;
+}
+
+/* -- footer --------------------------------------------------------------- */
+#footer {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.4em;
+  padding: 0.2em 0.1em 0.1em 0.1em;
+  overflow: hidden;
+
+  background-color: lightblue;
+  font-size: 0.4em;
+  font-weight: bold;
+  text-align: left;
+}
+#footer > div {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  background-color: inherit;
+  font-weight: bold;
+  font-size: inherit;
+  padding: inherit;
+}
+/* -- content -------------------------------------------------------------- */
+div#content_container, div#loader {
+  position: absolute;
+  left: 0;
+  top: 5em;
+  right: 0;
+  min-width: 10em;
+  bottom: 0.55em;
+  padding: 0.5em;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+div#content_container.locked {
+  display: none;
+}
+div#loader {
+  font-size: 3em;
+  top: 2em;
+}
+
+pre#content {
+  font-family: monospace;
+  line-height: 111%;
+  text-align: left;
+  font-size: 1em;
+}
+pre#content > b.team {
+  font-family: monospace;
+  text-align: left;
+  padding: 0px;
+}

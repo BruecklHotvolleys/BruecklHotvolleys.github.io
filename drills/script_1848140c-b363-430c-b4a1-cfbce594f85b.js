@@ -1185,7 +1185,6 @@ animator.initAnimation(10.0, 2.0);
 if (typeof option !== 'undefined' && typeof animation0 !== 'undefined') {
   option.animation0 = animation0;
 }
-
 if (typeof animator !== 'undefined') {
   $event($('#tree-toggle'), 'change', (event) => {
     $$('g.actors').forEach((actors) => actors.className.baseVal = 'actors scratch');

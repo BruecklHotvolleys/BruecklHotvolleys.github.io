@@ -1115,7 +1115,6 @@ function onContextMenu(event) {
 
 // set a context menu handler
 document.addEventListener('contextmenu', onContextMenu);
-
 if (typeof animator !== 'undefined') {
   $event($('#tree-toggle'), 'change', (event) => {
     $$('g.actors').forEach((actors) => actors.className.baseVal = 'actors scratch');

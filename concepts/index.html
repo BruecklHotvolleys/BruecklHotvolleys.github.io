@@ -3,7 +3,7 @@
  <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="/brueckl-hotvolleys/concepts/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/concepts/favicon.ico">
   <title>NW-Konzept</title>
   <style>
 html, body, * {
@@ -97,7 +97,7 @@ div.header > a.to_menu {
   z-index: 1; 
   text-decoration: none;
   background-color: #DDD;
-  background-image: url("/images//bhv2.gif");
+  background-image: url("/images/bhv2.gif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -229,7 +229,7 @@ div.tree {
   
   overflow: hidden;
 }
-div.tree > div.tree-bg {
+div.tree > label.tree-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -466,8 +466,8 @@ function searchTreeItem(elem) {
 function loadData(data, handler) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
-    if (this.readyState == 4) {
-      if (this.status == 200) {
+    if (this.readyState === 4) {
+      if (this.status === 200) {
         handler(this.responseText);
       } else {
         handler(this.status);
@@ -589,7 +589,7 @@ function toggleFullscreen() {
 
 <label class="tree-menu" for="tree-toggle"><span>=</span></label>
 <input type="checkbox" checked id="tree-toggle" />
-<div class="tree"><div class="tree-bg">&nbsp;</div><div class="tree-content"><div class="item root">
+<div class="tree"><label class="tree-bg" for="tree-toggle">&nbsp;</label><div class="tree-content"><div class="item root">
  <span class="item-header" data-id="01edc5de-f3ad-1840-9ef7-d8bc852bbadc"><span class="text">NW-Konzept</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
 </div><div class="item">
  <input type="checkbox" id="01ee358c-9403-1458-89ca-735c923081d6" class="item-toggle" #checked# />

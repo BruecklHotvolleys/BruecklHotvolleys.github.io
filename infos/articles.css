@@ -1,0 +1,50 @@
+/* -- main settings -------------------------------------------------------- */
+*, html, body {
+  text-align: left;
+  text-align: justify;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  line-height: 150%;
+}
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.8em;
+}
+h3 {
+  font-size: 1.6em;
+}
+h4 {
+  font-size: 1.4em;
+}
+h5 {
+  font-size: 1.2em;
+}
+h6 {
+  font-size: 1.1em;
+}
+a {
+  color: #111;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+  background-image: url("/infos/image/ball32.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 0.9em;
+  background-position: left 0.05em;
+  padding: 0 0 0.1em 1.3em;
+}
+li li {
+  background-size: 0.7em;
+  background-position: left 0.2em;
+  padding: 0 0 0 1.1em;
+}

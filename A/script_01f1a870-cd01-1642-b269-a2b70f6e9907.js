@@ -216,7 +216,7 @@ function onClick(event) {
 
 var option = {
   data: {
-    'ID_window_editor_control_graphics_actor_actor_Actor_option_slide': true
+    'ID_window_editor_control_graphics_actor_actor_Actor_option_slide': false
   },
 
   // the current state info
@@ -2335,7 +2335,6 @@ effects.init();
 if (typeof option !== 'undefined' && typeof animation0 !== 'undefined') {
   option.animation0 = animation0;
 }
-
 if (typeof animator !== 'undefined') {
   $event($('#tree-toggle'), 'change', (event) => {
     $$('g.actors').forEach((actors) => actors.className.baseVal = 'actors scratch');

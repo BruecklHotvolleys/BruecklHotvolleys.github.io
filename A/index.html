@@ -97,7 +97,7 @@ div.header > a.to_menu {
   z-index: 1; 
   text-decoration: none;
   background-color: #DDD;
-  background-image: url("/images//bhv2.gif");
+  background-image: url("/images/bhv2.gif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -229,7 +229,7 @@ div.tree {
   
   overflow: hidden;
 }
-div.tree > div.tree-bg {
+div.tree > label.tree-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -466,8 +466,8 @@ function searchTreeItem(elem) {
 function loadData(data, handler) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
-    if (this.readyState == 4) {
-      if (this.status == 200) {
+    if (this.readyState === 4) {
+      if (this.status === 200) {
         handler(this.responseText);
       } else {
         handler(this.status);
@@ -589,15 +589,21 @@ function toggleFullscreen() {
 
 <label class="tree-menu" for="tree-toggle"><span>=</span></label>
 <input type="checkbox" checked id="tree-toggle" />
-<div class="tree"><div class="tree-bg">&nbsp;</div><div class="tree-content"><div class="item root">
+<div class="tree"><label class="tree-bg" for="tree-toggle">&nbsp;</label><div class="tree-content"><div class="item root">
  <span class="item-header" data-id="c904a0f0-8f84-4926-9906-e32290684f35"><span class="text">A-Kader</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Die 'Großen'</span></span>
 </div><div class="item">
- <input type="checkbox" id="01f162ca-17c6-1179-8bb1-94c708dc7121" class="item-toggle" #checked# />
- <label for="01f162ca-17c6-1179-8bb1-94c708dc7121" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
- <span class="item-header"m data-id="01f162ca-17c6-1179-8bb1-94c708dc7121"><span class="text">Annahme</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
+ <span class="item-header" data-id="01f1b339-f60d-1e6d-ab6e-597a9b37d2e1"><span class="text">Gemeinsam erfolgreich!</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div><div class="item">
+ <input type="checkbox" id="01f1af22-94bb-1559-ae2d-15473ffa2731" class="item-toggle" #checked# />
+ <label for="01f1af22-94bb-1559-ae2d-15473ffa2731" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f1af22-94bb-1559-ae2d-15473ffa2731"><span class="text">Annahme</span><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /></span>
  <div class="item-container"><div class="item">
  <span class="item-header" data-id="183b340d-fa7f-4ebc-ad57-dbb1810d15d6"><span class="text">3er Riegel</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">3 Spielerinnen nehmen an</span></span>
 </div><div class="item">
+ <input type="checkbox" id="01f162ca-17c6-1179-8bb1-94c708dc7121" class="item-toggle" #checked# />
+ <label for="01f162ca-17c6-1179-8bb1-94c708dc7121" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f162ca-17c6-1179-8bb1-94c708dc7121"><span class="text">Annahme</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Außenangreiferinnen und Libera</span></span>
+ <div class="item-container"><div class="item">
  <span class="item-header" data-id="01f19429-e87f-18fc-b3ba-f6b0109b21f5"><span class="text">L1</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Aufspielerin Pos1, Diagonale kreuzt und greift rechts an</span></span>
 </div><div class="item">
  <span class="item-header" data-id="01f16336-6e49-1a52-8383-2f6a3e4ea709"><span class="text">L6</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Aufspielerin Pos 6</span></span>
@@ -609,6 +615,24 @@ function toggleFullscreen() {
  <span class="item-header" data-id="01f1a845-68be-1a39-a769-88675a18d768"><span class="text">L3</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Aufspielerin Pos 3</span></span>
 </div><div class="item">
  <span class="item-header" data-id="01f1a84b-b9eb-1adc-93ed-faa8c6318881"><span class="text">L2</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Aufspielerin Pos 2</span></span>
+</div></div>
+</div><div class="item">
+ <input type="checkbox" id="01f1af10-261c-11c3-af17-8ba1118fec40" class="item-toggle" #checked# />
+ <label for="01f1af10-261c-11c3-af17-8ba1118fec40" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f1af10-261c-11c3-af17-8ba1118fec40"><span class="text">Annahme</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Außenangreiferin, Diagonalspielerin, Libera</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01f1af0f-e3e1-1759-8efe-5a32841114ea"><span class="text">L1</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f1af16-284d-1e19-9cab-2a4997bbf1a5"><span class="text">L6</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">&quot;S&quot;-Anlauf</span></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f1af1e-e40f-1659-96ff-2fadc98d810d"><span class="text">L5</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f1af24-da43-1408-935d-9c1f83f38c2b"><span class="text">L4</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f1af12-0ab1-1747-813d-83224e3c32c7"><span class="text">L3</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div><div class="item">
+ <span class="item-header" data-id="01f1af15-64b8-1260-936d-f70944866b97"><span class="text">L2</span><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /></span>
+</div></div>
 </div></div>
 </div><div class="item">
  <input type="checkbox" id="01f16369-6ba7-17ad-9281-6cc50e00936d" class="item-toggle" #checked# />
@@ -670,7 +694,12 @@ function toggleFullscreen() {
  <label for="01f1a864-ec5c-1647-8781-831873486f94" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
  <span class="item-header"m data-id="01f1a864-ec5c-1647-8781-831873486f94"><span class="text">Aufspiel</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Tempo! Tempo! Tempo!</span></span>
  <div class="item-container"><div class="item">
- <span class="item-header" data-id="01f1a870-cd01-1642-b269-a2b70f6e9907"><span class="text">Die Codes</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Die wichtigsten Varianten, und wie zeige ich es an</span></span>
+ <input type="checkbox" id="01f1a870-cd01-1642-b269-a2b70f6e9907" class="item-toggle" #checked# />
+ <label for="01f1a870-cd01-1642-b269-a2b70f6e9907" class="item"><img src="/images/img-minus.svg" /><img src="/images/img-plus.svg" /></label>
+ <span class="item-header"m data-id="01f1a870-cd01-1642-b269-a2b70f6e9907"><span class="text">Die Codes</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Die wichtigsten Varianten, und wie zeige ich es an</span></span>
+ <div class="item-container"><div class="item">
+ <span class="item-header" data-id="01f1b2a6-2f51-1047-81fd-2baba8824c82"><span class="text">Einstellungen</span><span class="icon">I</span></span>
+</div></div>
 </div><div class="item">
  <span class="item-header" data-id="01f1a878-d55c-1168-a766-827479ea850f"><span class="text">Die Codes 9</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">Die wichtigsten Varianten für Hinterfeldangriffe</span></span>
 </div></div>

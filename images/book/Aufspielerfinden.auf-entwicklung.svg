@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:data="http://www.data.org/1/data" width="250" height="250" version="1.1" viewBox="0 0 250 250">
+  <defs>
+    <mask id="xarea_2" maskContentUnits="userSpaceOnUse">
+      <ellipse cx="125" cy="125" rx="110" ry="110" fill="white"/>
+      <ellipse cx="125" cy="125" rx="45" ry="45" fill="black"/>
+    </mask>
+  </defs>
+  <g>
+    <rect x="0" y="0" width="250" height="250" style="stroke: none; fill: #d3d3d3;"/>
+    <g data-option="ID_window_editor_control_graphics_frame_FrameImpl_grid5">
+      <line x1="0" y1="0" x2="250" y2="0" data-option="ID_window_editor_control_graphics_frame_FrameImpl_grid1_not" style="fill: none; stroke: #808080; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="0" y1="50" x2="250" y2="50" style="fill: none; stroke: #808080; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="0" y1="100" x2="250" y2="100" data-option="ID_window_editor_control_graphics_frame_FrameImpl_grid1_not" style="fill: none; stroke: #808080; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="0" y1="150" x2="250" y2="150" style="fill: none; stroke: #808080; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="0" y1="200" x2="250" y2="200" data-option="ID_window_editor_control_graphics_frame_FrameImpl_grid1_not" style="fill: none; stroke: #808080; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="0" y1="250" x2="250" y2="250" style="fill: none; stroke: #808080; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="0" y1="0" x2="0" y2="250" data-option="ID_window_editor_control_graphics_frame_FrameImpl_grid1_not" style="fill: none; stroke: #808080; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="50" y1="0" x2="50" y2="250" style="fill: none; stroke: #808080; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="100" y1="0" x2="100" y2="250" data-option="ID_window_editor_control_graphics_frame_FrameImpl_grid1_not" style="fill: none; stroke: #808080; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="150" y1="0" x2="150" y2="250" style="fill: none; stroke: #808080; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="200" y1="0" x2="200" y2="250" data-option="ID_window_editor_control_graphics_frame_FrameImpl_grid1_not" style="fill: none; stroke: #808080; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="250" y1="0" x2="250" y2="250" style="fill: none; stroke: #808080; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+    </g>
+    <g data-option="ID_window_editor_control_graphics_frame_FrameImpl_grid1">
+      <line x1="0" y1="0" x2="250" y2="0" style="fill: none; stroke: #404040; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="0" y1="100" x2="250" y2="100" style="fill: none; stroke: #404040; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="0" y1="200" x2="250" y2="200" style="fill: none; stroke: #404040; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="0" y1="0" x2="0" y2="250" style="fill: none; stroke: #404040; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="100" y1="0" x2="100" y2="250" style="fill: none; stroke: #404040; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+      <line x1="200" y1="0" x2="200" y2="250" style="fill: none; stroke: #404040; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 3;"/>
+    </g>
+  </g>
+  <g class="actors">
+    <g transform="translate(125 125)">
+      <g style="mask: url(#xarea_2);">
+        <path d="M 0 0 L 0 -100 A 100 100 0 0 1 99.211 12.533 Z" style="fill: #0000ff;"/>
+        <path d="M 0 0 L 99.211 12.533 A 100 100 0 0 1 58.779 80.902 Z" style="fill: #ff69b4;"/>
+        <path d="M 0 0 L 58.779 80.902 A 100 100 0 0 1 -99.211 12.533 Z" style="fill: #ff0000;"/>
+        <path d="M 0 0 L -99.211 12.533 A 100 100 0 0 1 -95.106 -30.902 Z" style="fill: #ffa500;"/>
+        <path d="M 0 0 L -95.106 -30.902 A 100 100 0 0 1 -0 -100 Z" style="fill: #00ff7f;"/>
+      </g>
+      <text x="51.008" y="-44.969" text-anchor="middle" transform="translate(0 6.333)" style="stroke: none; fill: #ffffff; font-size: 16.667px; font-family: Arial, Helvetica, sans-serif;">Technik</text>
+      <text x="51.008" y="-44.969" text-anchor="middle" transform="translate(0 20.891)" style="stroke: none; fill: #ffffff; font-size: 11.117px; font-family: Arial, Helvetica, sans-serif;">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;27%</text>
+      <text x="60.252" y="35.633" text-anchor="middle" transform="translate(0 6.333)" style="stroke: none; fill: #111111; font-size: 16.667px; font-family: Arial, Helvetica, sans-serif;">Taktik</text>
+      <text x="60.252" y="35.633" text-anchor="middle" transform="translate(0 20.891)" style="stroke: none; fill: #111111; font-size: 11.117px; font-family: Arial, Helvetica, sans-serif;">13%</text>
+      <text x="-25.02" y="57.819" text-anchor="middle" transform="translate(0 6.333)" style="stroke: none; fill: #111111; font-size: 16.667px; font-family: Arial, Helvetica, sans-serif;">&#xA0;&#xA0;&#xA0;Kommunikation</text>
+      <text x="-25.02" y="57.819" text-anchor="middle" transform="translate(0 20.891)" style="stroke: none; fill: #111111; font-size: 11.117px; font-family: Arial, Helvetica, sans-serif;">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;33%</text>
+      <text x="-74.667" y="-7.058" text-anchor="middle" transform="translate(0 6.333)" style="stroke: none; fill: #111111; font-size: 16.667px; font-family: Arial, Helvetica, sans-serif;">Bewegung</text>
+      <text x="-74.667" y="-7.058" text-anchor="middle" transform="translate(0 20.891)" style="stroke: none; fill: #111111; font-size: 11.117px; font-family: Arial, Helvetica, sans-serif;">7%</text>
+      <text x="-42.321" y="-58.249" text-anchor="middle" transform="translate(0 6.333)" style="stroke: none; fill: #111111; font-size: 16.667px; font-family: Arial, Helvetica, sans-serif;">&#xA0;Psyche</text>
+      <text x="-42.321" y="-58.249" text-anchor="middle" transform="translate(0 20.891)" style="stroke: none; fill: #111111; font-size: 11.117px; font-family: Arial, Helvetica, sans-serif;">&#xA0;&#xA0;20%</text>
+    </g>
+  </g>
+  <!-- context menu - - - - - - - - - - -->
+  <rect id="contextmenu_bg" x="0" y="0" />
+  <g id="contextmenu" class="contextmenu">
+    <rect x="0" y="0" width="204" height="68" rx="5" ry="5" />
+    <g class="menuitem" data-item="ID_window_editor_control_graphics_frame_FrameImpl_grid1" transform="translate(0 0)">
+     <rect x="2" y="2" width="200" height="32" class="bg" />
+     <rect x="7" y="10" width="15" height="15" rx="1" ry="1" class="cb" />
+     <path d="M 8 17 l 5 7 l 13 -19" class="cb2" />
+     <text x="30" y="25">1m Raster</text>
+    </g>
+    <g class="menuitem" data-item="ID_window_editor_control_graphics_frame_FrameImpl_grid5" transform="translate(0 32)">
+     <rect x="2" y="2" width="200" height="32" class="bg" />
+     <rect x="7" y="10" width="15" height="15" rx="1" ry="1" class="cb" />
+     <path d="M 8 17 l 5 7 l 13 -19" class="cb2" />
+     <text x="30" y="25">0.5m Raster</text>
+    </g>
+  </g>
+  <style>
+#contextmenu_bg {
+  width: 100%;
+  height: 100%;
+  fill: #7777777f;
+}
+#contextmenu_bg, #contextmenu {
+  display: none;
+  cursor: default;
+}
+
+g.contextmenu > rect, g.submenu > rect {
+  stroke: gray;
+  stroke-width: 3px;
+  fill: lightgray;
+}
+
+g.menuitem > rect, g.submenuitem > rect {
+  stroke: none;
+  fill: lightgray;
+  /*cursor: pointer;*/
+}
+g.menuitem > * {
+  pointer-events: none;
+}
+g.menuitem > rect.bg {
+  pointer-events: all;
+  cursor: pointer;
+}
+g.submenuitem > rect.bg {
+  /*pointer-events: all;*/
+}
+g.menuitem:hover > rect.bg, g.submenuitem:hover > rect.bg {
+  fill: darkgray;
+}
+g.menuitem > text, g.submenuitem > text {
+  stroke: none;
+  fill: #111;
+  font-family: Arial;
+  font-size: 22px;
+  /*cursor: pointer;*/
+}
+/*
+g.submenuitem > rect, g.submenuitem > text {
+  cursor: default;
+}
+*/
+g.menuitem > rect.cb, g.menuitem > circle.rb {
+  stroke: gray;
+  stroke-width: 2px;
+  fill: none;
+}
+g.menuitem > circle.rb2 {
+  stroke: none;
+  fill: #111;
+}
+
+g.menuitem > path.cb2, g.submenuitem > path.marker_submenu {
+  stroke: #111;
+  stroke-width: 2px;
+  fill: none;
+  display: block;
+}
+g.submenu {
+  display: none;
+}
+g.submenuitem:hover > g.submenu {
+  display: block;
+}
+
+#contextmenu > rect.separator {
+  fill: #BBB;
+  stroke: none;
+}
+
+
+g.menuitem > path.mi-play, g.menuitem > path.mi-stop {
+  stroke: none;
+  fill: #444;
+}
+g.menuitem > path.mi-pause {
+  stroke: #444;
+  stroke-width: 3px;
+  fill: none;
+}
+
+
+g.actors.animation > g.move {
+  display: none !important;
+}
+
+  </style>
+<script>//<![CDATA[
+(function(){
+/**
+ * Selects the first matching dom element.
+ * @param {string} selector The selector of the element.
+ * @param {DOMElement} parent The optional root of the search (default: document).
+ * @returns DOMElement The first matching DOM element.
+ */
+function $(selector, parent) {
+  return (parent ? parent : document).querySelector(selector);
+}
+
+/**
+ * Selects DOMElements.
+ * @param {string} selector The selector of the DOMElements.
+ * @param {DOMElement} parent The optional root of the search (default: document).
+ * @returns {NodeList} The list of matching DOMElements.
+ */
+function $$(selector, parent) {
+  return (parent ? parent : document).querySelectorAll(selector);
+}
+
+/**
+ * Connects an event handler to a given DOMElement.
+ * @param {DOMElement} elem The DOMElement to handle.
+ * @param {string} event The name of the event to handle.
+ * @param {Function} handler The event handler.
+ * @returns {void}
+ */
+function $event(elem, event, handler) {
+  elem.addEventListener(event, handler);
+}
+//-- create menu script -------------------------------------- (vvv) --
+// --- ios helper --------------------------------- vv ---
+var timer = null,
+    cmPosX = -1000,
+    cmPosY = -1000;
+
+function touchstart(e) {
+  cmPosX = e.touches[0].clientX;
+  cmPosY = e.touches[0].clientY;
+  touchend();
+  if (e.touches.length === 1) {
+    timer = setTimeout(function() { onlongtouch(cmPosX, cmPosY); }, 800);
+  }
+}
+
+function touchmove(e) {
+  if (timer) {
+    if (Math.abs(cmPosX - e.touches[0].clientX) > 5 ||
+        Math.abs(cmPosY - e.touches[0].clientY) > 5) {
+      touchend();
+    }
+  }
+}
+
+function touchend() {
+  if (timer) {
+    clearTimeout(timer);
+    timer = null;
+  }
+}
+
+function onlongtouch(x,y){
+  timer = null;
+  showContextMenu(x, y);
+}
+
+$event(document, 'touchstart', touchstart);
+$event(document, 'touchend', touchend);
+$event(document, 'touchmove', touchmove);
+// --- ios helper --------------------------------- ^^ ---/* global $$ */
+var cm, bg,
+    contextmenu = false;
+
+function onContextMenu(event) {
+  event.preventDefault();
+
+  // ignore clicks outside of svg area
+  var svg = _getSvgImg();
+  if (!svg || !svg.contains(event.target)) {
+    return;
+  }
+
+  // InternalError is unique for firefox
+  //var isFirefox = !!window.InternalError,
+  //    x = isFirefox ? event.clientX : event.pageX,
+  //    y = isFirefox ? event.clientY : event.pageY;
+  showContextMenu(event.clientX, event.clientY);
+}
+
+function _getSvgImg() {
+  var svg = $('div.img > svg');
+  if (!svg) {
+    svg = $('svg');
+  }
+  return svg;
+}
+
+function showContextMenu(x, y) {
+  // show context menu if not visible
+  if (!contextmenu) {
+    contextmenu = true;
+
+    /**
+     * Switch an option state.
+     * @param {NodeList} elems A list of html elements.
+     * @returns {void}
+     */
+    var setOpts = function(elems) {
+      if (elems) {
+        for (var i = 0, i2 = elems.length; i < i2; ++i) {
+          var elem = elems[i],
+              elemP = elem.parentNode;
+
+          if (elemP.dataset && elemP.dataset.item) {
+            var key = elemP.dataset.item;
+            if (option.data[key] === true || option.data[key] === false) {
+              elem.style.display = option.data[key] ? 'block' : 'none';
+     	    }
+          }
+        }
+      }
+    };
+
+    // handle all options: radios and checkboxes
+    var rbs = document.getElementsByClassName('rb2'),
+        cbs = document.getElementsByClassName('cb2');
+    setOpts(rbs);
+    setOpts(cbs);
+
+    // show background + context menu
+    cm.style.display = 'block';
+    bg.style.display = 'block';
+
+    //var svg = document.getElementsByTagName('svg')[0], pt, svgP;
+    var svg = _getSvgImg(), pt, svgP;
+    try {
+      // transform point to SVG coordinates
+      pt = new DOMPoint(x,y);
+      svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+    } catch {
+      // old browsers: create SVG point, set pos, transform to SVG coordinates
+      pt = svg.createSVGPoint();
+      pt.x = x;
+      pt.y = y;
+      svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+    }
+
+    cm.setAttribute('transform', 'translate(' + svgP.x + ' ' + svgP.y + ') scale(0.375)');
+  }
+}
+
+function onClick(event) {
+  if (contextmenu) {
+    contextmenu = false;
+    cm.style.display = 'none';
+    bg.style.display = 'none';
+
+    var node = event.target;
+    while (node) {
+      if (node.dataset && node.dataset.item) {
+        if (node.parentNode
+            && node.parentNode.parentNode
+            && node.parentNode.parentNode.dataset
+            && node.parentNode.parentNode.dataset.group) {
+          option.reset(node.parentNode.parentNode.dataset.group);
+        }
+
+        option.set(node.dataset.item);
+        node = null;
+      } else {
+        node = node.parentNode;
+      }
+    }
+  }
+}
+
+var option = {
+  data: {
+    'ID_window_editor_control_graphics_frame_FrameImpl_grid1': false,
+    'ID_window_editor_control_graphics_frame_FrameImpl_grid5': false
+  },
+
+  // the current state info
+  _current: {
+  },
+
+  // TODO animation, effects
+  // the connected animation info
+  'animator': undefined,
+  'animation0': undefined,
+  // the connected effects handler
+  effects: null,
+
+  reset: function(keys) {
+    if (typeof keys === 'string') {
+      var keys2 = keys.split(',');
+      if (Array.isArray(keys2)) {
+        for (var i = 0, i2 = keys2.length; i < i2; ++i) {
+          this.data[keys2[i]] = false;
+          this._updateElems(keys2[i], false);
+        }
+      }
+    }
+  },
+
+  set: function(key) {
+    this.data[key] = !this.data[key];
+    this._updateElems(key);
+  },
+
+  init: function() {
+    for (var key in this.data) {
+      console.log('_updateElems ' + key);
+      
+      this._updateElems(key);
+    }
+  },
+
+  getCurrent: function(id) {
+    if (this._current[id] !== undefined) {
+      return this._current[id];
+    }
+    return true;
+  },
+
+  _updateElems: function(key, state) {
+    var st = state === undefined ? this.data[key] : state;
+
+    // items that reflect the state
+    var elems = $$('[data-option="' + key + '"]');
+    if (elems) {
+      for (var i = 0, i2 = elems.length; i < i2; ++i) {
+        var elem = elems[i];
+        elem.style.display = st ? "block" : "none";
+        if (elem.id) {
+          this._current[elem.id] = st;
+        }
+      }
+    }
+
+    // items that reflect the inverted state
+    elems = $$('[data-option="' + key + '_not"]');
+    if (elems) {
+      for (var i = 0, i2 = elems.length; i < i2; ++i) {
+        var elem = elems[i];
+        elem.style.display = st ? "none" : "block";
+        if (elem.id) {
+          this._current[elem.id] = !st;
+        }
+      }
+    }
+  }
+};
+
+option.init();
+
+cm = $('#contextmenu');
+bg = $('#contextmenu_bg');
+$event(document, 'contextmenu', onContextMenu);
+$event(bg, 'click', onClick);
+$event(cm, 'click', onClick);
+
+// init size of context submenu items (because of text size)
+$$('g.submenuitem').forEach((sub) => {
+  $event(sub, 'mouseenter', () => {
+    var txts = $$('g.submenu > g.menuitem > text');
+    // 200 size of menu item + 2px width border, 30 is left of text field
+    var len = 170;
+    txts.forEach((txt) => len = Math.max(len, Math.ceil(txt.getBBox().width + 5)));
+    if (len > 170) {
+      var first = true;
+      txts.forEach((txt) => {
+        if (first) {
+          var rc = $('rect', txt.parentNode.parentNode);
+          rc.style.width = (len + 34) + 'px';
+          first = false;
+        }
+        var rc = $('rect', txt.parentNode);
+        rc.style.width = (len + 30) + 'px';
+      });
+    }
+  });
+});
+
+//-- create menu script -------------------------------------- (^^^) --
+}());
+//]]></script>
+</svg>
+

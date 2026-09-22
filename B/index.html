@@ -97,7 +97,7 @@ div.header > a.to_menu {
   z-index: 1; 
   text-decoration: none;
   background-color: #DDD;
-  background-image: url("/images//bhv2.gif");
+  background-image: url("/images/bhv2.gif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -229,7 +229,7 @@ div.tree {
   
   overflow: hidden;
 }
-div.tree > div.tree-bg {
+div.tree > label.tree-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -466,8 +466,8 @@ function searchTreeItem(elem) {
 function loadData(data, handler) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
-    if (this.readyState == 4) {
-      if (this.status == 200) {
+    if (this.readyState === 4) {
+      if (this.status === 200) {
         handler(this.responseText);
       } else {
         handler(this.status);
@@ -589,7 +589,7 @@ function toggleFullscreen() {
 
 <label class="tree-menu" for="tree-toggle"><span>=</span></label>
 <input type="checkbox" checked id="tree-toggle" />
-<div class="tree"><div class="tree-bg">&nbsp;</div><div class="tree-content"><div class="item root">
+<div class="tree"><label class="tree-bg" for="tree-toggle">&nbsp;</label><div class="tree-content"><div class="item root">
  <span class="item-header" data-id="01ef1d3b-fdf8-1ed4-8c63-6e826666d688"><span class="text">B-Kader</span><br><img src="/images/img-00000000-0000-0000-0000-000000000003.svg" /><span class="footer">Noch nicht so groß...</span></span>
 </div><div class="item">
  <span class="item-header" data-id="01ef1d3e-06ea-1e55-af2c-54c11b3980a1"><span class="text">Annahme</span><br><img src="/images/img-00000000-0000-0000-0000-000000000006.svg" /><span class="footer">3 Angreiferinnen</span></span>
