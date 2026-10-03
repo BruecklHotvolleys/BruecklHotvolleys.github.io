@@ -1,7 +1,7 @@
 var map = {
   // LL
   // key     tea_id, ?, text
-  'pla-ll': [50584, null, 'Bundesliga'],
+  'pla-ll': [50584, null, 'Landesliga'],
   //'pla-blcup': [43518, null, 'Bundesliga - Cup'],
   // UL-2
   'pla-ul2': [50611, null, 'Unterliga - 2'],
