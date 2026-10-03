@@ -9,12 +9,10 @@
 >ak>Allgemeine Klasse
  >ll>Landesliga
   tactics:ll-strong:Gemeinsam sind wir stark!:/infos/LL/gemeinsam.html
-#  tactics:tac-bl-extra:Aufgaben:/infos/BL/aufgaben.html
   D:dat-ll:Termine
-#  R:res-ll:Ergebnisse
-#  S:sta-ll:Tabelle
-#  P:pla-ll:Spielerinnen
-#  tactics:tac-bl-extra:Aufgaben:/infos/BL/aufgaben.html
+  R:res-ll:Ergebnisse
+  S:sta-ll:Tabelle
+  P:pla-ll:Spielerinnen
  <<
 # >cup>Cup - Team 1
 #  D:dat-cup1:Termine

@@ -1,3 +1,4 @@
+/* global ie, base64, NL */
 function log(txt) {
   if (console && console.log) {
     console.log(txt);
@@ -225,7 +226,7 @@ window.bhv.request = {
   // #endregion
 
   // #region -- presence ------------------------------------------------------
-  
+
   'queryPresence': function(key, onsuccess, onerror) {
     var url = location.protocol + '//' + location.host + '/infos/data/' + key + '.xml?x=1';
 
@@ -240,7 +241,7 @@ window.bhv.request = {
   // #endregion
 
   // #region -- diary ---------------------------------------------------------
-  
+
   'queryDiary': function(key, onsuccess, onerror) {
     var url = location.protocol + '//' + location.host + '/infos/data/' + key + '.xml?x=1';
 
@@ -282,7 +283,7 @@ window.bhv.request = {
   /**
    * Queries the schedules from server.
    * @param {string} idBew The id of the competition.
-   * @param {string|array<string>} idBew The id of the team or an array with the id of the club and the id of the team.
+   * @param {string|array<string>} idTea The id of the team or an array with the id of the club and the id of the team.
    * @param {Function} onsuccess The callback to return the schedules.
    * @param {Function} onerror The error callback.
    * @return {Boolean} True if the request has been started successfully,
@@ -296,7 +297,7 @@ window.bhv.request = {
     // check id of competition and team or club and team
     if (Array.isArray(idTea)) {
       // check competition and number of ids
-      var ok = this._checkId(idBew, 'competition') && idTea.length == 2;
+      var ok = this._checkId(idBew, 'competition') && idTea.length === 2;
 
       // check id of club and team
       for (var i = 0; i < idTea.length && ok; ++i) {
@@ -357,7 +358,7 @@ window.bhv.request = {
     // collect the ids of the clubs
     for (var i = 0; i < clubs.length && ok; ++i) {
       ok = this._checkId(clubs[i], 'club');
-      if (club != '') {
+      if (club !== '') {
         club += ' or ';
       }
       club += 'vrn_id_a = ' + clubs[i] + ' or vrn_id_b = ' + clubs[i];
@@ -402,7 +403,7 @@ window.bhv.request = {
     var url = location.protocol
       + '//kvv2.volleynet.at/volleynet/service/xml2.php'
       + '?action=turniere&bewerb_id=' + idBew;
-    
+
     if (!this._startRequest(url, 15000, onsuccess, onerror, false)) {
       onerror();
       return false;
@@ -538,7 +539,7 @@ window.bhv.request = {
     var url = location.protocol
       + '//kvv.volleynet.at/volleynet/service/xml2.php'
       + '?action=ergebnis&where='
-      + encodeURIComponent(comp + 'and (' + club + ') and (' + team + ')')
+      + encodeURIComponent(comp + ' and (' + club + ') and (' + team + ')')
       + '&orderBy=spi_datum';
 
     // request data
@@ -591,6 +592,7 @@ window.bhv.request = {
 
   /**
    * Sends a file of x-dates.
+   * @param {string} year The year of the extra dates.
    * @param {string} file The file to send.
    * @param {string} sha The sha file to send.
    * @param {function} onsuccess The on success callback.
@@ -681,7 +683,7 @@ window.bhv.request = {
   }
 
   // #endregion
-}
+};
 
 /**
  * Some utilities.
@@ -720,10 +722,10 @@ window.bhv.request.utils = {
     // get key from query string
     var parts = location.search.substring(1).split('&');
     // only one param
-    if (parts.length == 1) {
+    if (parts.length === 1) {
       // extract value of key
       parts = parts[0].split('=');
-      if (parts.length == 2 && parts[0] == 'key') {
+      if (parts.length === 2 && parts[0] === 'key') {
         key = parts[1];
       }
     }
@@ -753,7 +755,7 @@ window.bhv.request.utils = {
   /**
    * Text column padding.
    * @param {string} txt The text to display in a text column.
-   * @param {number} The size of the column, + for left aligned text, - for
+   * @param {number} len The size of the column, + for left aligned text, - for
    * right aligned text.
    * @param {string} pad The optional padding character (default: ' ').
    * The padded text.
@@ -795,7 +797,7 @@ window.bhv.request.utils = {
       } else {
         // cut some characters, but preserve number code of team
         txt = txt.substring(0, len - 2);
-        if (txt.substring(txt.length - 1) != pad) {
+        if (txt.substring(txt.length - 1) !== pad) {
           txt += pad + num;
         } else {
           // avoid double space in text
@@ -816,6 +818,7 @@ window.bhv.request.utils = {
   /**
    * Add the standings to the page.
    * @param {string} txt The text to add.
+   * @param {boolean} replace True to replace the current node (and all possible siblings), false to add content as children.
    * @return {void}
    */
   inject: function(txt, replace) {
@@ -862,7 +865,7 @@ window.bhv.request.utils = {
         return '0' + nr;
       }
       return nr;
-    }
+    };
 
     if (date && date instanceof Date) {
       return date.getFullYear() + '-'
@@ -872,7 +875,7 @@ window.bhv.request.utils = {
 
     return '';
   }
-}
+};
 
 /**
  * Xml utilities.
@@ -883,7 +886,8 @@ window.bhv.request.xml = {
 
   /**
    * Creates a xml document from the response text.
-   * @param {string} reponse The response from the web service.
+   * @param {string} response The response from the web service.
+   Ü @param {string} type The type of the expected reponse (html or xml).
    * @return {DOMDocument} The xml document.
    */
   fromText: function(response, type) {
@@ -990,7 +994,7 @@ window.bhv.request.xml = {
   /**
    * Creates the result info from the xml data.
    * @param {NodeList} nodes The infos about a game containing the result info.
-   * @param {String} The formatted resuöt info or an empty string.
+   * @return {String} The formatted result info or an empty string.
    */
   'createGameResult': function(nodes) {
     var setAa, setBb, sets, s,
@@ -1032,4 +1036,4 @@ window.bhv.request.xml = {
   }
 
   // #endregion
-}
+};

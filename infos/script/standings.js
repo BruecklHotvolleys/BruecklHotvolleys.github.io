@@ -1,17 +1,17 @@
 var map = {
   // BL
-  'sta-bl': [34267, leagueStandings, 'Bundesliga', 43480],
+  'sta-ll': [39996, leagueStandings, 'Landesliga', 50584],
   // UL-2
-  'sta-ul2': [34791, leagueStandings, 'Unterliga - 2', 44267],
+  'sta-ul2': [40004, leagueStandings, 'Unterliga - 2', 50611],
   // UL-3
-  'sta-ul3': [34792, leagueStandings, 'Unterliga - 3', 44278],
+  'sta-ul3': [40003, leagueStandings, 'Unterliga - 3', 50649]
   // U12...
-  'sta-u12': [34975, kidsStandings, 'Tabelle U12'],
+  //'sta-u12': [34975, kidsStandings, 'Tabelle U12'],
   //'sta-u12f': [?, kidsStandingsF, 'Endstand U12'],
-  'sta-u13': [34974, kidsStandings, 'Tabelle U13'],
-  'sta-u14': [34973, kidsStandings, 'Tabelle U14'],
-  'sta-u15': [34972, kidsStandings, 'Tabelle U15'],
-  'sta-u16': [34970, kidsStandings, 'Tabelle U16']
+  //'sta-u13': [34974, kidsStandings, 'Tabelle U13'],
+  //'sta-u14': [34973, kidsStandings, 'Tabelle U14'],
+  //'sta-u15': [34972, kidsStandings, 'Tabelle U15'],
+  //'sta-u16': [34970, kidsStandings, 'Tabelle U16']
 };
 
 /**
@@ -89,7 +89,7 @@ function doKidsStandings(response, final) {
       // add created text to page
       window.bhv.request.utils.inject(window.bhv.request.utils.getTitle(map) + msg);
 
-      setTimeout(function() { 
+      setTimeout(function() {
         counter = 10;
         handleCBs();
       }, 100);
@@ -114,7 +114,7 @@ function handleCBs() {
       }
     }
   } else if (--counter > 0) {
-    setTimeout(function() { 
+    setTimeout(function() {
       handleCBs();
     }, 100);
   }
@@ -163,7 +163,7 @@ function leagueStandings(response) {
 
 /**
  * Starts the loading of the standings.
- * 
+ *
  * @return {void}
  */
 function getStandings() {

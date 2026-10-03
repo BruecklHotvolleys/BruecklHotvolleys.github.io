@@ -1,12 +1,13 @@
 var map = {
-  // BL
-  'pla-bl': [43480, null, 'Bundesliga'],
-  'pla-blcup': [43518, null, 'Bundesliga - Cup'],
+  // LL
+  // key     tea_id, ?, text
+  'pla-ll': [50584, null, 'Bundesliga'],
+  //'pla-blcup': [43518, null, 'Bundesliga - Cup'],
   // UL-2
-  'pla-ul2': [44267, null, 'Unterliga - 2'],
+  'pla-ul2': [50611, null, 'Unterliga - 2'],
   // UL-3
-  'pla-ul3': [44278, null, 'Unterliga - 3']
-}
+  'pla-ul3': [50649, null, 'Unterliga - 3']
+};
 
 function getPlayers() {
   var key = window.bhv.request.utils.getKey();
@@ -21,7 +22,7 @@ function getPlayers() {
 
 /**
  * Create the html view of the players and inject it into page.
- * 
+ *
  * @param {string} response The response from volleynet server (or from
  * archive).
  */
