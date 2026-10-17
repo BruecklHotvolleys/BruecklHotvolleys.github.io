@@ -19,30 +19,30 @@
     <ellipse cx="0" cy="0" rx="15" ry="15" transform="translate(430 775)" style="stroke: #ff0000; stroke-width: 7.5; fill: #ffffff;"/>
     <g transform="translate(500 115)">
       <ellipse cx="0" cy="0" rx="65" ry="65" style="stroke: #696969; stroke-width: 5; fill: #808080;"/>
-      <g transform="translate(-29 -29) rotate(30)">
+      <g id="ball_3" transform="translate(-29 -29) rotate(30)">
         <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00;"/>
-        <path d="M 266 -64.5 C 249.333 -81.167 241 -100.75 262.667 -112 C 254.333 -103.667 257.667 -84.5 281 -66 L 266 -64.512 L 281 -66 Q 273.5 -62.833 266 -64.512" transform="translate(-271 89)" style="stroke: none; fill: #0000ff;"/>
-        <path d="M 291.661 -74.833 C 279.161 -87.333 274.994 -99.833 272.661 -107.333 Q 289.328 -95.429 295.994 -88.167 Q 295.828 -81 291.647 -74.833 Z" transform="translate(-271 89)" style="stroke: none; fill: #0000ff;"/>
+        <path id="path_4" d="M 266 -64.5 C 249.333 -81.167 241 -100.75 262.667 -112 C 254.333 -103.667 257.667 -84.5 281 -66 L 266 -64.512 L 281 -66 Q 273.5 -62.833 266 -64.512" transform="translate(-271 89)" style="stroke: none; fill: #0000ff;"/>
+        <path id="path_5" d="M 291.661 -74.833 C 279.161 -87.333 274.994 -99.833 272.661 -107.333 Q 289.328 -95.429 295.994 -88.167 Q 295.828 -81 291.647 -74.833 Z" transform="translate(-271 89)" style="stroke: none; fill: #0000ff;"/>
       </g>
-      <g transform="translate(29 -29) rotate(-30)">
+      <g id="ball_6" transform="translate(29 -29) rotate(-30)">
         <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00;"/>
-        <path d="M 324 -64.5 C 307.333 -81.167 299 -100.75 320.667 -112 C 312.333 -103.667 315.667 -84.5 339 -66 L 324 -64.512 L 339 -66 Q 331.5 -62.833 324 -64.512" transform="translate(-329 89)" style="stroke: none; fill: #0000ff;"/>
-        <path d="M 349.661 -74.833 C 337.161 -87.333 332.994 -99.833 330.661 -107.333 Q 347.328 -95.429 353.994 -88.167 Q 353.828 -81 349.647 -74.833 Z" transform="translate(-329 89)" style="stroke: none; fill: #0000ff;"/>
+        <path id="path_7" d="M 324 -64.5 C 307.333 -81.167 299 -100.75 320.667 -112 C 312.333 -103.667 315.667 -84.5 339 -66 L 324 -64.512 L 339 -66 Q 331.5 -62.833 324 -64.512" transform="translate(-329 89)" style="stroke: none; fill: #0000ff;"/>
+        <path id="path_8" d="M 349.661 -74.833 C 337.161 -87.333 332.994 -99.833 330.661 -107.333 Q 347.328 -95.429 353.994 -88.167 Q 353.828 -81 349.647 -74.833 Z" transform="translate(-329 89)" style="stroke: none; fill: #0000ff;"/>
       </g>
-      <g transform="translate(29 29) rotate(60)">
+      <g id="ball_9" transform="translate(29 29) rotate(60)">
         <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00;"/>
-        <path d="M 324 -6.5 C 307.333 -23.167 299 -42.75 320.667 -54 C 312.333 -45.667 315.667 -26.5 339 -8 L 324 -6.512 L 339 -8 Q 331.5 -4.833 324 -6.512" transform="translate(-329 31)" style="stroke: none; fill: #0000ff;"/>
-        <path d="M 349.661 -16.833 C 337.161 -29.333 332.994 -41.833 330.661 -49.333 Q 347.328 -37.429 353.994 -30.167 Q 353.828 -23 349.647 -16.833 Z" transform="translate(-329 31)" style="stroke: none; fill: #0000ff;"/>
+        <path id="path_10" d="M 324 -6.5 C 307.333 -23.167 299 -42.75 320.667 -54 C 312.333 -45.667 315.667 -26.5 339 -8 L 324 -6.512 L 339 -8 Q 331.5 -4.833 324 -6.512" transform="translate(-329 31)" style="stroke: none; fill: #0000ff;"/>
+        <path id="path_11" d="M 349.661 -16.833 C 337.161 -29.333 332.994 -41.833 330.661 -49.333 Q 347.328 -37.429 353.994 -30.167 Q 353.828 -23 349.647 -16.833 Z" transform="translate(-329 31)" style="stroke: none; fill: #0000ff;"/>
       </g>
-      <g transform="translate(-29 29) rotate(-60)">
+      <g id="ball_12" transform="translate(-29 29) rotate(-60)">
         <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00;"/>
-        <path d="M 266 -6.5 C 249.333 -23.167 241 -42.75 262.667 -54 C 254.333 -45.667 257.667 -26.5 281 -8 L 266 -6.512 L 281 -8 Q 273.5 -4.833 266 -6.512" transform="translate(-271 31)" style="stroke: none; fill: #0000ff;"/>
-        <path d="M 291.661 -16.833 C 279.161 -29.333 274.994 -41.833 272.661 -49.333 Q 289.328 -37.429 295.994 -30.167 Q 295.828 -23 291.647 -16.833 Z" transform="translate(-271 31)" style="stroke: none; fill: #0000ff;"/>
+        <path id="path_13" d="M 266 -6.5 C 249.333 -23.167 241 -42.75 262.667 -54 C 254.333 -45.667 257.667 -26.5 281 -8 L 266 -6.512 L 281 -8 Q 273.5 -4.833 266 -6.512" transform="translate(-271 31)" style="stroke: none; fill: #0000ff;"/>
+        <path id="path_14" d="M 291.661 -16.833 C 279.161 -29.333 274.994 -41.833 272.661 -49.333 Q 289.328 -37.429 295.994 -30.167 Q 295.828 -23 291.647 -16.833 Z" transform="translate(-271 31)" style="stroke: none; fill: #0000ff;"/>
       </g>
-      <g transform="translate(0 0) rotate(180)">
+      <g id="ball_15" transform="translate(0 0) rotate(180)">
         <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00;"/>
-        <path d="M 295 -35.5 C 278.333 -52.167 270 -71.75 291.667 -83 C 283.333 -74.667 286.667 -55.5 310 -37 L 295 -35.512 L 310 -37 Q 302.5 -33.833 295 -35.512" transform="translate(-300 60)" style="stroke: none; fill: #0000ff;"/>
-        <path d="M 320.661 -45.833 C 308.161 -58.333 303.994 -70.833 301.661 -78.333 Q 318.328 -66.429 324.994 -59.167 Q 324.828 -52 320.647 -45.833 Z" transform="translate(-300 60)" style="stroke: none; fill: #0000ff;"/>
+        <path id="path_16" d="M 295 -35.5 C 278.333 -52.167 270 -71.75 291.667 -83 C 283.333 -74.667 286.667 -55.5 310 -37 L 295 -35.512 L 310 -37 Q 302.5 -33.833 295 -35.512" transform="translate(-300 60)" style="stroke: none; fill: #0000ff;"/>
+        <path id="path_17" d="M 320.661 -45.833 C 308.161 -58.333 303.994 -70.833 301.661 -78.333 Q 318.328 -66.429 324.994 -59.167 Q 324.828 -52 320.647 -45.833 Z" transform="translate(-300 60)" style="stroke: none; fill: #0000ff;"/>
       </g>
     </g>
     <g class="player" transform="translate(500 215)">
@@ -86,10 +86,10 @@
         <polyline points="-2.881,-205.85 12.325,-230.072 24.857,-204.364" style="stroke: #000000; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4; fill: none;"/>
       </g>
     </g>
-    <g id="ball_1" transform="translate(500 265)">
+    <g id="ball_20" transform="translate(500 265)">
       <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00;"/>
-      <path id="path_2" d="M 295 114.5 C 278.333 97.833 270 78.25 291.667 67 C 283.333 75.333 286.667 94.5 310 113 L 295 114.488 L 310 113 Q 302.5 116.167 295 114.488" transform="translate(-300 -90)" style="stroke: none; fill: #0000ff;"/>
-      <path id="path_3" d="M 320.661 104.167 C 308.161 91.667 303.994 79.167 301.661 71.667 Q 318.328 83.571 324.994 90.833 Q 324.828 98 320.647 104.167 Z" transform="translate(-300 -90)" style="stroke: none; fill: #0000ff;"/>
+      <path id="path_21" d="M 295 114.5 C 278.333 97.833 270 78.25 291.667 67 C 283.333 75.333 286.667 94.5 310 113 L 295 114.488 L 310 113 Q 302.5 116.167 295 114.488" transform="translate(-300 -90)" style="stroke: none; fill: #0000ff;"/>
+      <path id="path_22" d="M 320.661 104.167 C 308.161 91.667 303.994 79.167 301.661 71.667 Q 318.328 83.571 324.994 90.833 Q 324.828 98 320.647 104.167 Z" transform="translate(-300 -90)" style="stroke: none; fill: #0000ff;"/>
     </g>
     <g class="move">
       <g transform="translate(500 800)">
@@ -97,7 +97,7 @@
         <polyline points="78.156,-245.541 100,-264 104.133,-235.701" style="stroke: #000000; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4; fill: none;"/>
       </g>
     </g>
-    <g id="player_4" class="player" transform="translate(500 800)">
+    <g class="player" id="player_23" transform="translate(500 800)">
       <ellipse cx="0" cy="0" rx="50" ry="25" style="stroke: none; fill: #b22222;"/>
       <g class="prepare-block">
         <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>

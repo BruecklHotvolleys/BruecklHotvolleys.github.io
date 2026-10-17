@@ -169,7 +169,7 @@
     <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_outside" transform="translate(280 575)">
       <polyline points="109.522,59.661 120,80 97.196,78.151" style="stroke: #111111; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4; fill: none;"/>
     </g>
-    <g class="move" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_middle">
+    <g class="move" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_middle" style="display: none;">
       <g transform="translate(701.283 882.906)">
         <line x1="0" y1="0" x2="-51.283" y2="17.094" style="stroke: #000000; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4;"/>
         <polyline points="-23.174,22.365 -51.283,17.094 -31.958,-3.988" style="stroke: #000000; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4; fill: none;"/>
@@ -183,13 +183,13 @@
         <polyline points="263.864,-512.756 288.029,-528.053 288.25,-499.454" style="stroke: #000000; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4; fill: none;"/>
       </g>
     </g>
-    <g id="ball_11" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_middle" transform="translate(725 875)">
+    <g id="ball_11" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_middle" transform="translate(725 875)" style="display: none;">
       <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00;"/>
       <path id="path_12" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_middle" d="M 520 99.5 C 503.333 82.833 495 63.25 516.667 52 C 508.333 60.333 511.667 79.5 535 98 L 520 99.488 L 535 98 Q 527.5 101.167 520 99.488" transform="translate(-525 -75)" style="stroke: none; fill: #0000ff;"/>
       <path id="path_13" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_middle" d="M 545.661 89.167 C 533.161 76.667 528.994 64.167 526.661 56.667 Q 543.328 68.571 549.994 75.833 Q 549.828 83 545.647 89.167 Z" transform="translate(-525 -75)" style="stroke: none; fill: #0000ff;"/>
     </g>
-    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_middle" d="M 445 80 C 365 -70 365 -140 445 -140" transform="translate(200 800)" style="stroke: #111111; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4; fill: none;"/>
-    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_middle" transform="translate(565 668)">
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_middle" d="M 445 80 C 365 -70 365 -140 445 -140" transform="translate(200 800)" style="stroke: #111111; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4; fill: none; display: none;"/>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_middle" transform="translate(565 668)" style="display: none;">
       <polyline points="58.994,-17.066 80,-8 61.205,5.046" style="stroke: #111111; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4; fill: none;"/>
     </g>
     <g class="move" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_opposite">
@@ -250,11 +250,11 @@
       </g>
       <text x="0" y="0" dy="0.35em" style="stroke: none; font-family: Arial; fill: #ffff00; font-size: 45px; text-anchor: middle;">4</text>
     </g>
-    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_middle" transform="translate(610 1150)">
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_middle" transform="translate(610 1150)" style="display: none;">
       <line x1="0" y1="0" x2="30" y2="-220" style="stroke: #808080; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round;"/>
       <polyline points="12.861,-197.106 30,-220 40.384,-193.353" style="stroke: #808080; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
     </g>
-    <g class="player" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_middle" transform="translate(610 1150) rotate(7.765)">
+    <g class="player" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_middle" transform="translate(610 1150) rotate(7.765)" style="display: none;">
       <ellipse cx="0" cy="0" rx="50" ry="25" style="stroke: none; fill: #b22222;"/>
       <g class="prepare-block">
         <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
@@ -389,6 +389,10 @@ g.menuitem > text, g.submenuitem > text {
   font-family: Arial;
   font-size: 22px;
 }
+g.menuitem.mono > text, g.submenuitem.mono > text {
+  font-family: Consolas, monospace;
+  white-space: pre;
+}
 g.menuitem > rect.cb, g.menuitem > circle.rb {
   stroke: gray;
   stroke-width: 2px;
@@ -490,6 +494,18 @@ function $$(selector, parent) {
 function $event(elem, event, handler) {
   elem.addEventListener(event, handler);
 }
+
+/**
+ * Finds the main svg image.
+ * @returns {DOMElement} The main svg image.
+ */
+function _getSvgImg() {
+  var svg = $('div.img > svg');
+  if (!svg) {
+    svg = $('svg');
+  }
+  return svg;
+}
 //-- create menu script -------------------------------------- (vvv) --
 // --- ios helper --------------------------------- vv ---
 var timer = null,
@@ -550,45 +566,12 @@ function onContextMenu(event) {
   showContextMenu(x, y);
 }
 
-function _getSvgImg() {
-  var svg = $('div.img > svg');
-  if (!svg) {
-    svg = $('svg');
-  }
-  return svg;
-}
-
 function showContextMenu(x, y) {
   // show context menu if not visible
   if (!contextmenu) {
     contextmenu = true;
 
-    /**
-     * Switch an option state.
-     * @param {NodeList} elems A list of html elements.
-     * @returns {void}
-     */
-    var setOpts = function(elems) {
-      if (elems) {
-        for (var i = 0, i2 = elems.length; i < i2; ++i) {
-          var elem = elems[i],
-              elemP = elem.parentNode;
-
-          if (elemP.dataset && elemP.dataset.item) {
-            var key = elemP.dataset.item;
-            if (option.data[key] === true || option.data[key] === false) {
-              elem.style.display = option.data[key] ? 'block' : 'none';
-     	    }
-          }
-        }
-      }
-    };
-
-    // handle all options: radios and checkboxes
-    var rbs = document.getElementsByClassName('rb2'),
-        cbs = document.getElementsByClassName('cb2');
-    setOpts(rbs);
-    setOpts(cbs);
+    ContextMenuUpdater.updateOptions();
 
     // show background + context menu
     cm.style.display = 'block';
@@ -599,23 +582,26 @@ function showContextMenu(x, y) {
       var box = cm.getBBox(),
           w = Math.floor(box.width) + 10;
       if (w > 200) {
-        var rcMenuBg = cm.querySelector('rect'),
-            rcsMi = cm.querySelectorAll('g.menuitem > rect.bg'),
-            smis = cm.querySelectorAll('g.submenuitem');
+        var rcMenuBg = cm.querySelector(':scope > rect'),
+            rcsMi = cm.querySelectorAll(':scope > g.menuitem > rect.bg, :scope > g > g.menuitem > rect.bg'),
+            smis = cm.querySelectorAll(':scope > g.submenuitem'),
+            seps = cm.querySelectorAll(':scope > rect.separator');
         if (rcMenuBg) {
           rcMenuBg.style.width = (w + 4) + 'px';
         }
         if (rcsMi) {
           rcsMi.forEach((rcMi) => rcMi.style.width = w + 'px');
         }
+        if (seps) {
+          seps.forEach((sep) => sep.style.width = (w - 4) + 'px');
+        }
         if (smis) {
           smis.forEach((smi) => {
-            smi.querySelector('rect.bg').style.width = w + 'px';
-            smi.querySelector('g.submenu').setAttribute('transform', 'translate(' + (w + 4) + ' 0)');
-            smi.querySelector('path.marker_submenu').setAttribute('transform', 'translate(' + (w - 204) + ' 0)');
+            smi.querySelector(':scope > rect.bg').style.width = w + 'px';
+            smi.querySelector(':scope > g.submenu').setAttribute('transform', 'translate(' + (w + 4) + ' 0)');
+            smi.querySelector(':scope > path.marker_submenu').setAttribute('transform', 'translate(' + (w - 204) + ' 0)');
 
-            // TODO separators
-            // TODO extra handling for submenus
+            // TODO repeat this handling for submenus
           });
         }
       }
@@ -637,6 +623,36 @@ function showContextMenu(x, y) {
     cm.setAttribute('transform', 'translate(' + svgP.x + ' ' + svgP.y + ') scale(1.95)');
   }
 }
+var ContextMenuUpdater = {
+  updateOptions: function() {
+    /**
+     * Switch an option state.
+     * @param {NodeList} elems A list of html elements.
+     * @returns {void}
+     */
+    var setOpts = function(elems) {
+      if (elems) {
+        for (var i = 0, i2 = elems.length; i < i2; ++i) {
+          var elem = elems[i],
+              elemP = elem.parentNode;
+
+          if (elemP.dataset && elemP.dataset.item) {
+            var key = elemP.dataset.item;
+            if (option.data[key] === true || option.data[key] === false) {
+              elem.style.display = option.data[key] ? 'block' : 'none';
+            }
+          }
+        }
+      }
+    };
+
+    // handle all options: radios and checkboxes
+    var rbs = document.getElementsByClassName('rb2'),
+        cbs = document.getElementsByClassName('cb2');
+    setOpts(rbs);
+    setOpts(cbs);
+  }
+};
 
 function onClick(event) {
   if (contextmenu) {
@@ -665,7 +681,7 @@ function onClick(event) {
 
 var option = {
   data: {
-    'ID_window_editor_control_graphics_actor_actor_Actor_option_middle': true,
+    'ID_window_editor_control_graphics_actor_actor_Actor_option_middle': false,
     'ID_window_editor_control_graphics_actor_actor_Actor_option_outside': true,
     'ID_window_editor_control_graphics_actor_actor_Actor_option_opposite': true
   },

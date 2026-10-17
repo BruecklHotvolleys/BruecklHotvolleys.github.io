@@ -216,7 +216,7 @@ function onClick(event) {
 
 var option = {
   data: {
-    'ID_window_editor_control_graphics_actor_actor_Actor_option_slide': false
+    'ID_window_editor_control_graphics_actor_actor_Actor_option_slide': true
   },
 
   // the current state info

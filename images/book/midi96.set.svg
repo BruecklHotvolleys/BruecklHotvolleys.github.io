@@ -154,44 +154,44 @@
     <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_131" transform="translate(320 -20)">
       <polyline points="-34.339,188.049 -45,200 -49.515,184.634" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
     </g>
-    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_132" transform="translate(238 245)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
-    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_133" transform="translate(275 260) translate(0 42)" style="stroke: none; font-family: Arial; fill: #444444; font-size: 55px;">0</text>
-    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_134" transform="translate(238 350)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
-    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAAB/0lEQVR4XuWSAU7EMAwE7/8PgYfcB/gREKQga9dOnXTba31II8HEl3p6PL4+Ph/vBInqkKgOieqQqA6J6pCoDokZfn++O3h2VUhk6JHP5/M/+C7RJLawsZa7hJMYEcVG4Vd8ASRGbMUiV4wmMWI22IvHO8+GRMSe2CtFkxihjI7AZ6ohsYUiOuKMeBIZjoxuHBlOIkNfBBdVc0Q4iSxnRTcuEfz3YVHw6OUpYxskZokW3cL7V7XOA5+9AolZ+jIYtEUm4JLBjZXoTIC9MzOfgcQqM9GZbwzv2prPQmIP2eg+N4rAe0azM5DYQzYYwzP3eHMrkNiLt+wIG91/9z5/2eBGtHTEKPQWwY2tAGQ02+/CZ6xAQkXmW8ugjG2QUKEIVsc2SKiwwQiGeRwR2yChpMdhMHJWbIOEkijYi7PgPUpIKLFxNhajoxeA9ykgocQLttGZcLxzLySUYBBG4t/IEdEklGBMD/CicRbP8e5VSCjBiCgu8niO969AQgkG2LDRGQYro0koweVHwTPn+JwZSCjBpe3CXpSN8c7xjhVIKMGFM8FetJ3DmVlIKPGC8Dw70+duE+wtmgnG2eg8CwkldsloUYyO5uws+hlIKMksOBOsgMQr6NGZF7QXEq/g7YIbR4d2SFSHRHVIVIdEdUhUh0R1SFSHRHVIVIdEdUhU5wfkmAkk1UIjEQAAAABJRU5ErkJggg==" width="60" height="61" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(275 390) scale(1.1)" style="pointer-events: none;"/>
-    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAACAUlEQVR4XuWSUU7EMAwFOQifnB2uw0U4AxCkIOs9O3XS127rRRoJJt7U0+Xl8/3j5ZkgUR0S1SFRHRLVIVEdEtUhMcPvz3cHz64KiQw98uv17T/4LtEktrCxlruEkxgRxUbhV3wBJEZsxSJXjCYxYjbYi8c7z4ZExJ7YK0WTGKGMjsBnqiGxhSI64ox4EhmOjG4cGU4iQ18EF1VzRDiJLGdFNy4R/PdhUfDo5SljGyRmiRbdwvtXtc4Dn70CiVn6Mhi0RSbgksGNlehMgL0zM5+BxCoz0ZlvDO/ams9CYg/Z6D43isB7RrMzkNhDNhjDM/d4cyuQ2Iu37Agb3X/3Pn/Z4Ea0dMQo9BbBja0AZDTb78JnrEBCReZby6CMbZBQoQhWxzZIqLDBCIZ5HBHbIKGkx2EwclZsg4SSKNiLs+A9SkgosXE2FqOjF4D3KSChxAu20ZlwvHMvJJRgEEbi38gR0SSUYEwP8KJxFs/x7lVIKMGIKC7yeI73r0BCCQbYsNEZBiujSSjB5UfBM+f4nBlIKMGl7cJelI3xzvGOFUgowYUzwV60ncOZWUgo8YLwPDvT524T7C2aCcbZ6DwLCSV2yWhRjI7m7Cz6GUgoySw4E6yAxCPo0ZkXtBcSj+DpghtHh3ZIVIdEdUhUh0R1SFSHRHVIVIdEdUhUh0R1SFTnB3c/DO76mhkfAAAAAElFTkSuQmCC" width="60" height="61" id="image_136" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(275 390) scale(1.1)" style="pointer-events: none; display: none;"/>
-    <rect x="0" y="0" width="1050" height="80" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_137" transform="translate(125 435)" style="stroke: none; fill: #d3d3d3; fill-opacity: 0; pointer-events: none;"/>
-    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_138" transform="translate(650 475) translate(0 11)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Ein hoher Angriff über die Außenposition.</text>
-    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 525 -380 C 457.5 -510 403.5 -510 390 -400" id="path_139" transform="translate(200 580)" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
-    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_140" transform="translate(603.5 70)">
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_132" transform="translate(237.5 245)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_133" transform="translate(274.5 260) translate(0 41.8)" style="stroke: none; font-family: Arial; fill: #444444; font-size: 55px;">0</text>
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_134" transform="translate(237.5 350)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 226.242 -572.727 L 230.242 -512.727 Q 230.242 -497.727 216.242 -500.727 L 210.242 -585.727 Z" id="path_135" transform="translate(200 580) scale(0.33)" style="stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: #d3d3d3;"/>
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 254.242 -572.727 L 268.242 -509.727 Q 274.242 -484.727 260.242 -487.727 L 213.242 -572.727 Z" id="path_136" transform="translate(200 580) scale(0.33)" style="stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: #d3d3d3;"/>
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 254.242 -572.727 L 297.242 -529.727 Q 317.242 -508.727 301.242 -504.727 L 215.242 -568.727 Z" id="path_137" transform="translate(200 580) scale(0.33)" style="stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: #d3d3d3;"/>
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 174.242 -672.727 C 189.242 -672.727 189.242 -657.727 204.242 -657.727 C 219.242 -657.727 234.242 -642.727 244.242 -642.727 L 249.242 -642.727 C 264.242 -642.727 279.242 -632.727 289.242 -629.727 Q 299.242 -625.727 289.242 -621.727 C 281.242 -617.727 274.242 -616.727 264.242 -621.727 Q 259.242 -623.727 254.242 -621.727 L 244.242 -618.727 Q 242.242 -618.727 239.242 -613.727 Q 234.242 -605.727 239.242 -598.727 L 257.242 -580.727 L 274.242 -595.727 C 282.242 -600.727 274.242 -615.727 294.242 -615.727 L 294.242 -587.727 Q 294.242 -579.727 289.242 -575.727 L 272.242 -558.727 Q 271.242 -555.727 265.242 -556.727 L 220.242 -564.727 Q 216.242 -565.727 212.242 -569.727 L 151.242 -647.727 Z" id="path_138" transform="translate(200 580) scale(0.33)" style="stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: #d3d3d3;"/>
+    <rect x="0" y="0" width="1050" height="80" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_139" transform="translate(125 435)" style="stroke: none; fill: #d3d3d3; fill-opacity: 0; pointer-events: none;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_140" transform="translate(650 475) translate(0 10.64)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Ein hoher Angriff über die Außenposition.</text>
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 525 -380 C 457.5 -510 403.5 -510 390 -400" id="path_141" transform="translate(200 580)" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_142" transform="translate(603.5 70)">
       <polyline points="-4.748,97.977 -13.5,110 -19.085,96.217" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
     </g>
-    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 525 -380 C 457.5 -510 403.5 -510 390 -400" id="path_141" transform="translate(200 580)" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
-    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_142" transform="translate(603.5 70)">
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 525 -380 C 457.5 -510 403.5 -510 390 -400" id="path_143" transform="translate(200 580)" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_144" transform="translate(603.5 70)">
       <polyline points="-6.094,99.826 -13.5,110 -18.226,98.338" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
     </g>
-    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_143" transform="translate(553 245)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
-    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_144" transform="translate(590 260) translate(0 42)" style="stroke: none; font-family: Arial; fill: #444444; font-size: 55px;">5v</text>
-    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_145" transform="translate(553 350)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
-    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAAB5klEQVR4Xu2T7W3DMAwFs/8g7SBeoBu19Q8BwnsUJX7IdtgWOKA4yjEvjl9fH5+vvwSJ6pCoDonqkKgOieqQuILfv+8GznZDYgd9oAZetwMS2Zwhx3EscUU0iWz+gxXePri9mxg24op3mUQmltiroklkYH2yyFsFR2N3R5OIkBV78jbBuLiXXe8yCS+ZsY3HBmf+lHseHYzLZvDI4FnsbK6x4z0mYWEWk/FTf0zwLCQjtn0O3jsCiRW0kBaqnbFwe7AWkh17cmvwKKRFzs55uC14FCEtNDrrQfr8CCQk2hNcXUY6G2F0Hw8kRrToHjzTn8WlV5Gu1e5lhUQG0tKrjK7NiiaRgbS0xWke72WFRBRpYclFPN7TAoko2qIWr30W3tMCiSijJUdeuqaPwhnOrZCIIIWNoiwznD8qWFvcM2tzPOONJhEBl7JGjWYr81VIeJGeQjQYo/ozOFuFhBcpWAuyzvE+6Fch4WW28GwuncF5BiQ8tG9dWxbnK2dwngEJD7iotKznDM4zIOFhZVE8I53DMzjPgISHc7G2bPtfOlMm+KSFjpbEmFFQf06aRyGxE4yWgmZfXBQSO9n99FYgsZvdT3AGieqQqA6J6pCoDonqkKgOieqQqA6J6pCoDonqkKgOier8ACl67yHolBJ/AAAAAElFTkSuQmCC" width="60" height="61" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(590 390) scale(1.1)" style="pointer-events: none;"/>
-    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAAB6ElEQVR4Xu2TW07DQAxFuxA+WTtsh42wBiAflkb3eh5+TJKaIh0JHU8an6Z5fH18Pv4TJKpDojokqkOiOiSqQ+IM/v5+BJzthsQO2sAReN0OSGRzhHy/vS9xRjSJbF7BA54+WN5NDOtxxrtMIhNL7FnRJDKwPlnkqYKjsbujSUTIij14mmBc3Muud5mEl8xY4bbBmT/lllsH47IZ3DJ4Fjubj9jxHpOwMIvJ+KnfJngWkhErn4P3jkBihVGIhI7OWLg8eBSSHXtwaXAvRCJn5zxcFtyL0BbqnfWgfX4EEhryBFeX0c5G6N3HA4keEt2CZ9qzuPQq2rWje1khkYG29Cq9a7OiSWSgLW1xI4/3skIiiraw5iIe72mBRJTRohY/+iy8pwUSUXpL9rx2TRuFM5xbIRFBC+tFWWY4v1XwaHHPTOZ4xhtNIgIuZY3qzVbmq5Dwoj2FaDBGtWdwtgoJL1rwKMg6x/ugX4WEl9nCs7l2BucZkPAg3/poWZyvnMF5BiQ84KLasp4zOM+AhIeVRfGMdg7P4DwDEh6OxWRZ+V87Uyb4QEJ7S2JML6g9p82jkNgJRmtBsy8uComd7H56K5DYze4nOINEdUhUh0R1SFSHRHVIVIdEdUhUh0R1SFSHRHVIVIdEdX4BIOFjzxpCtA0AAAAASUVORK5CYII=" width="60" height="61" id="image_147" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(590 390) scale(1.1)" style="pointer-events: none; display: none;"/>
-    <rect x="0" y="0" width="1050" height="80" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_148" transform="translate(125 435)" style="stroke: none; fill: #d3d3d3; fill-opacity: 0; pointer-events: none;"/>
-    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_149" transform="translate(650 459.5) translate(0 11)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Kombination zum 1er oder 4er:</text>
-    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_150" transform="translate(650 490.5) translate(0 11)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Ein halbschneller Ball zwischen den Schuss/4er und den 1er.</text>
-    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_151" transform="translate(725 200)">
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_145" transform="translate(552.5 245)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_146" transform="translate(589.5 260) translate(0 41.8)" style="stroke: none; font-family: Arial; fill: #444444; font-size: 55px;">5v</text>
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_147" transform="translate(552.5 350)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 1168.182 -672.727 L 1223.182 -672.727 C 1223.182 -622.727 1235.182 -652.727 1233.182 -612.727 L 1233.182 -600.727 L 1243.182 -580.727 C 1273.182 -515.727 1253.182 -520.727 1230.182 -563.727 L 1220.182 -583.727 L 1218.182 -582.727 L 1226.182 -562.727 C 1259.182 -482.727 1239.182 -472.727 1210.182 -551.727 L 1203.182 -571.727 L 1202.182 -571.727 L 1202.182 -536.727 C 1205.182 -464.727 1178.182 -464.727 1180.182 -534.727 L 1180.182 -569.727 L 1179.182 -569.727 L 1172.182 -549.727 C 1150.182 -477.727 1118.182 -477.727 1150.182 -554.727 L 1160.182 -583.727 C 1166.182 -603.727 1163.182 -601.727 1164.182 -603.727 L 1164.182 -606.727 L 1154.182 -601.727 C 1134.182 -591.727 1119.182 -591.727 1104.182 -611.727 Q 1099.182 -616.727 1109.182 -616.727 L 1124.182 -616.727 C 1134.182 -616.727 1164.182 -631.727 1167.182 -661.727 Z" id="path_148" transform="translate(200 580) scale(0.33)" style="stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: #d3d3d3;"/>
+    <rect x="0" y="0" width="1050" height="80" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_149" transform="translate(125 435)" style="stroke: none; fill: #d3d3d3; fill-opacity: 0; pointer-events: none;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_150" transform="translate(650 459.5) translate(0 10.64)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Kombination zum 1er oder 4er:</text>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_151" transform="translate(650 490.5) translate(0 10.64)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Ein halbschneller Ball zwischen den Schuss/4er und den 1er.</text>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_152" transform="translate(725 200)">
       <line x1="0" y1="0" x2="-50" y2="-20" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round;"/>
       <polyline points="-39.89,-7.579 -50,-20 -34.113,-22.022" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
     </g>
-    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_152" transform="translate(725 200)">
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_153" transform="translate(725 200)">
       <line x1="0" y1="0" x2="-50" y2="-20" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"/>
       <polyline points="-39.89,-7.579 -50,-20 -34.113,-22.022" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
     </g>
-    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_153" transform="translate(638 245)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
-    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_154" transform="translate(675 260) translate(0 42)" style="stroke: none; font-family: Arial; fill: #444444; font-size: 55px;">1</text>
-    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_155" transform="translate(638 350)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
-    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAABeklEQVR4Xu2S0W3EIBAFr/9CkkLcQDpKjg8kNA98dnYBeeGk+WCAlcbc6+fr+7USIqIjIjoioiMiOiKiI6In798v3WhEeJHirsK7PRHhRQo5juMjO7gzIrzYwQ2WDB4ZLcKLq8FlOGf0QIQH+dUYdcaolxbhwd1YhnOeJyKs/Od1GdwzWoQVS3C+97hghrTIH6cG53ohwsKd12UgHWd7IcLCp1jGlZ5nONsLERbOgvmK3A8TnAP4ijzHO5zthQgLtZBWMM9yn7O9EGGBEa1gBnL92OAytrbXWj8+mEFn63yHs70QYaEWcSe4d2xChAVGMISea87rgQgLjLgaPOJlMyIsMIpBNTcyNiHCypW40ZElIqyUQfy7zo5NiLDC0NmBRISVHMxonpuFCCtlcBnOc7MQYWUH7+C5iLCyg3fwXERYYXBaLxfMMzMRYWXJ4DI6fHBiyeAS7s9ERHREREdEdERER0R0RERHRHREREdEdERER0R0RERHRHT+AFlXwBzVq0p0AAAAAElFTkSuQmCC" width="60" height="61" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(675 390) scale(1.1)" style="pointer-events: none;"/>
-    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAABfElEQVR4Xu2SQW7EIBAE9yE55u3Jd/KRvCEJByRUbXvt9ADaMSvVgQJGKrOPr4/Px50QkR0R2RGRHRHZEZEdET35+/3QjUZEFCXuLLzbExFRlJDvt/enrODOiIhiBe9wy+CR0SKiOBvchnNGD0REUF+NUUeMemkREVyNZTjnRSLC5T+vy+Ce0SJcnOB67+WCGbJH/ThbcG4UIhyuvC4D6Tg7ChEOz2IZ13qe4ewoRDgcBfMVuZ8muAbwFXmOdzg7ChEOWyF7wTzLfc6OQoQDI/aCGcj1ywa3sVt7e+uXD2bQ0bre4ewoRDhsRVwJ7h1bEOHACIbQc815PRDhwIizwSNetiLCgVEM2nIjYwsiXM7EjY5sEeHSBvHvOju2IMKFobMDiQiXGsxonpuFCJc2uA3nuVmIcFnBK3guIlxW8AqeiwgXBpf17YJ5ZiYiXG4Z3EanDy7cMriF+zMRkR0R2RGRHRHZEZEdEdkRkR0R2RGRHRHZEZEdEdkRkZ1f2yd2kXF4riEAAAAASUVORK5CYII=" width="60" height="61" id="image_157" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(675 390) scale(1.1)" style="pointer-events: none; display: none;"/>
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_154" transform="translate(637.5 245)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_155" transform="translate(674.5 260) translate(0 41.8)" style="stroke: none; font-family: Arial; fill: #444444; font-size: 55px;">1</text>
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_156" transform="translate(637.5 350)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 1416.667 -672.727 L 1471.667 -672.727 C 1471.667 -622.727 1483.667 -652.727 1481.667 -612.727 L 1481.667 -600.727 C 1483.667 -575.727 1468.667 -583.727 1468.667 -583.727 C 1469.667 -569.727 1455.667 -568.727 1452.667 -572.727 C 1453.667 -564.727 1439.667 -556.727 1432.667 -566.727 L 1432.667 -545.727 C 1435.667 -473.727 1408.667 -473.727 1410.667 -543.727 L 1410.667 -608.727 C 1410.667 -633.727 1416.667 -620.727 1416.667 -672.727 Z" id="path_157" transform="translate(200 580) scale(0.33)" style="stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: #d3d3d3;"/>
     <rect x="0" y="0" width="1050" height="80" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_158" transform="translate(125 435)" style="stroke: none; fill: #d3d3d3; fill-opacity: 0; pointer-events: none;"/>
-    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_159" transform="translate(650 475) translate(0 11)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Ein Schnellangriff vor der Aufspielerin.</text>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_159" transform="translate(650 475) translate(0 10.64)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Ein Schnellangriff vor der Aufspielerin.</text>
     <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 525 -380 C 675 -600 795 -600 825 -400" id="path_160" transform="translate(200 580)" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
     <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_161" transform="translate(995 -20)">
       <polyline points="35.615,185.001 30,200 20.232,187.309" style="stroke: #b22222; stroke-opacity: 0; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
@@ -200,14 +200,13 @@
     <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="arrow_163" transform="translate(995 -20)">
       <polyline points="35.615,185.001 30,200 20.232,187.309" style="stroke: #000000; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;"/>
     </g>
-    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_164" transform="translate(988 245)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
-    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_165" transform="translate(1025 260) translate(0 42)" style="stroke: none; font-family: Arial; fill: #444444; font-size: 55px;">2</text>
-    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_166" transform="translate(988 350)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
-    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAABz0lEQVR4Xu2T0W3DMAwFs/8g7SBZoBu18QcB4R1lRyIlwEwLHGCfaEFnp4+fr+/HJwFRHYjqQFQHojoQ1YFYzevv90D9LiCyscAr9LlVQGRiMc/n85Sd0RCZvBP7H7wYiEw+KtgiNK7HrmiILEZid0ZDZDETbNG6VyYQGczGWvDKaIgoo/+7bWR7r/tmARFlNLYNtmdvE6xfqkcbqF/W0L2zgIgwEqvXuq57ZwERQQ/fRnjX3r053TsLiAjeF9MondH7WwUf6OE1qhfovQTdOwOIKHr4XpD3UvRe984AIorGtcHqvZn2WvfOACLKWVy7puu6pvtmARGlF9SLU6/7ZQMRxSK8II3T9VsH96J0TV+Q7pcNRBQNbMMUm98VewARRYN77IxsgYjiBVtcz+seK4GIchama6WDvbXbB3tfsXxwL/ad9R1ARLgKsi+q6zujISJojAZ7M6WCvRBvxptbBcQsdnCN8eaufgUrgZjBi+2FeLPe3CogZvACziK8eZ1ZBcQMowGj85lAzDAaMDqfCcQMbcBxfRXgBV89kwXEDHbgdw9uc7cNnuEjg0d+FVlAVAeiOhDVgagORHUgqgNRHYjqQFQHojoQ1YGoDkR1/gDTmrfikSWOxgAAAABJRU5ErkJggg==" width="60" height="61" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(1025 390) scale(1.1)" style="pointer-events: none;"/>
-    <image x="-30" y="-30.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA9CAYAAADxoArXAAAB0ElEQVR4Xu2TUU7EMAwF9yB8cna4DhfhDEA/LEVvnHYTO5HqBWmkduJGmXZ5fH18Pl4JiOpAVAeiOhDVgagOxGr+/n4O1O8CIhsLvEKfWwVEJhbz/fZ+ys5oiEyeif0PXgxEJi8VbBEa12NXNEQWI7E7oyGymAm2aN0rE4gMZmMteGU0RJTR/902sr3XfbOAiDIa2wbbs7cJ1i/Vow3UL2vo3llARBiJ1Wtd172zgIigh28jvGvv3pzunQVEBO+LaZTO6P2tgg/08BrVC/Regu6dAUQUPXwvyHspeq97ZwARRePaYPXeTHute2cAEeUsrl3TdV3TfbOAiNIL6sWp1/2ygYhiEV6Qxun6rYN7UbqmL0j3ywYiiga2YYrN74o9gIiiwT12RrZARPGCLa7ndY+VQEQ5C9O10sHe2u2Dva9YPrgX+8z6DiAiXAXZF9X1ndEQETRGg72ZUsFeiDfjza0CYhY7uMZ4c1e/gpVAzODF9kK8WW9uFRAzeAFnEd68zqwCYobRgNH5TCBmGA0Ync8EYoY24Li+CvCCr57JAmIGO/CzB7e52wbP8JLBI7+KLCCqA1EdiOpAVAeiOhDVgagORHUgqgNRHYjqQFQHojq/M+JGZ9a97wcAAAAASUVORK5CYII=" width="60" height="61" id="image_168" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" transform="translate(1025 390) scale(1.1)" style="pointer-events: none; display: none;"/>
-    <rect x="0" y="0" width="1050" height="80" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_169" transform="translate(125 435)" style="stroke: none; fill: #d3d3d3; fill-opacity: 0; pointer-events: none;"/>
-    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_170" transform="translate(650 475) translate(0 11)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Ein hoher Ball bei der rechten Antenne.</text>
-    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="ball_171" transform="translate(725 200) scale(0.6)">
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_164" transform="translate(987.5 245)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_165" transform="translate(1024.5 260) translate(0 41.8)" style="stroke: none; font-family: Arial; fill: #444444; font-size: 55px;">2</text>
+    <rect x="0" y="0" width="75" height="75" rx="10" ry="10" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_166" transform="translate(987.5 350)" style="stroke: #696969; stroke-width: 6; fill: #808080;"/>
+    <path data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" d="M 2477.273 -672.727 L 2532.273 -672.727 C 2532.273 -622.727 2544.273 -652.727 2542.273 -612.727 L 2542.273 -600.727 C 2544.273 -575.727 2529.273 -583.727 2529.273 -583.727 C 2530.273 -569.727 2516.273 -568.727 2513.273 -572.727 L 2521.273 -552.727 C 2554.273 -472.727 2529.273 -452.727 2500.273 -545.727 L 2493.273 -565.727 L 2486.273 -545.727 C 2464.273 -473.727 2432.273 -473.727 2464.273 -550.727 L 2467.273 -560.727 C 2473.273 -580.727 2470.273 -578.727 2471.273 -580.727 L 2471.273 -607.727 C 2471.273 -632.727 2477.273 -619.727 2477.273 -671.727 Z" id="path_167" transform="translate(200 580) scale(0.33)" style="stroke: #111111; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: #d3d3d3;"/>
+    <rect x="0" y="0" width="1050" height="80" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="rectangle_168" transform="translate(125 435)" style="stroke: none; fill: #d3d3d3; fill-opacity: 0; pointer-events: none;"/>
+    <text x="0" y="0" data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" text-anchor="middle" id="text_169" transform="translate(650 475) translate(0 10.64)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0; font-size: 28px; pointer-events: none;">Ein hoher Ball bei der rechten Antenne.</text>
+    <g data-option="ID_window_editor_control_graphics_actor_actor_Actor_option_set_info" id="ball_170" transform="translate(725 200) scale(0.6)">
       <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00;"/>
       <path d="M 520 -355.5 C 503.333 -372.167 495 -391.75 516.667 -403 C 508.333 -394.667 511.667 -375.5 535 -357 L 520 -355.512 L 535 -357 Q 527.5 -353.833 520 -355.512" transform="translate(-525 380)" style="stroke: none; fill: #0000ff;"/>
       <path d="M 545.661 -365.833 C 533.161 -378.333 528.994 -390.833 526.661 -398.333 Q 543.328 -386.429 549.994 -379.167 Q 549.828 -372 545.647 -365.833 Z" transform="translate(-525 380)" style="stroke: none; fill: #0000ff;"/>
@@ -364,7 +363,7 @@
   <rect id="contextmenu_bg" x="0" y="0" />
   <g id="contextmenu" class="contextmenu">
     <rect x="0" y="0" width="204" height="36" rx="5" ry="5" />
-    <g class="submenuitem" data-group="#keys#" transform="translate(0 0)">
+    <g class="submenuitem" transform="translate(0 0)">
      <rect x="2" y="2" width="200" height="32" class="bg" />
      <text x="30" y="25">Info</text>
      <path d="M 190 12 l 5 5 l -5 5" class="marker_submenu" />
@@ -405,7 +404,6 @@ g.contextmenu > rect, g.submenu > rect {
 g.menuitem > rect, g.submenuitem > rect {
   stroke: none;
   fill: lightgray;
-  /*cursor: pointer;*/
 }
 g.menuitem > * {
   pointer-events: none;
@@ -413,9 +411,6 @@ g.menuitem > * {
 g.menuitem > rect.bg {
   pointer-events: all;
   cursor: pointer;
-}
-g.submenuitem > rect.bg {
-  /*pointer-events: all;*/
 }
 g.menuitem:hover > rect.bg, g.submenuitem:hover > rect.bg {
   fill: darkgray;
@@ -425,13 +420,11 @@ g.menuitem > text, g.submenuitem > text {
   fill: #111;
   font-family: Arial;
   font-size: 22px;
-  /*cursor: pointer;*/
 }
-/*
-g.submenuitem > rect, g.submenuitem > text {
-  cursor: default;
+g.menuitem.mono > text, g.submenuitem.mono > text {
+  font-family: Consolas, monospace;
+  white-space: pre;
 }
-*/
 g.menuitem > rect.cb, g.menuitem > circle.rb {
   stroke: gray;
   stroke-width: 2px;
@@ -533,6 +526,18 @@ function $$(selector, parent) {
 function $event(elem, event, handler) {
   elem.addEventListener(event, handler);
 }
+
+/**
+ * Finds the main svg image.
+ * @returns {DOMElement} The main svg image.
+ */
+function _getSvgImg() {
+  var svg = $('div.img > svg');
+  if (!svg) {
+    svg = $('svg');
+  }
+  return svg;
+}
 //-- create menu script -------------------------------------- (vvv) --
 // --- ios helper --------------------------------- vv ---
 var timer = null,
@@ -574,6 +579,7 @@ $event(document, 'touchend', touchend);
 $event(document, 'touchmove', touchmove);
 // --- ios helper --------------------------------- ^^ ---/* global $$ */
 var cm, bg,
+    cmInitialized = false,
     contextmenu = false;
 
 function onContextMenu(event) {
@@ -585,19 +591,11 @@ function onContextMenu(event) {
     return;
   }
 
-  // InternalError is unique for firefox
-  //var isFirefox = !!window.InternalError,
-  //    x = isFirefox ? event.clientX : event.pageX,
-  //    y = isFirefox ? event.clientY : event.pageY;
-  showContextMenu(event.clientX, event.clientY);
-}
-
-function _getSvgImg() {
-  var svg = $('div.img > svg');
-  if (!svg) {
-    svg = $('svg');
-  }
-  return svg;
+  // InternalError is unique for firefox - old firefox needs different handling of position when scrolled
+  var isFirefox = !!window.InternalError,
+      x = isFirefox ? event.pageX : event.clientX,
+      y = isFirefox ? event.pageY : event.clientY;
+  showContextMenu(x, y);
 }
 
 function showContextMenu(x, y) {
@@ -605,38 +603,42 @@ function showContextMenu(x, y) {
   if (!contextmenu) {
     contextmenu = true;
 
-    /**
-     * Switch an option state.
-     * @param {NodeList} elems A list of html elements.
-     * @returns {void}
-     */
-    var setOpts = function(elems) {
-      if (elems) {
-        for (var i = 0, i2 = elems.length; i < i2; ++i) {
-          var elem = elems[i],
-              elemP = elem.parentNode;
-
-          if (elemP.dataset && elemP.dataset.item) {
-            var key = elemP.dataset.item;
-            if (option.data[key] === true || option.data[key] === false) {
-              elem.style.display = option.data[key] ? 'block' : 'none';
-     	    }
-          }
-        }
-      }
-    };
-
-    // handle all options: radios and checkboxes
-    var rbs = document.getElementsByClassName('rb2'),
-        cbs = document.getElementsByClassName('cb2');
-    setOpts(rbs);
-    setOpts(cbs);
+    ContextMenuUpdater.updateOptions();
 
     // show background + context menu
     cm.style.display = 'block';
     bg.style.display = 'block';
 
-    //var svg = document.getElementsByTagName('svg')[0], pt, svgP;
+    if (!cmInitialized) {
+      cmInitialized = true;
+      var box = cm.getBBox(),
+          w = Math.floor(box.width) + 10;
+      if (w > 200) {
+        var rcMenuBg = cm.querySelector(':scope > rect'),
+            rcsMi = cm.querySelectorAll(':scope > g.menuitem > rect.bg, :scope > g > g.menuitem > rect.bg'),
+            smis = cm.querySelectorAll(':scope > g.submenuitem'),
+            seps = cm.querySelectorAll(':scope > rect.separator');
+        if (rcMenuBg) {
+          rcMenuBg.style.width = (w + 4) + 'px';
+        }
+        if (rcsMi) {
+          rcsMi.forEach((rcMi) => rcMi.style.width = w + 'px');
+        }
+        if (seps) {
+          seps.forEach((sep) => sep.style.width = (w - 4) + 'px');
+        }
+        if (smis) {
+          smis.forEach((smi) => {
+            smi.querySelector(':scope > rect.bg').style.width = w + 'px';
+            smi.querySelector(':scope > g.submenu').setAttribute('transform', 'translate(' + (w + 4) + ' 0)');
+            smi.querySelector(':scope > path.marker_submenu').setAttribute('transform', 'translate(' + (w - 204) + ' 0)');
+
+            // TODO repeat this handling for submenus
+          });
+        }
+      }
+    }
+
     var svg = _getSvgImg(), pt, svgP;
     try {
       // transform point to SVG coordinates
@@ -653,6 +655,36 @@ function showContextMenu(x, y) {
     cm.setAttribute('transform', 'translate(' + svgP.x + ' ' + svgP.y + ') scale(1.95)');
   }
 }
+var ContextMenuUpdater = {
+  updateOptions: function() {
+    /**
+     * Switch an option state.
+     * @param {NodeList} elems A list of html elements.
+     * @returns {void}
+     */
+    var setOpts = function(elems) {
+      if (elems) {
+        for (var i = 0, i2 = elems.length; i < i2; ++i) {
+          var elem = elems[i],
+              elemP = elem.parentNode;
+
+          if (elemP.dataset && elemP.dataset.item) {
+            var key = elemP.dataset.item;
+            if (option.data[key] === true || option.data[key] === false) {
+              elem.style.display = option.data[key] ? 'block' : 'none';
+            }
+          }
+        }
+      }
+    };
+
+    // handle all options: radios and checkboxes
+    var rbs = document.getElementsByClassName('rb2'),
+        cbs = document.getElementsByClassName('cb2');
+    setOpts(rbs);
+    setOpts(cbs);
+  }
+};
 
 function onClick(event) {
   if (contextmenu) {
@@ -715,7 +747,6 @@ var option = {
 
   init: function() {
     for (var key in this.data) {
-      console.log('_updateElems ' + key);
       
       this._updateElems(key);
     }
@@ -729,13 +760,18 @@ var option = {
   },
 
   _updateElems: function(key, state) {
-    var st = state === undefined ? this.data[key] : state;
+    var state0 = state === undefined ? this.data[key] : state;
 
     // items that reflect the state
     var elems = $$('[data-option="' + key + '"]');
     if (elems) {
       for (var i = 0, i2 = elems.length; i < i2; ++i) {
-        var elem = elems[i];
+        var elem = elems[i],
+            st = state0;
+        if (elem.id && this.animation0 && this.animation0[elem.id]
+            && this.animation0[elem.id]['visible-common'] !== undefined) {
+          st = !!this.animation0[elem.id]['visible-common'];
+        }
         elem.style.display = st ? "block" : "none";
         if (elem.id) {
           this._current[elem.id] = st;
@@ -747,7 +783,12 @@ var option = {
     elems = $$('[data-option="' + key + '_not"]');
     if (elems) {
       for (var i = 0, i2 = elems.length; i < i2; ++i) {
-        var elem = elems[i];
+        var elem = elems[i],
+            st = state0;
+        if (elem.id && this.animation0 && this.animation0[elem.id]
+            && this.animation0[elem.id]['visible-common'] !== undefined) {
+          st = !!this.animation0[elem.id]['visible-common'];
+        }
         elem.style.display = st ? "none" : "block";
         if (elem.id) {
           this._current[elem.id] = !st;
@@ -788,32 +829,6 @@ $$('g.submenuitem').forEach((sub) => {
 });
 
 //-- create menu script -------------------------------------- (^^^) --
-var animation0 = {
-  "image_136": {
-    "visible-common": false,
-    "visible-active": true,
-    "visible-hover": true,
-    "visible-activehover": true
-  },
-  "image_147": {
-    "visible-common": false,
-    "visible-active": true,
-    "visible-hover": true,
-    "visible-activehover": true
-  },
-  "image_157": {
-    "visible-common": false,
-    "visible-active": true,
-    "visible-hover": true,
-    "visible-activehover": true
-  },
-  "image_168": {
-    "visible-common": false,
-    "visible-active": true,
-    "visible-hover": true,
-    "visible-activehover": true
-  }
-};
 /* global animator, animation0 */
 
 /**
@@ -958,7 +973,47 @@ var effects = {
       "activehover": "1"
     }
   },
-  "rectangle_137": {
+  "path_135": {
+    "fill": {
+      "common": "#d3d3d3",
+      "hover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "path_136": {
+    "fill": {
+      "common": "#d3d3d3",
+      "hover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "path_137": {
+    "fill": {
+      "common": "#d3d3d3",
+      "hover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "path_138": {
+    "fill": {
+      "common": "#d3d3d3",
+      "hover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "rectangle_139": {
     "fill": {
       "common": "#d3d3d3",
       "hover": "#d3d3d3",
@@ -975,7 +1030,7 @@ var effects = {
       "hover": true
     }
   },
-  "text_138": {
+  "text_140": {
     "fill": {
       "common": "#000000",
       "hover": "#b22222",
@@ -983,40 +1038,6 @@ var effects = {
       "activehover": "#b22222"
     },
     "fill-opacity": {
-      "common": "0",
-      "hover": "1",
-      "active": "1",
-      "activehover": "1"
-    },
-    "toFront": {
-      "hover": true
-    }
-  },
-  "path_139": {
-    "stroke": {
-      "common": "#b22222",
-      "hover": "#b22222",
-      "active": "#b22222",
-      "activehover": "#b22222"
-    },
-    "stroke-opacity": {
-      "common": "0",
-      "hover": "1",
-      "active": "1",
-      "activehover": "1"
-    },
-    "toFront": {
-      "hover": true
-    }
-  },
-  "arrow_140": {
-    "stroke": {
-      "common": "#b22222",
-      "hover": "#b22222",
-      "active": "#b22222",
-      "activehover": "#b22222"
-    },
-    "stroke-opacity": {
       "common": "0",
       "hover": "1",
       "active": "1",
@@ -1028,16 +1049,16 @@ var effects = {
   },
   "path_141": {
     "stroke": {
-      "common": "#000000",
-      "hover": "#d3d3d3",
-      "active": "#d3d3d3",
-      "activehover": "#d3d3d3"
+      "common": "#b22222",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
     },
     "stroke-opacity": {
-      "common": "1",
-      "hover": "0.5",
-      "active": "0.5",
-      "activehover": "0.5"
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
     },
     "toFront": {
       "hover": true
@@ -1045,6 +1066,23 @@ var effects = {
   },
   "arrow_142": {
     "stroke": {
+      "common": "#b22222",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "stroke-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "path_143": {
+    "stroke": {
       "common": "#000000",
       "hover": "#d3d3d3",
       "active": "#d3d3d3",
@@ -1060,44 +1098,21 @@ var effects = {
       "hover": true
     }
   },
-  "rectangle_143": {
-    "fill": {
-      "common": "#808080",
-      "hover": "#ffff00",
-      "active": "#ffff00",
-      "activehover": "#ffff00"
-    },
-    "fill-opacity": {
-      "common": "1",
-      "hover": "1",
-      "active": "1",
-      "activehover": "1"
-    },
+  "arrow_144": {
     "stroke": {
-      "common": "#696969",
-      "hover": "#ffa500",
-      "active": "#ffa500",
-      "activehover": "#ffa500"
+      "common": "#000000",
+      "hover": "#d3d3d3",
+      "active": "#d3d3d3",
+      "activehover": "#d3d3d3"
     },
     "stroke-opacity": {
       "common": "1",
-      "hover": "1",
-      "active": "1",
-      "activehover": "1"
-    }
-  },
-  "text_144": {
-    "fill": {
-      "common": "#444444",
-      "hover": "#b22222",
-      "active": "#b22222",
-      "activehover": "#b22222"
+      "hover": "0.5",
+      "active": "0.5",
+      "activehover": "0.5"
     },
-    "fill-opacity": {
-      "common": "1",
-      "hover": "1",
-      "active": "1",
-      "activehover": "1"
+    "toFront": {
+      "hover": true
     }
   },
   "rectangle_145": {
@@ -1126,29 +1141,62 @@ var effects = {
       "activehover": "1"
     }
   },
-  "rectangle_148": {
+  "text_146": {
+    "fill": {
+      "common": "#444444",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    }
+  },
+  "rectangle_147": {
+    "fill": {
+      "common": "#808080",
+      "hover": "#ffff00",
+      "active": "#ffff00",
+      "activehover": "#ffff00"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "stroke": {
+      "common": "#696969",
+      "hover": "#ffa500",
+      "active": "#ffa500",
+      "activehover": "#ffa500"
+    },
+    "stroke-opacity": {
+      "common": "1",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    }
+  },
+  "path_148": {
+    "fill": {
+      "common": "#d3d3d3",
+      "hover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "rectangle_149": {
     "fill": {
       "common": "#d3d3d3",
       "hover": "#d3d3d3",
       "active": "#d3d3d3",
       "activehover": "#d3d3d3"
-    },
-    "fill-opacity": {
-      "common": "0",
-      "hover": "1",
-      "active": "1",
-      "activehover": "1"
-    },
-    "toFront": {
-      "hover": true
-    }
-  },
-  "text_149": {
-    "fill": {
-      "common": "#000000",
-      "hover": "#b22222",
-      "active": "#b22222",
-      "activehover": "#b22222"
     },
     "fill-opacity": {
       "common": "0",
@@ -1177,7 +1225,24 @@ var effects = {
       "hover": true
     }
   },
-  "arrow_151": {
+  "text_151": {
+    "fill": {
+      "common": "#000000",
+      "hover": "#b22222",
+      "active": "#b22222",
+      "activehover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "0",
+      "hover": "1",
+      "active": "1",
+      "activehover": "1"
+    },
+    "toFront": {
+      "hover": true
+    }
+  },
+  "arrow_152": {
     "stroke": {
       "common": "#b22222",
       "hover": "#b22222",
@@ -1194,7 +1259,7 @@ var effects = {
       "hover": true
     }
   },
-  "arrow_152": {
+  "arrow_153": {
     "stroke": {
       "common": "#000000",
       "hover": "#d3d3d3",
@@ -1211,7 +1276,7 @@ var effects = {
       "hover": true
     }
   },
-  "rectangle_153": {
+  "rectangle_154": {
     "fill": {
       "common": "#808080",
       "hover": "#ffff00",
@@ -1237,7 +1302,7 @@ var effects = {
       "activehover": "1"
     }
   },
-  "text_154": {
+  "text_155": {
     "fill": {
       "common": "#444444",
       "hover": "#b22222",
@@ -1251,7 +1316,7 @@ var effects = {
       "activehover": "1"
     }
   },
-  "rectangle_155": {
+  "rectangle_156": {
     "fill": {
       "common": "#808080",
       "hover": "#ffff00",
@@ -1275,6 +1340,16 @@ var effects = {
       "hover": "1",
       "active": "1",
       "activehover": "1"
+    }
+  },
+  "path_157": {
+    "fill": {
+      "common": "#d3d3d3",
+      "hover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1"
     }
   },
   "rectangle_158": {
@@ -1445,7 +1520,17 @@ var effects = {
       "activehover": "1"
     }
   },
-  "rectangle_169": {
+  "path_167": {
+    "fill": {
+      "common": "#d3d3d3",
+      "hover": "#b22222"
+    },
+    "fill-opacity": {
+      "common": "1",
+      "hover": "1"
+    }
+  },
+  "rectangle_168": {
     "fill": {
       "common": "#d3d3d3",
       "hover": "#d3d3d3",
@@ -1462,7 +1547,7 @@ var effects = {
       "hover": true
     }
   },
-  "text_170": {
+  "text_169": {
     "fill": {
       "common": "#000000",
       "hover": "#b22222",
@@ -1479,7 +1564,7 @@ var effects = {
       "hover": true
     }
   },
-  "ball_171": {
+  "ball_170": {
     "topMost": {
       "common": true,
       "hover": true,
@@ -1500,10 +1585,9 @@ var effects = {
     "rectangle_164": "grp_2",
     "text_165": "grp_2",
     "rectangle_166": "grp_2",
-    "image_167": "grp_2",
-    "image_168": "grp_2",
-    "rectangle_169": "grp_2",
-    "text_170": "grp_2",
+    "path_167": "grp_2",
+    "rectangle_168": "grp_2",
+    "text_169": "grp_2",
     "path_128": "grp_0",
     "arrow_129": "grp_0",
     "path_130": "grp_0",
@@ -1511,29 +1595,29 @@ var effects = {
     "rectangle_132": "grp_0",
     "text_133": "grp_0",
     "rectangle_134": "grp_0",
-    "image_135": "grp_0",
-    "image_136": "grp_0",
-    "rectangle_137": "grp_0",
-    "text_138": "grp_0",
-    "path_139": "grp_5v",
-    "arrow_140": "grp_5v",
+    "path_135": "grp_0",
+    "path_136": "grp_0",
+    "path_137": "grp_0",
+    "path_138": "grp_0",
+    "rectangle_139": "grp_0",
+    "text_140": "grp_0",
     "path_141": "grp_5v",
     "arrow_142": "grp_5v",
-    "rectangle_143": "grp_5v",
-    "text_144": "grp_5v",
+    "path_143": "grp_5v",
+    "arrow_144": "grp_5v",
     "rectangle_145": "grp_5v",
-    "image_146": "grp_5v",
-    "image_147": "grp_5v",
-    "rectangle_148": "grp_5v",
-    "text_149": "grp_5v",
+    "text_146": "grp_5v",
+    "rectangle_147": "grp_5v",
+    "path_148": "grp_5v",
+    "rectangle_149": "grp_5v",
     "text_150": "grp_5v",
-    "arrow_151": "grp_1",
+    "text_151": "grp_5v",
     "arrow_152": "grp_1",
-    "rectangle_153": "grp_1",
-    "text_154": "grp_1",
-    "rectangle_155": "grp_1",
-    "image_156": "grp_1",
-    "image_157": "grp_1",
+    "arrow_153": "grp_1",
+    "rectangle_154": "grp_1",
+    "text_155": "grp_1",
+    "rectangle_156": "grp_1",
+    "path_157": "grp_1",
     "rectangle_158": "grp_1",
     "text_159": "grp_1"
   },
@@ -1546,10 +1630,9 @@ var effects = {
       "rectangle_164",
       "text_165",
       "rectangle_166",
-      "image_167",
-      "image_168",
-      "rectangle_169",
-      "text_170"
+      "path_167",
+      "rectangle_168",
+      "text_169"
     ],
     "grp_0": [
       "path_128",
@@ -1559,33 +1642,33 @@ var effects = {
       "rectangle_132",
       "text_133",
       "rectangle_134",
-      "image_135",
-      "image_136",
-      "rectangle_137",
-      "text_138"
+      "path_135",
+      "path_136",
+      "path_137",
+      "path_138",
+      "rectangle_139",
+      "text_140"
     ],
     "grp_5v": [
-      "path_139",
-      "arrow_140",
       "path_141",
       "arrow_142",
-      "rectangle_143",
-      "text_144",
+      "path_143",
+      "arrow_144",
       "rectangle_145",
-      "image_146",
-      "image_147",
-      "rectangle_148",
-      "text_149",
-      "text_150"
+      "text_146",
+      "rectangle_147",
+      "path_148",
+      "rectangle_149",
+      "text_150",
+      "text_151"
     ],
     "grp_1": [
-      "arrow_151",
       "arrow_152",
-      "rectangle_153",
-      "text_154",
-      "rectangle_155",
-      "image_156",
-      "image_157",
+      "arrow_153",
+      "rectangle_154",
+      "text_155",
+      "rectangle_156",
+      "path_157",
       "rectangle_158",
       "text_159"
     ]
@@ -1596,7 +1679,8 @@ var effects = {
   'clicked': null,
   'hover': [],
 
-  //'current': {},
+  // the current style group for the controls - necessary for e.g. visibility in animations
+  'current': {},
   'animator': undefined,
   'animation0': undefined,
   // TODO: the connected options handler
@@ -1617,9 +1701,9 @@ var effects = {
     // the ids of all controls with effects
     this.ids = Object.keys(this.infos);
     // connect event handling
-    $event($('svg'), 'click', this.onClick.bind(this));
-    $event($('svg'), 'mouseover', this.onMouseOver.bind(this));
-    $event($('svg'), 'mouseout', this.onMouseOut.bind(this));
+    $event(_getSvgImg(), 'click', this.onClick.bind(this));
+    $event(_getSvgImg(), 'mouseover', this.onMouseOver.bind(this));
+    $event(_getSvgImg(), 'mouseout', this.onMouseOut.bind(this));
 
     // prepare topmost handling
     this.ids.forEach((id) => {
@@ -1721,7 +1805,7 @@ var effects = {
       var pos = this.hover.indexOf(id2);
       if (pos >= 0) {
         this.hover.splice(pos, 1);
-        //this.current[id2] = this.clicked === id2 ? "active" : "common";
+        this.current[id2] = this.clicked === id2 ? "active" : "common";
         this.setStyle(id2, this.clicked === id2 ? "active" : "common");
       }
     }
@@ -1743,7 +1827,7 @@ var effects = {
         items.forEach((item) => this.setStyle('i' + item, key));
       }
     } else if (type === 'i') {
-      //this.current[id] = key;
+      this.current[id] = key;
       this.setStyle2($('#' + id), id, key);
      }
 
@@ -1769,7 +1853,7 @@ var effects = {
     if (elem.tagName === 'g') {
       // to front
       var info = this.infos[id];
-      if (Object.keys(info).indexOf('toFront') >= 0) {
+      if (info && Object.keys(info).indexOf('toFront') >= 0) {
         elem = this._toFront(elem);
       }
       var children = elem.children;
@@ -1807,7 +1891,7 @@ var effects = {
     }
     return elem;
   }
-}; //.init();
+};
 
 if (typeof animator !== 'undefined') {
   animator.effects = effects;
@@ -1818,6 +1902,11 @@ if (typeof animation0 !== 'undefined') {
 }
 
 effects.init();
+/* global option, animation0 */
+
+if (typeof option !== 'undefined' && typeof animation0 !== 'undefined') {
+  option.animation0 = animation0;
+}
 }());
 //]]></script>
 </svg>

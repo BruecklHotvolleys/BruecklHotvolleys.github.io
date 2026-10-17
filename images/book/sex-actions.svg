@@ -7,37 +7,37 @@
     <path d="M 350 235 L 400 235 L 350 335 L 300 235 Z" transform="translate(0 0)" style="stroke: #0000cd; stroke-width: 14; fill: #6495ed;"/>
     <path d="M 700 305 L 750 305 L 700 205 L 650 305 Z" transform="translate(0 0)" style="stroke: #0000cd; stroke-width: 14; fill: #6495ed;"/>
     <rect x="0" y="0" width="200" height="40" rx="10" ry="10" transform="translate(50 40)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(150 58) translate(0 12)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Service</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(150 58) translate(0 12.16)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Service</text>
     <rect x="0" y="0" width="200" height="40" rx="10" ry="10" transform="translate(50 340)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(150 358) translate(0 12)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Annahme</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(150 358) translate(0 12.16)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Annahme</text>
     <rect x="0" y="0" width="200" height="40" rx="10" ry="10" transform="translate(560 390)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(660 408) translate(0 12)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Aufspiel</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(660 408) translate(0 12.16)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Aufspiel</text>
     <rect x="0" y="0" width="200" height="40" rx="10" ry="10" transform="translate(590 340)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(690 358) translate(0 12)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Angriff</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(690 358) translate(0 12.16)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Angriff</text>
     <rect x="0" y="0" width="200" height="40" rx="10" ry="10" transform="translate(600 290)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(700 308) translate(0 12)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Sicherung</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(700 308) translate(0 12.16)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Sicherung</text>
     <rect x="0" y="0" width="200" height="40" rx="10" ry="10" transform="translate(600 220)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(700 238) translate(0 12)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Block</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(700 238) translate(0 12.16)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Block</text>
     <rect x="0" y="0" width="200" height="40" rx="10" ry="10" transform="translate(590 170)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(690 188) translate(0 12)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Sicherung</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(690 188) translate(0 12.16)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Sicherung</text>
     <rect x="0" y="0" width="200" height="40" rx="10" ry="10" transform="translate(560 120)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(660 138) translate(0 12)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Verteidigung</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(660 138) translate(0 12.16)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Verteidigung</text>
     <rect x="0" y="0" width="200" height="40" rx="10" ry="10" transform="translate(290 120)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(390 138) translate(0 12)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Aufspiel</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(390 138) translate(0 12.16)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Aufspiel</text>
     <rect x="0" y="0" width="200" height="40" rx="10" ry="10" transform="translate(260 170)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(360 188) translate(0 12)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Angriff</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(360 188) translate(0 12.16)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Angriff</text>
     <rect x="0" y="0" width="200" height="40" rx="10" ry="10" transform="translate(250 220)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(350 238) translate(0 12)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Sicherung</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(350 238) translate(0 12.16)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Sicherung</text>
     <rect x="0" y="0" width="200" height="40" rx="10" ry="10" transform="translate(250 290)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(350 308) translate(0 12)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Block</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(350 308) translate(0 12.16)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Block</text>
     <rect x="0" y="0" width="200" height="40" rx="10" ry="10" transform="translate(260 340)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(360 358) translate(0 12)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Sicherung</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(360 358) translate(0 12.16)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Sicherung</text>
     <rect x="0" y="0" width="200" height="40" rx="10" ry="10" transform="translate(290 390)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(390 408) translate(0 12)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Verteidigung</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(390 408) translate(0 12.16)" style="stroke: none; font-family: Arial; fill: #a52a2a; font-size: 32px;">Verteidigung</text>
     <rect x="0" y="0" width="406" height="85" rx="15" ry="15" transform="translate(248 460)" style="stroke: none; fill: #ffffff; fill-opacity: 0.25;"/>
     <text x="0" y="0" text-anchor="middle" transform="translate(455 525)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0.75; font-size: 80px; font-weight: bold;">Komplex 1</text>
     <rect x="0" y="0" width="412" height="85" rx="15" ry="15" transform="translate(248 15)" style="stroke: none; fill: #ffffff; fill-opacity: 0.25;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(455 20) translate(0 61)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0.75; font-size: 80px; font-weight: bold;">Komplex 2</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(455 20) translate(0 60.8)" style="stroke: none; font-family: Arial; fill: #000000; fill-opacity: 0.75; font-size: 80px; font-weight: bold;">Komplex 2</text>
   </g>
 <script>//<![CDATA[
 (function(){

@@ -445,6 +445,10 @@ g.menuitem > text, g.submenuitem > text {
   font-family: Arial;
   font-size: 22px;
 }
+g.menuitem.mono > text, g.submenuitem.mono > text {
+  font-family: Consolas, monospace;
+  white-space: pre;
+}
 g.menuitem > rect.cb, g.menuitem > circle.rb {
   stroke: gray;
   stroke-width: 2px;
@@ -566,6 +570,18 @@ function $$(selector, parent) {
 function $event(elem, event, handler) {
   elem.addEventListener(event, handler);
 }
+
+/**
+ * Finds the main svg image.
+ * @returns {DOMElement} The main svg image.
+ */
+function _getSvgImg() {
+  var svg = $('div.img > svg');
+  if (!svg) {
+    svg = $('svg');
+  }
+  return svg;
+}
 //-- create menu script -------------------------------------- (vvv) --
 // --- ios helper --------------------------------- vv ---
 var timer = null,
@@ -621,17 +637,9 @@ function onContextMenu(event) {
 
   // InternalError is unique for firefox - old firefox needs different handling of position when scrolled
   var isFirefox = !!window.InternalError,
-      x = isFirefox ? event.clientX : event.pageX,
-      y = isFirefox ? event.clientY : event.pageY;
+      x = isFirefox ? event.pageX : event.clientX,
+      y = isFirefox ? event.pageY : event.clientY;
   showContextMenu(x, y);
-}
-
-function _getSvgImg() {
-  var svg = $('div.img > svg');
-  if (!svg) {
-    svg = $('svg');
-  }
-  return svg;
 }
 
 function showContextMenu(x, y) {
@@ -639,32 +647,7 @@ function showContextMenu(x, y) {
   if (!contextmenu) {
     contextmenu = true;
 
-    /**
-     * Switch an option state.
-     * @param {NodeList} elems A list of html elements.
-     * @returns {void}
-     */
-    var setOpts = function(elems) {
-      if (elems) {
-        for (var i = 0, i2 = elems.length; i < i2; ++i) {
-          var elem = elems[i],
-              elemP = elem.parentNode;
-
-          if (elemP.dataset && elemP.dataset.item) {
-            var key = elemP.dataset.item;
-            if (option.data[key] === true || option.data[key] === false) {
-              elem.style.display = option.data[key] ? 'block' : 'none';
-     	    }
-          }
-        }
-      }
-    };
-
-    // handle all options: radios and checkboxes
-    var rbs = document.getElementsByClassName('rb2'),
-        cbs = document.getElementsByClassName('cb2');
-    setOpts(rbs);
-    setOpts(cbs);
+    ContextMenuUpdater.updateOptions();
 
     // show background + context menu
     cm.style.display = 'block';
@@ -675,23 +658,26 @@ function showContextMenu(x, y) {
       var box = cm.getBBox(),
           w = Math.floor(box.width) + 10;
       if (w > 200) {
-        var rcMenuBg = cm.querySelector('rect'),
-            rcsMi = cm.querySelectorAll('g.menuitem > rect.bg'),
-            smis = cm.querySelectorAll('g.submenuitem');
+        var rcMenuBg = cm.querySelector(':scope > rect'),
+            rcsMi = cm.querySelectorAll(':scope > g.menuitem > rect.bg, :scope > g > g.menuitem > rect.bg'),
+            smis = cm.querySelectorAll(':scope > g.submenuitem'),
+            seps = cm.querySelectorAll(':scope > rect.separator');
         if (rcMenuBg) {
           rcMenuBg.style.width = (w + 4) + 'px';
         }
         if (rcsMi) {
           rcsMi.forEach((rcMi) => rcMi.style.width = w + 'px');
         }
+        if (seps) {
+          seps.forEach((sep) => sep.style.width = (w - 4) + 'px');
+        }
         if (smis) {
           smis.forEach((smi) => {
-            smi.querySelector('rect.bg').style.width = w + 'px';
-            smi.querySelector('g.submenu').setAttribute('transform', 'translate(' + (w + 4) + ' 0)');
-            smi.querySelector('path.marker_submenu').setAttribute('transform', 'translate(' + (w - 204) + ' 0)');
+            smi.querySelector(':scope > rect.bg').style.width = w + 'px';
+            smi.querySelector(':scope > g.submenu').setAttribute('transform', 'translate(' + (w + 4) + ' 0)');
+            smi.querySelector(':scope > path.marker_submenu').setAttribute('transform', 'translate(' + (w - 204) + ' 0)');
 
-            // TODO separators
-            // TODO extra handling for submenus
+            // TODO repeat this handling for submenus
           });
         }
       }
@@ -713,6 +699,36 @@ function showContextMenu(x, y) {
     cm.setAttribute('transform', 'translate(' + svgP.x + ' ' + svgP.y + ') scale(1.95)');
   }
 }
+var ContextMenuUpdater = {
+  updateOptions: function() {
+    /**
+     * Switch an option state.
+     * @param {NodeList} elems A list of html elements.
+     * @returns {void}
+     */
+    var setOpts = function(elems) {
+      if (elems) {
+        for (var i = 0, i2 = elems.length; i < i2; ++i) {
+          var elem = elems[i],
+              elemP = elem.parentNode;
+
+          if (elemP.dataset && elemP.dataset.item) {
+            var key = elemP.dataset.item;
+            if (option.data[key] === true || option.data[key] === false) {
+              elem.style.display = option.data[key] ? 'block' : 'none';
+            }
+          }
+        }
+      }
+    };
+
+    // handle all options: radios and checkboxes
+    var rbs = document.getElementsByClassName('rb2'),
+        cbs = document.getElementsByClassName('cb2');
+    setOpts(rbs);
+    setOpts(cbs);
+  }
+};
 
 function onClick(event) {
   if (contextmenu) {

@@ -57,7 +57,7 @@
         <polyline points="66.145,-164.048 89.719,-180.239 91.012,-151.669" style="stroke: #000000; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4; fill: none;"/>
       </g>
     </g>
-    <g id="player_1" class="player defense" transform="translate(325 450) rotate(20)">
+    <g class="player defense" id="player_3" transform="translate(325 450) rotate(20)">
       <ellipse cx="0" cy="0" rx="50" ry="25" style="stroke: none; fill: #b22222; fill-opacity: 0.5;"/>
       <g class="prepare-block">
         <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="fill: none; stroke: #b22222; stroke-opacity: 0.5; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
@@ -161,7 +161,7 @@
         <polyline points="-65.041,-125.206 -61.43,-153.576 -39.25,-135.522" style="stroke: #000000; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4; fill: none;"/>
       </g>
     </g>
-    <g id="player_2" class="player prepare-defense" transform="translate(675 450) rotate(-20)">
+    <g class="player prepare-defense" id="player_7" transform="translate(675 450) rotate(-20)">
       <ellipse cx="0" cy="0" rx="50" ry="25" style="stroke: none; fill: #b22222; fill-opacity: 0.5;"/>
       <g class="prepare-block">
         <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="fill: none; stroke: #b22222; stroke-opacity: 0.5; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
@@ -206,10 +206,10 @@
         <polyline points="150,-13.889 175,0 150,13.889" style="stroke: #000000; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4; fill: none;"/>
       </g>
     </g>
-    <g id="ball_3" transform="translate(349 388)">
+    <g id="ball_8" transform="translate(349 388)">
       <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00; fill-opacity: 0.5;"/>
-      <path id="path_4" d="M 144 312.5 C 127.333 295.833 119 276.25 140.667 265 C 132.333 273.333 135.667 292.5 159 311 L 144 312.488 L 159 311 Q 151.5 314.167 144 312.488" transform="translate(-149 -288)" style="stroke: none; fill: #0000ff; fill-opacity: 0.5;"/>
-      <path id="path_5" d="M 169.661 302.167 C 157.161 289.667 152.994 277.167 150.661 269.667 Q 167.328 281.571 173.994 288.833 Q 173.828 296 169.647 302.167 Z" transform="translate(-149 -288)" style="stroke: none; fill: #0000ff; fill-opacity: 0.5;"/>
+      <path id="path_9" d="M 144 312.5 C 127.333 295.833 119 276.25 140.667 265 C 132.333 273.333 135.667 292.5 159 311 L 144 312.488 L 159 311 Q 151.5 314.167 144 312.488" transform="translate(-149 -288)" style="stroke: none; fill: #0000ff; fill-opacity: 0.5;"/>
+      <path id="path_10" d="M 169.661 302.167 C 157.161 289.667 152.994 277.167 150.661 269.667 Q 167.328 281.571 173.994 288.833 Q 173.828 296 169.647 302.167 Z" transform="translate(-149 -288)" style="stroke: none; fill: #0000ff; fill-opacity: 0.5;"/>
     </g>
   </g>
   <style>

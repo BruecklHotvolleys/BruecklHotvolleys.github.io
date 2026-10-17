@@ -217,7 +217,7 @@ function onClick(event) {
 var option = {
   data: {
     'ID_window_editor_control_graphics_actor_actor_Actor_option_aproach': true,
-    'ID_window_editor_control_graphics_actor_actor_Actor_option_info': false
+    'ID_window_editor_control_graphics_actor_actor_Actor_option_info': true
   },
 
   // the current state info

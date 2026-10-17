@@ -5,93 +5,93 @@
     <ellipse cx="0" cy="0" rx="350" ry="280" transform="translate(400 300)" style="stroke: none; fill: #9acd32;"/>
     <ellipse cx="0" cy="0" rx="315" ry="245" transform="translate(400 300)" style="stroke: none; fill: #ffffff; fill-opacity: 0.1;"/>
     <g>
-      <path id="text_1" d="M67,300 c26, -350, 639,-350, 665,0" fill="none" stroke="none"/>
+      <path id="text_4" d="M67,300 c26, -350, 639,-350, 665,0" fill="none" stroke="none"/>
       <text>
-        <textPath href="#text_1" text-anchor="middle" startOffset="50%" style="stroke: none; font-family: Arial; fill: #000000; font-size: 26px; letter-spacing: 10px; dominant-baseline: central;">Spieltaktik - Spielsysteme</textPath>
+        <textPath href="#text_4" text-anchor="middle" startOffset="50%" style="stroke: none; font-family: Arial; fill: #000000; font-size: 26px; letter-spacing: 10px; dominant-baseline: central;">Spieltaktik - Spielsysteme</textPath>
       </text>
     </g>
     <ellipse cx="0" cy="0" rx="280" ry="210" transform="translate(400 300)" style="stroke: none; fill: #ffffff; fill-opacity: 0.1;"/>
     <g>
-      <path id="text_2" d="M102,300 c26, -303.3333333333333, 569,-303.3333333333333, 595,0" fill="none" stroke="none"/>
+      <path id="text_6" d="M102,300 c26, -303.3333333333333, 569,-303.3333333333333, 595,0" fill="none" stroke="none"/>
       <text>
-        <textPath href="#text_2" text-anchor="middle" startOffset="50%" style="stroke: none; font-family: Arial; fill: #000000; font-size: 26px; letter-spacing: 10px; dominant-baseline: central;">Spielhandlungen</textPath>
+        <textPath href="#text_6" text-anchor="middle" startOffset="50%" style="stroke: none; font-family: Arial; fill: #000000; font-size: 26px; letter-spacing: 10px; dominant-baseline: central;">Spielhandlungen</textPath>
       </text>
     </g>
     <ellipse cx="0" cy="0" rx="245" ry="175" transform="translate(400 300)" style="stroke: none; fill: #ffffff; fill-opacity: 0.1;"/>
     <g>
-      <path id="text_3" d="M137,300 c26, -256.6666666666667, 499,-256.6666666666667, 525,0" fill="none" stroke="none"/>
+      <path id="text_8" d="M137,300 c26, -256.6666666666667, 499,-256.6666666666667, 525,0" fill="none" stroke="none"/>
       <text>
-        <textPath href="#text_3" text-anchor="middle" startOffset="50%" style="stroke: none; font-family: Arial; fill: #000000; font-size: 26px; letter-spacing: 10px; dominant-baseline: central;">Ballaktionen</textPath>
+        <textPath href="#text_8" text-anchor="middle" startOffset="50%" style="stroke: none; font-family: Arial; fill: #000000; font-size: 26px; letter-spacing: 10px; dominant-baseline: central;">Ballaktionen</textPath>
       </text>
     </g>
     <ellipse cx="0" cy="0" rx="210" ry="140" transform="translate(400 300)" style="stroke: none; fill: #ffffff; fill-opacity: 0.1;"/>
     <g>
-      <path id="text_4" d="M172,300 c26, -210, 429,-210, 455,0" fill="none" stroke="none"/>
+      <path id="text_10" d="M172,300 c26, -210, 429,-210, 455,0" fill="none" stroke="none"/>
       <text>
-        <textPath href="#text_4" text-anchor="middle" startOffset="50%" style="stroke: none; font-family: Arial; fill: #000000; font-size: 26px; letter-spacing: 10px; dominant-baseline: central;">Bewegen zum Ball</textPath>
+        <textPath href="#text_10" text-anchor="middle" startOffset="50%" style="stroke: none; font-family: Arial; fill: #000000; font-size: 26px; letter-spacing: 10px; dominant-baseline: central;">Bewegen zum Ball</textPath>
       </text>
     </g>
     <ellipse cx="0" cy="0" rx="175" ry="105" transform="translate(400 300)" style="stroke: none; fill: #ffffff; fill-opacity: 0.1;"/>
     <g>
-      <path id="text_5" d="M207,300 c26, -163.33333333333334, 359,-163.33333333333334, 385,0" fill="none" stroke="none"/>
+      <path id="text_12" d="M207,300 c26, -163.33333333333334, 359,-163.33333333333334, 385,0" fill="none" stroke="none"/>
       <text>
-        <textPath href="#text_5" text-anchor="middle" startOffset="50%" style="stroke: none; font-family: Arial; fill: #000000; font-size: 26px; letter-spacing: 10px; dominant-baseline: central;">Entscheiden</textPath>
+        <textPath href="#text_12" text-anchor="middle" startOffset="50%" style="stroke: none; font-family: Arial; fill: #000000; font-size: 26px; letter-spacing: 10px; dominant-baseline: central;">Entscheiden</textPath>
       </text>
     </g>
     <ellipse cx="0" cy="0" rx="140" ry="70" transform="translate(400 300)" style="stroke: none; fill: #ffffff; fill-opacity: 0.1;"/>
     <g>
-      <path id="text_6" d="M242,300 c26, -116.66666666666666, 289,-116.66666666666666, 315,0" fill="none" stroke="none"/>
+      <path id="text_14" d="M242,300 c26, -116.66666666666666, 289,-116.66666666666666, 315,0" fill="none" stroke="none"/>
       <text>
-        <textPath href="#text_6" text-anchor="middle" startOffset="50%" style="stroke: none; font-family: Arial; fill: #000000; font-size: 26px; letter-spacing: 10px; dominant-baseline: central;">Auswählen</textPath>
+        <textPath href="#text_14" text-anchor="middle" startOffset="50%" style="stroke: none; font-family: Arial; fill: #000000; font-size: 26px; letter-spacing: 10px; dominant-baseline: central;">Auswählen</textPath>
       </text>
     </g>
     <ellipse cx="0" cy="0" rx="105" ry="35" transform="translate(400 300)" style="stroke: none; fill: #ffffff; fill-opacity: 0.1;"/>
     <g>
-      <path id="text_7" d="M277,300 c26, -70, 219,-70, 245,0" fill="none" stroke="none"/>
+      <path id="text_16" d="M277,300 c26, -70, 219,-70, 245,0" fill="none" stroke="none"/>
       <text>
-        <textPath href="#text_7" text-anchor="middle" startOffset="50%" style="stroke: none; font-family: Arial; fill: #000000; font-size: 26px; letter-spacing: 10px; dominant-baseline: central;">Beobachten</textPath>
+        <textPath href="#text_16" text-anchor="middle" startOffset="50%" style="stroke: none; font-family: Arial; fill: #000000; font-size: 26px; letter-spacing: 10px; dominant-baseline: central;">Beobachten</textPath>
       </text>
     </g>
-    <g id="ball_8" transform="translate(400 305) scale(1.7) rotate(54.036)">
+    <g id="ball_17" transform="translate(400 305) scale(1.7) rotate(59.976)">
       <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00;"/>
-      <path id="path_9" d="M 395 329.5 C 378.333 312.833 370 293.25 391.667 282 C 383.333 290.333 386.667 309.5 410 328 L 395 329.488 L 410 328 Q 402.5 331.167 395 329.488" transform="translate(-400 -305)" style="stroke: none; fill: #0000ff;"/>
-      <path id="path_10" d="M 420.661 319.167 C 408.161 306.667 403.994 294.167 401.661 286.667 Q 418.328 298.571 424.994 305.833 Q 424.828 313 420.647 319.167 Z" transform="translate(-400 -305)" style="stroke: none; fill: #0000ff;"/>
+      <path id="path_18" d="M 395 329.5 C 378.333 312.833 370 293.25 391.667 282 C 383.333 290.333 386.667 309.5 410 328 L 395 329.488 L 410 328 Q 402.5 331.167 395 329.488" transform="translate(-400 -305)" style="stroke: none; fill: #0000ff;"/>
+      <path id="path_19" d="M 420.661 319.167 C 408.161 306.667 403.994 294.167 401.661 286.667 Q 418.328 298.571 424.994 305.833 Q 424.828 313 420.647 319.167 Z" transform="translate(-400 -305)" style="stroke: none; fill: #0000ff;"/>
     </g>
     <rect x="0" y="0" width="760" height="280" transform="translate(20 300)" style="stroke: none; fill: #008000; fill-opacity: 0.78;"/>
-    <g id="ball_11" transform="translate(400 305) scale(1.7) rotate(54.036)">
+    <g id="ball_21" transform="translate(400 305) scale(1.7) rotate(59.976)">
       <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00; fill-opacity: 0.14;"/>
-      <path id="path_12" d="M 395 329.5 C 378.333 312.833 370 293.25 391.667 282 C 383.333 290.333 386.667 309.5 410 328 L 395 329.488 L 410 328 Q 402.5 331.167 395 329.488" transform="translate(-400 -305)" style="stroke: none; fill: #0000ff; fill-opacity: 0.14;"/>
-      <path id="path_13" d="M 420.661 319.167 C 408.161 306.667 403.994 294.167 401.661 286.667 Q 418.328 298.571 424.994 305.833 Q 424.828 313 420.647 319.167 Z" transform="translate(-400 -305)" style="stroke: none; fill: #0000ff; fill-opacity: 0.14;"/>
+      <path id="path_22" d="M 395 329.5 C 378.333 312.833 370 293.25 391.667 282 C 383.333 290.333 386.667 309.5 410 328 L 395 329.488 L 410 328 Q 402.5 331.167 395 329.488" transform="translate(-400 -305)" style="stroke: none; fill: #0000ff; fill-opacity: 0.14;"/>
+      <path id="path_23" d="M 420.661 319.167 C 408.161 306.667 403.994 294.167 401.661 286.667 Q 418.328 298.571 424.994 305.833 Q 424.828 313 420.647 319.167 Z" transform="translate(-400 -305)" style="stroke: none; fill: #0000ff; fill-opacity: 0.14;"/>
     </g>
-    <text x="0" y="0" text-anchor="middle" transform="translate(400 425) translate(0 65)" style="stroke: none; font-family: Arial; fill: #ffff00; fill-opacity: 0.44; font-size: 170px; font-weight: bold;">WISSEN</text>
-    <text x="0" y="0" text-anchor="middle" transform="translate(400 322) translate(0 13)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 33px;">um die Beobachtungskriterien</text>
-    <text x="0" y="0" text-anchor="middle" transform="translate(400 360) translate(0 13)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 33px;">um die Auswahlkriterien</text>
-    <text x="0" y="0" text-anchor="middle" transform="translate(400 398) translate(0 13)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 33px;">um die Entscheidungskriterien</text>
-    <text x="0" y="0" text-anchor="middle" transform="translate(400 436) translate(0 13)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 33px;">um die Bewegungsmöglichkeiten</text>
-    <text x="0" y="0" text-anchor="middle" transform="translate(400 474) translate(0 13)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 33px;">um die Ballaktionen</text>
-    <text x="0" y="0" text-anchor="middle" transform="translate(400 512) translate(0 13)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 33px;">um die Spielhandlungen</text>
-    <text x="0" y="0" text-anchor="middle" transform="translate(400 550) translate(0 13)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 33px;">um die Spieltaktiken und die Spielsysteme</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(400 425) translate(0 64.6)" style="stroke: none; font-family: Arial; fill: #ffff00; fill-opacity: 0.44; font-size: 170px; font-weight: bold;">WISSEN</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(400 322) translate(0 12.54)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 33px;">um die Beobachtungskriterien</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(400 360) translate(0 12.54)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 33px;">um die Auswahlkriterien</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(400 398) translate(0 12.54)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 33px;">um die Entscheidungskriterien</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(400 436) translate(0 12.54)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 33px;">um die Bewegungsmöglichkeiten</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(400 474) translate(0 12.54)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 33px;">um die Ballaktionen</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(400 512) translate(0 12.54)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 33px;">um die Spielhandlungen</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(400 550) translate(0 12.54)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 33px;">um die Spieltaktiken und die Spielsysteme</text>
   </g>
   <!-- context menu - - - - - - - - - - -->
   <rect id="contextmenu_bg" x="0" y="0" />
   <g id="contextmenu" class="contextmenu">
     <rect x="0" y="0" width="204" height="100" rx="5" ry="5" />
     <g id="ID_animation" class="ID_mi_stop">
-    <g class="menuitem" data-item="ID_mi_play" transform="translate(0 0)">
-     <rect x="2" y="2" width="200" height="32" class="bg" />
-     <path d="M 12 10 l 7 7 l -7 7 z" class="mi-play" />
-     <text x="30" y="25">Start</text>
-    </g>
-    <g class="menuitem" data-item="ID_mi_pause" transform="translate(0 32)">
-     <rect x="2" y="2" width="200" height="32" class="bg" />
-     <path d="M 12 10 v 14 M 18 10 v 14" class="mi-pause" />
-     <text x="30" y="25">Pause</text>
-    </g>
-    <g class="menuitem" data-item="ID_mi_stop" transform="translate(0 64)">
-     <rect x="2" y="2" width="200" height="32" class="bg" />
-     <path d="M 8 10 h 14 v 14 h -14 z" class="mi-stop" />
-     <text x="30" y="25">Stop</text>
-    </g>
+      <g class="menuitem" data-item="ID_mi_play" transform="translate(0 0)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 12 10 l 7 7 l -7 7 z" class="mi-play" />
+       <text x="30" y="25">Start</text>
+      </g>
+      <g class="menuitem" data-item="ID_mi_pause" transform="translate(0 32)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 12 10 v 14 M 18 10 v 14" class="mi-pause" />
+       <text x="30" y="25">Pause</text>
+      </g>
+      <g class="menuitem" data-item="ID_mi_stop" transform="translate(0 64)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 8 10 h 14 v 14 h -14 z" class="mi-stop" />
+       <text x="30" y="25">Stop</text>
+      </g>
     </g>
   </g>
   <style>
@@ -114,7 +114,6 @@ g.contextmenu > rect, g.submenu > rect {
 g.menuitem > rect, g.submenuitem > rect {
   stroke: none;
   fill: lightgray;
-  /*cursor: pointer;*/
 }
 g.menuitem > * {
   pointer-events: none;
@@ -122,9 +121,6 @@ g.menuitem > * {
 g.menuitem > rect.bg {
   pointer-events: all;
   cursor: pointer;
-}
-g.submenuitem > rect.bg {
-  /*pointer-events: all;*/
 }
 g.menuitem:hover > rect.bg, g.submenuitem:hover > rect.bg {
   fill: darkgray;
@@ -134,13 +130,11 @@ g.menuitem > text, g.submenuitem > text {
   fill: #111;
   font-family: Arial;
   font-size: 22px;
-  /*cursor: pointer;*/
 }
-/*
-g.submenuitem > rect, g.submenuitem > text {
-  cursor: default;
+g.menuitem.mono > text, g.submenuitem.mono > text {
+  font-family: Consolas, monospace;
+  white-space: pre;
 }
-*/
 g.menuitem > rect.cb, g.menuitem > circle.rb {
   stroke: gray;
   stroke-width: 2px;
@@ -189,18 +183,20 @@ g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"],
 g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"] {
   opacity: 0.5;
 }
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"] > rect.bg,
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"] > rect.bg {
+  cursor: default;
+}
 g#ID_animation.ID_mi_play > g[data-item="ID_mi_play"] {
   opacity: 0.5;
+}
+g#ID_animation.ID_mi_play > g[data-item="ID_mi_play"] > rect.bg {
+  cursor: default;
 }
 g#ID_animation.ID_mi_pause > g[data-item="ID_mi_pause"] {
   opacity: 0.5;
 }
-g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"]:hover > text,
-g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"]:hover > text {
-  cursor: default;
-}
-g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"]:hover > rect,
-g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"]:hover > rect {
+g#ID_animation.ID_mi_pause > g[data-item="ID_mi_pause"] > rect.bg {
   cursor: default;
 }
   </style>
@@ -230,11 +226,23 @@ function $$(selector, parent) {
  * Connects an event handler to a given DOMElement.
  * @param {DOMElement} elem The DOMElement to handle.
  * @param {string} event The name of the event to handle.
- * @param {Function} handler The ebvent handler.
+ * @param {Function} handler The event handler.
  * @returns {void}
  */
 function $event(elem, event, handler) {
   elem.addEventListener(event, handler);
+}
+
+/**
+ * Finds the main svg image.
+ * @returns {DOMElement} The main svg image.
+ */
+function _getSvgImg() {
+  var svg = $('div.img > svg');
+  if (!svg) {
+    svg = $('svg');
+  }
+  return svg;
 }
 //-- create menu script -------------------------------------- (vvv) --
 // --- ios helper --------------------------------- vv ---
@@ -277,6 +285,7 @@ $event(document, 'touchend', touchend);
 $event(document, 'touchmove', touchmove);
 // --- ios helper --------------------------------- ^^ ---/* global $$ */
 var cm, bg,
+    cmInitialized = false,
     contextmenu = false;
 
 function onContextMenu(event) {
@@ -287,20 +296,12 @@ function onContextMenu(event) {
   if (!svg || !svg.contains(event.target)) {
     return;
   }
-  
-  // InternalError is unique for firefox
-  //var isFirefox = !!window.InternalError,
-  //    x = isFirefox ? event.clientX : event.pageX, 
-  //    y = isFirefox ? event.clientY : event.pageY;  
-  showContextMenu(event.clientX, event.clientY);
-}
 
-function _getSvgImg() {
-  var svg = $('div.img > svg');
-  if (!svg) {
-    svg = $('svg');
-  }
-  return svg;
+  // InternalError is unique for firefox - old firefox needs different handling of position when scrolled
+  var isFirefox = !!window.InternalError,
+      x = isFirefox ? event.pageX : event.clientX,
+      y = isFirefox ? event.pageY : event.clientY;
+  showContextMenu(x, y);
 }
 
 function showContextMenu(x, y) {
@@ -308,6 +309,60 @@ function showContextMenu(x, y) {
   if (!contextmenu) {
     contextmenu = true;
 
+    ContextMenuUpdater.updateOptions();
+
+    // show background + context menu
+    cm.style.display = 'block';
+    bg.style.display = 'block';
+
+    if (!cmInitialized) {
+      cmInitialized = true;
+      var box = cm.getBBox(),
+          w = Math.floor(box.width) + 10;
+      if (w > 200) {
+        var rcMenuBg = cm.querySelector(':scope > rect'),
+            rcsMi = cm.querySelectorAll(':scope > g.menuitem > rect.bg, :scope > g > g.menuitem > rect.bg'),
+            smis = cm.querySelectorAll(':scope > g.submenuitem'),
+            seps = cm.querySelectorAll(':scope > rect.separator');
+        if (rcMenuBg) {
+          rcMenuBg.style.width = (w + 4) + 'px';
+        }
+        if (rcsMi) {
+          rcsMi.forEach((rcMi) => rcMi.style.width = w + 'px');
+        }
+        if (seps) {
+          seps.forEach((sep) => sep.style.width = (w - 4) + 'px');
+        }
+        if (smis) {
+          smis.forEach((smi) => {
+            smi.querySelector(':scope > rect.bg').style.width = w + 'px';
+            smi.querySelector(':scope > g.submenu').setAttribute('transform', 'translate(' + (w + 4) + ' 0)');
+            smi.querySelector(':scope > path.marker_submenu').setAttribute('transform', 'translate(' + (w - 204) + ' 0)');
+
+            // TODO repeat this handling for submenus
+          });
+        }
+      }
+    }
+
+    var svg = _getSvgImg(), pt, svgP;
+    try {
+      // transform point to SVG coordinates
+      pt = new DOMPoint(x,y);
+      svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+    } catch {
+      // old browsers: create SVG point, set pos, transform to SVG coordinates
+      pt = svg.createSVGPoint();
+      pt.x = x;
+      pt.y = y;
+      svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+    }
+
+    cm.setAttribute('transform', 'translate(' + svgP.x + ' ' + svgP.y + ') scale(1.2)');
+  }
+}
+var ContextMenuUpdater = {
+  updateOptions: function() {
     /**
      * Switch an option state.
      * @param {NodeList} elems A list of html elements.
@@ -323,39 +378,19 @@ function showContextMenu(x, y) {
             var key = elemP.dataset.item;
             if (option.data[key] === true || option.data[key] === false) {
               elem.style.display = option.data[key] ? 'block' : 'none';
-     	    }
+            }
           }
         }
       }
     };
-    
+
     // handle all options: radios and checkboxes
     var rbs = document.getElementsByClassName('rb2'),
         cbs = document.getElementsByClassName('cb2');
     setOpts(rbs);
     setOpts(cbs);
-
-    // show background + context menu
-    cm.style.display = 'block';
-    bg.style.display = 'block';
-    
-    //var svg = document.getElementsByTagName('svg')[0], pt, svgP;
-    var svg = _getSvgImg(), pt, svgP;
-    try {
-      // transform point to SVG coordinates
-      pt = new DOMPoint(x,y);
-      svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
-    } catch {
-      // old browsers: create SVG point, set pos, transform to SVG coordinates
-      pt = svg.createSVGPoint();
-      pt.x = x;
-      pt.y = y;    
-      svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
-    }
-
-    cm.setAttribute('transform', 'translate(' + svgP.x + ' ' + svgP.y + ') scale(1.2)');
   }
-}
+};
 
 function onClick(event) {
   if (contextmenu) {
@@ -387,6 +422,17 @@ var option = {
 
   },
 
+  // the current state info
+  _current: {
+  },
+
+  // TODO animation, effects
+  // the connected animation info
+  'animator': undefined,
+  'animation0': undefined,
+  // the connected effects handler
+  effects: null,
+
   reset: function(keys) {
     if (typeof keys === 'string') {
       var keys2 = keys.split(',');
@@ -403,29 +449,55 @@ var option = {
     this.data[key] = !this.data[key];
     this._updateElems(key);
   },
-  
+
   init: function() {
     for (var key in this.data) {
+      
       this._updateElems(key);
     }
   },
-  
+
+  getCurrent: function(id) {
+    if (this._current[id] !== undefined) {
+      return this._current[id];
+    }
+    return true;
+  },
+
   _updateElems: function(key, state) {
-    var st = state === undefined ? this.data[key] : state;
+    var state0 = state === undefined ? this.data[key] : state;
 
     // items that reflect the state
     var elems = $$('[data-option="' + key + '"]');
     if (elems) {
       for (var i = 0, i2 = elems.length; i < i2; ++i) {
-        elems[i].style.display = st ? "block" : "none";
+        var elem = elems[i],
+            st = state0;
+        if (elem.id && this.animation0 && this.animation0[elem.id]
+            && this.animation0[elem.id]['visible-common'] !== undefined) {
+          st = !!this.animation0[elem.id]['visible-common'];
+        }
+        elem.style.display = st ? "block" : "none";
+        if (elem.id) {
+          this._current[elem.id] = st;
+        }
       }
     }
-    
+
     // items that reflect the inverted state
     elems = $$('[data-option="' + key + '_not"]');
     if (elems) {
       for (var i = 0, i2 = elems.length; i < i2; ++i) {
-        elems[i].style.display = st ? "none" : "block";
+        var elem = elems[i],
+            st = state0;
+        if (elem.id && this.animation0 && this.animation0[elem.id]
+            && this.animation0[elem.id]['visible-common'] !== undefined) {
+          st = !!this.animation0[elem.id]['visible-common'];
+        }
+        elem.style.display = st ? "none" : "block";
+        if (elem.id) {
+          this._current[elem.id] = !st;
+        }
       }
     }
   }
@@ -441,8 +513,7 @@ $event(cm, 'click', onClick);
 
 // init size of context submenu items (because of text size)
 $$('g.submenuitem').forEach((sub) => {
-  $event(sub, 'mouseenter', (event) => {
-    //var g = event.target;
+  $event(sub, 'mouseenter', () => {
     var txts = $$('g.submenu > g.menuitem > text');
     // 200 size of menu item + 2px width border, 30 is left of text field
     var len = 170;
@@ -464,13 +535,13 @@ $$('g.submenuitem').forEach((sub) => {
 
 //-- create menu script -------------------------------------- (^^^) --
 var animation0 = {
-  "ball_8": {
+  "ball_17": {
     "x": 400.0,
     "y": 305.0,
     "angle": 60.0,
     "scale": 1.7
   },
-  "ball_11": {
+  "ball_21": {
     "x": 400.0,
     "y": 305.0,
     "angle": 60.0,
@@ -478,7 +549,7 @@ var animation0 = {
   }
 };
 var animation = {
-  "ball_8": [
+  "ball_17": [
     {
       "type": "rot",
       "angle": -360.0,
@@ -486,7 +557,7 @@ var animation = {
       "end": 30.0
     }
   ],
-  "ball_11": [
+  "ball_21": [
     {
       "type": "rot",
       "angle": -360.0,
@@ -497,23 +568,28 @@ var animation = {
 };
 /* global $$, animation, animation0 */
 
-window.animator = {
+var animator = {
   // to reset all animations
   animation0: null,
   // the steps of the animations
   animation: null,
-  
+
   // the duration of the animation
   duration: 0,
   // when to restart looping
   restart: 0,
-  
+
   // the animation timer id
   ID: undefined,
   // the current timestamp of the animation
   ts: 0,
   // the last system timestamp to calculate the next step
   lastTs: 0,
+
+  // the connected effects handler
+  effects: null,
+  // the connected options handler
+  option: null,
 
   /**
    * Initializes the animations - sets the data.
@@ -525,7 +601,7 @@ window.animator = {
     this.animation0 = animation0;
     this.animation = animation;
   },
-  
+
   /**
    * Initializes the animations - sets the times.
    * @param {number} duration The duration of the animation.
@@ -537,6 +613,10 @@ window.animator = {
     this.restart = restart;
   },
 
+  isActive: function() {
+    return !!this.ID;
+  },
+
   start: function() {
     if (!this.ID) {
       this.ID = setInterval(this.handler.bind(this), 33);
@@ -546,20 +626,19 @@ window.animator = {
   pause: function() {
     if (this.ID) {
       clearInterval(this.ID);
-      this.ID = 0;
+      this.ID = undefined;
     }
   },
   stop: function() {
     if (this.ID) {
       clearInterval(this.ID);
-      this.ID = 0;
+      this.ID = undefined;
     }
     this.ts = 0;
-    this.reset(true);
+    this._reset(true);
   },
 
   handler: function() {
-    // old this.ts += 0.033;
     // calculate next step
     var cur = Date.now();
     this.ts += (cur - this.lastTs) / 1000;
@@ -569,82 +648,87 @@ window.animator = {
     while (this.ts > this.duration) {
       this.ts -= this.duration - this.restart;
     }
-    
+
     // calculate animation and update
-    this.reset(false);
-    this.update(this.ts);
+    this._reset(false);
+    this._update(this.ts);
   },
 
-  reset: function(full) {
-    var keys = Object.keys(this.animation0);    
+  _reset: function(full) {
+    var keys = Object.keys(this.animation0);
     for (var i = 0; i < keys.length; ++i) {
       var id = keys[i],
           anim0 = this.animation0[id];
-  
-      this.setActor($('#' + id), anim0);
+
+      this._setActor(id, anim0);
       if (full && anim0.draw !== undefined) {
-        console.log("reset draw " + keys[i]);
+        // console.log("reset draw " + keys[i]);
         this._setDraw(keys[i], anim0.draw);
       }
     }
   },
-  
-  update: function(time) {
+
+  _update: function(time) {
     // handle each actor
     var keys = Object.keys(this.animation0);
     for (var i = 0; i < keys.length; ++i) {
-      var anim0 = this.animation0[keys[i]],
-          anims = this.animation[keys[i]],
-          cur = {},
+      var id = keys[i],
+          anim0 = this.animation0[id],
+          anims = this.animation[id];
+      // ignore anim0 without animations (e.g. visibility without any animation)
+      if (!anims) {
+        continue;
+      }
+      var cur = {},
           keys2 = Object.keys(anim0);
-      
+
       // clone anim0 (=initial pos/angle/...)
       for (var j = 0; j < keys2.length; ++j) {
         cur[keys2[j]] = anim0[keys2[j]];
       }
-      
+
       // handle each animation of this actor
       for (var a = 0; a < anims.length; ++a) {
         var anim = anims[a];
-        
+
         switch (anim.type) {
           case 'mov':
             if (time >= anim.end) {
               cur.x += anim.x;
               cur.y += anim.y;
-            
+
             } else if (time > anim.start) {
               var dur = anim.end - anim.start,
                   t = time - anim.start;
-              
+
               switch (anim.mode) {
                 case "linear":
                   cur.x += anim.x / dur * t;
                   cur.y += anim.y / dur * t;
                   break;
-                
+
                 case "parable":
                   cur.x += this._getX(anim.angle, anim.speed, t / anim.slowmo);
                   cur.y += this._getY(anim.angle, anim.speed, t / anim.slowmo);
                   break;
-                  
+
                 default:
                   log('Invalid move mode: ' + anim.mode + '!');
               }
             }
             break;
-            
+
           case 'rot':
             if (time >= anim.end) {
               cur.angle += anim.angle;
-              
+
             } else if (time > anim.start) {
               var dur = anim.end - anim.start,
                   t = time - anim.start;
               cur.angle += anim.angle / dur * t;
             }
             break;
-            
+
           case 'scale':
             if (time >= anim.end) {
               cur.scale += anim.scale;
@@ -654,42 +738,146 @@ window.animator = {
               cur.scale += anim.scale / dur * t;
             }
             break;
-            
+
           case 'vis':
             if (time >= anim.at) {
-              cur.visible = anim.visible;
+              // udate right styling variant
+              var postfix = !!this.effects && this.effects.current[id] ? this.effects.current[id] : 'common';
+              cur['visible-' + postfix] = anim.visible;
             }
             break;
-            
+
           case 'pla-typ':
             if (time >= anim.at) {
               cur.playertype = anim.playertype;
             }
             break;
-            
+
           case 'pla-txt':
             if (time >= anim.at) {
               cur.playertext = anim.playertext;
             }
-            break;            
-          
+            break;
+
           case 'draw':
             // nothing to change for main item -> cur
             // subitems are updated in setDraw(...)
-            console.log("update draw");
-            this._setDraw(keys[i], anim0.draw, anim.items, time);
+            // console.log("update draw");
+            this._setDraw(id, anim0.draw, anim.items, time);
             break;
-            
+
           default:
             console.log('Unsupported animation type: ' + anim.type + '!');
             break;
         }
       }
 
-      this.setActor($('#' + keys[i]), cur);
+      this._setActor(id, cur);
     }
   },
-  
+
+  _setActor: function(id, anim) {
+    const actor = $('#' + id);
+    if (!actor) return;
+
+    var keys = Object.keys(anim),
+        trans = '';
+    for (var i = 0; i < keys.length; ++i) {
+      switch (keys[i]) {
+        case 'x':
+          trans += this._setPos(anim.x, anim.y);
+          break;
+        case 'y':
+          // nothing to do
+          break;
+
+        case 'angle':
+          trans += this._setRot(anim.angle, anim.rotx, anim.roty);
+          break;
+        case 'rotx':
+        case 'roty':
+          // nothing to do
+          break;
+
+        case 'scale':
+          trans += this._setScale(anim.scale, anim.rotx, anim.roty);
+          break;
+
+        case 'playertype':
+          this._setPlayerType(actor, anim.playertype);
+          break;
+
+        case 'playertext':
+          this._setPlayerText(actor, anim.playertext);
+          break;
+
+        case 'draw':
+          // nothing to do
+          break;
+
+        // nur animation
+        // case 'visible':
+        //  this._setVisibility(actor, anim.visible);
+        //  break;
+        // option handling ?!
+        // effects handling
+
+
+        default:
+          var found = false;
+          var parts = keys[i].split('-');
+          if (parts.length === 2) {
+            switch (parts[0]) {
+              case 'visible':
+                found = true;
+                var cur = !!this.effects && this.effects.current[id] ? this.effects.current[id] : 'common';
+                if (cur === parts[1]) {
+                  this._setVisibility(actor, anim['visible-' + cur]);
+                }
+                break;
+            }
+          }
+          if (!found) {
+            console.log('Unsupported animation property: ' + keys[i] + '-' + anim[keys[i]] + '!');
+          }
+      }
+    }
+    if (trans !== '') {
+      actor.setAttribute('transform', trans.trim());
+    }
+  },
+
+  _setPos: function(x, y) {
+    return ' translate(' + x + ', ' + y + ')';
+  },
+
+  _setRot: function(angle, rotx, roty) {
+    return (rotx !== undefined && roty !== undefined)
+        ? (' rotate(' + angle + ', ' + rotx + ', ' + roty + ')')
+        : (' rotate(' + angle + ')');
+  },
+
+  _setScale: function(scale, cx, cy) {
+    return (cx !== undefined && cy !== undefined)
+        ? ' translate(' + cx + ', ' + cy + ') scale(' + scale + ') translate(' + -cx + ', ' + -cy + ')'
+        : ' scale(' + scale + ')';
+  },
+
+  _setVisibility: function(actor, visible) {
+    actor.style.display = visible ? 'block' : 'none';
+  },
+
+  _setPlayerType: function(actor, playertype) {
+    actor.setAttribute('class', playertype);
+  },
+
+  _setPlayerText: function(actor, text) {
+    var texts = actor.getElementsByTagName('text');
+    if (texts !== null && texts.length > 0) {
+      texts[0].innerHTML = text;
+    }
+  },
+
   _getX: function(angle, speed, time) {
     return speed * Math.cos(angle) * time * 1000;
   },
@@ -699,57 +887,6 @@ window.animator = {
     return -(speed * Math.sin(angle) * time - G2 * time * time) * 1000;
   },
 
-  setActor: function(actor, anim) {
-    if (!actor) return;
-    
-    var keys = Object.keys(anim),
-        trans = '';
-    for (var i = 0; i < keys.length; ++i) {
-      switch (keys[i]) {
-        case 'x':
-          trans += this.setPos(anim.x, anim.y);
-          break;
-        case 'y':
-          // nothing to do
-          break;
-        
-        case 'angle':
-          trans += this.setRot(anim.angle, anim.rotx, anim.roty);
-          break;
-        case 'rotx':
-        case 'roty':
-          // nothing to do
-          break;
-        
-        case 'scale':
-          trans += this.setScale(anim.scale, anim.rotx, anim.roty);
-          break;
-          
-        case 'visible':
-          this.setVisibility(actor, anim.visible);
-          break;
-        
-        case 'playertype':
-          this.setPlayerType(actor, anim.playertype);
-          break;
-
-        case 'playertext':
-          this.setPlayerText(actor, anim.playertext);
-          break;
-              
-        case 'draw':
-          // nothing to do
-          break;
-        
-        default:
-          console.log('Unsupported animation property: ' + keys[i] + '-' + anim[keys[i]] + '!');
-      }
-    }
-    if (trans !== '') {
-      actor.setAttribute('transform', trans.trim());
-    }
-  },
-  
   _setDraw: function(id, pos0, anims, time) {
     // initialize positions and check
     var pos1 = JSON.parse(JSON.stringify(pos0));
@@ -765,33 +902,33 @@ window.animator = {
         log("Invalid animation data for " + id + "!");
         return;
       }
-    
+
       // handle each position
       for (var p = 0, p2 = pos1.length; p < p2; ++p) {
         var pos = pos1[p],
             angle = pos1[p].angle,
             length = pos1[p].length;
-        
+
         // handle each animation of position
         for (var a = 0, a2 = anims[p].length; a < a2; ++a) {
           var ai = anims[p][a];
-          
+
           if (ai.end <= time) {
             switch (ai.type) {
               case 'show':
                 pos.visible = ai.visible;
                 break;
-                
+
               case 'xy':
                 pos.dx += ai.dx;
                 pos.dy += ai.dy;
                 break;
-                
+
               case 'rel':
                 angle += ai.angle;
                 length += ai.length;
                 var aa = angle * Math.PI / 180;
-                pos.dx = Math.cos(aa) * length,
+                pos.dx = Math.cos(aa) * length;
                 pos.dy = Math.sin(aa) * length;
                 break;
             }
@@ -803,12 +940,12 @@ window.animator = {
                 pos.dx += ai.dx / duration * dur;
                 pos.dy += ai.dy / duration * dur;
                 break;
-                
+
               case 'rel':
                 angle += ai.angle / duration * dur;
                 length += ai.length / duration * dur;
                 var aa = angle * Math.PI / 180;
-                pos.dx = Math.cos(aa) * length,
+                pos.dx = Math.cos(aa) * length;
                 pos.dy = Math.sin(aa) * length;
                 break;
             }
@@ -816,7 +953,7 @@ window.animator = {
         }
       }
     }
-    
+
     // connect positions (0 cannot have any predecessor)
     for (var p = 1, p2 = pos1.length; p < p2; ++p) {
       var pos = pos1[p];
@@ -826,7 +963,7 @@ window.animator = {
         pos.dy += posP.dy;
       }
     }
-    
+
     // set items depending on the positions
     $$('g#' + id + ' > [data-anim-index]').forEach((item) => {
       var idx = parseInt(item.dataset.animIndex);
@@ -835,7 +972,7 @@ window.animator = {
             posP = pos.predecessor >= 0 ? pos1[pos.predecessor] : null;
 
         // set visibility
-        this.setVisibility(item, pos.visible);
+        this._setVisibility(item, pos.visible);
 
         // set position
         switch (item.tagName.toLowerCase()) {
@@ -862,37 +999,6 @@ window.animator = {
         }
       }
     });
-  },
-    
-  setPos: function(x, y) {
-    return ' translate(' + x + ', ' + y + ')';
-  },
-
-  setRot: function(angle, rotx, roty) {
-    return (rotx !== undefined && roty !== undefined) 
-        ? (' rotate(' + angle + ', ' + rotx + ', ' + roty + ')') 
-        : (' rotate(' + angle + ')');
-  },
-  
-  setScale: function(scale, cx, cy) {
-    return (cx !== undefined && cy !== undefined)
-        ? ' translate(' + cx + ', ' + cy + ') scale(' + scale + ') translate(' + -cx + ', ' + -cy + ')'
-        : ' scale(' + scale + ')';
-  },
-  
-  setVisibility: function(actor, visible) {
-    actor.style.display = visible ? 'block' : 'none';
-  },
-  
-  setPlayerType: function(actor, playertype) {
-    actor.setAttribute('class', playertype);
-  },
-  
-  setPlayerText: function(actor, text) {
-    var texts = actor.getElementsByTagName('text');
-    if (texts !== null && texts.length > 0) {
-      texts[0].innerHTML = text;
-    }
   }
 };
 animator.init(animation0, animation);
@@ -931,6 +1037,11 @@ $event($('#ID_animation'), 'click', onAnimClick);
 animator.initAnimation(30.0, 0.0);
 var ev = { "target": $('#ID_animation > g') };
 onAnimClick(ev);
+/* global option, animation0 */
+
+if (typeof option !== 'undefined' && typeof animation0 !== 'undefined') {
+  option.animation0 = animation0;
+}
 }());
 //]]></script>
 </svg>

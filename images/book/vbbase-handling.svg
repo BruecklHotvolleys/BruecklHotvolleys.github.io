@@ -25,26 +25,26 @@
     <path d="M 300 250 L 144 125 L 300 50 Z" transform="translate(0 0)" style="stroke: none; fill: #00008b;"/>
     <path d="M 300 250 L 144 125 L 300 50 Z" transform="translate(0 0)" style="stroke: none; fill: #ffffff; fill-opacity: 0.35;"/>
     <ellipse cx="0" cy="0" rx="78" ry="37" transform="translate(300 50)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(300 38) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Angriffs-</text>
-    <text x="0" y="0" text-anchor="middle" transform="translate(300 61) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">schlag</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 38) translate(0 8.36)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Angriffs-</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 61) translate(0 8.36)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">schlag</text>
     <ellipse cx="0" cy="0" rx="78" ry="37" transform="translate(456 125)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(456 123) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Finte</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(456 123) translate(0 8.36)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Finte</text>
     <ellipse cx="0" cy="0" rx="78" ry="37" transform="translate(495 295)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(495 293) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Block</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(495 293) translate(0 8.36)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Block</text>
     <ellipse cx="0" cy="0" rx="78" ry="37" transform="translate(387 430)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(387 418) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Nottechniken</text>
-    <text x="0" y="0" text-anchor="middle" transform="translate(387 441) translate(0 7)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 18px;">Rolle, Hecht, ...</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(387 418) translate(0 8.36)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Nottechniken</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(387 441) translate(0 6.84)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 18px;">Rolle, Hecht, ...</text>
     <ellipse cx="0" cy="0" rx="78" ry="37" transform="translate(213 430)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(213 418) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Unteres</text>
-    <text x="0" y="0" text-anchor="middle" transform="translate(213 441) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Zuspiel</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(213 418) translate(0 8.36)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Unteres</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(213 441) translate(0 8.36)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Zuspiel</text>
     <ellipse cx="0" cy="0" rx="78" ry="37" transform="translate(105 295)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(105 283) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Oberes</text>
-    <text x="0" y="0" text-anchor="middle" transform="translate(105 306) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Zuspiel</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(105 283) translate(0 8.36)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Oberes</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(105 306) translate(0 8.36)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Zuspiel</text>
     <ellipse cx="0" cy="0" rx="78" ry="37" transform="translate(144 125)" style="stroke: none; fill: #ffd700;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(144 123) translate(0 8)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Service</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(144 123) translate(0 8.36)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 22px;">Service</text>
     <ellipse cx="0" cy="0" rx="105" ry="50" transform="translate(300 250)" style="stroke: none; fill: #ffa500;"/>
-    <text x="0" y="0" text-anchor="middle" transform="translate(300 233) translate(0 13)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 34px;">Die Ball-</text>
-    <text x="0" y="0" text-anchor="middle" transform="translate(300 266) translate(0 13)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 34px;">aktionen</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 233) translate(0 12.92)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 34px;">Die Ball-</text>
+    <text x="0" y="0" text-anchor="middle" transform="translate(300 266) translate(0 12.92)" style="stroke: none; font-family: Arial; fill: #000000; font-size: 34px;">aktionen</text>
   </g>
 <script>//<![CDATA[
 (function(){

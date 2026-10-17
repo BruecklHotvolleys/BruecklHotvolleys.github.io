@@ -191,21 +191,21 @@
   <g id="contextmenu" class="contextmenu">
     <rect x="0" y="0" width="204" height="100" rx="5" ry="5" />
     <g id="ID_animation" class="ID_mi_stop">
-    <g class="menuitem" data-item="ID_mi_play" transform="translate(0 0)">
-     <rect x="2" y="2" width="200" height="32" class="bg" />
-     <path d="M 12 10 l 7 7 l -7 7 z" class="mi-play" />
-     <text x="30" y="25">Start</text>
-    </g>
-    <g class="menuitem" data-item="ID_mi_pause" transform="translate(0 32)">
-     <rect x="2" y="2" width="200" height="32" class="bg" />
-     <path d="M 12 10 v 14 M 18 10 v 14" class="mi-pause" />
-     <text x="30" y="25">Pause</text>
-    </g>
-    <g class="menuitem" data-item="ID_mi_stop" transform="translate(0 64)">
-     <rect x="2" y="2" width="200" height="32" class="bg" />
-     <path d="M 8 10 h 14 v 14 h -14 z" class="mi-stop" />
-     <text x="30" y="25">Stop</text>
-    </g>
+      <g class="menuitem" data-item="ID_mi_play" transform="translate(0 0)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 12 10 l 7 7 l -7 7 z" class="mi-play" />
+       <text x="30" y="25">Start</text>
+      </g>
+      <g class="menuitem" data-item="ID_mi_pause" transform="translate(0 32)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 12 10 v 14 M 18 10 v 14" class="mi-pause" />
+       <text x="30" y="25">Pause</text>
+      </g>
+      <g class="menuitem" data-item="ID_mi_stop" transform="translate(0 64)">
+       <rect x="2" y="2" width="200" height="32" class="bg" />
+       <path d="M 8 10 h 14 v 14 h -14 z" class="mi-stop" />
+       <text x="30" y="25">Stop</text>
+      </g>
     </g>
   </g>
   <style>
@@ -228,7 +228,6 @@ g.contextmenu > rect, g.submenu > rect {
 g.menuitem > rect, g.submenuitem > rect {
   stroke: none;
   fill: lightgray;
-  /*cursor: pointer;*/
 }
 g.menuitem > * {
   pointer-events: none;
@@ -236,9 +235,6 @@ g.menuitem > * {
 g.menuitem > rect.bg {
   pointer-events: all;
   cursor: pointer;
-}
-g.submenuitem > rect.bg {
-  /*pointer-events: all;*/
 }
 g.menuitem:hover > rect.bg, g.submenuitem:hover > rect.bg {
   fill: darkgray;
@@ -248,13 +244,11 @@ g.menuitem > text, g.submenuitem > text {
   fill: #111;
   font-family: Arial;
   font-size: 22px;
-  /*cursor: pointer;*/
 }
-/*
-g.submenuitem > rect, g.submenuitem > text {
-  cursor: default;
+g.menuitem.mono > text, g.submenuitem.mono > text {
+  font-family: Consolas, monospace;
+  white-space: pre;
 }
-*/
 g.menuitem > rect.cb, g.menuitem > circle.rb {
   stroke: gray;
   stroke-width: 2px;
@@ -327,18 +321,20 @@ g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"],
 g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"] {
   opacity: 0.5;
 }
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"] > rect.bg,
+g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"] > rect.bg {
+  cursor: default;
+}
 g#ID_animation.ID_mi_play > g[data-item="ID_mi_play"] {
   opacity: 0.5;
+}
+g#ID_animation.ID_mi_play > g[data-item="ID_mi_play"] > rect.bg {
+  cursor: default;
 }
 g#ID_animation.ID_mi_pause > g[data-item="ID_mi_pause"] {
   opacity: 0.5;
 }
-g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"]:hover > text,
-g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"]:hover > text {
-  cursor: default;
-}
-g#ID_animation.ID_mi_stop > g[data-item="ID_mi_stop"]:hover > rect,
-g#ID_animation.ID_mi_stop > g[data-item="ID_mi_pause"]:hover > rect {
+g#ID_animation.ID_mi_pause > g[data-item="ID_mi_pause"] > rect.bg {
   cursor: default;
 }
   </style>
@@ -373,6 +369,18 @@ function $$(selector, parent) {
  */
 function $event(elem, event, handler) {
   elem.addEventListener(event, handler);
+}
+
+/**
+ * Finds the main svg image.
+ * @returns {DOMElement} The main svg image.
+ */
+function _getSvgImg() {
+  var svg = $('div.img > svg');
+  if (!svg) {
+    svg = $('svg');
+  }
+  return svg;
 }
 //-- create menu script -------------------------------------- (vvv) --
 // --- ios helper --------------------------------- vv ---
@@ -415,6 +423,7 @@ $event(document, 'touchend', touchend);
 $event(document, 'touchmove', touchmove);
 // --- ios helper --------------------------------- ^^ ---/* global $$ */
 var cm, bg,
+    cmInitialized = false,
     contextmenu = false;
 
 function onContextMenu(event) {
@@ -426,19 +435,11 @@ function onContextMenu(event) {
     return;
   }
 
-  // InternalError is unique for firefox
-  //var isFirefox = !!window.InternalError,
-  //    x = isFirefox ? event.clientX : event.pageX,
-  //    y = isFirefox ? event.clientY : event.pageY;
-  showContextMenu(event.clientX, event.clientY);
-}
-
-function _getSvgImg() {
-  var svg = $('div.img > svg');
-  if (!svg) {
-    svg = $('svg');
-  }
-  return svg;
+  // InternalError is unique for firefox - old firefox needs different handling of position when scrolled
+  var isFirefox = !!window.InternalError,
+      x = isFirefox ? event.pageX : event.clientX,
+      y = isFirefox ? event.pageY : event.clientY;
+  showContextMenu(x, y);
 }
 
 function showContextMenu(x, y) {
@@ -446,38 +447,42 @@ function showContextMenu(x, y) {
   if (!contextmenu) {
     contextmenu = true;
 
-    /**
-     * Switch an option state.
-     * @param {NodeList} elems A list of html elements.
-     * @returns {void}
-     */
-    var setOpts = function(elems) {
-      if (elems) {
-        for (var i = 0, i2 = elems.length; i < i2; ++i) {
-          var elem = elems[i],
-              elemP = elem.parentNode;
-
-          if (elemP.dataset && elemP.dataset.item) {
-            var key = elemP.dataset.item;
-            if (option.data[key] === true || option.data[key] === false) {
-              elem.style.display = option.data[key] ? 'block' : 'none';
-     	    }
-          }
-        }
-      }
-    };
-
-    // handle all options: radios and checkboxes
-    var rbs = document.getElementsByClassName('rb2'),
-        cbs = document.getElementsByClassName('cb2');
-    setOpts(rbs);
-    setOpts(cbs);
+    ContextMenuUpdater.updateOptions();
 
     // show background + context menu
     cm.style.display = 'block';
     bg.style.display = 'block';
 
-    //var svg = document.getElementsByTagName('svg')[0], pt, svgP;
+    if (!cmInitialized) {
+      cmInitialized = true;
+      var box = cm.getBBox(),
+          w = Math.floor(box.width) + 10;
+      if (w > 200) {
+        var rcMenuBg = cm.querySelector(':scope > rect'),
+            rcsMi = cm.querySelectorAll(':scope > g.menuitem > rect.bg, :scope > g > g.menuitem > rect.bg'),
+            smis = cm.querySelectorAll(':scope > g.submenuitem'),
+            seps = cm.querySelectorAll(':scope > rect.separator');
+        if (rcMenuBg) {
+          rcMenuBg.style.width = (w + 4) + 'px';
+        }
+        if (rcsMi) {
+          rcsMi.forEach((rcMi) => rcMi.style.width = w + 'px');
+        }
+        if (seps) {
+          seps.forEach((sep) => sep.style.width = (w - 4) + 'px');
+        }
+        if (smis) {
+          smis.forEach((smi) => {
+            smi.querySelector(':scope > rect.bg').style.width = w + 'px';
+            smi.querySelector(':scope > g.submenu').setAttribute('transform', 'translate(' + (w + 4) + ' 0)');
+            smi.querySelector(':scope > path.marker_submenu').setAttribute('transform', 'translate(' + (w - 204) + ' 0)');
+
+            // TODO repeat this handling for submenus
+          });
+        }
+      }
+    }
+
     var svg = _getSvgImg(), pt, svgP;
     try {
       // transform point to SVG coordinates
@@ -494,6 +499,36 @@ function showContextMenu(x, y) {
     cm.setAttribute('transform', 'translate(' + svgP.x + ' ' + svgP.y + ') scale(1.5)');
   }
 }
+var ContextMenuUpdater = {
+  updateOptions: function() {
+    /**
+     * Switch an option state.
+     * @param {NodeList} elems A list of html elements.
+     * @returns {void}
+     */
+    var setOpts = function(elems) {
+      if (elems) {
+        for (var i = 0, i2 = elems.length; i < i2; ++i) {
+          var elem = elems[i],
+              elemP = elem.parentNode;
+
+          if (elemP.dataset && elemP.dataset.item) {
+            var key = elemP.dataset.item;
+            if (option.data[key] === true || option.data[key] === false) {
+              elem.style.display = option.data[key] ? 'block' : 'none';
+            }
+          }
+        }
+      }
+    };
+
+    // handle all options: radios and checkboxes
+    var rbs = document.getElementsByClassName('rb2'),
+        cbs = document.getElementsByClassName('cb2');
+    setOpts(rbs);
+    setOpts(cbs);
+  }
+};
 
 function onClick(event) {
   if (contextmenu) {
@@ -555,7 +590,6 @@ var option = {
 
   init: function() {
     for (var key in this.data) {
-      console.log('_updateElems ' + key);
       
       this._updateElems(key);
     }
@@ -569,13 +603,18 @@ var option = {
   },
 
   _updateElems: function(key, state) {
-    var st = state === undefined ? this.data[key] : state;
+    var state0 = state === undefined ? this.data[key] : state;
 
     // items that reflect the state
     var elems = $$('[data-option="' + key + '"]');
     if (elems) {
       for (var i = 0, i2 = elems.length; i < i2; ++i) {
-        var elem = elems[i];
+        var elem = elems[i],
+            st = state0;
+        if (elem.id && this.animation0 && this.animation0[elem.id]
+            && this.animation0[elem.id]['visible-common'] !== undefined) {
+          st = !!this.animation0[elem.id]['visible-common'];
+        }
         elem.style.display = st ? "block" : "none";
         if (elem.id) {
           this._current[elem.id] = st;
@@ -587,7 +626,12 @@ var option = {
     elems = $$('[data-option="' + key + '_not"]');
     if (elems) {
       for (var i = 0, i2 = elems.length; i < i2; ++i) {
-        var elem = elems[i];
+        var elem = elems[i],
+            st = state0;
+        if (elem.id && this.animation0 && this.animation0[elem.id]
+            && this.animation0[elem.id]['visible-common'] !== undefined) {
+          st = !!this.animation0[elem.id]['visible-common'];
+        }
         elem.style.display = st ? "none" : "block";
         if (elem.id) {
           this._current[elem.id] = !st;
@@ -1406,6 +1450,11 @@ function onAnimClick(event) {
 
 $event($('#ID_animation'), 'click', onAnimClick);
 animator.initAnimation(21.0, 0.0);
+/* global option, animation0 */
+
+if (typeof option !== 'undefined' && typeof animation0 !== 'undefined') {
+  option.animation0 = animation0;
+}
 }());
 //]]></script>
 </svg>

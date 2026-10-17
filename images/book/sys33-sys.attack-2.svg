@@ -57,7 +57,7 @@
         <polyline points="66.145,-164.048 89.719,-180.239 91.012,-151.669" style="stroke: #000000; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4; fill: none;"/>
       </g>
     </g>
-    <g id="player_1" class="player" transform="translate(100 450) rotate(25)">
+    <g class="player" id="player_3" transform="translate(100 450) rotate(25)">
       <ellipse cx="0" cy="0" rx="50" ry="25" style="stroke: none; fill: #b22222;"/>
       <g class="prepare-block">
         <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>
@@ -125,10 +125,10 @@
         <polyline points="-100,13.889 -125,0 -100,-13.889" style="stroke: #000000; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4; fill: none;"/>
       </g>
     </g>
-    <g id="ball_2" transform="translate(475 175)">
+    <g id="ball_5" transform="translate(475 175)">
       <ellipse cx="0" cy="0" rx="25" ry="25" style="stroke: none; fill: #ffff00;"/>
-      <path id="path_3" d="M 270 99.5 C 253.333 82.833 245 63.25 266.667 52 C 258.333 60.333 261.667 79.5 285 98 L 270 99.488 L 285 98 Q 277.5 101.167 270 99.488" transform="translate(-275 -75)" style="stroke: none; fill: #0000ff;"/>
-      <path id="path_4" d="M 295.661 89.167 C 283.161 76.667 278.994 64.167 276.661 56.667 Q 293.328 68.571 299.994 75.833 Q 299.828 83 295.647 89.167 Z" transform="translate(-275 -75)" style="stroke: none; fill: #0000ff;"/>
+      <path id="path_6" d="M 270 99.5 C 253.333 82.833 245 63.25 266.667 52 C 258.333 60.333 261.667 79.5 285 98 L 270 99.488 L 285 98 Q 277.5 101.167 270 99.488" transform="translate(-275 -75)" style="stroke: none; fill: #0000ff;"/>
+      <path id="path_7" d="M 295.661 89.167 C 283.161 76.667 278.994 64.167 276.661 56.667 Q 293.328 68.571 299.994 75.833 Q 299.828 83 295.647 89.167 Z" transform="translate(-275 -75)" style="stroke: none; fill: #0000ff;"/>
     </g>
     <g class="player prepare-defense" transform="translate(475 250) rotate(-50)">
       <ellipse cx="0" cy="0" rx="50" ry="25" style="stroke: none; fill: #b22222; fill-opacity: 0.5;"/>
@@ -167,7 +167,7 @@
         <polyline points="-139.986,36.283 -166.855,26.485 -144.341,8.849" style="stroke: #000000; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2 4; fill: none;"/>
       </g>
     </g>
-    <g id="player_5" class="player" transform="translate(810 450) rotate(-20)">
+    <g class="player" id="player_9" transform="translate(810 450) rotate(-20)">
       <ellipse cx="0" cy="0" rx="50" ry="25" style="stroke: none; fill: #b22222;"/>
       <g class="prepare-block">
         <line x1="-37.5" y1="-25" x2="-22.5" y2="-25" style="fill: none; stroke: #b22222; stroke-width: 12.5; stroke-linecap: round; stroke-linejoin: round;"/>

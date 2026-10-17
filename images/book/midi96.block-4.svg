@@ -6,8 +6,8 @@
       <stop offset="100%" stop-color="#d69e48"/>
     </radialGradient>
     <mask id="xarea_1" maskContentUnits="userSpaceOnUse">
-      <ellipse cx="0" cy="0" rx="90" ry="300" fill="white" transform="translate(110, 240)"/>
-      <ellipse cx="0" cy="0" rx="90" ry="330" fill="white" transform="translate(290, 240) rotate(-28)"/>
+      <ellipse cx="110" cy="240" rx="90" ry="300" fill="white"/>
+      <ellipse cx="290" cy="240" rx="90" ry="330" fill="white" transform="rotate(-28 290 240)"/>
     </mask>
   </defs>
   <g>
