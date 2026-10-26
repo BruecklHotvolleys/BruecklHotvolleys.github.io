@@ -125,6 +125,7 @@ h1 > sub, h2 > sub, h3 > sub, h4 > sub, h5 > sub, h6 > sub {
   position: absolute;
   left: 0;
   background-color: lightblue;
+  z-index: 1;
 }
 #header > div.right {
   display: inline-block;

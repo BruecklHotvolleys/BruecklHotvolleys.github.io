@@ -345,7 +345,7 @@ window.bhv.request = {
    * Queries the schedules for the given timespan(from, till).
    * @param {string} from ISO formatted start date.
    * @param {string} till ISO formatted end date.
-   * @param {Array<string>} clubs The ids of the clubs to query.
+   * @param {string|Array<string>} clubs The id of the club or the ids of the clubs to query.
    * @param {Function} onsuccess The callback to return the schedules.
    * @param {Function} onerror The error callback.
    * @return {Boolean} True if the request has been started successfully,
@@ -355,13 +355,18 @@ window.bhv.request = {
 
     var club = '';
     var ok = true;
-    // collect the ids of the clubs
-    for (var i = 0; i < clubs.length && ok; ++i) {
-      ok = this._checkId(clubs[i], 'club');
-      if (club !== '') {
-        club += ' or ';
+    if (Array.isArray(clubs)) {
+      // collect the ids of the clubs
+      for (var i = 0; i < clubs.length && ok; ++i) {
+        ok = this._checkId(clubs[i], 'club');
+        if (club !== '') {
+          club += ' or ';
+        }
+        club += 'vrn_id_a = ' + clubs[i] + ' or vrn_id_b = ' + clubs[i];
       }
-      club += 'vrn_id_a = ' + clubs[i] + ' or vrn_id_b = ' + clubs[i];
+    } else {
+      // just one club
+      club = 'vrn_id_a = ' + clubs + ' or vrn_id_b = ' + clubs;
     }
 
     // error handling
@@ -417,7 +422,7 @@ window.bhv.request = {
 
     // the url to get the schedules
     var url = location.protocol
-      + '//kvv.volleynet.at/volleynet/service/xml2.php'
+      + '//kvv2.volleynet.at/volleynet/service/xml2.php'
       + '?action=turniere&where=' + encodeURIComponent(
         "von >= '" + from + "' and von <= '" + till
         + "' and anmerkung ilike '%" + filter + "%'");

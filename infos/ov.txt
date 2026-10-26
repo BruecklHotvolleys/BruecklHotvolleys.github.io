@@ -3,9 +3,6 @@
 # L2:info-b:Mittelschule & Gymnasium:/infos/werbung/Volleyball-Werbung.jpg
 #<<
 #
->rule>Regelkunde
-  tactics:rules:Die neuen Regeln:/infos/articles/regeln.html
-<<
 >ak>Allgemeine Klasse
  >ll>Landesliga
   tactics:ll-strong:Gemeinsam sind wir stark!:/infos/LL/gemeinsam.html
@@ -42,4 +39,27 @@
 #  tactics:tac-ul-3-1:Spielsystem:/infos/UL-3/Grossfeld-1/index.html
 #  tactics:tac-ul-3-1:Spielsystem Fortgeschrittene:/infos/UL-3/Grossfeld-2/index.html
  <<
+<<
+
+>nw>Nachwuchs
+ >u18>U18 - Jugend weiblich
+  D:dat-u18:Termine
+ <<
+ >u16>U16 - Schülerinnen
+  D:dat-u16:Termine
+ <<
+ >u14>U14 - Mini
+  D:dat-u14:Termine
+ <<
+ >u13>U13 - Supermini I
+  D:dat-u13:Termine
+ <<
+ >u12>U12 - Supermini II
+  D:dat-u12:Termine
+ <<
+<<
+
+>info>Infos
+  tactics:calendar:Kalender:/infos/calendar/calendar.html
+  tactics:rules:Die neuen Regeln:/infos/articles/regeln.html
 <<

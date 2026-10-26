@@ -1,3 +1,4 @@
+/* global NL, base64 */
 var days = ['?0', 'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So', '?8'];
 
 // #region -- prepare main namespace ------------------------------------------
@@ -17,7 +18,6 @@ window.bhv.schedule = {
 
   /**
    * Starts the loading of the schedules.
-   * @param Optional filter for search junior tournaments.
    * @return {void}
    */
   getSchedules: function() {
@@ -228,7 +228,7 @@ window.bhv.schedule = {
 
   /**
    * Creates the schedules for a junior championship.
-   * @param {string} reponse The response from the web service.
+   * @param {string} response The response from the web service.
    * @return {void}
    */
   kidsSchedules: function(response) {
@@ -307,7 +307,7 @@ window.bhv.schedule = {
 
   /**
    * Creates the schedules of a league.
-   * @param {string} reponse The response from the web service.
+   * @param {string} response The response from the web service.
    * @return {void}
    */
   leagueSchedules: function(response) {
@@ -361,7 +361,7 @@ window.bhv.schedule = {
       }
     }
   }
-}
+};
 
 function logSchedulesError(info) {
   log('--------------------------------------------------------------');
@@ -388,11 +388,11 @@ var mapLeague = {
 };
 
 var mapKids = {
-  'dat-u16': [34970, window.bhv.schedule.kidsSchedules, 'Turniere U16', 'brückl'],
-  'dat-u15': [34972, window.bhv.schedule.kidsSchedules, 'Turniere U15', 'brückl'],
-  'dat-u14': [34973, window.bhv.schedule.kidsSchedules, 'Turniere U14', 'brückl'],
-  'dat-u13': [34974, window.bhv.schedule.kidsSchedules, 'Turniere U13', 'brückl'],
-  'dat-u12': [34975, window.bhv.schedule.kidsSchedules, 'Turniere U12', 'brückl']
+  'dat-u18': [40245, window.bhv.schedule.kidsSchedules, 'Turniere U18', 'brückl'],
+  'dat-u16': [40247, window.bhv.schedule.kidsSchedules, 'Turniere U16', 'brückl'],
+  'dat-u14': [40249, window.bhv.schedule.kidsSchedules, 'Turniere U14', 'brückl'],
+  'dat-u13': [40250, window.bhv.schedule.kidsSchedules, 'Turniere U13', 'brückl'],
+  'dat-u12': [40251, window.bhv.schedule.kidsSchedules, 'Turniere U12', 'brückl']
 /*'20': {
     'u16_20': [25172, window.bhv.schedule.kidsSchedules, 'Turniere U16', 'brückl'],
     'u15_20': [25174, window.bhv.schedule.kidsSchedules, 'Turniere U15', 'brückl'],
@@ -411,13 +411,12 @@ var mapKids = {
 
 var finals = {
   // use these dates before the kvv-system has entries for the finals
-  'dat-u20': ["Finale (So 08.12.2024  Klagenfurt, Sportpark)", undefined, 'Turniere U20'],
-  'dat-u18': ["Finale (So 02.03.2025  Klagenfurt, Lerchenfeld)", null, 'Turniere U18'],
-  'dat-u16': ["Finale (So 30.03.2025  Klagenfurt, Sportpark)"],
-  'dat-u15': ["Finale (Do 01.05.2025  St.Veit, Gymnasium)"],
-  'dat-u14': ["Finale (Sa 26.04.2025  St.Veit, Gymnasium)"],
-  'dat-u13': ["Finale (So 18.05.2025  Klagenfurt, Lerchenfeld)"],
-  'dat-u12': ["Finale (Do 29.05.2019  ???)"]
+  //'dat-u20': ["Finale (So 08.12.2024  Klagenfurt, Sportpark)", undefined, 'Turniere U20'],
+  'dat-u18': ["Finale (So 07.03.2027  Klagenfurt, Sportpark)"], //, null, 'Turniere U18'],
+  'dat-u16': ["Finale (So 14.03.2027  Villach, BSH Lind)"],
+  'dat-u14': ["Finale (So 25.04.2027  Klagenfurt, Lerchenfeld)"],
+  'dat-u13': ["Finale (Sa 01.05.2027  St.Veit, Gymnasium)"],
+  'dat-u12': ["Finale (So 09.05.2019  Friesach, SH)"]
 /*'20': {
     // use these dates before the kvv-system has entries for the finals
     'u16_20': "Finale (So 03.05.2019  ???)",
