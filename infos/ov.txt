@@ -50,12 +50,15 @@
  <<
  >u14>U14 - Mini
   D:dat-u14:Termine
+  S:sta-u14:Tabelle
  <<
  >u13>U13 - Supermini I
   D:dat-u13:Termine
+  S:sta-u13:Tabelle
  <<
  >u12>U12 - Supermini II
   D:dat-u12:Termine
+  S:sta-u12:Tabelle
  <<
 <<
 
